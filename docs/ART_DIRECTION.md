@@ -15,3 +15,7 @@ Sonraki görsel üretim: şeffaf kedi sprite'ı, ayrı logo, metinsiz arka plan 
 cam şişe gövdesi/boynu, sıvı maskesi, dökme efekti, butonların normal/basılı durumları,
 ikonlar, taş platform, fener ve parçacık atlasları. Referanslar bitmiş oyun varlığı değildir.
 Bu aşamanın geometrik prototip arayüzü referansın nihai görsel kalitesini temsil etmez.
+
+PART 01 güncellemesi: güncel esas referanslar References/Visual/Approved/00_Master_Cover.png,
+01_Home.png, 02_Gameplay.png, 03_Map.png ve 04_Events.png.
+Ayrıntılı sözleşme VISUAL_DESIGN_SYSTEM.md; önceki görsel kopyalar korunmuştur.

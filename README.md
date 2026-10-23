@@ -42,3 +42,14 @@ GitHub, DevControl ve bulut servis entegrasyonu yapılmamıştır. Mevcut dosyal
 - Assets/Editor/MewgicPlaySmoke.cs: otomatik Play Mode akış kontrolü.
 
 
+
+## Görsel dönüşüm / PART 01
+Çalışan mekanikler korunarak görsel mimari ve üretim planı hazırlandı.
+- [Tasarım sistemi](docs/VISUAL_DESIGN_SYSTEM.md)
+- [Referans ve fark analizi](docs/REFERENCE_ANALYSIS.md)
+- [Asset üretim planı](docs/ASSET_PRODUCTION_PLAN.md)
+- [UI uygulama yol haritası](docs/UI_IMPLEMENTATION_ROADMAP.md)
+- [PART 01 doğrulama](docs/PART01_VALIDATION.md)
+
+Esas referanslar References/Visual/Approved içindedir. Henüz yeni ekran veya sanat asset'i uygulanmadı.
+Yerel Git koruma kaydı oluşturuldu; GitHub/DevControl bağlantısı kurulmadı.

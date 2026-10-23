@@ -17,3 +17,5 @@
 *.booproj
 *.svd
 *.log
+
+.utmp/

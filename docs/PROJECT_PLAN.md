@@ -32,3 +32,10 @@ Mağaza, reklam, satın alma, can sistemi, etkinlik, takım, envanter, sezon bil
 ## Çalışma kuralları
 Mevcut dosyalar korunur; ikinci proje oluşturulmaz.
 Paketler somut ihtiyaç olmadan eklenmez. Yapılmayan test yapılmış gibi raporlanmaz.
+
+## Görsel mimari hazırlığı — PART 01
+Görsel analiz, tasarım standartları, üretim envanteri ve aşamalı UI geçiş planı hazırlandı.
+Belgeler: VISUAL_DESIGN_SYSTEM.md, REFERENCE_ANALYSIS.md, ASSET_PRODUCTION_PLAN.md,
+UI_IMPLEMENTATION_ROADMAP.md. Esas beş referans References/Visual/Approved içindedir.
+Bu çalışma yeni görsel kalite uygulaması değildir; prototip kodu ve sahneleri korunur.
+Yerel Git başlangıç kaydı vardır; uzak depo ve DevControl bağlantısı yoktur.
