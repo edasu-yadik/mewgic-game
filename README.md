@@ -30,7 +30,7 @@ Kurulum ve test sonuçları `docs/SETUP_REPORT.md` dosyasındadır. APK oluşurs
 
 Sonraki işler: [Proje planı](docs/PROJECT_PLAN.md).
 
-GitHub, DevControl ve bulut servis entegrasyonu yapılmamıştır. Mevcut dosyalar silinmez; gereksiz paket eklenmez.
+GitHub private bağlantısı PART 01.5 aşamasında tamamlandı. DevControl ve oyun içi bulut servis entegrasyonu yapılmamıştır. Mevcut dosyalar silinmez; gereksiz paket eklenmez.
 
 ## Prototip kaynakları
 
@@ -52,4 +52,11 @@ GitHub, DevControl ve bulut servis entegrasyonu yapılmamıştır. Mevcut dosyal
 - [PART 01 doğrulama](docs/PART01_VALIDATION.md)
 
 Esas referanslar References/Visual/Approved içindedir. Henüz yeni ekran veya sanat asset'i uygulanmadı.
-Yerel Git koruma kaydı oluşturuldu; GitHub/DevControl bağlantısı kurulmadı.
+Yerel Git koruma kaydı oluşturuldu; sonraki PART 01.5 aşamasında GitHub private bağlantısı tamamlandı. DevControl bağlantısı yapılmadı.
+
+
+## Altyapı — PART 01.5
+Private GitHub: https://github.com/edasu-yadik/mewgic-game
+Resmî Unity CLI/Pipeline ve Blender Lab MCP bağlantıları gerçek protokol çağrılarıyla doğrulandı.
+Kurulum, yeniden başlatma adımları ve sınırlar: [MCP_SETUP.md](docs/MCP_SETUP.md).
+DevControl'a müdahale edilmedi; oyun kaynakları ve mevcut görseller korunur.

@@ -1,0 +1,178 @@
+{
+  "mewgic-unity": [
+    {
+      "tool": "eval",
+      "arguments": {
+        "code": "return new { project = UnityEngine.Application.productName, assetsPath = UnityEngine.Application.dataPath, scenes = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Select(UnityEditor.EditorBuildSettings.scenes, s => s.path)) };"
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"project\": \"Mewgic\",\n    \"assetsPath\": \"C:/Dev/Mewgic/Assets\",\n    \"scenes\": [\n      \"Assets/Scenes/Boot.unity\",\n      \"Assets/Scenes/Home.unity\",\n      \"Assets/Scenes/Gameplay.unity\",\n      \"Assets/Scenes/LevelMap.unity\",\n      \"Assets/Scenes/SampleScene.unity\"\n    ]\n  }\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    },
+    {
+      "tool": "list_open",
+      "arguments": {},
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"count\": 1,\n  \"scenes\": [\n    {\n      \"name\": \"Boot\",\n      \"path\": \"Assets/Scenes/Boot.unity\",\n      \"isLoaded\": true,\n      \"isDirty\": false,\n      \"isActive\": true,\n      \"rootCount\": 3\n    }\n  ]\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_hierarchy",
+      "arguments": {},
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"sceneName\": \"Boot\",\n  \"scenePath\": \"Assets/Scenes/Boot.unity\",\n  \"isDirty\": false,\n  \"isActive\": true,\n  \"roots\": [\n    {\n      \"name\": \"Main Camera\",\n      \"instanceId\": 51640,\n      \"hierarchyPath\": \"/Main Camera\",\n      \"activeSelf\": true,\n      \"components\": [\n        \"Transform\",\n        \"Camera\",\n        \"AudioListener\",\n        \"UniversalAdditionalCameraData\"\n      ],\n      \"children\": []\n    },\n    {\n      \"name\": \"Global Light 2D\",\n      \"instanceId\": 51656,\n      \"hierarchyPath\": \"/Global Light 2D\",\n      \"activeSelf\": true,\n      \"components\": [\n        \"Transform\",\n        \"Light2D\"\n      ],\n      \"children\": []\n    },\n    {\n      \"name\": \"Mewgic Prototype\",\n      \"instanceId\": 51650,\n      \"hierarchyPath\": \"/Mewgic Prototype\",\n      \"activeSelf\": true,\n      \"components\": [\n        \"Transform\",\n        \"PrototypeApp\"\n      ],\n      \"children\": []\n    }\n  ]\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    },
+    {
+      "tool": "eval",
+      "arguments": {
+        "code": "var t = typeof(UnityEditor.Editor).Assembly.GetType(\"UnityEditor.LogEntries\"); var m = t.GetMethod(\"GetCountsByType\", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic); object[] counts = {0,0,0}; m.Invoke(null, counts); return new { errors = counts[0], warnings = counts[1], logs = counts[2] };"
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"errors\": 0,\n    \"warnings\": 0,\n    \"logs\": 0\n  }\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    }
+  ],
+  "mewgic-blender": [
+    {
+      "tool": "execute_blender_code",
+      "arguments": {
+        "code": "import bpy\nassert bpy.data.filepath.replace(chr(92),\"/\") == \"C:/Dev/Mewgic/Temp/MCP/Mewgic_MCP_Test.blend\", \"Wrong Blender file\"\nbpy.ops.mesh.primitive_cube_add(size=2, location=(0,0,0))\nobj=bpy.context.active_object\nobj.name=\"Mewgic_MCP_Verified_Cube\"\nresult={\"created\":obj.name,\"scene\":bpy.context.scene.name,\"file\":bpy.data.filepath}"
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"status\": \"ok\",\n  \"result\": {\n    \"created\": \"Mewgic_MCP_Verified_Cube\",\n    \"scene\": \"Mewgic_MCP_Temporary_Test\",\n    \"file\": \"C:\\\\Dev\\\\Mewgic\\\\Temp\\\\MCP\\\\Mewgic_MCP_Test.blend\"\n  }\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "status": "ok",
+          "result": {
+            "created": "Mewgic_MCP_Verified_Cube",
+            "scene": "Mewgic_MCP_Temporary_Test",
+            "file": "C:\\Dev\\Mewgic\\Temp\\MCP\\Mewgic_MCP_Test.blend"
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "get_objects_summary",
+      "arguments": {},
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"status\": \"ok\",\n  \"result\": {\n    \"status\": \"ok\",\n    \"scene_name\": \"Mewgic_MCP_Temporary_Test\",\n    \"active_workspace\": \"Layout\",\n    \"active_object\": \"Mewgic_MCP_Verified_Cube\",\n    \"object_mode\": \"OBJECT\",\n    \"camera_object\": null,\n    \"collections\": [\n      {\n        \"name\": \"Scene Collection\",\n        \"exclude\": false,\n        \"hide_viewport\": false,\n        \"objects\": [\n          {\n            \"name\": \"Mewgic_MCP_Verified_Cube\",\n            \"type\": \"MESH\",\n            \"parent\": null,\n            \"data_name\": \"Cube\",\n            \"selected\": true,\n            \"visible\": true,\n            \"hide_viewport\": false\n          }\n        ],\n        \"children\": []\n      }\n    ]\n  }\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "status": "ok",
+          "result": {
+            "status": "ok",
+            "scene_name": "Mewgic_MCP_Temporary_Test",
+            "active_workspace": "Layout",
+            "active_object": "Mewgic_MCP_Verified_Cube",
+            "object_mode": "OBJECT",
+            "camera_object": null,
+            "collections": [
+              {
+                "name": "Scene Collection",
+                "exclude": false,
+                "hide_viewport": false,
+                "objects": [
+                  {
+                    "name": "Mewgic_MCP_Verified_Cube",
+                    "type": "MESH",
+                    "parent": null,
+                    "data_name": "Cube",
+                    "selected": true,
+                    "visible": true,
+                    "hide_viewport": false
+                  }
+                ],
+                "children": []
+              }
+            ]
+          }
+        },
+        "isError": false
+      }
+    },
+    {
+      "tool": "execute_blender_code",
+      "arguments": {
+        "code": "import bpy; obj=bpy.data.objects.get(\"Mewgic_MCP_Verified_Cube\"); assert obj is not None; result={\"verified\":obj.name,\"type\":obj.type,\"objects\":[o.name for o in bpy.context.scene.objects]}"
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"status\": \"ok\",\n  \"result\": {\n    \"verified\": \"Mewgic_MCP_Verified_Cube\",\n    \"type\": \"MESH\",\n    \"objects\": [\n      \"Mewgic_MCP_Verified_Cube\"\n    ]\n  }\n}",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": {
+          "status": "ok",
+          "result": {
+            "verified": "Mewgic_MCP_Verified_Cube",
+            "type": "MESH",
+            "objects": [
+              "Mewgic_MCP_Verified_Cube"
+            ]
+          }
+        },
+        "isError": false
+      }
+    }
+  ]
+}
