@@ -89,7 +89,7 @@ namespace Mewgic
         void Home()
         {
             if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
-            if(homeCharacter != null) homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe);
+            if(homeCharacter != null) { homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe); homeCharacter.GetComponent<HomeTopBar>()?.Mount(safe); }
             Label(safe,"Subtitle","BİR ŞİŞE DOLUSU SİHİR",25,Color.white,new Vector2(.1f,.71f),new Vector2(.9f,.77f));
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
             var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));

@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"Panel\",\n      \"texture\": \"1024x341\",\n      \"sprite\": \"(x:45.26, y:63.11, width:933.95, height:215.24)\",\n      \"maxSize\": 1024,\n      \"android\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Coin\",\n      \"texture\": \"512x501\",\n      \"sprite\": \"(x:35.94, y:23.43, width:444.16, height:447.67)\",\n      \"maxSize\": 512,\n      \"android\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Gem\",\n      \"texture\": \"512x466\",\n      \"sprite\": \"(x:32.34, y:37.37, width:447.32, height:373.35)\",\n      \"maxSize\": 512,\n      \"android\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Heart\",\n      \"texture\": \"512x392\",\n      \"sprite\": \"(x:51.06, y:28.94, width:409.17, height:327.68)\",\n      \"maxSize\": 512,\n      \"android\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Plus\",\n      \"texture\": \"512x512\",\n      \"sprite\": \"(x:82.48, y:89.01, width:346.23, height:339.70)\",\n      \"maxSize\": 512,\n      \"android\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Settings\",\n      \"texture\": \"512x512\",\n      \"sprite\": \"(x:39.20, y:41.65, width:433.61, height:429.52)\",\n      \"maxSize\": 512,\n      \"android\": \"ASTC_4x4\"\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

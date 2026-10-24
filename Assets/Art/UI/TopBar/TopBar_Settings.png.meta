@@ -1,0 +1,200 @@
+fileFormatVersion: 2
+guid: e4897bc704cca124891e0384c660323b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4152028870559404858
+    second: TopBar_Settings_0
+  - first:
+      213: -8375213124187755673
+    second: TopBar_Settings_1
+  - first:
+      213: -7377623074540113015
+    second: TopBar_Settings_2
+  - first:
+      213: -3366109082159960614
+    second: TopBar_Settings_3
+  - first:
+      213: -785494743198144287
+    second: TopBar_Settings_4
+  - first:
+      213: -8938942793932097822
+    second: TopBar_Settings_5
+  - first:
+      213: 6688987690520062862
+    second: TopBar_Settings_6
+  - first:
+      213: 5759038616225197445
+    second: TopBar_Settings_7
+  - first:
+      213: -7702209476042770116
+    second: TopBar_Settings_8
+  - first:
+      213: 1221782664981232173
+    second: TopBar_Settings_9
+  - first:
+      213: 2812663278373897165
+    second: TopBar_Settings_10
+  - first:
+      213: 8816116591344147355
+    second: TopBar_Settings
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TopBar_Settings
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 102
+        width: 1062
+        height: 1052
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9bde7d7453295a70800000000000000
+      internalID: 8816116591344147355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TopBar_Settings: 8816116591344147355
+      TopBar_Settings_0: -4152028870559404858
+      TopBar_Settings_1: -8375213124187755673
+      TopBar_Settings_10: 2812663278373897165
+      TopBar_Settings_2: -7377623074540113015
+      TopBar_Settings_3: -3366109082159960614
+      TopBar_Settings_4: -785494743198144287
+      TopBar_Settings_5: -8938942793932097822
+      TopBar_Settings_6: 6688987690520062862
+      TopBar_Settings_7: 5759038616225197445
+      TopBar_Settings_8: -7702209476042770116
+      TopBar_Settings_9: 1221782664981232173
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

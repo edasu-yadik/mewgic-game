@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 1617162468}
   - component: {fileID: 1617162469}
   - component: {fileID: 1617162470}
+  - component: {fileID: 1617162471}
   m_Layer: 0
   m_Name: Home
   m_TagString: Untagged
@@ -737,6 +738,24 @@ MonoBehaviour:
   normal: {fileID: 21300000, guid: 1b7efeca4a625854b95558e15f2f24c2, type: 3}
   pressed: {fileID: 21300000, guid: aba41768636f31f47be6a4e1e1bc014d, type: 3}
   glow: {fileID: 21300000, guid: 3f0f5d58a1bcf704499986ee704977cf, type: 3}
+--- !u!114 &1617162471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617162464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15190d1757be10a42a5ba26f8686695d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mewgic.HomeTopBar
+  panel: {fileID: -7476809299911233700, guid: 641172020d92bb84b83b63cfed74b5d2, type: 3}
+  coin: {fileID: 892819970791454646, guid: 35d0e6ab2ce1a1342b90de822ff14e88, type: 3}
+  gem: {fileID: 4582550607934993944, guid: 997c70778a78e2b4e9f5c9c9cdb149f3, type: 3}
+  heart: {fileID: -160248668884071728, guid: 0a289a6548c59574fb5148e94d4c7a55, type: 3}
+  plus: {fileID: -7215738348357241920, guid: 0cf5dc0d13aafc943b2b5f1d6af7390e, type: 3}
+  settings: {fileID: 8816116591344147355, guid: e4897bc704cca124891e0384c660323b, type: 3}
 --- !u!1 &1700213515
 GameObject:
   m_ObjectHideFlags: 0

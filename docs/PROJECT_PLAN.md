@@ -119,3 +119,10 @@ Normal/Pressed/Glow RGBA sprite'ları Home'a bağlandı. Idle ışık,basılma/k
 release ve tek geçiş kilidi hazır.164 kontrol,3 oran/safe-area ve gerçek Game
 View görüntüleri tamamlandı;Console0/0. Logo,kedi,şişeler ve oynanış korunur.
 Referans farkları ve alpha/efekt sınırları PART04B_REPORT.md içinde kayıtlı.
+
+## PART 04C — Üst kaynak çubuğu
+Altı ayrı premium RGBA varlık ve HomeTopBar tamamlandı. Dinamik önizleme
+modeli,üç artı bilgi paneli ve aç/kapa ayarlar hazır. Gerçek bakiye/kayıt ve
+Gameplay enerji tüketimi eklenmedi.236 kontrol,3 oran/safe-area ve gerçek
+Game View görüntüleri hazır. Mobil import panel1024/ikon512 ASTC4x4.
+Kalan referans farkları ve test kapsamı PART04C_REPORT.md içinde.

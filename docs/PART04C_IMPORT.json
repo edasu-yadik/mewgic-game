@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"TopBar_Panel\",\n      \"size\": \"(2048.00, 683.00)\",\n      \"pivot\": \"(1024.00, 341.50)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"TopBar_Coin\",\n      \"size\": \"(1268.00, 1240.00)\",\n      \"pivot\": \"(634.00, 620.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"TopBar_Gem\",\n      \"size\": \"(1314.00, 1197.00)\",\n      \"pivot\": \"(657.00, 598.50)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"TopBar_Heart\",\n      \"size\": \"(1434.00, 1097.00)\",\n      \"pivot\": \"(717.00, 548.50)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"TopBar_Plus\",\n      \"size\": \"(1254.00, 1254.00)\",\n      \"pivot\": \"(627.00, 627.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"TopBar_Settings\",\n      \"size\": \"(1254.00, 1254.00)\",\n      \"pivot\": \"(627.00, 627.00)\",\n      \"format\": \"ASTC_4x4\"\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
