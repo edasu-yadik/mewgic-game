@@ -32,3 +32,6 @@ Cam silüeti, yuvarlak taban, açık boyun ve mavi-beyaz kenarlar referansa yakl
 ## Git ve devam durumu
 
 Yalnız ilgili kod, yeni cam asset'i, testler ve kanıtlar commit'e alınır. Önceki untracked Blender/deneme dosyaları korunup dışarıda bırakılır. Commit/push sonucu teslim kaydına eklenecek. Başka part başlatılmadı; yeni görsel cilalama ve cihaz performans kontrolü ayrı değerlendirme gerektirir.
+
+## Teslim kaydı
+Uygulama commit'i: be780cf96bc560d5b16d0db30d45d2452a96323e (feat: add interactive gameplay glass bottles). Private origin/master push başarılı; git ls-remote aynı SHA'yı doğruladı. Bu doğrulama teknik entegrasyon içindir; referansla birebir final sanat onayı değildir.
