@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 1617162465}
   - component: {fileID: 1617162467}
   - component: {fileID: 1617162468}
+  - component: {fileID: 1617162469}
   m_Layer: 0
   m_Name: Home
   m_TagString: Untagged
@@ -707,6 +708,19 @@ MonoBehaviour:
   leftSparkles: {fileID: 21300000, guid: 70828938948df1d44a47d1d6fa930346, type: 3}
   rightSparkles: {fileID: 21300000, guid: 89c6671119867d64ebb7fbfe51e51d98, type: 3}
   centerSparkles: {fileID: 21300000, guid: a86a2828156227241b0bc611fc02954b, type: 3}
+--- !u!114 &1617162469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617162464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52843d8ff152e8459fff1a27c2f1d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mewgic.HomeLogoPresenter
+  logo: {fileID: 21300000, guid: c19931a5b6ee3174c969efc83632ec29, type: 3}
 --- !u!1 &1700213515
 GameObject:
   m_ObjectHideFlags: 0

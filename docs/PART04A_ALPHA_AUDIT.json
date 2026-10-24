@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"success\": true,\n    \"assets\": [\n      {\n        \"name\": \"Mewgic_Logo_Main\",\n        \"width\": 1720,\n        \"height\": 914,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"partialAlphaPixels\": 902352,\n        \"visiblePixels\": 861925,\n        \"borderMaxAlpha\": 1,\n        \"pivot\": \"(860.00, 457.00)\",\n        \"android\": \"ASTC_4x4\",\n        \"mipmapEnabled\": false,\n        \"isReadable\": false,\n        \"astcBytes\": 1575520\n      }\n    ],\n    \"totalPNGBytes\": 1686263,\n    \"totalASTCBytes\": 1575520\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

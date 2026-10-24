@@ -106,3 +106,10 @@ Eski Home prototip paneli kaldırıldı; mevcut platform kullanıldı.99 entegra
 12 model ve gerçek Gameplay smoke kontrolleri geçti.900×1600 Game View ve
 üç dikey oran/safe-area görselleri kaydedildi. Karakter/oyun mekaniği korunur.
 Kalan referans/UI farkları PART03C_REPORT.md içindedir.
+
+## PART 04A — Ana menü logosu
+Master kapaktan kontrollü görsel düzenlemeyle1720×914 RGBA logo hazırlandı;
+Home'daki düz başlık yerine bağlandı.141 entegrasyon kontrolü geçti; gerçek
+Game View ve3 oran/safe-area görüntüleri hazır. Console0/0,önceki114 dosya
+korundu. Ayrı glow/sparkles gereksiz görülerek üretilmedi. Referanstan küçük
+üretim farkları PART04A_REPORT.md içinde. Diğer UI tasarımı bu aşamada değişmedi.
