@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 1617162469}
   - component: {fileID: 1617162470}
   - component: {fileID: 1617162471}
+  - component: {fileID: 1617162472}
   m_Layer: 0
   m_Name: Home
   m_TagString: Untagged
@@ -756,6 +757,27 @@ MonoBehaviour:
   heart: {fileID: -160248668884071728, guid: 0a289a6548c59574fb5148e94d4c7a55, type: 3}
   plus: {fileID: -7215738348357241920, guid: 0cf5dc0d13aafc943b2b5f1d6af7390e, type: 3}
   settings: {fileID: 8816116591344147355, guid: e4897bc704cca124891e0384c660323b, type: 3}
+--- !u!114 &1617162472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617162464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2acb6326c8cf94684edb32d1f0b3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mewgic.HomeNavigation
+  home: {fileID: -5735881419297410930, guid: 2b3ec8768cb0e6341945416da0e7073d, type: 3}
+  map: {fileID: 3325008667289019330, guid: 41a51f6b6edff264888f21d1538ba31a, type: 3}
+  events: {fileID: 6659022753789832026, guid: 67aabf0599f41f144b2f70063a667d2b, type: 3}
+  team: {fileID: -4203726016121450995, guid: 22a183d7b2460b24fa0c01c12eced9e9, type: 3}
+  inventory: {fileID: -2735497760879585888, guid: e9cf3fb490828024ea8a0223d095f602, type: 3}
+  tile: {fileID: 95155292071917195, guid: 06a9ae967ab475c4596389dc53a3ae56, type: 3}
+  activeTile: {fileID: -7669393632196116866, guid: bda911d2e8561a1438a80f47268a69e2, type: 3}
+  mapSceneReady: 0
+  mapScene: LevelMap
 --- !u!1 &1700213515
 GameObject:
   m_ObjectHideFlags: 0

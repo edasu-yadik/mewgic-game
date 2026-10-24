@@ -1,0 +1,296 @@
+fileFormatVersion: 2
+guid: 06a9ae967ab475c4596389dc53a3ae56
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3928074633088604330
+    second: Nav_Tile_0
+  - first:
+      213: 3689230587904723183
+    second: Nav_Tile_1
+  - first:
+      213: -7397409700100474523
+    second: Nav_Tile_2
+  - first:
+      213: -6482856995659919581
+    second: Nav_Tile_3
+  - first:
+      213: 4859233511412034451
+    second: Nav_Tile_4
+  - first:
+      213: 2324464620644020888
+    second: Nav_Tile_5
+  - first:
+      213: 8243172237587392366
+    second: Nav_Tile_6
+  - first:
+      213: 5165312720671714396
+    second: Nav_Tile_7
+  - first:
+      213: 4880370551461544510
+    second: Nav_Tile_8
+  - first:
+      213: -8774591932986515438
+    second: Nav_Tile_9
+  - first:
+      213: -8204397384982510040
+    second: Nav_Tile_10
+  - first:
+      213: 4355001063803584505
+    second: Nav_Tile_11
+  - first:
+      213: -2540893577012145070
+    second: Nav_Tile_12
+  - first:
+      213: -4742687745420834299
+    second: Nav_Tile_13
+  - first:
+      213: 6654868017671018006
+    second: Nav_Tile_14
+  - first:
+      213: 8757637192007222110
+    second: Nav_Tile_15
+  - first:
+      213: -23820842881277421
+    second: Nav_Tile_16
+  - first:
+      213: 4099760663944164513
+    second: Nav_Tile_17
+  - first:
+      213: -2113979760332932215
+    second: Nav_Tile_18
+  - first:
+      213: 4498700841449968753
+    second: Nav_Tile_19
+  - first:
+      213: 5101603600397738852
+    second: Nav_Tile_20
+  - first:
+      213: 656425119145311979
+    second: Nav_Tile_21
+  - first:
+      213: -5747449052831944282
+    second: Nav_Tile_22
+  - first:
+      213: 3104839906315292365
+    second: Nav_Tile_23
+  - first:
+      213: 5338325770004054772
+    second: Nav_Tile_24
+  - first:
+      213: -114889047984645428
+    second: Nav_Tile_25
+  - first:
+      213: -2144279811982259884
+    second: Nav_Tile_26
+  - first:
+      213: -7771887639263588903
+    second: Nav_Tile_27
+  - first:
+      213: 2604681961414543473
+    second: Nav_Tile_28
+  - first:
+      213: -1220133727501129648
+    second: Nav_Tile_29
+  - first:
+      213: -4497644720050545723
+    second: Nav_Tile_30
+  - first:
+      213: -89650835869447192
+    second: Nav_Tile_31
+  - first:
+      213: 8765968392637681712
+    second: Nav_Tile_32
+  - first:
+      213: -1018421562672919407
+    second: Nav_Tile_33
+  - first:
+      213: 869924843199574077
+    second: Nav_Tile_34
+  - first:
+      213: 95155292071917195
+    second: Nav_Tile
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nav_Tile
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 117
+        width: 1006
+        height: 934
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86f176eb3f025100800000000000000
+      internalID: 95155292071917195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Nav_Tile: 95155292071917195
+      Nav_Tile_0: 3928074633088604330
+      Nav_Tile_1: 3689230587904723183
+      Nav_Tile_10: -8204397384982510040
+      Nav_Tile_11: 4355001063803584505
+      Nav_Tile_12: -2540893577012145070
+      Nav_Tile_13: -4742687745420834299
+      Nav_Tile_14: 6654868017671018006
+      Nav_Tile_15: 8757637192007222110
+      Nav_Tile_16: -23820842881277421
+      Nav_Tile_17: 4099760663944164513
+      Nav_Tile_18: -2113979760332932215
+      Nav_Tile_19: 4498700841449968753
+      Nav_Tile_2: -7397409700100474523
+      Nav_Tile_20: 5101603600397738852
+      Nav_Tile_21: 656425119145311979
+      Nav_Tile_22: -5747449052831944282
+      Nav_Tile_23: 3104839906315292365
+      Nav_Tile_24: 5338325770004054772
+      Nav_Tile_25: -114889047984645428
+      Nav_Tile_26: -2144279811982259884
+      Nav_Tile_27: -7771887639263588903
+      Nav_Tile_28: 2604681961414543473
+      Nav_Tile_29: -1220133727501129648
+      Nav_Tile_3: -6482856995659919581
+      Nav_Tile_30: -4497644720050545723
+      Nav_Tile_31: -89650835869447192
+      Nav_Tile_32: 8765968392637681712
+      Nav_Tile_33: -1018421562672919407
+      Nav_Tile_34: 869924843199574077
+      Nav_Tile_4: 4859233511412034451
+      Nav_Tile_5: 2324464620644020888
+      Nav_Tile_6: 8243172237587392366
+      Nav_Tile_7: 5165312720671714396
+      Nav_Tile_8: 4880370551461544510
+      Nav_Tile_9: -8774591932986515438
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

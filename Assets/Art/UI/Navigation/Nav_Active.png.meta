@@ -1,0 +1,280 @@
+fileFormatVersion: 2
+guid: bda911d2e8561a1438a80f47268a69e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6815744240832746647
+    second: Nav_Active_0
+  - first:
+      213: -5714139744510313369
+    second: Nav_Active_1
+  - first:
+      213: 6695201978068608131
+    second: Nav_Active_2
+  - first:
+      213: -2875853712136591300
+    second: Nav_Active_3
+  - first:
+      213: -4870076151690077188
+    second: Nav_Active_4
+  - first:
+      213: 5944383686667120830
+    second: Nav_Active_5
+  - first:
+      213: 5315455999624994366
+    second: Nav_Active_6
+  - first:
+      213: -8825873815749053693
+    second: Nav_Active_7
+  - first:
+      213: -6943069201696304115
+    second: Nav_Active_8
+  - first:
+      213: 2732660546586341394
+    second: Nav_Active_9
+  - first:
+      213: 4742855479230382603
+    second: Nav_Active_10
+  - first:
+      213: -6214593935583860498
+    second: Nav_Active_11
+  - first:
+      213: 6320627766007335115
+    second: Nav_Active_12
+  - first:
+      213: 1527707173958029283
+    second: Nav_Active_13
+  - first:
+      213: -3745807928289913557
+    second: Nav_Active_14
+  - first:
+      213: 2340571737732139586
+    second: Nav_Active_15
+  - first:
+      213: 7110826452893766544
+    second: Nav_Active_16
+  - first:
+      213: -6679284513150285688
+    second: Nav_Active_17
+  - first:
+      213: -3058481236087862176
+    second: Nav_Active_18
+  - first:
+      213: 4670448078138907715
+    second: Nav_Active_19
+  - first:
+      213: -6489497248267745177
+    second: Nav_Active_20
+  - first:
+      213: -1363424874525156721
+    second: Nav_Active_21
+  - first:
+      213: -7448090586606298469
+    second: Nav_Active_22
+  - first:
+      213: -3813026226588167521
+    second: Nav_Active_23
+  - first:
+      213: -3361366815092677164
+    second: Nav_Active_24
+  - first:
+      213: -4698573736089720331
+    second: Nav_Active_25
+  - first:
+      213: -3188403117193341368
+    second: Nav_Active_26
+  - first:
+      213: -5398608109709978685
+    second: Nav_Active_27
+  - first:
+      213: 559162288801454299
+    second: Nav_Active_28
+  - first:
+      213: -1057223214832378682
+    second: Nav_Active_29
+  - first:
+      213: 5971481517204388733
+    second: Nav_Active_30
+  - first:
+      213: -7669393632196116866
+    second: Nav_Active
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Nav_Active
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 136
+        width: 1107
+        height: 1008
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ebe4e2027d09590800000000000000
+      internalID: -7669393632196116866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Nav_Active: -7669393632196116866
+      Nav_Active_0: -6815744240832746647
+      Nav_Active_1: -5714139744510313369
+      Nav_Active_10: 4742855479230382603
+      Nav_Active_11: -6214593935583860498
+      Nav_Active_12: 6320627766007335115
+      Nav_Active_13: 1527707173958029283
+      Nav_Active_14: -3745807928289913557
+      Nav_Active_15: 2340571737732139586
+      Nav_Active_16: 7110826452893766544
+      Nav_Active_17: -6679284513150285688
+      Nav_Active_18: -3058481236087862176
+      Nav_Active_19: 4670448078138907715
+      Nav_Active_2: 6695201978068608131
+      Nav_Active_20: -6489497248267745177
+      Nav_Active_21: -1363424874525156721
+      Nav_Active_22: -7448090586606298469
+      Nav_Active_23: -3813026226588167521
+      Nav_Active_24: -3361366815092677164
+      Nav_Active_25: -4698573736089720331
+      Nav_Active_26: -3188403117193341368
+      Nav_Active_27: -5398608109709978685
+      Nav_Active_28: 559162288801454299
+      Nav_Active_29: -1057223214832378682
+      Nav_Active_3: -2875853712136591300
+      Nav_Active_30: 5971481517204388733
+      Nav_Active_4: -4870076151690077188
+      Nav_Active_5: 5944383686667120830
+      Nav_Active_6: 5315455999624994366
+      Nav_Active_7: -8825873815749053693
+      Nav_Active_8: -6943069201696304115
+      Nav_Active_9: 2732660546586341394
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

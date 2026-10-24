@@ -94,7 +94,8 @@ namespace Mewgic
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
             var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
-            Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.75f,.72f,.87f),new Vector2(.1f,.08f),new Vector2(.9f,.14f));
+            Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.75f,.72f,.87f),new Vector2(.1f,.10f),new Vector2(.9f,.12f));
+            if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
         }
         public static Puzzle LoadLevel()
         {

@@ -1,0 +1,754 @@
+[
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Core.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters\\WizardCatPresentation.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters\\WizardCatPresentation.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters\\WizardCatTestPanel.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters\\WizardCatTestPanel.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters\\WizardSparkGraphic.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Characters\\WizardSparkGraphic.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Core\\Puzzle.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Core\\Puzzle.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeCharacterPresenter.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeCharacterPresenter.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeEnvironment.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeEnvironment.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeLogoPresenter.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeLogoPresenter.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomePlayButtonPresenter.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomePlayButtonPresenter.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomePotionDisplay.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomePotionDisplay.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeResourceModel.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeResourceModel.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeTopBar.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\HomeTopBar.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\PremiumPlayButton.cs",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\PremiumPlayButton.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scripts\\Presentation\\PrototypeApp.cs.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Atlases.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Backgrounds.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Bottles.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\FX.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Atlases\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Backgrounds\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Bottles\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\MageCat_FullBody_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\MageCat_FullBody_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\MageCat_NoWand_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\MageCat_NoWand_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\MageCat_Wand_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\MageCat\\MageCat_Wand_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\BlinkLeft.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\BlinkLeft.asset.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\BlinkRight.asset",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\BlinkRight.asset.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\MageCat_FullBody_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\MageCat_FullBody_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\MageCat_NoWand_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\MageCat_NoWand_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\MageCat_Wand_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\MageCat_Wand_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\WizardCat_ClosedEyePatches_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Characters\\WizardCat\\WizardCat_ClosedEyePatches_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer01_Sky_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer01_Sky_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer02_DistantIslands_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer02_DistantIslands_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer03_MainCastle_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer03_MainCastle_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer04_Village_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer04_Village_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer05_Foreground_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer05_Foreground_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer06_Atmosphere_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Environment\\Home\\Layer06_Atmosphere_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\FX\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Art_Base_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Art_Base_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Art_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Art_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Glow_v002.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Glow_v002.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Glow_v003.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Glow_v003.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Glow.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Glow.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowBack_v002.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowBack_v002.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowBack_v003.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowBack_v003.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowFront_v002.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowFront_v002.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowFront_v003.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_GlowFront_v003.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_MagicSpiral.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_MagicSpiral.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Sparkles.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_Sparkles.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_v002.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_v002.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_v003.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center_v003.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Center.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Glow.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Glow.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left_Art_Glow_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left_Art_Glow_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left_Art_Sparkles_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left_Art_Sparkles_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left_Art_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left_Art_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Left.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_MagicParticles.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_MagicParticles.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right_Art_Glow_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right_Art_Glow_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right_Art_Sparkles_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right_Art_Sparkles_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right_Art_v001.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right_Art_v001.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\Potions\\Home\\Potion_Right.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Common.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Icons.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Logo.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Common\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Icons\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Logo\\Mewgic_Logo_Main.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\Logo\\Mewgic_Logo_Main.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton\\PlayButton_Glow.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton\\PlayButton_Glow.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton\\PlayButton_Normal.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton\\PlayButton_Normal.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton\\PlayButton_Pressed.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\PlayButton\\PlayButton_Pressed.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Coin.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Coin.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Gem.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Gem.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Heart.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Heart.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Panel.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Panel.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Plus.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Plus.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Settings.png",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Art\\UI\\TopBar\\TopBar_Settings.png.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\Characters.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\FX.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\Gameplay.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\Characters\\WizardCat.prefab",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\Characters\\WizardCat.prefab.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\FX\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\Gameplay\\Bottles.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Prefabs\\Gameplay\\Bottles\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\Characters.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\FX.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\UI.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\Characters\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\FX\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\UI\\.gitkeep",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\Blink.anim",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\Blink.anim.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\BlinkRest.anim",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\BlinkRest.anim.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\Idle.anim",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\Idle.anim.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\WandMagic.anim",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\WandMagic.anim.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\WandRest.anim",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\WandRest.anim.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\WizardCat.controller",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Animations\\WizardCat\\WizardCat.controller.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\Boot.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\Boot.unity.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\Gameplay.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\Gameplay.unity.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\Home.unity.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\LevelMap.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\LevelMap.unity.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\SampleScene.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\SampleScene.unity.meta",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\WizardCatAnimationTest.unity",
+    "Unchanged": true
+  },
+  {
+    "Path": "C:\\Dev\\Mewgic\\Assets\\Scenes\\WizardCatAnimationTest.unity.meta",
+    "Unchanged": true
+  }
+]

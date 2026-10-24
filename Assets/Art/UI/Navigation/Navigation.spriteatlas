@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Navigation
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 0
+      maxTextureSize: 0
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 4
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 48
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 0
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 3a748e510fe5b5e4e9695e890fb9d8e9, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - bda911d2e8561a1438a80f47268a69e2: -7669393632196116866
+    - e9cf3fb490828024ea8a0223d095f602: -2735497760879585888
+    - 67aabf0599f41f144b2f70063a667d2b: 6659022753789832026
+    - 2b3ec8768cb0e6341945416da0e7073d: -5735881419297410930
+    - 06a9ae967ab475c4596389dc53a3ae56: 95155292071917195
+    - 22a183d7b2460b24fa0c01c12eced9e9: -4203726016121450995
+    - 41a51f6b6edff264888f21d1538ba31a: 3325008667289019330
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -7669393632196116866, guid: bda911d2e8561a1438a80f47268a69e2, type: 3}
+  - {fileID: -2735497760879585888, guid: e9cf3fb490828024ea8a0223d095f602, type: 3}
+  - {fileID: 6659022753789832026, guid: 67aabf0599f41f144b2f70063a667d2b, type: 3}
+  - {fileID: -5735881419297410930, guid: 2b3ec8768cb0e6341945416da0e7073d, type: 3}
+  - {fileID: 95155292071917195, guid: 06a9ae967ab475c4596389dc53a3ae56, type: 3}
+  - {fileID: -4203726016121450995, guid: 22a183d7b2460b24fa0c01c12eced9e9, type: 3}
+  - {fileID: 3325008667289019330, guid: 41a51f6b6edff264888f21d1538ba31a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Nav_Active
+  - Nav_Inventory
+  - Nav_Events
+  - Nav_Home
+  - Nav_Tile
+  - Nav_Team
+  - Nav_Map
+  m_RenderDataMap: {}
+  m_Tag: Navigation
+  m_IsVariant: 0

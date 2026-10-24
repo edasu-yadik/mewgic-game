@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"Nav_Home\",\n      \"size\": \"(512.00, 512.00)\",\n      \"pivot\": \"(256.00, 256.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Nav_Map\",\n      \"size\": \"(512.00, 427.00)\",\n      \"pivot\": \"(256.00, 213.50)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Nav_Events\",\n      \"size\": \"(512.00, 512.00)\",\n      \"pivot\": \"(256.00, 256.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Nav_Team\",\n      \"size\": \"(512.00, 512.00)\",\n      \"pivot\": \"(256.00, 256.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Nav_Inventory\",\n      \"size\": \"(512.00, 466.00)\",\n      \"pivot\": \"(256.00, 233.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Nav_Tile\",\n      \"size\": \"(512.00, 468.00)\",\n      \"pivot\": \"(256.00, 234.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Nav_Active\",\n      \"size\": \"(512.00, 512.00)\",\n      \"pivot\": \"(256.00, 256.00)\",\n      \"format\": \"ASTC_4x4\"\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
