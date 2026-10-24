@@ -132,3 +132,9 @@ Beş ayrı ikon,aktif Home altın yüzeyi ve güvenli geçici sekme panelleri ha
 LevelMap yalnız kamera/ışık içerdiğinden Map gerçek harita gibi sunulmadı.
 380 entegrasyon,12 model ve mevcut smoke geçti.3 oran/safe-area ve gerçek
 Game View görüntüleri hazır. ProductionReports/PART04E.md son rapordur.
+
+## PART04F — Home kalite denetimi
+Küçük efekt/kontrast/dokunma iyileştirmeleri doğrulandı.390 entegrasyon,12 model
+ve smoke başarılı;gerçek Game View/referans tam ekran karşılaştırması kaydedildi.
+Home'a final sanat onayı verilmedi:04D yan menüleri eksik ve raporlanan kompozisyon
+farkları sürüyor. Son rapor ProductionReports/PART04F.md.

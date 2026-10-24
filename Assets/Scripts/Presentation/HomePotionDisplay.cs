@@ -61,13 +61,10 @@ namespace Mewgic
             AnimationTime=Time.unscaledTime;Layout();
             for(int i=0;i<3;i++)
             {
-                if(glows[i]!=null)glows[i].color=new Color(1,1,1,.085f+Mathf.Sin(AnimationTime*.8f+i)*.025f);
-                if(sparks[i]!=null)sparks[i].color=new Color(1,1,1,.08f+Mathf.Pow((Mathf.Sin(AnimationTime*.9f+i*2)+1)*.5f,5)*.16f);
+                if(glows[i]!=null)glows[i].color=new Color(1,1,1,.035f+Mathf.Sin(AnimationTime*.8f+i)*.01f);
+                if(sparks[i]!=null)sparks[i].color=new Color(1,1,1,.02f+Mathf.Pow((Mathf.Sin(AnimationTime*.9f+i*2)+1)*.5f,5)*.055f);
             }
             if(bottles[1]!=null)bottles[1].GetChild(0).GetComponent<Image>().color=new Color(1,1,1,.975f+Mathf.Sin(AnimationTime*.7f)*.025f);
         }
     }
 }
-
-
-

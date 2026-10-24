@@ -90,11 +90,13 @@ namespace Mewgic
         {
             if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe); homeCharacter.GetComponent<HomeTopBar>()?.Mount(safe); }
-            Label(safe,"Subtitle","BİR ŞİŞE DOLUSU SİHİR",25,Color.white,new Vector2(.1f,.71f),new Vector2(.9f,.77f));
+            var subtitle=Label(safe,"Subtitle","BİR ŞİŞE DOLUSU SİHİR",25,Color.white,new Vector2(.1f,.71f),new Vector2(.9f,.77f));
+            var subtitleShadow=subtitle.gameObject.AddComponent<Shadow>();subtitleShadow.effectColor=new Color(0,0,0,.85f);subtitleShadow.effectDistance=new Vector2(1,-2);
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
             var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
-            Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.75f,.72f,.87f),new Vector2(.1f,.10f),new Vector2(.9f,.12f));
+            var footnote=Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.94f,.92f,1f),new Vector2(.1f,.10f),new Vector2(.9f,.12f));
+            var footnoteShadow=footnote.gameObject.AddComponent<Shadow>();footnoteShadow.effectColor=new Color(0,0,0,.9f);footnoteShadow.effectDistance=new Vector2(1,-2);
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
         }
         public static Puzzle LoadLevel()

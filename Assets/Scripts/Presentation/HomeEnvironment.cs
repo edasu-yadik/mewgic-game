@@ -93,12 +93,12 @@ namespace Mewgic
             float t=AnimationTime;
             if(waterLight!=null)waterLight.SetFloat(EnvironmentTimeId,t);
             fogRect.anchoredPosition=new Vector2(Mathf.Sin(t*.065f)*12,fogBaseY+Mathf.Sin(t*.045f)*4);
-            fog.color=new Color(1,1,1,.22f+Mathf.Sin(t*.16f)*.025f);
+            fog.color=new Color(1,1,1,.14f+Mathf.Sin(t*.16f)*.015f);
             for(int i=0;i<motes.Length;i++)
             {
                 float phase=i*2.39996f;
                 motes[i].anchoredPosition=new Vector2(Mathf.Sin(phase)*410+Mathf.Sin(t*.12f+phase)*9,Mathf.Repeat(i*113+t*(3+i%3),1500)-750);
-                lights[i].color=new Color(1,.76f,.32f,.16f+(Mathf.Sin(t*(.6f+i*.02f)+phase)+1)*.16f);
+                lights[i].color=new Color(1,.76f,.32f,.10f+(Mathf.Sin(t*(.6f+i*.02f)+phase)+1)*.10f);
             }
         }
         void OnDestroy(){if(waterLight!=null)Destroy(waterLight);}

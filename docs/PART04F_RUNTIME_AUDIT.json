@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"screen\": \"900x1600\",\n    \"buttons\": [\n      {\n        \"name\": \"NavTeam\",\n        \"widthPixels\": 170.409668,\n        \"heightPixels\": 148,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"SettingsButton\",\n        \"widthPixels\": 78.57007,\n        \"heightPixels\": 73.80005,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"Play\",\n        \"widthPixels\": 630,\n        \"heightPixels\": 224,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"NavMap\",\n        \"widthPixels\": 170.409561,\n        \"heightPixels\": 148,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"NavEvents\",\n        \"widthPixels\": 170.4096,\n        \"heightPixels\": 148,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"CoinsPlus\",\n        \"widthPixels\": 55.6974335,\n        \"heightPixels\": 59.04004,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"NavHome\",\n        \"widthPixels\": 170.409576,\n        \"heightPixels\": 148,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"GemsPlus\",\n        \"widthPixels\": 55.69742,\n        \"heightPixels\": 59.04004,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"EnergyPlus\",\n        \"widthPixels\": 55.6973877,\n        \"heightPixels\": 59.04004,\n        \"interactable\": true\n      },\n      {\n        \"name\": \"NavInventory\",\n        \"widthPixels\": 170.409546,\n        \"heightPixels\": 148,\n        \"interactable\": true\n      }\n    ],\n    \"sideMenusPresent\": false,\n    \"artRecreated\": false\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

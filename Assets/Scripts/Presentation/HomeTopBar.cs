@@ -18,7 +18,7 @@ namespace Mewgic
             Meter("GemsDisplay",1,gem,"GemsPlus","Elmas mağazası sonraki aşamada açılacak. Satın alma yapılmadı.",out gemsText);
             var energy=Meter("EnergyDisplay",2,heart,"EnergyPlus","Enerji yenileme ve ödüller sonraki aşamada açılacak. Enerji değiştirilmedi.",out energyText);
             heartText=Label(energy,"HeartCount","",new Vector2(.025f,.15f),new Vector2(.28f,.85f),28);
-            var gear=Art(root,"SettingsButton",settings,new Vector2(.91f,0),new Vector2(1,1));var b=gear.gameObject.AddComponent<Button>();b.targetGraphic=gear;b.onClick.AddListener(()=>Show("Ayarlar paneli — geçici önizleme. Ayrıntılı ayarlar sonraki aşamada eklenecek."));gear.raycastTarget=true;
+            var gear=Art(root,"SettingsButton",settings,new Vector2(.91f,0),new Vector2(1,1));var b=gear.gameObject.AddComponent<Button>();b.targetGraphic=gear;b.onClick.AddListener(()=>Show("Ayarlar paneli — geçici önizleme. Ayrıntılı ayarlar sonraki aşamada eklenecek."));gear.raycastTarget=true;gear.raycastPadding=new Vector4(-4,-4,-4,-4);
             Model.Changed+=Refresh;Refresh();BuildPopup();Layout();
         }
         RectTransform Meter(string name,int i,Sprite icon,string buttonName,string info,out Text text)
@@ -26,7 +26,7 @@ namespace Mewgic
             float start=i*.302f;var r=Rect(root,name,new Vector2(start,0),new Vector2(start+.29f,1));Art(r,"Panel",panel,Vector2.zero,Vector2.one);
             Art(r,"Icon",icon,new Vector2(-.015f,-.05f),new Vector2(.30f,1.05f));
             text=Label(r,"Value","",new Vector2(.30f,.16f),new Vector2(.775f,.84f),31);
-            var a=Art(r,buttonName,plus,new Vector2(.77f,.1f),new Vector2(.99f,.9f));a.raycastTarget=true;var b=a.gameObject.AddComponent<Button>();b.targetGraphic=a;b.onClick.AddListener(()=>Show(info));return r;
+            var a=Art(r,buttonName,plus,new Vector2(.77f,.1f),new Vector2(.99f,.9f));a.raycastTarget=true;a.raycastPadding=new Vector4(-8,-8,-8,-8);var b=a.gameObject.AddComponent<Button>();b.targetGraphic=a;b.onClick.AddListener(()=>Show(info));return r;
         }
         static RectTransform Rect(Transform parent,string name,Vector2 min,Vector2 max)
         {
@@ -63,4 +63,3 @@ namespace Mewgic
         void OnDestroy(){if(Model!=null)Model.Changed-=Refresh;}
     }
 }
-
