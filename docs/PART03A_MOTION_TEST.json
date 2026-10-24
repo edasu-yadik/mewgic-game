@@ -1,0 +1,9 @@
+{
+    "width": 900,
+    "height": 1600,
+    "checks": [
+        "Environment animation time advances",
+        "Mist drifts over time",
+        "Gold light moves over time"
+    ]
+}

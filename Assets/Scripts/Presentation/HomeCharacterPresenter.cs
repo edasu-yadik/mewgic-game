@@ -20,6 +20,8 @@ namespace Mewgic
             Stretch(root);
             background.SetParent(transform.Find("Background"), false);
             Stretch(background);
+            var environment = GetComponent<HomeEnvironment>();
+            if (environment != null) environment.Mount();
             Destroy(transform.Find("UI").gameObject);
             safe.SetParent(transform, false);
             safe.name = "UI";

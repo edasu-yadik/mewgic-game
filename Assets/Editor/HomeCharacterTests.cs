@@ -44,6 +44,8 @@ public static class HomeCharacterTests
             canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=cam;canvas.planeDistance=1;cam.targetTexture=rt;
             if(inset){safe.anchorMin=new Vector2(.04f,.05f);safe.anchorMax=new Vector2(.96f,.96f);}
             Canvas.ForceUpdateCanvases();p.Layout();Canvas.ForceUpdateCanvases();
+            UnityEngine.Object.FindFirstObjectByType<HomeEnvironment>()?.Layout();
+            Canvas.ForceUpdateCanvases();
             var bounds=Bounds(p.character,safe);var button=Bounds((RectTransform)GameObject.Find("Play").transform,safe);
             Check(safe.rect.Contains(bounds.min)&&safe.rect.Contains(bounds.max),"Full character inside safe area "+height+suffix);
             Check(!bounds.Overlaps(button),"No PLAY overlap "+height+suffix);
@@ -59,6 +61,7 @@ public static class HomeCharacterTests
             canvas.renderMode=oldMode;canvas.worldCamera=oldCamera;canvas.planeDistance=oldDistance;RenderTexture.active=previous;
             if(texture!=null)UnityEngine.Object.DestroyImmediate(texture);rt.Release();UnityEngine.Object.DestroyImmediate(rt);
             Canvas.ForceUpdateCanvases();p.Layout();
+            UnityEngine.Object.FindFirstObjectByType<HomeEnvironment>()?.Layout();
         }
     }
     static void Click(string name)

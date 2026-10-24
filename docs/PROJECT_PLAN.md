@@ -54,3 +54,11 @@ güvenli alan yerleşimi ve Home'a özel periyodik sihir davranışı hazır.
 simülasyonu doğrulandı. Console 0 hata / 0 uyarı. Gerçek Home PNG'leri ve kapsam
 sınırları PART02C_REPORT.md içinde. Sonraki aşama: ayrı kapsamda Home arka planı
 ve UI görsel kalitesi; fiziksel mobil cihaz testi bekliyor.
+
+## PART 03A tamamlanan işler
+Home için altı ayrı çevre PNG'si, bağımsız katman entegrasyonu, hafif şelale/pencere
+shader hareketi, kayan sis ve 16 ortam ışığı hazır. Mevcut karakter ve UI korunur.
+49 menü/karakter kontrolü ve üç gerçek dikey çözünürlükte 34'er çevre kontrolü geçti.
+Console 0 hata / 0 uyarı. Rapor ve görsel farklar PART03A_REPORT.md içinde;
+yan yana karşılaştırma PART03A_COMPARISON.html. Mobil cihaz profillemesi ve nihai
+UI okunabilirliği sonraki aşamalar olarak kalır; yeni UI tasarımı yapılmadı.

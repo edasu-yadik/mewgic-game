@@ -1,0 +1,2678 @@
+fileFormatVersion: 2
+guid: 481213aef08841f409aa0b348afbd1d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3294439016899495920
+    second: Layer05_Foreground_v001_0
+  - first:
+      213: -4672841116757770203
+    second: Layer05_Foreground_v001_1
+  - first:
+      213: 5391944424598102390
+    second: Layer05_Foreground_v001_2
+  - first:
+      213: 8972666780110101556
+    second: Layer05_Foreground_v001_3
+  - first:
+      213: -560897263635768029
+    second: Layer05_Foreground_v001_4
+  - first:
+      213: -7100060948647429664
+    second: Layer05_Foreground_v001_5
+  - first:
+      213: -7231644855317380805
+    second: Layer05_Foreground_v001_6
+  - first:
+      213: 7380421620906133604
+    second: Layer05_Foreground_v001_7
+  - first:
+      213: 4545603945427636426
+    second: Layer05_Foreground_v001_8
+  - first:
+      213: 3112841661242752611
+    second: Layer05_Foreground_v001_9
+  - first:
+      213: 7508560156701772555
+    second: Layer05_Foreground_v001_10
+  - first:
+      213: -4290488348555099617
+    second: Layer05_Foreground_v001_11
+  - first:
+      213: -3012423874474064893
+    second: Layer05_Foreground_v001_12
+  - first:
+      213: -5857439195461487597
+    second: Layer05_Foreground_v001_13
+  - first:
+      213: -8779211387066782633
+    second: Layer05_Foreground_v001_14
+  - first:
+      213: -6633577167288038437
+    second: Layer05_Foreground_v001_15
+  - first:
+      213: -6780236182296518894
+    second: Layer05_Foreground_v001_16
+  - first:
+      213: -7920266436556722647
+    second: Layer05_Foreground_v001_17
+  - first:
+      213: 6581276472827549755
+    second: Layer05_Foreground_v001_18
+  - first:
+      213: 1643620267538253974
+    second: Layer05_Foreground_v001_19
+  - first:
+      213: -4861748761863389712
+    second: Layer05_Foreground_v001_20
+  - first:
+      213: -8014744341066562949
+    second: Layer05_Foreground_v001_21
+  - first:
+      213: 6592797512928082855
+    second: Layer05_Foreground_v001_22
+  - first:
+      213: -9204437267344960121
+    second: Layer05_Foreground_v001_23
+  - first:
+      213: 9073200303376808570
+    second: Layer05_Foreground_v001_24
+  - first:
+      213: -2021194650174272227
+    second: Layer05_Foreground_v001_25
+  - first:
+      213: -2719431958301769776
+    second: Layer05_Foreground_v001_26
+  - first:
+      213: 605438521875515294
+    second: Layer05_Foreground_v001_27
+  - first:
+      213: 5144521825932716801
+    second: Layer05_Foreground_v001_28
+  - first:
+      213: -596071853306648718
+    second: Layer05_Foreground_v001_29
+  - first:
+      213: 7636988207041952271
+    second: Layer05_Foreground_v001_30
+  - first:
+      213: 529730130761405465
+    second: Layer05_Foreground_v001_31
+  - first:
+      213: 5418994681511049890
+    second: Layer05_Foreground_v001_32
+  - first:
+      213: 2978811394000912492
+    second: Layer05_Foreground_v001_33
+  - first:
+      213: 5109543164640887527
+    second: Layer05_Foreground_v001_34
+  - first:
+      213: 1091850207128099757
+    second: Layer05_Foreground_v001_35
+  - first:
+      213: 2067599071390914823
+    second: Layer05_Foreground_v001_36
+  - first:
+      213: -3728565768312063979
+    second: Layer05_Foreground_v001_37
+  - first:
+      213: 5279905820007561420
+    second: Layer05_Foreground_v001_38
+  - first:
+      213: -1140326826521066977
+    second: Layer05_Foreground_v001_39
+  - first:
+      213: 6293455676445477451
+    second: Layer05_Foreground_v001_40
+  - first:
+      213: -211143094193529861
+    second: Layer05_Foreground_v001_41
+  - first:
+      213: 2293695086842827530
+    second: Layer05_Foreground_v001_42
+  - first:
+      213: 5864891147826123027
+    second: Layer05_Foreground_v001_43
+  - first:
+      213: 7426471328314360814
+    second: Layer05_Foreground_v001_44
+  - first:
+      213: -6451744041151852910
+    second: Layer05_Foreground_v001_45
+  - first:
+      213: 4314688260655320753
+    second: Layer05_Foreground_v001_46
+  - first:
+      213: -2236801424616683503
+    second: Layer05_Foreground_v001_47
+  - first:
+      213: 5974884113718054229
+    second: Layer05_Foreground_v001_48
+  - first:
+      213: 7099007656929923504
+    second: Layer05_Foreground_v001_49
+  - first:
+      213: -3891155640726245841
+    second: Layer05_Foreground_v001_50
+  - first:
+      213: -4932219969197011089
+    second: Layer05_Foreground_v001_51
+  - first:
+      213: -8204313373416922877
+    second: Layer05_Foreground_v001_52
+  - first:
+      213: 2926639990272458406
+    second: Layer05_Foreground_v001_53
+  - first:
+      213: 8402708865145973960
+    second: Layer05_Foreground_v001_54
+  - first:
+      213: -3182921050497548430
+    second: Layer05_Foreground_v001_55
+  - first:
+      213: -6831763629275472385
+    second: Layer05_Foreground_v001_56
+  - first:
+      213: 6598163465672974478
+    second: Layer05_Foreground_v001_57
+  - first:
+      213: 4805486484117451620
+    second: Layer05_Foreground_v001_58
+  - first:
+      213: -8427128928696289570
+    second: Layer05_Foreground_v001_59
+  - first:
+      213: 7156969294345830662
+    second: Layer05_Foreground_v001_60
+  - first:
+      213: 3968954007372761801
+    second: Layer05_Foreground_v001_61
+  - first:
+      213: -6764981012579503477
+    second: Layer05_Foreground_v001_62
+  - first:
+      213: -187198116906036130
+    second: Layer05_Foreground_v001_63
+  - first:
+      213: -1896397141351758610
+    second: Layer05_Foreground_v001_64
+  - first:
+      213: -6106415863768673181
+    second: Layer05_Foreground_v001_65
+  - first:
+      213: 2310128080370568098
+    second: Layer05_Foreground_v001_66
+  - first:
+      213: -3543207000038979736
+    second: Layer05_Foreground_v001_67
+  - first:
+      213: 956291734286181042
+    second: Layer05_Foreground_v001_68
+  - first:
+      213: -4770925139920224056
+    second: Layer05_Foreground_v001_69
+  - first:
+      213: -4617043986685440619
+    second: Layer05_Foreground_v001_70
+  - first:
+      213: -2417151561472787525
+    second: Layer05_Foreground_v001_71
+  - first:
+      213: -1125750542773864937
+    second: Layer05_Foreground_v001_72
+  - first:
+      213: -924717171052647261
+    second: Layer05_Foreground_v001_73
+  - first:
+      213: 8755255586705438658
+    second: Layer05_Foreground_v001_74
+  - first:
+      213: -7907920769011101424
+    second: Layer05_Foreground_v001_75
+  - first:
+      213: -828076354675538716
+    second: Layer05_Foreground_v001_76
+  - first:
+      213: -4711842308818716454
+    second: Layer05_Foreground_v001_77
+  - first:
+      213: -5962255180497698805
+    second: Layer05_Foreground_v001_78
+  - first:
+      213: 1175711914328813702
+    second: Layer05_Foreground_v001_79
+  - first:
+      213: -8735905474865790833
+    second: Layer05_Foreground_v001_80
+  - first:
+      213: 7166524883891880715
+    second: Layer05_Foreground_v001_81
+  - first:
+      213: 6187112561856733686
+    second: Layer05_Foreground_v001_82
+  - first:
+      213: -5524797010185446701
+    second: Layer05_Foreground_v001_83
+  - first:
+      213: 1952585817625222414
+    second: Layer05_Foreground_v001_84
+  - first:
+      213: 5454225794866732097
+    second: Layer05_Foreground_v001_85
+  - first:
+      213: -2353665664551844138
+    second: Layer05_Foreground_v001_86
+  - first:
+      213: -4027383131898504381
+    second: Layer05_Foreground_v001_87
+  - first:
+      213: 4577333710373616287
+    second: Layer05_Foreground_v001_88
+  - first:
+      213: -4239377453720372816
+    second: Layer05_Foreground_v001_89
+  - first:
+      213: -4567598916411530574
+    second: Layer05_Foreground_v001_90
+  - first:
+      213: -1777993440643402503
+    second: Layer05_Foreground_v001_91
+  - first:
+      213: 3166522462846878822
+    second: Layer05_Foreground_v001_92
+  - first:
+      213: 8133191342166528479
+    second: Layer05_Foreground_v001_93
+  - first:
+      213: 1850805944159146208
+    second: Layer05_Foreground_v001_94
+  - first:
+      213: -195376780977610532
+    second: Layer05_Foreground_v001_95
+  - first:
+      213: 988822102456157048
+    second: Layer05_Foreground_v001_96
+  - first:
+      213: 50820242907851462
+    second: Layer05_Foreground_v001_97
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1550
+        width: 70
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f74b78c4d238bd20800000000000000
+      internalID: 3294439016899495920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1629
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52040d713cbb62fb0800000000000000
+      internalID: -4672841116757770203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_2
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1560
+        width: 67
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67161dce2e804da40800000000000000
+      internalID: 5391944424598102390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_3
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1615
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c1964b5e0558c70800000000000000
+      internalID: 8972666780110101556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_4
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1358
+        width: 340
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d508519ea4738f0800000000000000
+      internalID: -560897263635768029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_5
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 1576
+        width: 78
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e93f385f24877d90800000000000000
+      internalID: -7100060948647429664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1597
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b31c609a15904ab90800000000000000
+      internalID: -7231644855317380805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_7
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1396
+        width: 111
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46809be6c568c6660800000000000000
+      internalID: 7380421620906133604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_8
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1599
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac014d864ba351f30800000000000000
+      internalID: 4545603945427636426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_9
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1525
+        width: 48
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e39649ff8033b20800000000000000
+      internalID: 3112841661242752611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1534
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b4cd23ea3c33860800000000000000
+      internalID: 7508560156701772555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1508
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12cb67349f1574c0800000000000000
+      internalID: -4290488348555099617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_12
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1526
+        width: 30
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30441195278b136d0800000000000000
+      internalID: -3012423874474064893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_13
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1534
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3147115f51236bea0800000000000000
+      internalID: -5857439195461487597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 1418
+        width: 70
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ce1d9f1c9f92680800000000000000
+      internalID: -8779211387066782633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_15
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 1517
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb87a966bcc0f3a0800000000000000
+      internalID: -6633577167288038437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_16
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 1512
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f17fc8d13c7e1a0800000000000000
+      internalID: -6780236182296518894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_17
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1551
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e669aa3af851290800000000000000
+      internalID: -7920266436556722647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_18
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 1536
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38958b3514655b50800000000000000
+      internalID: 6581276472827549755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_19
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 1549
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6980040dcef4fc610800000000000000
+      internalID: 1643620267538253974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_20
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1487
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdffed7249978cb0800000000000000
+      internalID: -4861748761863389712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_21
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1444
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72c7295c78e5c090800000000000000
+      internalID: -8014744341066562949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_22
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1501
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ab382a68625e7b50800000000000000
+      internalID: 6592797512928082855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_23
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1496
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78559829215434080800000000000000
+      internalID: -9204437267344960121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_24
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 1476
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7abdb2aa9b7aed70800000000000000
+      internalID: 9073200303376808570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_25
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1432
+        width: 48
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1d4176ac2643f3e0800000000000000
+      internalID: -2021194650174272227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1132
+        width: 143
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dff396ca03a24ad0800000000000000
+      internalID: -2719431958301769776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_27
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1464
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e974abdb023f66800800000000000000
+      internalID: 605438521875515294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_28
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1470
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10ba6f50853056740800000000000000
+      internalID: 5144521825932716801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_29
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1468
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2776c0bbec35ab7f0800000000000000
+      internalID: -596071853306648718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_30
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1438
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a3592df480cf960800000000000000
+      internalID: 7636988207041952271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_31
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1456
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 914dade4fbaf95700800000000000000
+      internalID: 529730130761405465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_32
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1450
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa7237a3f2243b40800000000000000
+      internalID: 5418994681511049890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_33
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1444
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c608f403e2dd65920800000000000000
+      internalID: 2978811394000912492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_34
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1448
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e202fccf6eb8e640800000000000000
+      internalID: 5109543164640887527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_35
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1443
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab9ecf7af7072f00800000000000000
+      internalID: 1091850207128099757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_36
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1421
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709de2c966691bc10800000000000000
+      internalID: 2067599071390914823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_37
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1413
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518f3124039714cc0800000000000000
+      internalID: -3728565768312063979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_38
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1355
+        width: 105
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc871118e5ef54940800000000000000
+      internalID: 5279905820007561420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_39
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1398
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f120d510bcebc20f0800000000000000
+      internalID: -1140326826521066977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_40
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1360
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ac234f798d65750800000000000000
+      internalID: 6293455676445477451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_41
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1259
+        width: 104
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb51d9797ed11df0800000000000000
+      internalID: -211143094193529861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_42
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1361
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a03535a6787d4df10800000000000000
+      internalID: 2293695086842827530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_43
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1355
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3115288ec67446150800000000000000
+      internalID: 5864891147826123027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_44
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1376
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee30dc27350201760800000000000000
+      internalID: 7426471328314360814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_45
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1371
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29e86653afcc676a0800000000000000
+      internalID: -6451744041151852910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_46
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1355
+        width: 62
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be88e4ec1ad0eb30800000000000000
+      internalID: 4314688260655320753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_47
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1339
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11882a494f845f0e0800000000000000
+      internalID: -2236801424616683503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_48
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1259
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d0a44f17d0be250800000000000000
+      internalID: 5974884113718054229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_49
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1139
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b116111addb48260800000000000000
+      internalID: 7099007656929923504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_50
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1134
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e21cc9f86dff9c0800000000000000
+      internalID: -3891155640726245841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_51
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 1132
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f8cede11c3d8bb0800000000000000
+      internalID: -4932219969197011089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_52
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1168
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3016f77847c642e80800000000000000
+      internalID: -8204313373416922877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_53
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1293
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae74ada0938d9820800000000000000
+      internalID: 2926639990272458406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_54
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1261
+        width: 58
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc2d02813b6c9470800000000000000
+      internalID: 8402708865145973960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_55
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 1167
+        width: 81
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ffafc1b2ef3d3d0800000000000000
+      internalID: -3182921050497548430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_56
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 1156
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd1a97ec23b031a0800000000000000
+      internalID: -6831763629275472385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_57
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1062
+        width: 50
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80e565a6b2619b50800000000000000
+      internalID: 6598163465672974478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_58
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1309
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463f2ca2f7480b240800000000000000
+      internalID: 4805486484117451620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_59
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1116
+        width: 54
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed6b3a063e2dc0b80800000000000000
+      internalID: -8427128928696289570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_60
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1195
+        width: 40
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6018cd967a9a25360800000000000000
+      internalID: 7156969294345830662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_61
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 964
+        width: 122
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ca015b24ae841730800000000000000
+      internalID: 3968954007372761801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_62
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1275
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82bfe88c95fd12a0800000000000000
+      internalID: -6764981012579503477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_63
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 1132
+        width: 120
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e549133fd40f66df0800000000000000
+      internalID: -187198116906036130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_64
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1261
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee489a4f8d4aea5e0800000000000000
+      internalID: -1896397141351758610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_65
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 1124
+        width: 104
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36412450027a14ba0800000000000000
+      internalID: -6106415863768673181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_66
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1203
+        width: 91
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab8420ef393f0020800000000000000
+      internalID: 2310128080370568098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_67
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 1155
+        width: 11
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867cff4910004dec0800000000000000
+      internalID: -3543207000038979736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1015
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b225c3044e654d00800000000000000
+      internalID: 956291734286181042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_69
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1082
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c00319dcd44acdb0800000000000000
+      internalID: -4770925139920224056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_70
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1016
+        width: 96
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59dc24dc4f6fcefb0800000000000000
+      internalID: -4617043986685440619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_71
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1084
+        width: 9
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb3222267d847ed0800000000000000
+      internalID: -2417151561472787525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_72
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1098
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716b24888d78060f0800000000000000
+      internalID: -1125750542773864937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_73
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 982
+        width: 74
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ace3bdd1aeba23f0800000000000000
+      internalID: -924717171052647261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_74
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 1091
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c7f45b919ae08970800000000000000
+      internalID: 8755255586705438658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_75
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 1096
+        width: 26
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011d82365fb614290800000000000000
+      internalID: -7907920769011101424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_76
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1074
+        width: 35
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e40aa851f41284f0800000000000000
+      internalID: -828076354675538716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_77
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 964
+        width: 53
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad83431726c2c9eb0800000000000000
+      internalID: -4711842308818716454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_78
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1020
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00c332b080d14da0800000000000000
+      internalID: -5962255180497698805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_79
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1042
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68073c3c1c7f05010800000000000000
+      internalID: 1175711914328813702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_80
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 851
+        width: 224
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f800c336144d3c680800000000000000
+      internalID: -8735905474865790833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_81
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1056
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b038f5a796c947360800000000000000
+      internalID: 7166524883891880715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_82
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 962
+        width: 40
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1e3d2281a0dd550800000000000000
+      internalID: 6187112561856733686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_83
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 1002
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da91cf046af353b0800000000000000
+      internalID: -5524797010185446701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_84
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 966
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d5405b47af81b10800000000000000
+      internalID: 1952585817625222414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_85
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1018
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14cddc3767d41bb40800000000000000
+      internalID: 5454225794866732097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_86
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1016
+        width: 32
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d68a506c89165fd0800000000000000
+      internalID: -2353665664551844138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_87
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1008
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b1ac8216cdb18c0800000000000000
+      internalID: -4027383131898504381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_88
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 996
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a7d3102c4f58f30800000000000000
+      internalID: 4577333710373616287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_89
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 998
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b97232caa4ba25c0800000000000000
+      internalID: -4239377453720372816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_90
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 962
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b2e4d65cf0ac90c0800000000000000
+      internalID: -4567598916411530574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_91
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 975
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f4b97dc26c4357e0800000000000000
+      internalID: -1777993440643402503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_92
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 941
+        height: 963
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664884b276fb1fb20800000000000000
+      internalID: 3166522462846878822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_93
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 936
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd15e182f66eed070800000000000000
+      internalID: 8133191342166528479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_94
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 931
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e099c143326fa910800000000000000
+      internalID: 1850805944159146208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_95
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 937
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd068745ad1e94df0800000000000000
+      internalID: -195376780977610532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_96
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 937
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87344f2967009bd00800000000000000
+      internalID: 988822102456157048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer05_Foreground_v001_97
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 938
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6caebedddbc84b000800000000000000
+      internalID: 50820242907851462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Layer05_Foreground_v001_0: 3294439016899495920
+      Layer05_Foreground_v001_1: -4672841116757770203
+      Layer05_Foreground_v001_10: 7508560156701772555
+      Layer05_Foreground_v001_11: -4290488348555099617
+      Layer05_Foreground_v001_12: -3012423874474064893
+      Layer05_Foreground_v001_13: -5857439195461487597
+      Layer05_Foreground_v001_14: -8779211387066782633
+      Layer05_Foreground_v001_15: -6633577167288038437
+      Layer05_Foreground_v001_16: -6780236182296518894
+      Layer05_Foreground_v001_17: -7920266436556722647
+      Layer05_Foreground_v001_18: 6581276472827549755
+      Layer05_Foreground_v001_19: 1643620267538253974
+      Layer05_Foreground_v001_2: 5391944424598102390
+      Layer05_Foreground_v001_20: -4861748761863389712
+      Layer05_Foreground_v001_21: -8014744341066562949
+      Layer05_Foreground_v001_22: 6592797512928082855
+      Layer05_Foreground_v001_23: -9204437267344960121
+      Layer05_Foreground_v001_24: 9073200303376808570
+      Layer05_Foreground_v001_25: -2021194650174272227
+      Layer05_Foreground_v001_26: -2719431958301769776
+      Layer05_Foreground_v001_27: 605438521875515294
+      Layer05_Foreground_v001_28: 5144521825932716801
+      Layer05_Foreground_v001_29: -596071853306648718
+      Layer05_Foreground_v001_3: 8972666780110101556
+      Layer05_Foreground_v001_30: 7636988207041952271
+      Layer05_Foreground_v001_31: 529730130761405465
+      Layer05_Foreground_v001_32: 5418994681511049890
+      Layer05_Foreground_v001_33: 2978811394000912492
+      Layer05_Foreground_v001_34: 5109543164640887527
+      Layer05_Foreground_v001_35: 1091850207128099757
+      Layer05_Foreground_v001_36: 2067599071390914823
+      Layer05_Foreground_v001_37: -3728565768312063979
+      Layer05_Foreground_v001_38: 5279905820007561420
+      Layer05_Foreground_v001_39: -1140326826521066977
+      Layer05_Foreground_v001_4: -560897263635768029
+      Layer05_Foreground_v001_40: 6293455676445477451
+      Layer05_Foreground_v001_41: -211143094193529861
+      Layer05_Foreground_v001_42: 2293695086842827530
+      Layer05_Foreground_v001_43: 5864891147826123027
+      Layer05_Foreground_v001_44: 7426471328314360814
+      Layer05_Foreground_v001_45: -6451744041151852910
+      Layer05_Foreground_v001_46: 4314688260655320753
+      Layer05_Foreground_v001_47: -2236801424616683503
+      Layer05_Foreground_v001_48: 5974884113718054229
+      Layer05_Foreground_v001_49: 7099007656929923504
+      Layer05_Foreground_v001_5: -7100060948647429664
+      Layer05_Foreground_v001_50: -3891155640726245841
+      Layer05_Foreground_v001_51: -4932219969197011089
+      Layer05_Foreground_v001_52: -8204313373416922877
+      Layer05_Foreground_v001_53: 2926639990272458406
+      Layer05_Foreground_v001_54: 8402708865145973960
+      Layer05_Foreground_v001_55: -3182921050497548430
+      Layer05_Foreground_v001_56: -6831763629275472385
+      Layer05_Foreground_v001_57: 6598163465672974478
+      Layer05_Foreground_v001_58: 4805486484117451620
+      Layer05_Foreground_v001_59: -8427128928696289570
+      Layer05_Foreground_v001_6: -7231644855317380805
+      Layer05_Foreground_v001_60: 7156969294345830662
+      Layer05_Foreground_v001_61: 3968954007372761801
+      Layer05_Foreground_v001_62: -6764981012579503477
+      Layer05_Foreground_v001_63: -187198116906036130
+      Layer05_Foreground_v001_64: -1896397141351758610
+      Layer05_Foreground_v001_65: -6106415863768673181
+      Layer05_Foreground_v001_66: 2310128080370568098
+      Layer05_Foreground_v001_67: -3543207000038979736
+      Layer05_Foreground_v001_68: 956291734286181042
+      Layer05_Foreground_v001_69: -4770925139920224056
+      Layer05_Foreground_v001_7: 7380421620906133604
+      Layer05_Foreground_v001_70: -4617043986685440619
+      Layer05_Foreground_v001_71: -2417151561472787525
+      Layer05_Foreground_v001_72: -1125750542773864937
+      Layer05_Foreground_v001_73: -924717171052647261
+      Layer05_Foreground_v001_74: 8755255586705438658
+      Layer05_Foreground_v001_75: -7907920769011101424
+      Layer05_Foreground_v001_76: -828076354675538716
+      Layer05_Foreground_v001_77: -4711842308818716454
+      Layer05_Foreground_v001_78: -5962255180497698805
+      Layer05_Foreground_v001_79: 1175711914328813702
+      Layer05_Foreground_v001_8: 4545603945427636426
+      Layer05_Foreground_v001_80: -8735905474865790833
+      Layer05_Foreground_v001_81: 7166524883891880715
+      Layer05_Foreground_v001_82: 6187112561856733686
+      Layer05_Foreground_v001_83: -5524797010185446701
+      Layer05_Foreground_v001_84: 1952585817625222414
+      Layer05_Foreground_v001_85: 5454225794866732097
+      Layer05_Foreground_v001_86: -2353665664551844138
+      Layer05_Foreground_v001_87: -4027383131898504381
+      Layer05_Foreground_v001_88: 4577333710373616287
+      Layer05_Foreground_v001_89: -4239377453720372816
+      Layer05_Foreground_v001_9: 3112841661242752611
+      Layer05_Foreground_v001_90: -4567598916411530574
+      Layer05_Foreground_v001_91: -1777993440643402503
+      Layer05_Foreground_v001_92: 3166522462846878822
+      Layer05_Foreground_v001_93: 8133191342166528479
+      Layer05_Foreground_v001_94: 1850805944159146208
+      Layer05_Foreground_v001_95: -195376780977610532
+      Layer05_Foreground_v001_96: 988822102456157048
+      Layer05_Foreground_v001_97: 50820242907851462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

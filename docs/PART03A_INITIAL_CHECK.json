@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"canvas\": \"Runtime ScreenSpaceOverlay, 900x1600 match .5\",\n    \"root\": \"Home\",\n    \"children\": [\n      \"Home\",\n      \"Background\",\n      \"WorldDecorations\",\n      \"PotionDisplay\",\n      \"WizardCat\",\n      \"Character\",\n      \"BreathingRig\",\n      \"WandBackPivot\",\n      \"WandArt\",\n      \"Body\",\n      \"BlinkOverlay\",\n      \"LeftClosedEye\",\n      \"RightClosedEye\",\n      \"WandFrontPivot\",\n      \"HandOcclusionMask\",\n      \"WandArt\",\n      \"TipGlow\",\n      \"MagicFX\",\n      \"UI\",\n      \"Effects\"\n    ],\n    \"presenter\": true\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

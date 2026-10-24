@@ -1,0 +1,1 @@
+Real Home render, two shader phases, other scene transforms frozen: cyan water changed pixels=1087, amber window/light changed pixels=9187

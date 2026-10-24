@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: e0d50b75742d2fd40ae6e1b99e803d6e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8614962847617828447
+    second: Layer06_Atmosphere_v001_0
+  - first:
+      213: -2962172344254452591
+    second: Layer06_Atmosphere_v001_1
+  - first:
+      213: -8033344496082821243
+    second: Layer06_Atmosphere_v001_2
+  - first:
+      213: 4180654652308197147
+    second: Layer06_Atmosphere_v001_3
+  - first:
+      213: -1617237662810910580
+    second: Layer06_Atmosphere_v001_4
+  - first:
+      213: 2284595832389159630
+    second: Layer06_Atmosphere_v001_5
+  - first:
+      213: 4602774382955255282
+    second: Layer06_Atmosphere_v001_6
+  - first:
+      213: 4291333937428189256
+    second: Layer06_Atmosphere_v001_7
+  - first:
+      213: 3859172629430366210
+    second: Layer06_Atmosphere_v001_8
+  - first:
+      213: -7449831927438127634
+    second: Layer06_Atmosphere_v001_9
+  - first:
+      213: 4305933438356683057
+    second: Layer06_Atmosphere_v001_10
+  - first:
+      213: -8714585135471354576
+    second: Layer06_Atmosphere_v001_11
+  - first:
+      213: 5121967591183705219
+    second: Layer06_Atmosphere_v001_12
+  - first:
+      213: -8359701842582119957
+    second: Layer06_Atmosphere_v001_13
+  - first:
+      213: -7958922962010281765
+    second: Layer06_Atmosphere_v001_14
+  - first:
+      213: -2031954571013470379
+    second: Layer06_Atmosphere_v001_15
+  - first:
+      213: 2930009598761909261
+    second: Layer06_Atmosphere_v001_16
+  - first:
+      213: 6268125375484411322
+    second: Layer06_Atmosphere_v001_17
+  - first:
+      213: 1198770266214042782
+    second: Layer06_Atmosphere_v001_18
+  - first:
+      213: -4216727107245216422
+    second: Layer06_Atmosphere_v001_19
+  - first:
+      213: 5661598565438962718
+    second: Layer06_Atmosphere_v001_20
+  - first:
+      213: 5023565510719321124
+    second: Layer06_Atmosphere_v001_21
+  - first:
+      213: 4688119155810905911
+    second: Layer06_Atmosphere_v001_22
+  - first:
+      213: -707734914534279557
+    second: Layer06_Atmosphere_v001_23
+  - first:
+      213: 627172767856324810
+    second: Layer06_Atmosphere_v001_24
+  - first:
+      213: -6339176431578694596
+    second: Layer06_Atmosphere_v001_25
+  - first:
+      213: -1445100881532295772
+    second: Layer06_Atmosphere_v001_26
+  - first:
+      213: -5076646960911713207
+    second: Layer06_Atmosphere_v001_27
+  - first:
+      213: 6114527298401601306
+    second: Layer06_Atmosphere_v001_28
+  - first:
+      213: 8637089122175338566
+    second: Layer06_Atmosphere_v001_29
+  - first:
+      213: -3290767508323239979
+    second: Layer06_Atmosphere_v001_30
+  - first:
+      213: -4265190149829952918
+    second: Layer06_Atmosphere_v001_31
+  - first:
+      213: -7454926184886538764
+    second: Layer06_Atmosphere_v001_32
+  - first:
+      213: -3376070079403620815
+    second: Layer06_Atmosphere_v001_33
+  - first:
+      213: -7194953139299357492
+    second: Layer06_Atmosphere_v001_34
+  - first:
+      213: 5028162834487003406
+    second: Layer06_Atmosphere_v001_35
+  - first:
+      213: -769952276775524413
+    second: Layer06_Atmosphere_v001_36
+  - first:
+      213: -6813159150024244323
+    second: Layer06_Atmosphere_v001_37
+  - first:
+      213: -3476000980238055905
+    second: Layer06_Atmosphere_v001_38
+  - first:
+      213: 1957308740770978674
+    second: Layer06_Atmosphere_v001_39
+  - first:
+      213: -7936648158767081321
+    second: Layer06_Atmosphere_v001_40
+  - first:
+      213: -5124869643642280862
+    second: Layer06_Atmosphere_v001_41
+  - first:
+      213: -6278092832674245811
+    second: Layer06_Atmosphere_v001_42
+  - first:
+      213: -6610198956111150183
+    second: Layer06_Atmosphere_v001_43
+  - first:
+      213: 1279050273394698612
+    second: Layer06_Atmosphere_v001_44
+  - first:
+      213: -3944256421093392981
+    second: Layer06_Atmosphere_v001_45
+  - first:
+      213: -4043343400167595231
+    second: Layer06_Atmosphere_v001_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_0
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 1690
+        width: 137
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a93d822fe0817880800000000000000
+      internalID: -8614962847617828447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_1
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1865
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c2a3972ff34e6d0800000000000000
+      internalID: -2962172344254452591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_2
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1763
+        width: 203
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58fd4a84eb3d38090800000000000000
+      internalID: -8033344496082821243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_3
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 1841
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f0a67914ba40a30800000000000000
+      internalID: 4180654652308197147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_4
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1841
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80d5c60aea6e89e0800000000000000
+      internalID: -1617237662810910580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_5
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1826
+        width: 39
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecac4e42ec384bf10800000000000000
+      internalID: 2284595832389159630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1724
+        width: 19
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f5d05d2ae650ef30800000000000000
+      internalID: 4602774382955255282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_7
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1708
+        width: 42
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8405cf8ca71ed8b30800000000000000
+      internalID: 4291333937428189256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1690
+        width: 72
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2007b184f098e8530800000000000000
+      internalID: 3859172629430366210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1714
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedcfa83551ec9890800000000000000
+      internalID: -7449831927438127634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_10
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1641
+        width: 78
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139f9bbf5afb1cb30800000000000000
+      internalID: 4305933438356683057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1747
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d945bbdf29f0780800000000000000
+      internalID: -8714585135471354576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_12
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1708
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38461970362e41740800000000000000
+      internalID: 5121967591183705219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_13
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1715
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be9d6bc377f5cfb80800000000000000
+      internalID: -8359701842582119957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_14
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1740
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd86da6fbb93c8190800000000000000
+      internalID: -7958922962010281765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_15
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1715
+        width: 35
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 557c20b551c0dc3e0800000000000000
+      internalID: -2031954571013470379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_16
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1692
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c30bac43c79a820800000000000000
+      internalID: 2930009598761909261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_17
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 1786
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abd3c5da1dadcf650800000000000000
+      internalID: 6268125375484411322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_18
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1722
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c0dfca433e2a010800000000000000
+      internalID: 1198770266214042782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_19
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1806
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5d63e1890d2b75c0800000000000000
+      internalID: -4216727107245216422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_20
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1748
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1cb9d916e9029e40800000000000000
+      internalID: 5661598565438962718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_21
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1716
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424345c473a47b540800000000000000
+      internalID: 5023565510719321124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_22
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 1694
+        width: 78
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73f20d2988b8f0140800000000000000
+      internalID: 4688119155810905911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_23
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1720
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76fa0058de9d26f0800000000000000
+      internalID: -707734914534279557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_24
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1740
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0ffd83f4a24b800800000000000000
+      internalID: 627172767856324810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_25
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1748
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c39333f98b608a0800000000000000
+      internalID: -6339176431578694596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_26
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 1778
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5e9ab9768f1fbe0800000000000000
+      internalID: -1445100881532295772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_27
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 1748
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c7acc7c702c89b0800000000000000
+      internalID: -5076646960911713207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_28
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 1764
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1708a68e2a2bd450800000000000000
+      internalID: 6114527298401601306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_29
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1632
+        width: 52
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648c6ac9bca1dd770800000000000000
+      internalID: 8637089122175338566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_30
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 1692
+        width: 59
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d7fefbe268d452d0800000000000000
+      internalID: -3290767508323239979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_31
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 1709
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6af3eb18200fc4c0800000000000000
+      internalID: -4265190149829952918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_32
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1708
+        width: 82
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd641bf128ca8890800000000000000
+      internalID: -7454926184886538764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_33
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 1650
+        width: 41
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1368254662ac521d0800000000000000
+      internalID: -3376070079403620815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_34
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1740
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccea748d34662c90800000000000000
+      internalID: -7194953139299357492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_35
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1756
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e094b66257f97c540800000000000000
+      internalID: 5028162834487003406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_36
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1768
+        width: 56
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7aac0db749055f0800000000000000
+      internalID: -769952276775524413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_37
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 1675
+        width: 52
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d934a98c9dbc271a0800000000000000
+      internalID: -6813159150024244323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_38
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1761
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16400e6683c2cfc0800000000000000
+      internalID: -3476000980238055905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 841
+        height: 1677
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27bdb61fde1c92b10800000000000000
+      internalID: 1957308740770978674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_40
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1657
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7981e6dbc8c5bd190800000000000000
+      internalID: -7936648158767081321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_41
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1673
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264e48a363ec0e8b0800000000000000
+      internalID: -5124869643642280862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_42
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 1675
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d439689d4dbbfd8a0800000000000000
+      internalID: -6278092832674245811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_43
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1659
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 993465e521bd344a0800000000000000
+      internalID: -6610198956111150183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_44
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1675
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 479ae8b627910c110800000000000000
+      internalID: 1279050273394698612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_45
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1653
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: badbcadbeaf2349c0800000000000000
+      internalID: -3944256421093392981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer06_Atmosphere_v001_46
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1667
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1232710a99823e7c0800000000000000
+      internalID: -4043343400167595231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Layer06_Atmosphere_v001_0: -8614962847617828447
+      Layer06_Atmosphere_v001_1: -2962172344254452591
+      Layer06_Atmosphere_v001_10: 4305933438356683057
+      Layer06_Atmosphere_v001_11: -8714585135471354576
+      Layer06_Atmosphere_v001_12: 5121967591183705219
+      Layer06_Atmosphere_v001_13: -8359701842582119957
+      Layer06_Atmosphere_v001_14: -7958922962010281765
+      Layer06_Atmosphere_v001_15: -2031954571013470379
+      Layer06_Atmosphere_v001_16: 2930009598761909261
+      Layer06_Atmosphere_v001_17: 6268125375484411322
+      Layer06_Atmosphere_v001_18: 1198770266214042782
+      Layer06_Atmosphere_v001_19: -4216727107245216422
+      Layer06_Atmosphere_v001_2: -8033344496082821243
+      Layer06_Atmosphere_v001_20: 5661598565438962718
+      Layer06_Atmosphere_v001_21: 5023565510719321124
+      Layer06_Atmosphere_v001_22: 4688119155810905911
+      Layer06_Atmosphere_v001_23: -707734914534279557
+      Layer06_Atmosphere_v001_24: 627172767856324810
+      Layer06_Atmosphere_v001_25: -6339176431578694596
+      Layer06_Atmosphere_v001_26: -1445100881532295772
+      Layer06_Atmosphere_v001_27: -5076646960911713207
+      Layer06_Atmosphere_v001_28: 6114527298401601306
+      Layer06_Atmosphere_v001_29: 8637089122175338566
+      Layer06_Atmosphere_v001_3: 4180654652308197147
+      Layer06_Atmosphere_v001_30: -3290767508323239979
+      Layer06_Atmosphere_v001_31: -4265190149829952918
+      Layer06_Atmosphere_v001_32: -7454926184886538764
+      Layer06_Atmosphere_v001_33: -3376070079403620815
+      Layer06_Atmosphere_v001_34: -7194953139299357492
+      Layer06_Atmosphere_v001_35: 5028162834487003406
+      Layer06_Atmosphere_v001_36: -769952276775524413
+      Layer06_Atmosphere_v001_37: -6813159150024244323
+      Layer06_Atmosphere_v001_38: -3476000980238055905
+      Layer06_Atmosphere_v001_39: 1957308740770978674
+      Layer06_Atmosphere_v001_4: -1617237662810910580
+      Layer06_Atmosphere_v001_40: -7936648158767081321
+      Layer06_Atmosphere_v001_41: -5124869643642280862
+      Layer06_Atmosphere_v001_42: -6278092832674245811
+      Layer06_Atmosphere_v001_43: -6610198956111150183
+      Layer06_Atmosphere_v001_44: 1279050273394698612
+      Layer06_Atmosphere_v001_45: -3944256421093392981
+      Layer06_Atmosphere_v001_46: -4043343400167595231
+      Layer06_Atmosphere_v001_5: 2284595832389159630
+      Layer06_Atmosphere_v001_6: 4602774382955255282
+      Layer06_Atmosphere_v001_7: 4291333937428189256
+      Layer06_Atmosphere_v001_8: 3859172629430366210
+      Layer06_Atmosphere_v001_9: -7449831927438127634
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
