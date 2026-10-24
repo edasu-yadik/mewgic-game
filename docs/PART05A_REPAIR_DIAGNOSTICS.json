@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"message\": \"Assets\\\\Scripts\\\\Presentation\\\\PremiumPlayButton.cs(10,35): warning CS0108: 'PremiumPlayButton.light' hides inherited member 'Component.light'. Use the new keyword if hiding was intended.\\n\",\n      \"mode\": 266240\n    },\n    {\n      \"message\": \"Assets\\\\Editor\\\\GameplayVisualTests.cs(20,208): error CS1061: 'GameObject' does not contain a definition for 'childCount' and no accessible extension method 'childCount' accepting a first argument of type 'GameObject' could be found (are you missing a using directive or an assembly reference?)\\n\",\n      \"mode\": 272384\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

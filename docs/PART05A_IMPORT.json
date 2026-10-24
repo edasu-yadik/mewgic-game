@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"Gameplay_Backdrop_v001\",\n      \"size\": \"(948.00, 1660.00)\",\n      \"pivot\": \"(474.00, 830.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Gameplay_Shelf_v001\",\n      \"size\": \"(2048.00, 746.00)\",\n      \"pivot\": \"(1024.00, 373.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"Gameplay_Foreground_v001\",\n      \"size\": \"(941.00, 1672.00)\",\n      \"pivot\": \"(470.50, 836.00)\",\n      \"format\": \"ASTC_4x4\"\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

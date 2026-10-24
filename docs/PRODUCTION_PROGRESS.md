@@ -18,3 +18,9 @@ Rapor:ProductionReports/PART04F.md. Sonraki aşama öncesi04D eksikliği kapanma
 
 04F Git teslimi:02b2987 private origin/master'a gönderildi ve uzak SHA doğrulandı.
 Bu teslim teknik denetim/küçük düzeltmelerdir;Home final sanat onayı değildir.
+
+## PART05A — Gameplay çevre altyapısı
+Kale/şelale arka planı,ayrı raf ve kenar dekoru,mevcut kedi prefabı ve dinamik
+slot sistemi tamamlandı. Dört şişelik bölüm çalışıyor;şişe/UI sanatı prototip
+olarak korundu.2755 karma geometri/Play kontrolü,12 model ve smoke geçti;
+Console0/0,3 oran/safe-area doğrulandı. Home aynı. Rapor ProductionReports/PART05A.md.

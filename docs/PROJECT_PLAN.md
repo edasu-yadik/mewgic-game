@@ -138,3 +138,9 @@ Küçük efekt/kontrast/dokunma iyileştirmeleri doğrulandı.390 entegrasyon,12
 ve smoke başarılı;gerçek Game View/referans tam ekran karşılaştırması kaydedildi.
 Home'a final sanat onayı verilmedi:04D yan menüleri eksik ve raporlanan kompozisyon
 farkları sürüyor. Son rapor ProductionReports/PART04F.md.
+
+## PART05A — Gameplay görsel altyapısı
+Çevre,taş raflar,kedi ve1–24 şişe slot altyapısı hazır. Mevcut4 şişelik bölüm,
+dökme kilidi,Undo/Restart/Win/Replay/geçişler test edildi.2755 karma kontrol,
+12 model ve smoke başarılı. Home ve mevcut kaynaklar korunur. Şişe ve kontrol
+sanatının yenilenmesi bu partın kapsamı dışıdır. ProductionReports/PART05A.md.

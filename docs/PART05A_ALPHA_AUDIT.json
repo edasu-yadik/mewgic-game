@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"success\": true,\n    \"assets\": [\n      {\n        \"name\": \"Gameplay_Shelf_v001\",\n        \"width\": 2078,\n        \"height\": 757,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"partialAlphaPixels\": 598305,\n        \"visiblePixels\": 555115,\n        \"borderMaxAlpha\": 1,\n        \"pivot\": \"(1014.14, 156.69)\",\n        \"android\": \"ASTC_4x4\",\n        \"mipmapEnabled\": false,\n        \"isReadable\": false,\n        \"astcBytes\": 1580800\n      },\n      {\n        \"name\": \"Gameplay_Foreground_v001\",\n        \"width\": 941,\n        \"height\": 1672,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"partialAlphaPixels\": 380963,\n        \"visiblePixels\": 317707,\n        \"borderMaxAlpha\": 254,\n        \"pivot\": \"(470.50, 836.00)\",\n        \"android\": \"ASTC_4x4\",\n        \"mipmapEnabled\": false,\n        \"isReadable\": false,\n        \"astcBytes\": 1578368\n      }\n    ],\n    \"totalPNGBytes\": 2113543,\n    \"totalASTCBytes\": 3159168\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

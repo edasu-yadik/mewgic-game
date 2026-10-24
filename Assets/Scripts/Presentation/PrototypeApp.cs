@@ -12,6 +12,7 @@ namespace Mewgic
     public sealed class PrototypeApp : MonoBehaviour
     {
         [SerializeField] HomeCharacterPresenter homeCharacter;
+        GameplayPresentation gameplayVisual;
         [Serializable] public class BottleData { public int[] layers; }
         [Serializable] public class LevelData { public BottleData[] bottles; }
         static readonly Color Night = new Color32(16,22,46,255);
@@ -121,6 +122,7 @@ namespace Mewgic
             Label(win.transform,"Success","BÜYÜ TAMAMLANDI!",44,Gold,new Vector2(.07f,.65f),new Vector2(.93f,.9f));
             Label(win.transform,"Message","Renkler yerini buldu.",28,Color.white,new Vector2(.1f,.43f),new Vector2(.9f,.64f));
             Button(win.transform,"Replay","TEKRAR OYNA",new Vector2(.12f,.12f),new Vector2(.88f,.34f),Reset);
+            gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             Refresh();
         }
         void Reset(){if(busy)return;puzzle.Restart();selected=-1;status.text="Önce kaynak, sonra hedef şişeye dokun.";Refresh();}
@@ -142,6 +144,7 @@ namespace Mewgic
                 Box(b,"Neck",new Color(.7f,.85f,1,.45f),new Vector2(.28f,.97f),new Vector2(.72f,1.10f)); Box(b,"Rim",Gold,new Vector2(.2f,1.08f),new Vector2(.8f,1.12f));
                 Label(b,"Number",(i+1).ToString(),22,Gold,new Vector2(.2f,-.19f),new Vector2(.8f,-.02f));
             }
+            if(gameplayVisual!=null)gameplayVisual.Bind(bottleViews);
             moves.text="HAMLE  "+puzzle.Moves;
             undo.interactable=puzzle.CanUndo&&!busy;restart.interactable=!busy;home.interactable=!busy;
             win.SetActive(puzzle.Won&&!busy);
@@ -159,6 +162,7 @@ namespace Mewgic
         }
         IEnumerator AnimatePour(int source,int target,int color)
         {
+            if(gameplayVisual!=null)gameplayVisual.IsAnimating=true;
             busy=true;undo.interactable=restart.interactable=home.interactable=false;
             var a=bottleViews[source];var b=bottleViews[target];
             var start=a.localPosition;var destination=b.localPosition+new Vector3(0,90,0);
@@ -167,6 +171,7 @@ namespace Mewgic
             stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.sizeDelta=new Vector2(8,90);stream.localPosition=destination-new Vector3(0,60,0);
             yield return new WaitForSecondsRealtime(.22f);
             Destroy(stream.gameObject);
+            if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
             busy=false;status.text="Güzel hamle!";Refresh();
         }
     }
