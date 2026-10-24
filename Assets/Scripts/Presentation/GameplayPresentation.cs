@@ -16,7 +16,7 @@ namespace Mewgic
         {
             int cols=Columns(count),rows=Mathf.Max(1,Mathf.CeilToInt(count/(float)cols));
             float cw=size.x/cols,ch=size.y/rows;
-            float height=Mathf.Min(ch*.65f,cw*.70f/.58f),width=height*.58f;
+            float height=Mathf.Min(ch*.80f,cw*.70f/.42f),width=height*.42f;
             int row=index/cols,col=index%cols;int inRow=Mathf.Min(cols,count-row*cols);
             float cx=(col+.5f)*cw+(cols-inRow)*cw*.5f;
             float y=size.y-(row+1)*ch+ch*.18f;

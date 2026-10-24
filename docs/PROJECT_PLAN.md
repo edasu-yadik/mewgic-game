@@ -144,3 +144,9 @@ farkları sürüyor. Son rapor ProductionReports/PART04F.md.
 dökme kilidi,Undo/Restart/Win/Replay/geçişler test edildi.2755 karma kontrol,
 12 model ve smoke başarılı. Home ve mevcut kaynaklar korunur. Şişe ve kontrol
 sanatının yenilenmesi bu partın kapsamı dışıdır. ProductionReports/PART05A.md.
+
+## PART05B — Dinamik cam şişeler
+Gameplay cam/sıvı ayrımı ve kilitli aktarım animasyonu hazır;3183 karma kontrol,
+12 model ve mevcut smoke başarılı.Home/model/veri korunur.Sıvı görsel cilası
+referansın tüm ayrıntılarını henüz karşılamaz;cihaz testi yapılmadı.
+ProductionReports/PART05B.md.

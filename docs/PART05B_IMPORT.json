@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"width\": 941,\n    \"height\": 1672,\n    \"xmin\": 169,\n    \"xmax\": 771,\n    \"ymin\": 9,\n    \"ymax\": 1662,\n    \"partial\": 715091,\n    \"sprite\": true\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

@@ -26,3 +26,11 @@ olarak korundu.2755 karma geometri/Play kontrolü,12 model ve smoke geçti;
 Console0/0,3 oran/safe-area doğrulandı. Home aynı. Rapor ProductionReports/PART05A.md.
 
 05A Git teslimi:a48ccbf private origin/master'a gönderildi ve uzak SHA doğrulandı.
+
+## PART05B — Etkileşimli Gameplay şişeleri
+Ayrı cam kabuk, modelden dinamik sıvı, seçim yükselmesi, dökme/dönüş ve giriş
+kilidi uygulandı.3183 karma geometri/Play kontrolü,12 model ve mevcut smoke geçti.
+Console0/0;3 oran ve Safe Area doğrulandı.Home ve model/veri aynı.
+Gerçek Game View ve8 karelik GIF hazır.Referansın sıvı ışığı/kırılma ayrıntısı
+henüz tam eşleşmez;final sanat onayı verilmedi.Cihaz performansı ölçülmedi.
+Rapor:ProductionReports/PART05B.md.

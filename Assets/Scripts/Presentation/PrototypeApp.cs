@@ -128,22 +128,21 @@ namespace Mewgic
         void Reset(){if(busy)return;puzzle.Restart();selected=-1;status.text="Önce kaynak, sonra hedef şişeye dokun.";Refresh();}
         void Refresh()
         {
-            foreach(Transform child in board) Destroy(child.gameObject);
-            bottleViews=new RectTransform[puzzle.Count];
-            for(int i=0;i<puzzle.Count;i++)
+            if(bottleViews==null)
             {
-                int index=i, row=i/2,col=i%2;
-                float x=.17f+col*.48f,y=.55f-row*.49f;
-                var b=Box(board,"Bottle "+(i+1),new Color(.55f,.73f,.95f,.18f),new Vector2(x,y),new Vector2(x+.18f,y+.36f));
-                bottleViews[i]=b;
-                var outline=b.gameObject.AddComponent<Outline>();outline.effectColor=selected==i?Gold:new Color(.7f,.85f,1,.8f);outline.effectDistance=new Vector2(3,-3);
-                var hit=b.gameObject.AddComponent<Button>();hit.targetGraphic=b.GetComponent<Image>();b.GetComponent<Image>().raycastTarget=true;hit.onClick.AddListener(()=>Select(index));
-                var layers=puzzle.Bottle(i);
-                for(int j=0;j<layers.Count;j++)Box(b,"Liquid "+j,Colors[layers[j]%Colors.Length],new Vector2(.08f,.03f+j*.215f),new Vector2(.92f,.235f+j*.215f));
-                Box(b,"Glass reflection",new Color(1,1,1,.35f),new Vector2(.13f,.07f),new Vector2(.17f,.88f));
-                Box(b,"Neck",new Color(.7f,.85f,1,.45f),new Vector2(.28f,.97f),new Vector2(.72f,1.10f)); Box(b,"Rim",Gold,new Vector2(.2f,1.08f),new Vector2(.8f,1.12f));
-                Label(b,"Number",(i+1).ToString(),22,Gold,new Vector2(.2f,-.19f),new Vector2(.8f,-.02f));
+                bottleViews=new RectTransform[puzzle.Count];
+                var glass=Resources.Load<Sprite>("Gameplay/Gameplay_GlassShell_v001");
+                for(int i=0;i<puzzle.Count;i++)
+                {
+                    int index=i;
+                    var b=Box(board,"Bottle "+(i+1),Color.clear,Vector2.zero,Vector2.one);
+                    bottleViews[i]=b;
+                    var hit=b.gameObject.AddComponent<Button>();hit.targetGraphic=b.GetComponent<Image>();b.GetComponent<Image>().raycastTarget=true;hit.onClick.AddListener(()=>Select(index));
+                    var view=b.gameObject.AddComponent<GameplayBottleView>();view.Initialize(glass,Colors);
+                    Label(b,"Number",(i+1).ToString(),22,Gold,new Vector2(.2f,-.18f),new Vector2(.8f,-.02f));
+                }
             }
+            for(int i=0;i<puzzle.Count;i++)bottleViews[i].GetComponent<GameplayBottleView>().Present(puzzle.Bottle(i),selected==i);
             if(gameplayVisual!=null)gameplayVisual.Bind(bottleViews);
             moves.text="HAMLE  "+puzzle.Moves;
             undo.interactable=puzzle.CanUndo&&!busy;restart.interactable=!busy;home.interactable=!busy;
@@ -158,19 +157,40 @@ namespace Mewgic
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
             if(amount==0){status.text="Bu şişeye dökülemez. Başka bir hedef seç.";return;}
-            selected=-1;StartCoroutine(AnimatePour(source,target,color));
+            selected=-1;StartCoroutine(AnimatePour(source,target,color,amount));
         }
-        IEnumerator AnimatePour(int source,int target,int color)
+        IEnumerator AnimatePour(int source,int target,int color,int amount)
         {
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=true;
-            busy=true;undo.interactable=restart.interactable=home.interactable=false;
-            var a=bottleViews[source];var b=bottleViews[target];
-            var start=a.localPosition;var destination=b.localPosition+new Vector3(0,90,0);
-            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.25f){a.localPosition=Vector3.Lerp(start,destination,t);a.localRotation=Quaternion.Euler(0,0,Mathf.Lerp(0,-28,t));yield return null;}
+            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="İksir aktarılıyor…";moves.text="HAMLE  "+puzzle.Moves;
+            var sourceView=bottleViews[source].GetComponent<GameplayBottleView>();
+            var targetView=bottleViews[target].GetComponent<GameplayBottleView>();
+            sourceView.SetAnimating(true);targetView.SetAnimating(true);
+            var a=sourceView.Rig;var start=a.position;var returnPosition=bottleViews[source].position;var rotation=a.localRotation;
+            int oldSibling=bottleViews[source].GetSiblingIndex();bottleViews[source].SetAsLastSibling();
+            float direction=bottleViews[target].position.x>=a.position.x?1:-1;
+            var tilt=Quaternion.Euler(0,0,-direction*100);
+            var destination=targetView.Mouth-a.parent.TransformVector(tilt*new Vector3(0,a.rect.height*.46f,0))+a.parent.TransformVector(new Vector3(0,36,0));
+            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.24f){float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(start,destination,e);a.localRotation=Quaternion.Slerp(rotation,tilt,e);yield return null;}
+            a.position=destination;a.localRotation=tilt;
             var stream=Box(board,"Pour stream",Colors[color%Colors.Length],Vector2.zero,Vector2.zero);
-            stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.sizeDelta=new Vector2(8,90);stream.localPosition=destination-new Vector3(0,60,0);
-            yield return new WaitForSecondsRealtime(.22f);
+            stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.pivot=new Vector2(.5f,0);
+            var shine=stream.gameObject.AddComponent<Outline>();shine.effectColor=new Color(1,1,1,.5f);shine.effectDistance=new Vector2(1,0);
+            int sourceCount=sourceView.DisplayedLayers.Length,targetCount=targetView.DisplayedLayers.Length;
+            var receiving=new int[targetCount+amount];System.Array.Copy(targetView.DisplayedLayers,receiving,targetCount);for(int i=targetCount;i<receiving.Length;i++)receiving[i]=color;
+            targetView.Liquid.Layers=receiving;
+            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.32f)
+            {
+                sourceView.Liquid.Volume=sourceCount-amount*t;targetView.Liquid.Volume=targetCount+amount*t;
+                var from=(Vector2)board.InverseTransformPoint(sourceView.Mouth);var to=(Vector2)board.InverseTransformPoint(targetView.Mouth);
+                var delta=from-to;stream.anchoredPosition=to;stream.sizeDelta=new Vector2(4,delta.magnitude);stream.localRotation=Quaternion.Euler(0,0,Mathf.Atan2(delta.y,delta.x)*Mathf.Rad2Deg-90);
+                yield return null;
+            }
             Destroy(stream.gameObject);
+            sourceView.Present(puzzle.Bottle(source),false);targetView.Present(puzzle.Bottle(target),false);
+            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.22f){float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(destination,returnPosition,e);a.localRotation=Quaternion.Slerp(tilt,Quaternion.identity,e);yield return null;}
+            a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(oldSibling);
+            sourceView.SetAnimating(false);targetView.SetAnimating(false);
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
             busy=false;status.text="Güzel hamle!";Refresh();
         }
