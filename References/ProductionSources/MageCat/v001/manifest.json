@@ -1,0 +1,26 @@
+[
+  {
+    "file": "MageCat_FullBody_v001.png",
+    "width": 1122,
+    "height": 1402,
+    "format": "Format32bppArgb",
+    "sha256": "D8A44EA033BCEB839560EF373CD34E33AFC4F6F9BB17037A0615291116CE12B5",
+    "sourceAlpha": true
+  },
+  {
+    "file": "MageCat_NoWand_v001.png",
+    "width": 1122,
+    "height": 1402,
+    "format": "Format32bppArgb",
+    "sha256": "65D1048BFA78172CD2C389E7C163F864C07080386F9FF58DD0AD73650B1D86C7",
+    "sourceAlpha": true
+  },
+  {
+    "file": "MageCat_Wand_v001.png",
+    "width": 1122,
+    "height": 1402,
+    "format": "Format32bppArgb",
+    "sha256": "500F057A2B656F49ED84A032197FC9E11E4915A8547D81CA1BBD74B27402AA5B",
+    "sourceAlpha": true
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"path\": \"Assets/Art/Characters/MageCat/MageCat_FullBody_v001.png\",\n      \"width\": 1122,\n      \"height\": 1402,\n      \"alpha\": true,\n      \"type\": \"Sprite\",\n      \"ppu\": 100\n    },\n    {\n      \"path\": \"Assets/Art/Characters/MageCat/MageCat_NoWand_v001.png\",\n      \"width\": 1122,\n      \"height\": 1402,\n      \"alpha\": true,\n      \"type\": \"Sprite\",\n      \"ppu\": 100\n    },\n    {\n      \"path\": \"Assets/Art/Characters/MageCat/MageCat_Wand_v001.png\",\n      \"width\": 1122,\n      \"height\": 1402,\n      \"alpha\": true,\n      \"type\": \"Sprite\",\n      \"ppu\": 100\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
