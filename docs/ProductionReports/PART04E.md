@@ -36,3 +36,7 @@ PART04E_GAMEVIEW.png gerçek900×1600 ScreenCapture Game View;home-navigation-*.
 ## Git / sonraki aşama
 
 Yalnız doğrulanmış04E dosyaları commit/push edilecek;önceki yerel Blender denemeleri ve ilgisiz dosyalar korunup kapsam dışında bırakılır. Kesin commit ve uzak doğrulama teslim kaydına eklenir. DevControl'e müdahale edilmedi. Sonraki part için kullanıcı talimatı beklenir.
+
+## Teslim doğrulaması
+
+Uygulama commit'i:fb621cba44aa175979c9a6a3b60480d35f319ec3 (feat: add premium home bottom navigation). Private origin/master push başarılı;git ls-remote ile aynı SHA doğrulandı. Kalıcı belge commit'i f8883bc de aynı push ile gönderildi. Bu teslim kaydı ayrı belge commit'i olarak saklanır;oyun dosyaları tekrar değiştirilmez. Sonraki part için teknik altyapı hazır;04D dahil yeni aşama otomatik başlatılmadı.
