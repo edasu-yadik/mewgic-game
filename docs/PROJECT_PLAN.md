@@ -113,3 +113,9 @@ Home'daki düz başlık yerine bağlandı.141 entegrasyon kontrolü geçti; ger�
 Game View ve3 oran/safe-area görüntüleri hazır. Console0/0,önceki114 dosya
 korundu. Ayrı glow/sparkles gereksiz görülerek üretilmedi. Referanstan küçük
 üretim farkları PART04A_REPORT.md içinde. Diğer UI tasarımı bu aşamada değişmedi.
+
+## PART 04B — Premium PLAY
+Normal/Pressed/Glow RGBA sprite'ları Home'a bağlandı. Idle ışık,basılma/kısa
+release ve tek geçiş kilidi hazır.164 kontrol,3 oran/safe-area ve gerçek Game
+View görüntüleri tamamlandı;Console0/0. Logo,kedi,şişeler ve oynanış korunur.
+Referans farkları ve alpha/efekt sınırları PART04B_REPORT.md içinde kayıtlı.

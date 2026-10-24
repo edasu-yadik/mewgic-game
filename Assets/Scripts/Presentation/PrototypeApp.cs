@@ -93,7 +93,7 @@ namespace Mewgic
             Label(safe,"Subtitle","BİR ŞİŞE DOLUSU SİHİR",25,Color.white,new Vector2(.1f,.71f),new Vector2(.9f,.77f));
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
             var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));
-            if(homeCharacter != null) homeCharacter.Bind(play);
+            if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.75f,.72f,.87f),new Vector2(.1f,.08f),new Vector2(.9f,.14f));
         }
         public static Puzzle LoadLevel()

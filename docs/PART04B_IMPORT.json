@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"PlayButton_Normal\",\n      \"size\": \"(1967.00, 800.00)\",\n      \"pivot\": \"(983.50, 400.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"PlayButton_Pressed\",\n      \"size\": \"(1966.00, 800.00)\",\n      \"pivot\": \"(983.00, 400.00)\",\n      \"format\": \"ASTC_4x4\"\n    },\n    {\n      \"name\": \"PlayButton_Glow\",\n      \"size\": \"(1966.00, 800.00)\",\n      \"pivot\": \"(983.00, 400.00)\",\n      \"format\": \"ASTC_4x4\"\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

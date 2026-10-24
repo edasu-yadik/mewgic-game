@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"success\": true,\n    \"assets\": [\n      {\n        \"name\": \"PlayButton_Normal\",\n        \"width\": 1967,\n        \"height\": 800,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"partialAlphaPixels\": 1047499,\n        \"visiblePixels\": 1031991,\n        \"borderMaxAlpha\": 1,\n        \"pivot\": \"(983.50, 400.00)\",\n        \"android\": \"ASTC_4x4\",\n        \"mipmapEnabled\": false,\n        \"isReadable\": false,\n        \"astcBytes\": 1574400\n      },\n      {\n        \"name\": \"PlayButton_Pressed\",\n        \"width\": 1966,\n        \"height\": 800,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"partialAlphaPixels\": 1063206,\n        \"visiblePixels\": 1045536,\n        \"borderMaxAlpha\": 0,\n        \"pivot\": \"(983.00, 400.00)\",\n        \"android\": \"ASTC_4x4\",\n        \"mipmapEnabled\": false,\n        \"isReadable\": false,\n        \"astcBytes\": 1574400\n      },\n      {\n        \"name\": \"PlayButton_Glow\",\n        \"width\": 1966,\n        \"height\": 800,\n        \"alphaMin\": 0,\n        \"alphaMax\": 254,\n        \"partialAlphaPixels\": 789820,\n        \"visiblePixels\": 308795,\n        \"borderMaxAlpha\": 21,\n        \"pivot\": \"(983.00, 400.00)\",\n        \"android\": \"ASTC_4x4\",\n        \"mipmapEnabled\": false,\n        \"isReadable\": false,\n        \"astcBytes\": 1574400\n      }\n    ],\n    \"totalPNGBytes\": 4097901,\n    \"totalASTCBytes\": 4723200\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
