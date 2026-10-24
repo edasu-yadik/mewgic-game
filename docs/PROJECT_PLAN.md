@@ -46,3 +46,11 @@ WizardCat prefab, Idle/Blink/Wand Magic ve ayrı WizardCatAnimationTest sahnesi 
 41 animasyon/UI kontrolü başarılı. Ayrı Android karakter test APK'sı alındı.
 Sonraki iş PART 02C: karakteri Home'a entegre etmek. Yeni bölüm geçişi, tam vücut rig'i
 ve gerçek cihaz performans testi hâlâ yapılacak işlerdir. Rapor: PART02B_REPORT.md.
+
+## PART 02C tamamlanan işler
+Mevcut WizardCat prefabı yalnızca Home'a entegre edildi; düzenli altı görsel katman,
+güvenli alan yerleşimi ve Home'a özel periyodik sihir davranışı hazır.
+49 Play Mode kontrolü başarılı; üç gerçek Game View çözünürlüğü ve ek safe area
+simülasyonu doğrulandı. Console 0 hata / 0 uyarı. Gerçek Home PNG'leri ve kapsam
+sınırları PART02C_REPORT.md içinde. Sonraki aşama: ayrı kapsamda Home arka planı
+ve UI görsel kalitesi; fiziksel mobil cihaz testi bekliyor.

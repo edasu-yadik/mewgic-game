@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"project\": \"Mewgic\",\n    \"version\": \"6000.3.27f1\",\n    \"scene\": \"Assets/Scenes/Boot.unity\",\n    \"playing\": false,\n    \"errors\": 0,\n    \"warnings\": 0,\n    \"prefab\": true\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

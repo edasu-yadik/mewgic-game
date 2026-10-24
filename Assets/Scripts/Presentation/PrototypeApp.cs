@@ -11,6 +11,7 @@ namespace Mewgic
 {
     public sealed class PrototypeApp : MonoBehaviour
     {
+        [SerializeField] HomeCharacterPresenter homeCharacter;
         [Serializable] public class BottleData { public int[] layers; }
         [Serializable] public class LevelData { public BottleData[] bottles; }
         static readonly Color Night = new Color32(16,22,46,255);
@@ -87,16 +88,18 @@ namespace Mewgic
         }
         void Home()
         {
+            if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
             Label(safe,"Brand","Mewgic",104,Gold,new Vector2(.1f,.77f),new Vector2(.9f,.91f));
             Label(safe,"Subtitle","BİR ŞİŞE DOLUSU SİHİR",25,Color.white,new Vector2(.1f,.71f),new Vector2(.9f,.77f));
-            var emblem=Box(safe,"Potion display",Purple,new Vector2(.23f,.34f),new Vector2(.77f,.65f));
+            var emblem=Box(homeCharacter != null ? homeCharacter.potionLayer : safe,"Potion display",Purple,new Vector2(.23f,.34f),new Vector2(.77f,.65f));
             for(int i=0;i<3;i++)
             {
                 var bottle=Box(emblem,"Potion "+i,new Color(.7f,.8f,1,.3f),new Vector2(.08f+i*.3f,.15f),new Vector2(.28f+i*.3f,.8f));
                 for(int j=0;j<4;j++) Box(bottle,"Layer",Colors[(i+j)%4],new Vector2(.1f,.04f+j*.19f),new Vector2(.9f,.22f+j*.19f));
                 Box(bottle,"Neck",Gold,new Vector2(.2f,1),new Vector2(.8f,1.1f));
             }
-            Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));
+            var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));
+            if(homeCharacter != null) homeCharacter.Bind(play);
             Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.75f,.72f,.87f),new Vector2(.1f,.08f),new Vector2(.9f,.14f));
         }
         public static Puzzle LoadLevel()

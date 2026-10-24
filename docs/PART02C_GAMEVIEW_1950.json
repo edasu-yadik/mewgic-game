@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"scene\": \"Home\",\n    \"width\": 900,\n    \"height\": 1950,\n    \"insideSafe\": true,\n    \"scaleUniform\": true,\n    \"magicCount\": 3\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
