@@ -52,3 +52,6 @@ Fiziksel mobil cihaz,parmakla ergonomi,FPS/GPU/bellek profili ve yeni APK testi 
 ## Git ve sonraki aşama
 
 Yalnız bu doğrulanmış küçük iyileştirmeler ve denetim raporu commit edilir. Görsel final onayı verildiği anlamına gelmez. Push doğrulaması teslim kaydına eklenir. Bir sonraki büyük görsel aşama öncesi PART04D eksikliği giderilmeli;bu görevde başka part başlatılmadı. DevControl'e müdahale edilmedi.
+
+## Teslim kaydı
+Uygulama/denetim commit'i02b29874767f1d842e3d79bb3502bb129be126c6 private origin/master'a başarıyla gönderildi;git ls-remote aynı SHA'yı doğruladı. Bu kayıt ayrı belge commit'idir. Teknik denetim başarılıdır;Home'un görsel final durumu halen KISMEN TAMAMLANDI,öncelikli açık PART04D'dir.
