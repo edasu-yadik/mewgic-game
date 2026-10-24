@@ -1,0 +1,1846 @@
+fileFormatVersion: 2
+guid: 70828938948df1d44a47d1d6fa930346
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3728162977762519488
+    second: Potion_Left_Art_Sparkles_v001_0
+  - first:
+      213: 8477051020237053096
+    second: Potion_Left_Art_Sparkles_v001_1
+  - first:
+      213: 5070589520883000603
+    second: Potion_Left_Art_Sparkles_v001_2
+  - first:
+      213: -7746377130574696538
+    second: Potion_Left_Art_Sparkles_v001_3
+  - first:
+      213: 7991454975569698590
+    second: Potion_Left_Art_Sparkles_v001_4
+  - first:
+      213: -3923605254744398731
+    second: Potion_Left_Art_Sparkles_v001_5
+  - first:
+      213: -4457752862168565611
+    second: Potion_Left_Art_Sparkles_v001_6
+  - first:
+      213: -5979997888700600895
+    second: Potion_Left_Art_Sparkles_v001_7
+  - first:
+      213: -474808984115080286
+    second: Potion_Left_Art_Sparkles_v001_8
+  - first:
+      213: -8401469257261617136
+    second: Potion_Left_Art_Sparkles_v001_9
+  - first:
+      213: -2675847642398192886
+    second: Potion_Left_Art_Sparkles_v001_10
+  - first:
+      213: 5918120866327873626
+    second: Potion_Left_Art_Sparkles_v001_11
+  - first:
+      213: 5042998042911483214
+    second: Potion_Left_Art_Sparkles_v001_12
+  - first:
+      213: 7976890154427700027
+    second: Potion_Left_Art_Sparkles_v001_13
+  - first:
+      213: -3449802401028456668
+    second: Potion_Left_Art_Sparkles_v001_14
+  - first:
+      213: 9190628292973332610
+    second: Potion_Left_Art_Sparkles_v001_15
+  - first:
+      213: -7749632639937060050
+    second: Potion_Left_Art_Sparkles_v001_16
+  - first:
+      213: -2236888626837934067
+    second: Potion_Left_Art_Sparkles_v001_17
+  - first:
+      213: 2671953182964872554
+    second: Potion_Left_Art_Sparkles_v001_18
+  - first:
+      213: -4930263237056396672
+    second: Potion_Left_Art_Sparkles_v001_19
+  - first:
+      213: -8327056527430307859
+    second: Potion_Left_Art_Sparkles_v001_20
+  - first:
+      213: 5168198876877511349
+    second: Potion_Left_Art_Sparkles_v001_21
+  - first:
+      213: -6665699578814027811
+    second: Potion_Left_Art_Sparkles_v001_22
+  - first:
+      213: -1863315160814165114
+    second: Potion_Left_Art_Sparkles_v001_23
+  - first:
+      213: -8251229668417651809
+    second: Potion_Left_Art_Sparkles_v001_24
+  - first:
+      213: 6453808166754350631
+    second: Potion_Left_Art_Sparkles_v001_25
+  - first:
+      213: -1444598528006666686
+    second: Potion_Left_Art_Sparkles_v001_26
+  - first:
+      213: 6200817549388996222
+    second: Potion_Left_Art_Sparkles_v001_27
+  - first:
+      213: 8050257068551763917
+    second: Potion_Left_Art_Sparkles_v001_28
+  - first:
+      213: 1443840518873219357
+    second: Potion_Left_Art_Sparkles_v001_29
+  - first:
+      213: 312320136664403490
+    second: Potion_Left_Art_Sparkles_v001_30
+  - first:
+      213: -6707753736420066460
+    second: Potion_Left_Art_Sparkles_v001_31
+  - first:
+      213: 6404665385403852558
+    second: Potion_Left_Art_Sparkles_v001_32
+  - first:
+      213: 1523445001722081634
+    second: Potion_Left_Art_Sparkles_v001_33
+  - first:
+      213: -3137994439458228335
+    second: Potion_Left_Art_Sparkles_v001_34
+  - first:
+      213: -8581745479776826635
+    second: Potion_Left_Art_Sparkles_v001_35
+  - first:
+      213: -6349901611780543745
+    second: Potion_Left_Art_Sparkles_v001_36
+  - first:
+      213: 4015567993310701689
+    second: Potion_Left_Art_Sparkles_v001_37
+  - first:
+      213: 6551781588968256513
+    second: Potion_Left_Art_Sparkles_v001_38
+  - first:
+      213: 713246296289862647
+    second: Potion_Left_Art_Sparkles_v001_39
+  - first:
+      213: 6136306393801367574
+    second: Potion_Left_Art_Sparkles_v001_40
+  - first:
+      213: -4408107716096959376
+    second: Potion_Left_Art_Sparkles_v001_41
+  - first:
+      213: 8920080083589304420
+    second: Potion_Left_Art_Sparkles_v001_42
+  - first:
+      213: -6627009214731926361
+    second: Potion_Left_Art_Sparkles_v001_43
+  - first:
+      213: -2523516044940445527
+    second: Potion_Left_Art_Sparkles_v001_44
+  - first:
+      213: 7982296611628417649
+    second: Potion_Left_Art_Sparkles_v001_45
+  - first:
+      213: -5297989932177794391
+    second: Potion_Left_Art_Sparkles_v001_46
+  - first:
+      213: -1275315313658091824
+    second: Potion_Left_Art_Sparkles_v001_47
+  - first:
+      213: -188074512679942670
+    second: Potion_Left_Art_Sparkles_v001_48
+  - first:
+      213: -2724326839714730577
+    second: Potion_Left_Art_Sparkles_v001_49
+  - first:
+      213: -6876396495953595733
+    second: Potion_Left_Art_Sparkles_v001_50
+  - first:
+      213: -6286420707217230998
+    second: Potion_Left_Art_Sparkles_v001_51
+  - first:
+      213: 140542470883544694
+    second: Potion_Left_Art_Sparkles_v001_52
+  - first:
+      213: 6774561585935688130
+    second: Potion_Left_Art_Sparkles_v001_53
+  - first:
+      213: 1261083254896314745
+    second: Potion_Left_Art_Sparkles_v001_54
+  - first:
+      213: -8597155669201859713
+    second: Potion_Left_Art_Sparkles_v001_55
+  - first:
+      213: 6553368294571945544
+    second: Potion_Left_Art_Sparkles_v001_56
+  - first:
+      213: 1563375564442105302
+    second: Potion_Left_Art_Sparkles_v001_57
+  - first:
+      213: 3909644557172781706
+    second: Potion_Left_Art_Sparkles_v001_58
+  - first:
+      213: 7147407416028000440
+    second: Potion_Left_Art_Sparkles_v001_59
+  - first:
+      213: -5352888766491776943
+    second: Potion_Left_Art_Sparkles_v001_60
+  - first:
+      213: -5505120443440136707
+    second: Potion_Left_Art_Sparkles_v001_61
+  - first:
+      213: 2736621464303735909
+    second: Potion_Left_Art_Sparkles_v001_62
+  - first:
+      213: -2683073024241118699
+    second: Potion_Left_Art_Sparkles_v001_63
+  - first:
+      213: 4175641807307900500
+    second: Potion_Left_Art_Sparkles_v001_64
+  - first:
+      213: 53066997179568350
+    second: Potion_Left_Art_Sparkles_v001_65
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.075}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1321
+        width: 252
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046d3bd3687e24cc0800000000000000
+      internalID: -3728162977762519488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_1
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 1321
+        width: 217
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac97145df884a570800000000000000
+      internalID: 8477051020237053096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_2
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1402
+        width: 90
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15ac0add4a5e5640800000000000000
+      internalID: 5070589520883000603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_3
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1478
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afa2e3ba075f7490800000000000000
+      internalID: -7746377130574696538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_4
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 1485
+        width: 7
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f1c51b5f957ee60800000000000000
+      internalID: 7991454975569698590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_5
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 1451
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574aa181fcd8c89c0800000000000000
+      internalID: -3923605254744398731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_6
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1480
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59836f9d361e222c0800000000000000
+      internalID: -4457752862168565611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_7
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 1190
+        width: 284
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd2a668a97c20da0800000000000000
+      internalID: -5979997888700600895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_8
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1453
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a318ad9eb32969f0800000000000000
+      internalID: -474808984115080286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_9
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 1466
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0107e81393cf76b80800000000000000
+      internalID: -8401469257261617136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_10
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 1445
+        width: 17
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b0ac91fba7ddad0800000000000000
+      internalID: -2675847642398192886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_11
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1425
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58cc478293612250800000000000000
+      internalID: 5918120866327873626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_12
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1371
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45aab640045cf540800000000000000
+      internalID: 5042998042911483214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_13
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1383
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3359f2055b93be60800000000000000
+      internalID: 7976890154427700027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_14
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1391
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42fb86d7ef6df10d0800000000000000
+      internalID: -3449802401028456668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_15
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1391
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28884590dbbab8f70800000000000000
+      internalID: 9190628292973332610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_16
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1197
+        width: 177
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2367cc5c26c37490800000000000000
+      internalID: -7749632639937060050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_17
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 1381
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d00b63b35a9f4f0e0800000000000000
+      internalID: -2236888626837934067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_18
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1347
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a657817634fa41520800000000000000
+      internalID: 2671953182964872554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_19
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1351
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 082061225bf249bb0800000000000000
+      internalID: -4930263237056396672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_20
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 1365
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: def2be9f43a507c80800000000000000
+      internalID: -8327056527430307859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_21
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1356
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba5bd80f7129b740800000000000000
+      internalID: 5168198876877511349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_22
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1349
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd7a159ac8dae73a0800000000000000
+      internalID: -6665699578814027811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_23
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 1355
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6836217cbbc2426e0800000000000000
+      internalID: -1863315160814165114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_24
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1333
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b3dcd555ebd7d80800000000000000
+      internalID: -8251229668417651809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_25
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 1327
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72678eb7558809950800000000000000
+      internalID: 6453808166754350631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_26
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1327
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2464c17ea41c3fbe0800000000000000
+      internalID: -1444598528006666686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_27
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 1335
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ed65435babd0650800000000000000
+      internalID: 6200817549388996222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_28
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 1331
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7fa99d62248bf60800000000000000
+      internalID: 8050257068551763917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 569
+        height: 1330
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1101c75d4d890410800000000000000
+      internalID: 1443840518873219357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_30
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1323
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e45127285955400800000000000000
+      internalID: 312320136664403490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_31
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1319
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bf1e3148549e2a0800000000000000
+      internalID: -6707753736420066460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_32
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 1325
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07ac321c31f1e850800000000000000
+      internalID: 6404665385403852558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_33
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1266
+        width: 45
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2613d72582d542510800000000000000
+      internalID: 1523445001722081634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_34
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1303
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 197f0f0eeaa9374d0800000000000000
+      internalID: -3137994439458228335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_35
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1248
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa861544f387e880800000000000000
+      internalID: -8581745479776826635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_36
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1158
+        width: 57
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffae327902e90e7a0800000000000000
+      internalID: -6349901611780543745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_37
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1236
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97866b480d92ab730800000000000000
+      internalID: 4015567993310701689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_38
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 446
+        height: 1179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 104b56074aa9cea50800000000000000
+      internalID: 6551781588968256513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_39
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1166
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f368bf3ab5f5e900800000000000000
+      internalID: 713246296289862647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_40
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 1083
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6102d73572a882550800000000000000
+      internalID: 6136306393801367574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_41
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 969
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07cd16a236143d2c0800000000000000
+      internalID: -4408107716096959376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_42
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 965
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460906e439d7acb70800000000000000
+      internalID: 8920080083589304420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_43
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 935
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a4c9a80b322804a0800000000000000
+      internalID: -6627009214731926361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_44
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 808
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a8735cf68baafcd0800000000000000
+      internalID: -2523516044940445527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_45
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 804
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1728aebe970d6ce60800000000000000
+      internalID: 7982296611628417649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_46
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 740
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa52f40a32c976b0800000000000000
+      internalID: -5297989932177794391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_47
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 643
+        width: 28
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d62bc8aa7b2d4ee0800000000000000
+      internalID: -1275315313658091824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_48
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 564
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f548682a33d36df0800000000000000
+      internalID: -188074512679942670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_49
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 538
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fadadb26c2f313ad0800000000000000
+      internalID: -2724326839714730577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_50
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 532
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2f1f3d1d12290a0800000000000000
+      internalID: -6876396495953595733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_51
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 452
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6338a57ca522c8a0800000000000000
+      internalID: -6286420707217230998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_52
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 425
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e8ed4f1ae43f100800000000000000
+      internalID: 140542470883544694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_53
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 361
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c124b68ed3140e50800000000000000
+      internalID: 6774561585935688130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_54
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 347
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979c940f984408110800000000000000
+      internalID: 1261083254896314745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_55
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 337
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bcc72f774c0b880800000000000000
+      internalID: -8597155669201859713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_56
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 299
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84ea4402ebd32fa50800000000000000
+      internalID: 6553368294571945544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_57
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 281
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5f811fac932b510800000000000000
+      internalID: 1563375564442105302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_58
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 264
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a82b254b209d14630800000000000000
+      internalID: 3909644557172781706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_59
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 186
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b077512d21b03360800000000000000
+      internalID: 7147407416028000440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_60
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 130
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15824171708b6b5b0800000000000000
+      internalID: -5352888766491776943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_61
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 95
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd7203cf12e993b0800000000000000
+      internalID: -5505120443440136707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_62
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5649888f8be6af520800000000000000
+      internalID: 2736621464303735909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_63
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512dcabcc4fc3cad0800000000000000
+      internalID: -2683073024241118699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_64
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 82
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4568bd9a91cd2f930800000000000000
+      internalID: 4175641807307900500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_Sparkles_v001_65
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 30
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed05f2c17288cb000800000000000000
+      internalID: 53066997179568350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Potion_Left_Art_Sparkles_v001_0: -3728162977762519488
+      Potion_Left_Art_Sparkles_v001_1: 8477051020237053096
+      Potion_Left_Art_Sparkles_v001_10: -2675847642398192886
+      Potion_Left_Art_Sparkles_v001_11: 5918120866327873626
+      Potion_Left_Art_Sparkles_v001_12: 5042998042911483214
+      Potion_Left_Art_Sparkles_v001_13: 7976890154427700027
+      Potion_Left_Art_Sparkles_v001_14: -3449802401028456668
+      Potion_Left_Art_Sparkles_v001_15: 9190628292973332610
+      Potion_Left_Art_Sparkles_v001_16: -7749632639937060050
+      Potion_Left_Art_Sparkles_v001_17: -2236888626837934067
+      Potion_Left_Art_Sparkles_v001_18: 2671953182964872554
+      Potion_Left_Art_Sparkles_v001_19: -4930263237056396672
+      Potion_Left_Art_Sparkles_v001_2: 5070589520883000603
+      Potion_Left_Art_Sparkles_v001_20: -8327056527430307859
+      Potion_Left_Art_Sparkles_v001_21: 5168198876877511349
+      Potion_Left_Art_Sparkles_v001_22: -6665699578814027811
+      Potion_Left_Art_Sparkles_v001_23: -1863315160814165114
+      Potion_Left_Art_Sparkles_v001_24: -8251229668417651809
+      Potion_Left_Art_Sparkles_v001_25: 6453808166754350631
+      Potion_Left_Art_Sparkles_v001_26: -1444598528006666686
+      Potion_Left_Art_Sparkles_v001_27: 6200817549388996222
+      Potion_Left_Art_Sparkles_v001_28: 8050257068551763917
+      Potion_Left_Art_Sparkles_v001_29: 1443840518873219357
+      Potion_Left_Art_Sparkles_v001_3: -7746377130574696538
+      Potion_Left_Art_Sparkles_v001_30: 312320136664403490
+      Potion_Left_Art_Sparkles_v001_31: -6707753736420066460
+      Potion_Left_Art_Sparkles_v001_32: 6404665385403852558
+      Potion_Left_Art_Sparkles_v001_33: 1523445001722081634
+      Potion_Left_Art_Sparkles_v001_34: -3137994439458228335
+      Potion_Left_Art_Sparkles_v001_35: -8581745479776826635
+      Potion_Left_Art_Sparkles_v001_36: -6349901611780543745
+      Potion_Left_Art_Sparkles_v001_37: 4015567993310701689
+      Potion_Left_Art_Sparkles_v001_38: 6551781588968256513
+      Potion_Left_Art_Sparkles_v001_39: 713246296289862647
+      Potion_Left_Art_Sparkles_v001_4: 7991454975569698590
+      Potion_Left_Art_Sparkles_v001_40: 6136306393801367574
+      Potion_Left_Art_Sparkles_v001_41: -4408107716096959376
+      Potion_Left_Art_Sparkles_v001_42: 8920080083589304420
+      Potion_Left_Art_Sparkles_v001_43: -6627009214731926361
+      Potion_Left_Art_Sparkles_v001_44: -2523516044940445527
+      Potion_Left_Art_Sparkles_v001_45: 7982296611628417649
+      Potion_Left_Art_Sparkles_v001_46: -5297989932177794391
+      Potion_Left_Art_Sparkles_v001_47: -1275315313658091824
+      Potion_Left_Art_Sparkles_v001_48: -188074512679942670
+      Potion_Left_Art_Sparkles_v001_49: -2724326839714730577
+      Potion_Left_Art_Sparkles_v001_5: -3923605254744398731
+      Potion_Left_Art_Sparkles_v001_50: -6876396495953595733
+      Potion_Left_Art_Sparkles_v001_51: -6286420707217230998
+      Potion_Left_Art_Sparkles_v001_52: 140542470883544694
+      Potion_Left_Art_Sparkles_v001_53: 6774561585935688130
+      Potion_Left_Art_Sparkles_v001_54: 1261083254896314745
+      Potion_Left_Art_Sparkles_v001_55: -8597155669201859713
+      Potion_Left_Art_Sparkles_v001_56: 6553368294571945544
+      Potion_Left_Art_Sparkles_v001_57: 1563375564442105302
+      Potion_Left_Art_Sparkles_v001_58: 3909644557172781706
+      Potion_Left_Art_Sparkles_v001_59: 7147407416028000440
+      Potion_Left_Art_Sparkles_v001_6: -4457752862168565611
+      Potion_Left_Art_Sparkles_v001_60: -5352888766491776943
+      Potion_Left_Art_Sparkles_v001_61: -5505120443440136707
+      Potion_Left_Art_Sparkles_v001_62: 2736621464303735909
+      Potion_Left_Art_Sparkles_v001_63: -2683073024241118699
+      Potion_Left_Art_Sparkles_v001_64: 4175641807307900500
+      Potion_Left_Art_Sparkles_v001_65: 53066997179568350
+      Potion_Left_Art_Sparkles_v001_7: -5979997888700600895
+      Potion_Left_Art_Sparkles_v001_8: -474808984115080286
+      Potion_Left_Art_Sparkles_v001_9: -8401469257261617136
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

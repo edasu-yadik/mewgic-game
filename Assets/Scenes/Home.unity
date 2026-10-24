@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 1617162466}
   - component: {fileID: 1617162465}
   - component: {fileID: 1617162467}
+  - component: {fileID: 1617162468}
   m_Layer: 0
   m_Name: Home
   m_TagString: Untagged
@@ -686,6 +687,26 @@ MonoBehaviour:
   foreground: {fileID: 21300000, guid: 481213aef08841f409aa0b348afbd1d7, type: 3}
   atmosphere: {fileID: 21300000, guid: e0d50b75742d2fd40ae6e1b99e803d6e, type: 3}
   waterLightShader: {fileID: 4800000, guid: d79513d547ad4c847ba4f2bac8d6b2ce, type: 3}
+--- !u!114 &1617162468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617162464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6833cfb3d81497c4b9f04d586963fc3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mewgic.HomePotionDisplay
+  left: {fileID: 21300000, guid: 37a3a3dc09f165d4e952c9e4940ab774, type: 3}
+  center: {fileID: 21300000, guid: 85f01b24fe0634a45beedf0cc06ca6e8, type: 3}
+  right: {fileID: 21300000, guid: 5db19a900a731cf40b61dc1299b98f3b, type: 3}
+  leftGlow: {fileID: 21300000, guid: b6d7334714fb84f4fb7ce82f9019d620, type: 3}
+  rightGlow: {fileID: 21300000, guid: 84e1fa1123cbd984c9c2f5bae29084ff, type: 3}
+  leftSparkles: {fileID: 21300000, guid: 70828938948df1d44a47d1d6fa930346, type: 3}
+  rightSparkles: {fileID: 21300000, guid: 89c6671119867d64ebb7fbfe51e51d98, type: 3}
+  centerSparkles: {fileID: 21300000, guid: a86a2828156227241b0bc611fc02954b, type: 3}
 --- !u!1 &1700213515
 GameObject:
   m_ObjectHideFlags: 0

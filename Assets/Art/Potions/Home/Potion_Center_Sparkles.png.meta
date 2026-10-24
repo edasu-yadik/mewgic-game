@@ -1,0 +1,3406 @@
+fileFormatVersion: 2
+guid: a86a2828156227241b0bc611fc02954b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -144809508572180823
+    second: Potion_Center_Sparkles_0
+  - first:
+      213: -3104371365639548788
+    second: Potion_Center_Sparkles_1
+  - first:
+      213: 7313600760097874426
+    second: Potion_Center_Sparkles_2
+  - first:
+      213: 3126450054950848632
+    second: Potion_Center_Sparkles_3
+  - first:
+      213: 3198717835225813298
+    second: Potion_Center_Sparkles_4
+  - first:
+      213: -6633257626756980959
+    second: Potion_Center_Sparkles_5
+  - first:
+      213: 7701755038813169502
+    second: Potion_Center_Sparkles_6
+  - first:
+      213: -2190092719790549356
+    second: Potion_Center_Sparkles_7
+  - first:
+      213: 476161994041944443
+    second: Potion_Center_Sparkles_8
+  - first:
+      213: 2671303700501850079
+    second: Potion_Center_Sparkles_9
+  - first:
+      213: 6790233593924596787
+    second: Potion_Center_Sparkles_10
+  - first:
+      213: -2458260002298251277
+    second: Potion_Center_Sparkles_11
+  - first:
+      213: -3749362958316309104
+    second: Potion_Center_Sparkles_12
+  - first:
+      213: 1615910808999905524
+    second: Potion_Center_Sparkles_13
+  - first:
+      213: -3072486840183329309
+    second: Potion_Center_Sparkles_14
+  - first:
+      213: -2315318544359950033
+    second: Potion_Center_Sparkles_15
+  - first:
+      213: 1337359661597688709
+    second: Potion_Center_Sparkles_16
+  - first:
+      213: 8022301394721424292
+    second: Potion_Center_Sparkles_17
+  - first:
+      213: -3180119687270657917
+    second: Potion_Center_Sparkles_18
+  - first:
+      213: -877520891330319328
+    second: Potion_Center_Sparkles_19
+  - first:
+      213: 6685912706944203541
+    second: Potion_Center_Sparkles_20
+  - first:
+      213: -3463416375396195885
+    second: Potion_Center_Sparkles_21
+  - first:
+      213: 870060693747134573
+    second: Potion_Center_Sparkles_22
+  - first:
+      213: -2935979930222678658
+    second: Potion_Center_Sparkles_23
+  - first:
+      213: -5711829527943090705
+    second: Potion_Center_Sparkles_24
+  - first:
+      213: 7942620780081483633
+    second: Potion_Center_Sparkles_25
+  - first:
+      213: 3860234441255779913
+    second: Potion_Center_Sparkles_26
+  - first:
+      213: -4079602792217237134
+    second: Potion_Center_Sparkles_27
+  - first:
+      213: -8087679374182784628
+    second: Potion_Center_Sparkles_28
+  - first:
+      213: 1020918310624456097
+    second: Potion_Center_Sparkles_29
+  - first:
+      213: -5143357475180787077
+    second: Potion_Center_Sparkles_30
+  - first:
+      213: -5374393165069422034
+    second: Potion_Center_Sparkles_31
+  - first:
+      213: 989042246014425777
+    second: Potion_Center_Sparkles_32
+  - first:
+      213: -7232857140698922480
+    second: Potion_Center_Sparkles_33
+  - first:
+      213: 3329151914325979991
+    second: Potion_Center_Sparkles_34
+  - first:
+      213: 4887861225519573029
+    second: Potion_Center_Sparkles_35
+  - first:
+      213: -7999827448341642609
+    second: Potion_Center_Sparkles_36
+  - first:
+      213: -62887286837774318
+    second: Potion_Center_Sparkles_37
+  - first:
+      213: 5644510589685008316
+    second: Potion_Center_Sparkles_38
+  - first:
+      213: -641605364102861906
+    second: Potion_Center_Sparkles_39
+  - first:
+      213: -3986777962323269953
+    second: Potion_Center_Sparkles_40
+  - first:
+      213: 3718399177689951050
+    second: Potion_Center_Sparkles_41
+  - first:
+      213: -1877274240995022358
+    second: Potion_Center_Sparkles_42
+  - first:
+      213: 4540627880944359501
+    second: Potion_Center_Sparkles_43
+  - first:
+      213: -7361563879083790925
+    second: Potion_Center_Sparkles_44
+  - first:
+      213: -7935818289084079457
+    second: Potion_Center_Sparkles_45
+  - first:
+      213: 184666970757507553
+    second: Potion_Center_Sparkles_46
+  - first:
+      213: 2007696949207869778
+    second: Potion_Center_Sparkles_47
+  - first:
+      213: -7253314658487727732
+    second: Potion_Center_Sparkles_48
+  - first:
+      213: 4126283624110082805
+    second: Potion_Center_Sparkles_49
+  - first:
+      213: -3157086291000943444
+    second: Potion_Center_Sparkles_50
+  - first:
+      213: 6552193999196886049
+    second: Potion_Center_Sparkles_51
+  - first:
+      213: -8844949779121450281
+    second: Potion_Center_Sparkles_52
+  - first:
+      213: 7452049386140398266
+    second: Potion_Center_Sparkles_53
+  - first:
+      213: 1339948337268753556
+    second: Potion_Center_Sparkles_54
+  - first:
+      213: -2262052401684984451
+    second: Potion_Center_Sparkles_55
+  - first:
+      213: -5352436640652840030
+    second: Potion_Center_Sparkles_56
+  - first:
+      213: -199562709238059942
+    second: Potion_Center_Sparkles_57
+  - first:
+      213: 5086350877107840646
+    second: Potion_Center_Sparkles_58
+  - first:
+      213: 347272483146282891
+    second: Potion_Center_Sparkles_59
+  - first:
+      213: 1332479520887028080
+    second: Potion_Center_Sparkles_60
+  - first:
+      213: -6458850830133630465
+    second: Potion_Center_Sparkles_61
+  - first:
+      213: -6183459944931707385
+    second: Potion_Center_Sparkles_62
+  - first:
+      213: -3481024537419385062
+    second: Potion_Center_Sparkles_63
+  - first:
+      213: -4192043021926918047
+    second: Potion_Center_Sparkles_64
+  - first:
+      213: 1952976946965339161
+    second: Potion_Center_Sparkles_65
+  - first:
+      213: 8655344376422502010
+    second: Potion_Center_Sparkles_66
+  - first:
+      213: -1376576997703546317
+    second: Potion_Center_Sparkles_67
+  - first:
+      213: 3948019927399270502
+    second: Potion_Center_Sparkles_68
+  - first:
+      213: -1368688269048795703
+    second: Potion_Center_Sparkles_69
+  - first:
+      213: 3337772995366278474
+    second: Potion_Center_Sparkles_70
+  - first:
+      213: -8692770614518652733
+    second: Potion_Center_Sparkles_71
+  - first:
+      213: 7434291593718159297
+    second: Potion_Center_Sparkles_72
+  - first:
+      213: 5621000883316218014
+    second: Potion_Center_Sparkles_73
+  - first:
+      213: 488035942959563943
+    second: Potion_Center_Sparkles_74
+  - first:
+      213: -7020623226264624431
+    second: Potion_Center_Sparkles_75
+  - first:
+      213: -7083049367185905982
+    second: Potion_Center_Sparkles_76
+  - first:
+      213: 843821663049471336
+    second: Potion_Center_Sparkles_77
+  - first:
+      213: -5673148073775440219
+    second: Potion_Center_Sparkles_78
+  - first:
+      213: -4537509273842451958
+    second: Potion_Center_Sparkles_79
+  - first:
+      213: 21997197252619314
+    second: Potion_Center_Sparkles_80
+  - first:
+      213: 2123995054737411267
+    second: Potion_Center_Sparkles_81
+  - first:
+      213: 6349075621475686213
+    second: Potion_Center_Sparkles_82
+  - first:
+      213: 619798613147345340
+    second: Potion_Center_Sparkles_83
+  - first:
+      213: 887507653982812012
+    second: Potion_Center_Sparkles_84
+  - first:
+      213: 9168528724312726865
+    second: Potion_Center_Sparkles_85
+  - first:
+      213: -2369351735824760288
+    second: Potion_Center_Sparkles_86
+  - first:
+      213: -3679974750023820269
+    second: Potion_Center_Sparkles_87
+  - first:
+      213: -4840609439859228648
+    second: Potion_Center_Sparkles_88
+  - first:
+      213: -2184803067237017459
+    second: Potion_Center_Sparkles_89
+  - first:
+      213: -4964894592451013206
+    second: Potion_Center_Sparkles_90
+  - first:
+      213: -3775752087916985351
+    second: Potion_Center_Sparkles_91
+  - first:
+      213: 6650416289864370078
+    second: Potion_Center_Sparkles_92
+  - first:
+      213: 6791033759171285469
+    second: Potion_Center_Sparkles_93
+  - first:
+      213: 7750265304745369116
+    second: Potion_Center_Sparkles_94
+  - first:
+      213: 5876039646004224425
+    second: Potion_Center_Sparkles_95
+  - first:
+      213: -5527977104316429366
+    second: Potion_Center_Sparkles_96
+  - first:
+      213: 5068231329122938666
+    second: Potion_Center_Sparkles_97
+  - first:
+      213: 8154398587490812880
+    second: Potion_Center_Sparkles_98
+  - first:
+      213: 7149533802014209236
+    second: Potion_Center_Sparkles_99
+  - first:
+      213: 3318296579609737454
+    second: Potion_Center_Sparkles_100
+  - first:
+      213: 5053339014976448948
+    second: Potion_Center_Sparkles_101
+  - first:
+      213: -2195402860549535364
+    second: Potion_Center_Sparkles_102
+  - first:
+      213: 8812977925377205255
+    second: Potion_Center_Sparkles_103
+  - first:
+      213: 4149973157235242599
+    second: Potion_Center_Sparkles_104
+  - first:
+      213: -424229551217835363
+    second: Potion_Center_Sparkles_105
+  - first:
+      213: -9161821021016681612
+    second: Potion_Center_Sparkles_106
+  - first:
+      213: -1993280687505787690
+    second: Potion_Center_Sparkles_107
+  - first:
+      213: 2988909731552508030
+    second: Potion_Center_Sparkles_108
+  - first:
+      213: 6626244871623257013
+    second: Potion_Center_Sparkles_109
+  - first:
+      213: 2025084613610424544
+    second: Potion_Center_Sparkles_110
+  - first:
+      213: -3384918053040266385
+    second: Potion_Center_Sparkles_111
+  - first:
+      213: -8267817538501436750
+    second: Potion_Center_Sparkles_112
+  - first:
+      213: 8373946176676797087
+    second: Potion_Center_Sparkles_113
+  - first:
+      213: 8740260179913701743
+    second: Potion_Center_Sparkles_114
+  - first:
+      213: -4925393012942735090
+    second: Potion_Center_Sparkles_115
+  - first:
+      213: 246988522471861715
+    second: Potion_Center_Sparkles_116
+  - first:
+      213: -7513898938878690145
+    second: Potion_Center_Sparkles_117
+  - first:
+      213: 2698334806901365264
+    second: Potion_Center_Sparkles_118
+  - first:
+      213: -8167729997042084343
+    second: Potion_Center_Sparkles_119
+  - first:
+      213: -1153104080642043417
+    second: Potion_Center_Sparkles_120
+  - first:
+      213: 1737008923600226171
+    second: Potion_Center_Sparkles_121
+  - first:
+      213: 3678702948344142218
+    second: Potion_Center_Sparkles_122
+  - first:
+      213: 5299921462246363552
+    second: Potion_Center_Sparkles_123
+  - first:
+      213: -176157573221670264
+    second: Potion_Center_Sparkles_124
+  - first:
+      213: 8322527968372420446
+    second: Potion_Center_Sparkles_125
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.075}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1018
+        height: 1537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aec479e4888dfdf0800000000000000
+      internalID: -144809508572180823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_1
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 1373
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80192cc0be0be4d0800000000000000
+      internalID: -3104371365639548788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_2
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1396
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af129a664212f7560800000000000000
+      internalID: 7313600760097874426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_3
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1382
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8788855a2c1636b20800000000000000
+      internalID: 3126450054950848632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_4
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1341
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23157517ce0246c20800000000000000
+      internalID: 3198717835225813298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_5
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 1365
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fdf7d355fe1f3a0800000000000000
+      internalID: -6633257626756980959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_6
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 1313
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57a883f66122ea60800000000000000
+      internalID: 7701755038813169502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_7
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 1331
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49617b3664a3b91e0800000000000000
+      internalID: -2190092719790549356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_8
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1319
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b79696e8fcaab9600800000000000000
+      internalID: 476161994041944443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_9
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 1311
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7699bff80621520800000000000000
+      internalID: 2671303700501850079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_10
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1284
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334bccb3a71cb3e50800000000000000
+      internalID: 6790233593924596787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_11
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 1285
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f736756d8182edd0800000000000000
+      internalID: -2458260002298251277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_12
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 1290
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0957c8f114697fbc0800000000000000
+      internalID: -3749362958316309104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_13
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 1288
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8472fb15edc6610800000000000000
+      internalID: 1615910808999905524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_14
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 1228
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed6fc16f755c55d0800000000000000
+      internalID: -3072486840183329309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_15
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 1256
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29fc8d0d065edfd0800000000000000
+      internalID: -2315318544359950033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_16
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1232
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583877ec6814f8210800000000000000
+      internalID: 1337359661597688709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_17
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1244
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a3cd715d90f45f60800000000000000
+      internalID: 8022301394721424292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_18
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 1173
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38091015ef1fdd3d0800000000000000
+      internalID: -3180119687270657917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_19
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 922
+        width: 143
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ca54d066b62d3f0800000000000000
+      internalID: -877520891330319328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_20
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1079
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51bfda8fe2229cc50800000000000000
+      internalID: 6685912706944203541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1047
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d12d3318297fefc0800000000000000
+      internalID: -3463416375396195885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_22
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1049
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d60f3d75793131c00800000000000000
+      internalID: 870060693747134573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_23
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1047
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7da6671fcd4147d0800000000000000
+      internalID: -2935979930222678658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_24
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1037
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed6d519e418bb0b0800000000000000
+      internalID: -5711829527943090705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_25
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1037
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f8466848bd93e60800000000000000
+      internalID: 7942620780081483633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_26
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 999
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e77cc95ce429530800000000000000
+      internalID: 3860234441255779913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_27
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 999
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279233900e65267c0800000000000000
+      internalID: -4079602792217237134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_28
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1001
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81e494a57ac2cf80800000000000000
+      internalID: -8087679374182784628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_29
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 971
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad66716bc70b2e00800000000000000
+      internalID: 1020918310624456097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_30
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 968
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7acff280af1f98b0800000000000000
+      internalID: -5143357475180787077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_31
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 983
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22ffb024e15a65b0800000000000000
+      internalID: -5374393165069422034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_32
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 973
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba5b8dbea8c9bd00800000000000000
+      internalID: 989042246014425777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_33
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 936
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0124e7970cabf9b90800000000000000
+      internalID: -7232857140698922480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_34
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 940
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75336b80706833e20800000000000000
+      internalID: 3329151914325979991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_35
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 949
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 528ef7a33eb25d340800000000000000
+      internalID: 4887861225519573029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_36
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 936
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f824d251257eaf090800000000000000
+      internalID: -7999827448341642609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_37
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 940
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21875278854902ff0800000000000000
+      internalID: -62887286837774318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_38
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 894
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb70b15b974555e40800000000000000
+      internalID: 5644510589685008316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_39
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 940
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eabe9aa125f8817f0800000000000000
+      internalID: -641605364102861906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_40
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 928
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb6ad5de09e1ca8c0800000000000000
+      internalID: -3986777962323269953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_41
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 908
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b6057e9586a9330800000000000000
+      internalID: 3718399177689951050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_42
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 918
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae92087260592f5e0800000000000000
+      internalID: -1877274240995022358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_43
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 896
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d485cec100d830f30800000000000000
+      internalID: 4540627880944359501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_44
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 884
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd2ddbb7a876d990800000000000000
+      internalID: -7361563879083790925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_45
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 899
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f926815df4f4ed190800000000000000
+      internalID: -7935818289084079457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_46
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 846
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9afb9a1a1109200800000000000000
+      internalID: 184666970757507553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_47
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 831
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 259ab22fcb5ccdb10800000000000000
+      internalID: 2007696949207869778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_48
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 753
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8984b07fbc075b90800000000000000
+      internalID: -7253314658487727732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_49
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 737
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fac7991811834930800000000000000
+      internalID: 4126283624110082805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_50
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 755
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac12abceb6cf24d0800000000000000
+      internalID: -3157086291000943444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_51
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 673
+        width: 71
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 124939d2ab11eea50800000000000000
+      internalID: 6552193999196886049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_52
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 725
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2db47d90d604580800000000000000
+      internalID: -8844949779121450281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_53
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 717
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab2f09d1f6ffa6760800000000000000
+      internalID: 7452049386140398266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_54
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 661
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4948744d9e3789210800000000000000
+      internalID: 1339948337268753556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_55
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 632
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d4f3653539b90e0800000000000000
+      internalID: -2262052401684984451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_56
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 611
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a33a17db3358b5b0800000000000000
+      internalID: -5352436640652840030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_57
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 631
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c6375f5c20b3df0800000000000000
+      internalID: -199562709238059942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_58
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 596
+        width: 5
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68662019c29569640800000000000000
+      internalID: 5086350877107840646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_59
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 596
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87b336cb72c1d400800000000000000
+      internalID: 347272483146282891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_60
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 604
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07934f0801bed7210800000000000000
+      internalID: 1332479520887028080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_61
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 585
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9e5a4f36d8d56a0800000000000000
+      internalID: -6458850830133630465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_62
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 591
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7063d7301ffef2aa0800000000000000
+      internalID: -6183459944931707385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_63
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 580
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17f2b060aae0bfc0800000000000000
+      internalID: -3481024537419385062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_64
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 594
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16814eaf41fd2d5c0800000000000000
+      internalID: -4192043021926918047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_65
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 579
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c556a9f2e5a1b10800000000000000
+      internalID: 1952976946965339161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_66
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 562
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e86553ad5fd1870800000000000000
+      internalID: 8655344376422502010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_67
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 544
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a08e5938a65ece0800000000000000
+      internalID: -1376576997703546317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_68
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 550
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6680ccad43f2ac630800000000000000
+      internalID: 3948019927399270502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_69
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 544
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cd2a1b5541710de0800000000000000
+      internalID: -1368688269048795703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_70
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 528
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a45d2b1ead6225e20800000000000000
+      internalID: 3337772995366278474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_71
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 482
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c069afae231d5780800000000000000
+      internalID: -8692770614518652733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_72
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 422
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c75e30e0d8eb2760800000000000000
+      internalID: 7434291593718159297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_73
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 441
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e985834a58ec10e40800000000000000
+      internalID: 5621000883316218014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_74
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 434
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a44ab9ba1ad5c600800000000000000
+      internalID: 488035942959563943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_75
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 431
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2e3a06f5cb19e90800000000000000
+      internalID: -7020623226264624431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_76
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 387
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c6245ec024f3bd90800000000000000
+      internalID: -7083049367185905982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_77
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 385
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865d7dfe45bd5bb00800000000000000
+      internalID: 843821663049471336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_78
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 397
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae5c6072ede441b0800000000000000
+      internalID: -5673148073775440219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_79
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 387
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a749f2b578701c0800000000000000
+      internalID: -4537509273842451958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_80
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 371
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ceb4895562e4000800000000000000
+      internalID: 21997197252619314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_81
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 367
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc4f46bf32f97d10800000000000000
+      internalID: 2123995054737411267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_82
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 333
+        width: 48
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547962e83a27c1850800000000000000
+      internalID: 6349075621475686213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_83
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 369
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb16de80e87f99800800000000000000
+      internalID: 619798613147345340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_84
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 337
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67f513528f015c00800000000000000
+      internalID: 887507653982812012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_85
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 327
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d10ad3c482d3f70800000000000000
+      internalID: 9168528724312726865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_86
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 349
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022c53e462f5e1fd0800000000000000
+      internalID: -2369351735824760288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_87
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 337
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c5c62567a1eecc0800000000000000
+      internalID: -3679974750023820269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_88
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 271
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810c9c07c53b2dcb0800000000000000
+      internalID: -4840609439859228648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_89
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 296
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8857299f250ea1e0800000000000000
+      internalID: -2184803067237017459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_90
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 293
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa513bd5ca6291bb0800000000000000
+      internalID: -4964894592451013206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_91
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 270
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3c4c71b75d99bc0800000000000000
+      internalID: -3775752087916985351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_92
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 264
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9746d551660b4c50800000000000000
+      internalID: 6650416289864370078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_93
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 273
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1171939399e3e50800000000000000
+      internalID: 6791033759171285469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_94
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 245
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ed1646b397e8b60800000000000000
+      internalID: 7750265304745369116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_95
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 268
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1a13aece2eb8150800000000000000
+      internalID: 5876039646004224425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_96
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 258
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb0ab2bc1ea843b0800000000000000
+      internalID: -5527977104316429366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_97
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 267
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2fe0eb8a89f55640800000000000000
+      internalID: 5068231329122938666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_98
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 262
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d3465cbf4e3a2170800000000000000
+      internalID: 8154398587490812880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_99
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 248
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d474b2fc1f383360800000000000000
+      internalID: 7149533802014209236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_100
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 238
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee838077825fc0e20800000000000000
+      internalID: 3318296579609737454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_101
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 249
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b92b457f01112640800000000000000
+      internalID: 5053339014976448948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_102
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 124
+        width: 54
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c798116eabc5881e0800000000000000
+      internalID: -2195402860549535364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_103
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 194
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 704a77fdabcfd4a70800000000000000
+      internalID: 8812977925377205255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_104
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 208
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 766b968599aa79930800000000000000
+      internalID: 4149973157235242599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_105
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 150
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9200788875dc1af0800000000000000
+      internalID: -424229551217835363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_106
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 122
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4731892a25caad080800000000000000
+      internalID: -9161821021016681612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_107
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 126
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4329b86c17654e0800000000000000
+      internalID: -1993280687505787690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_108
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 122
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7835ee909dba7920800000000000000
+      internalID: 2988909731552508030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_109
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 63
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bbabd77a9625fb50800000000000000
+      internalID: 6626244871623257013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_110
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 73
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8cb5a0abb8a1c10800000000000000
+      internalID: 2025084613610424544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_111
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 92
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f636abef6fa5601d0800000000000000
+      internalID: -3384918053040266385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_112
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 65
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba90e5e0cfc24d80800000000000000
+      internalID: -8267817538501436750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_113
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 75
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a9f0d3eab363470800000000000000
+      internalID: 8373946176676797087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_114
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 59
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f697f346354ab4970800000000000000
+      internalID: 8740260179913701743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_115
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 73
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e097b5c862d75abb0800000000000000
+      internalID: -4925393012942735090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_116
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 79
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dda889a0ca7d6300800000000000000
+      internalID: 246988522471861715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_117
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 79
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c73f5b9b449b790800000000000000
+      internalID: -7513898938878690145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_118
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 53
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a9d62e539627520800000000000000
+      internalID: 2698334806901365264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_119
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 59
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 906110997d466ae80800000000000000
+      internalID: -8167729997042084343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_120
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 63
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e11744b2f95fffe0800000000000000
+      internalID: -1153104080642043417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_121
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 63
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7700e6b9681b1810800000000000000
+      internalID: 1737008923600226171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_122
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 45
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a891c3647d06d0330800000000000000
+      internalID: 3678702948344142218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_123
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 22
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1d9ae5d7a1d8940800000000000000
+      internalID: 5299921462246363552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_124
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 17
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882a0a7de992e8df0800000000000000
+      internalID: -176157573221670264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Sparkles_125
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 55
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f6714b71f8f7370800000000000000
+      internalID: 8322527968372420446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Potion_Center_Sparkles_0: -144809508572180823
+      Potion_Center_Sparkles_1: -3104371365639548788
+      Potion_Center_Sparkles_10: 6790233593924596787
+      Potion_Center_Sparkles_100: 3318296579609737454
+      Potion_Center_Sparkles_101: 5053339014976448948
+      Potion_Center_Sparkles_102: -2195402860549535364
+      Potion_Center_Sparkles_103: 8812977925377205255
+      Potion_Center_Sparkles_104: 4149973157235242599
+      Potion_Center_Sparkles_105: -424229551217835363
+      Potion_Center_Sparkles_106: -9161821021016681612
+      Potion_Center_Sparkles_107: -1993280687505787690
+      Potion_Center_Sparkles_108: 2988909731552508030
+      Potion_Center_Sparkles_109: 6626244871623257013
+      Potion_Center_Sparkles_11: -2458260002298251277
+      Potion_Center_Sparkles_110: 2025084613610424544
+      Potion_Center_Sparkles_111: -3384918053040266385
+      Potion_Center_Sparkles_112: -8267817538501436750
+      Potion_Center_Sparkles_113: 8373946176676797087
+      Potion_Center_Sparkles_114: 8740260179913701743
+      Potion_Center_Sparkles_115: -4925393012942735090
+      Potion_Center_Sparkles_116: 246988522471861715
+      Potion_Center_Sparkles_117: -7513898938878690145
+      Potion_Center_Sparkles_118: 2698334806901365264
+      Potion_Center_Sparkles_119: -8167729997042084343
+      Potion_Center_Sparkles_12: -3749362958316309104
+      Potion_Center_Sparkles_120: -1153104080642043417
+      Potion_Center_Sparkles_121: 1737008923600226171
+      Potion_Center_Sparkles_122: 3678702948344142218
+      Potion_Center_Sparkles_123: 5299921462246363552
+      Potion_Center_Sparkles_124: -176157573221670264
+      Potion_Center_Sparkles_125: 8322527968372420446
+      Potion_Center_Sparkles_13: 1615910808999905524
+      Potion_Center_Sparkles_14: -3072486840183329309
+      Potion_Center_Sparkles_15: -2315318544359950033
+      Potion_Center_Sparkles_16: 1337359661597688709
+      Potion_Center_Sparkles_17: 8022301394721424292
+      Potion_Center_Sparkles_18: -3180119687270657917
+      Potion_Center_Sparkles_19: -877520891330319328
+      Potion_Center_Sparkles_2: 7313600760097874426
+      Potion_Center_Sparkles_20: 6685912706944203541
+      Potion_Center_Sparkles_21: -3463416375396195885
+      Potion_Center_Sparkles_22: 870060693747134573
+      Potion_Center_Sparkles_23: -2935979930222678658
+      Potion_Center_Sparkles_24: -5711829527943090705
+      Potion_Center_Sparkles_25: 7942620780081483633
+      Potion_Center_Sparkles_26: 3860234441255779913
+      Potion_Center_Sparkles_27: -4079602792217237134
+      Potion_Center_Sparkles_28: -8087679374182784628
+      Potion_Center_Sparkles_29: 1020918310624456097
+      Potion_Center_Sparkles_3: 3126450054950848632
+      Potion_Center_Sparkles_30: -5143357475180787077
+      Potion_Center_Sparkles_31: -5374393165069422034
+      Potion_Center_Sparkles_32: 989042246014425777
+      Potion_Center_Sparkles_33: -7232857140698922480
+      Potion_Center_Sparkles_34: 3329151914325979991
+      Potion_Center_Sparkles_35: 4887861225519573029
+      Potion_Center_Sparkles_36: -7999827448341642609
+      Potion_Center_Sparkles_37: -62887286837774318
+      Potion_Center_Sparkles_38: 5644510589685008316
+      Potion_Center_Sparkles_39: -641605364102861906
+      Potion_Center_Sparkles_4: 3198717835225813298
+      Potion_Center_Sparkles_40: -3986777962323269953
+      Potion_Center_Sparkles_41: 3718399177689951050
+      Potion_Center_Sparkles_42: -1877274240995022358
+      Potion_Center_Sparkles_43: 4540627880944359501
+      Potion_Center_Sparkles_44: -7361563879083790925
+      Potion_Center_Sparkles_45: -7935818289084079457
+      Potion_Center_Sparkles_46: 184666970757507553
+      Potion_Center_Sparkles_47: 2007696949207869778
+      Potion_Center_Sparkles_48: -7253314658487727732
+      Potion_Center_Sparkles_49: 4126283624110082805
+      Potion_Center_Sparkles_5: -6633257626756980959
+      Potion_Center_Sparkles_50: -3157086291000943444
+      Potion_Center_Sparkles_51: 6552193999196886049
+      Potion_Center_Sparkles_52: -8844949779121450281
+      Potion_Center_Sparkles_53: 7452049386140398266
+      Potion_Center_Sparkles_54: 1339948337268753556
+      Potion_Center_Sparkles_55: -2262052401684984451
+      Potion_Center_Sparkles_56: -5352436640652840030
+      Potion_Center_Sparkles_57: -199562709238059942
+      Potion_Center_Sparkles_58: 5086350877107840646
+      Potion_Center_Sparkles_59: 347272483146282891
+      Potion_Center_Sparkles_6: 7701755038813169502
+      Potion_Center_Sparkles_60: 1332479520887028080
+      Potion_Center_Sparkles_61: -6458850830133630465
+      Potion_Center_Sparkles_62: -6183459944931707385
+      Potion_Center_Sparkles_63: -3481024537419385062
+      Potion_Center_Sparkles_64: -4192043021926918047
+      Potion_Center_Sparkles_65: 1952976946965339161
+      Potion_Center_Sparkles_66: 8655344376422502010
+      Potion_Center_Sparkles_67: -1376576997703546317
+      Potion_Center_Sparkles_68: 3948019927399270502
+      Potion_Center_Sparkles_69: -1368688269048795703
+      Potion_Center_Sparkles_7: -2190092719790549356
+      Potion_Center_Sparkles_70: 3337772995366278474
+      Potion_Center_Sparkles_71: -8692770614518652733
+      Potion_Center_Sparkles_72: 7434291593718159297
+      Potion_Center_Sparkles_73: 5621000883316218014
+      Potion_Center_Sparkles_74: 488035942959563943
+      Potion_Center_Sparkles_75: -7020623226264624431
+      Potion_Center_Sparkles_76: -7083049367185905982
+      Potion_Center_Sparkles_77: 843821663049471336
+      Potion_Center_Sparkles_78: -5673148073775440219
+      Potion_Center_Sparkles_79: -4537509273842451958
+      Potion_Center_Sparkles_8: 476161994041944443
+      Potion_Center_Sparkles_80: 21997197252619314
+      Potion_Center_Sparkles_81: 2123995054737411267
+      Potion_Center_Sparkles_82: 6349075621475686213
+      Potion_Center_Sparkles_83: 619798613147345340
+      Potion_Center_Sparkles_84: 887507653982812012
+      Potion_Center_Sparkles_85: 9168528724312726865
+      Potion_Center_Sparkles_86: -2369351735824760288
+      Potion_Center_Sparkles_87: -3679974750023820269
+      Potion_Center_Sparkles_88: -4840609439859228648
+      Potion_Center_Sparkles_89: -2184803067237017459
+      Potion_Center_Sparkles_9: 2671303700501850079
+      Potion_Center_Sparkles_90: -4964894592451013206
+      Potion_Center_Sparkles_91: -3775752087916985351
+      Potion_Center_Sparkles_92: 6650416289864370078
+      Potion_Center_Sparkles_93: 6791033759171285469
+      Potion_Center_Sparkles_94: 7750265304745369116
+      Potion_Center_Sparkles_95: 5876039646004224425
+      Potion_Center_Sparkles_96: -5527977104316429366
+      Potion_Center_Sparkles_97: 5068231329122938666
+      Potion_Center_Sparkles_98: 8154398587490812880
+      Potion_Center_Sparkles_99: 7149533802014209236
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

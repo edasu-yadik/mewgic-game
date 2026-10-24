@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 37a3a3dc09f165d4e952c9e4940ab774
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 610807064326765627
+    second: Potion_Left_Art_v001_0
+  - first:
+      213: 5602506084341560227
+    second: Potion_Left_Art_v001_1
+  - first:
+      213: 8946600331913296099
+    second: Potion_Left_Art_v001_2
+  - first:
+      213: 6828031655619661051
+    second: Potion_Left_Art_v001_3
+  - first:
+      213: 2579046834909249330
+    second: Potion_Left_Art_v001_4
+  - first:
+      213: 7793776549034738087
+    second: Potion_Left_Art_v001_5
+  - first:
+      213: -921010949082133115
+    second: Potion_Left_Art_v001_6
+  - first:
+      213: -3983893259683098965
+    second: Potion_Left_Art_v001_7
+  - first:
+      213: 4981546352356163161
+    second: Potion_Left_Art_v001_8
+  - first:
+      213: 8542509095629597669
+    second: Potion_Left_Art_v001_9
+  - first:
+      213: 7803597927223240883
+    second: Potion_Left_Art_v001_10
+  - first:
+      213: 5891780289379318526
+    second: Potion_Left_Art_v001_11
+  - first:
+      213: 6886541872963010488
+    second: Potion_Left_Art_v001_12
+  - first:
+      213: -8021624501536466202
+    second: Potion_Left_Art_v001_13
+  - first:
+      213: 818914317733473
+    second: Potion_Left_Art_v001_14
+  - first:
+      213: 1753115747066444644
+    second: Potion_Left_Art_v001_15
+  - first:
+      213: 2835304297734163216
+    second: Potion_Left_Art_v001_16
+  - first:
+      213: 6946374335707003683
+    second: Potion_Left_Art_v001_17
+  - first:
+      213: -7492974372428376650
+    second: Potion_Left_Art_v001_18
+  - first:
+      213: 2632128927897977078
+    second: Potion_Left_Art_v001_19
+  - first:
+      213: 1215806691096331501
+    second: Potion_Left_Art_v001_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.075}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1504
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3cfe7fe9c50a7800800000000000000
+      internalID: 610807064326765627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 1514
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3b421b99910cd40800000000000000
+      internalID: 5602506084341560227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_2
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 1455
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8751bc995b82c70800000000000000
+      internalID: 8946600331913296099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_3
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1471
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfc05544d9a02ce50800000000000000
+      internalID: 6828031655619661051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1005
+        height: 1485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f7cd59e6d9ac320800000000000000
+      internalID: 2579046834909249330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_5
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1483
+        width: 80
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a14cf76a7e092c60800000000000000
+      internalID: 7793776549034738087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_6
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1449
+        width: 51
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58dc6b9eb69e733f0800000000000000
+      internalID: -921010949082133115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_7
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1464
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae0489103e56b8c0800000000000000
+      internalID: -3983893259683098965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_8
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1453
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ef45c9302022540800000000000000
+      internalID: 4981546352356163161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_9
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1212
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebab8723c61d8670800000000000000
+      internalID: 8542509095629597669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_10
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 940
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8ad1638f2fb4c60800000000000000
+      internalID: 7803597927223240883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_11
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 864
+        width: 9
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa3a1b05fec3c150800000000000000
+      internalID: 5891780289379318526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_12
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 774
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf30d4d859e19f50800000000000000
+      internalID: 6886541872963010488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_13
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 635
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea595824077da090800000000000000
+      internalID: -8021624501536466202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 248
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e82095cc8e20000800000000000000
+      internalID: 818914317733473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_15
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 112
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46bf90acb71545810800000000000000
+      internalID: 1753115747066444644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_16
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 103
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b45989c36095720800000000000000
+      internalID: 2835304297734163216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_17
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 104
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32bb4b4a7aa766060800000000000000
+      internalID: 6946374335707003683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_18
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 79
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b51d4cf18b930890800000000000000
+      internalID: -7492974372428376650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_19
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 85
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f083667053378420800000000000000
+      internalID: 2632128927897977078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Left_Art_v001_20
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 79
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de407527eb96fd010800000000000000
+      internalID: 1215806691096331501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Potion_Left_Art_v001_0: 610807064326765627
+      Potion_Left_Art_v001_1: 5602506084341560227
+      Potion_Left_Art_v001_10: 7803597927223240883
+      Potion_Left_Art_v001_11: 5891780289379318526
+      Potion_Left_Art_v001_12: 6886541872963010488
+      Potion_Left_Art_v001_13: -8021624501536466202
+      Potion_Left_Art_v001_14: 818914317733473
+      Potion_Left_Art_v001_15: 1753115747066444644
+      Potion_Left_Art_v001_16: 2835304297734163216
+      Potion_Left_Art_v001_17: 6946374335707003683
+      Potion_Left_Art_v001_18: -7492974372428376650
+      Potion_Left_Art_v001_19: 2632128927897977078
+      Potion_Left_Art_v001_2: 8946600331913296099
+      Potion_Left_Art_v001_20: 1215806691096331501
+      Potion_Left_Art_v001_3: 6828031655619661051
+      Potion_Left_Art_v001_4: 2579046834909249330
+      Potion_Left_Art_v001_5: 7793776549034738087
+      Potion_Left_Art_v001_6: -921010949082133115
+      Potion_Left_Art_v001_7: -3983893259683098965
+      Potion_Left_Art_v001_8: 4981546352356163161
+      Potion_Left_Art_v001_9: 8542509095629597669
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

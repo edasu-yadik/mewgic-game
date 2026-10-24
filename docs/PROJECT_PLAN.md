@@ -62,3 +62,47 @@ shader hareketi, kayan sis ve 16 ortam ışığı hazır. Mevcut karakter ve UI 
 Console 0 hata / 0 uyarı. Rapor ve görsel farklar PART03A_REPORT.md içinde;
 yan yana karşılaştırma PART03A_COMPARISON.html. Mobil cihaz profillemesi ve nihai
 UI okunabilirliği sonraki aşamalar olarak kalır; yeni UI tasarımı yapılmadı.
+
+## PART 03B — Şişe varlıkları hazır
+Blender MCP ile üç ayrı kalın cidarlı iksir modeli ve beş bağımsız RGBA PNG
+üretildi: Left, Center, Right, Glow, MagicParticles. Kaynak .blend dosyaları
+SourceArt/Blender/Potions/Home; sprite'lar Assets/Art/Potions/Home içindedir.
+Unity import/alpha/pivot kontrolleri geçti; Home sahnesi değiştirilmedi.
+Referans farkları ve efektlerin ön/arka maske ihtiyacı PART03B_REPORT.md içinde.
+Sonraki adım: görsel değerlendirme ardından ayrı kapsamda Home'a yerleştirme.
+
+## PART 03B.1 — Yalnız orta şişe v002
+Orta şişenin profili, ince camı, yarı saydam katmanları, ışıkları ve ince altın
+spirali geliştirildi. v002 Blender/PNG ve ayrı ön/arka efekt katmanları hazır;
+v001 ve diğer şişeler SHA-256 ile değişmeden korundu. Unity import/alpha/pivot
+kontrolleri geçti; Home'a ekleme yapılmadı. Referansa kalan sanat farkları ve
+karşılaştırma PART03B1_REPORT.md / PART03B1_COMPARISON.html içinde kayıtlı.
+
+## PART 03B.2 — Aynı modelde cam/ışık/alpha düzeltmesi
+V002'nin 330 özgün mesh'i korunarak v003 üretildi. Üst cam ışığını silen compositor
+alpha çarpımı düzeltildi; iç ışık, kenar vurguları, sıvı ve altın aura geliştirildi.
+Şeffaf gövde ve ayrı ön/arka efekt PNG'leri hazır. Gerçek Unity RGBA açık/koyu
+karşılaştırmaları, import ve dosya koruma kontrolleri geçti; son Console 0/0.
+Home'a yerleştirme yapılmadı. Kalan referans farkları PART03B2_REPORT.md içinde.
+
+## PART 03B.3 — Üretim yöntemi 2D'ye geçti
+Onaylı Home referansından yerleşik görsel düzenleme ile Potion_Center_Art_v001
+üretildi; dış büyüsüz taban ve Glow/Sparkles/MagicSpiral sprite'ları hazır.
+Beş varlık aynı canvas/pivot ile Unity'ye aktarıldı ve gerçek RGBA önizlemesinde
+kontrol edildi. Önceki Blender kaynakları korunur; Home hâlâ değiştirilmedi.
+Üretim onarımı, referans farkları ve katmanların eşleşme sınırları PART03B3_REPORT.md
+içinde kayıtlı. Sonraki yerleşim için ana görsel hazır; efekt animasyonları yapılmadı.
+
+## PART 03B.4 — Sol ve sağ 2D şişeler
+Sol/sağ Art_v001 ve ayrı Glow/Sparkles PNG'leri üretildi; küçük ışık parçacıkları
+Sparkles içinde bulunur. Altı sprite'ın import/alpha kontrolleri geçti.
+Gerçek Unity açık/koyu karşılaştırması hazır. Home, orta şişe, karakter ve oyun
+kodları korunur. Kontur katmanları üretimsel olduğundan kusursuz piksel ayrıştırma
+değildir. Sonraki aşama: ayrı görevde Home yerleşimi. PART03B4_REPORT.md.
+
+## PART 03C — Onaylı şişelerin Home entegrasyonu
+HomePotionDisplay ile üç onaylı sprite ve hafif hareket/ışıltılar bağlandı.
+Eski Home prototip paneli kaldırıldı; mevcut platform kullanıldı.99 entegrasyon,
+12 model ve gerçek Gameplay smoke kontrolleri geçti.900×1600 Game View ve
+üç dikey oran/safe-area görselleri kaydedildi. Karakter/oyun mekaniği korunur.
+Kalan referans/UI farkları PART03C_REPORT.md içindedir.

@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: 85f01b24fe0634a45beedf0cc06ca6e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6095643657214516923
+    second: Potion_Center_Art_v001_0
+  - first:
+      213: -2067920253079402605
+    second: Potion_Center_Art_v001_1
+  - first:
+      213: 921760071069344034
+    second: Potion_Center_Art_v001_2
+  - first:
+      213: 4818162535411726182
+    second: Potion_Center_Art_v001_3
+  - first:
+      213: 265609443163853797
+    second: Potion_Center_Art_v001_4
+  - first:
+      213: 5612175515448350356
+    second: Potion_Center_Art_v001_5
+  - first:
+      213: 5668573460436177555
+    second: Potion_Center_Art_v001_6
+  - first:
+      213: 2732600011059414637
+    second: Potion_Center_Art_v001_7
+  - first:
+      213: -3814487237079833379
+    second: Potion_Center_Art_v001_8
+  - first:
+      213: -6948366818228047051
+    second: Potion_Center_Art_v001_9
+  - first:
+      213: -4895126216688296360
+    second: Potion_Center_Art_v001_10
+  - first:
+      213: 8305185125885121240
+    second: Potion_Center_Art_v001_11
+  - first:
+      213: -285301298384635060
+    second: Potion_Center_Art_v001_12
+  - first:
+      213: 5974549894096931853
+    second: Potion_Center_Art_v001_13
+  - first:
+      213: -8517266616067245875
+    second: Potion_Center_Art_v001_14
+  - first:
+      213: 547280426440585637
+    second: Potion_Center_Art_v001_15
+  - first:
+      213: 8006912680701425767
+    second: Potion_Center_Art_v001_16
+  - first:
+      213: -8677932774239030233
+    second: Potion_Center_Art_v001_17
+  - first:
+      213: -884180530221241219
+    second: Potion_Center_Art_v001_18
+  - first:
+      213: -3071635629355890229
+    second: Potion_Center_Art_v001_19
+  - first:
+      213: 5822843950834890236
+    second: Potion_Center_Art_v001_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.075}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 993
+        height: 1521
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe52a13c93189450800000000000000
+      internalID: 6095643657214516923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1242
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 397cd537c754d43e0800000000000000
+      internalID: -2067920253079402605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 951
+        width: 12
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2212a34a6efbacc00800000000000000
+      internalID: 921760071069344034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_3
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 862
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667bf495c4d8dd240800000000000000
+      internalID: 4818162535411726182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_4
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 802
+        width: 46
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e355cc9162afa300800000000000000
+      internalID: 265609443163853797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_5
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 794
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496917f85e372ed40800000000000000
+      internalID: 5612175515448350356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_6
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 406
+        width: 42
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39251846781daae40800000000000000
+      internalID: 5668573460436177555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_7
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 329
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66cc6c6b352ce520800000000000000
+      internalID: 2732600011059414637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_8
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 200
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd468916118301bc0800000000000000
+      internalID: -3814487237079833379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_9
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 75
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533f76e5131729f90800000000000000
+      internalID: -6948366818228047051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_10
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 75
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e979334a4011cb0800000000000000
+      internalID: -4895126216688296360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_11
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 54
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d29d368ed1f14370800000000000000
+      internalID: 8305185125885121240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_12
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 55
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b73df0bf76a0cf0800000000000000
+      internalID: -285301298384635060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_13
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 55
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0cce72697dd9e250800000000000000
+      internalID: 5974549894096931853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_14
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 29
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8b40c93279cc980800000000000000
+      internalID: -8517266616067245875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_15
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 33
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1f382f5a4589700800000000000000
+      internalID: 547280426440585637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_16
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 29
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76877c029a44e1f60800000000000000
+      internalID: 8006912680701425767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_17
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 7
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72433c69e1ac19780800000000000000
+      internalID: -8677932774239030233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_18
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 9
+        width: 40
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ca8da0e72cab3f0800000000000000
+      internalID: -884180530221241219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_19
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 24
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc90fc85bab5f55d0800000000000000
+      internalID: -3071635629355890229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Center_Art_v001_20
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 23
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5bb08f8b5eec050800000000000000
+      internalID: 5822843950834890236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Potion_Center_Art_v001_0: 6095643657214516923
+      Potion_Center_Art_v001_1: -2067920253079402605
+      Potion_Center_Art_v001_10: -4895126216688296360
+      Potion_Center_Art_v001_11: 8305185125885121240
+      Potion_Center_Art_v001_12: -285301298384635060
+      Potion_Center_Art_v001_13: 5974549894096931853
+      Potion_Center_Art_v001_14: -8517266616067245875
+      Potion_Center_Art_v001_15: 547280426440585637
+      Potion_Center_Art_v001_16: 8006912680701425767
+      Potion_Center_Art_v001_17: -8677932774239030233
+      Potion_Center_Art_v001_18: -884180530221241219
+      Potion_Center_Art_v001_19: -3071635629355890229
+      Potion_Center_Art_v001_2: 921760071069344034
+      Potion_Center_Art_v001_20: 5822843950834890236
+      Potion_Center_Art_v001_3: 4818162535411726182
+      Potion_Center_Art_v001_4: 265609443163853797
+      Potion_Center_Art_v001_5: 5612175515448350356
+      Potion_Center_Art_v001_6: 5668573460436177555
+      Potion_Center_Art_v001_7: 2732600011059414637
+      Potion_Center_Art_v001_8: -3814487237079833379
+      Potion_Center_Art_v001_9: -6948366818228047051
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

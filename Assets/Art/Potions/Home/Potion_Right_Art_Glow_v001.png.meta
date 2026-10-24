@@ -1,0 +1,1924 @@
+fileFormatVersion: 2
+guid: 84e1fa1123cbd984c9c2f5bae29084ff
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3919794618938982775
+    second: Potion_Right_Art_Glow_v001_0
+  - first:
+      213: 1162904762017809194
+    second: Potion_Right_Art_Glow_v001_1
+  - first:
+      213: -3840009558995634079
+    second: Potion_Right_Art_Glow_v001_2
+  - first:
+      213: 3264320263479659504
+    second: Potion_Right_Art_Glow_v001_3
+  - first:
+      213: 6870768433966344688
+    second: Potion_Right_Art_Glow_v001_4
+  - first:
+      213: -1456717392226886424
+    second: Potion_Right_Art_Glow_v001_5
+  - first:
+      213: -2814463026419214892
+    second: Potion_Right_Art_Glow_v001_6
+  - first:
+      213: -7847101744735781236
+    second: Potion_Right_Art_Glow_v001_7
+  - first:
+      213: 1989567937452785546
+    second: Potion_Right_Art_Glow_v001_8
+  - first:
+      213: 3409241981714718964
+    second: Potion_Right_Art_Glow_v001_9
+  - first:
+      213: 1066231483820781407
+    second: Potion_Right_Art_Glow_v001_10
+  - first:
+      213: -4073045140351872695
+    second: Potion_Right_Art_Glow_v001_11
+  - first:
+      213: 5591291120497542185
+    second: Potion_Right_Art_Glow_v001_12
+  - first:
+      213: 5345900042621034766
+    second: Potion_Right_Art_Glow_v001_13
+  - first:
+      213: -1458994796484681974
+    second: Potion_Right_Art_Glow_v001_14
+  - first:
+      213: 7517137360977343171
+    second: Potion_Right_Art_Glow_v001_15
+  - first:
+      213: -9081775623059913765
+    second: Potion_Right_Art_Glow_v001_16
+  - first:
+      213: 1445767239683270305
+    second: Potion_Right_Art_Glow_v001_17
+  - first:
+      213: 8540441505161651994
+    second: Potion_Right_Art_Glow_v001_18
+  - first:
+      213: 5191081012970234414
+    second: Potion_Right_Art_Glow_v001_19
+  - first:
+      213: 4318874533196418618
+    second: Potion_Right_Art_Glow_v001_20
+  - first:
+      213: -8891051973587234064
+    second: Potion_Right_Art_Glow_v001_21
+  - first:
+      213: 105181385357516430
+    second: Potion_Right_Art_Glow_v001_22
+  - first:
+      213: -6620473571471600446
+    second: Potion_Right_Art_Glow_v001_23
+  - first:
+      213: -1178955255935432200
+    second: Potion_Right_Art_Glow_v001_24
+  - first:
+      213: 9026130135660875842
+    second: Potion_Right_Art_Glow_v001_25
+  - first:
+      213: 116748297214704633
+    second: Potion_Right_Art_Glow_v001_26
+  - first:
+      213: 1965069937549632311
+    second: Potion_Right_Art_Glow_v001_27
+  - first:
+      213: -4058393994311728278
+    second: Potion_Right_Art_Glow_v001_28
+  - first:
+      213: -3351745659823464763
+    second: Potion_Right_Art_Glow_v001_29
+  - first:
+      213: 7268376718117384638
+    second: Potion_Right_Art_Glow_v001_30
+  - first:
+      213: -7663308406143391194
+    second: Potion_Right_Art_Glow_v001_31
+  - first:
+      213: -6766556212014511916
+    second: Potion_Right_Art_Glow_v001_32
+  - first:
+      213: 6602878623801441538
+    second: Potion_Right_Art_Glow_v001_33
+  - first:
+      213: 7287047088330959534
+    second: Potion_Right_Art_Glow_v001_34
+  - first:
+      213: 870080037261175019
+    second: Potion_Right_Art_Glow_v001_35
+  - first:
+      213: -3617977622259747634
+    second: Potion_Right_Art_Glow_v001_36
+  - first:
+      213: 7405875342165891997
+    second: Potion_Right_Art_Glow_v001_37
+  - first:
+      213: 6046094406899022169
+    second: Potion_Right_Art_Glow_v001_38
+  - first:
+      213: -2036883396782090546
+    second: Potion_Right_Art_Glow_v001_39
+  - first:
+      213: -4700435838035149452
+    second: Potion_Right_Art_Glow_v001_40
+  - first:
+      213: 2295209935056414930
+    second: Potion_Right_Art_Glow_v001_41
+  - first:
+      213: 6107870075123123472
+    second: Potion_Right_Art_Glow_v001_42
+  - first:
+      213: 6824489225940262067
+    second: Potion_Right_Art_Glow_v001_43
+  - first:
+      213: 979732723277145164
+    second: Potion_Right_Art_Glow_v001_44
+  - first:
+      213: 5852610656008744230
+    second: Potion_Right_Art_Glow_v001_45
+  - first:
+      213: 3016949201521742787
+    second: Potion_Right_Art_Glow_v001_46
+  - first:
+      213: 4053188776673039147
+    second: Potion_Right_Art_Glow_v001_47
+  - first:
+      213: 8530945234600873986
+    second: Potion_Right_Art_Glow_v001_48
+  - first:
+      213: 1081971368091345438
+    second: Potion_Right_Art_Glow_v001_49
+  - first:
+      213: 3989853918486189362
+    second: Potion_Right_Art_Glow_v001_50
+  - first:
+      213: -3472953983776161238
+    second: Potion_Right_Art_Glow_v001_51
+  - first:
+      213: -151682190189238794
+    second: Potion_Right_Art_Glow_v001_52
+  - first:
+      213: 6009711380457134414
+    second: Potion_Right_Art_Glow_v001_53
+  - first:
+      213: 5447871612756454321
+    second: Potion_Right_Art_Glow_v001_54
+  - first:
+      213: -3766233059572033411
+    second: Potion_Right_Art_Glow_v001_55
+  - first:
+      213: 4447020622401460599
+    second: Potion_Right_Art_Glow_v001_56
+  - first:
+      213: 4069939793015126871
+    second: Potion_Right_Art_Glow_v001_57
+  - first:
+      213: -2816325994866866476
+    second: Potion_Right_Art_Glow_v001_58
+  - first:
+      213: 9007208746693843021
+    second: Potion_Right_Art_Glow_v001_59
+  - first:
+      213: 6251228343744621357
+    second: Potion_Right_Art_Glow_v001_60
+  - first:
+      213: 3663905204620624187
+    second: Potion_Right_Art_Glow_v001_61
+  - first:
+      213: -664019651470433631
+    second: Potion_Right_Art_Glow_v001_62
+  - first:
+      213: 1611919684733393082
+    second: Potion_Right_Art_Glow_v001_63
+  - first:
+      213: -3964193574461864396
+    second: Potion_Right_Art_Glow_v001_64
+  - first:
+      213: -7004991084615250350
+    second: Potion_Right_Art_Glow_v001_65
+  - first:
+      213: 5266202875520199038
+    second: Potion_Right_Art_Glow_v001_66
+  - first:
+      213: -6367758830307156385
+    second: Potion_Right_Art_Glow_v001_67
+  - first:
+      213: -7453525635986988051
+    second: Potion_Right_Art_Glow_v001_68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.075}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1009
+        height: 1545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e77a1ef871a99c0800000000000000
+      internalID: -3919794618938982775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 1500
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a238eaf38b7732010800000000000000
+      internalID: 1162904762017809194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_2
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1512
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168f5fdb6ab85bac0800000000000000
+      internalID: -3840009558995634079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_3
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1496
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb80d90cf13d4d20800000000000000
+      internalID: 3264320263479659504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1423
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9e780ec7fd95f50800000000000000
+      internalID: 6870768433966344688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_5
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1383
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecde22ff33b8cbe0800000000000000
+      internalID: -1456717392226886424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_6
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1395
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5dfc40ac401f8d0800000000000000
+      internalID: -2814463026419214892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_7
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 1394
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8efca4f98e791390800000000000000
+      internalID: -7847101744735781236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_8
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1301
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f31687f7d5c9b10800000000000000
+      internalID: 1989567937452785546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_9
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 1294
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f06479f48f005f20800000000000000
+      internalID: 3409241981714718964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_10
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 1269
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5fa979a2e30cce00800000000000000
+      internalID: 1066231483820781407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_11
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 1286
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94112375603a977c0800000000000000
+      internalID: -4073045140351872695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_12
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 1234
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9244d0176a1489d40800000000000000
+      internalID: 5591291120497542185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1125
+        width: 7
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e012c25d3c3703a40800000000000000
+      internalID: 5345900042621034766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_14
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1154
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f136276fb90cbe0800000000000000
+      internalID: -1458994796484681974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_15
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 1117
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c23fd03a9c325860800000000000000
+      internalID: 7517137360977343171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_16
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 1103
+        width: 23
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd346b9203d07f180800000000000000
+      internalID: -9081775623059913765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_17
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1085
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a6e73df4a5601410800000000000000
+      internalID: 1445767239683270305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_18
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1069
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17a92cbc4eb58670800000000000000
+      internalID: 8540441505161651994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_19
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 1036
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22ad528dac6a0840800000000000000
+      internalID: 5191081012970234414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_20
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1018
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e47ac6189bfeb30800000000000000
+      internalID: 4318874533196418618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_21
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 971
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f21cca3653ac9480800000000000000
+      internalID: -8891051973587234064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_22
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 916
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ed737a9eda57100800000000000000
+      internalID: 105181385357516430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_23
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 924
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4d29f0d5a5f14a0800000000000000
+      internalID: -6620473571471600446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_24
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 924
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f983ebe07283afe0800000000000000
+      internalID: -1178955255935432200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_25
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 890
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 240d3803981434d70800000000000000
+      internalID: 9026130135660875842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_26
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 888
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb3d9f25f5ce9100800000000000000
+      internalID: 116748297214704633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_27
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 875
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733e17262b4554b10800000000000000
+      internalID: 1965069937549632311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_28
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 836
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a63887a1a20bda7c0800000000000000
+      internalID: -4058393994311728278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 852
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ced3c8a4153c71d0800000000000000
+      internalID: -3351745659823464763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_30
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 812
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb13b199d167ed460800000000000000
+      internalID: 7268376718117384638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_31
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 810
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62aee874b9576a590800000000000000
+      internalID: -7663308406143391194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_32
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 785
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d88926d9fc5812a0800000000000000
+      internalID: -6766556212014511916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_33
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 693
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d74b2ff1322ab50800000000000000
+      internalID: 6602878623801441538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_34
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 585
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaae289e7bac02560800000000000000
+      internalID: 7287047088330959534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_35
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 583
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be86c1b1f25231c00800000000000000
+      internalID: 870080037261175019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_36
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 536
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec435eb758c5acdc0800000000000000
+      internalID: -3617977622259747634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_37
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 548
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b5f9cb264f6c660800000000000000
+      internalID: 7405875342165891997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_38
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 478
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95931b954da08e350800000000000000
+      internalID: 6046094406899022169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_39
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 468
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec699eda7598bb3e0800000000000000
+      internalID: -2036883396782090546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_40
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 466
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d36606282b4ceb0800000000000000
+      internalID: -4700435838035149452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_41
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 428
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d82cff76493adf10800000000000000
+      internalID: 2295209935056414930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_42
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 409
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 015c3f1f87383c450800000000000000
+      internalID: 6107870075123123472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_43
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 356
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc56a51bc475be50800000000000000
+      internalID: 6824489225940262067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_44
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 287
+        width: 22
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c44a2c198b5b89d00800000000000000
+      internalID: 979732723277145164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_45
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 297
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d21181266a83150800000000000000
+      internalID: 5852610656008744230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_46
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 281
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c31a16705b5ed920800000000000000
+      internalID: 3016949201521742787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_47
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 210
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b235239b7b1df3830800000000000000
+      internalID: 4053188776673039147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_48
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 217
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20052b2fd71046670800000000000000
+      internalID: 8530945234600873986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_49
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 143
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e126a3c0a3fe30f00800000000000000
+      internalID: 1081971368091345438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_50
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 96
+        width: 76
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235d11deffece5730800000000000000
+      internalID: 3989853918486189362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_51
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 152
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a228eb390c69dcfc0800000000000000
+      internalID: -3472953983776161238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_52
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 120
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f564070add15edf0800000000000000
+      internalID: -151682190189238794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_53
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 130
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4915c2e8a8c66350800000000000000
+      internalID: 6009711380457134414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_54
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 100
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb68442e5aba9b40800000000000000
+      internalID: 5447871612756454321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_55
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 95
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7850e69cf6abbbc0800000000000000
+      internalID: -3766233059572033411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_56
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 69
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 779531bd1bdf6bd30800000000000000
+      internalID: 4447020622401460599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_57
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 63
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75bb4e3ada45b7830800000000000000
+      internalID: 4069939793015126871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_58
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 55
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d60340ed666ae8d0800000000000000
+      internalID: -2816325994866866476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_59
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 39
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d485a7402a8000d70800000000000000
+      internalID: 9007208746693843021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_60
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 47
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b60c6ee03d0c650800000000000000
+      internalID: 6251228343744621357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_61
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 48
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b310e141f5ec8d230800000000000000
+      internalID: 3663905204620624187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_62
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 57
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2e93625ade8c6f0800000000000000
+      internalID: -664019651470433631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_63
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 39
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab85ef6b960be5610800000000000000
+      internalID: 1611919684733393082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_64
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 39
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436805d72fa5cf8c0800000000000000
+      internalID: -3964193574461864396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_65
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 17
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ecabaf8b549ce90800000000000000
+      internalID: -7004991084615250350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_66
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 23
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79a58e1d9f451940800000000000000
+      internalID: 5266202875520199038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_67
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 15
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e5f28e41d21a7a0800000000000000
+      internalID: -6367758830307156385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potion_Right_Art_Glow_v001_68
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 17
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de36abeace1cf8890800000000000000
+      internalID: -7453525635986988051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Potion_Right_Art_Glow_v001_0: -3919794618938982775
+      Potion_Right_Art_Glow_v001_1: 1162904762017809194
+      Potion_Right_Art_Glow_v001_10: 1066231483820781407
+      Potion_Right_Art_Glow_v001_11: -4073045140351872695
+      Potion_Right_Art_Glow_v001_12: 5591291120497542185
+      Potion_Right_Art_Glow_v001_13: 5345900042621034766
+      Potion_Right_Art_Glow_v001_14: -1458994796484681974
+      Potion_Right_Art_Glow_v001_15: 7517137360977343171
+      Potion_Right_Art_Glow_v001_16: -9081775623059913765
+      Potion_Right_Art_Glow_v001_17: 1445767239683270305
+      Potion_Right_Art_Glow_v001_18: 8540441505161651994
+      Potion_Right_Art_Glow_v001_19: 5191081012970234414
+      Potion_Right_Art_Glow_v001_2: -3840009558995634079
+      Potion_Right_Art_Glow_v001_20: 4318874533196418618
+      Potion_Right_Art_Glow_v001_21: -8891051973587234064
+      Potion_Right_Art_Glow_v001_22: 105181385357516430
+      Potion_Right_Art_Glow_v001_23: -6620473571471600446
+      Potion_Right_Art_Glow_v001_24: -1178955255935432200
+      Potion_Right_Art_Glow_v001_25: 9026130135660875842
+      Potion_Right_Art_Glow_v001_26: 116748297214704633
+      Potion_Right_Art_Glow_v001_27: 1965069937549632311
+      Potion_Right_Art_Glow_v001_28: -4058393994311728278
+      Potion_Right_Art_Glow_v001_29: -3351745659823464763
+      Potion_Right_Art_Glow_v001_3: 3264320263479659504
+      Potion_Right_Art_Glow_v001_30: 7268376718117384638
+      Potion_Right_Art_Glow_v001_31: -7663308406143391194
+      Potion_Right_Art_Glow_v001_32: -6766556212014511916
+      Potion_Right_Art_Glow_v001_33: 6602878623801441538
+      Potion_Right_Art_Glow_v001_34: 7287047088330959534
+      Potion_Right_Art_Glow_v001_35: 870080037261175019
+      Potion_Right_Art_Glow_v001_36: -3617977622259747634
+      Potion_Right_Art_Glow_v001_37: 7405875342165891997
+      Potion_Right_Art_Glow_v001_38: 6046094406899022169
+      Potion_Right_Art_Glow_v001_39: -2036883396782090546
+      Potion_Right_Art_Glow_v001_4: 6870768433966344688
+      Potion_Right_Art_Glow_v001_40: -4700435838035149452
+      Potion_Right_Art_Glow_v001_41: 2295209935056414930
+      Potion_Right_Art_Glow_v001_42: 6107870075123123472
+      Potion_Right_Art_Glow_v001_43: 6824489225940262067
+      Potion_Right_Art_Glow_v001_44: 979732723277145164
+      Potion_Right_Art_Glow_v001_45: 5852610656008744230
+      Potion_Right_Art_Glow_v001_46: 3016949201521742787
+      Potion_Right_Art_Glow_v001_47: 4053188776673039147
+      Potion_Right_Art_Glow_v001_48: 8530945234600873986
+      Potion_Right_Art_Glow_v001_49: 1081971368091345438
+      Potion_Right_Art_Glow_v001_5: -1456717392226886424
+      Potion_Right_Art_Glow_v001_50: 3989853918486189362
+      Potion_Right_Art_Glow_v001_51: -3472953983776161238
+      Potion_Right_Art_Glow_v001_52: -151682190189238794
+      Potion_Right_Art_Glow_v001_53: 6009711380457134414
+      Potion_Right_Art_Glow_v001_54: 5447871612756454321
+      Potion_Right_Art_Glow_v001_55: -3766233059572033411
+      Potion_Right_Art_Glow_v001_56: 4447020622401460599
+      Potion_Right_Art_Glow_v001_57: 4069939793015126871
+      Potion_Right_Art_Glow_v001_58: -2816325994866866476
+      Potion_Right_Art_Glow_v001_59: 9007208746693843021
+      Potion_Right_Art_Glow_v001_6: -2814463026419214892
+      Potion_Right_Art_Glow_v001_60: 6251228343744621357
+      Potion_Right_Art_Glow_v001_61: 3663905204620624187
+      Potion_Right_Art_Glow_v001_62: -664019651470433631
+      Potion_Right_Art_Glow_v001_63: 1611919684733393082
+      Potion_Right_Art_Glow_v001_64: -3964193574461864396
+      Potion_Right_Art_Glow_v001_65: -7004991084615250350
+      Potion_Right_Art_Glow_v001_66: 5266202875520199038
+      Potion_Right_Art_Glow_v001_67: -6367758830307156385
+      Potion_Right_Art_Glow_v001_68: -7453525635986988051
+      Potion_Right_Art_Glow_v001_7: -7847101744735781236
+      Potion_Right_Art_Glow_v001_8: 1989567937452785546
+      Potion_Right_Art_Glow_v001_9: 3409241981714718964
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
