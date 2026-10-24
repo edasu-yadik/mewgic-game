@@ -44,3 +44,6 @@ C# derlemesi ve son Console:0 hata/0 uyarı. Ara test dosyasındaki childCount d
 PART05A_GAMEVIEW.png gerçek900×1600 Gameplay ScreenCapture Game View çıktısıdır. gameplay-05a-1600/1950/2000/2000-safe.png çalışan Canvas'ın kamera yakalamalarıdır. PART05A_COMPARISON_Dark/Light.png referans ve gerçek Gameplay'i tam ekran yan yana gösterir. IMPORT/ALPHA_AUDIT/TEST_RESULTS/SMOKE_CHECK/FINAL_CHECK/PRESERVATION.json ham kanıtlardır.
 
 Bir sonraki görsel aşama için katman ve dinamik slot altyapısı hazırdır;şişe sanatı ve Gameplay UI ayrı görev gerektirir. Git commit/push doğrulaması teslim kaydına eklenir. Başka part başlatılmadı.
+
+## Teslim kaydı
+Uygulama commit'i:a48ccbfbe57c8a56ebf1dd76c949f6b00d87391b (feat: add layered gameplay environment and adaptive bottle layout). Private origin/master push başarılı;git ls-remote aynı SHA'yı doğruladı. Bu durum Gameplay çevre/yerleşim altyapısı içindir;şişe/UI final sanat onayı değildir. Bu kayıt ayrı belge commit'iyle saklanır.

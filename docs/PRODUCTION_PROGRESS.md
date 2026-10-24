@@ -24,3 +24,5 @@ Kale/şelale arka planı,ayrı raf ve kenar dekoru,mevcut kedi prefabı ve dinam
 slot sistemi tamamlandı. Dört şişelik bölüm çalışıyor;şişe/UI sanatı prototip
 olarak korundu.2755 karma geometri/Play kontrolü,12 model ve smoke geçti;
 Console0/0,3 oran/safe-area doğrulandı. Home aynı. Rapor ProductionReports/PART05A.md.
+
+05A Git teslimi:a48ccbf private origin/master'a gönderildi ve uzak SHA doğrulandı.
