@@ -39,3 +39,10 @@ Belgeler: VISUAL_DESIGN_SYSTEM.md, REFERENCE_ANALYSIS.md, ASSET_PRODUCTION_PLAN.
 UI_IMPLEMENTATION_ROADMAP.md. Esas beş referans References/Visual/Approved içindedir.
 Bu çalışma yeni görsel kalite uygulaması değildir; prototip kodu ve sahneleri korunur.
 Yerel Git başlangıç kaydı vardır; uzak depo ve DevControl bağlantısı yoktur.
+
+## PART 02B tamamlanan işler
+Unity sağlık denetimi, 12 model kontrolü ve oyun Play Mode akışı geçti.
+WizardCat prefab, Idle/Blink/Wand Magic ve ayrı WizardCatAnimationTest sahnesi hazır;
+41 animasyon/UI kontrolü başarılı. Ayrı Android karakter test APK'sı alındı.
+Sonraki iş PART 02C: karakteri Home'a entegre etmek. Yeni bölüm geçişi, tam vücut rig'i
+ve gerçek cihaz performans testi hâlâ yapılacak işlerdir. Rapor: PART02B_REPORT.md.

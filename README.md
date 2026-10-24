@@ -60,3 +60,10 @@ Private GitHub: https://github.com/edasu-yadik/mewgic-game
 Resmî Unity CLI/Pipeline ve Blender Lab MCP bağlantıları gerçek protokol çağrılarıyla doğrulandı.
 Kurulum, yeniden başlatma adımları ve sınırlar: [MCP_SETUP.md](docs/MCP_SETUP.md).
 DevControl'a müdahale edilmedi; oyun kaynakları ve mevcut görseller korunur.
+
+## PART 02B — Büyücü kedi animasyon laboratuvarı
+Assets/Scenes/WizardCatAnimationTest.unity sahnesini açın. Idle otomatik başlar;
+Göz Kırp ve Değnek Büyüsü düğmeleri ile animasyonları deneyin.
+Prefab: Assets/Prefabs/Characters/WizardCat.prefab (Canvas altında kullanılır).
+Üç animasyon, 18 kıvılcımlık havuz ve göz kapağı sprite'ları hazırdır.
+Oyun sahneleri ve çekirdek mekanikler korunur. Ayrıntılar: docs/PART02B_REPORT.md.

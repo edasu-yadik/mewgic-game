@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"project\": \"Mewgic\",\n    \"dataPath\": \"C:/Dev/Mewgic/Assets\",\n    \"version\": \"6000.3.27f1\",\n    \"activeScene\": \"Assets/Scenes/Boot.unity\",\n    \"playing\": false,\n    \"scenes\": [\n      {\n        \"name\": \"Boot\",\n        \"objects\": 3,\n        \"issues\": []\n      },\n      {\n        \"name\": \"Home\",\n        \"objects\": 3,\n        \"issues\": []\n      },\n      {\n        \"name\": \"Gameplay\",\n        \"objects\": 3,\n        \"issues\": []\n      },\n      {\n        \"name\": \"LevelMap\",\n        \"objects\": 2,\n        \"issues\": []\n      }\n    ],\n    \"prefabs\": [],\n    \"buildScenes\": [\n      {\n        \"path\": \"Assets/Scenes/Boot.unity\",\n        \"enabled\": true\n      },\n      {\n        \"path\": \"Assets/Scenes/Home.unity\",\n        \"enabled\": true\n      },\n      {\n        \"path\": \"Assets/Scenes/Gameplay.unity\",\n        \"enabled\": true\n      },\n      {\n        \"path\": \"Assets/Scenes/LevelMap.unity\",\n        \"enabled\": true\n      },\n      {\n        \"path\": \"Assets/Scenes/SampleScene.unity\",\n        \"enabled\": false\n      }\n    ],\n    \"android\": {\n      \"target\": \"Android\",\n      \"orientation\": \"Portrait\",\n      \"backend\": \"IL2CPP\",\n      \"architectures\": \"ARM64\",\n      \"minSDK\": \"AndroidApiLevel26\",\n      \"targetSDK\": \"AndroidApiLevelAuto\"\n    },\n    \"urp\": \"UniversalRP\",\n    \"console\": {\n      \"errors\": 0,\n      \"warnings\": 0,\n      \"logs\": 0\n    }\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

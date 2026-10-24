@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"errors\": 0,\n    \"warnings\": 0,\n    \"playing\": true,\n    \"scene\": \"WizardCatAnimationTest\",\n    \"blinkAvailable\": true,\n    \"automaticBlink\": true,\n    \"pool\": 18\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
