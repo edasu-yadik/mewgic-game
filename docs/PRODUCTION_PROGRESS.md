@@ -124,3 +124,5 @@ Bu teknik APK adayıdır;fiziksel cihaz kabulü halen açık.
 TestFlight ek çalışma: Apple uygulama/sertifika/App Store profili hazır; GitHub salt okunur Unity Cloud bağlantısı kaydedildi.27 preflight ve290 koruma kontrolü geçti. Bulutta6000.3.27f1 listelenmiyor; imzalama yükleme onayı ve quota doğrulaması açık. IPA/yükleme/cihaz testi yok. ProductionReports/TESTFLIGHT_SETUP.md durum kaydıdır.
 
 TestFlight güncellemesi: imzalama dosyaları kullanıcı onayıyla Unity Cloud'a kaydedildi ve appstore kimliği doğrulandı. Ücretsiz Mac kotası0/100dk. İlk build isteği6000.3.27f1 sunucuda bulunmadığından reddedildi. IPA/yükleme yok; ana proje sürümü korunuyor. Detay TESTFLIGHT_SETUP.md.
+
+iOS compatibility branch:6.3.26f1 üzerinde6 model test grubu,4 sahne referans kontrolü ve iki Play smoke geçti. Editor Search indeksi exception'ı açık; oyun akışı geçti. Ana master ve6.3.27f1 korunuyor. Cloud build sonucu ayrı kaydedilecek.

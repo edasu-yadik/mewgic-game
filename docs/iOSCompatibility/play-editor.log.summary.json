@@ -1,0 +1,8 @@
+{
+  "log": "play-editor.log",
+  "errors": [
+    "ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection."
+  ],
+  "modelSuccess": true,
+  "smokeReportUpdated": true
+}

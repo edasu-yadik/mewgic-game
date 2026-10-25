@@ -1,0 +1,16 @@
+{
+  "log": "models-editor.log",
+  "errors": [
+    "Start importing Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss using Guid(72c98894fc0953a4486e96fa2cff6f8d) (ScriptedImporter)Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 26): error: Unsupported selector format: '.Dark . #HeaderImage",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 51): error: Unsupported selector format: '.Dark . #ListView",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 71): error: Unsupported selector format: '.Dark . .ListRowOddColor",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 81): error: Unsupported selector format: 'ListView . .unity-collection-view__item--selected",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 89): error: Unsupported selector format: '.Dark . ListView . .unity-collection-view__item--selected",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 100): error: Unsupported selector format: '.Dark . #ContentBackgroundImage",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 119): error: Unsupported selector format: '.Dark . #ButtonsContainer",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 160): error: Unsupported selector format: '.Dark . #AddButton",
+    "Packages/com.unity.2d.animation/Editor/Assets/SkinningModule/InfluenceWindowStyle.uss (line 171): error: Unsupported selector format: '.Dark . #RemoveButton"
+  ],
+  "modelSuccess": true,
+  "smokeReportUpdated": true
+}

@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "editor": "6000.3.26f1",
+  "checks": [
+    "MewgicPrototypeSetup.TestModel",
+    "BetaValidation.SaveTests",
+    "MapProgressionTests.Models",
+    "GameplayBoosterTests.ModelTests",
+    "DailyActivitiesTests.Models",
+    "RewardHubTests.Models",
+    "Boot scene references",
+    "Home scene references",
+    "Gameplay scene references",
+    "LevelMap scene references"
+  ]
+}
