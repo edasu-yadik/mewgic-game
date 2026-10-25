@@ -7,10 +7,13 @@
   "testedCommit": "c6496d5d1906362b6b8410497fdb9837414b977e",
   "cloudBuild": 1,
   "cloudSubmissionAccepted": true,
-  "latestStatus": "Sent to Builder",
-  "logsAvailable": false,
+  "latestStatus": "Building",
+  "logsAvailable": true,
   "ipaProduced": false,
   "testFlightUploaded": false,
   "freeMacMinutesUsedBeforeBuild": 0,
-  "freeMacAllowance": 100
+  "freeMacAllowance": 100,
+  "lastObservedPhase": "Unity package/shader import",
+  "checkoutSeconds": 6,
+  "waitSeconds": 155
 }
