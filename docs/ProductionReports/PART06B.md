@@ -43,5 +43,4 @@ Güncellenen: MapWorld.cs, Core/BoosterActions.cs (yalnız ledger/kayıt uzantı
 
 ## Sınırlar ve teslim
 
-Fiziksel Android cihazda test/FPS/bellek ölçümü ve APK üretimi yapılmadı. Yeni bölgeler için gerçek, çözülebilirliği doğrulanmış seviye içeriği gerekir. Bir sonraki part otomatik başlatılmadı. Console son durum ve dosya koruma kanıtı PART06B_FINAL_UNITY.json / PART06B_PRESERVATION.json içinde tutulur. Commit/push sonucu doğrulama sonrası eklenecektir.
-
+Fiziksel Android cihazda test/FPS/bellek ölçümü ve APK üretimi yapılmadı. Yeni bölgeler için gerçek, çözülebilirliği doğrulanmış seviye içeriği gerekir. Bir sonraki part otomatik başlatılmadı. Console son durum ve dosya koruma kanıtı PART06B_FINAL_UNITY.json / PART06B_PRESERVATION.json içinde tutulur. Özellik commit:91de3608dd161063b17fce671ce7a65fa3498e7f. Private origin/master push başarılı; git ls-remote aynı SHA döndürdü. Teslim kaydı ayrı belge commitinde tutulur.
