@@ -117,3 +117,6 @@ Bunlar8735 karma assertion'dır;8735 ayrı oyun oturumu değildir.
 Gerçek Game View ve referans karşılaştırması hazır. Android0.8.0/code8 APK68,616,458byte;debug imza/CRC/statik16KB kontrolleri geçti.
 Sonuç ProductionReports/PART08.md teslim kaydındadır. Fiziksel cihaz yok;
 kararlı beta kabulü tamamlanmış sayılmaz. İki bölüm/eksik sistemler aynı raporda.
+
+08 Git teslimi:2d0d3574e013eaf3137a754c2548cfe9231e1ad6 private origin/master push başarılı;uzak SHA eşleşti.
+Bu teknik APK adayıdır;fiziksel cihaz kabulü halen açık.

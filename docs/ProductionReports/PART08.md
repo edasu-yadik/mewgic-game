@@ -166,3 +166,9 @@ Her güncel paketin son koşusu geçti; smoke exitCode0. Son kayıt düzeltmesi 
 kez eklenmedi. PART08_VALIDATION_SUMMARY.json sayıları ve sınırları kaydeder.
 Son Console0 hata/0 uyarı; profil testi kapalı,derleme bitmiş durumda.
 **PART08 kısmen tamamlandı: doğrulanmış APK adayı hazır; fiziksel cihaz kabulü açık.**
+
+## Git teslim kaydı
+
+Uygulama commit: 2d0d3574e013eaf3137a754c2548cfe9231e1ad6. Private origin/master push başarılı; git ls-remote
+aynı SHA döndürdü. APK/artık debug sembolleri/önceki untracked denemeler commit
+kapsamına alınmadı. Bu teslim kaydı ayrı belge commitinde korunur.
