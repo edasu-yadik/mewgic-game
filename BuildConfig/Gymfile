@@ -1,0 +1,11 @@
+# TestFlight distribution only. No credentials belong in this file.
+export_method("app-store")
+export_team_id("VKW7GYV7B9")
+export_options(
+  method: "app-store-connect",
+  signingStyle: "manual",
+  teamID: "VKW7GYV7B9",
+  provisioningProfiles: {
+    "com.edasuyadik.mewgic" => "Mewgic TestFlight App Store"
+  }
+)

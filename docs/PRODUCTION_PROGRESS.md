@@ -120,3 +120,5 @@ kararlı beta kabulü tamamlanmış sayılmaz. İki bölüm/eksik sistemler ayn�
 
 08 Git teslimi:2d0d3574e013eaf3137a754c2548cfe9231e1ad6 private origin/master push başarılı;uzak SHA eşleşti.
 Bu teknik APK adayıdır;fiziksel cihaz kabulü halen açık.
+
+TestFlight ek çalışma: Apple uygulama/sertifika/App Store profili hazır; GitHub salt okunur Unity Cloud bağlantısı kaydedildi.27 preflight ve290 koruma kontrolü geçti. Bulutta6000.3.27f1 listelenmiyor; imzalama yükleme onayı ve quota doğrulaması açık. IPA/yükleme/cihaz testi yok. ProductionReports/TESTFLIGHT_SETUP.md durum kaydıdır.

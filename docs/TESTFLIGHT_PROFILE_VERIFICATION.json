@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "name": "Mewgic TestFlight App Store",
+  "uuid": "0c5c4038-66cb-4046-83e0-92eb56ab748e",
+  "expires": "2027-10-25T09:27:46",
+  "checks": {
+    "team": true,
+    "app": true,
+    "distribution": true,
+    "testflight": true,
+    "certificate": true,
+    "notAdHoc": true,
+    "notEnterprise": true,
+    "notExpired": true
+  },
+  "cmsSignatureVerified": true,
+  "trustChainValidated": false,
+  "privateMaterialCommitted": false
+}

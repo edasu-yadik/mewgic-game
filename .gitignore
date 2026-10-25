@@ -36,3 +36,7 @@
 # Unique temporary Unity regression captures; curated PART08 evidence stays tracked
 docs/Part08Tests/RewardHub-*/
 docs/Part08Tests/Run-*/
+
+# Apple signing/API credentials remain outside source control
+*.p8
+.secrets/

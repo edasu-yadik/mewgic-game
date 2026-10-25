@@ -1,0 +1,9 @@
+{
+  "certificateId": "5S972M9XK9",
+  "teamId": "VKW7GYV7B9",
+  "expires": "2027-10-25",
+  "matchesEncryptedPrivateKey": true,
+  "p12Verified": true,
+  "certificateSha256": "cbbac8583fd104cb80a028f73a7d067a9bcd1f9624734d6b806dd821f76b81ff",
+  "privateMaterialCommitted": false
+}
