@@ -36,6 +36,7 @@ namespace Mewgic
         Text status;
         Button undo, restart, home;
         RectTransform[] bottleViews;
+        string victoryReceipt=Guid.NewGuid().ToString("N");
         int selected = -1;
         bool busy;
         Rect previousSafe;
@@ -109,6 +110,7 @@ namespace Mewgic
             var footnote=Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.94f,.92f,1f),new Vector2(.1f,.10f),new Vector2(.9f,.12f));
             var footnoteShadow=footnote.gameObject.AddComponent<Shadow>();footnoteShadow.effectColor=new Color(0,0,0,.9f);footnoteShadow.effectDistance=new Vector2(1,-2);
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
+            gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
         }
         public static Puzzle LoadLevel()
         {
@@ -163,7 +165,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;puzzle.Restart();selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.";Refresh();}
+        void Reset(){if(busy||paused)return;puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.";Refresh();}
         void Refresh()
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
@@ -189,7 +191,7 @@ namespace Mewgic
             if(puzzle.Won&&!busy&&!paused&&!completionHandled)
             {
                 completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
-                bool saved=progress.Claim(levelInfo.id,stars,puzzle.Won,out bool granted);UpdateTools();
+                bool saved=progress.Claim(levelInfo.id,stars,puzzle.Won,out bool granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed);UpdateTools();
                 endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,GameplayLevelCatalog.CanAdvance(levelInfo.id,progress));
             }
         }

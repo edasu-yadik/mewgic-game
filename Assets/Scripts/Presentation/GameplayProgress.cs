@@ -17,7 +17,7 @@ namespace Mewgic
                 return current;
             }
         }
-        public static ProgressLedger Open(string key)
+        public static ProgressLedger Open(string key,Func<DateTimeOffset> clock=null)
         {
             var data=PlayerPrefs.HasKey(key)?JsonUtility.FromJson<ProgressData>(PlayerPrefs.GetString(key)):new ProgressData();
             return new ProgressLedger(data,copy=>
@@ -25,9 +25,9 @@ namespace Mewgic
                 bool existed=PlayerPrefs.HasKey(key);string before=existed?PlayerPrefs.GetString(key):null;
                 try{PlayerPrefs.SetString(key,JsonUtility.ToJson(copy));PlayerPrefs.Save();}
                 catch{if(existed)PlayerPrefs.SetString(key,before);else PlayerPrefs.DeleteKey(key);throw;}
-            });
+            },clock);
         }
-        public static void UseTestProfile(ProgressData data=null){current=new ProgressLedger(data??new ProgressData(),_=>{});IsTestProfile=true;LoadError=null;}
+        public static void UseTestProfile(ProgressData data=null,Func<DateTimeOffset> clock=null){current=new ProgressLedger(data??new ProgressData(),_=>{},clock);IsTestProfile=true;LoadError=null;}
         public static void RestorePlayerProfile(){current=null;IsTestProfile=false;LoadError=null;}
     }
 }

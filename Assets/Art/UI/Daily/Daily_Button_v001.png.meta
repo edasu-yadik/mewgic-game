@@ -1,0 +1,2782 @@
+fileFormatVersion: 2
+guid: b65148335bc8b5e4ea80c8a548be1cc7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4873754185467588602
+    second: Daily_Button_v001_0
+  - first:
+      213: 1258702385808758991
+    second: Daily_Button_v001_1
+  - first:
+      213: -7596186805902091611
+    second: Daily_Button_v001_2
+  - first:
+      213: 8814816014116203287
+    second: Daily_Button_v001_3
+  - first:
+      213: -3581637072669261837
+    second: Daily_Button_v001_4
+  - first:
+      213: -5684752249584803897
+    second: Daily_Button_v001_5
+  - first:
+      213: -6689436562046867604
+    second: Daily_Button_v001_6
+  - first:
+      213: -1457204232952032496
+    second: Daily_Button_v001_7
+  - first:
+      213: -4559696035687990436
+    second: Daily_Button_v001_8
+  - first:
+      213: 3038858957916766450
+    second: Daily_Button_v001_9
+  - first:
+      213: 2403929541126327061
+    second: Daily_Button_v001_10
+  - first:
+      213: -1291504714523233783
+    second: Daily_Button_v001_11
+  - first:
+      213: -9168187774121762567
+    second: Daily_Button_v001_12
+  - first:
+      213: -1342990947117432926
+    second: Daily_Button_v001_13
+  - first:
+      213: 9060553644143377046
+    second: Daily_Button_v001_14
+  - first:
+      213: -5666156963061670519
+    second: Daily_Button_v001_15
+  - first:
+      213: 8172980149448698257
+    second: Daily_Button_v001_16
+  - first:
+      213: 7717432866256664142
+    second: Daily_Button_v001_17
+  - first:
+      213: -6232699253038298724
+    second: Daily_Button_v001_18
+  - first:
+      213: -463823135219709796
+    second: Daily_Button_v001_19
+  - first:
+      213: -5328275665417317010
+    second: Daily_Button_v001_20
+  - first:
+      213: 295185447594095039
+    second: Daily_Button_v001_21
+  - first:
+      213: 5391867244078390763
+    second: Daily_Button_v001_22
+  - first:
+      213: -8092119053442139521
+    second: Daily_Button_v001_23
+  - first:
+      213: -8065460919752471097
+    second: Daily_Button_v001_24
+  - first:
+      213: -233013920778131502
+    second: Daily_Button_v001_25
+  - first:
+      213: -881866824608927366
+    second: Daily_Button_v001_26
+  - first:
+      213: 4414670563528207184
+    second: Daily_Button_v001_27
+  - first:
+      213: 477331557721856665
+    second: Daily_Button_v001_28
+  - first:
+      213: -8000997136823450114
+    second: Daily_Button_v001_29
+  - first:
+      213: 349816341423825869
+    second: Daily_Button_v001_30
+  - first:
+      213: -2163428679964342984
+    second: Daily_Button_v001_31
+  - first:
+      213: -8379678136853589190
+    second: Daily_Button_v001_32
+  - first:
+      213: 2419224996499256121
+    second: Daily_Button_v001_33
+  - first:
+      213: -3240336057695652624
+    second: Daily_Button_v001_34
+  - first:
+      213: 4477278864581018797
+    second: Daily_Button_v001_35
+  - first:
+      213: -7820127596893500901
+    second: Daily_Button_v001_36
+  - first:
+      213: -3850000977843526163
+    second: Daily_Button_v001_37
+  - first:
+      213: 3513626426562094334
+    second: Daily_Button_v001_38
+  - first:
+      213: 875530890055831772
+    second: Daily_Button_v001_39
+  - first:
+      213: 1526793447104572406
+    second: Daily_Button_v001_40
+  - first:
+      213: -4281897326643984997
+    second: Daily_Button_v001_41
+  - first:
+      213: -5127715978679293980
+    second: Daily_Button_v001_42
+  - first:
+      213: -4585992304850139731
+    second: Daily_Button_v001_43
+  - first:
+      213: 1875745987373160318
+    second: Daily_Button_v001_44
+  - first:
+      213: 553233294598462257
+    second: Daily_Button_v001_45
+  - first:
+      213: -4239092905925144763
+    second: Daily_Button_v001_46
+  - first:
+      213: -9029433048613387146
+    second: Daily_Button_v001_47
+  - first:
+      213: 6765252488377342636
+    second: Daily_Button_v001_48
+  - first:
+      213: -1494216971177824240
+    second: Daily_Button_v001_49
+  - first:
+      213: 6497034190358416893
+    second: Daily_Button_v001_50
+  - first:
+      213: -3451241534420938855
+    second: Daily_Button_v001_51
+  - first:
+      213: 3806049383541406027
+    second: Daily_Button_v001_52
+  - first:
+      213: -494748537873333895
+    second: Daily_Button_v001_53
+  - first:
+      213: 4536560078731449899
+    second: Daily_Button_v001_54
+  - first:
+      213: -1908798691551783372
+    second: Daily_Button_v001_55
+  - first:
+      213: 8771825456395442472
+    second: Daily_Button_v001_56
+  - first:
+      213: -9183393811372759618
+    second: Daily_Button_v001_57
+  - first:
+      213: 5552347406112809502
+    second: Daily_Button_v001_58
+  - first:
+      213: -7507389842019508396
+    second: Daily_Button_v001_59
+  - first:
+      213: 697899221355031144
+    second: Daily_Button_v001_60
+  - first:
+      213: 8258573548639383182
+    second: Daily_Button_v001_61
+  - first:
+      213: 1924675598025477494
+    second: Daily_Button_v001_62
+  - first:
+      213: -551468045009063866
+    second: Daily_Button_v001_63
+  - first:
+      213: -3060102749350366859
+    second: Daily_Button_v001_64
+  - first:
+      213: -3945603909904588457
+    second: Daily_Button_v001_65
+  - first:
+      213: 4622746830778900823
+    second: Daily_Button_v001_66
+  - first:
+      213: -8735020687631849674
+    second: Daily_Button_v001_67
+  - first:
+      213: -1491781714266753132
+    second: Daily_Button_v001_68
+  - first:
+      213: -6966135082024176726
+    second: Daily_Button_v001_69
+  - first:
+      213: 5296057423007882409
+    second: Daily_Button_v001_70
+  - first:
+      213: -1296541435403934241
+    second: Daily_Button_v001_71
+  - first:
+      213: -2464978321528616890
+    second: Daily_Button_v001_72
+  - first:
+      213: -4477770973994921474
+    second: Daily_Button_v001_73
+  - first:
+      213: -3275839439256223375
+    second: Daily_Button_v001_74
+  - first:
+      213: 8956656229925136333
+    second: Daily_Button_v001_75
+  - first:
+      213: -6900927206413190147
+    second: Daily_Button_v001_76
+  - first:
+      213: 1140401429108820195
+    second: Daily_Button_v001_77
+  - first:
+      213: -5853492172984636810
+    second: Daily_Button_v001_78
+  - first:
+      213: 2959481985500896784
+    second: Daily_Button_v001_79
+  - first:
+      213: -8993249470364975094
+    second: Daily_Button_v001_80
+  - first:
+      213: -2604952508057110615
+    second: Daily_Button_v001_81
+  - first:
+      213: 3907372377276195054
+    second: Daily_Button_v001_82
+  - first:
+      213: -2985612452263392322
+    second: Daily_Button_v001_83
+  - first:
+      213: -8323987111106996684
+    second: Daily_Button_v001_84
+  - first:
+      213: 1632790323484234837
+    second: Daily_Button_v001_85
+  - first:
+      213: 1836832939524774002
+    second: Daily_Button_v001_86
+  - first:
+      213: 2191064613595709612
+    second: Daily_Button_v001_87
+  - first:
+      213: 4438203175319866798
+    second: Daily_Button_v001_88
+  - first:
+      213: 8524260960508597479
+    second: Daily_Button_v001_89
+  - first:
+      213: 438552637672972634
+    second: Daily_Button_v001_90
+  - first:
+      213: 7555454070240540106
+    second: Daily_Button_v001_91
+  - first:
+      213: 668423308370119304
+    second: Daily_Button_v001_92
+  - first:
+      213: -5528441172572507678
+    second: Daily_Button_v001_93
+  - first:
+      213: 5852769088179124994
+    second: Daily_Button_v001_94
+  - first:
+      213: -5535177711667984095
+    second: Daily_Button_v001_95
+  - first:
+      213: -3673530359609971701
+    second: Daily_Button_v001_96
+  - first:
+      213: -6911223221787510146
+    second: Daily_Button_v001_97
+  - first:
+      213: 3758062684540865388
+    second: Daily_Button_v001_98
+  - first:
+      213: 1431898526537650377
+    second: Daily_Button_v001_99
+  - first:
+      213: -3334202845358563857
+    second: Daily_Button_v001_100
+  - first:
+      213: -780725270485705072
+    second: Daily_Button_v001_101
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Daily_Button_v001_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 1971
+        height: 770
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff6e530c9d03a340800000000000000
+      internalID: 4873754185467588602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 756
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc85118a62fc77110800000000000000
+      internalID: 1258702385808758991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 687
+        width: 100
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aa52baa85ce49690800000000000000
+      internalID: -7596186805902091611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_3
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 723
+        width: 97
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71b22d14674845a70800000000000000
+      internalID: 8814816014116203287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_4
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 760
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ffbd290f087b4ec0800000000000000
+      internalID: -3581637072669261837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_5
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 701
+        width: 98
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf1567b2f3bb11b0800000000000000
+      internalID: -5684752249584803897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_6
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 737
+        width: 57
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c67afa393e85a23a0800000000000000
+      internalID: -6689436562046867604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_7
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 691
+        width: 115
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 013d2b18878f6cbe0800000000000000
+      internalID: -1457204232952032496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_8
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 729
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b7f052d94b8b0c0800000000000000
+      internalID: -4559696035687990436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_9
+      rect:
+        serializedVersion: 2
+        x: 1852
+        y: 741
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f084252f123c2a20800000000000000
+      internalID: 3038858957916766450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 743
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51b07eb5e297c5120800000000000000
+      internalID: 2403929541126327061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 733
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 902b9190e47a31ee0800000000000000
+      internalID: -1291504714523233783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_12
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 745
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0a4696bcd04c080800000000000000
+      internalID: -9168187774121762567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_13
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 745
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2afff7c59dcbc5de0800000000000000
+      internalID: -1342990947117432926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_14
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 735
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a7983d88d8dbd70800000000000000
+      internalID: 9060553644143377046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_15
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 741
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d5a1f3344cd51b0800000000000000
+      internalID: -5666156963061670519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_16
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 723
+        width: 78
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1996534c4224c6170800000000000000
+      internalID: 8172980149448698257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_17
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 727
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e46372b9d44d91b60800000000000000
+      internalID: 7717432866256664142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_18
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 736
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c994fc63d010189a0800000000000000
+      internalID: -6232699253038298724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_19
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 743
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c980f92e05b2099f0800000000000000
+      internalID: -463823135219709796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_20
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 735
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65517143892e06b0800000000000000
+      internalID: -5328275665417317010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_21
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 733
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1f5b2c995b81400800000000000000
+      internalID: 295185447594095039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_22
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 736
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed5b5fe0b2c3da40800000000000000
+      internalID: 5391867244078390763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_23
+      rect:
+        serializedVersion: 2
+        x: 1853
+        y: 719
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a3963489403bf80800000000000000
+      internalID: -8092119053442139521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_24
+      rect:
+        serializedVersion: 2
+        x: 1346
+        y: 724
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cdcb50b60ab11090800000000000000
+      internalID: -8065460919752471097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_25
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 721
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d76c48d21b24ccf0800000000000000
+      internalID: -233013920778131502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_26
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 709
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a71bbfb9bcaf2c3f0800000000000000
+      internalID: -881866824608927366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_27
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 714
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05be873dc7f044d30800000000000000
+      internalID: 4414670563528207184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_28
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 693
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a5812d582df9600800000000000000
+      internalID: 477331557721856665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_29
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 695
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef588b2ce7fb6f090800000000000000
+      internalID: -8000997136823450114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_30
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 685
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3a13feb1ccad400800000000000000
+      internalID: 349816341423825869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_31
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 130
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83545d1f315f9f1e0800000000000000
+      internalID: -2163428679964342984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_32
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 112
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a331cb8c12765bb80800000000000000
+      internalID: -8379678136853589190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_33
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 128
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93375141150d29120800000000000000
+      internalID: 2419224996499256121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_34
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 116
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4392806830803d0800000000000000
+      internalID: -3240336057695652624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_35
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 130
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da447bbd76d722e30800000000000000
+      internalID: 4477278864581018797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_36
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 118
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a0fe82263597390800000000000000
+      internalID: -7820127596893500901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_37
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 104
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de5eab2428c029ac0800000000000000
+      internalID: -3850000977843526163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_38
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 120
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef4a8a47e98e2c030800000000000000
+      internalID: 3513626426562094334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_39
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 76
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd0d8aba4b2862c00800000000000000
+      internalID: 875530890055831772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_40
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 88
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fbef040d82403510800000000000000
+      internalID: 1526793447104572406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_41
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 86
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95c0b06115a394c0800000000000000
+      internalID: -4281897326643984997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_42
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 76
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7e9b53c71b6d8b0800000000000000
+      internalID: -5127715978679293980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_43
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 72
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da58bbedb484b50c0800000000000000
+      internalID: -4585992304850139731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_44
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 80
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77dd32990df70a10800000000000000
+      internalID: 1875745987373160318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_45
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 59
+        width: 57
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13bd57210ca7da700800000000000000
+      internalID: 553233294598462257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_46
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 70
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54f04743677bb25c0800000000000000
+      internalID: -4239092905925144763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_47
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 39
+        width: 61
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6740a367b7201b280800000000000000
+      internalID: -9029433048613387146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_48
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 88
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa1f895b4103ed50800000000000000
+      internalID: 6765252488377342636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_49
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 37
+        width: 82
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 010f597d499734be0800000000000000
+      internalID: -1494216971177824240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_50
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 76
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd81e16c2a1a2a50800000000000000
+      internalID: 6497034190358416893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_51
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 64
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f04c22c1aba10d0800000000000000
+      internalID: -3451241534420938855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_52
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 82
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49749fbfbdc1d430800000000000000
+      internalID: 3806049383541406027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_53
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 63
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9718aea73dc4229f0800000000000000
+      internalID: -494748537873333895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_54
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 47
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b26910b1b5915fe30800000000000000
+      internalID: 4536560078731449899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_55
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 66
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436535a04b59285e0800000000000000
+      internalID: -1908798691551783372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_56
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 58
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829dd2807c8cbb970800000000000000
+      internalID: 8771825456395442472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_57
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 52
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb52b98fbf70e8080800000000000000
+      internalID: -9183393811372759618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_58
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 68
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e126aea5c86ed0d40800000000000000
+      internalID: 5552347406112809502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_59
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 44
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45f1d0ce6b460d790800000000000000
+      internalID: -7507389842019508396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_60
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 80
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a63e9e4af6fa900800000000000000
+      internalID: 697899221355031144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_61
+      rect:
+        serializedVersion: 2
+        x: 1894
+        y: 68
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8e661ef2e85c9270800000000000000
+      internalID: 8258573548639383182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_62
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 54
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67dcb205242d5ba10800000000000000
+      internalID: 1924675598025477494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_63
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 60
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64071402cbac858f0800000000000000
+      internalID: -551468045009063866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_64
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 54
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57176c833c45885d0800000000000000
+      internalID: -3060102749350366859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_65
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 66
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751aebd06266e39c0800000000000000
+      internalID: -3945603909904588457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_66
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 54
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751a32f00cb472040800000000000000
+      internalID: 4622746830778900823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_67
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 58
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637e308f6f8f6c680800000000000000
+      internalID: -8735020687631849674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_68
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 56
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497f4b64f602c4be0800000000000000
+      internalID: -1491781714266753132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_69
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 56
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3ff821d01535f90800000000000000
+      internalID: -6966135082024176726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_70
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 54
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ac9470aa206f7940800000000000000
+      internalID: 5296057423007882409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_71
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 67
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd56c221f62c10ee0800000000000000
+      internalID: -1296541435403934241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_72
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 64
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6488f3ec643aacdd0800000000000000
+      internalID: -2464978321528616890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_73
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 52
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef15a7df503cbd1c0800000000000000
+      internalID: -4477770973994921474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_74
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 47
+        width: 40
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1710be9d261e982d0800000000000000
+      internalID: -3275839439256223375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_75
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 66
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc72afff26f6c4c70800000000000000
+      internalID: 8956656229925136333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_76
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 62
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfbb9e8b44bfa30a0800000000000000
+      internalID: -6900927206413190147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_77
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 54
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e80163ce0583df00800000000000000
+      internalID: 1140401429108820195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_78
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 39
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67aa8bdb1e734cea0800000000000000
+      internalID: -5853492172984636810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_79
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 60
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ed2f09f21321920800000000000000
+      internalID: 2959481985500896784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_80
+      rect:
+        serializedVersion: 2
+        x: 1525
+        y: 64
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a000d66414f813380800000000000000
+      internalID: -8993249470364975094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_81
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 61
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a73e7cde7959dbd0800000000000000
+      internalID: -2604952508057110615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_82
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 56
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0a8b89976c93630800000000000000
+      internalID: 3907372377276195054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_83
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 58
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb8bd90b49f096d0800000000000000
+      internalID: -2985612452263392322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_84
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 50
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436998723d14b7c80800000000000000
+      internalID: -8323987111106996684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_85
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 56
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55419f7f526d8a610800000000000000
+      internalID: 1632790323484234837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_86
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 56
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2785c1893ddbd7910800000000000000
+      internalID: 1836832939524774002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_87
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 52
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca00d4548a9386e10800000000000000
+      internalID: 2191064613595709612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_88
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 35
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead83f9f54aa79d30800000000000000
+      internalID: 4438203175319866798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_89
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 47
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e458db1e224c4670800000000000000
+      internalID: 8524260960508597479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_90
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 35
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51eec7ec4d061600800000000000000
+      internalID: 438552637672972634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_91
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 37
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac57775427d5ad860800000000000000
+      internalID: 7555454070240540106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_92
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 33
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a0efe1577b64900800000000000000
+      internalID: 668423308370119304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_93
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 31
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1fb236b080743b0800000000000000
+      internalID: -5528441172572507678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_94
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 45
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20bbd45f976393150800000000000000
+      internalID: 5852769088179124994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_95
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 41
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129ce57a2391f23b0800000000000000
+      internalID: -5535177711667984095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_96
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 39
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ca5d3e99ff40dc0800000000000000
+      internalID: -3673530359609971701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_97
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 31
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7abce5d8176610a0800000000000000
+      internalID: -6911223221787510146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_98
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 35
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b85bbb912572430800000000000000
+      internalID: 3758062684540865388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_99
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 15
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c09ea49f102fd310800000000000000
+      internalID: 1431898526537650377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_100
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 23
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed5e417d288ab1d0800000000000000
+      internalID: -3334202845358563857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Button_v001_101
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 27
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e5781c08e4a25f0800000000000000
+      internalID: -780725270485705072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Daily_Button_v001_0: 4873754185467588602
+      Daily_Button_v001_1: 1258702385808758991
+      Daily_Button_v001_10: 2403929541126327061
+      Daily_Button_v001_100: -3334202845358563857
+      Daily_Button_v001_101: -780725270485705072
+      Daily_Button_v001_11: -1291504714523233783
+      Daily_Button_v001_12: -9168187774121762567
+      Daily_Button_v001_13: -1342990947117432926
+      Daily_Button_v001_14: 9060553644143377046
+      Daily_Button_v001_15: -5666156963061670519
+      Daily_Button_v001_16: 8172980149448698257
+      Daily_Button_v001_17: 7717432866256664142
+      Daily_Button_v001_18: -6232699253038298724
+      Daily_Button_v001_19: -463823135219709796
+      Daily_Button_v001_2: -7596186805902091611
+      Daily_Button_v001_20: -5328275665417317010
+      Daily_Button_v001_21: 295185447594095039
+      Daily_Button_v001_22: 5391867244078390763
+      Daily_Button_v001_23: -8092119053442139521
+      Daily_Button_v001_24: -8065460919752471097
+      Daily_Button_v001_25: -233013920778131502
+      Daily_Button_v001_26: -881866824608927366
+      Daily_Button_v001_27: 4414670563528207184
+      Daily_Button_v001_28: 477331557721856665
+      Daily_Button_v001_29: -8000997136823450114
+      Daily_Button_v001_3: 8814816014116203287
+      Daily_Button_v001_30: 349816341423825869
+      Daily_Button_v001_31: -2163428679964342984
+      Daily_Button_v001_32: -8379678136853589190
+      Daily_Button_v001_33: 2419224996499256121
+      Daily_Button_v001_34: -3240336057695652624
+      Daily_Button_v001_35: 4477278864581018797
+      Daily_Button_v001_36: -7820127596893500901
+      Daily_Button_v001_37: -3850000977843526163
+      Daily_Button_v001_38: 3513626426562094334
+      Daily_Button_v001_39: 875530890055831772
+      Daily_Button_v001_4: -3581637072669261837
+      Daily_Button_v001_40: 1526793447104572406
+      Daily_Button_v001_41: -4281897326643984997
+      Daily_Button_v001_42: -5127715978679293980
+      Daily_Button_v001_43: -4585992304850139731
+      Daily_Button_v001_44: 1875745987373160318
+      Daily_Button_v001_45: 553233294598462257
+      Daily_Button_v001_46: -4239092905925144763
+      Daily_Button_v001_47: -9029433048613387146
+      Daily_Button_v001_48: 6765252488377342636
+      Daily_Button_v001_49: -1494216971177824240
+      Daily_Button_v001_5: -5684752249584803897
+      Daily_Button_v001_50: 6497034190358416893
+      Daily_Button_v001_51: -3451241534420938855
+      Daily_Button_v001_52: 3806049383541406027
+      Daily_Button_v001_53: -494748537873333895
+      Daily_Button_v001_54: 4536560078731449899
+      Daily_Button_v001_55: -1908798691551783372
+      Daily_Button_v001_56: 8771825456395442472
+      Daily_Button_v001_57: -9183393811372759618
+      Daily_Button_v001_58: 5552347406112809502
+      Daily_Button_v001_59: -7507389842019508396
+      Daily_Button_v001_6: -6689436562046867604
+      Daily_Button_v001_60: 697899221355031144
+      Daily_Button_v001_61: 8258573548639383182
+      Daily_Button_v001_62: 1924675598025477494
+      Daily_Button_v001_63: -551468045009063866
+      Daily_Button_v001_64: -3060102749350366859
+      Daily_Button_v001_65: -3945603909904588457
+      Daily_Button_v001_66: 4622746830778900823
+      Daily_Button_v001_67: -8735020687631849674
+      Daily_Button_v001_68: -1491781714266753132
+      Daily_Button_v001_69: -6966135082024176726
+      Daily_Button_v001_7: -1457204232952032496
+      Daily_Button_v001_70: 5296057423007882409
+      Daily_Button_v001_71: -1296541435403934241
+      Daily_Button_v001_72: -2464978321528616890
+      Daily_Button_v001_73: -4477770973994921474
+      Daily_Button_v001_74: -3275839439256223375
+      Daily_Button_v001_75: 8956656229925136333
+      Daily_Button_v001_76: -6900927206413190147
+      Daily_Button_v001_77: 1140401429108820195
+      Daily_Button_v001_78: -5853492172984636810
+      Daily_Button_v001_79: 2959481985500896784
+      Daily_Button_v001_8: -4559696035687990436
+      Daily_Button_v001_80: -8993249470364975094
+      Daily_Button_v001_81: -2604952508057110615
+      Daily_Button_v001_82: 3907372377276195054
+      Daily_Button_v001_83: -2985612452263392322
+      Daily_Button_v001_84: -8323987111106996684
+      Daily_Button_v001_85: 1632790323484234837
+      Daily_Button_v001_86: 1836832939524774002
+      Daily_Button_v001_87: 2191064613595709612
+      Daily_Button_v001_88: 4438203175319866798
+      Daily_Button_v001_89: 8524260960508597479
+      Daily_Button_v001_9: 3038858957916766450
+      Daily_Button_v001_90: 438552637672972634
+      Daily_Button_v001_91: 7555454070240540106
+      Daily_Button_v001_92: 668423308370119304
+      Daily_Button_v001_93: -5528441172572507678
+      Daily_Button_v001_94: 5852769088179124994
+      Daily_Button_v001_95: -5535177711667984095
+      Daily_Button_v001_96: -3673530359609971701
+      Daily_Button_v001_97: -6911223221787510146
+      Daily_Button_v001_98: 3758062684540865388
+      Daily_Button_v001_99: 1431898526537650377
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

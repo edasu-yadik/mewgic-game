@@ -176,3 +176,10 @@ bölge tamamlama ve tek seferlik+1 İpucu sandığı hazır. Eksik gelecek seviy
 oyuncuya açılmaz. Harita→Gameplay→Harita/Home Map bağlantısı test edildi.
 200+551+723 ve12 model kontrolü;3 oran/Safe Area başarılı. Yeni içerik üretimi
 bu parta eklenmedi. ProductionReports/PART06B.md / MAP_PROGRESSION.md.
+
+## PART07A — Günlük görev/hediye
+Gerçek kazanma ve hak kullanımından ilerleyen dört görev; kalıcı tek ödül,
+20 saat+yeni yerel gün hediyesi ve makul geri saat kontrolü hazır. Mevcut kayıt
+korundu; Home girişleri bağlandı.219+64+200+723 ve12 model/smoke geçti.
+Üç oran/Safe Area veConsole0/0 doğrulandı;cihaz testi yapılmadı.
+ProductionReports/PART07A.md / DAILY_ACTIVITIES.md. Sonraki part başlatılmadı.

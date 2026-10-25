@@ -5,26 +5,28 @@ namespace Mewgic.Core
     [Serializable] public sealed class LevelRecord{public int level;public int bestStars;public bool rewardClaimed;}
     [Serializable] public sealed class ProgressData
     {
+        public DailyData daily=new DailyData();
         public int version=1;public int undo=3,hint=3,extra=1,shuffle=1;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{version=version,undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
+        public ProgressData Copy()=>new ProgressData{version=version,daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
     }
-    public sealed class ProgressLedger
+    public sealed partial class ProgressLedger
     {
         ProgressData state;readonly Action<ProgressData> save;
         public string LastError {get;private set;}
         public ProgressData Snapshot=>state.Copy();
-        public ProgressLedger(ProgressData data,Action<ProgressData> persist)
+        public ProgressLedger(ProgressData data,Action<ProgressData> persist,Func<DateTimeOffset> localClock=null)
         {
             if(data==null||data.version!=1||data.levels==null||data.undo<0||data.hint<0||data.extra<0||data.shuffle<0||data.levels.Any(l=>l==null||l.level<1||l.bestStars<1||l.bestStars>3)||data.levels.Select(l=>l.level).Distinct().Count()!=data.levels.Count)throw new ArgumentException("Geçersiz ilerleme kaydı");
             if(data.claimedMilestones!=null&&(data.claimedMilestones.Any(string.IsNullOrWhiteSpace)||data.claimedMilestones.Distinct().Count()!=data.claimedMilestones.Count))throw new ArgumentException("Geçersiz sandık kaydı");
+            (data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);
             state=data.Copy();save=persist??throw new ArgumentNullException(nameof(persist));
         }
         public int Remaining(BoosterKind kind)=>Enum.IsDefined(typeof(BoosterKind),kind)?Get(state,kind):0;
         static int Get(ProgressData d,BoosterKind k)=>k==BoosterKind.Undo?d.undo:k==BoosterKind.Hint?d.hint:k==BoosterKind.ExtraBottle?d.extra:d.shuffle;
         static void Set(ProgressData d,BoosterKind k,int value){switch(k){case BoosterKind.Undo:d.undo=value;break;case BoosterKind.Hint:d.hint=value;break;case BoosterKind.ExtraBottle:d.extra=value;break;case BoosterKind.Shuffle:d.shuffle=value;break;}}
         bool Commit(ProgressData copy){try{save(copy.Copy());state=copy;LastError=null;return true;}catch(Exception e){LastError=e.Message;return false;}}
-        public bool TrySpend(BoosterKind kind){if(Remaining(kind)<=0)return false;var copy=state.Copy();Set(copy,kind,Get(copy,kind)-1);return Commit(copy);}
+        public bool TrySpend(BoosterKind kind){if(Remaining(kind)<=0)return false;var copy=state.Copy();Set(copy,kind,Get(copy,kind)-1);if(DailyRules.Sync(copy.daily,clock()))DailyRules.Add(copy.daily,DailyTaskKind.Boosters,1);return Commit(copy);}
         public bool Completed(int level)=>state.levels.Any(l=>l.level==level&&l.rewardClaimed);
         public int BestStars(int level)=>state.levels.FirstOrDefault(l=>l.level==level&&l.rewardClaimed)?.bestStars??0;
         public bool MilestoneClaimed(string id)=>state.claimedMilestones.Contains(id);
@@ -36,12 +38,13 @@ namespace Mewgic.Core
             copy.claimedMilestones.Add(reward.id);if(!Commit(copy))return false;granted=true;return true;
         }
         // The award and its idempotency marker are saved in the same document.
-        public bool Claim(int level,int stars,bool won,out bool granted)
+        public bool Claim(int level,int stars,bool won,out bool granted,string victoryReceipt=null,int completedBottles=0)
         {
             granted=false;if(!won||level<1||stars<1||stars>3)return false;
             var existing=state.levels.FirstOrDefault(l=>l.level==level);
-            if(existing!=null&&existing.rewardClaimed&&existing.bestStars>=stars)return true;
-            var copy=state.Copy();var record=copy.levels.FirstOrDefault(l=>l.level==level);
+            var copy=state.Copy();bool dailyChanged=DailyRules.Victory(copy.daily,clock(),victoryReceipt,stars,completedBottles);
+            if(existing!=null&&existing.rewardClaimed&&existing.bestStars>=stars&&!dailyChanged)return true;
+            var record=copy.levels.FirstOrDefault(l=>l.level==level);
             if(record==null){record=new LevelRecord{level=level};copy.levels.Add(record);}
             bool first=!record.rewardClaimed;record.bestStars=Math.Max(record.bestStars,stars);
             if(first){copy.hint=checked(copy.hint+1);record.rewardClaimed=true;}

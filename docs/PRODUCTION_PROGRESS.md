@@ -81,3 +81,13 @@ Area doğrulandı; gerçek Game View kanıtları hazır. Cihaz testi yapılmadı
 Rapor:ProductionReports/PART06B.md. Yeni bölgeler için doğrulanmış içerik gerekir.
 
 06B Git teslimi:91de360 private origin/master push başarılı; uzak SHA eşleşti.
+
+## PART07A — Günlük görevler ve hediye
+Dört gerçek oyun olaylı görev, kalıcı/tek seferlik güçlendirici ödülleri ve günlük
++1 İpucu hediyesi bağlandı. Yeni yerel gün+20 saat, saat geri alma/yüksek zaman
+kontrolleri var; yerel kayıt sunucu güvenliği sağlamaz. Home Daily Gift/Missions
+girişleri gerçek ekranı açar. Eski yıldız/hak/sandık kayıtları korunur.
+219 günlük,64 Home yerleşim,200 harita,723 güçlendirici ve12 model kontrolü;
+Boot/Home/Gameplay smoke başarılı.Console0/0.Üç oran/Safe Area geçti.
+Gerçek Game View ve04_Events karşılaştırması hazır. Fiziksel cihaz testi yok.
+Rapor:ProductionReports/PART07A.md;kurallar:DAILY_ACTIVITIES.md.

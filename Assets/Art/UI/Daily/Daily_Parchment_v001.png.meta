@@ -1,0 +1,962 @@
+fileFormatVersion: 2
+guid: 7538b51679e1b6b448170a8097e297d8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6984734415265474949
+    second: Daily_Parchment_v001_0
+  - first:
+      213: 8313343477389971185
+    second: Daily_Parchment_v001_1
+  - first:
+      213: 633513763437259333
+    second: Daily_Parchment_v001_2
+  - first:
+      213: -59585835380289055
+    second: Daily_Parchment_v001_3
+  - first:
+      213: -8311235609156254685
+    second: Daily_Parchment_v001_4
+  - first:
+      213: -9052745026191679013
+    second: Daily_Parchment_v001_5
+  - first:
+      213: 2961512147365140035
+    second: Daily_Parchment_v001_6
+  - first:
+      213: 7173233227589871181
+    second: Daily_Parchment_v001_7
+  - first:
+      213: -5773951458472905369
+    second: Daily_Parchment_v001_8
+  - first:
+      213: -8171732635791025040
+    second: Daily_Parchment_v001_9
+  - first:
+      213: -4759075981529561251
+    second: Daily_Parchment_v001_10
+  - first:
+      213: 7158154521930756453
+    second: Daily_Parchment_v001_11
+  - first:
+      213: 2366467076774054999
+    second: Daily_Parchment_v001_12
+  - first:
+      213: -1712117611073640847
+    second: Daily_Parchment_v001_13
+  - first:
+      213: 5288859384688950159
+    second: Daily_Parchment_v001_14
+  - first:
+      213: -6440323450911452427
+    second: Daily_Parchment_v001_15
+  - first:
+      213: -39092882092611438
+    second: Daily_Parchment_v001_16
+  - first:
+      213: -2847525116349149037
+    second: Daily_Parchment_v001_17
+  - first:
+      213: 2884398992593191105
+    second: Daily_Parchment_v001_18
+  - first:
+      213: 581036237081589788
+    second: Daily_Parchment_v001_19
+  - first:
+      213: 7507286935328986790
+    second: Daily_Parchment_v001_20
+  - first:
+      213: 2028220608070507437
+    second: Daily_Parchment_v001_21
+  - first:
+      213: -2872469378006851208
+    second: Daily_Parchment_v001_22
+  - first:
+      213: 5291409287245155257
+    second: Daily_Parchment_v001_23
+  - first:
+      213: -7301684724697616484
+    second: Daily_Parchment_v001_24
+  - first:
+      213: -6549363068793789701
+    second: Daily_Parchment_v001_25
+  - first:
+      213: -8225488789122003167
+    second: Daily_Parchment_v001_26
+  - first:
+      213: 1505355515705390507
+    second: Daily_Parchment_v001_27
+  - first:
+      213: -2716835917094085235
+    second: Daily_Parchment_v001_28
+  - first:
+      213: -6698780718768056737
+    second: Daily_Parchment_v001_29
+  - first:
+      213: -8533822134899697417
+    second: Daily_Parchment_v001_30
+  - first:
+      213: 4328389450499220058
+    second: Daily_Parchment_v001_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 1756
+        height: 866
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76d7a75e0d311f90800000000000000
+      internalID: -6984734415265474949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 844
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fec3a1c8ddee5370800000000000000
+      internalID: 8313343477389971185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_2
+      rect:
+        serializedVersion: 2
+        x: 1316
+        y: 856
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54aaffd4961bac800800000000000000
+      internalID: 633513763437259333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_3
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 840
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e153889ffe4c2ff0800000000000000
+      internalID: -59585835380289055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_4
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 829
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3240aaf8f3f88ac80800000000000000
+      internalID: -8311235609156254685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_5
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 830
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd129a7bc503e5280800000000000000
+      internalID: -9052745026191679013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_6
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 102
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34614b57b97691920800000000000000
+      internalID: 2961512147365140035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_7
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 96
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d46e5857d917c8360800000000000000
+      internalID: 7173233227589871181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_8
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 103
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765bf5f7dbdcedfa0800000000000000
+      internalID: -5773951458472905369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_9
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 88
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c9534a67c289e80800000000000000
+      internalID: -8171732635791025040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_10
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 76
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5746d50c9d54fdb0800000000000000
+      internalID: -4759075981529561251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_11
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 49
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561f907bc9fd65360800000000000000
+      internalID: 7158154521930756453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_12
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 66
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c46cba44167d020800000000000000
+      internalID: 2366467076774054999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_13
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 51
+        width: 46
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 176e34a9a165d38e0800000000000000
+      internalID: -1712117611073640847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_14
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 68
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8b306bb69dc56940800000000000000
+      internalID: 5288859384688950159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_15
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 63
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f21ec591ff5f96a0800000000000000
+      internalID: -6440323450911452427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_16
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 45
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298af991b3d157ff0800000000000000
+      internalID: -39092882092611438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_17
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 67
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39091075efe8b78d0800000000000000
+      internalID: -2847525116349149037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_18
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 59
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c003000a91770820800000000000000
+      internalID: 2884398992593191105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_19
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 51
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18b0e01161401800800000000000000
+      internalID: 581036237081589788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_20
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 62
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6173f31bd3f2860800000000000000
+      internalID: 7507286935328986790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_21
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 55
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab5b26a5efa52c10800000000000000
+      internalID: 2028220608070507437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_22
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 58
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871e6b7d150f228d0800000000000000
+      internalID: -2872469378006851208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_23
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 47
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb437f26bcde6940800000000000000
+      internalID: 5291409287245155257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_24
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 31
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9fa08acd643baa90800000000000000
+      internalID: -7301684724697616484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_25
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 35
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2eb7b2dfcfb15a0800000000000000
+      internalID: -6549363068793789701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_26
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 39
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fcc6cd68139dd80800000000000000
+      internalID: -8225488789122003167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 41
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba57b46add814e410800000000000000
+      internalID: 1505355515705390507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_28
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 25
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d9598b02cdb4ad0800000000000000
+      internalID: -2716835917094085235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_29
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 23
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f56189d8d662903a0800000000000000
+      internalID: -6698780718768056737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_30
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 30
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f810f08bf5c19980800000000000000
+      internalID: -8533822134899697417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Daily_Parchment_v001_31
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 33
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52ed8eb547811c30800000000000000
+      internalID: 4328389450499220058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Daily_Parchment_v001_0: -6984734415265474949
+      Daily_Parchment_v001_1: 8313343477389971185
+      Daily_Parchment_v001_10: -4759075981529561251
+      Daily_Parchment_v001_11: 7158154521930756453
+      Daily_Parchment_v001_12: 2366467076774054999
+      Daily_Parchment_v001_13: -1712117611073640847
+      Daily_Parchment_v001_14: 5288859384688950159
+      Daily_Parchment_v001_15: -6440323450911452427
+      Daily_Parchment_v001_16: -39092882092611438
+      Daily_Parchment_v001_17: -2847525116349149037
+      Daily_Parchment_v001_18: 2884398992593191105
+      Daily_Parchment_v001_19: 581036237081589788
+      Daily_Parchment_v001_2: 633513763437259333
+      Daily_Parchment_v001_20: 7507286935328986790
+      Daily_Parchment_v001_21: 2028220608070507437
+      Daily_Parchment_v001_22: -2872469378006851208
+      Daily_Parchment_v001_23: 5291409287245155257
+      Daily_Parchment_v001_24: -7301684724697616484
+      Daily_Parchment_v001_25: -6549363068793789701
+      Daily_Parchment_v001_26: -8225488789122003167
+      Daily_Parchment_v001_27: 1505355515705390507
+      Daily_Parchment_v001_28: -2716835917094085235
+      Daily_Parchment_v001_29: -6698780718768056737
+      Daily_Parchment_v001_3: -59585835380289055
+      Daily_Parchment_v001_30: -8533822134899697417
+      Daily_Parchment_v001_31: 4328389450499220058
+      Daily_Parchment_v001_4: -8311235609156254685
+      Daily_Parchment_v001_5: -9052745026191679013
+      Daily_Parchment_v001_6: 2961512147365140035
+      Daily_Parchment_v001_7: 7173233227589871181
+      Daily_Parchment_v001_8: -5773951458472905369
+      Daily_Parchment_v001_9: -8171732635791025040
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

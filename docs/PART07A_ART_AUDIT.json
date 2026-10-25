@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"assets\": [\n      {\n        \"name\": \"Chest\",\n        \"width\": 1536,\n        \"height\": 1024,\n        \"alphaMin\": 0,\n        \"alphaMax\": 254,\n        \"android\": \"ASTC_4x4\",\n        \"readable\": false,\n        \"mipmaps\": false\n      },\n      {\n        \"name\": \"Parchment\",\n        \"width\": 1774,\n        \"height\": 887,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"android\": \"ASTC_4x4\",\n        \"readable\": false,\n        \"mipmaps\": false\n      },\n      {\n        \"name\": \"Button\",\n        \"width\": 1983,\n        \"height\": 793,\n        \"alphaMin\": 0,\n        \"alphaMax\": 255,\n        \"android\": \"ASTC_4x4\",\n        \"readable\": false,\n        \"mipmaps\": false\n      }\n    ],\n    \"testProfile\": false\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
