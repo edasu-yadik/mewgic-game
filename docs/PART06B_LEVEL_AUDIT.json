@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"levels\": [\n      {\n        \"id\": 1,\n        \"path\": \"Assets/Resources/Levels/Level01.json\",\n        \"optimal\": 3,\n        \"moves\": [\n          \"1>3\",\n          \"2>1\",\n          \"2>3\"\n        ],\n        \"actuallyWon\": true,\n        \"visited\": 18\n      },\n      {\n        \"id\": 2,\n        \"path\": \"Assets/Resources/Levels/Level02.json\",\n        \"optimal\": 4,\n        \"moves\": [\n          \"1>4\",\n          \"3>1\",\n          \"2>3\",\n          \"2>4\"\n        ],\n        \"actuallyWon\": true,\n        \"visited\": 75\n      }\n    ],\n    \"designDataExists\": false,\n    \"futureLevelVerified\": false\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

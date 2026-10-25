@@ -16,7 +16,7 @@ namespace Mewgic
             reward=GameplayTools.Label(root,"Reward","",25,new Vector2(.08f,.40f),new Vector2(.92f,.55f));
             next=Control("NextLevel","SONRAKİ BÖLÜM",new Vector2(.12f,.275f),new Vector2(.88f,.39f),advance,panel);
             Control("Replay","TEKRAR OYNA",new Vector2(.12f,.145f),new Vector2(.88f,.26f),replay,panel);
-            Control("ResultHome","ANA MENÜ",new Vector2(.12f,.025f),new Vector2(.88f,.13f),home,panel);
+            Control("ResultHome",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.12f,.025f),new Vector2(.88f,.13f),home,panel);
             for(int i=0;i<sparks.Length;i++){var im=GameplayTools.Art(root,"GoldParticle"+i,star,Vector2.zero,Vector2.zero);im.preserveAspect=true;im.raycastTarget=false;im.rectTransform.anchorMin=im.rectTransform.anchorMax=new Vector2(.5f,.5f);im.rectTransform.sizeDelta=Vector2.one*(5+i%4*2);sparks[i]=im;}
             root.gameObject.SetActive(false);
         }

@@ -124,12 +124,12 @@ namespace Mewgic
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
             status=Label(safe,"Status","Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
             restart=Button(safe,"Restart","YENİDEN",new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
-            home=Button(safe,"Home","ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)SceneManager.LoadScene("Home");});
+            home=Button(safe,"Home",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);});
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
-            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)SceneManager.LoadScene("Home");},()=>paused);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);},()=>paused);
             if(GameplayProgress.LoadError!=null)status.text="Kayıt okunamadı; haklar ve ödüller kilitli.";
             Refresh();
         }
@@ -161,7 +161,7 @@ namespace Mewgic
             busy=false;if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
         }
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
-        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();SceneManager.LoadScene("Home");}
+        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
         void Reset(){if(busy||paused)return;puzzle.Restart();selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.";Refresh();}
         void Refresh()

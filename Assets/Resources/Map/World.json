@@ -1,0 +1,1 @@
+{"regions":[{"key":"village","levels":[1,2,0],"reward":{"id":"map.village.v1","kind":1,"amount":1}},{"key":"crystal","levels":[3,4,5],"reward":{"id":"map.crystal.v1","kind":1,"amount":1}},{"key":"moon","levels":[6,7,8],"reward":{"id":"map.moon.v1","kind":1,"amount":1}},{"key":"castle","levels":[9,10,11],"reward":{"id":"map.castle.v1","kind":1,"amount":1}}]}

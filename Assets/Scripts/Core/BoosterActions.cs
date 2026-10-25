@@ -6,8 +6,8 @@ namespace Mewgic.Core
     [Serializable] public sealed class ProgressData
     {
         public int version=1;public int undo=3,hint=3,extra=1,shuffle=1;
-        public List<LevelRecord> levels=new List<LevelRecord>();
-        public ProgressData Copy()=>new ProgressData{version=version,undo=undo,hint=hint,extra=extra,shuffle=shuffle,levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
+        public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
+        public ProgressData Copy()=>new ProgressData{version=version,undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
     }
     public sealed class ProgressLedger
     {
@@ -17,6 +17,7 @@ namespace Mewgic.Core
         public ProgressLedger(ProgressData data,Action<ProgressData> persist)
         {
             if(data==null||data.version!=1||data.levels==null||data.undo<0||data.hint<0||data.extra<0||data.shuffle<0||data.levels.Any(l=>l==null||l.level<1||l.bestStars<1||l.bestStars>3)||data.levels.Select(l=>l.level).Distinct().Count()!=data.levels.Count)throw new ArgumentException("Geçersiz ilerleme kaydı");
+            if(data.claimedMilestones!=null&&(data.claimedMilestones.Any(string.IsNullOrWhiteSpace)||data.claimedMilestones.Distinct().Count()!=data.claimedMilestones.Count))throw new ArgumentException("Geçersiz sandık kaydı");
             state=data.Copy();save=persist??throw new ArgumentNullException(nameof(persist));
         }
         public int Remaining(BoosterKind kind)=>Enum.IsDefined(typeof(BoosterKind),kind)?Get(state,kind):0;
@@ -25,6 +26,15 @@ namespace Mewgic.Core
         bool Commit(ProgressData copy){try{save(copy.Copy());state=copy;LastError=null;return true;}catch(Exception e){LastError=e.Message;return false;}}
         public bool TrySpend(BoosterKind kind){if(Remaining(kind)<=0)return false;var copy=state.Copy();Set(copy,kind,Get(copy,kind)-1);return Commit(copy);}
         public bool Completed(int level)=>state.levels.Any(l=>l.level==level&&l.rewardClaimed);
+        public int BestStars(int level)=>state.levels.FirstOrDefault(l=>l.level==level&&l.rewardClaimed)?.bestStars??0;
+        public bool MilestoneClaimed(string id)=>state.claimedMilestones.Contains(id);
+        public bool ClaimMilestone(MilestoneReward reward,bool eligible,out bool granted)
+        {
+            granted=false;if(reward==null||string.IsNullOrWhiteSpace(reward.id)||!Enum.IsDefined(typeof(BoosterKind),reward.kind)||reward.amount<1||reward.amount>100||!eligible)return false;
+            if(MilestoneClaimed(reward.id))return true;
+            var copy=state.Copy();try{Set(copy,reward.kind,checked(Get(copy,reward.kind)+reward.amount));}catch(OverflowException){LastError="Ödül sayacı sınırda.";return false;}
+            copy.claimedMilestones.Add(reward.id);if(!Commit(copy))return false;granted=true;return true;
+        }
         // The award and its idempotency marker are saved in the same document.
         public bool Claim(int level,int stars,bool won,out bool granted)
         {

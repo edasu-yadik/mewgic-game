@@ -33,13 +33,11 @@ namespace Mewgic
         {
             if(navigating)return;
             if(destination==HomeDestination.Home){information.Close();return;}
-            if(destination==HomeDestination.Map&&mapSceneReady&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=true;SceneManager.LoadScene(mapScene);return;}
-            string message=destination==HomeDestination.Map?"LevelMap sahnesi mevcut; gezilebilir harita ve dönüş akışı henüz hazır değil. Harita sonraki aşamada eklenecek.":destination==HomeDestination.Events?"Etkinlikler henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.":destination==HomeDestination.Team?"Takım sistemi henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.":"Envanter sistemi henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.";
+            if(destination==HomeDestination.Map&&(mapSceneReady||Mewgic.Map.MapProgressionCatalog.Ready)&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=true;SceneManager.LoadScene(mapScene);return;}
+            string message=destination==HomeDestination.Map?"Harita verisi veya sahne bağlantısı doğrulanamadı.":destination==HomeDestination.Events?"Etkinlikler henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.":destination==HomeDestination.Team?"Takım sistemi henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.":"Envanter sistemi henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.";
             information.Show(message);
         }
         public void Layout(){if(root==null)return;float gap=4f;root.sizeDelta=new Vector2(0,Mathf.Min(safe.rect.width*.18f,safe.rect.height*.095f-gap));root.anchoredPosition=new Vector2(0,gap);}
         void LateUpdate(){Layout();}
     }
 }
-
-

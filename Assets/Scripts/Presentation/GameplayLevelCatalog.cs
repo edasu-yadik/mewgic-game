@@ -7,7 +7,10 @@ namespace Mewgic
     {
         static readonly int[] ids={1,2};
         public static int SelectedId {get;private set;}=1;
-        public static void ResetSelection(){SelectedId=1;}
+        public static bool FromMap {get;private set;}
+        public static string ReturnScene=>FromMap?"LevelMap":"Home";
+        public static void ResetSelection(){SelectedId=1;FromMap=false;}
+        public static bool Select(int id,ProgressLedger ledger){if(ledger==null||!Mewgic.Map.MapProgressionCatalog.Open(ledger).CanEnter(id))return false;try{Load(id);}catch{return false;}SelectedId=id;FromMap=true;return true;}
         public static VerifiedGameplayLevel Load(int id)
         {
             if(!ids.Contains(id))throw new InvalidOperationException("Bölüm katalogda yok.");

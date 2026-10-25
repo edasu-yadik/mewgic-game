@@ -169,3 +169,10 @@ kaydırma ile hazır. İlerleme sonraki parta bırakıldı; Home/Gameplay aynı.
 556 kontrol+12 model+smoke,3 oran/Safe Area geçti; Console0/0.
 Referansa kalan kompozisyon/yol farkları ve cihaz testi sınırı raporda:
 ProductionReports/PART06A.md. Birebir final sanat eşleşmesi değildir.
+
+## PART06B — Harita ilerleme bağlantısı
+İki mevcut doğrulanmış bölüm, sırayla kilit açma, tekrar oynama, en iyi yıldız,
+bölge tamamlama ve tek seferlik+1 İpucu sandığı hazır. Eksik gelecek seviyeler
+oyuncuya açılmaz. Harita→Gameplay→Harita/Home Map bağlantısı test edildi.
+200+551+723 ve12 model kontrolü;3 oran/Safe Area başarılı. Yeni içerik üretimi
+bu parta eklenmedi. ProductionReports/PART06B.md / MAP_PROGRESSION.md.

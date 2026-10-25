@@ -7,7 +7,7 @@ namespace Mewgic
     public sealed class PremiumPlayButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, ICanvasRaycastFilter
     {
         public Sprite normal, pressed, glow;
-        Button button; Image art, light; RectTransform visual;
+        Button button; Image art, frameLight; RectTransform visual;
         Button.ButtonClickedEvent original;
         bool held, queued; float scale=1;
         public bool TransitionQueued=>queued;
@@ -22,14 +22,14 @@ namespace Mewgic
             visual=new GameObject("PlayArtwork",typeof(RectTransform),typeof(Image)).GetComponent<RectTransform>();visual.SetParent(button.transform,false);visual.anchorMin=Vector2.zero;visual.anchorMax=Vector2.one;visual.offsetMin=visual.offsetMax=Vector2.zero;
             art=visual.GetComponent<Image>();art.sprite=normal;art.preserveAspect=true;art.raycastTarget=false;
             var fx=new GameObject("FrameGlow",typeof(RectTransform),typeof(Image));fx.transform.SetParent(visual,false);var r=(RectTransform)fx.transform;r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;
-            light=fx.GetComponent<Image>();light.sprite=glow;light.preserveAspect=true;light.raycastTarget=false;
+            frameLight=fx.GetComponent<Image>();frameLight.sprite=glow;frameLight.preserveAspect=true;frameLight.raycastTarget=false;
         }
         void Update()
         {
             if(visual==null)return;
             scale=Mathf.MoveTowards(scale,held?.966f:1,Time.unscaledDeltaTime*.5f);visual.localScale=Vector3.one*scale;
             art.sprite=held?pressed:normal;
-            light.color=new Color(1,1,1,held?.025f:.045f+Mathf.Sin(Time.unscaledTime*.8f)*.015f);
+            frameLight.color=new Color(1,1,1,held?.025f:.045f+Mathf.Sin(Time.unscaledTime*.8f)*.015f);
         }
         public void OnPointerDown(PointerEventData e){if(e.button==PointerEventData.InputButton.Left&&!queued&&button.IsInteractable())held=true;}
         public void OnPointerUp(PointerEventData e){if(e.button==PointerEventData.InputButton.Left)held=false;}
@@ -43,4 +43,3 @@ namespace Mewgic
         }
     }
 }
-

@@ -70,3 +70,12 @@ nihai görsel eşleşme onayı verilmez. Cihaz performans testi yapılmadı.
 Rapor: ProductionReports/PART06A.md. Sonraki partın ilerleme bağlantısına hazır.
 
 06A Git teslimi: 72290e2 private origin/master push başarılı; uzak SHA eşleşti.
+
+## PART06B — Gerçek seviye ilerlemesi
+Numara, mevcut/tamamlanan/kilitli durumları, en iyi yıldızlar, bölge tamamlama
+ve tek seferlik yerel sandık ödülü bağlandı. Yalnız doğrulanmış Bölüm1–2 oynanır;
+DesignData/Levels bulunamadı, gelecek bölgeler kilitli kalır. Harita→Gameplay→
+Harita ve Home Map girişi çalışır. Eski kayıtlar korunur; claimedMilestones eklenir.
+200 ilerleme,551 harita,723 güçlendirici ve12 model kontrolü geçti. Üç oran/Safe
+Area doğrulandı; gerçek Game View kanıtları hazır. Cihaz testi yapılmadı.
+Rapor:ProductionReports/PART06B.md. Yeni bölgeler için doğrulanmış içerik gerekir.

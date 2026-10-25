@@ -1,8 +1,8 @@
 using System;using System.Collections.Generic;using UnityEngine;using UnityEngine.EventSystems;using UnityEngine.InputSystem.UI;using UnityEngine.SceneManagement;using UnityEngine.UI;
 namespace Mewgic.Map
 {
-    // A presentation-only world. Nodes deliberately have no level/progress binding.
-    public sealed class MapWorld : MonoBehaviour
+    // Harita katmanları; gerçek seviye ve kayıt bağlantısı diğer partial dosyadadır.
+    public sealed partial class MapWorld : MonoBehaviour
     {
         public Sprite sky,node,chest,fog,homeIcon;
         public Sprite[] terrain=new Sprite[4];
@@ -18,7 +18,7 @@ namespace Mewgic.Map
         public float EnvironmentTime {get;private set;}
         public int ActiveRegion {get;private set;}
         public bool Mounted {get;private set;}
-        public bool ProgressionConnected=>false;
+        public bool ProgressionConnected=>progression!=null;
         public bool InformationVisible=>information!=null&&information.activeSelf;
         public IReadOnlyList<MapPoint> Points=>points;
         public static readonly string[] RegionNames={"Enchanted Village","Crystal Falls","Moon Garden","Sky Castle"};
@@ -75,19 +75,19 @@ namespace Mewgic.Map
             for(int i=0;i<18;i++){var r=Rect(motes,"MapMote_"+i,new Vector2((i*37%97)/100f,(i*23%93)/100f),new Vector2((i*37%97)/100f,(i*23%93)/100f));r.sizeDelta=Vector2.one*(i%4==0?9:4);var g=r.gameObject.AddComponent<Characters.WizardSparkGraphic>();g.raycastTarget=false;g.color=new Color(1,.8f,.4f,.18f);motesGraphics.Add(g);}
             // Navigation is fixed above the world viewport; it never scrolls with terrain.
             header=Panel(SafeArea,"MapHeader",Vector2.zero,Vector2.one).rectTransform;
-            Label(header,"MapPreviewTitle","MEWGIC • HARİTA ÖNİZLEMESİ",23,new Vector2(.04f,.64f),new Vector2(.96f,.90f));
+            Label(header,"MapPreviewTitle","MEWGIC • DÜNYA HARİTASI",23,new Vector2(.04f,.64f),new Vector2(.96f,.90f));
             regionTitle=Label(header,"VisibleRegion",RegionNames[0],35,new Vector2(.04f,.13f),new Vector2(.96f,.65f));
             tabs=Rect(SafeArea,"RegionNavigation",Vector2.zero,Vector2.one);
             for(int i=0;i<4;i++){int index=i;var b=Control(tabs,"RegionJump_"+i,RegionNames[i].Replace(" ","\n"),new Vector2(i*.25f+.003f,0),new Vector2((i+1)*.25f-.003f,1),()=>FocusRegion(index));tabImages[i]=b.GetComponent<Image>();}
             navigation=Panel(SafeArea,"MapNavigation",Vector2.zero,Vector2.one).rectTransform;
-            var home=Control(navigation,"MapHome","ANA MENÜ",new Vector2(.015f,.14f),new Vector2(.31f,.86f),()=>SceneManager.LoadScene("Home"));
+            var home=Control(navigation,"MapHome","ANA MENÜ",new Vector2(.015f,.14f),new Vector2(.31f,.86f),()=>{GameplayLevelCatalog.ResetSelection();SceneManager.LoadScene("Home");});
             if(homeIcon!=null){var icon=Art(home.transform,"HomeIcon",homeIcon,new Vector2(.02f,.1f),new Vector2(.27f,.9f));icon.preserveAspect=true;home.transform.Find("Label").GetComponent<RectTransform>().anchorMin=new Vector2(.27f,.1f);}
             Label(navigation,"ScrollInstruction","Keşfetmek için yukarı kaydır",23,new Vector2(.33f,.35f),new Vector2(.98f,.84f));
-            Label(navigation,"PreviewNotice","Seviye konumları önizlemedir",18,new Vector2(.33f,.10f),new Vector2(.98f,.43f));
+            Label(navigation,"PreviewNotice","Bölüm seç • Yıldızları topla",18,new Vector2(.33f,.10f),new Vector2(.98f,.43f));
             BuildInformation();
             if(UnityEngine.Object.FindFirstObjectByType<EventSystem>()==null){var es=new GameObject("MapEventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));es.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();}
             Scroll.onValueChanged.AddListener(_=>UpdateVisibleRegion());Scroll.UserInput=CancelJump;
-            Mounted=true;UnityEngine.Canvas.ForceUpdateCanvases();Layout();Scroll.verticalNormalizedPosition=0;UpdateVisibleRegion();
+            Mounted=true;BindProgress();UnityEngine.Canvas.ForceUpdateCanvases();Layout();Scroll.verticalNormalizedPosition=0;FocusRegion(progression!=null?progression.CurrentRegion:0,false);UpdateVisibleRegion();
         }
         RectTransform RegionGroup(Transform parent,int index)
         {var r=Rect(parent,RegionNames[index],Vector2.zero,Vector2.zero);r.pivot=new Vector2(.5f,0);r.sizeDelta=new Vector2(widths[index],heights[index]);r.anchoredPosition=bases[index];regionGroups[index].Add(r);return r;}
@@ -105,8 +105,6 @@ namespace Mewgic.Map
             var box=Panel(overlay,"InformationPanel",new Vector2(.10f,.34f),new Vector2(.90f,.68f));box.raycastTarget=true;
             Label(box.transform,"Title","HARİTA ÖNİZLEMESİ",35,new Vector2(.07f,.72f),new Vector2(.93f,.93f));informationText=Label(box.transform,"Message","",27,new Vector2(.08f,.32f),new Vector2(.92f,.70f));Control(box.transform,"MapInfoClose","TAMAM",new Vector2(.15f,.08f),new Vector2(.85f,.28f),()=>information.SetActive(false));information.SetActive(false);
         }
-        public void ShowInformation(MapPoint point)
-        {CancelJump();Scroll.StopMovement();informationText.text=RegionNames[point.regionIndex]+"\n"+(point.kind==MapPointKind.Chest?"Bu sandık henüz açılamıyor.":"Bu konumdan henüz bölüm başlatılamıyor.");information.SetActive(true);information.transform.SetAsLastSibling();}
         void ApplySafeArea(){nativeSafe=Screen.safeArea;screenWidth=Screen.width;screenHeight=Screen.height;if(screenWidth<=0||screenHeight<=0)return;SafeArea.anchorMin=new Vector2(nativeSafe.xMin/screenWidth,nativeSafe.yMin/screenHeight);SafeArea.anchorMax=new Vector2(nativeSafe.xMax/screenWidth,nativeSafe.yMax/screenHeight);SafeArea.offsetMin=SafeArea.offsetMax=Vector2.zero;}
         static void Edge(RectTransform r,bool top,float height,float y){r.anchorMin=new Vector2(0,top?1:0);r.anchorMax=new Vector2(1,top?1:0);r.pivot=new Vector2(.5f,top?1:0);r.sizeDelta=new Vector2(-32,height);r.anchoredPosition=new Vector2(0,y);}
         public void Layout()
@@ -132,7 +130,7 @@ namespace Mewgic.Map
             for(int i=0;i<4;i++){float d=Mathf.Abs(center-(bases[i].y+heights[i]*.45f));if(d<distance){distance=d;closest=i;}}
             if(requestedRegion>=0)closest=requestedRegion;else if(Scroll.verticalNormalizedPosition<.02f)closest=0;else if(Scroll.verticalNormalizedPosition>.98f)closest=3;
             ActiveRegion=closest;regionTitle.text=RegionNames[closest];for(int i=0;i<4;i++)tabImages[i].color=i==closest?Color.white:new Color(.65f,.65f,.83f,1);
-            background.rectTransform.anchoredPosition=new Vector2(0,-Scroll.verticalNormalizedPosition*18);
+            background.rectTransform.anchoredPosition=new Vector2(0,-Scroll.verticalNormalizedPosition*18);UpdateProgressTitle();
         }
         void LateUpdate()
         {

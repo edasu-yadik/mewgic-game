@@ -40,7 +40,7 @@ namespace Mewgic
             Text(modal.transform,"PauseTitle","DURAKLATILDI",40,new Vector2(.06f,.78f),new Vector2(.94f,.94f));
             Control(modal.transform,"Resume","DEVAM ET",new Vector2(.12f,.55f),new Vector2(.88f,.74f),resume);
             Control(modal.transform,"PauseRestart","YENİDEN BAŞLAT",new Vector2(.12f,.32f),new Vector2(.88f,.51f),restart);
-            Control(modal.transform,"PauseHome","ANA MENÜ",new Vector2(.12f,.09f),new Vector2(.88f,.28f),home);
+            Control(modal.transform,"PauseHome",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.12f,.09f),new Vector2(.88f,.28f),home);
             overlay.SetActive(false);
         }
         public void Present(GameplayHudState state)
