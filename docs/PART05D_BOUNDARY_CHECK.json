@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"extraCapWithoutOverdraw\": true,\n    \"noOpShuffleFree\": true,\n    \"failedUndoSaveSafe\": true,\n    \"invalidRewardRejected\": true,\n    \"levelMapRoots\": [\n      \"Main Camera\",\n      \"Global Light 2D\"\n    ],\n    \"changedMap\": false\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

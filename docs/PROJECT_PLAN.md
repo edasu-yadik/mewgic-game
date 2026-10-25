@@ -156,3 +156,9 @@ Level metadata,model hamle/hedef sayacı,performans yıldızları ve Pause/Resum
 Restart/Home hazır.336 HUD+3183 şişe+12 model kontrolü ve smoke geçti.
 Home/şişe/çevre sanatı aynı;3 oran/Safe Area ve Console0/0 doğrulandı.
 ProductionReports/PART05C.md.
+
+## PART05D — Araçlar ve bölüm sonu
+Undo/Hint/Extra/Shuffle canlı hak sayaçları ve yerel kayıtla çalışıyor.
+İlk kazanma +1 Hint ödülü yalnız bir kez verilir.3/4 hamlede doğrulanmış iki bölüm
+arasında Next ve Home akışı hazır.723+4 yeni,336 HUD,3183 şişe,12 model kontrolü
+ve smoke geçti.Console0/0 ve3 oran/Safe Area doğrulandı. ProductionReports/PART05D.md.

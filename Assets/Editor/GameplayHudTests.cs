@@ -3,7 +3,7 @@ using System;using System.IO;using System.Collections.Generic;using System.Refle
 {
     static double next;static int step;static Vector3 pausedPosition;static Quaternion pausedRotation;static float pausedVolume;static readonly List<string> checks=new List<string>();
     static GameplayHudTests(){EditorApplication.update+=Tick;}
-    public static void Run(){if(EditorApplication.isPlaying)throw new Exception("Stop Play first");checks.Clear();step=0;SessionState.SetBool("GameplayHudTest",true);EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");EditorApplication.isPlaying=true;next=EditorApplication.timeSinceStartup+1;}
+    public static void Run(){if(EditorApplication.isPlaying)throw new Exception("Stop Play first");Mewgic.GameplayLevelCatalog.ResetSelection();Mewgic.GameplayProgress.UseTestProfile();checks.Clear();step=0;SessionState.SetBool("GameplayHudTest",true);EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");EditorApplication.isPlaying=true;next=EditorApplication.timeSinceStartup+1;}
     static void Check(bool value,string name){if(!value)throw new Exception(name);checks.Add(name);}
     static Puzzle Model()=> (Puzzle)typeof(PrototypeApp).GetField("puzzle",BindingFlags.NonPublic|BindingFlags.Instance).GetValue(UnityEngine.Object.FindFirstObjectByType<PrototypeApp>());
     static void Click(string name)
@@ -38,7 +38,7 @@ using System;using System.IO;using System.Collections.Generic;using System.Refle
     {
         var h=UnityEngine.Object.FindFirstObjectByType<GameplayHud>();if(h==null)return;var p=Model();var info=JsonUtility.FromJson<GameplayLevelInfo>(Resources.Load<TextAsset>("Levels/Level01").text);var expected=new GameplayHudState(info,p);Check(h.State.Level==info.id,"Loaded level identity "+step);Check(h.State.Moves==p.Moves&&GameObject.Find("Moves").GetComponent<Text>().text=="HAMLE  "+p.Moves,"Live model move count "+step);Check(h.State.Completed==expected.Completed&&h.State.Total==expected.Total,"Dynamic objective progress "+step);Check(h.State.PotentialStars==expected.PotentialStars&&h.State.AwardedStars==expected.AwardedStars,"Honest performance state "+step);
     }
-    static void Finish(string error){SessionState.SetBool("GameplayHudTest",false);File.WriteAllText("docs/PART05C_TEST_RESULTS.json",JsonUtility.ToJson(new Result{success=error==null,error=error,checks=checks.ToArray()},true));EditorApplication.isPlaying=false;}
+    static void Finish(string error){SessionState.SetBool("GameplayHudTest",false);File.WriteAllText("docs/PART05C_TEST_RESULTS.json",JsonUtility.ToJson(new Result{success=error==null,error=error,checks=checks.ToArray()},true));EditorApplication.isPlaying=false;Mewgic.GameplayLevelCatalog.ResetSelection();Mewgic.GameplayProgress.RestorePlayerProfile();}
     [Serializable]class Result{public bool success;public string error;public string[] checks;}
     static void Tick()
     {

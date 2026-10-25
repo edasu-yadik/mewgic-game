@@ -1,0 +1,20 @@
+{
+    "success": false,
+    "error": "System.Exception: Stop Play first\r\n  at MewgicPlaySmoke.Run () [0x00093] in C:\\Dev\\Mewgic\\Assets\\Editor\\MewgicPlaySmoke.cs:26 \r\n  at MewgicPlaySmoke.RunInteractive () [0x0000b] in C:\\Dev\\Mewgic\\Assets\\Editor\\MewgicPlaySmoke.cs:15 \r\n  at GameplayRegressionSequence.Tick () [0x000cf] in C:\\Dev\\Mewgic\\Assets\\Editor\\GameplayRegressionSequence.cs:14 ",
+    "playerProfileUntouched": true,
+    "testProfileRestored": true,
+    "stages": [
+        {
+            "name": "HUD",
+            "checks": 336
+        },
+        {
+            "name": "Bottles",
+            "checks": 3183
+        },
+        {
+            "name": "Layout",
+            "checks": 2755
+        }
+    ]
+}

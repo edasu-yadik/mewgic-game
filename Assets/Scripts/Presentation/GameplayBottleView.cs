@@ -108,6 +108,7 @@ namespace Mewgic
         }
         public void Present(IReadOnlyList<int> layers,bool chosen)
         {Liquid.Layers=new int[layers.Count];for(int i=0;i<layers.Count;i++)Liquid.Layers[i]=layers[i];Liquid.Volume=layers.Count;selected=chosen;bool complete=layers.Count==4;for(int i=1;i<layers.Count;i++)complete&=layers[i]==layers[0];Liquid.Completed=complete;outline.effectColor=chosen?new Color(1,.78f,.25f,.85f):complete?new Color(.6f,1,.8f,.4f):Color.clear;Liquid.SetVerticesDirty();}
+        public void ShowHintTarget(){outline.effectColor=new Color(.1f,.85f,1,.9f);}
         public void SetPaused(bool value){paused=value;Liquid.Paused=value;}
         public void SetAnimating(bool value){animating=value;}
         void Update(){if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}

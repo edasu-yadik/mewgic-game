@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"Undo\",\n      \"width\": 1254,\n      \"height\": 1254,\n      \"minA\": 0,\n      \"maxA\": 255,\n      \"sprite\": true\n    },\n    {\n      \"name\": \"Hint\",\n      \"width\": 1230,\n      \"height\": 1278,\n      \"minA\": 0,\n      \"maxA\": 255,\n      \"sprite\": true\n    },\n    {\n      \"name\": \"Extra\",\n      \"width\": 1230,\n      \"height\": 1279,\n      \"minA\": 0,\n      \"maxA\": 255,\n      \"sprite\": true\n    },\n    {\n      \"name\": \"Shuffle\",\n      \"width\": 1254,\n      \"height\": 1254,\n      \"minA\": 0,\n      \"maxA\": 255,\n      \"sprite\": true\n    },\n    {\n      \"name\": \"Tile\",\n      \"width\": 1254,\n      \"height\": 1254,\n      \"minA\": 0,\n      \"maxA\": 255,\n      \"sprite\": true\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

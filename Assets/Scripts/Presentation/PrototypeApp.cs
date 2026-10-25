@@ -14,6 +14,12 @@ namespace Mewgic
         [SerializeField] HomeCharacterPresenter homeCharacter;
         GameplayPresentation gameplayVisual;
         GameplayHud hud;
+        GameplayTools tools;
+        GameplayEndScreen endScreen;
+        ProgressLedger progress;
+        BoosterActions boosters;
+        int originalBottleCount,hintTarget=-1;
+        bool completionHandled,navigating;
         GameplayLevelInfo levelInfo;
         bool paused;
         Coroutine pourRoutine;
@@ -29,7 +35,6 @@ namespace Mewgic
         Puzzle puzzle;
         Text status;
         Button undo, restart, home;
-        GameObject win;
         RectTransform[] bottleViews;
         int selected = -1;
         bool busy;
@@ -114,23 +119,39 @@ namespace Mewgic
         }
         void Gameplay()
         {
-            puzzle=LoadLevel();
-            levelInfo=JsonUtility.FromJson<GameplayLevelInfo>(Resources.Load<TextAsset>("Levels/Level01").text);levelInfo.Validate();
+            var level=GameplayLevelCatalog.Current();levelInfo=level.Info;puzzle=new Puzzle(level.Bottles);
+            originalBottleCount=puzzle.Count;progress=GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount);
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
-            status=Label(safe,"Status","Önce kaynak, sonra hedef şişeye dokun.",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
-            undo=Button(safe,"Undo","GERİ AL",new Vector2(.07f,.11f),new Vector2(.47f,.18f),()=>{if(busy||paused)return;puzzle.Undo();selected=-1;Refresh();});
-            restart=Button(safe,"Restart","YENİDEN",new Vector2(.53f,.11f),new Vector2(.93f,.18f),Reset);
-            home=Button(safe,"Home","ANA MENÜ",new Vector2(.27f,.025f),new Vector2(.73f,.08f),()=>{if(!busy&&!paused)SceneManager.LoadScene("Home");});
-            win=Box(safe,"Win panel",Night,new Vector2(.08f,.33f),new Vector2(.92f,.70f)).gameObject;
-            Label(win.transform,"Success","BÜYÜ TAMAMLANDI!",44,Gold,new Vector2(.07f,.65f),new Vector2(.93f,.9f));
-            Label(win.transform,"Message","Renkler yerini buldu.",28,Color.white,new Vector2(.1f,.43f),new Vector2(.9f,.64f));
-            Button(win.transform,"Replay","TEKRAR OYNA",new Vector2(.12f,.12f),new Vector2(.88f,.34f),Reset);
+            status=Label(safe,"Status","Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
+            restart=Button(safe,"Restart","YENİDEN",new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
+            home=Button(safe,"Home","ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)SceneManager.LoadScene("Home");});
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
+            SkinGameplayControl(restart);SkinGameplayControl(home);
+            tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)SceneManager.LoadScene("Home");},()=>paused);
+            if(GameplayProgress.LoadError!=null)status.text="Kayıt okunamadı; haklar ve ödüller kilitli.";
             Refresh();
         }
-        public void PauseGame(){if(hud==null||paused)return;paused=true;SetPresentationPaused(true);hud.ShowPaused(true);}
-        public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);}
+        void SkinGameplayControl(Button control){control.GetComponent<Image>().sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");control.GetComponent<Image>().type=Image.Type.Sliced;control.GetComponent<Image>().color=Color.white;control.GetComponent<Outline>().enabled=false;}
+        void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused,originalBottleCount);}
+        public void UseBooster(BoosterKind kind)
+        {
+            if(busy||paused||puzzle.Won||navigating)return;
+            if(kind==BoosterKind.Hint&&hintTarget>=0){status.text="İpucu zaten gösteriliyor; hak harcanmadı.";return;}
+            bool applied=false;
+            switch(kind)
+            {
+                case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text="Son geçerli hamle geri alındı.";}break;
+                case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;selected=move.Source;hintTarget=move.Target;status.text=boosters.Message+" • Altın kaynak, mavi hedef.";}break;
+                case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text="Bu denemeye bir boş şişe eklendi.";}break;
+                case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
+            }
+            if(!applied)status.text=boosters.Message;Refresh();
+        }
+        void NextLevel(){if(busy||paused||!puzzle.Won||navigating)return;if(GameplayLevelCatalog.Advance(levelInfo.id,progress)){navigating=true;SceneManager.LoadScene("Gameplay");}}
+        public void PauseGame(){if(hud==null||paused)return;paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
+        public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateTools();}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
         void CancelPour()
         {
@@ -142,11 +163,12 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();SceneManager.LoadScene("Home");}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;puzzle.Restart();selected=-1;status.text="Önce kaynak, sonra hedef şişeye dokun.";Refresh();}
+        void Reset(){if(busy||paused)return;puzzle.Restart();selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.";Refresh();}
         void Refresh()
         {
-            if(bottleViews==null)
+            if(bottleViews==null||bottleViews.Length!=puzzle.Count)
             {
+                if(bottleViews!=null)foreach(var old in bottleViews){old.gameObject.SetActive(false);Destroy(old.gameObject);}
                 bottleViews=new RectTransform[puzzle.Count];
                 var glass=Resources.Load<Sprite>("Gameplay/Gameplay_GlassShell_v001");
                 for(int i=0;i<puzzle.Count;i++)
@@ -160,26 +182,33 @@ namespace Mewgic
                 }
             }
             for(int i=0;i<puzzle.Count;i++)bottleViews[i].GetComponent<GameplayBottleView>().Present(puzzle.Bottle(i),selected==i);
+            if(hintTarget>=0&&hintTarget<bottleViews.Length)bottleViews[hintTarget].GetComponent<GameplayBottleView>().ShowHintTarget();
             if(gameplayVisual!=null)gameplayVisual.Bind(bottleViews);
             UpdateHud();
-            undo.interactable=puzzle.CanUndo&&!busy;restart.interactable=!busy;home.interactable=!busy;
-            win.SetActive(puzzle.Won&&!busy);
+            UpdateTools();restart.interactable=!busy&&!paused;home.interactable=!busy&&!paused;
+            if(puzzle.Won&&!busy&&!paused&&!completionHandled)
+            {
+                completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
+                bool saved=progress.Claim(levelInfo.id,stars,puzzle.Won,out bool granted);UpdateTools();
+                endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,GameplayLevelCatalog.CanAdvance(levelInfo.id,progress));
+            }
         }
         void Select(int target)
         {
             if(busy||paused||puzzle.Won)return;
+            hintTarget=-1;
             if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Önce dolu bir şişe seç.";return;}selected=target;status.text="Hedef şişeyi seç.";Refresh();return;}
             if(selected==target){selected=-1;status.text="Seçim kaldırıldı.";Refresh();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
-            if(amount==0){status.text="Bu şişeye dökülemez. Başka bir hedef seç.";return;}
+            if(amount==0){status.text="Bu şişeye dökülemez. Başka bir hedef seç.";Refresh();return;}
             selected=-1;pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)
         {
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=true;
-            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="İksir aktarılıyor…";UpdateHud();
+            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="İksir aktarılıyor…";UpdateHud();UpdateTools();
             var sourceView=bottleViews[source].GetComponent<GameplayBottleView>();
             var targetView=bottleViews[target].GetComponent<GameplayBottleView>();
             sourceView.SetAnimating(true);targetView.SetAnimating(true);

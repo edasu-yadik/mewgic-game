@@ -41,6 +41,26 @@ namespace Mewgic.Core
             Moves++;
             return amount;
         }
+        // Boosters do not count as pours. Existing pour history is mapped into
+        // the new topology so Undo still means the last successful pour.
+        public bool AddEmptyBottle(int maximum)
+        {
+            if(Count>=maximum)return false;
+            bottles=bottles.Concat(new[]{new List<int>()}).ToArray();
+            MapHistory(state=>state.Concat(new[]{new int[0]}).ToArray());return true;
+        }
+        public bool RotateBottles()
+        {
+            var before=Snapshot();var after=Rotate(before);
+            if(before.Select((b,i)=>b.SequenceEqual(after[i])).All(equal=>equal))return false;
+            Restore(after);MapHistory(Rotate);return true;
+        }
+        static int[][] Rotate(int[][] state)=>new[]{state[state.Length-1].ToArray()}.Concat(state.Take(state.Length-1).Select(b=>b.ToArray())).ToArray();
+        void MapHistory(Func<int[][],int[][]> map)
+        {
+            var states=history.ToArray();history.Clear();
+            for(int i=states.Length-1;i>=0;i--)history.Push(map(states[i]));
+        }
         public bool Undo()
         {
             if (!CanUndo) return false;

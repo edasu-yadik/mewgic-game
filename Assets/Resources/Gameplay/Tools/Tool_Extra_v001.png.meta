@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: 2104e74080c8d134583f0a14ce60452f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 235047875595584458
+    second: Tool_Extra_v001_0
+  - first:
+      213: -8186918235238560061
+    second: Tool_Extra_v001_1
+  - first:
+      213: -246215313576693000
+    second: Tool_Extra_v001_2
+  - first:
+      213: -3342737649622347396
+    second: Tool_Extra_v001_3
+  - first:
+      213: -3214890078642087217
+    second: Tool_Extra_v001_4
+  - first:
+      213: 8549020693225096813
+    second: Tool_Extra_v001_5
+  - first:
+      213: 4447509189395986265
+    second: Tool_Extra_v001_6
+  - first:
+      213: 5422475873662604917
+    second: Tool_Extra_v001_7
+  - first:
+      213: 3443151699548049364
+    second: Tool_Extra_v001_8
+  - first:
+      213: -6816761674687997839
+    second: Tool_Extra_v001_9
+  - first:
+      213: 2678598542521967181
+    second: Tool_Extra_v001_10
+  - first:
+      213: -6308858227295031602
+    second: Tool_Extra_v001_11
+  - first:
+      213: 822389748473476645
+    second: Tool_Extra_v001_12
+  - first:
+      213: 7867564857085652968
+    second: Tool_Extra_v001_13
+  - first:
+      213: 6198189052264985679
+    second: Tool_Extra_v001_14
+  - first:
+      213: 434136382896008384
+    second: Tool_Extra_v001_15
+  - first:
+      213: 1459635854218497202
+    second: Tool_Extra_v001_16
+  - first:
+      213: 4738677416154369698
+    second: Tool_Extra_v001_17
+  - first:
+      213: -550125746849401434
+    second: Tool_Extra_v001_18
+  - first:
+      213: -1106235019350009089
+    second: Tool_Extra_v001_19
+  - first:
+      213: -6146340335699473067
+    second: Tool_Extra_v001_20
+  - first:
+      213: -3776986786626085597
+    second: Tool_Extra_v001_21
+  - first:
+      213: -7379713468419555112
+    second: Tool_Extra_v001_22
+  - first:
+      213: -3891231078988648520
+    second: Tool_Extra_v001
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tool_Extra_v001
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 109
+        width: 804
+        height: 1048
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bfebe543f19ff9c0800000000000000
+      internalID: -3891231078988648520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tool_Extra_v001: -3891231078988648520
+      Tool_Extra_v001_0: 235047875595584458
+      Tool_Extra_v001_1: -8186918235238560061
+      Tool_Extra_v001_10: 2678598542521967181
+      Tool_Extra_v001_11: -6308858227295031602
+      Tool_Extra_v001_12: 822389748473476645
+      Tool_Extra_v001_13: 7867564857085652968
+      Tool_Extra_v001_14: 6198189052264985679
+      Tool_Extra_v001_15: 434136382896008384
+      Tool_Extra_v001_16: 1459635854218497202
+      Tool_Extra_v001_17: 4738677416154369698
+      Tool_Extra_v001_18: -550125746849401434
+      Tool_Extra_v001_19: -1106235019350009089
+      Tool_Extra_v001_2: -246215313576693000
+      Tool_Extra_v001_20: -6146340335699473067
+      Tool_Extra_v001_21: -3776986786626085597
+      Tool_Extra_v001_22: -7379713468419555112
+      Tool_Extra_v001_3: -3342737649622347396
+      Tool_Extra_v001_4: -3214890078642087217
+      Tool_Extra_v001_5: 8549020693225096813
+      Tool_Extra_v001_6: 4447509189395986265
+      Tool_Extra_v001_7: 5422475873662604917
+      Tool_Extra_v001_8: 3443151699548049364
+      Tool_Extra_v001_9: -6816761674687997839
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

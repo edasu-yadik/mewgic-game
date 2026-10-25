@@ -46,3 +46,14 @@ kaydedildi.Panel ayrıntıları referansla birebir değildir;cihaz testi yapılm
 Rapor:ProductionReports/PART05C.md.
 
 05C Git teslimi:2c4ed82 private origin/master'a gönderildi;uzak SHA eşleşti.
+
+## PART05D — Güçlendiriciler ve bölüm sonu
+Dört ayrı ikon/sayaçlı araç,çözüm doğrulayan Hint/Shuffle,ek boş şişe ve doğru
+Undo geçmişi hazır. Yerel kalıcı hak/ilk tamamlama ödülü tek belgeye kaydedilir;
+tekrar ödül engeli ve doğrulanmış Bölüm2 geçişi test edildi.723 kontrol+4 sınır,
+336 HUD,3183 şişe,12 model ve smoke başarılı.Console0/0;3 oran/Safe Area geçti.
+200 sanat/sahne dosyası ve Level01 aynı. Gerçek Game View ve12 kare GIF hazır.
+Cihaz testi yapılmadı;harita/seçim ekranı eklenmedi. ProductionReports/PART05D.md.
+
+05D test güvenliği:eski dört Play test yürütücüsü otomatik izole profil kullanır.
+Ek2755 çevre/slot regresyonu geçti;gerçek oyuncu kaydının değişmediği doğrulandı.

@@ -13,14 +13,16 @@ public static class MewgicPlaySmoke
     static double next;
     static MewgicPlaySmoke(){EditorApplication.update+=Tick;}
     public static void RunInteractive(){SessionState.SetBool("MewgicSmokeKeepEditor",true);Run();}
-    static void Finish(int code){SessionState.SetInt("MewgicSmokeExitCode",code);if(SessionState.GetBool("MewgicSmokeKeepEditor",false)){SessionState.SetBool("MewgicSmokeKeepEditor",false);EditorApplication.isPlaying=false;}else EditorApplication.Exit(code);}
+    static void Finish(int code){Mewgic.GameplayLevelCatalog.ResetSelection();Mewgic.GameplayProgress.RestorePlayerProfile();SessionState.SetInt("MewgicSmokeExitCode",code);if(SessionState.GetBool("MewgicSmokeKeepEditor",false)){SessionState.SetBool("MewgicSmokeKeepEditor",false);EditorApplication.isPlaying=false;}else EditorApplication.Exit(code);}
     public static void Run()
     {
+        if(EditorApplication.isPlaying)throw new Exception("Stop Play first");
+        Mewgic.GameplayLevelCatalog.ResetSelection();Mewgic.GameplayProgress.UseTestProfile();
         SessionState.SetInt("MewgicSmokeStep",0); SessionState.SetString("MewgicSmokeDeadline",DateTime.UtcNow.AddMinutes(2).ToString("O"));
         SessionState.SetBool("MewgicSmokeActive",true);
         EditorSceneManager.OpenScene("Assets/Scenes/Boot.unity");
         UnityEditor.EditorWindow.GetWindow(typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
-        EditorApplication.EnterPlaymode();
+        EditorApplication.isPlaying=true;
     }
     static void Capture(string path,int width,int height)
     {

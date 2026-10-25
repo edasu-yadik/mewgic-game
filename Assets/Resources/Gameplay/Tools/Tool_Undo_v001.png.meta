@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: d9e6cc827282f974c8b1ece0ef911317
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7531790910949364257
+    second: Tool_Undo_v001_0
+  - first:
+      213: 8105664760231037417
+    second: Tool_Undo_v001_1
+  - first:
+      213: 5730447411787414966
+    second: Tool_Undo_v001_2
+  - first:
+      213: -6002075205007876250
+    second: Tool_Undo_v001_3
+  - first:
+      213: -9051022468805761926
+    second: Tool_Undo_v001_4
+  - first:
+      213: -949058951203265740
+    second: Tool_Undo_v001_5
+  - first:
+      213: -3280565171456569923
+    second: Tool_Undo_v001_6
+  - first:
+      213: 7406892059873442117
+    second: Tool_Undo_v001_7
+  - first:
+      213: 7410218835447713971
+    second: Tool_Undo_v001_8
+  - first:
+      213: 3379600496889257873
+    second: Tool_Undo_v001_9
+  - first:
+      213: -1849540455613551574
+    second: Tool_Undo_v001_10
+  - first:
+      213: -1227646739047565770
+    second: Tool_Undo_v001_11
+  - first:
+      213: -2863405915496360975
+    second: Tool_Undo_v001_12
+  - first:
+      213: 1133843668882360831
+    second: Tool_Undo_v001_13
+  - first:
+      213: 2439856271685438818
+    second: Tool_Undo_v001_14
+  - first:
+      213: 1038902368744107952
+    second: Tool_Undo_v001_15
+  - first:
+      213: -7586884393449814899
+    second: Tool_Undo_v001_16
+  - first:
+      213: 1768177971260429403
+    second: Tool_Undo_v001_17
+  - first:
+      213: 2847225017535219176
+    second: Tool_Undo_v001_18
+  - first:
+      213: 6230698903203147312
+    second: Tool_Undo_v001_19
+  - first:
+      213: 8647673384562943347
+    second: Tool_Undo_v001_20
+  - first:
+      213: 7951324634066231553
+    second: Tool_Undo_v001_21
+  - first:
+      213: 3845119524561151310
+    second: Tool_Undo_v001_22
+  - first:
+      213: -95209363662877131
+    second: Tool_Undo_v001_23
+  - first:
+      213: 4976570209658500953
+    second: Tool_Undo_v001_24
+  - first:
+      213: -2986859037963902889
+    second: Tool_Undo_v001_25
+  - first:
+      213: -3931394851604511440
+    second: Tool_Undo_v001_26
+  - first:
+      213: 9080625943872315043
+    second: Tool_Undo_v001_27
+  - first:
+      213: -389155164370461477
+    second: Tool_Undo_v001_28
+  - first:
+      213: -9203992598280381435
+    second: Tool_Undo_v001_29
+  - first:
+      213: 2043842160567718085
+    second: Tool_Undo_v001_30
+  - first:
+      213: -2311737095411766614
+    second: Tool_Undo_v001_31
+  - first:
+      213: -3939712138982232138
+    second: Tool_Undo_v001
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 48
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tool_Undo_v001
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 136
+        width: 1148
+        height: 977
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bf6baedea45359c0800000000000000
+      internalID: -3939712138982232138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tool_Undo_v001: -3939712138982232138
+      Tool_Undo_v001_0: 7531790910949364257
+      Tool_Undo_v001_1: 8105664760231037417
+      Tool_Undo_v001_10: -1849540455613551574
+      Tool_Undo_v001_11: -1227646739047565770
+      Tool_Undo_v001_12: -2863405915496360975
+      Tool_Undo_v001_13: 1133843668882360831
+      Tool_Undo_v001_14: 2439856271685438818
+      Tool_Undo_v001_15: 1038902368744107952
+      Tool_Undo_v001_16: -7586884393449814899
+      Tool_Undo_v001_17: 1768177971260429403
+      Tool_Undo_v001_18: 2847225017535219176
+      Tool_Undo_v001_19: 6230698903203147312
+      Tool_Undo_v001_2: 5730447411787414966
+      Tool_Undo_v001_20: 8647673384562943347
+      Tool_Undo_v001_21: 7951324634066231553
+      Tool_Undo_v001_22: 3845119524561151310
+      Tool_Undo_v001_23: -95209363662877131
+      Tool_Undo_v001_24: 4976570209658500953
+      Tool_Undo_v001_25: -2986859037963902889
+      Tool_Undo_v001_26: -3931394851604511440
+      Tool_Undo_v001_27: 9080625943872315043
+      Tool_Undo_v001_28: -389155164370461477
+      Tool_Undo_v001_29: -9203992598280381435
+      Tool_Undo_v001_3: -6002075205007876250
+      Tool_Undo_v001_30: 2043842160567718085
+      Tool_Undo_v001_31: -2311737095411766614
+      Tool_Undo_v001_4: -9051022468805761926
+      Tool_Undo_v001_5: -949058951203265740
+      Tool_Undo_v001_6: -3280565171456569923
+      Tool_Undo_v001_7: 7406892059873442117
+      Tool_Undo_v001_8: 7410218835447713971
+      Tool_Undo_v001_9: 3379600496889257873
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
