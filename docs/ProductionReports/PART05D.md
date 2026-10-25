@@ -73,3 +73,6 @@ GameplayHudTests, GameplayBottleTests, GameplayVisualTests ve MewgicPlaySmoke ar
 Test zincirinin ilk denemesinde üç regresyon geçti; smoke başlatması Editor'ın Play Mode geçişi henüz tamamlanmadan çağrıldığı için durdu. Smoke asenkron Play geçişine çevrildi; kararsız toplu yardımcı teslim kapsamından çıkarılıp testler ayrı ayrı doğrulandı. İlk çıktı PART05D_QA_REPAIR.json içinde saklanır. Bu, yardımcı test yürütücüsü geçiş hatasıydı; oyuncu kayıt belgesi değişmedi.
 
 Son bağımsız regresyonlar tekrar başarılı:336 HUD,3183 şişe,2755 çevre/slot kontrolü ve smoke exitCode0. PART05D_TEST_ISOLATION.json gerçek oyuncu kaydının değişmediğini ve test profilinin kapatıldığını doğrular. Son Console0/0; Editor Gameplay sahnesinde, Play Mode kapalı ve sahne kaydedilmemiş değişiklik içermiyor.
+
+## Git teslim kaydı
+Uygulama commit'i:95db20348f90e58638a928194b3539004fe887d9 (feat: add safe boosters and level completion flow). Private origin/master push başarılı; git ls-remote aynı SHA'yı doğruladı. Bu kayıt ayrı belge commit'iyle korunur.
