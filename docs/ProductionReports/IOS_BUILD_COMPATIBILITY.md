@@ -19,8 +19,11 @@ Resmi Editor6.3.26f1/de8167e7440c Unity CLI1.0.0-beta.14 ile yan yana kuruldu. C
 ## Cloud hedefi
 Mevcut imzalama korunuyor: Mewgic TestFlight App Store2026,appstore,com.edasuyadik.mewgic,Apple Distribution EDASU YADIK(VKW7GYV7B9),son tarih25 Ekim2027.
 Mac Standard,macOS Tahoe,Xcode26.5.0,Apple Silicon mevcut. Kota0/100Mac dakika; upgrade yok. Ücretli build yetkisi verilmedi.
-PreExport ve Gymfile uyumlu kimlikleri kullanır. Branch commit push edilip bulut hedefinde kesin6.3.26f1 seçilecektir. iOS derleme/log ve IPA sonucu henüz bekleniyor; TestFlight yüklemesi yapılmadı.
+PreExport ve Gymfile uyumlu kimlikleri kullanır. Test edilmiş c6496d5d1906362b6b8410497fdb9837414b977e commit private branch üzerine push edildi, uzak SHA eşleşti. Bulut hedefi bu branch ve kesin6.3.26f1 olarak kaydedildi. Build #1 isteği kabul edildi; eski sürüm doğrulama reddi kalktı. Son durum Sent to Builder; henüz log yok. IPA/TestFlight sonucu bekleniyor, başarılı sayılmadı.
 
 ## Kaynaklar
 https://unity.com/releases/editor/whats-new/6000.3.26f1
 https://docs.unity.com/en-us/build-automation/basic-build-configuration/overview
+
+## Teslim durumu
+Sürüm engeli çözüldü; iOS derleme sonucu henüz doğrulanmadı. Gerçek log ekranı No logs are available for this build diyor. Kalan iş: Mac builder başlatması, Unity/iOS/Xcode/signing loglarının kontrolü, başarılıysa IPA artefakt doğrulaması ve ayrıca App Store Connect yükleme yetkisi/işlemi. Fiziksel iPhone testi yok. Ana master4e3e32f ve290 dosya hash kontrolü korunuyor.

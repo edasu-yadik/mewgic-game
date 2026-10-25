@@ -126,3 +126,5 @@ TestFlight ek çalışma: Apple uygulama/sertifika/App Store profili hazır; Git
 TestFlight güncellemesi: imzalama dosyaları kullanıcı onayıyla Unity Cloud'a kaydedildi ve appstore kimliği doğrulandı. Ücretsiz Mac kotası0/100dk. İlk build isteği6000.3.27f1 sunucuda bulunmadığından reddedildi. IPA/yükleme yok; ana proje sürümü korunuyor. Detay TESTFLIGHT_SETUP.md.
 
 iOS compatibility branch:6.3.26f1 üzerinde6 model test grubu,4 sahne referans kontrolü ve iki Play smoke geçti. Editor Search indeksi exception'ı açık; oyun akışı geçti. Ana master ve6.3.27f1 korunuyor. Cloud build sonucu ayrı kaydedilecek.
+
+iOS build engeli çözüldü: Cloud hedefi ios/testflight-6000.3.26 branch ve kesin6000.3.26f1'e bağlandı; c6496d5 commit için build#1 kabul edildi. Mac builder aktarımı bekleniyor; log/IPA henüz yok. Ana master değişmedi. Son durum IOS_BUILD_COMPATIBILITY.md.

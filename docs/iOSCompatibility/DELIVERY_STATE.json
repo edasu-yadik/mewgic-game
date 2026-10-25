@@ -1,0 +1,16 @@
+{
+  "mainProjectPreserved": true,
+  "checkedMainFiles": 290,
+  "mainVersion": "m_EditorVersion: 6000.3.27f1",
+  "mainCommit": "4e3e32feaeab4521ceb2f7c06d8e99aced632a69",
+  "compatibilityBranch": "ios/testflight-6000.3.26",
+  "testedCommit": "c6496d5d1906362b6b8410497fdb9837414b977e",
+  "cloudBuild": 1,
+  "cloudSubmissionAccepted": true,
+  "latestStatus": "Sent to Builder",
+  "logsAvailable": false,
+  "ipaProduced": false,
+  "testFlightUploaded": false,
+  "freeMacMinutesUsedBeforeBuild": 0,
+  "freeMacAllowance": 100
+}
