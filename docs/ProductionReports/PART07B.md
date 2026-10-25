@@ -103,4 +103,4 @@ Kurallar/katalog:docs/REWARD_CENTER.md.
 
 Fiziksel Android cihaz/FPS/bellek testi ve APK üretimi yapılmadı. Sunucu güvenliği
 ve premium satış sonraki görevlerin konusudur; bu partta eklenmedi. Sonraki part
-başlatılmadı. Git teslimi doğrulama sonrası eklenecektir.
+başlatılmadı. Özellik commit:dabaa03cc19047ac39b79350e861d0de0f76ef9f. Private origin/master push başarılı; git ls-remote aynı SHA döndürdü. Teslim kaydı ayrı belge commitinde tutulur.
