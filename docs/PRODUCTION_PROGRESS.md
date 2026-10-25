@@ -36,3 +36,11 @@ henüz tam eşleşmez;final sanat onayı verilmedi.Cihaz performansı ölçülme
 Rapor:ProductionReports/PART05B.md.
 
 05B Git teslimi:be780cf private origin/master'a gönderildi;uzak SHA eşleşti.
+
+## PART05C — Gameplay HUD ve Pause
+Dinamik bölüm/hedef/hamle/yıldız HUD ve güvenli Pause modalı hazır.
+336 HUD kontrolü,3183 şişe regresyon kontrolü,12 model ve mevcut smoke geçti.
+Console0/0;3 mobil oran ve Safe Area doğrulandı.189 sanat/sahne/core dosyası
+aynı;Level01 yalnız HUD metadata aldı. Gerçek Game View/Pause/karşılaştırma
+kaydedildi.Panel ayrıntıları referansla birebir değildir;cihaz testi yapılmadı.
+Rapor:ProductionReports/PART05C.md.

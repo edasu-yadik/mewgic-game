@@ -1,0 +1,16 @@
+{
+    "success": false,
+    "error": "System.Exception: Real extra moves\r\n  at GameplayHudTests.Check (System.Boolean value, System.String name) [0x00015] in C:\\Dev\\Mewgic\\Assets\\Editor\\GameplayHudTests.cs:7 \r\n  at GameplayHudTests.UnitTests () [0x0009e] in C:\\Dev\\Mewgic\\Assets\\Editor\\GameplayHudTests.cs:18 \r\n  at GameplayHudTests.Tick () [0x000b2] in C:\\Dev\\Mewgic\\Assets\\Editor\\GameplayHudTests.cs:47 ",
+    "checks": [
+        "Loaded level identity 0",
+        "Live model move count 0",
+        "Dynamic objective progress 0",
+        "Honest performance state 0",
+        "Level and objective come from metadata",
+        "No fake goal or award at start",
+        "Real winning solution",
+        "Award follows actual solved performance 3",
+        "Level and objective come from metadata",
+        "No fake goal or award at start"
+    ]
+}

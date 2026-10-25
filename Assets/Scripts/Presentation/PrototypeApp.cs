@@ -13,6 +13,11 @@ namespace Mewgic
     {
         [SerializeField] HomeCharacterPresenter homeCharacter;
         GameplayPresentation gameplayVisual;
+        GameplayHud hud;
+        GameplayLevelInfo levelInfo;
+        bool paused;
+        Coroutine pourRoutine;
+        public bool IsPaused => paused;
         [Serializable] public class BottleData { public int[] layers; }
         [Serializable] public class LevelData { public BottleData[] bottles; }
         static readonly Color Night = new Color32(16,22,46,255);
@@ -22,7 +27,7 @@ namespace Mewgic
         RectTransform safe, board;
         Font font;
         Puzzle puzzle;
-        Text status, moves;
+        Text status;
         Button undo, restart, home;
         GameObject win;
         RectTransform[] bottleViews;
@@ -110,22 +115,34 @@ namespace Mewgic
         void Gameplay()
         {
             puzzle=LoadLevel();
-            Label(safe,"Chapter","İLK BÜYÜ  /  01",32,Gold,new Vector2(.1f,.91f),new Vector2(.9f,.97f));
-            Label(safe,"Goal","Her rengi kendi şişesinde topla",38,Color.white,new Vector2(.06f,.82f),new Vector2(.94f,.9f));
-            moves=Label(safe,"Moves","",27,Gold,new Vector2(.2f,.76f),new Vector2(.8f,.82f));
+            levelInfo=JsonUtility.FromJson<GameplayLevelInfo>(Resources.Load<TextAsset>("Levels/Level01").text);levelInfo.Validate();
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
             status=Label(safe,"Status","Önce kaynak, sonra hedef şişeye dokun.",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
-            undo=Button(safe,"Undo","GERİ AL",new Vector2(.07f,.11f),new Vector2(.47f,.18f),()=>{if(busy)return;puzzle.Undo();selected=-1;Refresh();});
+            undo=Button(safe,"Undo","GERİ AL",new Vector2(.07f,.11f),new Vector2(.47f,.18f),()=>{if(busy||paused)return;puzzle.Undo();selected=-1;Refresh();});
             restart=Button(safe,"Restart","YENİDEN",new Vector2(.53f,.11f),new Vector2(.93f,.18f),Reset);
-            home=Button(safe,"Home","ANA MENÜ",new Vector2(.27f,.025f),new Vector2(.73f,.08f),()=>{if(!busy)SceneManager.LoadScene("Home");});
+            home=Button(safe,"Home","ANA MENÜ",new Vector2(.27f,.025f),new Vector2(.73f,.08f),()=>{if(!busy&&!paused)SceneManager.LoadScene("Home");});
             win=Box(safe,"Win panel",Night,new Vector2(.08f,.33f),new Vector2(.92f,.70f)).gameObject;
             Label(win.transform,"Success","BÜYÜ TAMAMLANDI!",44,Gold,new Vector2(.07f,.65f),new Vector2(.93f,.9f));
             Label(win.transform,"Message","Renkler yerini buldu.",28,Color.white,new Vector2(.1f,.43f),new Vector2(.9f,.64f));
             Button(win.transform,"Replay","TEKRAR OYNA",new Vector2(.12f,.12f),new Vector2(.88f,.34f),Reset);
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
+            hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             Refresh();
         }
-        void Reset(){if(busy)return;puzzle.Restart();selected=-1;status.text="Önce kaynak, sonra hedef şişeye dokun.";Refresh();}
+        public void PauseGame(){if(hud==null||paused)return;paused=true;SetPresentationPaused(true);hud.ShowPaused(true);}
+        public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);}
+        void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
+        void CancelPour()
+        {
+            if(pourRoutine!=null){StopCoroutine(pourRoutine);pourRoutine=null;}
+            var stream=board.Find("Pour stream");if(stream!=null)Destroy(stream.gameObject);
+            if(bottleViews!=null)foreach(var b in bottleViews){var view=b.GetComponent<GameplayBottleView>();view.SetAnimating(false);view.Rig.localRotation=Quaternion.identity;view.Rig.anchoredPosition=Vector2.zero;}
+            busy=false;if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
+        }
+        public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
+        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();SceneManager.LoadScene("Home");}
+        void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
+        void Reset(){if(busy||paused)return;puzzle.Restart();selected=-1;status.text="Önce kaynak, sonra hedef şişeye dokun.";Refresh();}
         void Refresh()
         {
             if(bottleViews==null)
@@ -144,25 +161,25 @@ namespace Mewgic
             }
             for(int i=0;i<puzzle.Count;i++)bottleViews[i].GetComponent<GameplayBottleView>().Present(puzzle.Bottle(i),selected==i);
             if(gameplayVisual!=null)gameplayVisual.Bind(bottleViews);
-            moves.text="HAMLE  "+puzzle.Moves;
+            UpdateHud();
             undo.interactable=puzzle.CanUndo&&!busy;restart.interactable=!busy;home.interactable=!busy;
             win.SetActive(puzzle.Won&&!busy);
         }
         void Select(int target)
         {
-            if(busy||puzzle.Won)return;
+            if(busy||paused||puzzle.Won)return;
             if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Önce dolu bir şişe seç.";return;}selected=target;status.text="Hedef şişeyi seç.";Refresh();return;}
             if(selected==target){selected=-1;status.text="Seçim kaldırıldı.";Refresh();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
             if(amount==0){status.text="Bu şişeye dökülemez. Başka bir hedef seç.";return;}
-            selected=-1;StartCoroutine(AnimatePour(source,target,color,amount));
+            selected=-1;pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)
         {
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=true;
-            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="İksir aktarılıyor…";moves.text="HAMLE  "+puzzle.Moves;
+            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="İksir aktarılıyor…";UpdateHud();
             var sourceView=bottleViews[source].GetComponent<GameplayBottleView>();
             var targetView=bottleViews[target].GetComponent<GameplayBottleView>();
             sourceView.SetAnimating(true);targetView.SetAnimating(true);
@@ -171,7 +188,8 @@ namespace Mewgic
             float direction=bottleViews[target].position.x>=a.position.x?1:-1;
             var tilt=Quaternion.Euler(0,0,-direction*100);
             var destination=targetView.Mouth-a.parent.TransformVector(tilt*new Vector3(0,a.rect.height*.46f,0))+a.parent.TransformVector(new Vector3(0,36,0));
-            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.24f){float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(start,destination,e);a.localRotation=Quaternion.Slerp(rotation,tilt,e);yield return null;}
+            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.24f){while(paused)yield return null;float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(start,destination,e);a.localRotation=Quaternion.Slerp(rotation,tilt,e);yield return null;}
+            while(paused)yield return null;
             a.position=destination;a.localRotation=tilt;
             var stream=Box(board,"Pour stream",Colors[color%Colors.Length],Vector2.zero,Vector2.zero);
             stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.pivot=new Vector2(.5f,0);
@@ -181,18 +199,21 @@ namespace Mewgic
             targetView.Liquid.Layers=receiving;
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/.32f)
             {
+                while(paused)yield return null;
                 sourceView.Liquid.Volume=sourceCount-amount*t;targetView.Liquid.Volume=targetCount+amount*t;
                 var from=(Vector2)board.InverseTransformPoint(sourceView.Mouth);var to=(Vector2)board.InverseTransformPoint(targetView.Mouth);
                 var delta=from-to;stream.anchoredPosition=to;stream.sizeDelta=new Vector2(4,delta.magnitude);stream.localRotation=Quaternion.Euler(0,0,Mathf.Atan2(delta.y,delta.x)*Mathf.Rad2Deg-90);
                 yield return null;
             }
+            while(paused)yield return null;
             Destroy(stream.gameObject);
             sourceView.Present(puzzle.Bottle(source),false);targetView.Present(puzzle.Bottle(target),false);
-            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.22f){float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(destination,returnPosition,e);a.localRotation=Quaternion.Slerp(tilt,Quaternion.identity,e);yield return null;}
+            for(float t=0;t<1;t+=Time.unscaledDeltaTime/.22f){while(paused)yield return null;float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(destination,returnPosition,e);a.localRotation=Quaternion.Slerp(tilt,Quaternion.identity,e);yield return null;}
+            while(paused)yield return null;
             a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(oldSibling);
             sourceView.SetAnimating(false);targetView.SetAnimating(false);
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
-            busy=false;status.text="Güzel hamle!";Refresh();
+            busy=false;pourRoutine=null;status.text="Güzel hamle!";Refresh();
         }
     }
 }

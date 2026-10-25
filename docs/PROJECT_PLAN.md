@@ -150,3 +150,9 @@ Gameplay cam/sıvı ayrımı ve kilitli aktarım animasyonu hazır;3183 karma ko
 12 model ve mevcut smoke başarılı.Home/model/veri korunur.Sıvı görsel cilası
 referansın tüm ayrıntılarını henüz karşılamaz;cihaz testi yapılmadı.
 ProductionReports/PART05B.md.
+
+## PART05C — Gameplay bilgi panelleri
+Level metadata,model hamle/hedef sayacı,performans yıldızları ve Pause/Resume/
+Restart/Home hazır.336 HUD+3183 şişe+12 model kontrolü ve smoke geçti.
+Home/şişe/çevre sanatı aynı;3 oran/Safe Area ve Console0/0 doğrulandı.
+ProductionReports/PART05C.md.
