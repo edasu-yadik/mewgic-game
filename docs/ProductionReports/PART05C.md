@@ -42,3 +42,6 @@ Mor-altın kabartma, ayrı altın yıldızlar ve yuvarlak Pause dili uygulandı.
 ## Teslim
 
 İlgili değişiklikler ve kanıtlar doğrulandı. Commit/push bilgisi teslim kaydına eklenecek. Başka part başlatılmadı; sonraki görev kullanıcı talimatıyla ele alınacak.
+
+## Git teslim kaydı
+Uygulama commit'i: 2c4ed82e5bf6bfcefa414873d76157fae9de308f (feat: add gameplay HUD and safe pause menu). Private origin/master push başarılı; uzak SHA git ls-remote ile aynı doğrulandı. Bu kayıt ayrı belge commit'iyle korunur.
