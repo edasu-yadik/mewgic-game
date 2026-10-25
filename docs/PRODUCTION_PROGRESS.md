@@ -59,3 +59,12 @@ Cihaz testi yapılmadı;harita/seçim ekranı eklenmedi. ProductionReports/PART0
 Ek2755 çevre/slot regresyonu geçti;gerçek oyuncu kaydının değişmediği doğrulandı.
 
 05D Git teslimi:95db203 private origin/master'a gönderildi;uzak SHA eşleşti.
+
+## PART06A — Fantastik harita çevresi
+Dört ayrı bölge sanatı, 12 bağımsız önizleme konumu, dört sandık ve dikey mobil
+kaydırma altyapısı LevelMap'e eklendi. İlerleme/ödül bağlanmadı; Home ve Gameplay
+korundu. 556 harita kontrolü,12 model ve mevcut smoke geçti; Console0/0.
+Üç oran, Safe Area ve360x640 test edildi. Gerçek alt/üst Game View ve referans
+karşılaştırması hazır. Kompozisyon daha seyrek; yollar/etiketler birebir değil,
+nihai görsel eşleşme onayı verilmez. Cihaz performans testi yapılmadı.
+Rapor: ProductionReports/PART06A.md. Sonraki partın ilerleme bağlantısına hazır.

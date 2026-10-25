@@ -1,0 +1,74 @@
+{
+    "assets": [
+        {
+            "name": "Village",
+            "width": 1536,
+            "height": 1024,
+            "alphaMin": 0,
+            "alphaMax": 254,
+            "partialAlpha": 1006704,
+            "borderPixels": 0,
+            "maxTexture": 2048
+        },
+        {
+            "name": "Crystal",
+            "width": 1206,
+            "height": 1305,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "partialAlpha": 978726,
+            "borderPixels": 17,
+            "maxTexture": 2048
+        },
+        {
+            "name": "Moon",
+            "width": 1240,
+            "height": 1268,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "partialAlpha": 978962,
+            "borderPixels": 0,
+            "maxTexture": 2048
+        },
+        {
+            "name": "Castle",
+            "width": 1145,
+            "height": 1374,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "partialAlpha": 832039,
+            "borderPixels": 0,
+            "maxTexture": 2048
+        },
+        {
+            "name": "Sky",
+            "width": 941,
+            "height": 1671,
+            "alphaMin": 255,
+            "alphaMax": 255,
+            "partialAlpha": 0,
+            "borderPixels": 5220,
+            "maxTexture": 2048
+        },
+        {
+            "name": "Chest",
+            "width": 1351,
+            "height": 1164,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "partialAlpha": 914560,
+            "borderPixels": 0,
+            "maxTexture": 512
+        },
+        {
+            "name": "Node",
+            "width": 1254,
+            "height": 1254,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "partialAlpha": 884407,
+            "borderPixels": 0,
+            "maxTexture": 512
+        }
+    ]
+}

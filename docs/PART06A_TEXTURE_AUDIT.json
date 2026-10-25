@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"name\": \"Village\",\n      \"width\": 1536,\n      \"height\": 1024,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 7865216,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 2048,\n      \"readable\": false,\n      \"mipmaps\": false\n    },\n    {\n      \"name\": \"Crystal\",\n      \"width\": 1206,\n      \"height\": 1305,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 1580960,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 2048,\n      \"readable\": false,\n      \"mipmaps\": false\n    },\n    {\n      \"name\": \"Moon\",\n      \"width\": 1240,\n      \"height\": 1268,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 1573216,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 2048,\n      \"readable\": false,\n      \"mipmaps\": false\n    },\n    {\n      \"name\": \"Castle\",\n      \"width\": 1145,\n      \"height\": 1374,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 1580544,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 2048,\n      \"readable\": false,\n      \"mipmaps\": false\n    },\n    {\n      \"name\": \"Sky\",\n      \"width\": 941,\n      \"height\": 1671,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 1579264,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 2048,\n      \"readable\": false,\n      \"mipmaps\": false\n    },\n    {\n      \"name\": \"Chest\",\n      \"width\": 512,\n      \"height\": 441,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 1145728,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 512,\n      \"readable\": false,\n      \"mipmaps\": false\n    },\n    {\n      \"name\": \"Node\",\n      \"width\": 512,\n      \"height\": 512,\n      \"format\": \"ASTC_4x4\",\n      \"memory\": 1311616,\n      \"android\": \"ASTC_4x4\",\n      \"cap\": 512,\n      \"readable\": false,\n      \"mipmaps\": false\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

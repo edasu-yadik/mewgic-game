@@ -162,3 +162,10 @@ Undo/Hint/Extra/Shuffle canlı hak sayaçları ve yerel kayıtla çalışıyor.
 İlk kazanma +1 Hint ödülü yalnız bir kez verilir.3/4 hamlede doğrulanmış iki bölüm
 arasında Next ve Home akışı hazır.723+4 yeni,336 HUD,3183 şişe,12 model kontrolü
 ve smoke geçti.Console0/0 ve3 oran/Safe Area doğrulandı. ProductionReports/PART05D.md.
+
+## PART06A — Harita çevresi ve UI altyapısı
+LevelMap dört bölge, ayrı zemin/konum/sandık/yol/navigasyon ve mobil dikey
+kaydırma ile hazır. İlerleme sonraki parta bırakıldı; Home/Gameplay aynı.
+556 kontrol+12 model+smoke,3 oran/Safe Area geçti; Console0/0.
+Referansa kalan kompozisyon/yol farkları ve cihaz testi sınırı raporda:
+ProductionReports/PART06A.md. Birebir final sanat eşleşmesi değildir.
