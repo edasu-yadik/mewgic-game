@@ -1,69 +1,32 @@
 # Mewgic
 
-Mewgic, Android ve daha sonra iOS için planlanan, fantastik temalı bir mobil sıvı sıralama bulmaca oyunudur. Görsel yön: büyük mavi gözlü gri-beyaz büyücü kedi, mor şapka, iksir şişeleri, uçan adalar ve fantastik kaleler.
+Unity6000.3.27f1 / Universal2D URP / Android Portrait / IL2CPP ARM64.
+Tek gerçek proje: `C:\Dev\Mewgic`. Private repo: edasu-yadik/mewgic-game.
 
-## Teknolojiler ve kapsam
+Boot → Home → Gameplay ve LevelMap çalışır. İki doğrulanmış bölüm, dinamik cam
+şişeler, Undo/Hint/Extra/Shuffle, Pause, yıldız ve ilerleme kaydı, günlük görev/hediye,
+yerel haftalık etkinlik, ücretsiz sezon ve iki mevcut koleksiyon kartı vardır.
+Home onaylı karakter/logo/şişe sanatını kullanır. Görsel referanslar
+`References/Visual/Approved` altında; yollar `docs/REFERENCE_REGISTRY.md` içindedir.
 
-- Unity 6.3 LTS (6000.3.27f1), C#.
-- Universal 2D şablonu, URP ve 2D Renderer.
-- İlk hedef Android; ekran yönü Portrait.
-- Android: IL2CPP, ARM64, minimum API 26, hedef API otomatik (kurulu en yüksek sürüm).
-- Uygulama kimliği: `com.mewgic.game` (yayın öncesi sahipliği doğrulanacak geçici kimlik).
+Missions/Events/Settings ayrı sahneler değildir. Team/Inventory bilgi panelidir;
+mağaza, satın alma, reklam, gerçek enerji ekonomisi ve çevrimiçi servis yoktur.
+Home para/elmas artık önizleme12450/853 yerine kalıcı yerel alanı gösterir; yeni
+profil0/0 başlar. Yeni bir ekonomi/ödül sistemi eklenmemiştir.
 
-İlk oynanabilir prototip hazırdır: Home üzerinden Oyna ile tek bölüme girilir. Kaynak ve hedef şişeye dokunarak renkleri sıralayın. Geri Al, Yeniden ve Ana Menü kontrolleri çalışır. Detaylar docs/PROTOTYPE_REPORT.md içindedir.
+Çalışma kuralları AGENTS.md. Gerçek tamamlanma/sınırlar
+`docs/PRODUCTION_PROGRESS.md` ve `docs/ProductionReports/` altındadır.
+Android kurulum/kabul ve yayın öncesi açıklar: `docs/ANDROID_BETA_GUIDE.md`.
+PART08 cihaz kabul testi bitmeden kararlı beta teslimi olarak değerlendirilmez.
 
-## Projeyi açma
+Kayıt: `Mewgic.Progress.v1`, bağımsız sürümlü alt kayıtlar; aynı commit'in doğrulanmış
+`.backup` kopyası ve bozuk özgün veri için `.corrupt`. Uyumsuz gelecek sürüm sessizce
+eski yedeğe düşürülmez. Kayıt iki kopyada da bozuksa korumalı salt okunur profil
+kullanılır; özgün veri silinmez. Yarım kalan bulmaca katmanları kayıt kapsamı dışındadır.
 
-Unity Hub üzerinden `C:\Dev\Mewgic` klasörünü ekleyin ve **6000.3.27f1** ile açın. Başlangıç sahnesi `Assets/Scenes/Boot.unity` dosyasıdır. Android Build Support, SDK, NDK ve OpenJDK bu Editor sürümüyle eşleşmelidir.
-
-## Klasörler
-
-`Assets/Art`, `Audio`, `Materials`, `Prefabs`, `Scenes`, `Scripts`, `ScriptableObjects`, `UI` proje içeriği için hazırdır. Şablonun mevcut varlıkları korunur. `Assets/Editor/MewgicFoundationSetup.cs` yalnızca temel ayar/doğrulama aracıdır; oyuncu derlemesine dahil edilmez.
-
-## Sahneler
-
-Derlemeye etkin olarak sırayla Boot, Home, Gameplay ve LevelMap eklenir. Her sahnede ortografik kamera ve Global Light 2D bulunur. Boot ilk sahnedir ve Home sahnesini açar. Mevcut akış Boot → Home → Gameplay şeklindedir. LevelMap sonraki aşama için korunur.
-
-## Doğrulama
-
-Kurulum ve test sonuçları `docs/SETUP_REPORT.md` dosyasındadır. APK oluşursa `Builds/Android/Mewgic-Setup-Test.apk` yalnızca temel kurulum testidir; dağıtım sürümü değildir. Fiziksel cihaz davranışı ayrıca sınanmalıdır.
-
-Sonraki işler: [Proje planı](docs/PROJECT_PLAN.md).
-
-GitHub private bağlantısı PART 01.5 aşamasında tamamlandı. DevControl ve oyun içi bulut servis entegrasyonu yapılmamıştır. Mevcut dosyalar silinmez; gereksiz paket eklenmez.
-
-## Prototip kaynakları
-
-- Assets/Scripts/Core/Puzzle.cs: Unity bağımsız model.
-- Assets/Scripts/Presentation/PrototypeApp.cs: etkileşimli UI ve sahne akışı.
-- Assets/Resources/Levels/Level01.json: bölüm verisi.
-- References/Visual: beş görsel referans.
-- Assets/Editor/MewgicPrototypeSetup.cs: model testleri, sahne kurulumu ve APK derleme.
-- Assets/Editor/MewgicPlaySmoke.cs: otomatik Play Mode akış kontrolü.
-
-
-
-## Görsel dönüşüm / PART 01
-Çalışan mekanikler korunarak görsel mimari ve üretim planı hazırlandı.
-- [Tasarım sistemi](docs/VISUAL_DESIGN_SYSTEM.md)
-- [Referans ve fark analizi](docs/REFERENCE_ANALYSIS.md)
-- [Asset üretim planı](docs/ASSET_PRODUCTION_PLAN.md)
-- [UI uygulama yol haritası](docs/UI_IMPLEMENTATION_ROADMAP.md)
-- [PART 01 doğrulama](docs/PART01_VALIDATION.md)
-
-Esas referanslar References/Visual/Approved içindedir. Henüz yeni ekran veya sanat asset'i uygulanmadı.
-Yerel Git koruma kaydı oluşturuldu; sonraki PART 01.5 aşamasında GitHub private bağlantısı tamamlandı. DevControl bağlantısı yapılmadı.
-
-
-## Altyapı — PART 01.5
-Private GitHub: https://github.com/edasu-yadik/mewgic-game
-Resmî Unity CLI/Pipeline ve Blender Lab MCP bağlantıları gerçek protokol çağrılarıyla doğrulandı.
-Kurulum, yeniden başlatma adımları ve sınırlar: [MCP_SETUP.md](docs/MCP_SETUP.md).
-DevControl'a müdahale edilmedi; oyun kaynakları ve mevcut görseller korunur.
-
-## PART 02B — Büyücü kedi animasyon laboratuvarı
-Assets/Scenes/WizardCatAnimationTest.unity sahnesini açın. Idle otomatik başlar;
-Göz Kırp ve Değnek Büyüsü düğmeleri ile animasyonları deneyin.
-Prefab: Assets/Prefabs/Characters/WizardCat.prefab (Canvas altında kullanılır).
-Üç animasyon, 18 kıvılcımlık havuz ve göz kapağı sprite'ları hazırdır.
-Oyun sahneleri ve çekirdek mekanikler korunur. Ayrıntılar: docs/PART02B_REPORT.md.
+Editor doğrulama araçları Assets/Editor altında. Testler sırayla, izole profille
+çalıştırılır. `BetaValidation.SaveTests`, `BetaPlayTests.Run`, `RewardHubTests.Run`,
+`DailyActivitiesTests.Run`, `MapProgressionTests.Run`, `GameplayBoosterTests.Run`,
+`GameplayHudTests.Run`, `GameplayBottleTests.Run`, `MapWorldTests.Run` ve
+`MewgicPlaySmoke.RunInteractive` temel girişlerdir. Gerçek oyuncu verisiyle test
+ödülü üretmeyin. APK ve geçici build çıktıları Git'e dahil edilmez.

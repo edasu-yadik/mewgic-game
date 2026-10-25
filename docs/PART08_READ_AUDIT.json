@@ -1,0 +1,56 @@
+{
+  "reports": [
+    "docs/PART02A_CHARACTER_REPORT.md",
+    "docs/PART02B_REPORT.md",
+    "docs/PART02C_REPORT.md",
+    "docs/PART03A_REPORT.md",
+    "docs/PART03B1_REPORT.md",
+    "docs/PART03B2_REPORT.md",
+    "docs/PART03B3_REPORT.md",
+    "docs/PART03B4_REPORT.md",
+    "docs/PART03B_REPORT.md",
+    "docs/PART03C_REPORT.md",
+    "docs/PART04A_REPORT.md",
+    "docs/PART04B_REPORT.md",
+    "docs/PART04C_REPORT.md",
+    "docs/ProductionReports/PART04C.md",
+    "docs/ProductionReports/PART04E.md",
+    "docs/ProductionReports/PART04F.md",
+    "docs/ProductionReports/PART05A.md",
+    "docs/ProductionReports/PART05B.md",
+    "docs/ProductionReports/PART05C.md",
+    "docs/ProductionReports/PART05D.md",
+    "docs/ProductionReports/PART06A.md",
+    "docs/ProductionReports/PART06B.md",
+    "docs/ProductionReports/PART07A.md",
+    "docs/ProductionReports/PART07B.md",
+    "docs/ProductionReports/WORKFLOW_SETUP.md",
+    "docs/SETUP_REPORT.md",
+    "docs/PROTOTYPE_REPORT.md",
+    "docs/PART01_VALIDATION.md",
+    "AGENTS.md"
+  ],
+  "references": [
+    {
+      "path": "References/Visual/Approved/00_Master_Cover.png",
+      "sha256": "69089e2ece1d77176a344f0a24a89a3a12d9d8b0b2c07252a972b76c753a2093"
+    },
+    {
+      "path": "References/Visual/Approved/01_Home.png",
+      "sha256": "c0925afd9f2f606c565715842ecdf777b4adf2d8ef8a5d48735c9700e34d1f6f"
+    },
+    {
+      "path": "References/Visual/Approved/02_Gameplay.png",
+      "sha256": "c7fc828569ef4db31335beadc4cef866fc86a7b6350ec34a427c30352021f79e"
+    },
+    {
+      "path": "References/Visual/Approved/03_Map.png",
+      "sha256": "118dbe29f5e6772d4cb98cd3050eff9ae080f789570189930374cd15d10865da"
+    },
+    {
+      "path": "References/Visual/Approved/04_Events.png",
+      "sha256": "12aebccbde91df8e1139c18b8b8cd9a9a4dbeb91948376fdf53158d44f8036b7"
+    }
+  ],
+  "missingReport": "PART04D: not implemented, no report"
+}

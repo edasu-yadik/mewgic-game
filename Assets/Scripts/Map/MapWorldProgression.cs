@@ -49,7 +49,7 @@ namespace Mewgic.Map
    if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);var state=progression.Status(r,point.slotIndex);
     if(state==MapLevelStatus.Unavailable){Message("Bu konum henüz hazır değil.\nDoğrulanmış bölüm verisi bulunmuyor.");return;}
     if(state==MapLevelStatus.Locked||!GameplayLevelCatalog.Select(id,ledger)){Message("Bölüm "+id+" kilitli.\nÖnce önceki bölümleri tamamla.");return;}
-    navigating=true;SceneManager.LoadScene("Gameplay");return;
+    navigating=true;Mewgic.SceneNavigation.LoadOnce("Gameplay");return;
    }
    selectedChest=r;
    if(progression.ChestClaimed(r)){Message("Bu sandığın ödülü daha önce alındı.");return;}

@@ -80,7 +80,7 @@ namespace Mewgic.Map
             tabs=Rect(SafeArea,"RegionNavigation",Vector2.zero,Vector2.one);
             for(int i=0;i<4;i++){int index=i;var b=Control(tabs,"RegionJump_"+i,RegionNames[i].Replace(" ","\n"),new Vector2(i*.25f+.003f,0),new Vector2((i+1)*.25f-.003f,1),()=>FocusRegion(index));tabImages[i]=b.GetComponent<Image>();}
             navigation=Panel(SafeArea,"MapNavigation",Vector2.zero,Vector2.one).rectTransform;
-            var home=Control(navigation,"MapHome","ANA MENÜ",new Vector2(.015f,.14f),new Vector2(.31f,.86f),()=>{GameplayLevelCatalog.ResetSelection();SceneManager.LoadScene("Home");});
+            var home=Control(navigation,"MapHome","ANA MENÜ",new Vector2(.015f,.14f),new Vector2(.31f,.86f),()=>{GameplayLevelCatalog.ResetSelection();Mewgic.SceneNavigation.LoadOnce("Home");});
             if(homeIcon!=null){var icon=Art(home.transform,"HomeIcon",homeIcon,new Vector2(.02f,.1f),new Vector2(.27f,.9f));icon.preserveAspect=true;home.transform.Find("Label").GetComponent<RectTransform>().anchorMin=new Vector2(.27f,.1f);}
             Label(navigation,"ScrollInstruction","Keşfetmek için yukarı kaydır",23,new Vector2(.33f,.35f),new Vector2(.98f,.84f));
             Label(navigation,"PreviewNotice","Bölüm seç • Yıldızları topla",18,new Vector2(.33f,.10f),new Vector2(.98f,.43f));

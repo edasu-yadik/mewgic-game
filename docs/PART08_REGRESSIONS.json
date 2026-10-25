@@ -1,0 +1,99 @@
+[
+  {
+    "suite": "BetaPlayTests.Run();",
+    "success": true,
+    "count": 69,
+    "error": ""
+  },
+  {
+    "suite": "RewardHubTests.Run();",
+    "success": true,
+    "count": 603,
+    "error": ""
+  },
+  {
+    "suite": "DailyActivitiesTests.Run();",
+    "success": true,
+    "count": 219,
+    "error": ""
+  },
+  {
+    "suite": "MapProgressionTests.Run();",
+    "success": true,
+    "count": 200,
+    "error": ""
+  },
+  {
+    "suite": "GameplayBoosterTests.Run();",
+    "success": true,
+    "count": 723,
+    "error": ""
+  },
+  {
+    "suite": "GameplayHudTests.Run();",
+    "success": true,
+    "count": 336,
+    "error": ""
+  },
+  {
+    "suite": "GameplayBottleTests.Run();",
+    "success": true,
+    "count": 3183,
+    "error": ""
+  },
+  {
+    "suite": "MapWorldTests.Run();",
+    "success": true,
+    "count": 551,
+    "error": "",
+    "report": "docs/Part08Tests/PART06B_MAP_REGRESSION.json"
+  },
+  {
+    "suite": "BetaPlayTests.Run();",
+    "success": true,
+    "count": 69,
+    "error": ""
+  },
+  {
+    "suite": "RewardHubTests.Run();",
+    "success": false,
+    "count": 65,
+    "error": "System.IO.IOException: Win32 IO returned 1224. Path: C:\\Dev\\Mewgic\\docs\\PART07B_HOME_LAYOUT_900x1600.png\r\n  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)\r\n  at System.IO.File.InternalWriteAllBytes (System.String path, System.Byte[] bytes) [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at System.IO.File.WriteAllBytes (System.String path, System.Byte[] bytes) [0x00039] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at RewardHubTests.HomeEntries () [0x00380] in C:\\Dev\\Mewgic\\Assets\\Editor\\RewardHubTests.cs:58 \r\n  at RewardHubTests.Tick () [0x0004a] in C:\\Dev\\Mewgic\\Assets\\Editor\\RewardHubTests.cs:64 "
+  },
+  {
+    "suite": "RewardHubTests.Run();",
+    "success": true,
+    "count": 603,
+    "error": ""
+  },
+  {
+    "suite": "DailyActivitiesTests.Run();",
+    "success": false,
+    "count": 71,
+    "error": "System.IO.IOException: Win32 IO returned 1224. Path: C:\\Dev\\Mewgic\\docs\\PART07A_LAYOUT_900x1600.png\r\n  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)\r\n  at System.IO.File.InternalWriteAllBytes (System.String path, System.Byte[] bytes) [0x00000] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at System.IO.File.WriteAllBytes (System.String path, System.Byte[] bytes) [0x00039] in <16ec009baa7541e7b79bc4548f1d744c>:0 \r\n  at DailyActivitiesTests.Capture (System.Int32 width, System.Int32 height, System.Boolean inset, System.String suffix) [0x00232] in C:\\Dev\\Mewgic\\Assets\\Editor\\DailyActivitiesTests.cs:42 \r\n  at DailyActivitiesTests+<>c.<Run>b__12_0 () [0x00014] in C:\\Dev\\Mewgic\\Assets\\Editor\\DailyActivitiesTests.cs:30 \r\n  at DailyActivitiesTests.Tick () [0x0004a] in C:\\Dev\\Mewgic\\Assets\\Editor\\DailyActivitiesTests.cs:47 "
+  },
+  {
+    "suite": "DailyActivitiesTests.Run();",
+    "success": true,
+    "count": 219,
+    "error": ""
+  },
+  {
+    "suite": "GameplayVisualTests.Run();",
+    "success": true,
+    "count": 2755,
+    "error": ""
+  },
+  {
+    "suite": "WizardCatAnimationTests.Run();",
+    "success": true,
+    "count": 41,
+    "error": ""
+  },
+  {
+    "suite": "BetaPlayTests.Run();",
+    "success": true,
+    "count": 89,
+    "error": ""
+  }
+]

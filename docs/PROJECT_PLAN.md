@@ -1,6 +1,9 @@
 # Mewgic — Proje Planı
 
-## Mevcut aşama: ilk oynanabilir prototip
+## Mevcut aşama: PART08 Android beta adayı
+
+Güncel durum: PRODUCTION_PROGRESS.md ve ProductionReports/PART08.md.
+Aşağıdaki eski aşama maddeleri tarihsel plandır; güncel tamamlanma iddiası değildir.
 Tek proje: C:\Dev\Mewgic, Unity 6.3 LTS (6000.3.27f1), Universal 2D URP / C#.
 Android Portrait, IL2CPP ARM64.
 

@@ -9,16 +9,17 @@ namespace Mewgic
         public HomeResourceModel Model {get;private set;}
         RectTransform root,safe,popup;
         Text coinsText,gemsText,energyText,heartText,message;
+        Button soundButton;Text soundLabel;
         static readonly CultureInfo Turkish=CultureInfo.GetCultureInfo("tr-TR");
         public void Mount(RectTransform safeArea)
         {
-            if(root!=null)return;safe=safeArea;Model=new HomeResourceModel();
+            if(root!=null)return;safe=safeArea;Model=new HomeResourceModel(GameplayProgress.Current);
             root=Rect(safe,"HomeTopBar",new Vector2(.015f,1),new Vector2(.985f,1));root.pivot=new Vector2(.5f,1);
-            var coins=Meter("CoinsDisplay",0,coin,"CoinsPlus","Para mağazası sonraki aşamada açılacak. Bu ekran önizleme verisi kullanıyor.",out coinsText);
+            var coins=Meter("CoinsDisplay",0,coin,"CoinsPlus","Para mağazası sonraki aşamada açılacak. Satın alma sistemi mevcut değil.",out coinsText);
             Meter("GemsDisplay",1,gem,"GemsPlus","Elmas mağazası sonraki aşamada açılacak. Satın alma yapılmadı.",out gemsText);
             var energy=Meter("EnergyDisplay",2,heart,"EnergyPlus","Enerji yenileme ve ödüller sonraki aşamada açılacak. Enerji değiştirilmedi.",out energyText);
             heartText=Label(energy,"HeartCount","",new Vector2(.025f,.15f),new Vector2(.28f,.85f),28);
-            var gear=Art(root,"SettingsButton",settings,new Vector2(.91f,0),new Vector2(1,1));var b=gear.gameObject.AddComponent<Button>();b.targetGraphic=gear;b.onClick.AddListener(()=>Show("Ayarlar paneli — geçici önizleme. Ayrıntılı ayarlar sonraki aşamada eklenecek."));gear.raycastTarget=true;gear.raycastPadding=new Vector4(-4,-4,-4,-4);
+            var gear=Art(root,"SettingsButton",settings,new Vector2(.91f,0),new Vector2(1,1));var b=gear.gameObject.AddComponent<Button>();b.targetGraphic=gear;b.onClick.AddListener(OpenSettings);gear.raycastTarget=true;gear.raycastPadding=new Vector4(-4,-4,-4,-4);
             Model.Changed+=Refresh;Refresh();BuildPopup();Layout();
         }
         RectTransform Meter(string name,int i,Sprite icon,string buttonName,string info,out Text text)
@@ -56,7 +57,14 @@ namespace Mewgic
             message=Label(card.transform,"Message","",new Vector2(.08f,.30f),new Vector2(.92f,.90f),26);
             var close=Art(card.transform,"ResourceInfoClose",panel,new Vector2(.32f,.04f),new Vector2(.68f,.28f));close.preserveAspect=false;close.raycastTarget=true;var button=close.gameObject.AddComponent<Button>();button.targetGraphic=close;button.onClick.AddListener(Close);Label(close.transform,"Label","KAPAT",Vector2.zero,Vector2.one,22);popup.gameObject.SetActive(false);
         }
-        public void Show(string text){message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
+        void OpenSettings()
+        {
+            Show("AYARLAR\nSes tercihi bu cihazda saklanır.\nBu sürümde müzik/ses içeriği henüz yok.");
+            if(soundButton==null){var r=Art(popup,"SoundToggle",panel,new Vector2(.20f,.31f),new Vector2(.80f,.39f));r.preserveAspect=false;r.raycastTarget=true;soundButton=r.gameObject.AddComponent<Button>();soundButton.targetGraphic=r;soundLabel=Label(r.transform,"Label","",Vector2.zero,Vector2.one,25);soundButton.onClick.AddListener(()=>{var ledger=GameplayProgress.Current;if(ledger.SetSoundEnabled(!ledger.Presentation.soundEnabled)){AudioListener.volume=ledger.Presentation.soundEnabled?1:0;RefreshSound();}else message.text="Ayar kaydedilemedi; önceki değer korundu.";});}
+            soundButton.gameObject.SetActive(true);RefreshSound();
+        }
+        void RefreshSound(){soundLabel.text="SES: "+(GameplayProgress.Current.Presentation.soundEnabled?"AÇIK":"KAPALI");}
+        public void Show(string text){if(soundButton!=null)soundButton.gameObject.SetActive(false);message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
         public void Close(){popup.gameObject.SetActive(false);}
         public void Layout(){if(root==null)return;float height=Mathf.Min(safe.rect.width*.082f,safe.rect.height*.06f);root.sizeDelta=new Vector2(0,height);root.anchoredPosition=new Vector2(0,-safe.rect.width*.018f);}
         void LateUpdate(){Layout();}

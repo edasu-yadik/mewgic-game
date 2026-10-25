@@ -1,0 +1,101 @@
+{
+  "scenes": [
+    {
+      "path": "Assets/Scenes/Boot.unity",
+      "roots": [
+        "Main Camera",
+        "Global Light 2D",
+        "Mewgic Prototype"
+      ],
+      "missingScripts": 0,
+      "missingPrefabs": 0,
+      "brokenReferences": 0
+    },
+    {
+      "path": "Assets/Scenes/Gameplay.unity",
+      "roots": [
+        "Main Camera",
+        "Global Light 2D",
+        "Mewgic Prototype"
+      ],
+      "missingScripts": 0,
+      "missingPrefabs": 0,
+      "brokenReferences": 0
+    },
+    {
+      "path": "Assets/Scenes/Home.unity",
+      "roots": [
+        "Main Camera",
+        "Global Light 2D",
+        "Mewgic Prototype",
+        "Home"
+      ],
+      "missingScripts": 0,
+      "missingPrefabs": 0,
+      "brokenReferences": 0
+    },
+    {
+      "path": "Assets/Scenes/LevelMap.unity",
+      "roots": [
+        "Main Camera",
+        "Global Light 2D",
+        "Mewgic Map"
+      ],
+      "missingScripts": 0,
+      "missingPrefabs": 0,
+      "brokenReferences": 0
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "roots": [
+        "Main Camera",
+        "Global Light 2D"
+      ],
+      "missingScripts": 0,
+      "missingPrefabs": 0,
+      "brokenReferences": 0
+    },
+    {
+      "path": "Assets/Scenes/WizardCatAnimationTest.unity",
+      "roots": [
+        "Main Camera",
+        "Character Test Canvas",
+        "EventSystem"
+      ],
+      "missingScripts": 0,
+      "missingPrefabs": 0,
+      "brokenReferences": 0
+    }
+  ],
+  "build": [
+    {
+      "path": "Assets/Scenes/Boot.unity",
+      "enabled": true
+    },
+    {
+      "path": "Assets/Scenes/Home.unity",
+      "enabled": true
+    },
+    {
+      "path": "Assets/Scenes/Gameplay.unity",
+      "enabled": true
+    },
+    {
+      "path": "Assets/Scenes/LevelMap.unity",
+      "enabled": true
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "enabled": false
+    }
+  ],
+  "product": "Mewgic",
+  "identifier": "com.mewgic.game",
+  "version": "0.8.0",
+  "code": 8,
+  "minSDK": 26,
+  "targetSDK": 0,
+  "architecture": "ARM64",
+  "backend": "IL2CPP",
+  "orientation": "Portrait"
+}

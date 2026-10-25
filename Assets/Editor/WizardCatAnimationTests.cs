@@ -11,12 +11,13 @@ using Mewgic.Characters;
 [InitializeOnLoad]
 public static class WizardCatAnimationTests
 {
+ static string output;
     static double next,deadline;
     static float initialBreath;
     static List<string> checks=new List<string>();
     static WizardCatAnimationTests(){EditorApplication.update+=Tick;}
     public static void Run()
-    {
+    {output=BetaCapturePaths.NewRun("WizardCatAnimationTests");
         if(EditorApplication.isPlaying)throw new Exception("Already playing");
         checks.Clear();
         SessionState.SetBool("WizardCatTestActive",true);SessionState.SetInt("WizardCatTestStep",0);
@@ -41,7 +42,7 @@ public static class WizardCatAnimationTests
         canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=cam;canvas.planeDistance=1;
         cam.targetTexture=rt;Canvas.ForceUpdateCanvases();cam.Render();RenderTexture.active=rt;
         var texture=new Texture2D(900,1600,TextureFormat.RGB24,false);texture.ReadPixels(new Rect(0,0,900,1600),0,0);texture.Apply();
-        File.WriteAllBytes("docs/"+file,texture.EncodeToPNG());
+        File.WriteAllBytes(output+""+file,texture.EncodeToPNG());
         cam.targetTexture=null;canvas.renderMode=RenderMode.ScreenSpaceOverlay;RenderTexture.active=previous;
         UnityEngine.Object.DestroyImmediate(texture);rt.Release();UnityEngine.Object.DestroyImmediate(rt);
     }
@@ -96,16 +97,16 @@ public static class WizardCatAnimationTests
                     Check(cat.blinkOverlay.alpha>=.5f,"Automatic blink timer closes lids");next=EditorApplication.timeSinceStartup+.4;break;
                 case 8:
                     Check(cat.blinkOverlay.alpha<.02f,"Automatic blink reopens eyes");
-                    File.WriteAllText("docs/PART02B_ANIMATION_TESTS.json",JsonUtility.ToJson(new TestReport{passed=true,checks=checks.ToArray()},true));
+                    File.WriteAllText("docs/PART02B_ANIMATION_TESTS.json",JsonUtility.ToJson(new TestReport{screenshots=output,passed=true,checks=checks.ToArray()},true));
                     SessionState.SetBool("WizardCatTestActive",false);SessionState.SetInt("WizardCatTestCode",0);EditorApplication.isPlaying=false;return;
             }
             SessionState.SetInt("WizardCatTestStep",step+1);
         }
         catch(Exception e)
         {
-            File.WriteAllText("docs/PART02B_ANIMATION_TESTS.json",JsonUtility.ToJson(new TestReport{passed=false,checks=checks.ToArray(),error=e.ToString()},true));
+            File.WriteAllText("docs/PART02B_ANIMATION_TESTS.json",JsonUtility.ToJson(new TestReport{screenshots=output,passed=false,checks=checks.ToArray(),error=e.ToString()},true));
             SessionState.SetBool("WizardCatTestActive",false);SessionState.SetInt("WizardCatTestCode",1);Debug.LogException(e);EditorApplication.isPlaying=false;
         }
     }
-    [Serializable] class TestReport {public bool passed;public string[] checks;public string error;}
+    [Serializable] class TestReport {public string screenshots;public bool passed;public string[] checks;public string error;}
 }

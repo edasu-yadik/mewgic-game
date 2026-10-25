@@ -1,0 +1,180 @@
+{
+  "path": "C:\\Dev\\Mewgic\\Builds\\Android\\Mewgic-0.8.0-beta.apk",
+  "bytes": 68616458,
+  "sha256": "e28b3b08239532fa4c9d2ea20cf6a8f97942c06ed752b6abc5077481f1e3a760",
+  "modifiedUtc": "2026-10-25T04:24:14.495203+00:00",
+  "package": "com.mewgic.game",
+  "versionCode": "8",
+  "versionName": "0.8.0",
+  "minSDK": "26",
+  "targetSDK": "36",
+  "label": "Mewgic",
+  "debuggable": true,
+  "nativeLibraries": [
+    {
+      "name": "lib/arm64-v8a/lib_burst_generated.so",
+      "bytes": 586744,
+      "loadSegments": [
+        {
+          "offset": 0,
+          "vaddr": 0,
+          "alignment": 16384
+        },
+        {
+          "offset": 312312,
+          "vaddr": 328696,
+          "alignment": 16384
+        },
+        {
+          "offset": 542944,
+          "vaddr": 575712,
+          "alignment": 16384
+        },
+        {
+          "offset": 548224,
+          "vaddr": 597376,
+          "alignment": 16384
+        }
+      ],
+      "aligned16K": true
+    },
+    {
+      "name": "lib/arm64-v8a/libc++_shared.so",
+      "bytes": 1292904,
+      "loadSegments": [
+        {
+          "offset": 0,
+          "vaddr": 0,
+          "alignment": 16384
+        },
+        {
+          "offset": 634032,
+          "vaddr": 650416,
+          "alignment": 16384
+        },
+        {
+          "offset": 1250032,
+          "vaddr": 1282800,
+          "alignment": 16384
+        },
+        {
+          "offset": 1289792,
+          "vaddr": 1338944,
+          "alignment": 16384
+        }
+      ],
+      "aligned16K": true
+    },
+    {
+      "name": "lib/arm64-v8a/libil2cpp.so",
+      "bytes": 70553176,
+      "loadSegments": [
+        {
+          "offset": 0,
+          "vaddr": 0,
+          "alignment": 16384
+        },
+        {
+          "offset": 28448752,
+          "vaddr": 28465136,
+          "alignment": 16384
+        },
+        {
+          "offset": 65550352,
+          "vaddr": 65583120,
+          "alignment": 16384
+        },
+        {
+          "offset": 68598408,
+          "vaddr": 68647560,
+          "alignment": 16384
+        }
+      ],
+      "aligned16K": true
+    },
+    {
+      "name": "lib/arm64-v8a/libmain.so",
+      "bytes": 8720,
+      "loadSegments": [
+        {
+          "offset": 0,
+          "vaddr": 0,
+          "alignment": 16384
+        },
+        {
+          "offset": 2592,
+          "vaddr": 18976,
+          "alignment": 16384
+        },
+        {
+          "offset": 3872,
+          "vaddr": 36640,
+          "alignment": 16384
+        },
+        {
+          "offset": 4432,
+          "vaddr": 53584,
+          "alignment": 16384
+        }
+      ],
+      "aligned16K": true
+    },
+    {
+      "name": "lib/arm64-v8a/libswappywrapper.so",
+      "bytes": 227040,
+      "loadSegments": [
+        {
+          "offset": 0,
+          "vaddr": 0,
+          "alignment": 16384
+        },
+        {
+          "offset": 208832,
+          "vaddr": 225216,
+          "alignment": 16384
+        },
+        {
+          "offset": 215632,
+          "vaddr": 248400,
+          "alignment": 16384
+        }
+      ],
+      "aligned16K": true
+    },
+    {
+      "name": "lib/arm64-v8a/libunity.so",
+      "bytes": 35418112,
+      "loadSegments": [
+        {
+          "offset": 0,
+          "vaddr": 0,
+          "alignment": 16384
+        },
+        {
+          "offset": 5773760,
+          "vaddr": 5790144,
+          "alignment": 16384
+        },
+        {
+          "offset": 24183632,
+          "vaddr": 24216400,
+          "alignment": 16384
+        },
+        {
+          "offset": 24541152,
+          "vaddr": 24590304,
+          "alignment": 16384
+        }
+      ],
+      "aligned16K": true
+    }
+  ],
+  "zipCRCValid": true,
+  "signatureVerified": true,
+  "zipAlignment16KVerified": true,
+  "nativeELFAlignment16KVerified": true,
+  "sameDebugCertificateAsPreviousPrototype": true,
+  "deviceInstalled": false,
+  "deviceLaunched": false,
+  "note": "Static APK/ELF checks only. Not a real Android or 16KB-device execution test."
+}

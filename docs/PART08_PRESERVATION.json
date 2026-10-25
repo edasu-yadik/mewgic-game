@@ -1,0 +1,24 @@
+{
+  "baselineCommit": "5464a84b920c7512db7554771f1570ff7fda25fb",
+  "trackedBaselineFiles": 291,
+  "protectedArtScenesPrefabAnimations": 66,
+  "protectedAllUnchanged": true,
+  "changedPaths": [
+    "Assets/Art/Characters/WizardCat/MageCat_FullBody_v001.png.meta",
+    "Assets/Art/Characters/WizardCat/MageCat_NoWand_v001.png.meta",
+    "Assets/Art/Characters/WizardCat/MageCat_Wand_v001.png.meta",
+    "Assets/Art/Characters/WizardCat/WizardCat_ClosedEyePatches_v001.png.meta",
+    "Assets/Scripts/Core/BoosterActions.cs",
+    "Assets/Scripts/Daily/DailyActivitiesPanel.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "Assets/Scripts/Map/MapWorldProgression.cs",
+    "Assets/Scripts/Presentation/GameplayLevelCatalog.cs",
+    "Assets/Scripts/Presentation/GameplayProgress.cs",
+    "Assets/Scripts/Presentation/HomeNavigation.cs",
+    "Assets/Scripts/Presentation/HomeResourceModel.cs",
+    "Assets/Scripts/Presentation/HomeTopBar.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs",
+    "Assets/Scripts/Rewards/RewardHubPanel.cs",
+    "ProjectSettings/ProjectSettings.asset"
+  ]
+}

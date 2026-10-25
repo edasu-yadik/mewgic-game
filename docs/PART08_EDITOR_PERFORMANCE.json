@@ -1,0 +1,53 @@
+{
+  "note": "Editor Play Mode, unprofiled build; GC includes Editor/test/MCP activity, not Android device performance",
+  "screens": [
+    {
+      "screen": "Home",
+      "samples": 1543,
+      "recorderValid": true,
+      "gcMedianBytes": 9931,
+      "gcP95Bytes": 9987,
+      "objectsStart": 388,
+      "objectsEnd": 388,
+      "memoryStart": 434028418,
+      "memoryEnd": 435291172,
+      "particleSystems": 0
+    },
+    {
+      "screen": "LevelMap",
+      "samples": 1357,
+      "recorderValid": true,
+      "gcMedianBytes": 9843,
+      "gcP95Bytes": 9899,
+      "objectsStart": 239,
+      "objectsEnd": 239,
+      "memoryStart": 402240848,
+      "memoryEnd": 403195048,
+      "particleSystems": 0
+    },
+    {
+      "screen": "Events",
+      "samples": 1541,
+      "recorderValid": true,
+      "gcMedianBytes": 9931,
+      "gcP95Bytes": 9987,
+      "objectsStart": 388,
+      "objectsEnd": 388,
+      "memoryStart": 435263963,
+      "memoryEnd": 436239671,
+      "particleSystems": 0
+    },
+    {
+      "screen": "Gameplay",
+      "samples": 1390,
+      "recorderValid": true,
+      "gcMedianBytes": 9843,
+      "gcP95Bytes": 9899,
+      "objectsStart": 183,
+      "objectsEnd": 183,
+      "memoryStart": 407314647,
+      "memoryEnd": 408436487,
+      "particleSystems": 0
+    }
+  ]
+}

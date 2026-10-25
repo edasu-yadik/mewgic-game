@@ -34,7 +34,7 @@ namespace Mewgic
             if(navigating)return;
             if(destination==HomeDestination.Events){var hub=UnityEngine.Object.FindFirstObjectByType<Mewgic.Rewards.RewardHubPanel>();if(hub!=null){hub.Open(0);return;}}
             if(destination==HomeDestination.Home){information.Close();return;}
-            if(destination==HomeDestination.Map&&(mapSceneReady||Mewgic.Map.MapProgressionCatalog.Ready)&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=true;SceneManager.LoadScene(mapScene);return;}
+            if(destination==HomeDestination.Map&&(mapSceneReady||Mewgic.Map.MapProgressionCatalog.Ready)&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=true;Mewgic.SceneNavigation.LoadOnce(mapScene);return;}
             string message=destination==HomeDestination.Map?"Harita verisi veya sahne bağlantısı doğrulanamadı.":destination==HomeDestination.Events?"Etkinlik merkezi şu anda açılamadı.":destination==HomeDestination.Team?"Takım sistemi henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.":"Envanter sistemi henüz geliştirilmedi. Bu sekme yalnızca önizleme bilgi panelidir.";
             information.Show(message);
         }

@@ -105,3 +105,15 @@ bağlandı. Günlük sistem219 kontrolle korundu;merkez603 kontrol geçti.
 Rapor:ProductionReports/PART07B.md;katalog/kurallar:REWARD_CENTER.md.
 
 07B Git teslimi:dabaa03 private origin/master push başarılı; uzak SHA eşleşti.
+
+## PART08 — Android beta adayı / cihaz kabulü bekliyor
+Kayıt yedeği ve bozuk belge kurtarma, kalıcı bölüm/kaynak/ses tercihi, tek-kare
+sahne geçiş koruması ve uygulama askıya alındığında Pause eklendi. Kapalı ödül/
+günlük panel Layout döngüsü durduruldu, Android karakter ASTC4x4 ayarlandı.
+Haftalık tarih/illüstrasyon örtüşmesi giderildi. 23 kayıt,89 yeni entegrasyon,
+603 ödül,219 günlük,200 harita ilerleme,723 güçlendirici,336 HUD,3183 şişe,
+551 harita,2755 yerleşim,41 karakter ve12 model kontrolü; smoke exitCode0.
+Bunlar8735 karma assertion'dır;8735 ayrı oyun oturumu değildir.
+Gerçek Game View ve referans karşılaştırması hazır. Android0.8.0/code8 APK68,616,458byte;debug imza/CRC/statik16KB kontrolleri geçti.
+Sonuç ProductionReports/PART08.md teslim kaydındadır. Fiziksel cihaz yok;
+kararlı beta kabulü tamamlanmış sayılmaz. İki bölüm/eksik sistemler aynı raporda.

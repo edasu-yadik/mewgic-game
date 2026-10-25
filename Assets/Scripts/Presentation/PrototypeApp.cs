@@ -44,7 +44,8 @@ namespace Mewgic
 
         void Start()
         {
-            if (SceneManager.GetActiveScene().name == "Boot") { SceneManager.LoadScene("Home"); return; }
+            if (SceneManager.GetActiveScene().name == "Boot") { GameplayLevelCatalog.ResumeFromSave(); Mewgic.SceneNavigation.LoadOnce("Home"); return; }
+            AudioListener.volume=GameplayProgress.Current.Presentation.soundEnabled?1:0;
             font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             var canvasObject = new GameObject("Mewgic Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasObject.GetComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -67,6 +68,12 @@ namespace Mewgic
         void Update()
         {
             if(safe != null && (Screen.safeArea != previousSafe || Screen.width != previousWidth || Screen.height != previousHeight)) ApplySafeArea();
+        }
+        void OnApplicationPause(bool suspended)
+        {
+            if(!suspended)return;
+            PlayerPrefs.Save();
+            if(puzzle!=null&&!paused&&!navigating)PauseGame();
         }
         void ApplySafeArea()
         {
@@ -100,12 +107,13 @@ namespace Mewgic
         }
         void Home()
         {
+            if(!GameplayProgress.IsTestProfile)GameplayLevelCatalog.ResumeFromSave();
             if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe); homeCharacter.GetComponent<HomeTopBar>()?.Mount(safe); }
             var subtitle=Label(safe,"Subtitle","BİR ŞİŞE DOLUSU SİHİR",25,Color.white,new Vector2(.1f,.71f),new Vector2(.9f,.77f));
             var subtitleShadow=subtitle.gameObject.AddComponent<Shadow>();subtitleShadow.effectColor=new Color(0,0,0,.85f);subtitleShadow.effectDistance=new Vector2(1,-2);
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
-            var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>SceneManager.LoadScene("Gameplay"));
+            var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>Mewgic.SceneNavigation.LoadOnce("Gameplay"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             var footnote=Label(safe,"Footnote","İlk büyü • Renkleri bir araya getir",24,new Color(.94f,.92f,1f),new Vector2(.1f,.10f),new Vector2(.9f,.12f));
             var footnoteShadow=footnote.gameObject.AddComponent<Shadow>();footnoteShadow.effectColor=new Color(0,0,0,.9f);footnoteShadow.effectDistance=new Vector2(1,-2);
@@ -127,12 +135,12 @@ namespace Mewgic
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
             status=Label(safe,"Status","Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
             restart=Button(safe,"Restart","YENİDEN",new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
-            home=Button(safe,"Home",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);});
+            home=Button(safe,"Home",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);});
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
-            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);},()=>paused);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);},()=>paused);
             if(GameplayProgress.LoadError!=null)status.text="Kayıt okunamadı; haklar ve ödüller kilitli.";
             Refresh();
         }
@@ -152,7 +160,7 @@ namespace Mewgic
             }
             if(!applied)status.text=boosters.Message;Refresh();
         }
-        void NextLevel(){if(busy||paused||!puzzle.Won||navigating)return;if(GameplayLevelCatalog.Advance(levelInfo.id,progress)){navigating=true;SceneManager.LoadScene("Gameplay");}}
+        void NextLevel(){if(busy||paused||!puzzle.Won||navigating)return;if(GameplayLevelCatalog.Advance(levelInfo.id,progress)){navigating=true;Mewgic.SceneNavigation.LoadOnce("Gameplay");}}
         public void PauseGame(){if(hud==null||paused)return;paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
         public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateTools();}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
@@ -164,7 +172,7 @@ namespace Mewgic
             busy=false;if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
         }
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
-        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();SceneManager.LoadScene(GameplayLevelCatalog.ReturnScene);}
+        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
         void Reset(){if(busy||paused)return;puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.";Refresh();}
         void Refresh()

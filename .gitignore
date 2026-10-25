@@ -32,3 +32,7 @@
 *.keystore
 *.mobileprovision
 .unity-pipeline*
+
+# Unique temporary Unity regression captures; curated PART08 evidence stays tracked
+docs/Part08Tests/RewardHub-*/
+docs/Part08Tests/Run-*/

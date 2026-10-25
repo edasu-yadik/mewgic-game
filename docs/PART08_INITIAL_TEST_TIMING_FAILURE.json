@@ -1,0 +1,7 @@
+{
+    "success": false,
+    "error": "System.Exception: Boot resolves Home\r\n  at BetaPlayTests.Check (System.Boolean v, System.String m) [0x00015] in C:\\Dev\\Mewgic\\Assets\\Editor\\BetaPlayTests.cs:6 \r\n  at BetaPlayTests+<>c.<Run>b__22_0 () [0x00000] in C:\\Dev\\Mewgic\\Assets\\Editor\\BetaPlayTests.cs:17 \r\n  at BetaPlayTests.Tick () [0x00072] in C:\\Dev\\Mewgic\\Assets\\Editor\\BetaPlayTests.cs:31 ",
+    "checks": [
+        "Actual player save untouched"
+    ]
+}

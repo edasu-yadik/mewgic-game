@@ -1,0 +1,71 @@
+{
+  "latestSuites": [
+    {
+      "suite": "BetaPlayTests.Run();",
+      "success": true,
+      "count": 89,
+      "error": ""
+    },
+    {
+      "suite": "RewardHubTests.Run();",
+      "success": true,
+      "count": 603,
+      "error": ""
+    },
+    {
+      "suite": "DailyActivitiesTests.Run();",
+      "success": true,
+      "count": 219,
+      "error": ""
+    },
+    {
+      "suite": "MapProgressionTests.Run();",
+      "success": true,
+      "count": 200,
+      "error": ""
+    },
+    {
+      "suite": "GameplayBoosterTests.Run();",
+      "success": true,
+      "count": 723,
+      "error": ""
+    },
+    {
+      "suite": "GameplayHudTests.Run();",
+      "success": true,
+      "count": 336,
+      "error": ""
+    },
+    {
+      "suite": "GameplayBottleTests.Run();",
+      "success": true,
+      "count": 3183,
+      "error": ""
+    },
+    {
+      "suite": "MapWorldTests.Run();",
+      "success": true,
+      "count": 551,
+      "error": "",
+      "report": "docs/Part08Tests/PART06B_MAP_REGRESSION.json"
+    },
+    {
+      "suite": "GameplayVisualTests.Run();",
+      "success": true,
+      "count": 2755,
+      "error": ""
+    },
+    {
+      "suite": "WizardCatAnimationTests.Run();",
+      "success": true,
+      "count": 41,
+      "error": ""
+    }
+  ],
+  "uniqueChecks": 8735,
+  "saveChecks": 23,
+  "modelChecks": 12,
+  "smokeExitCode": 0,
+  "deviceTest": false,
+  "notes": "Historical failed attempts remain in PART08_REGRESSIONS; only latest successful suite result counted."
+}
