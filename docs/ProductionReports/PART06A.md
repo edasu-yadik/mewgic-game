@@ -45,4 +45,5 @@ Bu sürüm test edilmiş çevre ve yerleşim altyapısıdır; referansın birebi
 
 ## Git
 
-Yalnız PART06A dosyaları seçilerek commit/push yapılır. Önceden bulunan SourceArt, eski şişe deneyleri ve diğer untracked çalışmalar dahil edilmez. Commit ve uzak SHA doğrulaması teslimde kaydedilecektir.
+Yalnız PART06A dosyaları seçilerek commit/push yapılır. Önceden bulunan SourceArt, eski şişe deneyleri ve diğer untracked çalışmalar dahil edilmez. Commit: 72290e2575608f0a71838a5dff0cc3f97dc3d22a. Private origin/master push başarılı; git ls-remote aynı SHA döndürdü. Bu teslim kaydı ayrı belge commitinde tutulur.
+

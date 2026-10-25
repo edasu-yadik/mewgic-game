@@ -68,3 +68,5 @@ korundu. 556 harita kontrolü,12 model ve mevcut smoke geçti; Console0/0.
 karşılaştırması hazır. Kompozisyon daha seyrek; yollar/etiketler birebir değil,
 nihai görsel eşleşme onayı verilmez. Cihaz performans testi yapılmadı.
 Rapor: ProductionReports/PART06A.md. Sonraki partın ilerleme bağlantısına hazır.
+
+06A Git teslimi: 72290e2 private origin/master push başarılı; uzak SHA eşleşti.
