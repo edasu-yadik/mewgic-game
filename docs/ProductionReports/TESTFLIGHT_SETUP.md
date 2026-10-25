@@ -24,11 +24,21 @@ Durum: KISMEN TAMAMLANDI. IPA üretilmedi, TestFlight yüklemesi ve iPhone testi
 
 ## Açık engeller ve kalan işler
 - Unity Cloud manuel sürüm listesinde6000.3.27f1 bulunamadı; en yeni listelenen6.3 sürümü6000.3.26f1. Yerel proje düşürülmedi. Hedef taslağında Auto-detect seçildi, closest-version kapatıldı. Kesin sürüm bulutta kullanılabilir olmadan başarılı derleme varsayılmamalı.
-- Kaydedilmemiş iOS hedef taslağı: master, macOS Tahoe, Xcode26.5.0, Apple Silicon, Mac Standard, otomatik/scheduled build kapalı. PreExport hook ve custom Fastlane yolu girildi.
-- Apple imzalama malzemelerinin Unity Cloud'a yüklenmesi için ayrı işlem anı onayı bekleniyor; henüz yüklenmedi.
-- Mac Standard Free tier eligible görünüyor; kalan ücretsiz dakika/harcama sınırı henüz doğrulanmadı. Ücretli yükseltme yapılmadı; build başlatılmadı.
+- Kaydedilmiş iOS hedefi mewgic-ios-testflight: master, macOS Tahoe, Xcode26.5.0, Apple Silicon, Mac Standard, otomatik/scheduled build kapalı. PreExport hook ve custom Fastlane yolu girildi.
+- Kullanıcının ayrı işlem anı onayıyla App Store profili, şifreli p12 ve parolası Unity Cloud Mewgic hedefine kaydedildi. Yeniden açılan Edit ekranında appstore tipi, paket kimliği ve Apple Distribution sertifikası doğrulandı.
+- Usage allowance ekranında Mac0/100 dakika, Storage0/25GB ve Egress0/100GB doğrulandı. Ücretli yükseltme yapılmadı. aecea199fa5ac967131c5f29340f4c320e88eff3 commit için ilk derleme isteği gönderildi, servis Unity sürümü nedeniyle isteği reddetti; çalışan build oluşmadı.
 - App Store Connect yükleme yetkilendirmesi/API anahtarı, imzalı IPA derleme, yükleme, Apple işlem sonucu ve dahili test dağıtımı henüz tamamlanmadı.
 - Fiziksel Android testi kullanıcının talebiyle ertelendi. TestFlight cihaz testi de henüz yok.
 
 ## Güvenlik ve devam
 GitHub read-only erişim yalnız kaynak klonlaması içindir. Apple p12/parola/profil ve gelecekteki p8/API sırları asla Git'e alınmaz. Kullanıcı giriş ve OTP işlemlerini kendi yapar. Diğer Unity projeleri, DevControl ve mağaza yayını değiştirilmedi. Rapor bir TestFlight teslimi değildir.
+
+
+## Son doğrulama — 25 Ekim 2026
+Unity Cloud hata metni: "Detected project using Unity Version 6000_3_27f1, but this version is not available currently. Please update your project to use a supported version of Unity, or manually select a version for Build Automation to build with."
+Bu, yalnız listeden yapılan tahmin değildir; gerçek build submission reddidir.
+Proje sürümü düşürülmedi, closest-version kapalı kaldı. Build başlamadı; IPA/TestFlight yüklemesi yok.
+İmzalama kaydı adı: Mewgic TestFlight App Store 2026; profil tipi appstore; enterprise=false; cihaz sayısı0; sertifika Apple Distribution: EDASU YADIK (VKW7GYV7B9). Son tarih25 Ekim2027.
+Kanıtlar CloudSigningSaved.jpg, FreeMacQuota.jpg ve UnsupportedEditorBuildError.jpg.
+Devam seçenekleri: bulutta6000.3.27f1 desteği sağlanması veya ayrı bir bulut kopyasında desteklenen sürümle uyumluluk testlerinin planlanması. Çalışan ana projede sürüm değişikliği yapılmadı. App Store upload API yetkisi bu engel kalkmadan oluşturulmadı.
+Hazırlık commit aecea199fa5ac967131c5f29340f4c320e88eff3 private master'a push edilmiş ve uzak SHA doğrulanmıştır.
