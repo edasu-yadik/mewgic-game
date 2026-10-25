@@ -183,3 +183,11 @@ Gerçek kazanma ve hak kullanımından ilerleyen dört görev; kalıcı tek öd�
 korundu; Home girişleri bağlandı.219+64+200+723 ve12 model/smoke geçti.
 Üç oran/Safe Area veConsole0/0 doğrulandı;cihaz testi yapılmadı.
 ProductionReports/PART07A.md / DAILY_ACTIVITIES.md. Sonraki part başlatılmadı.
+
+## PART07B — Etkinlik ve koleksiyon
+Yerel pazartesi haftası(3 kazanma),28 günlük ücretsiz sezon(2/4/6 kazanma),
+tek ödül ve iki mevcut görsel kartının kalıcı galerisi hazır. Premium bilgi
+katmanıdır. Daily Missions korunur;Home Events/Collection açılır.
+603 merkez,219 günlük,723 güçlendirici ve12 model kontrolü geçti.
+Üç oran/Safe Area ve gerçek görüntüler kaydedildi.Cihaz testi yapılmadı.
+ProductionReports/PART07B.md / REWARD_CENTER.md. Sonraki part başlatılmadı.

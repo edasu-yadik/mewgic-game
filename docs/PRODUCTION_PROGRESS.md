@@ -93,3 +93,13 @@ Gerçek Game View ve04_Events karşılaştırması hazır. Fiziksel cihaz testi 
 Rapor:ProductionReports/PART07A.md;kurallar:DAILY_ACTIVITIES.md.
 
 07A Git teslimi:2eddd42 private origin/master push başarılı; uzak SHA eşleşti.
+
+## PART07B — Etkinlik ve ödül merkezi
+Daily Missions,çevrimdışı haftalık etkinlik,üç basamaklı ücretsiz sezon ve iki
+gerçek koleksiyon kartı hazır. Haftalık/sezon kazanma sayaçları günlüklerden
+bağımsızdır. Kalıcı/tek dönemlik ödül ve kart sahipliği aynı kayda yazılır.
+Premium yalnız açıklamadır;ödeme yoktur. Home Events/Collection ve alt Events
+bağlandı. Günlük sistem219 kontrolle korundu;merkez603 kontrol geçti.
+723 güçlendirici ve12 model kontrolü başarılı. Üç oran,Safe Area,kaydırma ve
+44px hedefler doğrulandı;gerçek Game View'lar hazır.Cihaz testi yapılmadı.
+Rapor:ProductionReports/PART07B.md;katalog/kurallar:REWARD_CENTER.md.

@@ -5,10 +5,10 @@ namespace Mewgic.Core
     [Serializable] public sealed class LevelRecord{public int level;public int bestStars;public bool rewardClaimed;}
     [Serializable] public sealed class ProgressData
     {
-        public DailyData daily=new DailyData();
+        public DailyData daily=new DailyData();public RewardHubData hub=new RewardHubData();
         public int version=1;public int undo=3,hint=3,extra=1,shuffle=1;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{version=version,daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
+        public ProgressData Copy()=>new ProgressData{version=version,hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
     }
     public sealed partial class ProgressLedger
     {
@@ -19,7 +19,7 @@ namespace Mewgic.Core
         {
             if(data==null||data.version!=1||data.levels==null||data.undo<0||data.hint<0||data.extra<0||data.shuffle<0||data.levels.Any(l=>l==null||l.level<1||l.bestStars<1||l.bestStars>3)||data.levels.Select(l=>l.level).Distinct().Count()!=data.levels.Count)throw new ArgumentException("Geçersiz ilerleme kaydı");
             if(data.claimedMilestones!=null&&(data.claimedMilestones.Any(string.IsNullOrWhiteSpace)||data.claimedMilestones.Distinct().Count()!=data.claimedMilestones.Count))throw new ArgumentException("Geçersiz sandık kaydı");
-            (data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);
+            (data.hub??new RewardHubData()).Validate();(data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);
             state=data.Copy();save=persist??throw new ArgumentNullException(nameof(persist));
         }
         public int Remaining(BoosterKind kind)=>Enum.IsDefined(typeof(BoosterKind),kind)?Get(state,kind):0;
@@ -42,8 +42,8 @@ namespace Mewgic.Core
         {
             granted=false;if(!won||level<1||stars<1||stars>3)return false;
             var existing=state.levels.FirstOrDefault(l=>l.level==level);
-            var copy=state.Copy();bool dailyChanged=DailyRules.Victory(copy.daily,clock(),victoryReceipt,stars,completedBottles);
-            if(existing!=null&&existing.rewardClaimed&&existing.bestStars>=stars&&!dailyChanged)return true;
+            var copy=state.Copy();var now=clock();bool dailyChanged=DailyRules.Victory(copy.daily,now,victoryReceipt,stars,completedBottles);bool hubChanged=!DailyRules.Blocked(copy.daily,now)&&RewardHubRules.Victory(copy.hub,now,victoryReceipt);if(hubChanged)DailyRules.Sync(copy.daily,now);
+            if(existing!=null&&existing.rewardClaimed&&existing.bestStars>=stars&&!dailyChanged&&!hubChanged)return true;
             var record=copy.levels.FirstOrDefault(l=>l.level==level);
             if(record==null){record=new LevelRecord{level=level};copy.levels.Add(record);}
             bool first=!record.rewardClaimed;record.bestStars=Math.Max(record.bestStars,stars);

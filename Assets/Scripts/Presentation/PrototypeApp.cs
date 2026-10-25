@@ -111,6 +111,7 @@ namespace Mewgic
             var footnoteShadow=footnote.gameObject.AddComponent<Shadow>();footnoteShadow.effectColor=new Color(0,0,0,.9f);footnoteShadow.effectDistance=new Vector2(1,-2);
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
+            gameObject.AddComponent<Mewgic.Rewards.RewardHubPanel>().Mount(safe);
         }
         public static Puzzle LoadLevel()
         {

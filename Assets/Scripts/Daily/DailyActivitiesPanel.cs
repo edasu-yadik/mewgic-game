@@ -5,6 +5,7 @@ namespace Mewgic.Daily
  {
   readonly System.Collections.Generic.List<Button> buttons=new System.Collections.Generic.List<Button>();
   Image background;DailyArt art;RectTransform safe,screen,hero,cat;GameObject tasks,gift;Text status,timer,giftState;Image[] fills=new Image[4];Text[] counts=new Text[4];Button[] actions=new Button[4];Button giftClaim;float refreshAt;bool observed;
+  public Action OnClosed;
   public bool IsOpen=>screen!=null&&screen.gameObject.activeSelf;public bool GiftVisible=>gift!=null&&gift.activeSelf;
   static readonly Color Ink=new Color32(64,33,23,255);
   static RectTransform Rect(Transform p,string n,Vector2 a,Vector2 b){var r=new GameObject(n,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=a;r.anchorMax=b;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
@@ -37,7 +38,7 @@ namespace Mewgic.Daily
   }
   public void Open(bool showGift){screen.gameObject.SetActive(true);screen.SetAsLastSibling();observed=GameplayProgress.Current.ObserveDaily();status.text=observed?"Ödüller gerçek güçlendirici haklarıdır.":"Saat veya kayıt doğrulanamadı; günlük işlemler kapalı.";ShowTab(showGift);Layout();}
   void ShowTab(bool showGift){tasks.SetActive(!showGift);gift.SetActive(showGift);Refresh();}
-  public void Close(){screen.gameObject.SetActive(false);}
+  public void Close(){screen.gameObject.SetActive(false);var after=OnClosed;OnClosed=null;after?.Invoke();}
   void ClaimGift(){bool ok=GameplayProgress.Current.ClaimDailyGift();status.text=ok?"+1 İpucu kaydedildi. Yarın tekrar bekleriz!":"Hediye alınamadı: gün, saat veya kayıt koşullarını kontrol et.";Refresh();}
   void TaskAction(DailyTaskKind kind){var ledger=GameplayProgress.Current;if(!observed||ledger.DailyClockBlocked)return;int i=(int)kind;var d=ledger.DailySnapshot;if(d.claimed[i])return;if(d.progress[i]>=DailyRules.Target(kind)){status.text=ledger.ClaimDailyTask(kind)?"Görev ödülü kaydedildi!":"Ödül kaydedilemedi; hak değişmedi.";Refresh();return;}GameplayLevelCatalog.ResetSelection();SceneManager.LoadScene("Gameplay");}
   public void Refresh(){var ledger=GameplayProgress.Current;var d=ledger.DailySnapshot;bool valid=observed&&!ledger.DailyClockBlocked&&d.day==DailyRules.Day(ledger.LocalNow);for(int i=0;i<4;i++){int target=DailyRules.Target((DailyTaskKind)i);fills[i].fillAmount=d.progress[i]/(float)target;counts[i].text=d.progress[i]+"/"+target;actions[i].transform.Find("Label").GetComponent<Text>().text=d.claimed[i]?"ALINDI":d.progress[i]>=target?"ÖDÜLÜ AL":"GİT";actions[i].interactable=valid&&!d.claimed[i];}

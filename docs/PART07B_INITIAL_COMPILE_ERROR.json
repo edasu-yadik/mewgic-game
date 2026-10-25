@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": [\n    {\n      \"message\": \"Assets\\\\Editor\\\\RewardHubSetup.cs(4,990): error CS1026: ) expected\\n\",\n      \"mode\": 272384\n    },\n    {\n      \"message\": \"Assets\\\\Editor\\\\RewardHubSetup.cs(4,1009): error CS1002: ; expected\\n\",\n      \"mode\": 272384\n    },\n    {\n      \"message\": \"Assets\\\\Editor\\\\RewardHubSetup.cs(4,1009): error CS1513: } expected\\n\",\n      \"mode\": 272384\n    },\n    {\n      \"message\": \"All compiler errors have to be fixed before you can enter playmode!\\nUnityEditor.SceneView:ShowCompileErrorNotification ()\\n\",\n      \"mode\": 8405248\n    }\n  ]\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

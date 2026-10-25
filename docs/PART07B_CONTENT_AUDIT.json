@@ -1,0 +1,13 @@
+{
+  "meta": null,
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"output\": null,\n  \"diagnostics\": [],\n  \"success\": true,\n  \"result\": {\n    \"testProfile\": false,\n    \"hubVersion\": 1,\n    \"starBadgeExists\": true,\n    \"wizardCardExists\": true,\n    \"wizardCardPath\": \"Assets/Art/Characters/WizardCat/MageCat_FullBody_v001.png\",\n    \"weeklyIslandPath\": \"Assets/Art/Environment/Map/Map_Crystal_v001.png\",\n    \"cardIds\": [\n      \"star_badge.v1\",\n      \"wizard_card.v1\"\n    ]\n  }\n}",
+      "annotations": null,
+      "meta": null
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}
