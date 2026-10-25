@@ -128,3 +128,5 @@ TestFlight güncellemesi: imzalama dosyaları kullanıcı onayıyla Unity Cloud'
 iOS compatibility branch:6.3.26f1 üzerinde6 model test grubu,4 sahne referans kontrolü ve iki Play smoke geçti. Editor Search indeksi exception'ı açık; oyun akışı geçti. Ana master ve6.3.27f1 korunuyor. Cloud build sonucu ayrı kaydedilecek.
 
 iOS build engeli çözüldü: Cloud hedefi ios/testflight-6000.3.26 branch ve kesin6000.3.26f1'e bağlandı; c6496d5 commit için build#1 kabul edildi. Mac builder aktarımı bekleniyor; log/IPA henüz yok. Ana master değişmedi. Son durum IOS_BUILD_COMPATIBILITY.md.
+
+iOS Build#1 Success;IPA0.8.0/build1 indirildi,kimlik/profil/CRC doğrulandı. Apple API erişimi Request Access aşamasında;Apple yüklemesi/işleme/TestFlight hazır değil. IOS_BUILD1_RESULT.md güncel sonuçtur.

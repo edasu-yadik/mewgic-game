@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "path": "C:\\Dev\\Mewgic-iOS-Compat\\Builds\\iOS\\Mewgic-0.8.0-build1.ipa",
+  "bytes": 178864686,
+  "sha256": "a982747982bd9450f4938b2e271d902283f8bee546b81eb2a1334b85393e6b67",
+  "bundleIdentifier": "com.edasuyadik.mewgic",
+  "version": "0.8.0",
+  "build": "1",
+  "minimumOSVersion": "15.0",
+  "platform": "iphoneos",
+  "sdk": "iphoneos26.5",
+  "xcode": "2650",
+  "embeddedProfile": true,
+  "codeResources": true,
+  "mainMachOCodeSignaturePresent": true,
+  "cryptographicCodeSignatureValidated": false,
+  "zipCRCVerified": true,
+  "appStoreUpload": false,
+  "appleProcessingComplete": false,
+  "testFlightReady": false,
+  "embeddedProfileChecks": {
+    "team": true,
+    "application": true,
+    "debuggingDisabled": true,
+    "testflight": true,
+    "certificateMatches": true,
+    "distributionProfile": true,
+    "notExpired": true
+  },
+  "embeddedProfileCMSSignatureVerified": true,
+  "embeddedProfileName": "Mewgic TestFlight App Store"
+}

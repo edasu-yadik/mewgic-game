@@ -7,13 +7,20 @@
   "testedCommit": "c6496d5d1906362b6b8410497fdb9837414b977e",
   "cloudBuild": 1,
   "cloudSubmissionAccepted": true,
-  "latestStatus": "Building",
+  "latestStatus": "Success",
   "logsAvailable": true,
-  "ipaProduced": false,
+  "ipaProduced": true,
   "testFlightUploaded": false,
   "freeMacMinutesUsedBeforeBuild": 0,
   "freeMacAllowance": 100,
   "lastObservedPhase": "Unity package/shader import",
   "checkoutSeconds": 6,
-  "waitSeconds": 155
+  "waitSeconds": 155,
+  "appleProcessingComplete": false,
+  "testFlightReady": false,
+  "buildSeconds": 696,
+  "billableSeconds": 541,
+  "ipaBytes": 178864686,
+  "ipaLocalPath": "C:\\Dev\\Mewgic-iOS-Compat\\Builds\\iOS\\Mewgic-0.8.0-build1.ipa",
+  "uploadBlocker": "App Store Connect API access not enabled; Request Access required"
 }
