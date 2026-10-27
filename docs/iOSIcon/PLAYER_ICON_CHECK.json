@@ -1,0 +1,124 @@
+{
+  "success": true,
+  "editor": "6000.3.26f1",
+  "asset": "Assets/Art/AppIcon/Mewgic_AppIcon_1024_v001.png",
+  "bundle": "com.edasuyadik.mewgic",
+  "version": "0.8.0",
+  "build": "2",
+  "slots": [
+    {
+      "kind": "Application",
+      "width": 180,
+      "height": 180,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Application",
+      "width": 120,
+      "height": 120,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Application",
+      "width": 167,
+      "height": 167,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Application",
+      "width": 152,
+      "height": 152,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Application",
+      "width": 76,
+      "height": 76,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Spotlight",
+      "width": 120,
+      "height": 120,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Spotlight",
+      "width": 80,
+      "height": 80,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Spotlight",
+      "width": 80,
+      "height": 80,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Spotlight",
+      "width": 40,
+      "height": 40,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Settings",
+      "width": 87,
+      "height": 87,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Settings",
+      "width": 58,
+      "height": 58,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Settings",
+      "width": 29,
+      "height": 29,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Settings",
+      "width": 58,
+      "height": 58,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Settings",
+      "width": 29,
+      "height": 29,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Notifications",
+      "width": 60,
+      "height": 60,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Notifications",
+      "width": 40,
+      "height": 40,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Notifications",
+      "width": 40,
+      "height": 40,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Notifications",
+      "width": 20,
+      "height": 20,
+      "maxLayerCount": 1
+    },
+    {
+      "kind": "Marketing",
+      "width": 1024,
+      "height": 1024,
+      "maxLayerCount": 1
+    }
+  ]
+}

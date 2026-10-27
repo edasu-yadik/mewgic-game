@@ -32,6 +32,7 @@ public static class MewgicIosCloudBuild
         string number=Environment.GetEnvironmentVariable("MEWGIC_IOS_BUILD_NUMBER");
         if(string.IsNullOrWhiteSpace(number))number=Environment.GetEnvironmentVariable("BUILD_NUMBER");
         number=Validate(config.bundleIdentifier,config.appleTeamId,number,config.registrationVerified);
+        if(number!="2")throw new InvalidOperationException("Bu iOS ikon düzeltmesi build 2 olarak derlenmelidir.");
         if(config.productName!="Mewgic"||!Regex.IsMatch(config.marketingVersion??"",@"^[0-9]+\.[0-9]+\.[0-9]+$"))throw new InvalidOperationException("Mewgic sürüm bilgisi geçersiz.");
         var scenes=new[]{"Boot","Home","Gameplay","LevelMap"}.Select(n=>"Assets/Scenes/"+n+".unity").ToArray();
         if(scenes.Any(p=>!File.Exists(p)))throw new InvalidOperationException("Üretim sahnesi eksik.");
@@ -47,6 +48,7 @@ public static class MewgicIosCloudBuild
         EditorUserBuildSettings.allowDebugging=false;
         EditorUserBuildSettings.connectProfiler=false;
         EditorBuildSettings.scenes=scenes.Select(p=>new EditorBuildSettingsScene(p,true)).ToArray();
+        MewgicIosIcon.Configure();
         Debug.Log("Mewgic iOS cloud pre-export validated. Distribution signing is supplied by cloud credentials.");
     }
     [Serializable] sealed class Report{public bool success;public string error;public string[] checks;public string localTarget;public bool iosSupport;}

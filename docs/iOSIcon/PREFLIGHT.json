@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "missingFilenameRejected": true,
+  "darkOnlyRejected": true,
+  "modelsAndScenes": "docs/IOS_COMPATIBILITY_MODELS.json"
+}

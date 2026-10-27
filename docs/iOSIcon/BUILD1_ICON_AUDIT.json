@@ -1,0 +1,20 @@
+{
+  "bundle": "com.edasuyadik.mewgic",
+  "version": "0.8.0",
+  "build": "1",
+  "icons": {
+    "CFBundlePrimaryIcon": {
+      "CFBundleIconFiles": [
+        "AppIcon60x60"
+      ],
+      "CFBundleIconName": "AppIcon"
+    }
+  },
+  "carFiles": [
+    "Payload/Mewgic.app/Assets.car"
+  ],
+  "iconPngs": [
+    "Payload/Mewgic.app/AppIcon60x60@2x.png",
+    "Payload/Mewgic.app/AppIcon76x76@2x~ipad.png"
+  ]
+}

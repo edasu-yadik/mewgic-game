@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "catalog": "Builds/iOS/IconBuild2-Xcode\\Unity-iPhone\\Images.xcassets\\AppIcon.appiconset\\Contents.json",
+  "anyAppearance1024": [
+    {
+      "filename": "Icon-Store-1024.png",
+      "idiom": "ios-marketing",
+      "scale": "1x",
+      "size": "1024x1024"
+    }
+  ],
+  "imageCount": 19,
+  "editor": "6000.3.26f1",
+  "version": "0.8.0",
+  "build": "2",
+  "bundle": "com.edasuyadik.mewgic"
+}

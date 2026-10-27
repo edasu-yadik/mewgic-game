@@ -130,3 +130,5 @@ iOS compatibility branch:6.3.26f1 üzerinde6 model test grubu,4 sahne referans k
 iOS build engeli çözüldü: Cloud hedefi ios/testflight-6000.3.26 branch ve kesin6000.3.26f1'e bağlandı; c6496d5 commit için build#1 kabul edildi. Mac builder aktarımı bekleniyor; log/IPA henüz yok. Ana master değişmedi. Son durum IOS_BUILD_COMPATIBILITY.md.
 
 iOS Build#1 Success;IPA0.8.0/build1 indirildi,kimlik/profil/CRC doğrulandı. Apple API erişimi Request Access aşamasında;Apple yüklemesi/işleme/TestFlight hazır değil. IOS_BUILD1_RESULT.md güncel sonuçtur.
+
+27 Ekim 2026 — iOS 91111 ikon düzeltmesi: ios/testflight-6000.3.26 üzerinde 1024x1024 opak RGB büyücü kedi ikonu ve 19 iOS yuvası hazır; 0.8.0 (2). Gerçek Xcode AppIcon Any Appearance kontrolü, 6 model grubu/4 sahne ve Play smoke exit0 geçti. Ana master ve oyun dosyaları aynı. Cloud/IPA son kontrolü devam ediyor; IOS_ICON_91111.md raporuna bakınız.

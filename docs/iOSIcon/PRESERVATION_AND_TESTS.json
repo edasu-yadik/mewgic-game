@@ -1,0 +1,13 @@
+{
+  "masterHead": "4e3e32feaeab4521ceb2f7c06d8e99aced632a69",
+  "masterTrackedDiff": [],
+  "iosBranch": "ios/testflight-6000.3.26",
+  "runtimeScenePrefabAnimationDiff": [],
+  "projectVersionDiff": [],
+  "devControlTouched": false,
+  "modelGroupsPassed": 6,
+  "sceneChecksPassed": 4,
+  "playSmokeExit": 0,
+  "xcodeExportExit": 0,
+  "knownEditorSearchException": true
+}
