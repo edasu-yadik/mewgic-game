@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "download": "C:\\Users\\mehme\\Downloads\\5774143930948-mewgic-mewgic-ios-testflight-2.ipa",
+  "sha256": "5f7d25f48acbdd05ae3107f5b8ddcea18616c4a00dc6eb6e2fcb8b3f96f22496",
+  "cloudHashMatches": true,
+  "zipCRC": true,
+  "bundle": "com.edasuyadik.mewgic",
+  "version": "0.8.0",
+  "build": "2",
+  "compiled1024AppIconVerifiedOnMac": [
+    {
+      "AssetType": "Icon Image",
+      "BitsPerComponent": 8,
+      "ColorModel": "RGB",
+      "Colorspace": "srgb",
+      "Compression": "lzfse",
+      "Encoding": "ARGB",
+      "Icon Index": 8,
+      "Idiom": "marketing",
+      "Name": "AppIcon",
+      "NameIdentifier": 6849,
+      "Opaque": true,
+      "PixelHeight": 1024,
+      "PixelWidth": 1024,
+      "RenditionName": "Icon-Store-1024.png",
+      "Scale": 1,
+      "SHA1Digest": "C8426E0D1536E0C80C57F8C65A25EF86CFEF2768E2CD1EF2ADF4D859F1381D9F",
+      "SizeOnDisk": 3030337
+    }
+  ],
+  "deviceIconPngs": [
+    "Payload/Mewgic.app/AppIcon60x60@2x.png",
+    "Payload/Mewgic.app/AppIcon76x76@2x~ipad.png"
+  ],
+  "assetsCarBytes": 3685352,
+  "appStoreProfile": true,
+  "profileName": "Mewgic TestFlight App Store",
+  "signingStructurePresent": true,
+  "note": "macOS codesign verification and Apple Transporter upload not performed locally"
+}

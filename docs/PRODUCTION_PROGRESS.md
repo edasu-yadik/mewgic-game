@@ -132,3 +132,5 @@ iOS build engeli çözüldü: Cloud hedefi ios/testflight-6000.3.26 branch ve ke
 iOS Build#1 Success;IPA0.8.0/build1 indirildi,kimlik/profil/CRC doğrulandı. Apple API erişimi Request Access aşamasında;Apple yüklemesi/işleme/TestFlight hazır değil. IOS_BUILD1_RESULT.md güncel sonuçtur.
 
 27 Ekim 2026 — iOS 91111 ikon düzeltmesi: ios/testflight-6000.3.26 üzerinde 1024x1024 opak RGB büyücü kedi ikonu ve 19 iOS yuvası hazır; 0.8.0 (2). Gerçek Xcode AppIcon Any Appearance kontrolü, 6 model grubu/4 sahne ve Play smoke exit0 geçti. Ana master ve oyun dosyaları aynı. Cloud/IPA son kontrolü devam ediyor; IOS_ICON_91111.md raporuna bakınız.
+
+91111 nihai sonuç: Cloud Build#2 Success, kaynak f434f8d. Gerçek IPA Assets.car içinde 1024x1024 sRGB Opaque=true AppIcon, Mac assetutil ile geçti. İndirilen IPA SHA256 eşleşti; 0.8.0(2), com.edasuyadik.mewgic, mevcut App Store profili doğrulandı. Downloads/Mewgic-0.8.0-build2.ipa Transporter tekrar yüklemesine hazır. Apple yükleme/kabul ve cihaz testi henüz yapılmadı. Ana master/oyun/DevControl korundu. Ayrıntı ProductionReports/IOS_ICON_91111.md.

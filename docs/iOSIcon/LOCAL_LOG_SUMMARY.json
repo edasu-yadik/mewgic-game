@@ -1,0 +1,30 @@
+{
+  "configure": {
+    "csharpCompileErrors": 0,
+    "searchIndexExceptions": 0,
+    "iconSettingsPass": true,
+    "catalogPass": false,
+    "exitCode": 0
+  },
+  "preflight": {
+    "csharpCompileErrors": 0,
+    "searchIndexExceptions": 0,
+    "iconSettingsPass": true,
+    "catalogPass": false,
+    "exitCode": 0
+  },
+  "export": {
+    "csharpCompileErrors": 0,
+    "searchIndexExceptions": 0,
+    "iconSettingsPass": true,
+    "catalogPass": true,
+    "exitCode": 0
+  },
+  "play-smoke": {
+    "csharpCompileErrors": 0,
+    "searchIndexExceptions": 1,
+    "iconSettingsPass": false,
+    "catalogPass": false,
+    "exitCode": 0
+  }
+}
