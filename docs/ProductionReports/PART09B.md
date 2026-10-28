@@ -80,6 +80,7 @@ Kanıt klasörü: docs/Part09B. Home-Motion.gif, Home-1600/1950/2000.png,
 Play-Pressed.png, Gameplay.png, Home-Return.png, MASK_AUDIT.json,
 HOME_MOTION_TESTS.json, PRESERVATION.json ve Unity logları içerir.
 
-İlgili doğrulanan dosyalar private origin/master'a commit/push edilir;
-uzak SHA doğrulaması teslim mesajında verilir. Fiziksel cihaz kabulü açık;
+Uygulama/kanıt commit'i: 5cbcf50763b505c5f63d33ae15b4c479d9f5e073.
+Private origin/master push başarılı; git ls-remote ile uzak SHA birebir
+doğrulandı. Tracked çalışma ağacı temizdi. Fiziksel cihaz kabulü açık;
 bu partta yeni build üretilmedi.

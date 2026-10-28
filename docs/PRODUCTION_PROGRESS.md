@@ -8,6 +8,8 @@ noktası,372147 sabit maske dışı piksel ve Home→Gameplay→Home geçti.
 Mevcut Boot/gameplay smoke exit0. Üç oran/Safe Area ve39 kare GIF hazır.
 910 diğer tracked/133 eski untracked dosya korundu. Fiziksel iPhone testi
 yapılmadı; yeni iOS/Cloud Build yok. Rapor:ProductionReports/PART09B.md.
+PART09B uygulama teslimi:5cbcf50 private origin/master push başarılı;
+uzak SHA eşleşti.
 
 - PART04C tamamlandı:üst kaynak çubuğu,rapor ProductionReports/PART04C.md,commit d910351.
 - Kalıcı çalışma sistemi hazır:AGENTS.md,REFERENCE_REGISTRY.md,ProductionReports;belge commit'i f8883bc.
