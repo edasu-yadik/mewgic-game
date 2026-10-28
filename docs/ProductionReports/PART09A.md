@@ -112,3 +112,6 @@ hatası,0 beklenmeyen Play runtime hatası, gameplay smoke exit0.
 
 Önceden mevcut untracked çalışmalar commit'e alınmadı. Git commit/push ve
 uzak SHA sonucu son teslim kaydında belirtilecektir. Yeni TestFlight build'i yok.
+
+### Git teslim doğrulaması
+Uygulama/test/kanıt commit'i4cdaab01dd85cde5e1e54f1b25188912f54364bb private origin/master'a push edildi. git ls-remote refs/heads/master aynı SHA'yı döndürdü. Önceden var olan133 untracked dosya korunur ve commit kapsamında değildir. Yeni TestFlight veya Unity Cloud build'i başlatılmadı. Bu kayıt ayrı belge commit'inde gönderilir.
