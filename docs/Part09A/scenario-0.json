@@ -1,0 +1,61 @@
+{
+  "success": true,
+  "scenario": 0,
+  "error": null,
+  "checks": [
+    "Yükleme hazırlanırken Home etkinleştirilmedi",
+    "Yüzde100 yalnız aktivasyon sonrası; gerçek hazırlık95",
+    "Gerçek Game View boyutu doğru",
+    "Mewgic Logo Safe Area içinde",
+    "Wizard Cat Safe Area içinde",
+    "Actual Loading Progress Safe Area içinde",
+    "Loading Message Safe Area içinde",
+    "Boot sırasında tek EventSystem",
+    "Sabit maliyetli yıldız parıltısı ve10 parçacık",
+    "Kedi hafif hareket ediyor",
+    "Çizilen dolgu gerçek ilerleme değerini gösteriyor",
+    "Gerçek Home ve Play açıldı",
+    "Home sonrası tek EventSystem; Boot kaynakları temizlendi",
+    "Kayıt sistemi başarıyla hazır",
+    "Gerçek oyuncu kaydı değişmedi"
+  ],
+  "stages": [
+    {
+      "state": "Save",
+      "value": 0.0,
+      "seconds": 0.4608669
+    },
+    {
+      "state": "Dependencies",
+      "value": 0.15,
+      "seconds": 1.05950892
+    },
+    {
+      "state": "Dependencies",
+      "value": 0.3,
+      "seconds": 1.06075776
+    },
+    {
+      "state": "HomeLoading",
+      "value": 0.3,
+      "seconds": 1.165946
+    },
+    {
+      "state": "HomeLoading",
+      "value": 0.3,
+      "seconds": 1.16682136
+    },
+    {
+      "state": "Ready",
+      "value": 0.95,
+      "seconds": 1.2138834
+    },
+    {
+      "state": "Complete",
+      "value": 1.0,
+      "seconds": 2.153197
+    }
+  ],
+  "runtimeErrors": [],
+  "seconds": 2.402078
+}

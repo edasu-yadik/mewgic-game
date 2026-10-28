@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "startupScenarios": 5,
+  "startupAssertions": 79,
+  "startupRuntimeErrors": 0,
+  "models": {
+    "success": true,
+    "groups": 6,
+    "scenes": 4
+  },
+  "gameplaySmokeExitCode": 0,
+  "csharpCompileErrors": 0,
+  "expectedInjectedWarningCount": 1,
+  "editorTeardownJobTempAllocWarning": true,
+  "physicalIPhoneTest": false,
+  "newTestFlightBuild": false
+}

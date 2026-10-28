@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "error": "",
+    "checks": [
+        "New profile has real zero balances, level1",
+        "Resources and settings committed",
+        "First win committed",
+        "Current level committed",
+        "Daily gift committed",
+        "Booster spend committed",
+        "Reopened current level,currency,energy,settings preserved",
+        "Reopened stars and booster balances preserved",
+        "Daily claim and event progress survive reload",
+        "Repeated win receipt never duplicates reward/event",
+        "Validated backup contains same committed reward markers",
+        "Corrupt primary recovered from committed backup",
+        "Original corrupt document preserved",
+        "Recovery cannot duplicate claimed gift",
+        "Missing primary recovers committed backup instead of resetting profile",
+        "Syntactically valid but incomplete save recovers backup instead of defaults",
+        "Future schema rejected without downgrade or overwrite",
+        "Two corrupt copies preserved without silent reset",
+        "Legacy save migration retains rights and defaults new child",
+        "Write failure rejects presentation changes",
+        "Failed writes leave in-memory presentation intact",
+        "First victory overflow is safely rejected atomically",
+        "Observable UI uses persisted data"
+    ]
+}

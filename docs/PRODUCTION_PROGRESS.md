@@ -124,3 +124,6 @@ Bu teknik APK adayıdır;fiziksel cihaz kabulü halen açık.
 TestFlight ek çalışma: Apple uygulama/sertifika/App Store profili hazır; GitHub salt okunur Unity Cloud bağlantısı kaydedildi.27 preflight ve290 koruma kontrolü geçti. Bulutta6000.3.27f1 listelenmiyor; imzalama yükleme onayı ve quota doğrulaması açık. IPA/yükleme/cihaz testi yok. ProductionReports/TESTFLIGHT_SETUP.md durum kaydıdır.
 
 TestFlight güncellemesi: imzalama dosyaları kullanıcı onayıyla Unity Cloud'a kaydedildi ve appstore kimliği doğrulandı. Ücretsiz Mac kotası0/100dk. İlk build isteği6000.3.27f1 sunucuda bulunmadığından reddedildi. IPA/yükleme yok; ana proje sürümü korunuyor. Detay TESTFLIGHT_SETUP.md.
+
+## PART09A — Özel açılış ve gerçek yükleme
+29 Ekim 2026: Boot'a Mewgic logo/kedi/değnek/şişe sunumu, hafif animasyon, gerçek kayıt/kaynak doğrulaması ve asenkron Home ilerlemesi eklendi. Unity6000.3.27f1/Personal korundu; Unity6 resmî isteğe bağlı splash ayarı kapatıldı.5 senaryo/79 kontrol,6 model grubu,4 sahne ve yeni Boot üzerinden gameplay smoke exit0 geçti.900x1600/1950/2000 Safe Area render kanıtları docs/Part09A altında.875 mevcut tracked dosyadan yalnız Boot ve splash ayarı değişti;133 eski untracked dosya korundu. Fiziksel iPhone kabulü bu yeni ekran için yapılmadı; yeni TestFlight/Cloud Build başlatılmadı. Rapor:ProductionReports/PART09A.md.

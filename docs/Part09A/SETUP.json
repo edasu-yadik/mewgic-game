@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "editor": "6000.3.27f1",
+  "license": "Unity Personal (CLI license list)",
+  "splashOptionalInUnity6": true,
+  "showSplash": false,
+  "showUnityLogo": false,
+  "firstScene": "Assets/Scenes/Boot.unity"
+}

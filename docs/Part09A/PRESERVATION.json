@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "baselineHead": "4e3e32feaeab4521ceb2f7c06d8e99aced632a69",
+  "trackedFilesChecked": 875,
+  "preexistingUntrackedFilesChecked": 133,
+  "changed": {
+    "tracked": [
+      "Assets/Scenes/Boot.unity",
+      "ProjectSettings/ProjectSettings.asset"
+    ],
+    "untracked": []
+  },
+  "runtimeHomeGameplaySaveCharacterFilesUnchanged": true,
+  "devControlTouched": false
+}

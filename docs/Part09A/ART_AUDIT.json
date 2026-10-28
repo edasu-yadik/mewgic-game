@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "asset": "Assets\\Art\\Boot\\Mewgic_Startup_Background_v001.png",
+  "pixels": [
+    941,
+    1672
+  ],
+  "mode": "RGB",
+  "sha256": "93da7de3ae07eb9e5904db933689630a92fc4d3feab275228d092aa02596f35e",
+  "mobileFormat": "ASTC_6x6",
+  "screens": [
+    {
+      "name": "Error-GameView.png",
+      "width": 900,
+      "height": 1600,
+      "mode": "RGB"
+    },
+    {
+      "name": "Opening-0-GameView.png",
+      "width": 900,
+      "height": 1600,
+      "mode": "RGB"
+    },
+    {
+      "name": "Opening-1-GameView.png",
+      "width": 900,
+      "height": 1950,
+      "mode": "RGB"
+    },
+    {
+      "name": "Opening-2-GameView.png",
+      "width": 900,
+      "height": 2000,
+      "mode": "RGB"
+    },
+    {
+      "name": "Opening-3-GameView.png",
+      "width": 900,
+      "height": 1600,
+      "mode": "RGB"
+    },
+    {
+      "name": "Opening-4-GameView.png",
+      "width": 900,
+      "height": 1600,
+      "mode": "RGB"
+    }
+  ]
+}
