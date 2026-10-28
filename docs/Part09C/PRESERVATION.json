@@ -1,0 +1,15 @@
+{
+  "tracked": {
+    "baselineCount": 946,
+    "changed": [
+      "Assets/Scripts/Presentation/PrototypeApp.cs"
+    ],
+    "unchanged": 945
+  },
+  "untracked": {
+    "baselineCount": 133,
+    "changed": [],
+    "unchanged": 133
+  },
+  "success": true
+}

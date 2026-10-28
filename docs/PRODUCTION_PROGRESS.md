@@ -1,5 +1,12 @@
 # Üretim ilerlemesi
 
+## PART09C — Home açıklama yazılarının kaldırılması
+29 Ekim2026: PrototypeApp.Home içindeki Subtitle ve Footnote üretimi kaldırıldı.
+Yalnız iki metin ve gölgeleri kalktı; logo/PLAY/şişe/kedi yerleşimi korundu.
+Gerçek Unity'de41 kontrol,üç oran/Safe Area ve PLAY→Gameplay→Home geçti.
+945 diğer tracked/133 eski untracked dosya korundu. Fiziksel cihaz testi ve
+yeni TestFlight build yok. Rapor:ProductionReports/PART09C.md.
+
 ## PART09B — Ana menü canlılığı
 29 Ekim 2026: Tasarım korunarak PLAY görseline ±%0,6 nefes ve altın kenar
 geçişi, üç mimari katmana su/pencere maskeleri eklendi. Mevcut kedi, şişe,
