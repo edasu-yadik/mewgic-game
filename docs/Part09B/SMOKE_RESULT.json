@@ -1,0 +1,8 @@
+{
+  "runner": "MewgicPlaySmoke.Run",
+  "unity": "6000.3.27f1",
+  "processExitCode": 0,
+  "success": true,
+  "entryScene": "Boot",
+  "note": "Mevcut smoke akışı; fiziksel cihaz testi değil."
+}

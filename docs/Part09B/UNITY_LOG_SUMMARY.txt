@@ -1,0 +1,9 @@
+install.log
+Initialize engine version: 6000.3.27f1 (672d562a42a7)
+Exiting without the bug reporter. Application will terminate with return code 0
+home-motion.log
+Initialize engine version: 6000.3.27f1 (672d562a42a7)
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+gameplay-smoke.log
+Initialize engine version: 6000.3.27f1 (672d562a42a7)

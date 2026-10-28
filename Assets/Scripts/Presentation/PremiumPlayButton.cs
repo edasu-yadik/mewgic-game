@@ -7,6 +7,9 @@ namespace Mewgic
     public sealed class PremiumPlayButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler, ICanvasRaycastFilter
     {
         public Sprite normal, pressed, glow;
+        public Shader sweepShader;
+        Material sweepMaterial;
+        static readonly int SweepId=Shader.PropertyToID("_Sweep");
         Button button; Image art, frameLight; RectTransform visual;
         Button.ButtonClickedEvent original;
         bool held, queued; float scale=1;
@@ -23,14 +26,19 @@ namespace Mewgic
             art=visual.GetComponent<Image>();art.sprite=normal;art.preserveAspect=true;art.raycastTarget=false;
             var fx=new GameObject("FrameGlow",typeof(RectTransform),typeof(Image));fx.transform.SetParent(visual,false);var r=(RectTransform)fx.transform;r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;
             frameLight=fx.GetComponent<Image>();frameLight.sprite=glow;frameLight.preserveAspect=true;frameLight.raycastTarget=false;
+            if(sweepShader!=null){sweepMaterial=new Material(sweepShader);frameLight.material=sweepMaterial;}
         }
         void Update()
         {
             if(visual==null)return;
-            scale=Mathf.MoveTowards(scale,held?.966f:1,Time.unscaledDeltaTime*.5f);visual.localScale=Vector3.one*scale;
+            bool idle=!held&&!queued&&button.IsInteractable();
+            float target=held?.966f:idle?1+Mathf.Sin(Time.unscaledTime*1.05f)*.006f:1;
+            scale=Mathf.MoveTowards(scale,target,Time.unscaledDeltaTime*.5f);visual.localScale=Vector3.one*scale;
             art.sprite=held?pressed:normal;
             frameLight.color=new Color(1,1,1,held?.025f:.045f+Mathf.Sin(Time.unscaledTime*.8f)*.015f);
+            if(sweepMaterial!=null)sweepMaterial.SetFloat(SweepId,idle?Mathf.Repeat(Time.unscaledTime/7f,1)*1.8f-.4f:-1);
         }
+        void OnDestroy(){if(sweepMaterial!=null)Destroy(sweepMaterial);}
         public void OnPointerDown(PointerEventData e){if(e.button==PointerEventData.InputButton.Left&&!queued&&button.IsInteractable())held=true;}
         public void OnPointerUp(PointerEventData e){if(e.button==PointerEventData.InputButton.Left)held=false;}
         public void OnPointerExit(PointerEventData e){held=false;}

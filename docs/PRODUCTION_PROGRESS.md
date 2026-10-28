@@ -1,5 +1,14 @@
 # Üretim ilerlemesi
 
+## PART09B — Ana menü canlılığı
+29 Ekim 2026: Tasarım korunarak PLAY görseline ±%0,6 nefes ve altın kenar
+geçişi, üç mimari katmana su/pencere maskeleri eklendi. Mevcut kedi, şişe,
+sis ve parçacık animasyonları korundu. Gerçek Unity'de38 kontrol,63 dokunma
+noktası,372147 sabit maske dışı piksel ve Home→Gameplay→Home geçti.
+Mevcut Boot/gameplay smoke exit0. Üç oran/Safe Area ve39 kare GIF hazır.
+910 diğer tracked/133 eski untracked dosya korundu. Fiziksel iPhone testi
+yapılmadı; yeni iOS/Cloud Build yok. Rapor:ProductionReports/PART09B.md.
+
 - PART04C tamamlandı:üst kaynak çubuğu,rapor ProductionReports/PART04C.md,commit d910351.
 - Kalıcı çalışma sistemi hazır:AGENTS.md,REFERENCE_REGISTRY.md,ProductionReports;belge commit'i f8883bc.
 - PART04D uygulanmadı;son talimat yalnız04E ile sınırlandı.

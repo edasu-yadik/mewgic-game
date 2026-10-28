@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "method": "Veri maskesi: uzamsal bölge + kaynak renk + alpha; resim yeniden üretilmedi",
+  "masks": [
+    {
+      "source": "Layer02_DistantIslands_v001.png",
+      "mask": "Assets/Art/Environment/Home/MotionMasks/Layer02_DistantIslands_v001_Motion.asset",
+      "waterPixels": 2558,
+      "windowPixels": 182,
+      "width": 256,
+      "height": 512,
+      "gpuBytes": 524288
+    },
+    {
+      "source": "Layer03_MainCastle_v001.png",
+      "mask": "Assets/Art/Environment/Home/MotionMasks/Layer03_MainCastle_v001_Motion.asset",
+      "waterPixels": 5078,
+      "windowPixels": 812,
+      "width": 256,
+      "height": 512,
+      "gpuBytes": 524288
+    },
+    {
+      "source": "Layer04_Village_v001.png",
+      "mask": "Assets/Art/Environment/Home/MotionMasks/Layer04_Village_v001_Motion.asset",
+      "waterPixels": 1093,
+      "windowPixels": 944,
+      "width": 256,
+      "height": 512,
+      "gpuBytes": 524288
+    }
+  ]
+}

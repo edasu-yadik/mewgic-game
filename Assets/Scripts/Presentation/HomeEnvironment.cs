@@ -8,11 +8,12 @@ namespace Mewgic
     {
         public Sprite sky, distantIslands, mainCastle, village, foreground, atmosphere;
         public Shader waterLightShader;
+        public Texture2D distantMotionMask,castleMotionMask,villageMotionMask;
         RectTransform composition, skyRect, fogRect, foregroundRect;
         Image fog;
         RectTransform[] motes;
         Graphic[] lights;
-        Material waterLight;
+        Material[] waterLights;
         float fogBaseY;
         static readonly int EnvironmentTimeId=Shader.PropertyToID("_EnvironmentTime");
         public int LayerCount { get; private set; }
@@ -32,7 +33,6 @@ namespace Mewgic
             composition.anchorMin=composition.anchorMax=new Vector2(.5f,1f);
             composition.pivot=new Vector2(.5f,1f);
             composition.sizeDelta=new Vector2(900,1600);
-            if(waterLightShader != null) waterLight=new Material(waterLightShader);
             var distant=Plane(composition,"Layer02_DistantIslands",distantIslands,true);
             WidthFit(distant);
             distant.color=new Color(.76f,.82f,1f,.78f);
@@ -41,7 +41,12 @@ namespace Mewgic
             castle.rectTransform.localScale=Vector3.one*.94f;
             var houses=Plane(composition,"Layer04_Village",village,true);
             WidthFit(houses);
-            if(waterLight!=null){distant.material=waterLight;castle.material=waterLight;houses.material=waterLight;}
+            if(waterLightShader!=null)
+            {
+                var planes=new[]{distant,castle,houses};var masks=new[]{distantMotionMask,castleMotionMask,villageMotionMask};
+                waterLights=new Material[3];
+                for(int i=0;i<planes.Length;i++){waterLights[i]=new Material(waterLightShader);waterLights[i].SetTexture("_EffectMask",masks[i]!=null?masks[i]:Texture2D.blackTexture);planes[i].material=waterLights[i];}
+            }
             foregroundRect=Plane(composition,"Layer05_Foreground",foreground,true).rectTransform;
             var ambient=new GameObject("Layer06_Atmosphere",typeof(RectTransform)).GetComponent<RectTransform>();
             ambient.SetParent(composition,false);Stretch(ambient);
@@ -91,7 +96,7 @@ namespace Mewgic
             if(!Mounted)return;
             Layout();AnimationTime=Time.unscaledTime;
             float t=AnimationTime;
-            if(waterLight!=null)waterLight.SetFloat(EnvironmentTimeId,t);
+            if(waterLights!=null)foreach(var material in waterLights)material.SetFloat(EnvironmentTimeId,t);
             fogRect.anchoredPosition=new Vector2(Mathf.Sin(t*.065f)*12,fogBaseY+Mathf.Sin(t*.045f)*4);
             fog.color=new Color(1,1,1,.14f+Mathf.Sin(t*.16f)*.015f);
             for(int i=0;i<motes.Length;i++)
@@ -101,6 +106,6 @@ namespace Mewgic
                 lights[i].color=new Color(1,.76f,.32f,.10f+(Mathf.Sin(t*(.6f+i*.02f)+phase)+1)*.10f);
             }
         }
-        void OnDestroy(){if(waterLight!=null)Destroy(waterLight);}
+        void OnDestroy(){if(waterLights!=null)foreach(var material in waterLights)if(material!=null)Destroy(material);}
     }
 }

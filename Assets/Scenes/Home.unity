@@ -691,6 +691,9 @@ MonoBehaviour:
   foreground: {fileID: 21300000, guid: 481213aef08841f409aa0b348afbd1d7, type: 3}
   atmosphere: {fileID: 21300000, guid: e0d50b75742d2fd40ae6e1b99e803d6e, type: 3}
   waterLightShader: {fileID: 4800000, guid: d79513d547ad4c847ba4f2bac8d6b2ce, type: 3}
+  distantMotionMask: {fileID: 2800000, guid: 697423adf74029d44b2579c3fde428db, type: 2}
+  castleMotionMask: {fileID: 2800000, guid: b40c3843acbd02f4bbc2011e9cdfdf44, type: 2}
+  villageMotionMask: {fileID: 2800000, guid: 3ad16ec63272a0a4c8a5c7835b3519e1, type: 2}
 --- !u!114 &1617162468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,6 +742,7 @@ MonoBehaviour:
   normal: {fileID: 21300000, guid: 1b7efeca4a625854b95558e15f2f24c2, type: 3}
   pressed: {fileID: 21300000, guid: aba41768636f31f47be6a4e1e1bc014d, type: 3}
   glow: {fileID: 21300000, guid: 3f0f5d58a1bcf704499986ee704977cf, type: 3}
+  frameSweepShader: {fileID: 4800000, guid: c5c0c0082bd2a3f478519fe099a7a4ca, type: 3}
 --- !u!114 &1617162471
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "error": null,
+  "checks": [
+    "Gerçek Home Play Mode 900x1600",
+    "Mevcut göz kırpma/18 kıvılcım havuzu korunuyor",
+    "Altın kenar geçişi tek örnek materyalle destekleniyor",
+    "Sis ve mevcut16 ortam ışığı; ek parçacık sistemi yok",
+    "ParticleSystem eklenmedi",
+    "PLAY nefesi en fazla ±%0.6",
+    "Altın ışık kenar boyunca ilerliyor",
+    "PLAY dokunma RectTransform'u birebir aynı",
+    "63 dokunma noktası nefes animasyonundan etkilenmedi",
+    "Layer02_DistantIslands mimari transform'u sabit",
+    "Layer03_MainCastle mimari transform'u sabit",
+    "Layer04_Village mimari transform'u sabit",
+    "Mevcut şişe salınımı, kedi nefesi ve otomatik değnek hareketi devam ediyor",
+    "Mevcut büyülü parçacıklar yavaş hareket ediyor",
+    "6.5sn canlılık sırasında nesne sayısı sabit",
+    "Üç katmana özel paylaşılan maskeli materyal; frame başına üretim yok",
+    "Layer02_DistantIslands veri maskesi mevcut",
+    "Layer02_DistantIslands gerçek GPU render'ında su akıyor",
+    "Layer02_DistantIslands seçilmiş pencere ışıkları değişiyor",
+    "Layer02_DistantIslands maske dışı pikseller birebir sabit",
+    "Layer03_MainCastle veri maskesi mevcut",
+    "Layer03_MainCastle gerçek GPU render'ında su akıyor",
+    "Layer03_MainCastle seçilmiş pencere ışıkları değişiyor",
+    "Layer03_MainCastle maske dışı pikseller birebir sabit",
+    "Layer04_Village veri maskesi mevcut",
+    "Layer04_Village gerçek GPU render'ında su akıyor",
+    "Layer04_Village seçilmiş pencere ışıkları değişiyor",
+    "Layer04_Village maske dışı pikseller birebir sabit",
+    "Basma animasyonu nefese üstün; mevcut pressed sprite korunuyor",
+    "Basma sırasında kenar geçişi duruyor",
+    "Efektler PLAY dokunmasını yakalamıyor",
+    "Çift tıklama koruması aynı",
+    "Mevcut basma bırakma gecikmesi korunuyor",
+    "Gerçek Gameplay açıldı",
+    "Home'a dönüş; mimari/efekt component'i tek",
+    "Dönüşte tek PLAY sunucusu",
+    "Kedi havuzu dönüşte18 olarak korundu",
+    "Gerçek oyuncu kaydı değişmedi"
+  ],
+  "shaderChecks": [
+    {
+      "layer": "Layer02_DistantIslands",
+      "waterChangedPixels": 2480,
+      "windowChangedPixels": 169,
+      "outsidePixels": 125020,
+      "unchangedOutside": 125020
+    },
+    {
+      "layer": "Layer03_MainCastle",
+      "waterChangedPixels": 5013,
+      "windowChangedPixels": 722,
+      "outsidePixels": 121458,
+      "unchangedOutside": 121458
+    },
+    {
+      "layer": "Layer04_Village",
+      "waterChangedPixels": 1053,
+      "windowChangedPixels": 809,
+      "outsidePixels": 125669,
+      "unchangedOutside": 125669
+    }
+  ],
+  "runtimeErrors": [],
+  "seconds": 10.1283884
+}
