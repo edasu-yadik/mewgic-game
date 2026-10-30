@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEngine.GameObject.Find(\"Restart\").GetComponent<UnityEngine.UI.Button>().onClick.Invoke(); var invoked=UnityEditor.EditorApplication.ExecuteMenuItem(\"Mewgic/QA/PART11F/Patiyi Yeniden Oynat\"); return new { menuInvoked=invoked, demo=UnityEngine.Object.FindFirstObjectByType<Mewgic.UI.PawGuide>().DemoRunning, isolatedProfile=Mewgic.GameplayProgress.IsTestProfile };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "menuInvoked": true,
+        "demo": true,
+        "isolatedProfile": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

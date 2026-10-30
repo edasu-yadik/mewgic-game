@@ -1,0 +1,578 @@
+[
+  {
+    "frame": 0,
+    "time": 1.99261665,
+    "stage": "Delay",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 0
+  },
+  {
+    "frame": 1,
+    "time": 2.11649156,
+    "stage": "Delay",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 0
+  },
+  {
+    "frame": 2,
+    "time": 2.24017215,
+    "stage": "Delay",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 0
+  },
+  {
+    "frame": 3,
+    "time": 2.36067581,
+    "stage": "Delay",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 0
+  },
+  {
+    "frame": 4,
+    "time": 2.481478,
+    "stage": "Delay",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 0
+  },
+  {
+    "frame": 5,
+    "time": 2.601865,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -257.3546,
+    "y": -117.875511,
+    "moves": 0
+  },
+  {
+    "frame": 6,
+    "time": 2.72374344,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -239.04686,
+    "y": -67.16514,
+    "moves": 0
+  },
+  {
+    "frame": 7,
+    "time": 2.84486032,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -204.908325,
+    "y": 27.3947182,
+    "moves": 0
+  },
+  {
+    "frame": 8,
+    "time": 2.966521,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -162.649979,
+    "y": 144.44545,
+    "moves": 0
+  },
+  {
+    "frame": 9,
+    "time": 3.0897615,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -119.944519,
+    "y": 262.7347,
+    "moves": 0
+  },
+  {
+    "frame": 10,
+    "time": 3.21305823,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -85.6723,
+    "y": 357.6648,
+    "moves": 0
+  },
+  {
+    "frame": 11,
+    "time": 3.33311081,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -68.41631,
+    "y": 405.4619,
+    "moves": 0
+  },
+  {
+    "frame": 12,
+    "time": 3.453811,
+    "stage": "Source",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 408.0,
+    "moves": 0
+  },
+  {
+    "frame": 13,
+    "time": 3.5749867,
+    "stage": "SourceClick",
+    "press": 0.07726682,
+    "x": -67.5,
+    "y": 406.317444,
+    "moves": 0
+  },
+  {
+    "frame": 14,
+    "time": 3.69542861,
+    "stage": "SourceClick",
+    "press": 0.411827683,
+    "x": -67.5,
+    "y": 401.266846,
+    "moves": 0
+  },
+  {
+    "frame": 15,
+    "time": 4.169472,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 408.0,
+    "moves": 0
+  },
+  {
+    "frame": 16,
+    "time": 4.290984,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 381.3765,
+    "moves": 0
+  },
+  {
+    "frame": 17,
+    "time": 4.413419,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 312.085358,
+    "moves": 0
+  },
+  {
+    "frame": 18,
+    "time": 4.53785849,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 215.671555,
+    "moves": 0
+  },
+  {
+    "frame": 19,
+    "time": 4.65845966,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 114.208458,
+    "moves": 0
+  },
+  {
+    "frame": 20,
+    "time": 4.78165054,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": 19.7003555,
+    "moves": 0
+  },
+  {
+    "frame": 21,
+    "time": 4.90316772,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -47.4993439,
+    "moves": 0
+  },
+  {
+    "frame": 22,
+    "time": 5.027522,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 0
+  },
+  {
+    "frame": 23,
+    "time": 5.14806128,
+    "stage": "Target",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 0
+  },
+  {
+    "frame": 24,
+    "time": 5.27149773,
+    "stage": "TargetClick",
+    "press": 0.2140098,
+    "x": -67.5,
+    "y": -76.35962,
+    "moves": 0
+  },
+  {
+    "frame": 25,
+    "time": 5.801976,
+    "stage": "Pouring",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 26,
+    "time": 5.923971,
+    "stage": "Pouring",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 27,
+    "time": 6.04407,
+    "stage": "Pouring",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 28,
+    "time": 6.1647253,
+    "stage": "Pouring",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 29,
+    "time": 6.288734,
+    "stage": "Pouring",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 30,
+    "time": 6.411827,
+    "stage": "Celebration",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 31,
+    "time": 6.53503847,
+    "stage": "Celebration",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 32,
+    "time": 6.65533638,
+    "stage": "Celebration",
+    "press": 0.0,
+    "x": -67.5,
+    "y": -71.99994,
+    "moves": 1
+  },
+  {
+    "frame": 33,
+    "time": 7.125361,
+    "stage": "CatTravel",
+    "press": 0.0,
+    "x": -209.1478,
+    "y": -142.0359,
+    "moves": 1
+  },
+  {
+    "frame": 34,
+    "time": 7.246831,
+    "stage": "CatTravel",
+    "press": 0.0,
+    "x": -265.5425,
+    "y": -169.919556,
+    "moves": 1
+  },
+  {
+    "frame": 35,
+    "time": 7.37157726,
+    "stage": "CatTravel",
+    "press": 0.0,
+    "x": -309.802124,
+    "y": -191.803162,
+    "moves": 1
+  },
+  {
+    "frame": 36,
+    "time": 7.493083,
+    "stage": "CatTravel",
+    "press": 0.0,
+    "x": -328.391083,
+    "y": -200.994232,
+    "moves": 1
+  },
+  {
+    "frame": 37,
+    "time": 7.61524153,
+    "stage": "CatTravel",
+    "press": 0.0,
+    "x": -328.5,
+    "y": -201.0481,
+    "moves": 1
+  },
+  {
+    "frame": 38,
+    "time": 7.73614931,
+    "stage": "CatClick",
+    "press": 0.08601612,
+    "x": -328.5,
+    "y": -202.916748,
+    "moves": 1
+  },
+  {
+    "frame": 39,
+    "time": 7.860893,
+    "stage": "CatClick",
+    "press": 0.432525724,
+    "x": -328.5,
+    "y": -207.891418,
+    "moves": 1
+  },
+  {
+    "frame": 40,
+    "time": 7.984102,
+    "stage": "Thought",
+    "press": 0.774772942,
+    "x": -328.5,
+    "y": -205.598022,
+    "moves": 1
+  },
+  {
+    "frame": 41,
+    "time": 8.105457,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": -328.5,
+    "y": -201.0481,
+    "moves": 1
+  },
+  {
+    "frame": 42,
+    "time": 8.228243,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": -328.5,
+    "y": -201.0481,
+    "moves": 1
+  },
+  {
+    "frame": 43,
+    "time": 8.348947,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 44,
+    "time": 8.469611,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 45,
+    "time": 8.932575,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 46,
+    "time": 9.056096,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 47,
+    "time": 9.178182,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 48,
+    "time": 9.302405,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 49,
+    "time": 9.425951,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 50,
+    "time": 9.547611,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 51,
+    "time": 9.670398,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 52,
+    "time": 9.790809,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 53,
+    "time": 9.912716,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 54,
+    "time": 10.035574,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 55,
+    "time": 10.1583519,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 56,
+    "time": 10.2800865,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 57,
+    "time": 10.401782,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 58,
+    "time": 10.5255394,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 59,
+    "time": 10.6481876,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 60,
+    "time": 10.7716064,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 61,
+    "time": 10.89278,
+    "stage": "Thought",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 62,
+    "time": 11.0144949,
+    "stage": "Closed",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  },
+  {
+    "frame": 63,
+    "time": 11.1363544,
+    "stage": "Closed",
+    "press": 0.0,
+    "x": 0.0,
+    "y": 0.0,
+    "moves": 1
+  }
+]

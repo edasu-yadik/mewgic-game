@@ -1,0 +1,10 @@
+{
+  "trackedBaselineCount": 1461,
+  "changed": [
+    "Assets/Scripts/UI/PawGuide.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "expected": true,
+  "newProductionFile": "Assets/Scripts/UI/PawCursorGraphic.cs",
+  "scenesModelsSavePrefabsArtProjectSettingsUnchanged": true
+}
