@@ -151,6 +151,7 @@ namespace Mewgic
         public void UseBooster(BoosterKind kind)
         {
             if(busy||paused||puzzle.Won||navigating)return;
+            if(pawGuide!=null&&pawGuide.BlocksGameplayActions)return;
             if(kind==BoosterKind.Hint&&hintTarget>=0){status.text="İpucu zaten gösteriliyor; hak harcanmadı.";return;}
             bool applied=false;
             switch(kind)
@@ -163,7 +164,7 @@ namespace Mewgic
             if(!applied)status.text=boosters.Message;else pawGuide?.ResetGuide();Refresh();
         }
         void NextLevel(){if(busy||paused||!puzzle.Won||navigating)return;if(GameplayLevelCatalog.Advance(levelInfo.id,progress)){navigating=true;Mewgic.SceneNavigation.LoadOnce("Gameplay");}}
-        public void PauseGame(){if(hud==null||paused)return;paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
+        public void PauseGame(){if(hud==null||paused)return;pawGuide?.SuspendHelp();paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
         public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateTools();}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
         void CancelPour()
