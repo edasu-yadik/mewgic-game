@@ -109,3 +109,5 @@ Yeni bar/tema script'leri,prefab,SDF fontlar,lisanslar,TMP bağımlılıkları,
 Yalnız recovery/part09-completion dalına commit/push yapılır; uzak SHA
 teslimde doğrulanır. Master'a merge yapılmaz. Cloud Build,IPA,sertifika ve
 App Store Connect işlemi yoktur. Sonraki beta cihaz kabulü ayrı görevdir.
+
+Teslim: uygulama commit4e43c70ce8198baf0be2e6fcf51641512c74a390 private origin/recovery/part09-completion dalına push edildi; git ls-remote ile aynı SHA doğrulandı. Master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Tracked çalışma ağacı teslim öncesi temizdi.
