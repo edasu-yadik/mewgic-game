@@ -1,0 +1,89 @@
+{
+  "referenceBoard": [
+    630,
+    960
+  ],
+  "rows": [
+    {
+      "count": 2,
+      "oldColumns": 2,
+      "newColumns": 2,
+      "oldWidth": 220.5,
+      "oldHeight": 525.0,
+      "newWidth": 258.3,
+      "newHeight": 615.0,
+      "heightChangePercent": 17.14
+    },
+    {
+      "count": 4,
+      "oldColumns": 2,
+      "newColumns": 2,
+      "oldWidth": 161.28,
+      "oldHeight": 384.0,
+      "newWidth": 171.36,
+      "newHeight": 408.0,
+      "heightChangePercent": 6.25
+    },
+    {
+      "count": 5,
+      "oldColumns": 4,
+      "newColumns": 3,
+      "oldWidth": 110.25,
+      "oldHeight": 262.5,
+      "newWidth": 171.36,
+      "newHeight": 408.0,
+      "heightChangePercent": 55.43
+    },
+    {
+      "count": 6,
+      "oldColumns": 4,
+      "newColumns": 3,
+      "oldWidth": 110.25,
+      "oldHeight": 262.5,
+      "newWidth": 171.36,
+      "newHeight": 408.0,
+      "heightChangePercent": 55.43
+    },
+    {
+      "count": 8,
+      "oldColumns": 4,
+      "newColumns": 4,
+      "oldWidth": 110.25,
+      "oldHeight": 262.5,
+      "newWidth": 129.15,
+      "newHeight": 307.5,
+      "heightChangePercent": 17.14
+    },
+    {
+      "count": 12,
+      "oldColumns": 4,
+      "newColumns": 4,
+      "oldWidth": 107.52,
+      "oldHeight": 256.0,
+      "newWidth": 104.16,
+      "newHeight": 248.0,
+      "heightChangePercent": -3.12
+    }
+  ],
+  "topReserve": 28,
+  "bottomReserve": 44,
+  "numberHeight": 32,
+  "numberOffset": 6,
+  "minimumCheckedTouchPixels": 44,
+  "visualFixtureCounts": [
+    2,
+    6,
+    12
+  ],
+  "geometryCounts": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    12,
+    20,
+    32
+  ]
+}

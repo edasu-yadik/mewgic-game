@@ -1,0 +1,9 @@
+{
+  "baselineCount": 1209,
+  "changed": [
+    "Assets/Scripts/Presentation/GameplayPresentation.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs",
+    "Assets/Scripts/UI/PawGuide.cs"
+  ],
+  "unchanged": 1206
+}

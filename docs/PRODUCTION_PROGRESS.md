@@ -1,5 +1,12 @@
 # Üretim ilerlemesi
 
+## PART10E — Uyarlanan şişe boyutları
+Alanı ölçen sütun seçimi,ayrık cam/dokunma kutuları ve sabit numara bandı
+eklendi.4 şişe+%6,25,gerçek5 şişe+%55,4;yoğun düzende güvenli pay korundu.
+3972 Unity kontrolü,3 oran,2/6/12 fixture,gerçek aktarım/Pause/Undo/Restart
+veikinci bölüm geçti. Hedef aktarımda sabit;Pati Rig'i izliyor. Yeni build yok.
+Rapor:ProductionReports/PART10E_REPORT.md.
+
 ## PART10D — Küçük üst HUD
 Sol Bölüm,sağ Hamle,en sağ Pause;ortak büyük hedef paneli kaldırıldı.
 Pati açıklamaları korundu. HUD76–100 birim,board üst sınırı0,90;alan yaklaşık

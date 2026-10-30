@@ -191,7 +191,7 @@ namespace Mewgic
                     bottleViews[i]=b;
                     var hit=b.gameObject.AddComponent<Button>();hit.targetGraphic=b.GetComponent<Image>();b.GetComponent<Image>().raycastTarget=true;hit.onClick.AddListener(()=>Select(index));
                     var view=b.gameObject.AddComponent<GameplayBottleView>();view.Initialize(glass,Colors);
-                    Label(b,"Number",(i+1).ToString(),22,Gold,new Vector2(.2f,-.18f),new Vector2(.8f,-.02f));
+                    var number=Label(b,"Number",(i+1).ToString(),22,Gold,new Vector2(.2f,0),new Vector2(.8f,0));number.rectTransform.pivot=new Vector2(.5f,1);number.rectTransform.sizeDelta=new Vector2(0,32);number.rectTransform.anchoredPosition=new Vector2(0,-6);
                 }
             }
             for(int i=0;i<puzzle.Count;i++)bottleViews[i].GetComponent<GameplayBottleView>().Present(puzzle.Bottle(i),selected==i);

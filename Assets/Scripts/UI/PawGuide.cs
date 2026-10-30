@@ -49,7 +49,7 @@ namespace Mewgic.UI
             if(Visible){fade.alpha=Mathf.MoveTowards(fade.alpha,1,Time.unscaledDeltaTime*6);bubble.localScale=Vector3.one*Mathf.Lerp(.95f,1,fade.alpha);if(State==Phase.Celebration&&Time.unscaledTime>=closeAt)Close();}
             if(!app.GuideCanInteract){bubble.gameObject.SetActive(false);marker.gameObject.SetActive(false);return;}bubble.gameObject.SetActive(Visible);
             Transform target=State==Phase.Source?GameObject.Find("Bottle "+(Recommended.Source+1))?.transform:State==Phase.Target?GameObject.Find("Bottle "+(Recommended.Target+1))?.transform:State==Phase.Feature&&!string.IsNullOrWhiteSpace(feature?.targetName)?GameObject.Find(feature.targetName)?.transform:null;
-            marker.gameObject.SetActive(target!=null);if(target!=null){var r=(RectTransform)target;r.GetWorldCorners(corners);min=safe.InverseTransformPoint(corners[0]);max=safe.InverseTransformPoint(corners[2]);marker.anchorMin=marker.anchorMax=new Vector2(.5f,.5f);marker.anchoredPosition=(min+max)*.5f;marker.sizeDelta=max-min+Vector2.one*12;}
+            marker.gameObject.SetActive(target!=null);if(target!=null){var view=target.GetComponent<GameplayBottleView>();var r=view!=null?view.Rig:(RectTransform)target;r.GetWorldCorners(corners);min=safe.InverseTransformPoint(corners[0]);max=safe.InverseTransformPoint(corners[2]);marker.anchorMin=marker.anchorMax=new Vector2(.5f,.5f);marker.anchoredPosition=(min+max)*.5f;marker.sizeDelta=max-min+Vector2.one*12;}
         }
     }
     [RequireComponent(typeof(CanvasRenderer))]public sealed class PawHighlight:MaskableGraphic

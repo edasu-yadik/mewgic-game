@@ -11,15 +11,19 @@ namespace Mewgic
         RectTransform[] bottles=new RectTransform[0];
         readonly System.Collections.Generic.List<RectTransform> shelves=new System.Collections.Generic.List<RectTransform>();
         Vector2 lastSize;
-        public static int Columns(int count)=>count<=1?1:count<=4?2:count<=8?4:Mathf.CeilToInt(Mathf.Sqrt(count));
+        public static int Columns(int count)=>Columns(count,new Vector2(630,960));
+        public static int Columns(int count,Vector2 size)
+        {
+            int best=1;float largest=-1;for(int cols=1;cols<=Mathf.Max(1,count);cols++){int rows=Mathf.CeilToInt(count/(float)cols);float h=Mathf.Min(size.y/Mathf.Max(1,rows)-72,size.x/cols*.82f/.42f);if(h>largest+.01f){largest=h;best=cols;}}return best;
+        }
         public static Rect Slot(int index,int count,Vector2 size)
         {
-            int cols=Columns(count),rows=Mathf.Max(1,Mathf.CeilToInt(count/(float)cols));
+            int cols=Columns(count,size),rows=Mathf.Max(1,Mathf.CeilToInt(count/(float)cols));
             float cw=size.x/cols,ch=size.y/rows;
-            float height=Mathf.Min(ch*.80f,cw*.70f/.42f),width=height*.42f;
+            float height=Mathf.Max(1,Mathf.Min(ch-72,cw*.82f/.42f)),width=height*.42f;
             int row=index/cols,col=index%cols;int inRow=Mathf.Min(cols,count-row*cols);
             float cx=(col+.5f)*cw+(cols-inRow)*cw*.5f;
-            float y=size.y-(row+1)*ch+ch*.18f;
+            float y=size.y-(row+1)*ch+44;
             return new Rect((cx-width*.5f)/size.x,y/size.y,width/size.x,height/size.y);
         }
         static RectTransform Rect(Transform p,string name){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
@@ -38,7 +42,7 @@ namespace Mewgic
             Layout();
         }
         public void SetTopLimit(float top){if(board==null||Mathf.Approximately(board.anchorMax.y,top))return;board.anchorMax=new Vector2(board.anchorMax.x,top);Layout();}
-        public void Bind(RectTransform[] views){bottles=views;int rows=Mathf.CeilToInt(views.Length/(float)Columns(views.Length));while(shelves.Count<rows)shelves.Add(Art(world.Find("StoneShelves"),"StoneShelf_"+shelves.Count,shelf).rectTransform);for(int i=0;i<shelves.Count;i++)shelves[i].gameObject.SetActive(i<rows);Layout();}
+        public void Bind(RectTransform[] views){bottles=views;int rows=Mathf.CeilToInt(views.Length/(float)Columns(views.Length,board.rect.size));while(shelves.Count<rows)shelves.Add(Art(world.Find("StoneShelves"),"StoneShelf_"+shelves.Count,shelf).rectTransform);for(int i=0;i<shelves.Count;i++)shelves[i].gameObject.SetActive(i<rows);Layout();}
         public void Layout()
         {
             if(safe==null)return;
@@ -49,7 +53,8 @@ namespace Mewgic
             perch.anchorMin=perch.anchorMax=new Vector2(.135f,.29f);perch.pivot=new Vector2(.5f,.92f);perch.anchoredPosition=Vector2.zero;perch.sizeDelta=new Vector2(safe.rect.width*.27f,65*unit);
             if(IsAnimating)return;
             for(int i=0;i<bottles.Length;i++){if(bottles[i]==null)continue;var slot=Slot(i,bottles.Length,board.rect.size);var b=bottles[i];b.anchorMin=slot.min;b.anchorMax=slot.max;b.offsetMin=b.offsetMax=Vector2.zero;}
-            int cols=Columns(bottles.Length),rows=Mathf.Max(1,Mathf.CeilToInt(bottles.Length/(float)cols));
+            int cols=Columns(bottles.Length,board.rect.size),rows=Mathf.Max(1,Mathf.CeilToInt(bottles.Length/(float)cols));
+            while(shelves.Count<rows)shelves.Add(Art(world.Find("StoneShelves"),"StoneShelf_"+shelves.Count,shelf).rectTransform);for(int i=0;i<shelves.Count;i++)shelves[i].gameObject.SetActive(i<rows&&bottles.Length>0);
             for(int row=0;row<Mathf.CeilToInt(bottles.Length/(float)cols);row++)
             {
                 var slot=Slot(row*cols,bottles.Length,board.rect.size);var point=board.TransformPoint(new Vector3(board.rect.center.x,board.rect.yMin+slot.yMin*board.rect.height));var local=(Vector2)safe.InverseTransformPoint(point);
