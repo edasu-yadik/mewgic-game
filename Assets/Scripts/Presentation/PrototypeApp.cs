@@ -130,7 +130,9 @@ namespace Mewgic
             var level=GameplayLevelCatalog.Current();levelInfo=level.Info;puzzle=new Puzzle(level.Bottles);
             originalBottleCount=puzzle.Count;progress=GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount);
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
-            status=Label(safe,"Status","Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
+            status=Label(safe,"Status","",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
+            var tutorialOverlay=new GameObject("TutorialOverlay",typeof(RectTransform)).GetComponent<RectTransform>();
+            tutorialOverlay.SetParent(safe,false);tutorialOverlay.anchorMin=new Vector2(.06f,.2f);tutorialOverlay.anchorMax=new Vector2(.94f,.27f);tutorialOverlay.offsetMin=tutorialOverlay.offsetMax=Vector2.zero;
             restart=Button(safe,"Restart","YENİDEN",new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
             home=Button(safe,"Home",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);});
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
@@ -171,7 +173,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="Önce kaynak, sonra hedef şişeye dokun.\nKarıştır: yalnızca şişelerin yerleri değişir.";Refresh();}
+        void Reset(){if(busy||paused)return;puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh()
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)

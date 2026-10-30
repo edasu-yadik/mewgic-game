@@ -1,5 +1,11 @@
 # Üretim ilerlemesi
 
+## PART10A — Sabit Gameplay öğretici metni
+Başlangıç/Reset içindeki “Önce kaynak…” kaldırıldı; boş TutorialOverlay hazır.
+Diğer dinamik mesajlar korundu. Unity'de seçim/aktarma/Undo/Restart/zafer/Replay
+ve üç oran/Safe Area geçti; gerçek oyuncu kaydı korundu. Yeni build yok.
+Rapor:ProductionReports/PART10A_REPORT.md.
+
 ## PART09C — Home açıklama yazılarının kaldırılması
 29 Ekim2026: PrototypeApp.Home içindeki Subtitle ve Footnote üretimi kaldırıldı.
 Yalnız iki metin ve gölgeleri kalktı; logo/PLAY/şişe/kedi yerleşimi korundu.
