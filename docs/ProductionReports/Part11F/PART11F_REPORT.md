@@ -67,7 +67,7 @@ Kayıt şeması değiştirilmedi. Önceki güç eğitimi geçmişleri silinmedi.
 - `Cat_RepeatHelp.png`: oyuncunun kediye tekrar dokunmasıyla açılan balon.
 - `Gameplay_Clean.png`: öğretici sonrasında temiz Gameplay.
 
-`-1950` ve `-2000` sürümleri aynı klasördedir. `Part11F_Overview.jpg` bu gerçek karelerden özet görünümüdür. `UnityEditor_MovingPaw.jpg` ve `UnityEditor_Thought.jpg`, doğrudan Unity Editor Game View penceresi yakalamasıdır. Kedi balonu gerçek fare dokunuşuyla, güvenli tekrar oynatma Editor menü çağrısıyla ayrıca doğrulandı (`PREVIEW_MENU.json`). Ham hareket kareleri yerelde tutulur; Git'e eklenmez.
+`-1950` ve `-2000` sürümleri aynı klasördedir. `Part11F_Overview.jpg` bu gerçek karelerden özet görünümüdür. `UnityEditor_MovingPaw.jpg` ve `UnityEditor_Thought.jpg`, doğrudan Unity Editor Game View penceresi yakalamasıdır. Kedi balonu gerçek fare dokunuşuyla, güvenli tekrar oynatma Editor menü çağrısıyla ayrıca doğrulandı (`PREVIEW_MENU.json`). `UnityEditor_Clean.jpg` son temiz Gameplay görünümüdür. Ham hareket kareleri yerelde tutulur; Git'e eklenmez.
 
 ## Güvenli tekrar oynatma
 
@@ -93,4 +93,4 @@ Tek pati grafiği ve tek balon tekrar kullanılır; sürekli nesne/partikül ür
 
 ## Git teslimi
 
-Doğrulanan PART11F değişiklikleri mevcut geliştirme dalına gönderilecek; uzak commit doğrulaması teslim kaydına eklenir.
+Uygulama/QA/görsel commit’i `48d253a7a26a9b7426fb20ec4077a9ae2db29136`, private origin `recovery/part09-completion` dalına başarıyla push edildi. `git ls-remote` uzak SHA eşleşmesini doğruladı. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak aynı kaldı. Bu teslim kaydı ayrıca dokümantasyon commit’iyle gönderilir.
