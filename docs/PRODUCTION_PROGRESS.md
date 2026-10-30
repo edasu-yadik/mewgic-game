@@ -1,5 +1,11 @@
 # Üretim ilerlemesi
 
+## PART10F — Alt açıklamanın kaldırılması
+BoosterPolicy runtime metni kaldırıldı;Restart/Home hizası,dokunma alanları
+ve işlevleri korundu.30 Unity kontrolü,3 oran/Safe Area ve gerçek raycast
+başarılı;runtime0 hata/uyarı. Ekonomi aynı;yeni build yok.
+Rapor:ProductionReports/PART10F_REPORT.md.
+
 ## PART10E — Uyarlanan şişe boyutları
 Alanı ölçen sütun seçimi,ayrık cam/dokunma kutuları ve sabit numara bandı
 eklendi.4 şişe+%6,25,gerçek5 şişe+%55,4;yoğun düzende güvenli pay korundu.

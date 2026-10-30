@@ -25,7 +25,7 @@ namespace Mewgic
                 Label(im.transform,"Label",labels[i],26,new Vector2(.04f,.12f),new Vector2(.96f,.29f));
                 var badge=Rect(im.transform,"CounterBadge",new Vector2(.72f,.77f),new Vector2(.99f,1.02f));badge.gameObject.AddComponent<CanvasRenderer>();var graphic=badge.gameObject.AddComponent<BoosterBadge>();graphic.raycastTarget=false;counts[i]=Label(badge,"Charges","",28,Vector2.zero,Vector2.one);
             }
-            Label(safe,"BoosterPolicy","Ücretsiz başlangıç hakları • satın alma yok",16,new Vector2(.04f,0),new Vector2(.96f,.021f));return buttons[0];
+            return buttons[0];
         }
         public void Present(Puzzle p,ProgressLedger ledger,bool locked,int baseCount)
         {
