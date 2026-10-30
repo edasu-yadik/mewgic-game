@@ -1,0 +1,22 @@
+{
+  "commercialEmbeddingAllowed": true,
+  "licenses": [
+    {
+      "file": "Assets\\Art\\Typography\\cormorantgaramond-OFL.txt",
+      "sha256": "2d18818d1e2044bda96e663840ef64c32d1e6aa53a11d05cc8b70e4aa0dffef8",
+      "license": "SIL OFL1.1",
+      "source": "https://github.com/google/fonts/tree/main/ofl/cormorantgaramond"
+    },
+    {
+      "file": "Assets\\Art\\Typography\\notosans-OFL.txt",
+      "sha256": "303aa29b5fe1a05733ddfa4c68971e417df7fa05c4ea5ebc3bb897a261595700",
+      "license": "SIL OFL1.1",
+      "source": "https://github.com/google/fonts/tree/main/ofl/notosans"
+    }
+  ],
+  "fonts": {
+    "heading": "Cormorant Garamond static instance weight650",
+    "bodyNumbersButtons": "Noto Sans static instance weight550 width100"
+  },
+  "turkish": "ÇĞİÖŞÜçğıöşü and digits verified in both SDF assets"
+}

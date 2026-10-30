@@ -1,9 +1,10 @@
+using TMPro;using Mewgic.UI;
 using System;using UnityEngine;using UnityEngine.UI;
 namespace Mewgic
 {
     public sealed class GameplayEndScreen : MonoBehaviour
     {
-        RectTransform root;Image[] stars=new Image[3],sparks=new Image[24];Text reward,summary;Button next;int awarded;float clock;Func<bool> paused;bool showing;
+        RectTransform root;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary;Button next;int awarded;float clock;Func<bool> paused;bool showing;
         public GameObject Panel=>root.gameObject;
         public bool IsShowing=>showing;
         public void Mount(RectTransform safe,Action replay,Action advance,Action home,Func<bool> isPaused)
@@ -27,7 +28,7 @@ namespace Mewgic
             if(showing)return;showing=true;awarded=starCount;clock=0;root.gameObject.SetActive(true);root.SetAsLastSibling();
             summary.text="Bölüm "+level+" • "+moves+" hamle • "+starCount+" yıldız";
             reward.text=!saved?"Ödül kaydedilemedi; tekrar deneyebilirsin.":granted?"İlk tamamlama ödülü: +1 İpucu\nHak kalıcı olarak kaydedildi.":"Bu bölümün ödülü daha önce alındı.\nEn iyi yıldız sonucun korunur.";
-            next.interactable=hasNext;next.transform.Find("Label").GetComponent<Text>().text=hasNext?"SONRAKİ BÖLÜM":"SON BÖLÜM TAMAMLANDI";
+            next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?"SONRAKİ BÖLÜM":"SON BÖLÜM TAMAMLANDI";
             Animate();
         }
         public void Hide(){showing=false;if(root!=null)root.gameObject.SetActive(false);}

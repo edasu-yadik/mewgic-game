@@ -1,3 +1,4 @@
+using TMPro;using Mewgic.UI;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +9,8 @@ namespace Mewgic
         public Sprite panel,coin,gem,heart,plus,settings;
         public HomeResourceModel Model {get;private set;}
         RectTransform root,safe,popup;
-        Text coinsText,gemsText,energyText,heartText,message;
-        Button soundButton;Text soundLabel;
+        TMP_Text coinsText,gemsText,energyText,heartText,message;
+        Button soundButton;TMP_Text soundLabel;
         static readonly CultureInfo Turkish=CultureInfo.GetCultureInfo("tr-TR");
         public void Mount(RectTransform safeArea)
         {
@@ -22,7 +23,7 @@ namespace Mewgic
             var gear=Art(root,"SettingsButton",settings,new Vector2(.91f,0),new Vector2(1,1));var b=gear.gameObject.AddComponent<Button>();b.targetGraphic=gear;b.onClick.AddListener(OpenSettings);gear.raycastTarget=true;gear.raycastPadding=new Vector4(-4,-4,-4,-4);
             Model.Changed+=Refresh;Refresh();BuildPopup();Layout();
         }
-        RectTransform Meter(string name,int i,Sprite icon,string buttonName,string info,out Text text)
+        RectTransform Meter(string name,int i,Sprite icon,string buttonName,string info,out TMP_Text text)
         {
             float start=i*.302f;var r=Rect(root,name,new Vector2(start,0),new Vector2(start+.29f,1));Art(r,"Panel",panel,Vector2.zero,Vector2.one);
             Art(r,"Icon",icon,new Vector2(-.015f,-.05f),new Vector2(.30f,1.05f));
@@ -37,9 +38,9 @@ namespace Mewgic
         {
             var i=Rect(parent,name,min,max).gameObject.AddComponent<Image>();i.sprite=s;i.preserveAspect=true;i.raycastTarget=false;return i;
         }
-        static Text Label(Transform p,string name,string text,Vector2 min,Vector2 max,int size)
+        static TMP_Text Label(Transform p,string name,string text,Vector2 min,Vector2 max,int size)
         {
-            var t=Rect(p,name,min,max).gameObject.AddComponent<Text>();t.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");t.fontStyle=FontStyle.Bold;t.text=text;t.fontSize=size;t.color=Color.white;t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.resizeTextForBestFit=true;t.resizeTextMinSize=12;t.resizeTextMaxSize=size;t.horizontalOverflow=HorizontalWrapMode.Wrap;t.verticalOverflow=VerticalWrapMode.Truncate;var shadow=t.gameObject.AddComponent<Shadow>();shadow.effectColor=new Color(0,0,0,.8f);shadow.effectDistance=new Vector2(1,-2);return t;
+            var t=Rect(p,name,min,max).gameObject.AddComponent<TextMeshProUGUI>();t.font=MewgicTypographySettings.Current.body;t.fontStyle=FontStyles.Bold;t.text=text;t.fontSize=size;t.color=Color.white;t.alignment=TextAlignmentOptions.Midline;t.raycastTarget=false;t.enableAutoSizing=true;t.fontSizeMin=12;t.fontSizeMax=size;t.textWrappingMode=TextWrappingModes.Normal;t.overflowMode=TextOverflowModes.Truncate;MewgicTypographySettings.Prepare(t);return t;
         }
         public static string FormatAmount(long n)
         {

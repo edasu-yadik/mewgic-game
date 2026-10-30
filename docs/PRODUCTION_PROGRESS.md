@@ -149,3 +149,6 @@ TestFlight güncellemesi: imzalama dosyaları kullanıcı onayıyla Unity Cloud'
 PART09A Git teslimi:4cdaab01dd85cde5e1e54f1b25188912f54364bb private origin/master push başarılı; uzak SHA eşleşti. Yeni TestFlight build'i yok.
 
 PART09 kurtarma (30 Ekim2026):09A-C korundu;09D 12a349e,09E 002e604 recovery/part09-completion dalında tamamlandı.09E gerçek Unity962 kontrol/63 render/runtime0 hata.09F numaralı3/5 referansı eksik; uygulanmadı. Yeni build yok. Rapor ProductionReports/PART09_RECOVERY_REPORT.md.
+
+## PART09F — BÜYÜ / MASALSI
+30 Ekim2026: Dinamik MagicalProgressBar prefabı/ProgressBarStyle ve iki lisanslı TMP SDF fontuyla dört tipografi rolü uygulandı.11 bar gerçek Daily/Weekly/Season/Collection/Map verisine bağlı.7070 kontrol/79 render,oyun/ödül/JSON yükleme,Türkçe glif ve3 oran/Safe Area geçti;runtime0 hata/0 uyarı.09D/E korundu;master aynı;recovery dalına teslim. Fiziksel iPhone testi ve yeni build yok. Rapor ProductionReports/PART09F_REPORT.md.

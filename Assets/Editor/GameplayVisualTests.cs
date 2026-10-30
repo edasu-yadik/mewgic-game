@@ -22,10 +22,10 @@ case 0:Check(p!=null,"Gameplay presentation mounted");Check(GameObject.Find("Bot
 for(int count=1;count<=24;count++){var rects=new List<Rect>();for(int i=0;i<count;i++){var slot=GameplayPresentation.Slot(i,count,new Vector2(630,688));Check(slot.xMin>=0&&slot.yMin>=0&&slot.xMax<=1&&slot.yMax<=1,"Layout slot inside "+count+":"+i);foreach(var r in rects)Check(!slot.Overlaps(r),"Layout slots separate "+count+":"+i);rects.Add(slot);}}
 Capture(1600);Capture(1950);Capture(2000);Capture(2000,true,"-safe");break;
 case 1:Click("Bottle 1");break;
-case 2:Click("Bottle 2");Check(GameObject.Find("Moves").GetComponent<Text>().text=="HAMLE  0","Invalid move unchanged");break;
+case 2:Click("Bottle 2");Check(GameObject.Find("Moves").GetComponent<TMPro.TMP_Text>().text=="HAMLE  0","Invalid move unchanged");break;
 case 3:Click("Bottle 3");Check(p.IsAnimating,"Pour locks layout");break;
-case 4:Check(!p.IsAnimating,"Pour releases layout");Check(GameObject.Find("Moves").GetComponent<Text>().text=="HAMLE  1","Successful move counted");Click("Undo");break;
-case 5:Check(GameObject.Find("Moves").GetComponent<Text>().text=="HAMLE  0","Undo exact count");Click("Restart");break;
+case 4:Check(!p.IsAnimating,"Pour releases layout");Check(GameObject.Find("Moves").GetComponent<TMPro.TMP_Text>().text=="HAMLE  1","Successful move counted");Click("Undo");break;
+case 5:Check(GameObject.Find("Moves").GetComponent<TMPro.TMP_Text>().text=="HAMLE  0","Undo exact count");Click("Restart");break;
 case 6:Click("Bottle 1");break;
 case 7:Click("Bottle 3");break;
 case 8:Click("Bottle 2");break;
@@ -33,7 +33,7 @@ case 9:Click("Bottle 1");break;
 case 10:Click("Bottle 2");break;
 case 11:Click("Bottle 3");break;
 case 12:Check(GameObject.Find("Win panel")!=null,"Original level won");Capture(1600,false,"-win");Click("Replay");break;
-case 13:Check(GameObject.Find("Moves").GetComponent<Text>().text=="HAMLE  0","Replay resets");Click("Home");break;
+case 13:Check(GameObject.Find("Moves").GetComponent<TMPro.TMP_Text>().text=="HAMLE  0","Replay resets");Click("Home");break;
 case 14:Check(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="Home","Gameplay Home return");Click("Play");break;
 case 15:Check(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="Gameplay","Home PLAY returns Gameplay");Finish(null);return;}step++;}catch(Exception e){Finish(e.ToString());}}
 }

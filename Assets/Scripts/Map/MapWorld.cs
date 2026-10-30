@@ -1,3 +1,4 @@
+using TMPro;using Mewgic.UI;
 using System;using System.Collections.Generic;using UnityEngine;using UnityEngine.EventSystems;using UnityEngine.InputSystem.UI;using UnityEngine.SceneManagement;using UnityEngine.UI;
 namespace Mewgic.Map
 {
@@ -28,15 +29,15 @@ namespace Mewgic.Map
         readonly float[] widths={620,560,600,540};
         readonly float[] heights=new float[4];
         readonly Vector2[] pointPositions={new Vector2(.23f,.43f),new Vector2(.45f,.39f),new Vector2(.67f,.44f)};
-        Image background,mist;MapPathGraphic paths;RectTransform header,tabs,navigation,scrollArea;Text regionTitle,informationText;
-        GameObject information;Image[] tabImages=new Image[4];Sprite panel;Font font;Material waterLight;Rect nativeSafe;int screenWidth,screenHeight;Vector2 lastSafeSize;bool jumping;int requestedRegion=-1;float jumpTarget,scale;
+        Image background,mist;MapPathGraphic paths;RectTransform header,tabs,navigation,scrollArea;TMP_Text regionTitle,informationText;
+        GameObject information;Image[] tabImages=new Image[4];Sprite panel;TMP_FontAsset font;Material waterLight;Rect nativeSafe;int screenWidth,screenHeight;Vector2 lastSafeSize;bool jumping;int requestedRegion=-1;float jumpTarget,scale;
 
         static RectTransform Rect(Transform p,string name,Vector2 min,Vector2 max)
         {var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         static Image Art(Transform p,string name,Sprite sprite,Vector2 min,Vector2 max)
         {var im=Rect(p,name,min,max).gameObject.AddComponent<Image>();im.sprite=sprite;im.raycastTarget=false;return im;}
-        Text Label(Transform p,string name,string value,int size,Vector2 min,Vector2 max)
-        {var t=Rect(p,name,min,max).gameObject.AddComponent<Text>();t.font=font;t.text=value;t.fontSize=size;t.resizeTextForBestFit=true;t.resizeTextMinSize=14;t.resizeTextMaxSize=size;t.color=new Color32(255,248,228,255);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;var s=t.gameObject.AddComponent<Shadow>();s.effectColor=new Color(0,0,0,.85f);s.effectDistance=new Vector2(1,-2);return t;}
+        TMP_Text Label(Transform p,string name,string value,int size,Vector2 min,Vector2 max)
+        {var t=Rect(p,name,min,max).gameObject.AddComponent<TextMeshProUGUI>();t.font=font;t.text=value;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=14;t.fontSizeMax=size;t.color=new Color32(255,248,228,255);t.alignment=TextAlignmentOptions.Midline;t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
         Image Panel(Transform p,string name,Vector2 min,Vector2 max)
         {var im=Art(p,name,panel,min,max);im.type=Image.Type.Sliced;return im;}
         Button Control(Transform p,string name,string text,Vector2 min,Vector2 max,Action action)
@@ -47,7 +48,7 @@ namespace Mewgic.Map
             if(Mounted)return;
             if(sky==null||node==null||chest==null||fog==null||terrain==null||terrain.Length!=4)throw new InvalidOperationException("Map art references missing");
             for(int i=0;i<4;i++)if(terrain[i]==null)throw new InvalidOperationException("Map region art missing");
-            font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");panel=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
+            font=MewgicTypographySettings.Current.body;panel=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
             var canvasGo=new GameObject("LevelMapCanvas",typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));Canvas=canvasGo.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;
             var scaler=canvasGo.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(900,1600);scaler.matchWidthOrHeight=.5f;
             background=Art(canvasGo.transform,"SkyAndDistantIslands",sky,Vector2.zero,Vector2.one);

@@ -1,3 +1,4 @@
+using TMPro;using Mewgic.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,7 +26,7 @@ namespace Mewgic
                 var image=g.GetComponent<Image>();image.sprite=i==0?activeTile:tile;image.raycastTarget=true;
                 var button=g.GetComponent<Button>();button.targetGraphic=image;button.onClick.AddListener(()=>Navigate(destination));
                 var icon=new GameObject("Icon",typeof(RectTransform),typeof(Image));icon.transform.SetParent(g.transform,false);var ir=(RectTransform)icon.transform;ir.anchorMin=new Vector2(.08f,.23f);ir.anchorMax=new Vector2(.92f,.97f);ir.offsetMin=ir.offsetMax=Vector2.zero;var art=icon.GetComponent<Image>();art.sprite=sprites[i];art.preserveAspect=true;art.raycastTarget=false;
-                var label=new GameObject("Label",typeof(RectTransform),typeof(Text));label.transform.SetParent(g.transform,false);var lr=(RectTransform)label.transform;lr.anchorMin=new Vector2(.035f,.025f);lr.anchorMax=new Vector2(.965f,.255f);lr.offsetMin=lr.offsetMax=Vector2.zero;var text=label.GetComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontStyle=FontStyle.Bold;text.fontSize=25;text.color=Color.white;text.text=destination.ToString();text.alignment=TextAnchor.MiddleCenter;text.raycastTarget=false;text.resizeTextForBestFit=true;text.resizeTextMinSize=14;text.resizeTextMaxSize=25;var shadow=label.AddComponent<Shadow>();shadow.effectColor=Color.black;shadow.effectDistance=new Vector2(1,-2);
+                var label=new GameObject("Label",typeof(RectTransform),typeof(TextMeshProUGUI));label.transform.SetParent(g.transform,false);var lr=(RectTransform)label.transform;lr.anchorMin=new Vector2(.035f,.025f);lr.anchorMax=new Vector2(.965f,.255f);lr.offsetMin=lr.offsetMax=Vector2.zero;var text=label.GetComponent<TMP_Text>();text.font=MewgicTypographySettings.Current.body;text.fontStyle=FontStyles.Bold;text.fontSize=25;text.color=Color.white;text.text=destination.ToString();text.alignment=TextAlignmentOptions.Midline;text.raycastTarget=false;text.enableAutoSizing=true;text.fontSizeMin=14;text.fontSizeMax=25;MewgicTypographySettings.Prepare(text);
             }
             Layout();
         }

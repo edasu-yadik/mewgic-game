@@ -1,24 +1,25 @@
+using TMPro;using Mewgic.UI;
 using System;using Mewgic.Core;using UnityEngine;using UnityEngine.UI;using UnityEngine.SceneManagement;
 namespace Mewgic.Map
 {
  public sealed partial class MapWorld
  {
-  MapProgression progression;ProgressLedger ledger;Button claimButton;int selectedChest=-1;bool navigating;MapNodeBadge[] badges;Text[] regionProgress;
+  MapProgression progression;ProgressLedger ledger;Button claimButton;int selectedChest=-1;bool navigating;MapNodeBadge[] badges;TMP_Text[] regionProgress;MagicalProgressBar[] regionBars;
   public MapProgression Progression=>progression;
   void BindProgress()
   {
    ledger=GameplayProgress.Current;
    try{progression=MapProgressionCatalog.Open(ledger);}catch(Exception e){Message("Harita verisi açılamadı: "+e.Message);return;}
-   badges=new MapNodeBadge[points.Count];regionProgress=new Text[4];
+   badges=new MapNodeBadge[points.Count];regionProgress=new TMP_Text[4];regionBars=new MagicalProgressBar[4];
    var star=Resources.Load<Sprite>("Gameplay/HUD/HUD_Star_v001");
    for(int i=0;i<points.Count;i++){badges[i]=points[i].gameObject.AddComponent<MapNodeBadge>();badges[i].Build(points[i].kind==MapPointKind.Chest,star,font);}
    for(int i=0;i<4;i++){
     var plate=WorldRoot.Find("RegionLabels/"+RegionNames[i]+"/RegionName_"+i);
-    plate.GetComponent<RectTransform>().sizeDelta=new Vector2(0,86);
-    var title=plate.Find("Label").GetComponent<RectTransform>();title.anchorMin=new Vector2(.04f,.47f);title.anchorMax=new Vector2(.96f,.86f);plate.Find("Label").GetComponent<Text>().resizeTextMaxSize=23;
-    regionProgress[i]=Label(plate,"RegionCompletion","",17,new Vector2(.04f,.15f),new Vector2(.96f,.44f));
+    plate.GetComponent<RectTransform>().sizeDelta=new Vector2(0,110);
+    var title=plate.Find("Label").GetComponent<RectTransform>();title.anchorMin=new Vector2(.04f,.62f);title.anchorMax=new Vector2(.96f,.94f);plate.Find("Label").GetComponent<TMP_Text>().fontSizeMax=23;
+    regionBars[i]=MagicalProgressBar.Create(plate,"RegionProgress",new Vector2(.12f,.31f),new Vector2(.88f,.54f));regionBars[i].label.fontSizeMin=12;regionBars[i].label.fontSizeMax=15;regionProgress[i]=Label(plate,"RegionCompletion","",17,new Vector2(.04f,.03f),new Vector2(.96f,.29f));
    }
-   var box=information.transform.Find("InformationPanel");box.Find("Title").GetComponent<Text>().text="HARİTA";
+   var box=information.transform.Find("InformationPanel");box.Find("Title").GetComponent<TMP_Text>().text="HARİTA";
    var msg=informationText.rectTransform;msg.anchorMin=new Vector2(.08f,.48f);msg.anchorMax=new Vector2(.92f,.73f);
    claimButton=Control(box,"ClaimMapChest","ÖDÜLÜ AL",new Vector2(.15f,.30f),new Vector2(.85f,.46f),ClaimSelectedChest);claimButton.gameObject.SetActive(false);
    RefreshProgress();
@@ -34,8 +35,8 @@ namespace Mewgic.Map
    }
    for(int r=0;r<4;r++){
     int count=progression.Completed(r),total=progression.Total(r),stars=0;for(int n=0;n<3;n++)stars+=progression.Stars(progression.LevelId(r,n));
-    regionProgress[r].text=progression.RegionOpen(r)?count+"/"+total+" bölüm • "+stars+"/"+(total*3)+" yıldız"+(progression.RegionComplete(r)?" • TAMAMLANDI":""):"KİLİTLİ • Bölümler hazırlanıyor";
-    var tab=tabs.Find("RegionJump_"+r+"/Label").GetComponent<Text>();tab.resizeTextMaxSize=progression.RegionOpen(r)?24:20;tab.text=RegionNames[r].Replace(" ","\n")+(progression.RegionOpen(r)?"":"\nKİLİTLİ");
+    regionBars[r].SetValue(count,total,0,true,!progression.RegionOpen(r));regionProgress[r].text=progression.RegionOpen(r)?count+"/"+total+" bölüm • "+stars+"/"+(total*3)+" yıldız"+(progression.RegionComplete(r)?" • TAMAMLANDI":""):"KİLİTLİ • Bölümler hazırlanıyor";
+    var tab=tabs.Find("RegionJump_"+r+"/Label").GetComponent<TMP_Text>();tab.fontSizeMax=progression.RegionOpen(r)?24:20;tab.text=RegionNames[r].Replace(" ","\n")+(progression.RegionOpen(r)?"":"\nKİLİTLİ");
    }
    UpdateProgressTitle();
   }
@@ -60,13 +61,13 @@ namespace Mewgic.Map
  }
  public sealed class MapNodeBadge : MonoBehaviour
  {
-  Image art,halo;Text number,arrow;Image[] stars;MapLockGraphic locked;bool chest;float clock;bool current;
+  Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;bool chest;float clock;bool current;
   public MapLevelStatus Status {get;private set;}public int Stars {get;private set;}
   static RectTransform Rect(Transform p,string name,Vector2 center,Vector2 size){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=center;return r;}
-  public void Build(bool isChest,Sprite star,Font font){chest=isChest;art=transform.Find("Art").GetComponent<Image>();
+  public void Build(bool isChest,Sprite star,TMP_FontAsset font){chest=isChest;art=transform.Find("Art").GetComponent<Image>();
    var h=Rect(transform,"CurrentGlow",Vector2.zero,art.rectTransform.sizeDelta*1.25f);h.SetAsFirstSibling();halo=h.gameObject.AddComponent<Image>();halo.sprite=art.sprite;halo.preserveAspect=true;halo.raycastTarget=false;halo.gameObject.SetActive(false);
-   var n=Rect(transform,"LevelNumber",new Vector2(0,1),new Vector2(65,46));number=n.gameObject.AddComponent<Text>();number.font=font;number.fontStyle=FontStyle.Bold;number.fontSize=40;number.alignment=TextAnchor.MiddleCenter;number.color=Color.white;number.raycastTarget=false;var shadow=n.gameObject.AddComponent<Shadow>();shadow.effectColor=new Color(.03f,.02f,.10f,1);shadow.effectDistance=new Vector2(2,-2);
-   var arrowRect=Rect(transform,"CurrentMarker",new Vector2(0,52),new Vector2(40,38));arrow=arrowRect.gameObject.AddComponent<Text>();arrow.font=font;arrow.fontSize=30;arrow.text="▼";arrow.alignment=TextAnchor.MiddleCenter;arrow.color=new Color32(255,220,80,255);arrow.raycastTarget=false;arrow.gameObject.SetActive(false);
+   var n=Rect(transform,"LevelNumber",new Vector2(0,1),new Vector2(65,46));number=n.gameObject.AddComponent<TextMeshProUGUI>();number.font=font;MewgicTypographySettings.Prepare(number);number.fontStyle=FontStyles.Bold;number.fontSize=40;number.alignment=TextAlignmentOptions.Midline;number.textWrappingMode=TextWrappingModes.NoWrap;number.enableAutoSizing=true;number.fontSizeMin=18;number.fontSizeMax=36;number.color=Color.white;number.raycastTarget=false;
+   var arrowRect=Rect(transform,"CurrentMarker",new Vector2(0,52),new Vector2(40,38));arrow=arrowRect.gameObject.AddComponent<TextMeshProUGUI>();arrow.font=font;MewgicTypographySettings.Prepare(arrow);arrow.fontSize=22;arrow.textWrappingMode=TextWrappingModes.NoWrap;arrow.text="▼";arrow.alignment=TextAlignmentOptions.Midline;arrow.color=new Color32(255,220,80,255);arrow.raycastTarget=false;arrow.gameObject.SetActive(false);
    locked=Rect(transform,"Lock",new Vector2(0,3),new Vector2(26,29)).gameObject.AddComponent<MapLockGraphic>();locked.raycastTarget=false;
    stars=new Image[3];for(int i=0;i<3;i++){var im=Rect(transform,"MapStar"+i,new Vector2((i-1)*22,-31),Vector2.one*25).gameObject.AddComponent<Image>();im.sprite=star;im.preserveAspect=true;im.raycastTarget=false;stars[i]=im;}
   }

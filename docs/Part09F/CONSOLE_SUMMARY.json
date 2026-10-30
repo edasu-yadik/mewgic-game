@@ -1,0 +1,9 @@
+{
+  "playModeErrors": 0,
+  "playModeWarnings": 0,
+  "compileErrors": 0,
+  "compileWarnings": 0,
+  "editorShutdownJobTempAllocMessages": 2,
+  "mcp": "Pipeline unavailable; actual Editor executeMethod used",
+  "GameView": "900x1600"
+}

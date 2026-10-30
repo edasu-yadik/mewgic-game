@@ -1,3 +1,4 @@
+using TMPro;using Mewgic.UI;
 using System;
 using System.Collections;
 using Mewgic.Core;
@@ -31,9 +32,9 @@ namespace Mewgic
         static readonly Color Gold = new Color32(244,202,114,255);
         static readonly Color[] Colors = { new Color32(35,210,242,255), new Color32(240,65,164,255), new Color32(255,211,59,255), new Color32(151,88,244,255) };
         RectTransform safe, board;
-        Font font;
+        TMP_FontAsset font;
         Puzzle puzzle;
-        Text status;
+        TMP_Text status;
         Button undo, restart, home;
         RectTransform[] bottleViews;
         string victoryReceipt=Guid.NewGuid().ToString("N");
@@ -46,7 +47,7 @@ namespace Mewgic
         {
             if (SceneManager.GetActiveScene().name == "Boot") { GameplayLevelCatalog.ResumeFromSave(); Mewgic.SceneNavigation.LoadOnce("Home"); return; }
             AudioListener.volume=GameplayProgress.Current.Presentation.soundEnabled?1:0;
-            font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            font = MewgicTypographySettings.Current.body;
             var canvasObject = new GameObject("Mewgic Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasObject.GetComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvasObject.GetComponent<CanvasScaler>();
@@ -90,13 +91,13 @@ namespace Mewgic
             var image=go.GetComponent<Image>(); image.color=color; image.raycastTarget=false;
             return rt;
         }
-        Text Label(Transform parent,string name,string value,int size,Color color,Vector2 min,Vector2 max)
+        TMP_Text Label(Transform parent,string name,string value,int size,Color color,Vector2 min,Vector2 max)
         {
-            var go=new GameObject(name,typeof(RectTransform),typeof(Text)); go.transform.SetParent(parent,false);
+            var go=new GameObject(name,typeof(RectTransform),typeof(TextMeshProUGUI)); go.transform.SetParent(parent,false);
             var rt=(RectTransform)go.transform; rt.anchorMin=min; rt.anchorMax=max; rt.offsetMin=rt.offsetMax=Vector2.zero;
-            var text=go.GetComponent<Text>(); text.font=font; text.text=value; text.fontSize=size; text.color=color;
-            text.alignment=TextAnchor.MiddleCenter; text.raycastTarget=false; text.resizeTextForBestFit=true; text.resizeTextMinSize=14; text.resizeTextMaxSize=size;
-            return text;
+            var text=go.GetComponent<TMP_Text>(); text.font=font; text.text=value; text.fontSize=size; text.color=color;
+            text.alignment=TextAlignmentOptions.Midline; text.raycastTarget=false; text.enableAutoSizing=true; text.fontSizeMin=14; text.fontSizeMax=size;
+            MewgicTypographySettings.Prepare(text);return text;
         }
         Button Button(Transform parent,string name,string text,Vector2 min,Vector2 max,UnityEngine.Events.UnityAction action)
         {

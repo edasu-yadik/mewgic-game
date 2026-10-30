@@ -1,3 +1,4 @@
+using TMPro;using Mewgic.UI;
 using System;using Mewgic.Core;using UnityEngine;using UnityEngine.UI;
 namespace Mewgic
 {
@@ -8,10 +9,10 @@ namespace Mewgic
     }
     public sealed class GameplayTools : MonoBehaviour
     {
-        Button[] buttons=new Button[4];Text[] counts=new Text[4];Image[] icons=new Image[4];
+        Button[] buttons=new Button[4];TMP_Text[] counts=new TMP_Text[4];Image[] icons=new Image[4];
         public static RectTransform Rect(Transform p,string n,Vector2 min,Vector2 max){var r=new GameObject(n,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         public static Image Art(Transform p,string n,Sprite sprite,Vector2 min,Vector2 max,bool sliced=false){var im=Rect(p,n,min,max).gameObject.AddComponent<Image>();im.sprite=sprite;im.type=sliced?Image.Type.Sliced:Image.Type.Simple;im.raycastTarget=false;return im;}
-        public static Text Label(Transform p,string n,string text,int size,Vector2 min,Vector2 max){var t=Rect(p,n,min,max).gameObject.AddComponent<Text>();t.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");t.text=text;t.fontSize=size;t.resizeTextForBestFit=true;t.resizeTextMinSize=14;t.resizeTextMaxSize=size;t.color=Color.white;t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;var s=t.gameObject.AddComponent<Shadow>();s.effectColor=new Color(0,0,0,.9f);s.effectDistance=new Vector2(1,-2);return t;}
+        public static TMP_Text Label(Transform p,string n,string text,int size,Vector2 min,Vector2 max){var t=Rect(p,n,min,max).gameObject.AddComponent<TextMeshProUGUI>();t.font=MewgicTypographySettings.Current.body;t.text=text;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=14;t.fontSizeMax=size;t.color=Color.white;t.alignment=TextAlignmentOptions.Midline;t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
         public Button Mount(RectTransform safe,Action<BoosterKind> use)
         {
             var root=Rect(safe,"GameplayBoosters",new Vector2(.045f,.075f),new Vector2(.955f,.195f));

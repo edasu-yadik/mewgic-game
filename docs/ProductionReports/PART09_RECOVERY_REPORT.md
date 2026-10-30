@@ -73,3 +73,6 @@ sertifikası ve App Store Connect işlemi yapılmadı.
 uzak SHA teslim sırasında git ls-remote ile doğrulanır. Master korunur.
 
 09E sonucu:962 kontrol,63 render,runtime hata0,oyuncu kaydı korundu; commit002e604. Numara ölçümünde metin taşması saptanmadı. Commit/push raporu kurtarma dalındadır.
+
+## 09F bağımlılığı giderildi — 30 Ekim2026
+Kullanıcı altı seçenekli gerçek karşılaştırmayı sağladı.09F uygulandı ve Windows Unity testleri geçti; ayrıntı PART09F_REPORT.md. Yukarıdaki BAŞLANMADI durumu kurtarma günündeki tarihsel durumdur. Master ve TestFlight sürümü korunur;cihaz kabulü halen açık.

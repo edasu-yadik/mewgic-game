@@ -1,0 +1,30 @@
+{
+  "baselineTracked": 982,
+  "changed": [
+    "Assets/Editor/BetaPlayTests.cs",
+    "Assets/Editor/DailyActivitiesTests.cs",
+    "Assets/Editor/GameplayBoosterTests.cs",
+    "Assets/Editor/GameplayBottleTests.cs",
+    "Assets/Editor/GameplayHudTests.cs",
+    "Assets/Editor/GameplayVisualTests.cs",
+    "Assets/Editor/HomeNavigationTests.cs",
+    "Assets/Editor/HomeTopBarTests.cs",
+    "Assets/Editor/HomeVisualAuditTests.cs",
+    "Assets/Editor/MapProgressionTests.cs",
+    "Assets/Scripts/Daily/DailyActivitiesPanel.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "Assets/Scripts/Map/MapWorldProgression.cs",
+    "Assets/Scripts/Presentation/GameplayEndScreen.cs",
+    "Assets/Scripts/Presentation/GameplayHud.cs",
+    "Assets/Scripts/Presentation/GameplayTools.cs",
+    "Assets/Scripts/Presentation/HomeNavigation.cs",
+    "Assets/Scripts/Presentation/HomeTopBar.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs",
+    "Assets/Scripts/Rewards/RewardHubPanel.cs",
+    "Assets/Scripts/Tests/HomeEventsAuditProbe.cs",
+    "Assets/Scripts/Tests/UILayoutAuditProbe.cs"
+  ],
+  "unchanged": 960,
+  "oldUntrackedChanged": [],
+  "master": "f243d7a355fedf9cfbc65f8060f1d3bc14cae169"
+}
