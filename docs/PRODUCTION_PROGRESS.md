@@ -147,3 +147,5 @@ TestFlight güncellemesi: imzalama dosyaları kullanıcı onayıyla Unity Cloud'
 29 Ekim 2026: Boot'a Mewgic logo/kedi/değnek/şişe sunumu, hafif animasyon, gerçek kayıt/kaynak doğrulaması ve asenkron Home ilerlemesi eklendi. Unity6000.3.27f1/Personal korundu; Unity6 resmî isteğe bağlı splash ayarı kapatıldı.5 senaryo/79 kontrol,6 model grubu,4 sahne ve yeni Boot üzerinden gameplay smoke exit0 geçti.900x1600/1950/2000 Safe Area render kanıtları docs/Part09A altında.875 mevcut tracked dosyadan yalnız Boot ve splash ayarı değişti;133 eski untracked dosya korundu. Fiziksel iPhone kabulü bu yeni ekran için yapılmadı; yeni TestFlight/Cloud Build başlatılmadı. Rapor:ProductionReports/PART09A.md.
 
 PART09A Git teslimi:4cdaab01dd85cde5e1e54f1b25188912f54364bb private origin/master push başarılı; uzak SHA eşleşti. Yeni TestFlight build'i yok.
+
+PART09 kurtarma (30 Ekim2026):09A-C korundu;09D 12a349e,09E 002e604 recovery/part09-completion dalında tamamlandı.09E gerçek Unity962 kontrol/63 render/runtime0 hata.09F numaralı3/5 referansı eksik; uygulanmadı. Yeni build yok. Rapor ProductionReports/PART09_RECOVERY_REPORT.md.
