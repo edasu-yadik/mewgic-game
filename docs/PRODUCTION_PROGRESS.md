@@ -192,3 +192,5 @@ PART09 kurtarma (30 Ekim2026):09A-C korundu;09D 12a349e,09E 002e604 recovery/par
 
 ## PART09F — BÜYÜ / MASALSI
 30 Ekim2026: Dinamik MagicalProgressBar prefabı/ProgressBarStyle ve iki lisanslı TMP SDF fontuyla dört tipografi rolü uygulandı.11 bar gerçek Daily/Weekly/Season/Collection/Map verisine bağlı.7070 kontrol/79 render,oyun/ödül/JSON yükleme,Türkçe glif ve3 oran/Safe Area geçti;runtime0 hata/0 uyarı.09D/E korundu;master aynı;recovery dalına teslim. Fiziksel iPhone testi ve yeni build yok. Rapor ProductionReports/PART09F_REPORT.md.
+
+PART10G (30 Ekim 2026): A-F güncel Unity Play Mode regresyonu 475 kontrol/3 model grubu ile geçti; runtime 0 hata/0 uyarı, oyuncu kaydı korundu. Üç mobil oran ve Safe Area render kanıtları ProductionReports/Part10 altında. Editor Gameplay Play Mode'da izole önizleme profiliyle açık bırakıldı. Üretim kodu ve master değişmedi; yeni build yok. Açılış servis/yerleşim mesajları raporda ayrıdır. Rapor: ProductionReports/Part10/PART10G_REPORT.md.
