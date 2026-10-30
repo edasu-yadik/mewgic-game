@@ -1,0 +1,8 @@
+{
+  "baselineHead": "cb83ecbe20c64c71a0ba781596c5ed4dfb55e3b0",
+  "trackedCount": 1329,
+  "changedTrackedFiles": [
+    "Assets/Scripts/Presentation/PrototypeApp.cs",
+    "Assets/Scripts/UI/PawGuide.cs"
+  ]
+}

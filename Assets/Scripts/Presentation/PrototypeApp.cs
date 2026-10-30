@@ -208,6 +208,7 @@ namespace Mewgic
         void Select(int target)
         {
             if(busy||paused||puzzle.Won)return;
+            if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
             hintTarget=-1;
             if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Bu şişe boş.";return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
             if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}

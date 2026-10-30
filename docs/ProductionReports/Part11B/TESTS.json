@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "failure": null,
+  "checks": [
+    "Gerçek Play Mode çıkış/yeniden girişinde tamamlanan eğitim açılmıyor",
+    "Diskten yeniden açılan bütün oyuncu test verileri aynı",
+    "Yeniden giriş normal bölüm başlangıcını koruyor",
+    "Buton: PawCatTouch",
+    "Tamamlanmış eğitimde kedi menüsü istek üzerine çalışıyor",
+    "Buton: PawHint",
+    "PART11A metinsiz Hint korundu"
+  ],
+  "errors": [],
+  "warnings": [],
+  "playerSaveAndBackupIntact": true,
+  "realPlayerPrefsTest": true,
+  "playModeReload": true,
+  "unity": "6000.3.27f1"
+}

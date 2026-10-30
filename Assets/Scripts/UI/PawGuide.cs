@@ -7,56 +7,79 @@ namespace Mewgic.UI
         public enum Phase{Closed,Welcome,Source,Target,Celebration,Menu,General,Feature}
         public Phase State{get;private set;}
         public PuzzleMove Recommended{get;private set;}
-        PrototypeApp app;Puzzle model;ProgressLedger ledger;RectTransform safe,bubble,hit,marker;CanvasGroup fade;TMP_Text message;Button next,how,hint,close;
+        PrototypeApp app;Puzzle model;ProgressLedger ledger;RectTransform safe,bubble,hit,marker;CanvasGroup fade;TMP_Text message,gameplayStatus;Button next,how,hint,close;
         readonly Vector3[] corners=new Vector3[4];
-        RectTransform cat;Mewgic.Characters.WizardCatPresentation actor;float closeAt;PawTutorialDefinition feature;
+        RectTransform cat;Mewgic.Characters.WizardCatPresentation actor;float closeAt,readyDeadline,fadeStartedAt,fadeFrom;PawTutorialDefinition feature;
+        bool autoWelcomePending;int mountedFrame,recommendedAtMove;
+        const string WelcomeText="Merhaba! Ben senin büyücü yardımcınım. Hadi ilk iksirimizi hazırlayalım!";
+        const string SourceText="Önce parlayan şişeye dokun!";
+        const string TargetText="Şimdi aynı renkli sıvıyı uygun şişeye aktar!";
+        const string CelebrationText="Harika! Artık renkleri kendi şişelerinde toplayabilirsin.";
         public bool Visible=>State!=Phase.Closed;
         public void Mount(PrototypeApp host,RectTransform area,Puzzle puzzle,ProgressLedger progress,int level)
         {
             app=host;safe=area;model=puzzle;ledger=progress;cat=GameObject.Find("GameplayWizardCat")?.GetComponent<RectTransform>();actor=cat!=null?cat.GetComponent<Mewgic.Characters.WizardCatPresentation>():null;
+            gameplayStatus=GameObject.Find("Status")?.GetComponent<TMP_Text>();
             var root=(RectTransform)GameObject.Find("TutorialOverlay").transform;root.anchorMin=Vector2.zero;root.anchorMax=Vector2.one;
             hit=Rect(root,"PawCatTouch",Vector2.zero,Vector2.zero);var image=hit.gameObject.AddComponent<Image>();image.color=Color.clear;var button=hit.gameObject.AddComponent<Button>();button.onClick.AddListener(OpenMenu);
             bubble=Rect(root,"PawBubble",new Vector2(.025f,.201f),new Vector2(.825f,.286f));var art=bubble.gameObject.AddComponent<Image>();art.sprite=Resources.Load<Mewgic.Daily.DailyArt>("Daily/Art").parchment;art.type=Image.Type.Sliced;art.pixelsPerUnitMultiplier=2;art.raycastTarget=false;
             fade=bubble.gameObject.AddComponent<CanvasGroup>();message=Label(bubble,"PawMessage",new Vector2(.055f,.40f),new Vector2(.945f,.82f));
-            next=Control("PawNext","DEVAM",.30f,.70f,Continue);how=Control("PawHow","Nasıl oynanır?",.035f,.37f,()=>General());hint=Control("PawHint","Hamle öner",.38f,.70f,()=>{if(app.GuideCanInteract){Close();app.UseBooster(BoosterKind.Hint);}});close=Control("PawClose","Kapat",.72f,.965f,Close);
+            next=Control("PawNext","Devam",.24f,.65f,Continue);how=Control("PawHow","Nasıl oynanır?",.035f,.37f,()=>General());hint=Control("PawHint","Hamle öner",.38f,.70f,()=>{if(app.GuideCanInteract){Close();app.UseBooster(BoosterKind.Hint);}});close=Control("PawClose","Kapat",.72f,.965f,Close);
             marker=Rect(root,"PawHighlight",Vector2.zero,Vector2.zero);marker.gameObject.AddComponent<PawHighlight>().raycastTarget=false;
-            Close();if(level==1&&!ledger.Completed(1)&&!ledger.TutorialCompleted(BasicId)){Show(Phase.Welcome,"Merhaba! Ben senin büyücü yardımcınım. Renkleri kendi şişelerinde toplamaya hazır mısın?");}
+            Close();fade.alpha=0;bubble.gameObject.SetActive(false);
+            mountedFrame=Time.frameCount;readyDeadline=Time.unscaledTime+3;
+            autoWelcomePending=level==1&&!ledger.Completed(1)&&!ledger.TutorialCompleted(BasicId);
         }
         static RectTransform Rect(Transform p,string n,Vector2 a,Vector2 b){var r=new GameObject(n,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=a;r.anchorMax=b;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         TMP_Text Label(Transform p,string n,Vector2 a,Vector2 b){var t=Rect(p,n,a,b).gameObject.AddComponent<TextMeshProUGUI>();MewgicTypographySettings.Prepare(t);t.fontSize=23;t.enableAutoSizing=true;t.fontSizeMin=18;t.fontSizeMax=23;t.alignment=TextAlignmentOptions.Midline;t.color=new Color32(60,30,24,255);return t;}
         Button Control(string n,string value,float left,float right,UnityEngine.Events.UnityAction action){var r=Rect(bubble,n,new Vector2(left,.04f),new Vector2(right,.38f));var im=r.gameObject.AddComponent<Image>();im.sprite=Resources.Load<Mewgic.Daily.DailyArt>("Daily/Art").button;var b=r.gameObject.AddComponent<Button>();b.onClick.AddListener(action);var t=Label(r,n+"Label",Vector2.zero,Vector2.one);t.text=value;t.color=new Color32(255,229,169,255);t.fontSizeMin=14;t.fontSizeMax=20;return b;}
-        void Show(Phase phase,string text){State=phase;message.text=text;bubble.gameObject.SetActive(true);fade.alpha=0;bubble.localScale=Vector3.one*.95f;next.gameObject.SetActive(phase==Phase.Welcome);how.gameObject.SetActive(phase==Phase.Menu);hint.gameObject.SetActive(phase==Phase.Menu);close.gameObject.SetActive(phase!=Phase.Welcome);}
-        public void Continue(){if(!app.GuideCanInteract)return;if(TryMove()){Show(Phase.Source,"Önce bu şişeye dokun!");}else General();}
-        bool TryMove(){var solution=PuzzleSolver.Solve(model.Export(),3000);if(solution.Status!=SearchStatus.Solved||solution.Moves.Count==0)return false;Recommended=solution.Moves[0];return true;}
+        void Show(Phase phase,string text){autoWelcomePending=false;State=phase;message.text=text;bubble.gameObject.SetActive(true);fadeStartedAt=Time.unscaledTime;fade.alpha=0;fade.blocksRaycasts=fade.interactable=true;bubble.localScale=Vector3.one*.95f;next.gameObject.SetActive(phase==Phase.Welcome);how.gameObject.SetActive(phase==Phase.Menu);hint.gameObject.SetActive(phase==Phase.Menu);close.gameObject.SetActive(true);}
+        public void Continue(){if(!app.GuideCanInteract)return;if(TryMove()){Show(Phase.Source,SourceText);}else General();}
+        bool TryMove(){var solution=PuzzleSolver.Solve(model.Export(),3000);if(solution.Status!=SearchStatus.Solved||solution.Moves.Count==0)return false;Recommended=solution.Moves[0];recommendedAtMove=model.Moves;return true;}
+        bool Ready=>cat!=null&&app!=null&&app.GuideCanInteract&&safe!=null&&safe.rect.width>0&&GameObject.Find("Bottle 1")!=null;
+        bool TargetsPresent=>Recommended.Source>=0&&Recommended.Target>=0&&Recommended.Source<model.Count&&Recommended.Target<model.Count&&GameObject.Find("Bottle "+(Recommended.Source+1))!=null&&GameObject.Find("Bottle "+(Recommended.Target+1))!=null;
+        public bool AllowsBottleTap(int index)
+        {
+            if(autoWelcomePending||State==Phase.Welcome)return false;
+            if(State!=Phase.Source&&State!=Phase.Target)return true;
+            if(!Ready||!TargetsPresent){Close();return true;}
+            return State==Phase.Source?index==Recommended.Source:index==Recommended.Source||index==Recommended.Target;
+        }
         public void OpenMenu(){if(!app.GuideCanInteract)return;Show(Phase.Menu,"Pati Yardımı");actor?.TriggerMagic();}
         public void General(){if(!app.GuideCanInteract)return;Show(Phase.General,"Üstteki aynı renkleri bir araya getir. Boş veya üst rengi aynı olan şişeye aktarabilirsin.");}
-        public void Selected(int index){if(State==Phase.Source||State==Phase.Target){if(index==Recommended.Source)Show(Phase.Target,"Harika! Şimdi aynı renkli sıvıyı bu şişeye aktar.");else if(TryMove())Show(Phase.Source,"Önce bu şişeye dokun!");else General();}}
+        public void Selected(int index){if(State==Phase.Source||State==Phase.Target){if(index==Recommended.Source)Show(Phase.Target,TargetText);}}
         public void MoveFinished(int source,int target)
         {
-            if((State==Phase.Source||State==Phase.Target)&&source==Recommended.Source&&target==Recommended.Target){bool saved=ledger.CompleteTutorial(BasicId);Show(Phase.Celebration,saved?"Harikasın! Artık sıra sende.":"Harikasın! Öğretici kaydedilemedi; tekrar deneyebilirsin.");actor?.TriggerMagic();closeAt=Time.unscaledTime+1.4f;}
-            else if(State==Phase.General||State==Phase.Menu||State==Phase.Welcome)Close();else if(State==Phase.Source||State==Phase.Target){if(TryMove())Show(Phase.Source,"Önce bu şişeye dokun!");else General();}
+            if(State==Phase.Target&&source==Recommended.Source&&target==Recommended.Target&&model.Moves==recommendedAtMove+1){bool saved=ledger.CompleteTutorial(BasicId);Show(Phase.Celebration,saved?CelebrationText:"Harika! Eğitim kaydedilemedi; daha sonra tekrar deneyebilirsin.");actor?.TriggerMagic();closeAt=Time.unscaledTime+1.6f;}
+            else if(State==Phase.General||State==Phase.Menu||State==Phase.Welcome)Close();else if(State==Phase.Source||State==Phase.Target){Close();}
         }
         public bool HandleBack(){if(!Visible)return false;Close();return true;}
-        public void Close(){State=Phase.Closed;if(bubble!=null)bubble.gameObject.SetActive(false);if(marker!=null)marker.gameObject.SetActive(false);feature=null;}
+        public void Close(){autoWelcomePending=false;if(Visible&&fade!=null){fadeFrom=fade.alpha;fadeStartedAt=Time.unscaledTime;}State=Phase.Closed;if(fade!=null){fade.blocksRaycasts=false;fade.interactable=false;}if(marker!=null)marker.gameObject.SetActive(false);feature=null;}
         public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!app.GuideCanInteract||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;Show(Phase.Feature,definition.message);return true;}
         public bool CompleteFeature(string completionKey){if(State!=Phase.Feature||feature==null||completionKey!=feature.completionKey)return false;if(!ledger.CompleteTutorial(feature.tutorialId))return false;Close();return true;}
-        public void SelectionCleared(){if(State==Phase.Target)Show(Phase.Source,"Önce bu şişeye dokun!");}
+        public void SelectionCleared(){if(State==Phase.Target)Show(Phase.Source,SourceText);}
         public void ResetGuide(){Close();}
+        void OnDisable(){if(gameplayStatus!=null)gameplayStatus.enabled=true;}
         void LateUpdate()
         {
-            if(cat==null)return;cat.GetWorldCorners(corners);Vector2 min=safe.InverseTransformPoint(corners[0]),max=safe.InverseTransformPoint(corners[2]);hit.anchorMin=hit.anchorMax=new Vector2(.5f,.5f);hit.anchoredPosition=(min+max)*.5f;hit.sizeDelta=max-min;
+            if(autoWelcomePending){if(Time.frameCount>mountedFrame&&Ready)Show(Phase.Welcome,WelcomeText);else if(Time.unscaledTime>readyDeadline)Close();}
+            if(cat==null){Close();if(bubble!=null)bubble.gameObject.SetActive(false);if(gameplayStatus!=null)gameplayStatus.enabled=true;return;}cat.GetWorldCorners(corners);Vector2 min=safe.InverseTransformPoint(corners[0]),max=safe.InverseTransformPoint(corners[2]);hit.anchorMin=hit.anchorMax=new Vector2(.5f,.5f);hit.anchoredPosition=(min+max)*.5f;hit.sizeDelta=max-min;
             if(Visible&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false))HandleBack();
-            if(Visible){fade.alpha=Mathf.MoveTowards(fade.alpha,1,Time.unscaledDeltaTime*6);bubble.localScale=Vector3.one*Mathf.Lerp(.95f,1,fade.alpha);if(State==Phase.Celebration&&Time.unscaledTime>=closeAt)Close();}
-            if(!app.GuideCanInteract){bubble.gameObject.SetActive(false);marker.gameObject.SetActive(false);return;}bubble.gameObject.SetActive(Visible);
+            if((State==Phase.Source||State==Phase.Target)&&!TargetsPresent)Close();
+            float ease=Mathf.SmoothStep(0,1,(Time.unscaledTime-fadeStartedAt)/.18f);fade.alpha=Visible?ease:Mathf.Lerp(fadeFrom,0,ease);bubble.localScale=Vector3.one*Mathf.Lerp(.95f,1,fade.alpha);
+            if(State==Phase.Celebration&&Time.unscaledTime>=closeAt)Close();
+            if(gameplayStatus!=null)gameplayStatus.enabled=!app.GuideCanInteract||!(Visible||fade.alpha>0);
+            if(!app.GuideCanInteract){bubble.gameObject.SetActive(false);marker.gameObject.SetActive(false);return;}bubble.gameObject.SetActive(Visible||fade.alpha>0);
             Transform target=State==Phase.Source?GameObject.Find("Bottle "+(Recommended.Source+1))?.transform:State==Phase.Target?GameObject.Find("Bottle "+(Recommended.Target+1))?.transform:State==Phase.Feature&&!string.IsNullOrWhiteSpace(feature?.targetName)?GameObject.Find(feature.targetName)?.transform:null;
             marker.gameObject.SetActive(target!=null);if(target!=null){var view=target.GetComponent<GameplayBottleView>();var r=view!=null?view.Rig:(RectTransform)target;r.GetWorldCorners(corners);min=safe.InverseTransformPoint(corners[0]);max=safe.InverseTransformPoint(corners[2]);marker.anchorMin=marker.anchorMax=new Vector2(.5f,.5f);marker.anchoredPosition=(min+max)*.5f;marker.sizeDelta=max-min+Vector2.one*12;}
         }
     }
     [RequireComponent(typeof(CanvasRenderer))]public sealed class PawHighlight:MaskableGraphic
     {
-        void Quad(VertexHelper v,Rect r){int k=v.currentVertCount;var c=new Color(1,.77f,.19f,.55f+Mathf.Sin(Time.unscaledTime*3)*.15f);v.AddVert(new Vector2(r.xMin,r.yMin),c,Vector2.zero);v.AddVert(new Vector2(r.xMax,r.yMin),c,Vector2.zero);v.AddVert(new Vector2(r.xMax,r.yMax),c,Vector2.zero);v.AddVert(new Vector2(r.xMin,r.yMax),c,Vector2.zero);v.AddTriangle(k,k+1,k+2);v.AddTriangle(k,k+2,k+3);}
+        static Vector2 Edge(int index,Rect r,float radius){int i=index%44,corner=i/11;float angle=(corner+(i%11)/10f)*Mathf.PI*.5f;var center=new Vector2(corner==0||corner==3?r.xMax-radius:r.xMin+radius,corner<2?r.yMax-radius:r.yMin+radius);return center+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*radius;}
+        void Halo(VertexHelper v,Rect r,float width,float alpha){int start=v.currentVertCount;float radius=Mathf.Min(20,r.width*.15f,r.height*.15f);var inner=new Rect(r.x+width,r.y+width,r.width-width*2,r.height-width*2);var tint=new Color(1,.78f,.25f,alpha);for(int i=0;i<=44;i++){v.AddVert(Edge(i,r,radius),tint,Vector2.zero);v.AddVert(Edge(i,inner,Mathf.Max(1,radius-width)),tint,Vector2.zero);if(i>0){int n=start+i*2;v.AddTriangle(n-2,n,n-1);v.AddTriangle(n-1,n,n+1);}}}
         void Circle(VertexHelper v,Vector2 p,float radius){int k=v.currentVertCount;v.AddVert(p,new Color(1,.82f,.3f,.9f),Vector2.zero);for(int i=0;i<=16;i++){float a=i*Mathf.PI/8;v.AddVert(p+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius,new Color(1,.82f,.3f,.9f),Vector2.zero);if(i>0)v.AddTriangle(k,k+i,k+i+1);}}
-        protected override void OnPopulateMesh(VertexHelper v){v.Clear();var r=rectTransform.rect;Quad(v,new Rect(r.x,r.y,r.width,3));Quad(v,new Rect(r.x,r.yMax-3,r.width,3));Quad(v,new Rect(r.x,r.y,3,r.height));Quad(v,new Rect(r.xMax-3,r.y,3,r.height));var paw=new Vector2(r.center.x,r.yMax+12+Mathf.Sin(Time.unscaledTime*3)*3);Circle(v,paw,5);for(int i=0;i<4;i++)Circle(v,paw+new Vector2(-8+i*5,7+Mathf.Sin(i)*2),2.5f);}
+        protected override void OnPopulateMesh(VertexHelper v){v.Clear();var r=rectTransform.rect;float pulse=(Mathf.Sin(Time.unscaledTime*2.5f)+1)*.5f;Halo(v,r,9,.055f+pulse*.025f);Halo(v,r,3,.32f+pulse*.12f);var paw=new Vector2(r.center.x,r.yMax+12+Mathf.Sin(Time.unscaledTime*2.5f)*3);Circle(v,paw,5);for(int i=0;i<4;i++)Circle(v,paw+new Vector2(-8+i*5,7+Mathf.Sin(i)*2),2.5f);}
         void Update(){SetVerticesDirty();}
     }
 }
