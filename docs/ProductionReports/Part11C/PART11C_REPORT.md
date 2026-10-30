@@ -62,3 +62,5 @@ Unity MCP/Pipeline bağlantısı doğrulandı; komutlar aynı açık Editor'a CL
 Mevcut kaynaklardan yalnız PawGuide.cs ve PrototypeApp.cs değişti. PawGuide menü, kısa açıklamalar ve giriş katmanını yönetir. PrototypeApp'te menü sırasında booster işlemini reddeden kontrol ve Pause'da manuel yardımı kapatan çağrı eklendi. Yeni Part11CEditor/Part11CProbe yalnız test/önizleme araçlarıdır; sahneye kaydedilmez. Üretim ilerleme belgesi güncellendi.
 
 Proje dışı başlangıç dökümü `C:\Dev\Mewgic-Part11C-Baseline.json` ve PRESERVATION.json ile sahneler, fontlar, kedi prefabı/animasyonları, görseller, şelaleler, çekirdek oyun kuralları ve save kodunun aynı kaldığı doğrulandı. Önceki untracked çalışmalar commit dışında korundu. Yeni TestFlight/Cloud Build/IPA veya master merge yapılmadı.
+
+Uygulama/kanıt commit'i `cf47546eeb56b7d84ccbee886583a89de8d05de3`, mevcut `recovery/part09-completion` dalına başarıyla push edildi; uzak SHA eşleşti. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak korundu. Bu teslim kaydı ayrı belge commit'iyle saklanır. Unity, gerçek kayda yazmayan test profilinde Gameplay / Play Mode üzerinde Pati Yardımı menüsü açık bırakıldı.
