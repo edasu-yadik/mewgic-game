@@ -98,19 +98,22 @@ namespace Mewgic
         public GameplayLiquidGraphic Liquid {get;private set;}
         public int[] DisplayedLayers=>Liquid.Layers;
         public float DisplayedVolume=>Liquid.Volume;
-        bool selected,animating,paused; Image shell; Outline outline;
+        bool selected,animating,paused;int hintRole;Image shell; Outline outline;HintCueGraphic hintCue;
         public Vector3 Mouth=>Rig.TransformPoint(new Vector3(0,Rig.rect.height*.46f,0));
         public void Initialize(Sprite glass,Color[] palette)
         {
             Rig=new GameObject("BottleVisual",typeof(RectTransform)).GetComponent<RectTransform>();Rig.SetParent(transform,false);Rig.anchorMin=Vector2.zero;Rig.anchorMax=Vector2.one;Rig.offsetMin=Rig.offsetMax=Vector2.zero;
             var fluid=new GameObject("DynamicLiquids",typeof(RectTransform),typeof(CanvasRenderer),typeof(GameplayLiquidGraphic));fluid.transform.SetParent(Rig,false);var fr=(RectTransform)fluid.transform;fr.anchorMin=Vector2.zero;fr.anchorMax=Vector2.one;fr.offsetMin=fr.offsetMax=Vector2.zero;Liquid=fluid.GetComponent<GameplayLiquidGraphic>();Liquid.raycastTarget=false;Liquid.Palette=palette;
             var glassGo=new GameObject("GlassShell",typeof(RectTransform),typeof(Image));glassGo.transform.SetParent(Rig,false);var gr=(RectTransform)glassGo.transform;gr.anchorMin=Vector2.zero;gr.anchorMax=Vector2.one;gr.offsetMin=gr.offsetMax=Vector2.zero;shell=glassGo.GetComponent<Image>();shell.sprite=glass;shell.raycastTarget=false;outline=glassGo.AddComponent<Outline>();outline.effectDistance=new Vector2(1,-1);
+            var cue=new GameObject("HintCue",typeof(RectTransform),typeof(CanvasRenderer),typeof(HintCueGraphic));cue.transform.SetParent(Rig,false);var cr=(RectTransform)cue.transform;cr.anchorMin=cr.anchorMax=new Vector2(.5f,1);cr.anchoredPosition=new Vector2(0,18);cr.sizeDelta=new Vector2(28,28);hintCue=cue.GetComponent<HintCueGraphic>();hintCue.raycastTarget=false;cue.SetActive(false);
         }
         public void Present(IReadOnlyList<int> layers,bool chosen)
-        {Liquid.Layers=new int[layers.Count];for(int i=0;i<layers.Count;i++)Liquid.Layers[i]=layers[i];Liquid.Volume=layers.Count;selected=chosen;bool complete=layers.Count==4;for(int i=1;i<layers.Count;i++)complete&=layers[i]==layers[0];Liquid.Completed=complete;outline.effectColor=chosen?new Color(1,.78f,.25f,.85f):complete?new Color(.6f,1,.8f,.4f):Color.clear;Liquid.SetVerticesDirty();}
-        public void ShowHintTarget(){outline.effectColor=new Color(.1f,.85f,1,.9f);}
+        {hintRole=0;hintCue.gameObject.SetActive(false);outline.effectDistance=new Vector2(1,-1);Liquid.Layers=new int[layers.Count];for(int i=0;i<layers.Count;i++)Liquid.Layers[i]=layers[i];Liquid.Volume=layers.Count;selected=chosen;bool complete=layers.Count==4;for(int i=1;i<layers.Count;i++)complete&=layers[i]==layers[0];Liquid.Completed=complete;outline.effectColor=chosen?new Color(1,.78f,.25f,.85f):complete?new Color(.6f,1,.8f,.4f):Color.clear;Liquid.SetVerticesDirty();}
+        public void ShowHintSource(){hintRole=1;HintLight();}
+        public void ShowHintTarget(){hintRole=2;HintLight();}
+        void HintLight(){var tint=hintRole==1?new Color(1,.78f,.25f):new Color(.1f,.85f,1);tint.a=.72f+Mathf.Sin(Time.unscaledTime*2.5f)*.12f;outline.effectColor=tint;outline.effectDistance=new Vector2(2,-2);hintCue.destination=hintRole==2;hintCue.color=tint;hintCue.gameObject.SetActive(true);hintCue.rectTransform.anchoredPosition=new Vector2(0,18+Mathf.Sin(Time.unscaledTime*2.5f)*2);}
         public void SetPaused(bool value){paused=value;Liquid.Paused=value;}
         public void SetAnimating(bool value){animating=value;}
-        void Update(){if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
+        void Update(){if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
     }
 }

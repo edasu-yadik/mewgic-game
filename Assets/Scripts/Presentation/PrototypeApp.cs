@@ -156,7 +156,7 @@ namespace Mewgic
             switch(kind)
             {
                 case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text="Son geçerli hamle geri alındı.";}break;
-                case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;selected=move.Source;hintTarget=move.Target;status.text=boosters.Message+" • Altın kaynak, mavi hedef.";}break;
+                case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;selected=move.Source;hintTarget=move.Target;status.text="";}break;
                 case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text="Bu denemeye bir boş şişe eklendi.";}break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
@@ -191,11 +191,10 @@ namespace Mewgic
                     bottleViews[i]=b;
                     var hit=b.gameObject.AddComponent<Button>();hit.targetGraphic=b.GetComponent<Image>();b.GetComponent<Image>().raycastTarget=true;hit.onClick.AddListener(()=>Select(index));
                     var view=b.gameObject.AddComponent<GameplayBottleView>();view.Initialize(glass,Colors);
-                    var number=Label(b,"Number",(i+1).ToString(),22,Gold,new Vector2(.2f,0),new Vector2(.8f,0));number.rectTransform.pivot=new Vector2(.5f,1);number.rectTransform.sizeDelta=new Vector2(0,32);number.rectTransform.anchoredPosition=new Vector2(0,-6);
                 }
             }
             for(int i=0;i<puzzle.Count;i++)bottleViews[i].GetComponent<GameplayBottleView>().Present(puzzle.Bottle(i),selected==i);
-            if(hintTarget>=0&&hintTarget<bottleViews.Length)bottleViews[hintTarget].GetComponent<GameplayBottleView>().ShowHintTarget();
+            if(hintTarget>=0&&hintTarget<bottleViews.Length){bottleViews[hintTarget].GetComponent<GameplayBottleView>().ShowHintTarget();if(selected>=0)bottleViews[selected].GetComponent<GameplayBottleView>().ShowHintSource();}
             if(gameplayVisual!=null)gameplayVisual.Bind(bottleViews);
             UpdateHud();
             UpdateTools();restart.interactable=!busy&&!paused;home.interactable=!busy&&!paused;
@@ -210,18 +209,18 @@ namespace Mewgic
         {
             if(busy||paused||puzzle.Won)return;
             hintTarget=-1;
-            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Önce dolu bir şişe seç.";return;}selected=target;status.text="Hedef şişeyi seç.";Refresh();pawGuide?.Selected(target);return;}
-            if(selected==target){selected=-1;status.text="Seçim kaldırıldı.";Refresh();pawGuide?.SelectionCleared();return;}
+            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Bu şişe boş.";return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
+            if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
-            if(amount==0){status.text="Bu şişeye dökülemez. Başka bir hedef seç.";Refresh();return;}
+            if(amount==0){status.text="Bu hamle yapılamıyor.";Refresh();return;}
             selected=-1;pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)
         {
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=true;
-            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="İksir aktarılıyor…";UpdateHud();UpdateTools();
+            busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="";UpdateHud();UpdateTools();
             var sourceView=bottleViews[source].GetComponent<GameplayBottleView>();
             var targetView=bottleViews[target].GetComponent<GameplayBottleView>();
             sourceView.SetAnimating(true);targetView.SetAnimating(true);

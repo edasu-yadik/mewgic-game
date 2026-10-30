@@ -1,0 +1,9 @@
+{
+  "baselineHead": "a236f46a98cfbb05ba9ec06148c06eed9a6d0616",
+  "trackedCount": 1309,
+  "changedTrackedFiles": [
+    "Assets/Scripts/Core/BoosterActions.cs",
+    "Assets/Scripts/Presentation/GameplayBottleView.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs"
+  ]
+}
