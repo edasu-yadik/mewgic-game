@@ -1,0 +1,17 @@
+{
+  "trackedBaselineCount": 1376,
+  "changed": [
+    "Assets/Scripts/Tests/Part11CProbe.cs",
+    "Assets/Scripts/UI/PawGuide.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "expectedProductionChange": [
+    "Assets/Scripts/UI/PawGuide.cs"
+  ],
+  "testCompatibilityUpdate": [
+    "Assets/Scripts/Tests/Part11CProbe.cs"
+  ],
+  "documentation": [
+    "docs/PRODUCTION_PROGRESS.md"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return new { phase=UnityEngine.Object.FindFirstObjectByType<Mewgic.UI.PawGuide>().State.ToString(), hint=Mewgic.GameplayProgress.Current.Remaining(Mewgic.Core.BoosterKind.Hint) };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "phase": "Boosters",
+        "hint": 3
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
