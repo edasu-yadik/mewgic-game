@@ -55,4 +55,4 @@ Fiziksel iPhone testi ve mobil GPU profili bu aşamada yapılmadı. Oran/Safe Ar
 
 ## Git teslimi
 
-Doğrulanan değişiklikler mevcut geliştirme dalına ayrı commit ile gönderilecektir; kesin uzak SHA doğrulaması teslim kaydına eklenir.
+Uygulama/test/görsel commit: `18339bc5be51900670a67a0f2b6ed5fed4724758`. Private origin `recovery/part09-completion` push başarılı; `git ls-remote` ile uzak SHA eşleşti. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak aynı kaldı. Bu teslim kaydı ayrıca dokümantasyon commit’iyle gönderilir.

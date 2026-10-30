@@ -205,3 +205,5 @@ PART11C (31 Ekim 2026): Mevcut PawGuide dört seçenekli kedi yardım menüsüne
 
 
 PART11D (31 Ekim 2026): Mevcut PawGuide üzerinde temel hamleden sonra isteğe bağlı güç daveti ve dört gerçek düğme için sırayla altın pati/vurgu eklendi. Atla/Bitir, kediden yeniden açma, mevcut tutorial geçmişi ve giriş koruması. 436 yeni kontrol +192 kedi menüsü regresyon kontrolü; 3 mobil oran/Safe Area, stoklar ve gerçek kayıt/yedek korundu. Derleme/Console/runtime 0 hata-0 uyarı. Karıştır açıklaması gerçek şişe konumu davranışına uyarlandı. Rapor ProductionReports/Part11D/PART11D_REPORT.md. Fiziksel cihaz testi/yeni build yok.
+
+PART11D Git teslimi:18339bc5be51900670a67a0f2b6ed5fed4724758 recovery/part09-completion push başarılı; uzak SHA eşleşti. Master f243d7a aynı.
