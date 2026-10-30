@@ -59,4 +59,4 @@ Unity Editor normal Gameplay Play Mode'da, gerçek oyuncu kaydına yazmayan mevc
 
 ## Git
 
-Doğrulanmış QA araçları, görseller ve rapor mevcut private geliştirme dalına gönderilecek; uzak SHA doğrulaması teslim kaydına eklenecek.
+QA/görsel teslim commit’i `0c848ee153c3503f10295501eeb51560f1afb034`, private origin `recovery/part09-completion` dalına başarıyla push edildi. `git ls-remote` uzak SHA eşleşmesini doğruladı. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak aynı kaldı. Bu teslim doğrulaması ayrıca dokümantasyon commit’iyle gönderilir.
