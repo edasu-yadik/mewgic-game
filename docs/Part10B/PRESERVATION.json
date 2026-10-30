@@ -1,0 +1,9 @@
+{
+  "baselineCount": 1151,
+  "changed": [
+    "Assets/Scripts/Core/BoosterActions.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs"
+  ],
+  "unchanged": 1149,
+  "oldUntrackedChanged": []
+}

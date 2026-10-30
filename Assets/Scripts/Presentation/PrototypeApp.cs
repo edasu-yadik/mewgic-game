@@ -35,6 +35,8 @@ namespace Mewgic
         TMP_FontAsset font;
         Puzzle puzzle;
         TMP_Text status;
+        Mewgic.UI.PawGuide pawGuide;
+        public bool GuideCanInteract=>!busy&&!paused&&!navigating&&puzzle!=null&&!puzzle.Won;
         Button undo, restart, home;
         RectTransform[] bottleViews;
         string victoryReceipt=Guid.NewGuid().ToString("N");
@@ -142,6 +144,7 @@ namespace Mewgic
             endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);},()=>paused);
             if(GameplayProgress.LoadError!=null)status.text="Kayıt okunamadı; haklar ve ödüller kilitli.";
             Refresh();
+            pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);
         }
         void SkinGameplayControl(Button control){control.GetComponent<Image>().sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");control.GetComponent<Image>().type=Image.Type.Sliced;control.GetComponent<Image>().color=Color.white;control.GetComponent<Outline>().enabled=false;}
         void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused,originalBottleCount);}
@@ -157,7 +160,7 @@ namespace Mewgic
                 case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text="Bu denemeye bir boş şişe eklendi.";}break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
-            if(!applied)status.text=boosters.Message;Refresh();
+            if(!applied)status.text=boosters.Message;else pawGuide?.ResetGuide();Refresh();
         }
         void NextLevel(){if(busy||paused||!puzzle.Won||navigating)return;if(GameplayLevelCatalog.Advance(levelInfo.id,progress)){navigating=true;Mewgic.SceneNavigation.LoadOnce("Gameplay");}}
         public void PauseGame(){if(hud==null||paused)return;paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
@@ -173,7 +176,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
+        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh()
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
@@ -207,8 +210,8 @@ namespace Mewgic
         {
             if(busy||paused||puzzle.Won)return;
             hintTarget=-1;
-            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Önce dolu bir şişe seç.";return;}selected=target;status.text="Hedef şişeyi seç.";Refresh();return;}
-            if(selected==target){selected=-1;status.text="Seçim kaldırıldı.";Refresh();return;}
+            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Önce dolu bir şişe seç.";return;}selected=target;status.text="Hedef şişeyi seç.";Refresh();pawGuide?.Selected(target);return;}
+            if(selected==target){selected=-1;status.text="Seçim kaldırıldı.";Refresh();pawGuide?.SelectionCleared();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
@@ -252,7 +255,7 @@ namespace Mewgic
             a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(oldSibling);
             sourceView.SetAnimating(false);targetView.SetAnimating(false);
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
-            busy=false;pourRoutine=null;status.text="Güzel hamle!";Refresh();
+            busy=false;pourRoutine=null;status.text="Güzel hamle!";Refresh();pawGuide?.MoveFinished(source,target);
         }
     }
 }

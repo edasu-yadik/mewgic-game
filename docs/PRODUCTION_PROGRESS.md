@@ -1,5 +1,12 @@
 # Üretim ilerlemesi
 
+## PART10B — Pati Yardımı
+İlk öğretici,kedi yardım menüsü,solver doğrulamalı kaynak/hedef vurgusu ve
+isteğe bağlı kayıt geçmişi eklendi. Gerçek Unity akışı,eski kayıt/JSON yükleme,
+yanlış hedef,Hint ve feature ID testleri geçti. Üç oran/Safe Area görüntüleri
+hazır. Fiziksel cihaz kabulü açık; yeni TestFlight build yok.
+Rapor:ProductionReports/PART10B_REPORT.md.
+
 ## PART10A — Sabit Gameplay öğretici metni
 Başlangıç/Reset içindeki “Önce kaynak…” kaldırıldı; boş TutorialOverlay hazır.
 Diğer dinamik mesajlar korundu. Unity'de seçim/aktarma/Undo/Restart/zafer/Replay
