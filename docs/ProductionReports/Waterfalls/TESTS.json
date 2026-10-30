@@ -1,0 +1,409 @@
+{
+  "success": true,
+  "failure": null,
+  "checks": [
+    "Home mevcut üç maskeli katmanı kullanıyor",
+    "Shader ve maske: Layer02_DistantIslands",
+    "Zamanlar arası GPU su pikselleri değişiyor: Layer02_DistantIslands",
+    "Maske dışındaki mimari piksel piksel sabit: Layer02_DistantIslands",
+    "1000 animasyon güncellemesinde managed tahsis yok: Layer02_DistantIslands",
+    "Shader ve maske: Layer03_MainCastle",
+    "Zamanlar arası GPU su pikselleri değişiyor: Layer03_MainCastle",
+    "Maske dışındaki mimari piksel piksel sabit: Layer03_MainCastle",
+    "1000 animasyon güncellemesinde managed tahsis yok: Layer03_MainCastle",
+    "Shader ve maske: Layer04_Village",
+    "Zamanlar arası GPU su pikselleri değişiyor: Layer04_Village",
+    "Maske dışındaki mimari piksel piksel sabit: Layer04_Village",
+    "1000 animasyon güncellemesinde managed tahsis yok: Layer04_Village",
+    "GPU desen korelasyonu: su yukarıdan aşağı akıyor",
+    "Home su döngüsünde nesne sayısı sabit",
+    "Home mimari transform sabit: Layer02_DistantIslands",
+    "Home mimari transform sabit: Layer03_MainCastle",
+    "Home mimari transform sabit: Layer04_Village",
+    "Buton: Play",
+    "PLAY → Gameplay",
+    "Gameplay arka planında tek su animatörü",
+    "Gameplay Home'dan sakin",
+    "Su etkileşim yakalamıyor",
+    "Su bulmaca ve UI arkasında",
+    "Home materyalleri geçişte serbest bırakıldı",
+    "Shader ve maske: CastleWaterfalls",
+    "Zamanlar arası GPU su pikselleri değişiyor: CastleWaterfalls",
+    "Maske dışındaki mimari piksel piksel sabit: CastleWaterfalls",
+    "1000 animasyon güncellemesinde managed tahsis yok: CastleWaterfalls",
+    "Gameplay su döngüsünde nesne sayısı sabit",
+    "Buton: Bottle 1",
+    "Buton: Bottle 3",
+    "Şişe seçimi ve sıvı aktarımı çalışıyor",
+    "Buton: Undo",
+    "Undo çalışıyor",
+    "Buton: Restart",
+    "Restart çalışıyor",
+    "Buton: Home",
+    "Gameplay → Home; katmanlar tekrarlanmıyor"
+  ],
+  "gpu": [
+    {
+      "layer": "Layer02_DistantIslands",
+      "waterChangedPixels": 2467,
+      "outsidePixels": 125020,
+      "unchangedOutside": 125020,
+      "allocatedBytesPer1000Updates": 0,
+      "maskBytes": 524288
+    },
+    {
+      "layer": "Layer03_MainCastle",
+      "waterChangedPixels": 4994,
+      "outsidePixels": 121458,
+      "unchangedOutside": 121458,
+      "allocatedBytesPer1000Updates": 0,
+      "maskBytes": 524288
+    },
+    {
+      "layer": "Layer04_Village",
+      "waterChangedPixels": 1043,
+      "outsidePixels": 125669,
+      "unchangedOutside": 125669,
+      "allocatedBytesPer1000Updates": 0,
+      "maskBytes": 524288
+    },
+    {
+      "directionDownError": 0,
+      "directionUpError": 1390702
+    },
+    {
+      "layer": "CastleWaterfalls",
+      "waterChangedPixels": 3842,
+      "outsidePixels": 122093,
+      "unchangedOutside": 122093,
+      "allocatedBytesPer1000Updates": 0,
+      "maskBytes": 524288
+    }
+  ],
+  "frameTimes": [
+    {
+      "scene": "Home",
+      "frame": 0,
+      "time": 1.07608318
+    },
+    {
+      "scene": "Home",
+      "frame": 1,
+      "time": 1.28502715
+    },
+    {
+      "scene": "Home",
+      "frame": 2,
+      "time": 1.45684123
+    },
+    {
+      "scene": "Home",
+      "frame": 3,
+      "time": 1.62772059
+    },
+    {
+      "scene": "Home",
+      "frame": 4,
+      "time": 1.79976356
+    },
+    {
+      "scene": "Home",
+      "frame": 5,
+      "time": 1.97250128
+    },
+    {
+      "scene": "Home",
+      "frame": 6,
+      "time": 2.14251041
+    },
+    {
+      "scene": "Home",
+      "frame": 7,
+      "time": 2.31381559
+    },
+    {
+      "scene": "Home",
+      "frame": 8,
+      "time": 2.485224
+    },
+    {
+      "scene": "Home",
+      "frame": 9,
+      "time": 2.65553761
+    },
+    {
+      "scene": "Home",
+      "frame": 10,
+      "time": 2.82844329
+    },
+    {
+      "scene": "Home",
+      "frame": 11,
+      "time": 3.002556
+    },
+    {
+      "scene": "Home",
+      "frame": 12,
+      "time": 3.173589
+    },
+    {
+      "scene": "Home",
+      "frame": 13,
+      "time": 3.35434175
+    },
+    {
+      "scene": "Home",
+      "frame": 14,
+      "time": 3.52372527
+    },
+    {
+      "scene": "Home",
+      "frame": 15,
+      "time": 3.69151449
+    },
+    {
+      "scene": "Home",
+      "frame": 16,
+      "time": 3.8621
+    },
+    {
+      "scene": "Home",
+      "frame": 17,
+      "time": 4.03493071
+    },
+    {
+      "scene": "Home",
+      "frame": 18,
+      "time": 4.20575428
+    },
+    {
+      "scene": "Home",
+      "frame": 19,
+      "time": 4.377579
+    },
+    {
+      "scene": "Home",
+      "frame": 20,
+      "time": 4.54866648
+    },
+    {
+      "scene": "Home",
+      "frame": 21,
+      "time": 4.721343
+    },
+    {
+      "scene": "Home",
+      "frame": 22,
+      "time": 4.89358759
+    },
+    {
+      "scene": "Home",
+      "frame": 23,
+      "time": 5.06355953
+    },
+    {
+      "scene": "Home",
+      "frame": 24,
+      "time": 5.23339653
+    },
+    {
+      "scene": "Home",
+      "frame": 25,
+      "time": 5.40628433
+    },
+    {
+      "scene": "Home",
+      "frame": 26,
+      "time": 5.578437
+    },
+    {
+      "scene": "Home",
+      "frame": 27,
+      "time": 5.75884056
+    },
+    {
+      "scene": "Home",
+      "frame": 28,
+      "time": 5.92956924
+    },
+    {
+      "scene": "Home",
+      "frame": 29,
+      "time": 6.10170841
+    },
+    {
+      "scene": "Home",
+      "frame": 30,
+      "time": 6.27102232
+    },
+    {
+      "scene": "Home",
+      "frame": 31,
+      "time": 6.44077063
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 0,
+      "time": 7.769658
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 1,
+      "time": 7.949819
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 2,
+      "time": 8.120412
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 3,
+      "time": 8.29491
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 4,
+      "time": 8.464044
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 5,
+      "time": 8.632723
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 6,
+      "time": 8.805229
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 7,
+      "time": 8.976213
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 8,
+      "time": 9.146997
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 9,
+      "time": 9.317134
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 10,
+      "time": 9.490508
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 11,
+      "time": 9.662948
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 12,
+      "time": 9.832546
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 13,
+      "time": 10.00389
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 14,
+      "time": 10.1731052
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 15,
+      "time": 10.3442736
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 16,
+      "time": 10.5155716
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 17,
+      "time": 10.6841373
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 18,
+      "time": 10.8555136
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 19,
+      "time": 11.0273123
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 20,
+      "time": 11.1986008
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 21,
+      "time": 11.3704271
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 22,
+      "time": 11.5436249
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 23,
+      "time": 11.7169008
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 24,
+      "time": 11.88963
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 25,
+      "time": 12.0640373
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 26,
+      "time": 12.2462921
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 27,
+      "time": 12.41713
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 28,
+      "time": 12.6000586
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 29,
+      "time": 12.7688913
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 30,
+      "time": 12.9445047
+    },
+    {
+      "scene": "Gameplay",
+      "frame": 31,
+      "time": 13.1179132
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "playerSaveIntact": true,
+  "unity": "6000.3.27f1"
+}

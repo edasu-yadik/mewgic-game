@@ -6,6 +6,11 @@ namespace Mewgic
     {
         public Sprite backdrop,shelf,foreground;
         public GameObject wizardCatPrefab;
+        public Shader waterfallShader;
+        public Texture2D waterfallMask;
+        [Min(0)] public float waterfallSpeed=.012f;
+        [Range(0,.1f)] public float waterfallBrightness=.028f;
+        [Range(0,1)] public float waterfallOpacity=.65f;
         public bool IsAnimating {get;set;}
         RectTransform safe,board,background,world,cat,perch,edgeDecor;
         RectTransform[] bottles=new RectTransform[0];
@@ -34,6 +39,8 @@ namespace Mewgic
             board.anchorMin=new Vector2(.25f,.30f);board.anchorMax=new Vector2(.95f,.90f);board.offsetMin=board.offsetMax=Vector2.zero;
             var night=safe.parent.Find("Night");if(night!=null)night.gameObject.SetActive(false);
             background=Rect(safe.parent,"GameplayBackdrop");background.SetAsFirstSibling();var bg=Art(background,"CastleWaterfalls",backdrop);bg.color=new Color(.85f,.88f,1,1);
+            var water=WaterfallAnimator.Attach(bg,waterfallShader,waterfallMask,true);
+            if(water!=null){water.speed=waterfallSpeed;water.brightness=waterfallBrightness;water.opacity=waterfallOpacity;}
             world=Rect(safe,"GameplayWorld");world.SetAsFirstSibling();Rect(world,"StoneShelves");
             edgeDecor=Art(background,"ForegroundEdges",foreground).rectTransform;
             perch=Art(world,"CatStonePerch",shelf).rectTransform;

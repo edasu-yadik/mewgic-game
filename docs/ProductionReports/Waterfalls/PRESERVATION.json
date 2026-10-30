@@ -1,0 +1,12 @@
+{
+  "baselineHead": "f13d6e5362ef4bef83d01ddc9cb6d80de8e6ae1c",
+  "trackedCount": 1277,
+  "changedTrackedFiles": [
+    "Assets/Scenes/Gameplay.unity",
+    "Assets/Scripts/Presentation/GameplayPresentation.cs",
+    "Assets/Scripts/Presentation/HomeEnvironment.cs",
+    "Assets/Shaders/HomeWaterLight.shader"
+  ],
+  "artworkPngUnchanged": true,
+  "saveCodeUnchanged": true
+}

@@ -181,6 +181,11 @@ MonoBehaviour:
   shelf: {fileID: 3220728267738050910, guid: 93a8b3d4b4658214c883fc1843ac3982, type: 3}
   foreground: {fileID: 21300000, guid: f3248f87d4ebbc146aad98de833b3671, type: 3}
   wizardCatPrefab: {fileID: 4902219825905302323, guid: 979c56d2ab222e64a81720d0391bba49, type: 3}
+  waterfallShader: {fileID: 4800000, guid: d79513d547ad4c847ba4f2bac8d6b2ce, type: 3}
+  waterfallMask: {fileID: 2800000, guid: 4bf7485d555a12b4aa35862ca8252237, type: 2}
+  waterfallSpeed: 0.012
+  waterfallBrightness: 0.028
+  waterfallOpacity: 0.65
 --- !u!1 &1343079165
 GameObject:
   m_ObjectHideFlags: 0
