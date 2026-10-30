@@ -1,0 +1,10 @@
+using System;using System.IO;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using Mewgic;
+public static class Part11EEditor {
+    public static void Run(){if(EditorApplication.isPlaying)throw new Exception("Önce Play Mode durdurulmalı");Directory.CreateDirectory("docs/ProductionReports/Part11/");GameplayBoosterTests.ModelTests();SessionState.SetString("Part11E.Key","Mewgic.Tests.Part11E."+Guid.NewGuid().ToString("N"));EditorSceneManager.OpenScene("Assets/Scenes/Home.unity");new GameObject("PART11E QA").AddComponent<Part11EProbe>();SetGameSize();EditorApplication.isPlaying=true;}
+    public static void Reload(){if(EditorApplication.isPlaying)throw new Exception("Önce Play Mode durdurulmalı");EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");new GameObject("PART11E Reload QA").AddComponent<Part11EProbe>().reload=true;SetGameSize();EditorApplication.isPlaying=true;}
+    public static void Preview(){Part11CEditor.Preview();}
+    static void SetGameSize()
+    {
+        var a=typeof(Editor).Assembly;var type=a.GetType("UnityEditor.GameViewSizes");var sizes=typeof(ScriptableSingleton<>).MakeGenericType(type).GetProperty("instance").GetValue(null);var groupType=type.GetProperty("currentGroupType",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).GetValue(sizes);var group=type.GetMethod("GetGroup").Invoke(sizes,new[]{groupType});var kind=a.GetType("UnityEditor.GameViewSizeType");var size=Activator.CreateInstance(a.GetType("UnityEditor.GameViewSize"),new object[]{Enum.ToObject(kind,1),900,1600,"PART11E 900x1600"});group.GetType().GetMethod("AddCustomSize").Invoke(group,new[]{size});int count=(int)group.GetType().GetMethod("GetTotalCount").Invoke(group,null);var window=EditorWindow.GetWindow(a.GetType("UnityEditor.GameView"));window.GetType().GetProperty("selectedSizeIndex",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).SetValue(window,count-1);window.Focus();
+    }
+}
