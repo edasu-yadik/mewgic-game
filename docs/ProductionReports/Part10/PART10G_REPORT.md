@@ -60,4 +60,4 @@ Başlangıçtaki tracked dosyaların SHA-256 dökümü proje dışında `C:\Dev\
 
 Eklenenler: Part10GEditor, Part10RegressionProbe, Part10PreviewGuard ve meta dosyaları; bu klasördeki görseller, test JSON'ları ve rapor. `docs/PRODUCTION_PROGRESS.md` güncellendi. Master değiştirilmedi. Yeni TestFlight/Cloud Build/IPA veya Apple yüklemesi yapılmadı.
 
-Git teslimi bu raporla aynı QA commit'inde `recovery/part09-completion` dalına yapılır; push uzak dal SHA'sı ile ayrıca doğrulanır. Bu sonuç Editor QA kabulüdür; sonraki beta için fiziksel iPhone kabulü ayrı olarak gereklidir.
+QA commit'i `494e6294a7c91195bf8d1a09cca96a7317482207`, `recovery/part09-completion` dalına başarıyla push edildi; uzak dal SHA'sı aynı çıktı. Uzak master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak korundu. Bu teslim kaydı ayrıca belge commit'iyle saklanır. Bu sonuç Editor QA kabulüdür; sonraki beta için fiziksel iPhone kabulü ayrı olarak gereklidir.
