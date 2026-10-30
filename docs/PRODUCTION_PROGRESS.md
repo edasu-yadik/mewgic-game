@@ -1,5 +1,12 @@
 # Üretim ilerlemesi
 
+## PART10D — Küçük üst HUD
+Sol Bölüm,sağ Hamle,en sağ Pause;ortak büyük hedef paneli kaldırıldı.
+Pati açıklamaları korundu. HUD76–100 birim,board üst sınırı0,90;alan yaklaşık
+%40 arttı. Undo/Restart/NextLevel/iki bölüm/Home ve3 oran/Safe Area geçti.
+Runtime0 hata/uyarı;model grupları başarılı. Yeni build yok.
+Rapor:ProductionReports/PART10D_REPORT.md.
+
 ## PART10C — Üst üç yıldız kutusunun kaldırılması
 GameplayHUD/PerformancePanel runtime üretimi kaldırıldı. Ödül modeli ve
 harita/sonuç yıldızları korundu; gerçek zafer/kayıt/harita kontrolü geçti.

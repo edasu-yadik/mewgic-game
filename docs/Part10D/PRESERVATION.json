@@ -1,0 +1,11 @@
+{
+  "baselineCount": 1191,
+  "changed": [
+    "Assets/Editor/GameplayBottleTests.cs",
+    "Assets/Editor/GameplayHudTests.cs",
+    "Assets/Editor/GameplayVisualTests.cs",
+    "Assets/Scripts/Presentation/GameplayHud.cs",
+    "Assets/Scripts/Presentation/GameplayPresentation.cs"
+  ],
+  "unchanged": 1186
+}

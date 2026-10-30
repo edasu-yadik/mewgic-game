@@ -27,7 +27,7 @@ namespace Mewgic
         public void Mount(RectTransform safeArea,RectTransform bottleBoard)
         {
             safe=safeArea;board=bottleBoard;board.GetComponent<Image>().color=Color.clear;
-            board.anchorMin=new Vector2(.25f,.30f);board.anchorMax=new Vector2(.95f,.73f);board.offsetMin=board.offsetMax=Vector2.zero;
+            board.anchorMin=new Vector2(.25f,.30f);board.anchorMax=new Vector2(.95f,.90f);board.offsetMin=board.offsetMax=Vector2.zero;
             var night=safe.parent.Find("Night");if(night!=null)night.gameObject.SetActive(false);
             background=Rect(safe.parent,"GameplayBackdrop");background.SetAsFirstSibling();var bg=Art(background,"CastleWaterfalls",backdrop);bg.color=new Color(.85f,.88f,1,1);
             world=Rect(safe,"GameplayWorld");world.SetAsFirstSibling();Rect(world,"StoneShelves");
@@ -37,6 +37,7 @@ namespace Mewgic
             foreach(var graphic in cat.GetComponentsInChildren<Graphic>(true))graphic.raycastTarget=false;
             Layout();
         }
+        public void SetTopLimit(float top){if(board==null||Mathf.Approximately(board.anchorMax.y,top))return;board.anchorMax=new Vector2(board.anchorMax.x,top);Layout();}
         public void Bind(RectTransform[] views){bottles=views;int rows=Mathf.CeilToInt(views.Length/(float)Columns(views.Length));while(shelves.Count<rows)shelves.Add(Art(world.Find("StoneShelves"),"StoneShelf_"+shelves.Count,shelf).rectTransform);for(int i=0;i<shelves.Count;i++)shelves[i].gameObject.SetActive(i<rows);Layout();}
         public void Layout()
         {
