@@ -1,0 +1,10 @@
+{
+  "baselineCount": 1173,
+  "changed": [
+    "Assets/Editor/GameplayHudTests.cs",
+    "Assets/Scripts/Presentation/GameplayHud.cs",
+    "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unchanged": 1169
+}

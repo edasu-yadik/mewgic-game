@@ -6,8 +6,8 @@ namespace Mewgic
 {
     public sealed class GameplayHud : MonoBehaviour
     {
-        TMP_Text level,goal,moves,performance;Image[] stars;GameObject overlay;RectTransform safe;
-        Sprite panel,star,pauseArt;TMP_FontAsset font;Action resume,restart,home;
+        TMP_Text level,goal,moves;GameObject overlay;RectTransform safe;
+        Sprite panel,pauseArt;TMP_FontAsset font;Action resume,restart,home;
         public GameplayHudState State {get;private set;}
         public bool IsPaused=>overlay!=null&&overlay.activeSelf;
         static RectTransform Rect(Transform parent,string name,Vector2 min,Vector2 max)
@@ -21,7 +21,7 @@ namespace Mewgic
         static Sprite Load(string name)=>Resources.Load<Sprite>("Gameplay/HUD/HUD_"+name+"_v001");
         public void Mount(RectTransform safeArea,Action pause,Action onResume,Action onRestart,Action onHome)
         {
-            safe=safeArea;resume=onResume;restart=onRestart;home=onHome;font=MewgicTypographySettings.Current.body;panel=Load("Panel");star=Load("Star");pauseArt=Load("Pause");
+            safe=safeArea;resume=onResume;restart=onRestart;home=onHome;font=MewgicTypographySettings.Current.body;panel=Load("Panel");pauseArt=Load("Pause");
             var root=Rect(safe,"GameplayHUD",new Vector2(0,.745f),Vector2.one);
             var l=Art(root,"LevelPanel",panel,new Vector2(.025f,.48f),new Vector2(.275f,.84f),true);
             level=TMP_Text(l.transform,"LevelValue","",30,new Vector2(.07f,.12f),new Vector2(.93f,.88f));
@@ -32,9 +32,6 @@ namespace Mewgic
             TMP_Text(m.transform,"MovesTitle","KULLANILAN",21,new Vector2(.07f,.65f),new Vector2(.93f,.90f));
             moves=TMP_Text(m.transform,"Moves","",29,new Vector2(.07f,.10f),new Vector2(.93f,.67f));
             var p=Art(root,"Pause",pauseArt,new Vector2(.872f,.77f),new Vector2(.975f,.98f));p.preserveAspect=true;p.raycastTarget=true;var pb=p.gameObject.AddComponent<Button>();pb.targetGraphic=p;pb.onClick.AddListener(()=>pause());
-            var row=Art(root,"PerformancePanel",panel,new Vector2(.19f,.035f),new Vector2(.81f,.28f),true);
-            stars=new Image[3];for(int i=0;i<3;i++){stars[i]=Art(row.transform,"PerformanceStar"+(i+1),star,new Vector2(.26f+i*.18f,.38f),new Vector2(.38f+i*.18f,.96f));stars[i].preserveAspect=true;}
-            performance=TMP_Text(row.transform,"PerformanceValue","",20,new Vector2(.08f,.08f),new Vector2(.92f,.32f));
             var cover=Rect(safe.parent,"GameplayPauseOverlay",Vector2.zero,Vector2.one);overlay=cover.gameObject;var dim=overlay.AddComponent<Image>();dim.color=new Color(.025f,.018f,.065f,.84f);dim.raycastTarget=true;
             var pauseSafe=Rect(cover,"PauseSafeArea",safe.anchorMin,safe.anchorMax);
             var modal=Art(pauseSafe,"PausePanel",panel,new Vector2(.10f,.30f),new Vector2(.90f,.72f),true);
@@ -48,8 +45,6 @@ namespace Mewgic
         {
             State=state;level.text="BÖLÜM "+state.Level;goal.text=state.Goal+"\n"+state.Completed+" / "+state.Total+" renk tamamlandı";
             moves.text="HAMLE  "+state.Moves;
-            for(int i=0;i<stars.Length;i++)stars[i].color=i<state.PotentialStars?Color.white:new Color(.38f,.32f,.48f,.8f);
-            performance.text=state.AwardedStars>0?state.AwardedStars+" YILDIZ KAZANILDI":"HEDEF: "+state.PotentialStars+" YILDIZ";
         }
         public void ShowPaused(bool value){overlay.SetActive(value);if(value)overlay.transform.SetAsLastSibling();}
         void LateUpdate(){if(overlay!=null){var r=(RectTransform)overlay.transform.Find("PauseSafeArea");r.anchorMin=safe.anchorMin;r.anchorMax=safe.anchorMax;}}

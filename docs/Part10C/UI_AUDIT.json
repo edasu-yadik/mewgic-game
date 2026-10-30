@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "error": null,
+  "errors": [],
+  "warnings": [],
+  "checks": [
+    "Üst yıldız paneli/etiketi oluşturulmadı",
+    "Üç yıldız ikonu yok",
+    "Diğer HUD korundu: LevelPanel",
+    "Diğer HUD korundu: GoalPanel",
+    "Diğer HUD korundu: MovesPanel",
+    "Diğer HUD korundu: Pause",
+    "Buton mevcut: Pause",
+    "Pause korundu",
+    "Buton mevcut: Resume",
+    "Buton mevcut: Bottle 1",
+    "Buton mevcut: Bottle 3",
+    "Buton mevcut: Bottle 2",
+    "Buton mevcut: Bottle 1",
+    "Buton mevcut: Bottle 2",
+    "Buton mevcut: Bottle 3",
+    "Gerçek zafer üç yıldız ödülü üretir",
+    "Kayıtta üç yıldız korundu",
+    "Kayıt yüklenince yıldızlar korundu",
+    "Buton mevcut: ResultHome",
+    "Buton mevcut: NavMap",
+    "Harita modeli üç yıldız gösterir",
+    "Harita rozeti gerçek üç yıldız aldı"
+  ],
+  "playerSaveIntact": true
+}

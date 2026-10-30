@@ -1,5 +1,12 @@
 # Üretim ilerlemesi
 
+## PART10C — Üst üç yıldız kutusunun kaldırılması
+GameplayHUD/PerformancePanel runtime üretimi kaldırıldı. Ödül modeli ve
+harita/sonuç yıldızları korundu; gerçek zafer/kayıt/harita kontrolü geçti.
+Diğer HUD/şişe konumları aynı;serbest558×100px alan sonraki part için boş.
+Üç oran/Safe Area ve önce/sonra Game View hazır. Yeni build yok.
+Rapor:ProductionReports/PART10C_REPORT.md.
+
 ## PART10B — Pati Yardımı
 İlk öğretici,kedi yardım menüsü,solver doğrulamalı kaynak/hedef vurgusu ve
 isteğe bağlı kayıt geçmişi eklendi. Gerçek Unity akışı,eski kayıt/JSON yükleme,
