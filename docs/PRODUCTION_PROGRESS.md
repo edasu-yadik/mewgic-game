@@ -222,3 +222,5 @@ PART12A Git teslimi:ab70130e8243ae11d346dc2a04c00c0183d7aab5 recovery/part09-com
 
 
 PART12B (31 Ekim 2026): İlk dört özgün ada korunarak 12×50=600 bölümlük veri yolu; 601+ paket uzantısı, 5 havuz ada/40 düğüm, 10'luk bölüm seçici, gerçek yıldız/sandık/kilit ve bookmark. PART12A asenkron sertifikalı üretim, yeni ada girişinde Easy/Normal/Normal; mevcut pinler değişmez. Eski alınmış/alınmamış sandıklar ve gerçek oyuncu primary/backup/corrupt korundu. 1599 model +1425 Unity assertion/3 oran/Safe Area geçti; 601 gerçek Gameplay ve haritaya dönüş doğrulandı; Console/derleme/runtime0 hata-0 uyarı. Yeni sekiz ada sanatı BEKLİYOR; ayrı plan Part12B/ISLAND_ART_PLAN.md. Teknik belge WORLD_MAP_DESIGN.md; rapor ProductionReports/Part12B/PART12B_REPORT.md. Yeni build/fiziksel cihaz testi yok.
+
+PART12B Git teslimi: dedfacc61e36dc28519db074196be532cd09f58b recovery/part09-completion push başarılı; uzak SHA eşleşti. Master f243d7a korundu. Yeni sekiz ada sanatı ayrı görev olarak bekliyor.

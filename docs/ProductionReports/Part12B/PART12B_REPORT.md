@@ -77,6 +77,6 @@ Gelecek mekanik tutorialIds alanları hazırdır; ortada yeni mekanik olmadığ�
 
 ## Git ve teslim
 
-Private repo doğrulandı: `edasu-yadik/mewgic-game`. Yalnız PART12B dosyaları stage edilecek; doğrulanan kaynak ve raporlar mevcut geliştirme dalına gönderilecek. Commit/push doğrulaması teslim sonrasında aşağıya eklenecek. Master'a merge yok.
+Private repo doğrulandı: `edasu-yadik/mewgic-game`. Yalnız PART12B dosyaları commit edildi. Uygulama ve kabul commit'i **dedfacc61e36dc28519db074196be532cd09f58b**; `git push origin recovery/part09-completion` başarılı. `git ls-remote` aynı uzak SHA'yı doğruladı. Uzak master **f243d7a355fedf9cfbc65f8060f1d3bc14cae169** olarak kaldı; merge yapılmadı. Bu teslim kaydı ayrı dokümantasyon commit'inde gönderilir.
 
 Editor izole test profiliyle güncel LevelMap Play Mode önizlemesinde bırakıldı. **Yeni iOS/IPA/Cloud Build/TestFlight build'i alınmadı.** Sonraki beta öncesinde özellikle yeni ada sanatları ve fiziksel iPhone performans/oynanış kabulü tamamlanmalıdır.
