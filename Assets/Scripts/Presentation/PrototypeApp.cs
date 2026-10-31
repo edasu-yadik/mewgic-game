@@ -114,7 +114,7 @@ namespace Mewgic
             if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe); homeCharacter.GetComponent<HomeTopBar>()?.Mount(safe); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
-            var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>Mewgic.SceneNavigation.LoadOnce("Gameplay"));
+            var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>{if(!navigating)StartCoroutine(EnterPreparedGameplay());});
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
@@ -144,7 +144,7 @@ namespace Mewgic
             endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);},()=>paused);
             if(GameplayProgress.LoadError!=null)status.text="Kayıt okunamadı; haklar ve ödüller kilitli.";
             Refresh();
-            pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);
+            pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);GameplayLevelCatalog.Prewarm(levelInfo.id);
         }
         void SkinGameplayControl(Button control){control.GetComponent<Image>().sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");control.GetComponent<Image>().type=Image.Type.Sliced;control.GetComponent<Image>().color=Color.white;control.GetComponent<Outline>().enabled=false;}
         void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused,originalBottleCount);}
@@ -163,7 +163,9 @@ namespace Mewgic
             }
             if(!applied)status.text=boosters.Message;else pawGuide?.ResetGuide();Refresh();
         }
-        void NextLevel(){if(busy||paused||!puzzle.Won||navigating)return;if(GameplayLevelCatalog.Advance(levelInfo.id,progress)){navigating=true;Mewgic.SceneNavigation.LoadOnce("Gameplay");}}
+        void NextLevel(){if(busy||paused||!puzzle.Won||navigating||!GameplayLevelCatalog.CanAdvance(levelInfo.id,progress))return;StartCoroutine(AdvancePrepared());}
+        IEnumerator EnterPreparedGameplay(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);while(!task.IsCompleted)yield return null;if(task.IsFaulted){var failure=task.Exception;GameObject.Find("Play")?.GetComponent<PremiumPlayButton>()?.AllowRetry();if(GameObject.Find("LevelPreparationNotice")==null)Label(safe,"LevelPreparationNotice","Bölüm hazırlanamadı. Tekrar dene.",24,Gold,new Vector2(.1f,.12f),new Vector2(.9f,.17f));navigating=false;yield break;}Mewgic.SceneNavigation.LoadOnce("Gameplay");}
+        IEnumerator AdvancePrepared(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(levelInfo.id+1);while(!task.IsCompleted)yield return null;if(task.IsFaulted){status.text="Bölüm hazırlanamadı; tekrar deneyebilirsin.";navigating=false;yield break;}if(GameplayLevelCatalog.Advance(levelInfo.id,progress))Mewgic.SceneNavigation.LoadOnce("Gameplay");else{status.text="İlerleme kaydedilemedi; tekrar deneyebilirsin.";navigating=false;}}
         public void PauseGame(){if(hud==null||paused)return;pawGuide?.SuspendHelp();paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
         public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateTools();}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}

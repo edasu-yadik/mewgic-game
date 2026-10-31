@@ -82,9 +82,9 @@ namespace Mewgic
                 throw new InvalidOperationException("Açılış görselleri yüklenemedi. Lütfen tekrar dene.");
             if (!Application.CanStreamedLevelBeLoaded(homeScene))
                 throw new InvalidOperationException("Ana menü yüklenemedi. Lütfen tekrar dene.");
-            var request = Resources.LoadAsync<TextAsset>("Levels/Level" + GameplayLevelCatalog.SelectedId.ToString("D2"));
-            while (!request.isDone) { Stage("Dependencies", .15f + .15f * request.progress, "Büyülü kaynaklar hazırlanıyor…"); yield return null; }
-            if (request.asset == null) throw new InvalidOperationException("Başlangıç bölümünün verileri bulunamadı.");
+            var prepare=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);
+            while(!prepare.IsCompleted){Stage("Dependencies",.25f,"Büyülü kaynaklar hazırlanıyor…");yield return null;}
+            if(prepare.IsFaulted)throw new InvalidOperationException("Başlangıç bölümü doğrulanamadı. Kaydın korundu; tekrar dene.");
             GameplayLevelCatalog.Current(); // Bölüm kimliği, içerik ve çözülebilirlik doğrulanır.
             if (Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf") == null)
                 throw new InvalidOperationException("Yazı kaynağı yüklenemedi.");

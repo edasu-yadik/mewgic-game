@@ -1,0 +1,16 @@
+{
+  "trackedBaselineCount": 1500,
+  "changed": [
+    "Assets/Scripts/Boot/BootLoadingController.cs",
+    "Assets/Scripts/Core/PuzzleSolver.cs",
+    "Assets/Scripts/Map/MapProgressionCatalog.cs",
+    "Assets/Scripts/Presentation/GameplayLevelCatalog.cs",
+    "Assets/Scripts/Presentation/PremiumPlayButton.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs",
+    "Packages/manifest.json",
+    "Packages/packages-lock.json",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "expected": true,
+  "legacyLevelsModelBoostersSavePawArtScenesProjectSettingsUnchanged": true
+}

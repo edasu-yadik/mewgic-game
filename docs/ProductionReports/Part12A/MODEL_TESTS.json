@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "checks": 9013,
+  "combinations": 1000,
+  "direct": 845,
+  "fallback": 155,
+  "failed": 0,
+  "totalUnique": 567,
+  "repeatsOutsideWindow": 433,
+  "candidateLimits": 0,
+  "candidateDuplicates": 357,
+  "totalCandidates": 12457,
+  "candidateShapeRejected": 9302,
+  "candidateDifficultyRejected": 1953,
+  "fallbackPool": 192,
+  "fallbackPoolAttempts": 287,
+  "medianMs": 33.3937,
+  "p95Ms": 268.3595,
+  "maxMs": 586.5492,
+  "meanMs": 68.539520099999933
+}

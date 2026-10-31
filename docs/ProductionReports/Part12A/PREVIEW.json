@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var e=Newtonsoft.Json.JsonConvert.DeserializeObject<Mewgic.Core.GeneratedLevel[]>(System.IO.File.ReadAllText(\"docs/ProductionReports/Part12A/EXAMPLES.json\"));return new{previewId=Mewgic.GameplayLevelCatalog.SelectedId,sameNormalPin=Mewgic.GameplayLevelCatalog.Current().Generated.signature==e[1].signature,isolated=Mewgic.GameplayProgress.IsTestProfile};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "previewId": 8,
+        "sameNormalPin": true,
+        "isolated": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

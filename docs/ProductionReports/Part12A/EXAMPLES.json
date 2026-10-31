@@ -1,0 +1,280 @@
+[
+  {
+    "format": 1,
+    "level": 3,
+    "version": 1,
+    "capacity": 4,
+    "colors": 3,
+    "emptyBottles": 2,
+    "attempt": 23,
+    "seed": 3720841920,
+    "requestSeed": 850108723,
+    "recipeDifficulty": 1,
+    "signature": "||AAAB|BBAC|CCCB",
+    "fallback": false,
+    "target": 1,
+    "difficulty": {
+      "optimalMoves": 5,
+      "mixedBoundaries": 4,
+      "initialChoices": 3,
+      "branchSum": 14,
+      "pathStates": 5,
+      "visited": 33,
+      "stored": 35,
+      "peakQueue": 13,
+      "deadEndStates": 0,
+      "score": 36,
+      "measured": 1
+    },
+    "bottles": [
+      {
+        "layers": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "layers": []
+      },
+      {
+        "layers": [
+          2,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "layers": [
+          1,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "layers": []
+      }
+    ],
+    "solution": [
+      {
+        "source": 0,
+        "target": 1
+      },
+      {
+        "source": 2,
+        "target": 0
+      },
+      {
+        "source": 3,
+        "target": 1
+      },
+      {
+        "source": 2,
+        "target": 3
+      },
+      {
+        "source": 1,
+        "target": 2
+      }
+    ]
+  },
+  {
+    "format": 1,
+    "level": 8,
+    "version": 1,
+    "capacity": 4,
+    "colors": 3,
+    "emptyBottles": 2,
+    "attempt": 3,
+    "seed": 3592195672,
+    "requestSeed": 1806335045,
+    "recipeDifficulty": 2,
+    "signature": "||AABA|CCBA|CCBB",
+    "fallback": false,
+    "target": 2,
+    "difficulty": {
+      "optimalMoves": 7,
+      "mixedBoundaries": 5,
+      "initialChoices": 3,
+      "branchSum": 18,
+      "pathStates": 7,
+      "visited": 63,
+      "stored": 64,
+      "peakQueue": 18,
+      "deadEndStates": 0,
+      "score": 44,
+      "measured": 2
+    },
+    "bottles": [
+      {
+        "layers": []
+      },
+      {
+        "layers": [
+          1,
+          1,
+          0,
+          2
+        ]
+      },
+      {
+        "layers": []
+      },
+      {
+        "layers": [
+          2,
+          2,
+          0,
+          2
+        ]
+      },
+      {
+        "layers": [
+          1,
+          1,
+          0,
+          0
+        ]
+      }
+    ],
+    "solution": [
+      {
+        "source": 1,
+        "target": 0
+      },
+      {
+        "source": 1,
+        "target": 2
+      },
+      {
+        "source": 3,
+        "target": 0
+      },
+      {
+        "source": 3,
+        "target": 2
+      },
+      {
+        "source": 0,
+        "target": 3
+      },
+      {
+        "source": 4,
+        "target": 2
+      },
+      {
+        "source": 1,
+        "target": 4
+      }
+    ]
+  },
+  {
+    "format": 1,
+    "level": 20,
+    "version": 1,
+    "capacity": 4,
+    "colors": 4,
+    "emptyBottles": 2,
+    "attempt": 2,
+    "seed": 1961265370,
+    "requestSeed": 3478165670,
+    "recipeDifficulty": 3,
+    "signature": "||AABC|BAAC|CDDB|DDBC",
+    "fallback": false,
+    "target": 3,
+    "difficulty": {
+      "optimalMoves": 9,
+      "mixedBoundaries": 8,
+      "initialChoices": 4,
+      "branchSum": 40,
+      "pathStates": 9,
+      "visited": 278,
+      "stored": 281,
+      "peakQueue": 56,
+      "deadEndStates": 0,
+      "score": 63,
+      "measured": 3
+    },
+    "bottles": [
+      {
+        "layers": []
+      },
+      {
+        "layers": [
+          1,
+          3,
+          3,
+          0
+        ]
+      },
+      {
+        "layers": [
+          2,
+          2,
+          0,
+          1
+        ]
+      },
+      {
+        "layers": [
+          3,
+          3,
+          0,
+          1
+        ]
+      },
+      {
+        "layers": [
+          0,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "layers": []
+      }
+    ],
+    "solution": [
+      {
+        "source": 2,
+        "target": 0
+      },
+      {
+        "source": 3,
+        "target": 0
+      },
+      {
+        "source": 2,
+        "target": 3
+      },
+      {
+        "source": 4,
+        "target": 0
+      },
+      {
+        "source": 4,
+        "target": 2
+      },
+      {
+        "source": 1,
+        "target": 4
+      },
+      {
+        "source": 3,
+        "target": 4
+      },
+      {
+        "source": 1,
+        "target": 3
+      },
+      {
+        "source": 0,
+        "target": 1
+      }
+    ]
+  }
+]

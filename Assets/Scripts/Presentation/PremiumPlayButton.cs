@@ -42,6 +42,7 @@ namespace Mewgic
         public void OnPointerDown(PointerEventData e){if(e.button==PointerEventData.InputButton.Left&&!queued&&button.IsInteractable())held=true;}
         public void OnPointerUp(PointerEventData e){if(e.button==PointerEventData.InputButton.Left)held=false;}
         public void OnPointerExit(PointerEventData e){held=false;}
+        public void AllowRetry(){queued=false;held=false;if(button!=null)button.interactable=true;}
         void Activate(){if(queued)return;queued=true;held=false;AcceptedClicks++;button.interactable=false;StartCoroutine(Release());}
         IEnumerator Release(){yield return new WaitForSecondsRealtime(.14f);original.Invoke();}
         public bool IsRaycastLocationValid(Vector2 point,Camera camera)

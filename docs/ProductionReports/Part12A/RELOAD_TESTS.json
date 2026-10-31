@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "failure": null,
+  "checks": [
+    "Gerçek Boot generated pin ile Home'a ulaştı",
+    "Buton: Play",
+    "Gerçek Gameplay bölümü: 20",
+    "İki Play Mode/Boot arasında bütün kayıt aynı",
+    "Disk pin/sürüm yolu aynı; gereksiz öğretici yok"
+  ],
+  "errors": [],
+  "warnings": [],
+  "playerSaveAndBackupIntact": true,
+  "preparationFrames": 0,
+  "prepareSeconds": 0.0
+}
