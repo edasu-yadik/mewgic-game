@@ -232,3 +232,5 @@ PART12C Git teslimi: 0daf1095fd7ca81ce027df07e71d3e6aa2e77857 recovery/part09-co
 
 
 PART12D (31 Ekim 2026): Üretici/harita/localization birlikte yeniden kabul edildi.1000/1000 çözülebilir;9013 model +19102 Unity +302 Boot assertion. Gerçek8→9 ve600→601;Hint/Undo/Shuffle/Restart/Pati,3 dil/3 oran/Safe Area,kayıtlar korundu;Console/derleme/runtime0 hata-0 uyarı. Üretim dosyaları değişmedi;yalnız QA ve kanıtlar.548 benzersiz/452 pencere dışı tekrar, farklı geçmişte aynı numara farklı aday seçebilir.8 ada sanatı/ana dil incelemesi/fiziksel mobil performans bekliyor. Rapor ProductionReports/Part12D/PART12D_REPORT.md; yeni build yok. Editor izole oynanabilir Game View’da.
+
+PART12D Git teslimi: 124af59826e7eccbcf53b4999d5df785c31bcf32 recovery/part09-completion push başarılı; uzak SHA eşleşti. Master f243d7a korundu.

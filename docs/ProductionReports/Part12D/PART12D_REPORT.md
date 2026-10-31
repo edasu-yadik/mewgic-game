@@ -65,4 +65,4 @@ Görüntüler gerçek çalışan Unity sahnesinin kamera/UI render'larıdır; ya
 
 ## Git
 
-Yalnız PART12D QA/dokümanları mevcut geliştirme dalına commit/push edilecek; uzak SHA teslim kaydında doğrulanacak. Master'a merge ve yeni iOS/IPA/Unity Cloud/TestFlight build'i yok.
+Yalnız PART12D QA/dokümanları recovery/part09-completion dalına commit/push edildi. Kabul commit'i **124af59826e7eccbcf53b4999d5df785c31bcf32**; git ls-remote ile uzak SHA eşleşti. Master **f243d7a355fedf9cfbc65f8060f1d3bc14cae169** değişmedi. Bu teslim kaydı ayrı belge commit'inde gönderilir. Yeni iOS/IPA/Unity Cloud/TestFlight build'i alınmadı.
