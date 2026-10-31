@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using TMPro;using Mewgic.UI;
 using System;
 using System.Collections;
@@ -95,7 +96,7 @@ namespace Mewgic
         }
         TMP_Text Label(Transform parent,string name,string value,int size,Color color,Vector2 min,Vector2 max)
         {
-            var go=new GameObject(name,typeof(RectTransform),typeof(TextMeshProUGUI)); go.transform.SetParent(parent,false);
+            var go=new GameObject(name,typeof(RectTransform),typeof(Mewgic.Localization.LocalizedTMP)); go.transform.SetParent(parent,false);
             var rt=(RectTransform)go.transform; rt.anchorMin=min; rt.anchorMax=max; rt.offsetMin=rt.offsetMax=Vector2.zero;
             var text=go.GetComponent<TMP_Text>(); text.font=font; text.text=value; text.fontSize=size; text.color=color;
             text.alignment=TextAlignmentOptions.Midline; text.raycastTarget=false; text.enableAutoSizing=true; text.fontSizeMin=14; text.fontSizeMax=size;
@@ -114,7 +115,7 @@ namespace Mewgic
             if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe); homeCharacter.GetComponent<HomeTopBar>()?.Mount(safe); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
-            var play=Button(safe,"Play","OYNA  ›",new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>{if(!navigating)StartCoroutine(EnterPreparedGameplay());});
+            var play=Button(safe,"Play",L.V("home.play"),new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>{if(!navigating)StartCoroutine(EnterPreparedGameplay());});
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
@@ -135,14 +136,14 @@ namespace Mewgic
             status=Label(safe,"Status","",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
             var tutorialOverlay=new GameObject("TutorialOverlay",typeof(RectTransform)).GetComponent<RectTransform>();
             tutorialOverlay.SetParent(safe,false);tutorialOverlay.anchorMin=new Vector2(.06f,.2f);tutorialOverlay.anchorMax=new Vector2(.94f,.27f);tutorialOverlay.offsetMin=tutorialOverlay.offsetMax=Vector2.zero;
-            restart=Button(safe,"Restart","YENİDEN",new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
-            home=Button(safe,"Home",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);});
+            restart=Button(safe,"Restart",L.V("gameplay.restart"),new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
+            home=Button(safe,"Home",GameplayLevelCatalog.FromMap?L.V("common.map"):L.V("common.home"),new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);});
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
             endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);},()=>paused);
-            if(GameplayProgress.LoadError!=null)status.text="Kayıt okunamadı; haklar ve ödüller kilitli.";
+            if(GameplayProgress.LoadError!=null)status.text=L.V("error.load");
             Refresh();
             pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);GameplayLevelCatalog.Prewarm(levelInfo.id);
         }
@@ -152,20 +153,20 @@ namespace Mewgic
         {
             if(busy||paused||puzzle.Won||navigating)return;
             if(pawGuide!=null&&pawGuide.BlocksGameplayActions)return;
-            if(kind==BoosterKind.Hint&&hintTarget>=0){status.text="İpucu zaten gösteriliyor; hak harcanmadı.";return;}
+            if(kind==BoosterKind.Hint&&hintTarget>=0){status.text=L.V("booster.hint_active");return;}
             bool applied=false;
             switch(kind)
             {
-                case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text="Son geçerli hamle geri alındı.";}break;
+                case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_undo");}break;
                 case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;selected=move.Source;hintTarget=move.Target;status.text="";}break;
-                case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text="Bu denemeye bir boş şişe eklendi.";}break;
+                case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");}break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
             if(!applied)status.text=boosters.Message;else pawGuide?.ResetGuide();Refresh();
         }
         void NextLevel(){if(busy||paused||!puzzle.Won||navigating||!GameplayLevelCatalog.CanAdvance(levelInfo.id,progress))return;StartCoroutine(AdvancePrepared());}
-        IEnumerator EnterPreparedGameplay(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);while(!task.IsCompleted)yield return null;if(task.IsFaulted){var failure=task.Exception;GameObject.Find("Play")?.GetComponent<PremiumPlayButton>()?.AllowRetry();if(GameObject.Find("LevelPreparationNotice")==null)Label(safe,"LevelPreparationNotice","Bölüm hazırlanamadı. Tekrar dene.",24,Gold,new Vector2(.1f,.12f),new Vector2(.9f,.17f));navigating=false;yield break;}Mewgic.SceneNavigation.LoadOnce("Gameplay");}
-        IEnumerator AdvancePrepared(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(levelInfo.id+1);while(!task.IsCompleted)yield return null;if(task.IsFaulted){status.text="Bölüm hazırlanamadı; tekrar deneyebilirsin.";navigating=false;yield break;}if(GameplayLevelCatalog.Advance(levelInfo.id,progress))Mewgic.SceneNavigation.LoadOnce("Gameplay");else{status.text="İlerleme kaydedilemedi; tekrar deneyebilirsin.";navigating=false;}}
+        IEnumerator EnterPreparedGameplay(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);while(!task.IsCompleted)yield return null;if(task.IsFaulted){var failure=task.Exception;GameObject.Find("Play")?.GetComponent<PremiumPlayButton>()?.AllowRetry();if(GameObject.Find("LevelPreparationNotice")==null)Label(safe,"LevelPreparationNotice",L.V("error.prepare"),24,Gold,new Vector2(.1f,.12f),new Vector2(.9f,.17f));navigating=false;yield break;}Mewgic.SceneNavigation.LoadOnce("Gameplay");}
+        IEnumerator AdvancePrepared(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(levelInfo.id+1);while(!task.IsCompleted)yield return null;if(task.IsFaulted){status.text=L.V("error.prepare");navigating=false;yield break;}if(GameplayLevelCatalog.Advance(levelInfo.id,progress))Mewgic.SceneNavigation.LoadOnce("Gameplay");else{status.text=L.V("error.save");navigating=false;}}
         public void PauseGame(){if(hud==null||paused)return;pawGuide?.SuspendHelp();paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
         public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateTools();}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
@@ -213,12 +214,12 @@ namespace Mewgic
             if(busy||paused||puzzle.Won)return;
             if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
             hintTarget=-1;
-            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text="Bu şişe boş.";return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
+            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text=L.V("gameplay.empty");return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
             if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
-            if(amount==0){status.text="Bu hamle yapılamıyor.";Refresh();return;}
+            if(amount==0){status.text=L.V("gameplay.invalid");Refresh();return;}
             selected=-1;pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)
@@ -258,7 +259,7 @@ namespace Mewgic
             a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(oldSibling);
             sourceView.SetAnimating(false);targetView.SetAnimating(false);
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
-            busy=false;pourRoutine=null;status.text="Güzel hamle!";Refresh();pawGuide?.MoveFinished(source,target);
+            busy=false;pourRoutine=null;status.text=L.V("gameplay.good");Refresh();pawGuide?.MoveFinished(source,target);
         }
     }
 }

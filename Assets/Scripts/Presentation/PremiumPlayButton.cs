@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections;using TMPro;using Mewgic.UI;using Mewgic.Localization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,10 +23,11 @@ namespace Mewgic
             var label=button.transform.Find("Label");if(label!=null)label.gameObject.SetActive(false);
             var hit=button.GetComponent<Image>();hit.color=Color.clear;hit.raycastTarget=true;
             visual=new GameObject("PlayArtwork",typeof(RectTransform),typeof(Image)).GetComponent<RectTransform>();visual.SetParent(button.transform,false);visual.anchorMin=Vector2.zero;visual.anchorMax=Vector2.one;visual.offsetMin=visual.offsetMax=Vector2.zero;
-            art=visual.GetComponent<Image>();art.sprite=normal;art.preserveAspect=true;art.raycastTarget=false;
+            art=visual.GetComponent<Image>();art.material=Resources.Load<Material>("Localization/PlayFace");art.sprite=normal;art.preserveAspect=true;art.raycastTarget=false;
             var fx=new GameObject("FrameGlow",typeof(RectTransform),typeof(Image));fx.transform.SetParent(visual,false);var r=(RectTransform)fx.transform;r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;
             frameLight=fx.GetComponent<Image>();frameLight.sprite=glow;frameLight.preserveAspect=true;frameLight.raycastTarget=false;
             if(sweepShader!=null){sweepMaterial=new Material(sweepShader);frameLight.material=sweepMaterial;}
+            if(label!=null){label.SetParent(visual,false);label.SetAsLastSibling();label.gameObject.SetActive(true);var lr=(RectTransform)label;lr.anchorMin=new Vector2(.23f,.25f);lr.anchorMax=new Vector2(.82f,.66f);lr.offsetMin=lr.offsetMax=Vector2.zero;var caption=label.GetComponent<TMP_Text>();caption.font=MewgicTypographySettings.Current.heading;caption.text=L.V("home.play");caption.color=new Color32(255,246,224,255);caption.enableAutoSizing=true;caption.fontSizeMin=24;caption.fontSizeMax=62;caption.fontSize=62;caption.fontStyle=FontStyles.Bold;caption.textWrappingMode=TextWrappingModes.NoWrap;}
         }
         void Update()
         {

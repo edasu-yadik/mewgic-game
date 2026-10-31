@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using TMPro;using Mewgic.UI;
 using System;using Mewgic.Core;using UnityEngine;using UnityEngine.UI;
 namespace Mewgic
@@ -12,11 +13,11 @@ namespace Mewgic
         Button[] buttons=new Button[4];TMP_Text[] counts=new TMP_Text[4];Image[] icons=new Image[4];
         public static RectTransform Rect(Transform p,string n,Vector2 min,Vector2 max){var r=new GameObject(n,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         public static Image Art(Transform p,string n,Sprite sprite,Vector2 min,Vector2 max,bool sliced=false){var im=Rect(p,n,min,max).gameObject.AddComponent<Image>();im.sprite=sprite;im.type=sliced?Image.Type.Sliced:Image.Type.Simple;im.raycastTarget=false;return im;}
-        public static TMP_Text Label(Transform p,string n,string text,int size,Vector2 min,Vector2 max){var t=Rect(p,n,min,max).gameObject.AddComponent<TextMeshProUGUI>();t.font=MewgicTypographySettings.Current.body;t.text=text;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=14;t.fontSizeMax=size;t.color=Color.white;t.alignment=TextAlignmentOptions.Midline;t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
+        public static TMP_Text Label(Transform p,string n,string text,int size,Vector2 min,Vector2 max){var t=Rect(p,n,min,max).gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();t.font=MewgicTypographySettings.Current.body;t.text=text;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=14;t.fontSizeMax=size;t.color=Color.white;t.alignment=TextAlignmentOptions.Midline;t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
         public Button Mount(RectTransform safe,Action<BoosterKind> use)
         {
             var root=Rect(safe,"GameplayBoosters",new Vector2(.045f,.075f),new Vector2(.955f,.195f));
-            var names=new[]{"Undo","Hint","ExtraBottle","Shuffle"};var labels=new[]{"Geri Al","İpucu","Ek Şişe","Karıştır"};var iconNames=new[]{"Undo","Hint","Extra","Shuffle"};
+            var names=new[]{"Undo","Hint","ExtraBottle","Shuffle"};var labels=new[]{L.V("booster.undo"),L.V("booster.hint"),L.V("booster.extra"),L.V("booster.shuffle")};var iconNames=new[]{"Undo","Hint","Extra","Shuffle"};
             var tile=Resources.Load<Sprite>("Gameplay/Tools/Tool_Tile_v001");
             for(int i=0;i<4;i++)
             {

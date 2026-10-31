@@ -1,0 +1,1004 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Mewgic_pl
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: 60c1040d6d22aac479a99d2dede8a5db, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1668092879795126370
+  m_TableData:
+  - m_Id: 3055910912
+    m_Localized: "WR\xD3\u0106"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3177545728
+    m_Localized: ZAMKNIJ
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740032
+    m_Localized: OK
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740033
+    m_Localized: INFO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740034
+    m_Localized: MENU
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740035
+    m_Localized: MAPA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740036
+    m_Localized: ODBIERZ
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740037
+    m_Localized: ODEBRANO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740038
+    m_Localized: ZABLOKOWANE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740039
+    m_Localized: "ID\u0179"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740040
+    m_Localized: ZOBACZ
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740041
+    m_Localized: "JAK ZDOBY\u0106?"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740042
+    m_Localized: GRAJ
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740043
+    m_Localized: "PE\u0141NE"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740044
+    m_Localized: Mapa
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740045
+    m_Localized: Wydarzenia
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740046
+    m_Localized: "Dru\u017Cyna"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740047
+    m_Localized: Ekwipunek
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740048
+    m_Localized: "Sklep z monetami jest jeszcze zamkni\u0119ty. Nie dokonuje si\u0119
+      zakup\xF3w."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740049
+    m_Localized: "Sklep z klejnotami jest jeszcze zamkni\u0119ty. Nie dokonuje si\u0119
+      zakup\xF3w."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740050
+    m_Localized: "Odnawianie energii nie jest jeszcze dost\u0119pne. Twoja energia
+      nie zmieni\u0142a si\u0119."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740051
+    m_Localized: "Ekwipunek nie jest jeszcze dost\u0119pny."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740052
+    m_Localized: "Dru\u017Cyny nie s\u0105 jeszcze dost\u0119pne."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740053
+    m_Localized: USTAWIENIA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740054
+    m_Localized: "J\u0119zyk"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740055
+    m_Localized: "D\u0179WI\u0118K: W\u0141."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740056
+    m_Localized: "D\u0179WI\u0118K: WY\u0141."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740057
+    m_Localized: "D\u017Awi\u0119k i j\u0119zyk s\u0105 zapisywane na tym urz\u0105dzeniu.
+      Tre\u015Bci d\u017Awi\u0119kowe nie s\u0105 jeszcze dost\u0119pne."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740058
+    m_Localized: "Nie uda\u0142o si\u0119 zapisa\u0107. Poprzednie dane s\u0105 bezpieczne;
+      spr\xF3buj ponownie."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740059
+    m_Localized: "Nie uda\u0142o si\u0119 przygotowa\u0107 poziomu. Zapis jest bezpieczny;
+      spr\xF3buj ponownie."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740060
+    m_Localized: "Nie uda\u0142o si\u0119 odczyta\u0107 zapisu. Zosta\u0142 zachowany.
+      Otw\xF3rz aplikacj\u0119 ponownie."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740061
+    m_Localized: "Nie uda\u0142o si\u0119 sprawdzi\u0107 daty lub zapisu. Nagrody
+      s\u0105 na razie niedost\u0119pne."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740062
+    m_Localized: Poziom {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740063
+    m_Localized: Ruchy {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740064
+    m_Localized: "Poziom {0} \u2022 Ruchy: {1} \u2022 Gwiazdki: {2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740065
+    m_Localized: MAGIA GOTOWA!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740066
+    m_Localized: "NAST\u0118PNY POZIOM"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3181740067
+    m_Localized: ZAGRAJ PONOWNIE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934336
+    m_Localized: OD NOWA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934337
+    m_Localized: PAUZA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934338
+    m_Localized: KONTYNUUJ
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934339
+    m_Localized: ZACZNIJ OD NOWA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934340
+    m_Localized: "OSTATNI POZIOM UKO\u0143CZONY"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934341
+    m_Localized: "Pierwsze uko\u0144czenie: +1 podpowied\u017A\nNagroda zosta\u0142a
+      zapisana."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934342
+    m_Localized: "Nagroda zosta\u0142a ju\u017C odebrana.\nNajlepszy wynik w gwiazdkach
+      zostaje."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934343
+    m_Localized: Ta butelka jest pusta.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934344
+    m_Localized: "Ten ruch jest niemo\u017Cliwy."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934345
+    m_Localized: Dobry ruch!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934346
+    m_Localized: Cofnij
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934347
+    m_Localized: "Podpowied\u017A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934348
+    m_Localized: Ekstra butelka
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934349
+    m_Localized: Przetasuj
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934350
+    m_Localized: "Ostatni ruch zosta\u0142 cofni\u0119ty."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934351
+    m_Localized: "Dodano pust\u0105 butelk\u0119."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934352
+    m_Localized: "Butelki zosta\u0142y przestawione."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934353
+    m_Localized: "Brak dost\u0119pnych u\u017Cy\u0107."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934354
+    m_Localized: "Nie ma ruchu do cofni\u0119cia."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934355
+    m_Localized: "Nie znaleziono pewnej podpowiedzi; u\u017Cycie zostaje zachowane."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934356
+    m_Localized: "Podpowied\u017A jest ju\u017C widoczna; nie zu\u017Cyto u\u017Cycia."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934357
+    m_Localized: "Tylko jedna dodatkowa butelka na pr\xF3b\u0119."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934358
+    m_Localized: "Nie mo\u017Cna bezpiecznie zmieni\u0107 uk\u0142adu; u\u017Cycie
+      zostaje zachowane."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934359
+    m_Localized: "Zbierz te same kolory razem.\nPrzelewaj do pustej lub pasuj\u0105cej
+      butelki.\nDotknij mnie, je\u015Bli utkniesz!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934360
+    m_Localized: "Przygotowujemy twoj\u0105 magiczn\u0105 podr\xF3\u017C\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934361
+    m_Localized: "Wczytujemy twoj\u0105 podr\xF3\u017C\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934362
+    m_Localized: "Przygotowujemy magiczne zasoby\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934363
+    m_Localized: "Wczytujemy magiczny \u015Bwiat\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934364
+    m_Localized: "Ostatnie magiczne poprawki\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934365
+    m_Localized: Witaj w Mewgic!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934366
+    m_Localized: "SPR\xD3BUJ PONOWNIE"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934367
+    m_Localized: "Nie uda\u0142o si\u0119 wczyta\u0107 \u015Bwiata. Zapis jest bezpieczny;
+      spr\xF3buj ponownie."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934368
+    m_Localized: Codzienny prezent
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934369
+    m_Localized: Zadania
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934370
+    m_Localized: CODZIENNA MAGIA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934371
+    m_Localized: ZADANIA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934372
+    m_Localized: CODZIENNY PREZENT
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934373
+    m_Localized: Codzienne zadania
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934374
+    m_Localized: "Uzupe\u0142nij {0:plural:{} butelk\u0119|{} butelki|{} butelek|{}
+      butelki} w wygranych poziomach"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934375
+    m_Localized: "Wygraj {0:plural:{} poziom|{} poziomy|{} poziom\xF3w|{} poziomu}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934376
+    m_Localized: "Zdob\u0105d\u017A {0:plural:{} gwiazdk\u0119|{} gwiazdki|{} gwiazdek|{}
+      gwiazdki} w wygranych poziomach"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934377
+    m_Localized: "U\u017Cyj {0:plural:{} wspomagacza|{} wspomagaczy|{} wspomagaczy|{}
+      wspomagacza}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934378
+    m_Localized: "Nagrody daj\u0105 rzeczywiste u\u017Cycia wspomagaczy."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934379
+    m_Localized: ODBIERZ PREZENT
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934380
+    m_Localized: "+{0} podpowied\u017A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934381
+    m_Localized: "Podpowied\u017A zapisana. Wr\xF3\u0107 jutro!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934382
+    m_Localized: "Nie uda\u0142o si\u0119 odebra\u0107 prezentu. Sprawd\u017A dat\u0119
+      i zapis."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934383
+    m_Localized: Nagroda za zadanie zapisana!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934384
+    m_Localized: "Prezent na nowy dzie\u0144 jest gotowy!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934385
+    m_Localized: Dzisiejszy prezent odebrano.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934386
+    m_Localized: "Poczekaj na nowy lokalny dzie\u0144 i co najmniej 20 godzin."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3185934387
+    m_Localized: "Reset o lokalnej p\xF3\u0142nocy \u2022 {0:d}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128640
+    m_Localized: Kolekcja
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128641
+    m_Localized: WYDARZENIA I NAGRODY
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128642
+    m_Localized: 'Wydarzenie
+
+      tygodnia'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128643
+    m_Localized: "\u015Acie\u017Cka\nsezonowa"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128644
+    m_Localized: 'Codzienne
+
+      zadania'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128645
+    m_Localized: 'Nagrody
+
+      kolekcji'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128646
+    m_Localized: "Wydarzenie tygodniowe\nTydzie\u0144 Kryszta\u0142owych Wodospad\xF3w"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128647
+    m_Localized: 'Wygraj {0} poziomy
+
+      +1 przetasowanie + gwiezdna odznaka'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128648
+    m_Localized: "ODBIERZ SKRZYNI\u0118"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128649
+    m_Localized: Nagroda zapisana!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128650
+    m_Localized: "Nagroda nie jest gotowa lub zosta\u0142a ju\u017C odebrana."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128651
+    m_Localized: "\u015Acie\u017Cka sezonowa \u2022 Bezp\u0142atna"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128652
+    m_Localized: "+1 cofni\u0119cie"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128653
+    m_Localized: '+1 dodatkowa butelka
+
+      + karta kota'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128654
+    m_Localized: "Premium \u2022 Wkr\xF3tce"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128655
+    m_Localized: "Tre\u015Bci premium i zakupy nie s\u0105 dost\u0119pne. Bez op\u0142at;
+      dzia\u0142a tylko bezp\u0142atna \u015Bcie\u017Cka."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128656
+    m_Localized: Gwiezdna odznaka
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128657
+    m_Localized: Karta kota czarodzieja
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128658
+    m_Localized: "Twoja karta kolekcjonerska. Widoczna w galerii; to nie wyposa\u017Cenie."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128659
+    m_Localized: "Wygraj 3 poziomy w tygodniu i odbierz tygodniow\u0105 skrzyni\u0119."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128660
+    m_Localized: "Odbierz ostatni\u0105 nagrod\u0119 bezp\u0142atnej \u015Bcie\u017Cki
+      sezonowej."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128661
+    m_Localized: "Zdobyte karty pozostaj\u0105 w kolekcji."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128662
+    m_Localized: "Wydarzenia offline \u2022 Wygrywaj poziomy, by robi\u0107 post\u0119py."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128663
+    m_Localized: "Uko\u0144cz dzisiejsze zadania.\nDost\u0119pne nagrody: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128664
+    m_Localized: "OFFLINE \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128665
+    m_Localized: "28 dni offline \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128666
+    m_Localized: '{0}
+
+      {1}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128667
+    m_Localized: "MEWGIC \u2022 MAPA \u015AWIATA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128668
+    m_Localized: "\u2039 POPRZEDNIA WYSPA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128669
+    m_Localized: "NAST\u0118PNA WYSPA \u203A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128670
+    m_Localized: "M\xD3J POZIOM"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128671
+    m_Localized: "Przesu\u0144 w g\xF3r\u0119 \u2022 Wybierz grup\u0119"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128672
+    m_Localized: "50 nowych przyg\xF3d na ka\u017Cdej wyspie"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128673
+    m_Localized: "{0} \u2022 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128674
+    m_Localized: "{0} \u2022 ZABLOKOWANA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128675
+    m_Localized: "Poziomy {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128676
+    m_Localized: "ZABLOKOWANE \u2022 {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128677
+    m_Localized: "{0} \u2022 Za mg\u0142\u0105"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128678
+    m_Localized: '{0}
+
+      Nowa wyspa odblokowana!'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128679
+    m_Localized: "{0}\nPoziomy {1}\u2013{2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128680
+    m_Localized: "Wybierz poziom \u2022 Zdob\u0105d\u017A wi\u0119cej gwiazdek"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128681
+    m_Localized: "WR\xD3\u0106 DO MAPY"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128682
+    m_Localized: "Poziom {0} jest zablokowany. Najpierw uko\u0144cz poprzedni."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128683
+    m_Localized: "Nagroda z tej skrzyni zosta\u0142a ju\u017C odebrana."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128684
+    m_Localized: "{0}\nUko\u0144cz 50 poziom\xF3w wyspy, by otworzy\u0107 skrzyni\u0119."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128685
+    m_Localized: "Skrzynia jest gotowa!\nNagroda: +{0} podpowied\u017A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128686
+    m_Localized: "Skrzynia otwarta! Podpowied\u017A zapisana."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128687
+    m_Localized: "Przygotowujemy poziom\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128688
+    m_Localized: Nowe Horyzonty {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128689
+    m_Localized: Zaczarowana Wioska
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128690
+    m_Localized: "Kryszta\u0142owe Wodospady"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128691
+    m_Localized: "Ksi\u0119\u017Cycowy Ogr\xF3d"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128692
+    m_Localized: Podniebny Zamek
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128693
+    m_Localized: "Szepcz\u0105cy Las"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128694
+    m_Localized: "Z\u0142oty Mira\u017C"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128695
+    m_Localized: "Koralowe Kr\xF3lestwo"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128696
+    m_Localized: Szczyty Lodowego Blasku
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128697
+    m_Localized: Mechaniczne Wyspy
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128698
+    m_Localized: Gwiezdny Gaj
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128699
+    m_Localized: Biblioteka Magii
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 3190128700
+    m_Localized: Cytadela Zorzy
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1662448402432
+    m_Localized: '{0:0.#} mln'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1662528094208
+    m_Localized: '{0:0.#} mld'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1662528094209
+    m_Localized: '{0:0.#}T'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1662528094210
+    m_Localized: '{0:0.#}Q'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2225802149888
+    m_Localized: "OTW\xD3RZ CODZIENNE ZADANIA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2973327785984
+    m_Localized: Prezent
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  references:
+    version: 2
+    RefIds:
+    - rid: 1668092879795126370
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 3055910912
+        - id: 3177545728
+        - id: 3181740032
+        - id: 3181740033
+        - id: 3181740034
+        - id: 3181740035
+        - id: 3181740036
+        - id: 3181740037
+        - id: 3181740038
+        - id: 3181740039
+        - id: 3181740040
+        - id: 3181740041
+        - id: 3181740042
+        - id: 3181740043
+        - id: 3181740044
+        - id: 3181740045
+        - id: 3181740046
+        - id: 3181740047
+        - id: 3181740048
+        - id: 3181740049
+        - id: 3181740050
+        - id: 3181740051
+        - id: 3181740052
+        - id: 3181740053
+        - id: 3181740054
+        - id: 3181740055
+        - id: 3181740056
+        - id: 3181740057
+        - id: 3181740058
+        - id: 3181740059
+        - id: 3181740060
+        - id: 3181740061
+        - id: 3181740062
+        - id: 3181740063
+        - id: 3181740064
+        - id: 3181740065
+        - id: 3181740066
+        - id: 3181740067
+        - id: 3185934336
+        - id: 3185934337
+        - id: 3185934338
+        - id: 3185934339
+        - id: 3185934340
+        - id: 3185934341
+        - id: 3185934342
+        - id: 3185934343
+        - id: 3185934344
+        - id: 3185934345
+        - id: 3185934346
+        - id: 3185934347
+        - id: 3185934348
+        - id: 3185934349
+        - id: 3185934350
+        - id: 3185934351
+        - id: 3185934352
+        - id: 3185934353
+        - id: 3185934354
+        - id: 3185934355
+        - id: 3185934356
+        - id: 3185934357
+        - id: 3185934358
+        - id: 3185934359
+        - id: 3185934360
+        - id: 3185934361
+        - id: 3185934362
+        - id: 3185934363
+        - id: 3185934364
+        - id: 3185934365
+        - id: 3185934366
+        - id: 3185934367
+        - id: 3185934368
+        - id: 3185934369
+        - id: 3185934370
+        - id: 3185934371
+        - id: 3185934372
+        - id: 3185934373
+        - id: 3185934374
+        - id: 3185934375
+        - id: 3185934376
+        - id: 3185934377
+        - id: 3185934378
+        - id: 3185934379
+        - id: 3185934380
+        - id: 3185934381
+        - id: 3185934382
+        - id: 3185934383
+        - id: 3185934384
+        - id: 3185934385
+        - id: 3185934386
+        - id: 3185934387
+        - id: 3190128640
+        - id: 3190128641
+        - id: 3190128642
+        - id: 3190128643
+        - id: 3190128644
+        - id: 3190128645
+        - id: 3190128646
+        - id: 3190128647
+        - id: 3190128648
+        - id: 3190128649
+        - id: 3190128650
+        - id: 3190128651
+        - id: 3190128652
+        - id: 3190128653
+        - id: 3190128654
+        - id: 3190128655
+        - id: 3190128656
+        - id: 3190128657
+        - id: 3190128658
+        - id: 3190128659
+        - id: 3190128660
+        - id: 3190128661
+        - id: 3190128662
+        - id: 3190128663
+        - id: 3190128664
+        - id: 3190128665
+        - id: 3190128666
+        - id: 3190128667
+        - id: 3190128668
+        - id: 3190128669
+        - id: 3190128670
+        - id: 3190128671
+        - id: 3190128672
+        - id: 3190128673
+        - id: 3190128674
+        - id: 3190128675
+        - id: 3190128676
+        - id: 3190128677
+        - id: 3190128678
+        - id: 3190128679
+        - id: 3190128680
+        - id: 3190128681
+        - id: 3190128682
+        - id: 3190128683
+        - id: 3190128684
+        - id: 3190128685
+        - id: 3190128686
+        - id: 3190128687
+        - id: 3190128688
+        - id: 3190128689
+        - id: 3190128690
+        - id: 3190128691
+        - id: 3190128692
+        - id: 3190128693
+        - id: 3190128694
+        - id: 3190128695
+        - id: 3190128696
+        - id: 3190128697
+        - id: 3190128698
+        - id: 3190128699
+        - id: 3190128700
+        - id: 1662448402432
+        - id: 1662528094208
+        - id: 1662528094209
+        - id: 1662528094210
+        - id: 2225802149888
+        - id: 2973327785984

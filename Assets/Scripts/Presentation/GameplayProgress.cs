@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using System;using Mewgic.Core;using UnityEngine;
 namespace Mewgic
 {
@@ -13,7 +14,7 @@ namespace Mewgic
             {
                 if(current!=null)return current;
                 try{current=Open(StorageKey);LoadError=null;}
-                catch(Exception e){LoadError=e.Message;current=new ProgressLedger(new ProgressData{undo=0,hint=0,extra=0,shuffle=0},_=>throw new InvalidOperationException("Kayıt okunamadı; özgün kayıt korundu."));}
+                catch(Exception e){LoadError=e.Message;current=new ProgressLedger(new ProgressData{undo=0,hint=0,extra=0,shuffle=0},_=>throw new InvalidOperationException(L.V("error.load")));}
                 return current;
             }
         }
@@ -36,7 +37,7 @@ namespace Mewgic
                         PlayerPrefs.SetString(key,JsonUtility.ToJson(data));PlayerPrefs.Save();
                         if(key==StorageKey)RecoveryNotice="Bozuk ana kayıt yerine son doğrulanmış yedek yüklendi.";
                     }
-                    catch(Exception recovery){throw new InvalidOperationException("Kayıt ve yedek okunamadı; özgün veri korundu.",new AggregateException(primary,recovery));}
+                    catch(Exception recovery){throw new InvalidOperationException(L.V("error.load"),new AggregateException(primary,recovery));}
                 }
             }
             return new ProgressLedger(data,copy=>

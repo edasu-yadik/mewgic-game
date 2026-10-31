@@ -58,7 +58,7 @@ MonoBehaviour:
   loaded: 1
   locked: 0
   suffix:
-  label: {fileID: 4592507362775690988}
+  label: {fileID: 3893661938001363654}
 --- !u!222 &2554374651961313922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1922529486082522744}
   - component: {fileID: 932988714126000347}
-  - component: {fileID: 4592507362775690988}
+  - component: {fileID: 3893661938001363654}
   m_Layer: 0
   m_Name: ProgressValue
   m_TagString: Untagged
@@ -133,7 +133,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8410766822614686269}
   m_CullTransparentMesh: 1
---- !u!114 &4592507362775690988
+--- !u!114 &3893661938001363654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,9 +142,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8410766822614686269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 681a83e5e155d684eab444b917eca089, type: 3}
   m_Name:
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: Assembly-CSharp::Mewgic.Localization.LocalizedTMP
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0

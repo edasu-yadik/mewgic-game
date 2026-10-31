@@ -1,0 +1,2200 @@
+[
+  {
+    "key": "common.back",
+    "values": {
+      "tr": "GERİ",
+      "en": "BACK",
+      "de": "ZURÜCK",
+      "fr": "RETOUR",
+      "es": "VOLVER",
+      "pt-BR": "VOLTAR",
+      "it": "INDIETRO",
+      "pl": "WRÓĆ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.close",
+    "values": {
+      "tr": "KAPAT",
+      "en": "CLOSE",
+      "de": "SCHLIESSEN",
+      "fr": "FERMER",
+      "es": "CERRAR",
+      "pt-BR": "FECHAR",
+      "it": "CHIUDI",
+      "pl": "ZAMKNIJ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.ok",
+    "values": {
+      "tr": "TAMAM",
+      "en": "OK",
+      "de": "OK",
+      "fr": "OK",
+      "es": "VALE",
+      "pt-BR": "OK",
+      "it": "OK",
+      "pl": "OK"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.info",
+    "values": {
+      "tr": "BİLGİ",
+      "en": "INFO",
+      "de": "INFO",
+      "fr": "INFOS",
+      "es": "INFO",
+      "pt-BR": "INFO",
+      "it": "INFO",
+      "pl": "INFO"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.home",
+    "values": {
+      "tr": "ANA MENÜ",
+      "en": "HOME",
+      "de": "HAUPTMENÜ",
+      "fr": "ACCUEIL",
+      "es": "INICIO",
+      "pt-BR": "INÍCIO",
+      "it": "MENU",
+      "pl": "MENU"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.map",
+    "values": {
+      "tr": "HARİTA",
+      "en": "MAP",
+      "de": "KARTE",
+      "fr": "CARTE",
+      "es": "MAPA",
+      "pt-BR": "MAPA",
+      "it": "MAPPA",
+      "pl": "MAPA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.claim",
+    "values": {
+      "tr": "ÖDÜLÜ AL",
+      "en": "CLAIM",
+      "de": "ABHOLEN",
+      "fr": "RÉCUPÉRER",
+      "es": "RECLAMAR",
+      "pt-BR": "RESGATAR",
+      "it": "RISCATTA",
+      "pl": "ODBIERZ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.claimed",
+    "values": {
+      "tr": "ALINDI",
+      "en": "CLAIMED",
+      "de": "ERHALTEN",
+      "fr": "RÉCUPÉRÉ",
+      "es": "RECIBIDO",
+      "pt-BR": "RESGATADO",
+      "it": "RISCATTATO",
+      "pl": "ODEBRANO"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.locked",
+    "values": {
+      "tr": "KİLİTLİ",
+      "en": "LOCKED",
+      "de": "GESPERRT",
+      "fr": "VERROUILLÉ",
+      "es": "BLOQUEADO",
+      "pt-BR": "BLOQUEADO",
+      "it": "BLOCCATO",
+      "pl": "ZABLOKOWANE"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.go",
+    "values": {
+      "tr": "GİT",
+      "en": "GO",
+      "de": "LOS",
+      "fr": "ALLER",
+      "es": "IR",
+      "pt-BR": "IR",
+      "it": "VAI",
+      "pl": "IDŹ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.view",
+    "values": {
+      "tr": "GÖRÜNTÜLE",
+      "en": "VIEW",
+      "de": "ANSEHEN",
+      "fr": "VOIR",
+      "es": "VER",
+      "pt-BR": "VER",
+      "it": "VEDI",
+      "pl": "ZOBACZ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "common.how",
+    "values": {
+      "tr": "NASIL ALINIR?",
+      "en": "HOW TO GET?",
+      "de": "WIE ERHALTEN?",
+      "fr": "COMMENT L’OBTENIR ?",
+      "es": "¿CÓMO CONSEGUIRLO?",
+      "pt-BR": "COMO OBTER?",
+      "it": "COME OTTENERLO?",
+      "pl": "JAK ZDOBYĆ?"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.play",
+    "values": {
+      "tr": "OYNA",
+      "en": "PLAY",
+      "de": "SPIELEN",
+      "fr": "JOUER",
+      "es": "JUGAR",
+      "pt-BR": "JOGAR",
+      "it": "GIOCA",
+      "pl": "GRAJ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.full",
+    "values": {
+      "tr": "DOLU",
+      "en": "FULL",
+      "de": "VOLL",
+      "fr": "PLEIN",
+      "es": "LLENO",
+      "pt-BR": "CHEIO",
+      "it": "PIENO",
+      "pl": "PEŁNE"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.nav.map",
+    "values": {
+      "tr": "Harita",
+      "en": "Map",
+      "de": "Karte",
+      "fr": "Carte",
+      "es": "Mapa",
+      "pt-BR": "Mapa",
+      "it": "Mappa",
+      "pl": "Mapa"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.nav.events",
+    "values": {
+      "tr": "Etkinlikler",
+      "en": "Events",
+      "de": "Events",
+      "fr": "Événements",
+      "es": "Eventos",
+      "pt-BR": "Eventos",
+      "it": "Eventi",
+      "pl": "Wydarzenia"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.nav.team",
+    "values": {
+      "tr": "Takım",
+      "en": "Team",
+      "de": "Team",
+      "fr": "Équipe",
+      "es": "Equipo",
+      "pt-BR": "Equipe",
+      "it": "Squadra",
+      "pl": "Drużyna"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.nav.inventory",
+    "values": {
+      "tr": "Envanter",
+      "en": "Inventory",
+      "de": "Inventar",
+      "fr": "Inventaire",
+      "es": "Inventario",
+      "pt-BR": "Inventário",
+      "it": "Inventario",
+      "pl": "Ekwipunek"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.coins_info",
+    "values": {
+      "tr": "Para mağazası henüz açık değil. Satın alma yapılmaz.",
+      "en": "The coin shop is not open yet. No purchases are made.",
+      "de": "Der Münzladen ist noch geschlossen. Es gibt keine Käufe.",
+      "fr": "La boutique de pièces est fermée. Aucun achat n’est effectué.",
+      "es": "La tienda de monedas aún no está abierta. No se realizan compras.",
+      "pt-BR": "A loja de moedas ainda não abriu. Nenhuma compra é feita.",
+      "it": "Il negozio di monete non è ancora aperto. Nessun acquisto.",
+      "pl": "Sklep z monetami jest jeszcze zamknięty. Nie dokonuje się zakupów."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.gems_info",
+    "values": {
+      "tr": "Elmas mağazası henüz açık değil. Satın alma yapılmaz.",
+      "en": "The gem shop is not open yet. No purchases are made.",
+      "de": "Der Edelsteinladen ist noch geschlossen. Es gibt keine Käufe.",
+      "fr": "La boutique de gemmes est fermée. Aucun achat n’est effectué.",
+      "es": "La tienda de gemas aún no está abierta. No se realizan compras.",
+      "pt-BR": "A loja de gemas ainda não abriu. Nenhuma compra é feita.",
+      "it": "Il negozio di gemme non è ancora aperto. Nessun acquisto.",
+      "pl": "Sklep z klejnotami jest jeszcze zamknięty. Nie dokonuje się zakupów."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.energy_info",
+    "values": {
+      "tr": "Enerji yenileme henüz açık değil. Enerjin değişmedi.",
+      "en": "Energy refills are not available yet. Your energy is unchanged.",
+      "de": "Energieauffüllungen sind noch nicht verfügbar. Deine Energie bleibt gleich.",
+      "fr": "La recharge d’énergie n’est pas disponible. Ton énergie est inchangée.",
+      "es": "La recarga de energía aún no está disponible. Tu energía no ha cambiado.",
+      "pt-BR": "A recarga de energia ainda não está disponível. Sua energia não mudou.",
+      "it": "La ricarica di energia non è disponibile. La tua energia non cambia.",
+      "pl": "Odnawianie energii nie jest jeszcze dostępne. Twoja energia nie zmieniła się."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.inventory_info",
+    "values": {
+      "tr": "Envanter henüz hazır değil.",
+      "en": "Inventory is not available yet.",
+      "de": "Das Inventar ist noch nicht verfügbar.",
+      "fr": "L’inventaire n’est pas encore disponible.",
+      "es": "El inventario aún no está disponible.",
+      "pt-BR": "O inventário ainda não está disponível.",
+      "it": "L’inventario non è ancora disponibile.",
+      "pl": "Ekwipunek nie jest jeszcze dostępny."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.team_info",
+    "values": {
+      "tr": "Takım özelliği henüz hazır değil.",
+      "en": "Teams are not available yet.",
+      "de": "Teams sind noch nicht verfügbar.",
+      "fr": "Les équipes ne sont pas encore disponibles.",
+      "es": "Los equipos aún no están disponibles.",
+      "pt-BR": "As equipes ainda não estão disponíveis.",
+      "it": "Le squadre non sono ancora disponibili.",
+      "pl": "Drużyny nie są jeszcze dostępne."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "settings.title",
+    "values": {
+      "tr": "AYARLAR",
+      "en": "SETTINGS",
+      "de": "EINSTELLUNGEN",
+      "fr": "PARAMÈTRES",
+      "es": "AJUSTES",
+      "pt-BR": "CONFIGURAÇÕES",
+      "it": "IMPOSTAZIONI",
+      "pl": "USTAWIENIA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "settings.language",
+    "values": {
+      "tr": "Dil",
+      "en": "Language",
+      "de": "Sprache",
+      "fr": "Langue",
+      "es": "Idioma",
+      "pt-BR": "Idioma",
+      "it": "Lingua",
+      "pl": "Język"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "settings.sound_on",
+    "values": {
+      "tr": "SES: AÇIK",
+      "en": "SOUND: ON",
+      "de": "TON: AN",
+      "fr": "SON : ACTIVÉ",
+      "es": "SONIDO: SÍ",
+      "pt-BR": "SOM: LIGADO",
+      "it": "AUDIO: SÌ",
+      "pl": "DŹWIĘK: WŁ."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "settings.sound_off",
+    "values": {
+      "tr": "SES: KAPALI",
+      "en": "SOUND: OFF",
+      "de": "TON: AUS",
+      "fr": "SON : COUPÉ",
+      "es": "SONIDO: NO",
+      "pt-BR": "SOM: DESLIGADO",
+      "it": "AUDIO: NO",
+      "pl": "DŹWIĘK: WYŁ."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "settings.note",
+    "values": {
+      "tr": "Ses ve dil tercihlerin bu cihazda saklanır. Bu sürümde ses içeriği henüz yok.",
+      "en": "Sound and language preferences are saved on this device. Audio content is not available yet.",
+      "de": "Ton und Sprache werden auf diesem Gerät gespeichert. Audioinhalte sind noch nicht verfügbar.",
+      "fr": "Le son et la langue sont enregistrés sur cet appareil. Le contenu audio n’est pas encore disponible.",
+      "es": "El sonido y el idioma se guardan en este dispositivo. El contenido de audio aún no está disponible.",
+      "pt-BR": "O som e o idioma são salvos neste dispositivo. O conteúdo de áudio ainda não está disponível.",
+      "it": "Audio e lingua vengono salvati su questo dispositivo. I contenuti audio non sono ancora disponibili.",
+      "pl": "Dźwięk i język są zapisywane na tym urządzeniu. Treści dźwiękowe nie są jeszcze dostępne."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "error.save",
+    "values": {
+      "tr": "Kaydedilemedi. Önceki verilerin korundu; tekrar dene.",
+      "en": "Could not save. Your previous data is safe; try again.",
+      "de": "Speichern fehlgeschlagen. Deine bisherigen Daten sind sicher; versuche es erneut.",
+      "fr": "Échec de l’enregistrement. Tes données précédentes sont conservées ; réessaie.",
+      "es": "No se pudo guardar. Tus datos anteriores están a salvo; inténtalo de nuevo.",
+      "pt-BR": "Não foi possível salvar. Seus dados anteriores estão seguros; tente novamente.",
+      "it": "Salvataggio non riuscito. I dati precedenti sono al sicuro; riprova.",
+      "pl": "Nie udało się zapisać. Poprzednie dane są bezpieczne; spróbuj ponownie."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "error.prepare",
+    "values": {
+      "tr": "Bölüm hazırlanamadı. Kaydın korundu; tekrar dene.",
+      "en": "Could not prepare the level. Your save is safe; try again.",
+      "de": "Das Level konnte nicht vorbereitet werden. Dein Spielstand ist sicher; versuche es erneut.",
+      "fr": "Impossible de préparer le niveau. Ta sauvegarde est conservée ; réessaie.",
+      "es": "No se pudo preparar el nivel. Tu partida está a salvo; inténtalo de nuevo.",
+      "pt-BR": "Não foi possível preparar a fase. Seu progresso está seguro; tente novamente.",
+      "it": "Impossibile preparare il livello. I tuoi dati sono al sicuro; riprova.",
+      "pl": "Nie udało się przygotować poziomu. Zapis jest bezpieczny; spróbuj ponownie."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "error.load",
+    "values": {
+      "tr": "Kaydın okunamadı ve korundu. Lütfen uygulamayı yeniden aç.",
+      "en": "Your save could not be read and was preserved. Please reopen the app.",
+      "de": "Dein Spielstand konnte nicht gelesen werden und wurde bewahrt. Öffne die App erneut.",
+      "fr": "Ta sauvegarde n’a pas pu être lue et a été conservée. Relance l’application.",
+      "es": "No se pudo leer tu partida y se ha conservado. Vuelve a abrir la aplicación.",
+      "pt-BR": "Não foi possível ler seu progresso, que foi preservado. Abra o aplicativo novamente.",
+      "it": "Impossibile leggere il salvataggio, che è stato conservato. Riapri l’app.",
+      "pl": "Nie udało się odczytać zapisu. Został zachowany. Otwórz aplikację ponownie."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "error.clock",
+    "values": {
+      "tr": "Data veya kayıt doğrulanamadı. Ödüller şu an kapalı.",
+      "en": "The date or save could not be verified. Rewards are unavailable for now.",
+      "de": "Datum oder Spielstand konnten nicht geprüft werden. Belohnungen sind derzeit gesperrt.",
+      "fr": "La date ou la sauvegarde n’a pas pu être vérifiée. Les récompenses sont indisponibles.",
+      "es": "No se pudo verificar la fecha o la partida. Las recompensas no están disponibles.",
+      "pt-BR": "Não foi possível verificar a data ou o progresso. As recompensas estão indisponíveis.",
+      "it": "Impossibile verificare la data o il salvataggio. Le ricompense non sono disponibili.",
+      "pl": "Nie udało się sprawdzić daty lub zapisu. Nagrody są na razie niedostępne."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.level",
+    "values": {
+      "tr": "Bölüm {0}",
+      "en": "Level {0}",
+      "de": "Level {0}",
+      "fr": "Niveau {0}",
+      "es": "Nivel {0}",
+      "pt-BR": "Fase {0}",
+      "it": "Livello {0}",
+      "pl": "Poziom {0}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.moves",
+    "values": {
+      "tr": "Hamle {0}",
+      "en": "Moves {0}",
+      "de": "Züge {0}",
+      "fr": "Coups {0}",
+      "es": "Movimientos {0}",
+      "pt-BR": "Jogadas {0}",
+      "it": "Mosse {0}",
+      "pl": "Ruchy {0}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.result",
+    "values": {
+      "tr": "Bölüm {0} • Hamle: {1} • Yıldız: {2}",
+      "en": "Level {0} • Moves: {1} • Stars: {2}",
+      "de": "Level {0} • Züge: {1} • Sterne: {2}",
+      "fr": "Niveau {0} • Coups : {1} • Étoiles : {2}",
+      "es": "Nivel {0} • Movimientos: {1} • Estrellas: {2}",
+      "pt-BR": "Fase {0} • Jogadas: {1} • Estrelas: {2}",
+      "it": "Livello {0} • Mosse: {1} • Stelle: {2}",
+      "pl": "Poziom {0} • Ruchy: {1} • Gwiazdki: {2}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.success",
+    "values": {
+      "tr": "BÜYÜ TAMAMLANDI!",
+      "en": "MAGIC COMPLETE!",
+      "de": "MAGIE VOLLBRACHT!",
+      "fr": "MAGIE ACCOMPLIE !",
+      "es": "¡MAGIA COMPLETADA!",
+      "pt-BR": "MAGIA CONCLUÍDA!",
+      "it": "MAGIA COMPLETATA!",
+      "pl": "MAGIA GOTOWA!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.next",
+    "values": {
+      "tr": "SONRAKİ BÖLÜM",
+      "en": "NEXT LEVEL",
+      "de": "NÄCHSTES LEVEL",
+      "fr": "NIVEAU SUIVANT",
+      "es": "SIGUIENTE NIVEL",
+      "pt-BR": "PRÓXIMA FASE",
+      "it": "PROSSIMO LIVELLO",
+      "pl": "NASTĘPNY POZIOM"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.replay",
+    "values": {
+      "tr": "TEKRAR OYNA",
+      "en": "PLAY AGAIN",
+      "de": "NOCHMAL SPIELEN",
+      "fr": "REJOUER",
+      "es": "VOLVER A JUGAR",
+      "pt-BR": "JOGAR DE NOVO",
+      "it": "RIGIOCA",
+      "pl": "ZAGRAJ PONOWNIE"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.restart",
+    "values": {
+      "tr": "YENİDEN",
+      "en": "RESTART",
+      "de": "NEUSTART",
+      "fr": "RECOMMENCER",
+      "es": "REINICIAR",
+      "pt-BR": "REINICIAR",
+      "it": "RICOMINCIA",
+      "pl": "OD NOWA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.paused",
+    "values": {
+      "tr": "DURAKLATILDI",
+      "en": "PAUSED",
+      "de": "PAUSIERT",
+      "fr": "PAUSE",
+      "es": "PAUSA",
+      "pt-BR": "PAUSADO",
+      "it": "IN PAUSA",
+      "pl": "PAUZA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.resume",
+    "values": {
+      "tr": "DEVAM ET",
+      "en": "RESUME",
+      "de": "WEITER",
+      "fr": "REPRENDRE",
+      "es": "CONTINUAR",
+      "pt-BR": "CONTINUAR",
+      "it": "CONTINUA",
+      "pl": "KONTYNUUJ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.restart_full",
+    "values": {
+      "tr": "YENİDEN BAŞLAT",
+      "en": "RESTART",
+      "de": "NEU STARTEN",
+      "fr": "RECOMMENCER",
+      "es": "REINICIAR",
+      "pt-BR": "REINICIAR",
+      "it": "RICOMINCIA",
+      "pl": "ZACZNIJ OD NOWA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.last",
+    "values": {
+      "tr": "SON BÖLÜM TAMAMLANDI",
+      "en": "FINAL LEVEL COMPLETE",
+      "de": "LETZTES LEVEL GESCHAFFT",
+      "fr": "DERNIER NIVEAU TERMINÉ",
+      "es": "ÚLTIMO NIVEL COMPLETADO",
+      "pt-BR": "ÚLTIMA FASE CONCLUÍDA",
+      "it": "ULTIMO LIVELLO COMPLETATO",
+      "pl": "OSTATNI POZIOM UKOŃCZONY"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.first_reward",
+    "values": {
+      "tr": "İlk tamamlama ödülü: +1 İpucu\nHakkın kaydedildi.",
+      "en": "First-clear reward: +1 Hint\nYour reward is saved.",
+      "de": "Belohnung für den ersten Abschluss: +1 Tipp\nDie Belohnung wurde gespeichert.",
+      "fr": "Première réussite : +1 indice\nTa récompense est enregistrée.",
+      "es": "Primera victoria: +1 pista\nTu recompensa está guardada.",
+      "pt-BR": "Primeira vitória: +1 dica\nSua recompensa foi salva.",
+      "it": "Prima vittoria: +1 suggerimento\nRicompensa salvata.",
+      "pl": "Pierwsze ukończenie: +1 podpowiedź\nNagroda została zapisana."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.reward_taken",
+    "values": {
+      "tr": "Bu bölümün ödülü alındı.\nEn iyi yıldız sonucun korunur.",
+      "en": "This level’s reward was already claimed.\nYour best star score is kept.",
+      "de": "Die Belohnung wurde bereits abgeholt.\nDeine beste Sternwertung bleibt erhalten.",
+      "fr": "La récompense a déjà été récupérée.\nTon meilleur score en étoiles est conservé.",
+      "es": "Ya recibiste la recompensa.\nSe conserva tu mejor puntuación de estrellas.",
+      "pt-BR": "A recompensa já foi resgatada.\nSua melhor pontuação de estrelas é mantida.",
+      "it": "Ricompensa già riscattata.\nIl tuo miglior punteggio in stelle rimane.",
+      "pl": "Nagroda została już odebrana.\nNajlepszy wynik w gwiazdkach zostaje."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.empty",
+    "values": {
+      "tr": "Bu şişe boş.",
+      "en": "This bottle is empty.",
+      "de": "Diese Flasche ist leer.",
+      "fr": "Cette fiole est vide.",
+      "es": "Esta botella está vacía.",
+      "pt-BR": "Esta garrafa está vazia.",
+      "it": "Questa bottiglia è vuota.",
+      "pl": "Ta butelka jest pusta."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.invalid",
+    "values": {
+      "tr": "Bu hamle yapılamıyor.",
+      "en": "You cannot make that move.",
+      "de": "Dieser Zug ist nicht möglich.",
+      "fr": "Ce coup est impossible.",
+      "es": "Ese movimiento no es válido.",
+      "pt-BR": "Essa jogada não é válida.",
+      "it": "Questa mossa non è valida.",
+      "pl": "Ten ruch jest niemożliwy."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.good",
+    "values": {
+      "tr": "Güzel hamle!",
+      "en": "Nice move!",
+      "de": "Guter Zug!",
+      "fr": "Bien joué !",
+      "es": "¡Bien hecho!",
+      "pt-BR": "Boa jogada!",
+      "it": "Bella mossa!",
+      "pl": "Dobry ruch!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.undo",
+    "values": {
+      "tr": "Geri Al",
+      "en": "Undo",
+      "de": "Zurück",
+      "fr": "Annuler",
+      "es": "Deshacer",
+      "pt-BR": "Desfazer",
+      "it": "Annulla",
+      "pl": "Cofnij"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.hint",
+    "values": {
+      "tr": "İpucu",
+      "en": "Hint",
+      "de": "Tipp",
+      "fr": "Indice",
+      "es": "Pista",
+      "pt-BR": "Dica",
+      "it": "Suggerimento",
+      "pl": "Podpowiedź"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.extra",
+    "values": {
+      "tr": "Ek Şişe",
+      "en": "Extra Bottle",
+      "de": "Extra-Flasche",
+      "fr": "Fiole en plus",
+      "es": "Botella extra",
+      "pt-BR": "Garrafa extra",
+      "it": "Bottiglia extra",
+      "pl": "Ekstra butelka"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.shuffle",
+    "values": {
+      "tr": "Karıştır",
+      "en": "Shuffle",
+      "de": "Mischen",
+      "fr": "Mélanger",
+      "es": "Mezclar",
+      "pt-BR": "Misturar",
+      "it": "Mescola",
+      "pl": "Przetasuj"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.used_undo",
+    "values": {
+      "tr": "Son hamle geri alındı.",
+      "en": "The last move was undone.",
+      "de": "Der letzte Zug wurde rückgängig gemacht.",
+      "fr": "Le dernier coup a été annulé.",
+      "es": "Se deshizo el último movimiento.",
+      "pt-BR": "A última jogada foi desfeita.",
+      "it": "L’ultima mossa è stata annullata.",
+      "pl": "Ostatni ruch został cofnięty."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.used_extra",
+    "values": {
+      "tr": "Bir boş şişe eklendi.",
+      "en": "An empty bottle was added.",
+      "de": "Eine leere Flasche wurde hinzugefügt.",
+      "fr": "Une fiole vide a été ajoutée.",
+      "es": "Se añadió una botella vacía.",
+      "pt-BR": "Uma garrafa vazia foi adicionada.",
+      "it": "È stata aggiunta una bottiglia vuota.",
+      "pl": "Dodano pustą butelkę."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.used_shuffle",
+    "values": {
+      "tr": "Şişeler yeniden düzenlendi.",
+      "en": "The bottles were rearranged.",
+      "de": "Die Flaschen wurden neu angeordnet.",
+      "fr": "Les fioles ont été réorganisées.",
+      "es": "Se reorganizaron las botellas.",
+      "pt-BR": "As garrafas foram reorganizadas.",
+      "it": "Le bottiglie sono state riordinate.",
+      "pl": "Butelki zostały przestawione."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.none",
+    "values": {
+      "tr": "Kullanım hakkı kalmadı.",
+      "en": "No uses remaining.",
+      "de": "Keine Anwendungen übrig.",
+      "fr": "Plus d’utilisations disponibles.",
+      "es": "No quedan usos.",
+      "pt-BR": "Não há usos restantes.",
+      "it": "Nessun uso rimasto.",
+      "pl": "Brak dostępnych użyć."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.no_undo",
+    "values": {
+      "tr": "Geri alınacak hamle yok.",
+      "en": "There is no move to undo.",
+      "de": "Kein Zug zum Rückgängigmachen.",
+      "fr": "Aucun coup à annuler.",
+      "es": "No hay movimientos que deshacer.",
+      "pt-BR": "Não há jogadas para desfazer.",
+      "it": "Nessuna mossa da annullare.",
+      "pl": "Nie ma ruchu do cofnięcia."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.no_hint",
+    "values": {
+      "tr": "Güvenilir ipucu bulunamadı; hakkın korunuyor.",
+      "en": "No reliable hint was found; your use is preserved.",
+      "de": "Kein verlässlicher Tipp gefunden; deine Anwendung bleibt erhalten.",
+      "fr": "Aucun indice fiable trouvé ; ton utilisation est conservée.",
+      "es": "No se encontró una pista fiable; conservas tu uso.",
+      "pt-BR": "Nenhuma dica confiável foi encontrada; seu uso foi preservado.",
+      "it": "Nessun suggerimento affidabile; il tuo uso è conservato.",
+      "pl": "Nie znaleziono pewnej podpowiedzi; użycie zostaje zachowane."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.hint_active",
+    "values": {
+      "tr": "İpucu zaten gösteriliyor; hak harcanmadı.",
+      "en": "A hint is already shown; no use was spent.",
+      "de": "Ein Tipp wird bereits angezeigt; keine Anwendung verbraucht.",
+      "fr": "Un indice est déjà affiché ; aucune utilisation dépensée.",
+      "es": "Ya hay una pista; no se gastó ningún uso.",
+      "pt-BR": "Uma dica já está sendo mostrada; nenhum uso foi gasto.",
+      "it": "Un suggerimento è già visibile; nessun uso consumato.",
+      "pl": "Podpowiedź jest już widoczna; nie zużyto użycia."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.extra_limit",
+    "values": {
+      "tr": "Bu denemede yalnız bir ek şişe kullanılabilir.",
+      "en": "Only one extra bottle can be used per attempt.",
+      "de": "Pro Versuch ist nur eine Extra-Flasche möglich.",
+      "fr": "Une seule fiole en plus par tentative.",
+      "es": "Solo se permite una botella extra por intento.",
+      "pt-BR": "Só uma garrafa extra por tentativa.",
+      "it": "Una sola bottiglia extra per tentativo.",
+      "pl": "Tylko jedna dodatkowa butelka na próbę."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "booster.no_shuffle",
+    "values": {
+      "tr": "Düzen güvenle değiştirilemedi; hakkın korunuyor.",
+      "en": "The layout could not be safely changed; your use is preserved.",
+      "de": "Die Anordnung konnte nicht sicher geändert werden; deine Anwendung bleibt erhalten.",
+      "fr": "L’agencement n’a pas pu être modifié sans risque ; ton utilisation est conservée.",
+      "es": "No se pudo cambiar la disposición de forma segura; conservas tu uso.",
+      "pt-BR": "Não foi possível mudar a disposição com segurança; seu uso foi preservado.",
+      "it": "Impossibile modificare la disposizione in sicurezza; il tuo uso è conservato.",
+      "pl": "Nie można bezpiecznie zmienić układu; użycie zostaje zachowane."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "tutorial.help",
+    "values": {
+      "tr": "Renkleri ayrı şişelerde topla.\nBoş ya da aynı renkli şişeye aktar.\nYardım için bana dokun!",
+      "en": "One color per bottle.\nPour onto a match or into empties.\nTap me for help!",
+      "de": "Sortiere die Farben.\nNutze leere oder farblich passende Flaschen.\nTippe auf mich für Hilfe!",
+      "fr": "Regroupe les mêmes couleurs.\nVerse dans une fiole vide ou assortie.\nTouche-moi pour de l’aide !",
+      "es": "Agrupa cada color.\nUsa una botella vacía o del mismo color.\n¡Tócame si necesitas ayuda!",
+      "pt-BR": "Junte as cores iguais.\nUse uma garrafa vazia ou da mesma cor.\nToque em mim para pedir ajuda!",
+      "it": "Raggruppa i colori uguali.\nUsa una bottiglia vuota o abbinata.\nToccami se ti serve aiuto!",
+      "pl": "Zbierz te same kolory razem.\nPrzelewaj do pustej lub pasującej butelki.\nDotknij mnie, jeśli utkniesz!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.preparing",
+    "values": {
+      "tr": "Büyülü yolculuğun hazırlanıyor…",
+      "en": "Preparing your magical journey…",
+      "de": "Deine magische Reise wird vorbereitet…",
+      "fr": "Préparation de ton voyage magique…",
+      "es": "Preparando tu viaje mágico…",
+      "pt-BR": "Preparando sua jornada mágica…",
+      "it": "Prepariamo il tuo viaggio magico…",
+      "pl": "Przygotowujemy twoją magiczną podróż…"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.save",
+    "values": {
+      "tr": "Yolculuğun hatırlanıyor…",
+      "en": "Remembering your journey…",
+      "de": "Deine Reise wird geladen…",
+      "fr": "Chargement de ton parcours…",
+      "es": "Recuperando tu viaje…",
+      "pt-BR": "Lembrando da sua jornada…",
+      "it": "Carichiamo il tuo viaggio…",
+      "pl": "Wczytujemy twoją podróż…"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.resources",
+    "values": {
+      "tr": "Büyülü kaynaklar hazırlanıyor…",
+      "en": "Preparing magical resources…",
+      "de": "Magische Inhalte werden vorbereitet…",
+      "fr": "Préparation des ressources magiques…",
+      "es": "Preparando recursos mágicos…",
+      "pt-BR": "Preparando recursos mágicos…",
+      "it": "Prepariamo le risorse magiche…",
+      "pl": "Przygotowujemy magiczne zasoby…"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.loading",
+    "values": {
+      "tr": "Büyülü dünya yükleniyor…",
+      "en": "Loading the magical world…",
+      "de": "Die magische Welt wird geladen…",
+      "fr": "Chargement du monde magique…",
+      "es": "Cargando el mundo mágico…",
+      "pt-BR": "Carregando o mundo mágico…",
+      "it": "Carichiamo il mondo magico…",
+      "pl": "Wczytujemy magiczny świat…"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.ready",
+    "values": {
+      "tr": "Son sihirli dokunuşlar…",
+      "en": "Adding the final magic touches…",
+      "de": "Der letzte magische Feinschliff…",
+      "fr": "Dernières touches de magie…",
+      "es": "Últimos toques de magia…",
+      "pt-BR": "Últimos toques de magia…",
+      "it": "Gli ultimi tocchi di magia…",
+      "pl": "Ostatnie magiczne poprawki…"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.welcome",
+    "values": {
+      "tr": "Mewgic’e hoş geldin!",
+      "en": "Welcome to Mewgic!",
+      "de": "Willkommen bei Mewgic!",
+      "fr": "Bienvenue dans Mewgic !",
+      "es": "¡Te damos la bienvenida a Mewgic!",
+      "pt-BR": "Boas-vindas ao Mewgic!",
+      "it": "Ti diamo il benvenuto in Mewgic!",
+      "pl": "Witaj w Mewgic!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.retry",
+    "values": {
+      "tr": "TEKRAR DENE",
+      "en": "TRY AGAIN",
+      "de": "ERNEUT VERSUCHEN",
+      "fr": "RÉESSAYER",
+      "es": "REINTENTAR",
+      "pt-BR": "TENTAR DE NOVO",
+      "it": "RIPROVA",
+      "pl": "SPRÓBUJ PONOWNIE"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "boot.error",
+    "values": {
+      "tr": "Dünya yüklenemedi. Kaydın korundu; tekrar dene.",
+      "en": "The world could not be loaded. Your save is safe; try again.",
+      "de": "Die Welt konnte nicht geladen werden. Dein Spielstand ist sicher; versuche es erneut.",
+      "fr": "Impossible de charger le monde. Ta sauvegarde est conservée ; réessaie.",
+      "es": "No se pudo cargar el mundo. Tu partida está a salvo; inténtalo de nuevo.",
+      "pt-BR": "Não foi possível carregar o mundo. Seu progresso está seguro; tente novamente.",
+      "it": "Impossibile caricare il mondo. Il salvataggio è al sicuro; riprova.",
+      "pl": "Nie udało się wczytać świata. Zapis jest bezpieczny; spróbuj ponownie."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.gift",
+    "values": {
+      "tr": "Günlük Hediye",
+      "en": "Daily Gift",
+      "de": "Tagesgeschenk",
+      "fr": "Cadeau du jour",
+      "es": "Regalo diario",
+      "pt-BR": "Presente diário",
+      "it": "Regalo giornaliero",
+      "pl": "Codzienny prezent"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.missions",
+    "values": {
+      "tr": "Görevler",
+      "en": "Missions",
+      "de": "Aufgaben",
+      "fr": "Missions",
+      "es": "Misiones",
+      "pt-BR": "Missões",
+      "it": "Missioni",
+      "pl": "Zadania"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.title",
+    "values": {
+      "tr": "GÜNLÜK BÜYÜLER",
+      "en": "DAILY MAGIC",
+      "de": "TÄGLICHE MAGIE",
+      "fr": "MAGIE DU JOUR",
+      "es": "MAGIA DIARIA",
+      "pt-BR": "MAGIA DIÁRIA",
+      "it": "MAGIA QUOTIDIANA",
+      "pl": "CODZIENNA MAGIA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.tasks_tab",
+    "values": {
+      "tr": "GÖREVLER",
+      "en": "MISSIONS",
+      "de": "AUFGABEN",
+      "fr": "MISSIONS",
+      "es": "MISIONES",
+      "pt-BR": "MISSÕES",
+      "it": "MISSIONI",
+      "pl": "ZADANIA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.gift_tab",
+    "values": {
+      "tr": "GÜNLÜK HEDİYE",
+      "en": "DAILY GIFT",
+      "de": "TAGESGESCHENK",
+      "fr": "CADEAU DU JOUR",
+      "es": "REGALO DIARIO",
+      "pt-BR": "PRESENTE DIÁRIO",
+      "it": "REGALO GIORNALIERO",
+      "pl": "CODZIENNY PREZENT"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.tasks_title",
+    "values": {
+      "tr": "Günlük Görevler",
+      "en": "Daily Missions",
+      "de": "Tagesaufgaben",
+      "fr": "Missions du jour",
+      "es": "Misiones diarias",
+      "pt-BR": "Missões diárias",
+      "it": "Missioni giornaliere",
+      "pl": "Codzienne zadania"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.task.bottles",
+    "values": {
+      "tr": "Kazandığın bölümlerde {0} şişe tamamla",
+      "en": "Complete {0:plural:{} bottle|{} bottles} in won levels",
+      "de": "Vervollständige {0:plural:{} Flasche|{} Flaschen} in gewonnenen Leveln",
+      "fr": "Remplis {0:plural:{} fiole|{} fioles} dans les niveaux gagnés",
+      "es": "Completa {0:plural:{} botella|{} botellas} en niveles ganados",
+      "pt-BR": "Complete {0:plural:{} garrafa|{} garrafas} em fases vencidas",
+      "it": "Completa {0:plural:{} bottiglia|{} bottiglie} nei livelli vinti",
+      "pl": "Uzupełnij {0:plural:{} butelkę|{} butelki|{} butelek|{} butelki} w wygranych poziomach"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.task.wins",
+    "values": {
+      "tr": "{0} bölüm kazan",
+      "en": "Win {0:plural:{} level|{} levels}",
+      "de": "Gewinne {0:plural:{} Level|{} Level}",
+      "fr": "Gagne {0:plural:{} niveau|{} niveaux}",
+      "es": "Gana {0:plural:{} nivel|{} niveles}",
+      "pt-BR": "Vença {0:plural:{} fase|{} fases}",
+      "it": "Vinci {0:plural:{} livello|{} livelli}",
+      "pl": "Wygraj {0:plural:{} poziom|{} poziomy|{} poziomów|{} poziomu}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.task.stars",
+    "values": {
+      "tr": "Kazandığın bölümlerde {0} yıldız topla",
+      "en": "Earn {0:plural:{} star|{} stars} in won levels",
+      "de": "Sammle {0:plural:{} Stern|{} Sterne} in gewonnenen Leveln",
+      "fr": "Gagne {0:plural:{} étoile|{} étoiles} dans les niveaux gagnés",
+      "es": "Consigue {0:plural:{} estrella|{} estrellas} en niveles ganados",
+      "pt-BR": "Ganhe {0:plural:{} estrela|{} estrelas} em fases vencidas",
+      "it": "Ottieni {0:plural:{} stella|{} stelle} nei livelli vinti",
+      "pl": "Zdobądź {0:plural:{} gwiazdkę|{} gwiazdki|{} gwiazdek|{} gwiazdki} w wygranych poziomach"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.task.boosters",
+    "values": {
+      "tr": "{0} güçlendirici kullan",
+      "en": "Use {0:plural:{} booster|{} boosters}",
+      "de": "Nutze {0:plural:{} Booster|{} Booster}",
+      "fr": "Utilise {0:plural:{} bonus|{} bonus}",
+      "es": "Usa {0:plural:{} potenciador|{} potenciadores}",
+      "pt-BR": "Use {0:plural:{} poder|{} poderes}",
+      "it": "Usa {0:plural:{} potenziamento|{} potenziamenti}",
+      "pl": "Użyj {0:plural:{} wspomagacza|{} wspomagaczy|{} wspomagaczy|{} wspomagacza}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.real_rewards",
+    "values": {
+      "tr": "Ödüller gerçek güçlendirici haklarıdır.",
+      "en": "Rewards grant real booster uses.",
+      "de": "Belohnungen gewähren echte Booster-Anwendungen.",
+      "fr": "Les récompenses donnent de vraies utilisations de bonus.",
+      "es": "Las recompensas otorgan usos reales de potenciadores.",
+      "pt-BR": "As recompensas dão usos reais de poderes.",
+      "it": "Le ricompense danno usi reali dei potenziamenti.",
+      "pl": "Nagrody dają rzeczywiste użycia wspomagaczy."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.claim_gift",
+    "values": {
+      "tr": "HEDİYEYİ AL",
+      "en": "CLAIM GIFT",
+      "de": "GESCHENK ABHOLEN",
+      "fr": "RÉCUPÉRER",
+      "es": "RECLAMAR REGALO",
+      "pt-BR": "RESGATAR PRESENTE",
+      "it": "RISCATTA REGALO",
+      "pl": "ODBIERZ PREZENT"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.hint_reward",
+    "values": {
+      "tr": "+{0} İpucu",
+      "en": "+{0} Hint",
+      "de": "+{0} Tipp",
+      "fr": "+{0} indice",
+      "es": "+{0} pista",
+      "pt-BR": "+{0} dica",
+      "it": "+{0} suggerimento",
+      "pl": "+{0} podpowiedź"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.gift_saved",
+    "values": {
+      "tr": "İpucu kaydedildi. Yarın yine bekleriz!",
+      "en": "Hint saved. Come back tomorrow!",
+      "de": "Tipp gespeichert. Komm morgen wieder!",
+      "fr": "Indice enregistré. Reviens demain !",
+      "es": "Pista guardada. ¡Vuelve mañana!",
+      "pt-BR": "Dica salva. Volte amanhã!",
+      "it": "Suggerimento salvato. Torna domani!",
+      "pl": "Podpowiedź zapisana. Wróć jutro!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.gift_failed",
+    "values": {
+      "tr": "Hediye alınamadı. Tarihi ve kaydını kontrol et.",
+      "en": "Could not claim the gift. Check the date and your save.",
+      "de": "Geschenk nicht erhalten. Prüfe Datum und Spielstand.",
+      "fr": "Cadeau non récupéré. Vérifie la date et ta sauvegarde.",
+      "es": "No se pudo reclamar el regalo. Revisa la fecha y tu partida.",
+      "pt-BR": "Não foi possível resgatar o presente. Verifique a data e seu progresso.",
+      "it": "Impossibile riscattare il regalo. Controlla la data e il salvataggio.",
+      "pl": "Nie udało się odebrać prezentu. Sprawdź datę i zapis."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.task_saved",
+    "values": {
+      "tr": "Görev ödülü kaydedildi!",
+      "en": "Mission reward saved!",
+      "de": "Aufgabenbelohnung gespeichert!",
+      "fr": "Récompense de mission enregistrée !",
+      "es": "¡Recompensa de misión guardada!",
+      "pt-BR": "Recompensa de missão salva!",
+      "it": "Ricompensa della missione salvata!",
+      "pl": "Nagroda za zadanie zapisana!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.ready",
+    "values": {
+      "tr": "Yeni günün hediyesi hazır!",
+      "en": "A new day’s gift is ready!",
+      "de": "Dein Tagesgeschenk ist bereit!",
+      "fr": "Le cadeau du jour est prêt !",
+      "es": "¡El regalo del día está listo!",
+      "pt-BR": "O presente do dia está pronto!",
+      "it": "Il regalo del giorno è pronto!",
+      "pl": "Prezent na nowy dzień jest gotowy!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.taken",
+    "values": {
+      "tr": "Bugünkü hediye alındı.",
+      "en": "Today’s gift was claimed.",
+      "de": "Heutiges Geschenk abgeholt.",
+      "fr": "Le cadeau du jour a été récupéré.",
+      "es": "Ya recibiste el regalo de hoy.",
+      "pt-BR": "O presente de hoje foi resgatado.",
+      "it": "Regalo di oggi già riscattato.",
+      "pl": "Dzisiejszy prezent odebrano."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.wait",
+    "values": {
+      "tr": "Yeni yerel gün ve en az 20 saat gerekli.",
+      "en": "Wait for a new local day and at least 20 hours.",
+      "de": "Warte auf einen neuen lokalen Tag und mindestens 20 Stunden.",
+      "fr": "Attends un nouveau jour local et au moins 20 heures.",
+      "es": "Espera un nuevo día local y al menos 20 horas.",
+      "pt-BR": "Aguarde um novo dia local e pelo menos 20 horas.",
+      "it": "Attendi un nuovo giorno locale e almeno 20 ore.",
+      "pl": "Poczekaj na nowy lokalny dzień i co najmniej 20 godzin."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.reset",
+    "values": {
+      "tr": "Yenilenme: yerel gece yarısı • {0:d}",
+      "en": "Resets at local midnight • {0:d}",
+      "de": "Neustart um Mitternacht vor Ort • {0:d}",
+      "fr": "Réinitialisation à minuit local • {0:d}",
+      "es": "Se reinicia a medianoche local • {0:d}",
+      "pt-BR": "Reinicia à meia-noite local • {0:d}",
+      "it": "Si rinnova a mezzanotte locale • {0:d}",
+      "pl": "Reset o lokalnej północy • {0:d}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.collection",
+    "values": {
+      "tr": "Koleksiyon",
+      "en": "Collection",
+      "de": "Sammlung",
+      "fr": "Collection",
+      "es": "Colección",
+      "pt-BR": "Coleção",
+      "it": "Collezione",
+      "pl": "Kolekcja"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.title",
+    "values": {
+      "tr": "ETKİNLİK VE ÖDÜLLER",
+      "en": "EVENTS & REWARDS",
+      "de": "EVENTS & BELOHNUNGEN",
+      "fr": "ÉVÉNEMENTS ET RÉCOMPENSES",
+      "es": "EVENTOS Y RECOMPENSAS",
+      "pt-BR": "EVENTOS E RECOMPENSAS",
+      "it": "EVENTI E RICOMPENSE",
+      "pl": "WYDARZENIA I NAGRODY"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.week_tab",
+    "values": {
+      "tr": "Haftalık\nEtkinlik",
+      "en": "Weekly\nEvent",
+      "de": "Wochen-\nEvent",
+      "fr": "Événement\nhebdo",
+      "es": "Evento\nsemanal",
+      "pt-BR": "Evento\nsemanal",
+      "it": "Evento\nsettimanale",
+      "pl": "Wydarzenie\ntygodnia"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.season_tab",
+    "values": {
+      "tr": "Sezon\nYolu",
+      "en": "Season\nPass",
+      "de": "Saison-\npass",
+      "fr": "Parcours\nde saison",
+      "es": "Pase de\ntemporada",
+      "pt-BR": "Passe de\ntemporada",
+      "it": "Pass\nstagionale",
+      "pl": "Ścieżka\nsezonowa"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.daily_tab",
+    "values": {
+      "tr": "Günlük\nGörevler",
+      "en": "Daily\nMissions",
+      "de": "Tages-\naufgaben",
+      "fr": "Missions\ndu jour",
+      "es": "Misiones\ndiarias",
+      "pt-BR": "Missões\ndiárias",
+      "it": "Missioni\ngiornaliere",
+      "pl": "Codzienne\nzadania"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.collection_tab",
+    "values": {
+      "tr": "Koleksiyon\nÖdülleri",
+      "en": "Collection\nRewards",
+      "de": "Sammlungs-\nprämien",
+      "fr": "Récompenses\ncollection",
+      "es": "Premios de\ncolección",
+      "pt-BR": "Prêmios de\ncoleção",
+      "it": "Premi\ncollezione",
+      "pl": "Nagrody\nkolekcji"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.week_title",
+    "values": {
+      "tr": "Haftalık Etkinlik\nKristal Şelalesi Haftası",
+      "en": "Weekly Event\nCrystal Falls Week",
+      "de": "Wochen-Event\nKristallfälle-Woche",
+      "fr": "Événement hebdomadaire\nSemaine des cascades de cristal",
+      "es": "Evento semanal\nSemana de Cascadas de Cristal",
+      "pt-BR": "Evento semanal\nSemana das Cataratas de Cristal",
+      "it": "Evento settimanale\nSettimana delle Cascate di Cristallo",
+      "pl": "Wydarzenie tygodniowe\nTydzień Kryształowych Wodospadów"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.week_reward",
+    "values": {
+      "tr": "{0} bölüm kazan\n+1 Karıştır + Yıldız Rozeti",
+      "en": "Win {0} levels\n+1 Shuffle + Star Badge",
+      "de": "Gewinne {0} Level\n+1 Mischen + Sternabzeichen",
+      "fr": "Gagne {0} niveaux\n+1 mélange + badge étoile",
+      "es": "Gana {0} niveles\n+1 mezcla + insignia estelar",
+      "pt-BR": "Vença {0} fases\n+1 mistura + distintivo estelar",
+      "it": "Vinci {0} livelli\n+1 mescola + distintivo stella",
+      "pl": "Wygraj {0} poziomy\n+1 przetasowanie + gwiezdna odznaka"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.chest",
+    "values": {
+      "tr": "SANDIĞI AL",
+      "en": "CLAIM CHEST",
+      "de": "TRUHE ABHOLEN",
+      "fr": "OUVRIR LE COFFRE",
+      "es": "RECLAMAR COFRE",
+      "pt-BR": "RESGATAR BAÚ",
+      "it": "RISCATTA FORZIERE",
+      "pl": "ODBIERZ SKRZYNIĘ"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.reward_saved",
+    "values": {
+      "tr": "Ödül kaydedildi!",
+      "en": "Reward saved!",
+      "de": "Belohnung gespeichert!",
+      "fr": "Récompense enregistrée !",
+      "es": "¡Recompensa guardada!",
+      "pt-BR": "Recompensa salva!",
+      "it": "Ricompensa salvata!",
+      "pl": "Nagroda zapisana!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.unavailable",
+    "values": {
+      "tr": "Ödül henüz hazır değil veya zaten alındı.",
+      "en": "The reward is not ready yet or was already claimed.",
+      "de": "Die Belohnung ist noch nicht bereit oder wurde bereits abgeholt.",
+      "fr": "La récompense n’est pas prête ou a déjà été récupérée.",
+      "es": "La recompensa aún no está lista o ya se ha recibido.",
+      "pt-BR": "A recompensa ainda não está pronta ou já foi resgatada.",
+      "it": "La ricompensa non è pronta o è già stata riscattata.",
+      "pl": "Nagroda nie jest gotowa lub została już odebrana."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.season_title",
+    "values": {
+      "tr": "Sezon Yolu • Ücretsiz",
+      "en": "Season Pass • Free Track",
+      "de": "Saisonpass • Kostenloser Pfad",
+      "fr": "Parcours de saison • Gratuit",
+      "es": "Pase de temporada • Ruta gratis",
+      "pt-BR": "Passe de temporada • Caminho grátis",
+      "it": "Pass stagionale • Percorso gratuito",
+      "pl": "Ścieżka sezonowa • Bezpłatna"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.undo_reward",
+    "values": {
+      "tr": "+1 Geri Al",
+      "en": "+1 Undo",
+      "de": "+1 Zurück",
+      "fr": "+1 annulation",
+      "es": "+1 deshacer",
+      "pt-BR": "+1 desfazer",
+      "it": "+1 annulla",
+      "pl": "+1 cofnięcie"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.card_reward",
+    "values": {
+      "tr": "+1 Ek Şişe\n+ Kedi kartı",
+      "en": "+1 Extra Bottle\n+ Cat Card",
+      "de": "+1 Extra-Flasche\n+ Katzenkarte",
+      "fr": "+1 fiole en plus\n+ carte du chat",
+      "es": "+1 botella extra\n+ carta del gato",
+      "pt-BR": "+1 garrafa extra\n+ carta do gato",
+      "it": "+1 bottiglia extra\n+ carta del gatto",
+      "pl": "+1 dodatkowa butelka\n+ karta kota"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.premium",
+    "values": {
+      "tr": "Premium • Gelecek özellik",
+      "en": "Premium • Coming later",
+      "de": "Premium • Später verfügbar",
+      "fr": "Premium • À venir",
+      "es": "Premium • Próximamente",
+      "pt-BR": "Premium • Em breve",
+      "it": "Premium • In arrivo",
+      "pl": "Premium • Wkrótce"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.premium_info",
+    "values": {
+      "tr": "Premium içerik ve satın alma henüz yok. Ödeme alınmaz; yalnız ücretsiz yol açıktır.",
+      "en": "Premium content and purchases are not available. No payment is taken; only the free track is active.",
+      "de": "Premium-Inhalte und Käufe sind nicht verfügbar. Es wird nichts berechnet; nur der kostenlose Pfad ist aktiv.",
+      "fr": "Le contenu premium et les achats sont indisponibles. Aucun paiement ; seul le parcours gratuit est actif.",
+      "es": "El contenido premium y las compras no están disponibles. No se cobra; solo está activa la ruta gratis.",
+      "pt-BR": "O conteúdo premium e as compras não estão disponíveis. Nada é cobrado; apenas o caminho grátis está ativo.",
+      "it": "Contenuti premium e acquisti non disponibili. Nessun pagamento; è attivo solo il percorso gratuito.",
+      "pl": "Treści premium i zakupy nie są dostępne. Bez opłat; działa tylko bezpłatna ścieżka."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.badge",
+    "values": {
+      "tr": "Yıldız Rozeti",
+      "en": "Star Badge",
+      "de": "Sternabzeichen",
+      "fr": "Badge étoile",
+      "es": "Insignia estelar",
+      "pt-BR": "Distintivo estelar",
+      "it": "Distintivo stella",
+      "pl": "Gwiezdna odznaka"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.cat_card",
+    "values": {
+      "tr": "Büyücü Kedi Kartı",
+      "en": "Wizard Cat Card",
+      "de": "Zauberkatzenkarte",
+      "fr": "Carte du chat sorcier",
+      "es": "Carta del gato mago",
+      "pt-BR": "Carta do gato mago",
+      "it": "Carta del gatto mago",
+      "pl": "Karta kota czarodzieja"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.card_owned",
+    "values": {
+      "tr": "Koleksiyon kartın. Galeride görüntülenir; ekipman değildir.",
+      "en": "Your collectible card. Shown in the gallery; it is not equipment.",
+      "de": "Deine Sammelkarte. Sie erscheint in der Galerie und ist keine Ausrüstung.",
+      "fr": "Ta carte de collection. Visible dans la galerie ; ce n’est pas un équipement.",
+      "es": "Tu carta coleccionable. Se muestra en la galería; no es equipo.",
+      "pt-BR": "Sua carta colecionável. Aparece na galeria; não é equipamento.",
+      "it": "La tua carta da collezione. Visibile nella galleria; non è equipaggiamento.",
+      "pl": "Twoja karta kolekcjonerska. Widoczna w galerii; to nie wyposażenie."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.badge_how",
+    "values": {
+      "tr": "Haftada 3 bölüm kazanıp haftalık sandığı al.",
+      "en": "Win 3 levels in a week and claim the weekly chest.",
+      "de": "Gewinne 3 Level in einer Woche und hole die Wochentruhe ab.",
+      "fr": "Gagne 3 niveaux en une semaine et récupère le coffre hebdomadaire.",
+      "es": "Gana 3 niveles en una semana y reclama el cofre semanal.",
+      "pt-BR": "Vença 3 fases em uma semana e resgate o baú semanal.",
+      "it": "Vinci 3 livelli in una settimana e riscatta il forziere settimanale.",
+      "pl": "Wygraj 3 poziomy w tygodniu i odbierz tygodniową skrzynię."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.card_how",
+    "values": {
+      "tr": "Ücretsiz sezon yolunun son ödülünü al.",
+      "en": "Claim the final reward on the free season track.",
+      "de": "Hole die letzte Belohnung des kostenlosen Saisonpfads ab.",
+      "fr": "Récupère la dernière récompense du parcours gratuit de saison.",
+      "es": "Reclama la recompensa final de la ruta gratis de temporada.",
+      "pt-BR": "Resgate a recompensa final do caminho grátis da temporada.",
+      "it": "Riscatta il premio finale del percorso stagionale gratuito.",
+      "pl": "Odbierz ostatnią nagrodę bezpłatnej ścieżki sezonowej."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.card_note",
+    "values": {
+      "tr": "Kazanılan kartlar koleksiyonunda kalır.",
+      "en": "Earned cards stay in your collection.",
+      "de": "Verdiente Karten bleiben in deiner Sammlung.",
+      "fr": "Les cartes gagnées restent dans ta collection.",
+      "es": "Las cartas obtenidas se quedan en tu colección.",
+      "pt-BR": "As cartas ganhas ficam na sua coleção.",
+      "it": "Le carte ottenute restano nella tua collezione.",
+      "pl": "Zdobyte karty pozostają w kolekcji."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.offline",
+    "values": {
+      "tr": "Çevrimdışı etkinlikler • Bölümler kazanarak ilerle.",
+      "en": "Offline events • Win levels to progress.",
+      "de": "Offline-Events • Gewinne Level, um voranzukommen.",
+      "fr": "Événements hors ligne • Gagne des niveaux pour progresser.",
+      "es": "Eventos sin conexión • Gana niveles para avanzar.",
+      "pt-BR": "Eventos offline • Vença fases para avançar.",
+      "it": "Eventi offline • Vinci livelli per avanzare.",
+      "pl": "Wydarzenia offline • Wygrywaj poziomy, by robić postępy."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.summary",
+    "values": {
+      "tr": "Bugünkü görevlerini tamamla.\nAlınabilir ödül: {0}",
+      "en": "Complete today’s missions.\nRewards ready: {0}",
+      "de": "Erfülle die Tagesaufgaben.\nBereite Belohnungen: {0}",
+      "fr": "Termine les missions du jour.\nRécompenses disponibles : {0}",
+      "es": "Completa las misiones de hoy.\nPremios disponibles: {0}",
+      "pt-BR": "Complete as missões de hoje.\nPrêmios disponíveis: {0}",
+      "it": "Completa le missioni di oggi.\nPremi disponibili: {0}",
+      "pl": "Ukończ dzisiejsze zadania.\nDostępne nagrody: {0}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.week_dates",
+    "values": {
+      "tr": "ÇEVRİMDIŞI • {0:dd MMM} – {1:dd MMM}",
+      "en": "OFFLINE • {0:dd MMM} – {1:dd MMM}",
+      "de": "OFFLINE • {0:dd MMM} – {1:dd MMM}",
+      "fr": "HORS LIGNE • {0:dd MMM} – {1:dd MMM}",
+      "es": "SIN CONEXIÓN • {0:dd MMM} – {1:dd MMM}",
+      "pt-BR": "OFFLINE • {0:dd MMM} – {1:dd MMM}",
+      "it": "OFFLINE • {0:dd MMM} – {1:dd MMM}",
+      "pl": "OFFLINE • {0:dd MMM} – {1:dd MMM}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.season_dates",
+    "values": {
+      "tr": "Çevrimdışı 28 gün • {0:dd MMM} – {1:dd MMM}",
+      "en": "28 days offline • {0:dd MMM} – {1:dd MMM}",
+      "de": "28 Tage offline • {0:dd MMM} – {1:dd MMM}",
+      "fr": "28 jours hors ligne • {0:dd MMM} – {1:dd MMM}",
+      "es": "28 días sin conexión • {0:dd MMM} – {1:dd MMM}",
+      "pt-BR": "28 dias offline • {0:dd MMM} – {1:dd MMM}",
+      "it": "28 giorni offline • {0:dd MMM} – {1:dd MMM}",
+      "pl": "28 dni offline • {0:dd MMM} – {1:dd MMM}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "hub.card_info",
+    "values": {
+      "tr": "{0}\n{1}",
+      "en": "{0}\n{1}",
+      "de": "{0}\n{1}",
+      "fr": "{0}\n{1}",
+      "es": "{0}\n{1}",
+      "pt-BR": "{0}\n{1}",
+      "it": "{0}\n{1}",
+      "pl": "{0}\n{1}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.title",
+    "values": {
+      "tr": "MEWGIC • DÜNYA HARİTASI",
+      "en": "MEWGIC • WORLD MAP",
+      "de": "MEWGIC • WELTKARTE",
+      "fr": "MEWGIC • CARTE DU MONDE",
+      "es": "MEWGIC • MAPA DEL MUNDO",
+      "pt-BR": "MEWGIC • MAPA DO MUNDO",
+      "it": "MEWGIC • MAPPA DEL MONDO",
+      "pl": "MEWGIC • MAPA ŚWIATA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.previous",
+    "values": {
+      "tr": "‹ ÖNCEKİ ADA",
+      "en": "‹ PREVIOUS ISLAND",
+      "de": "‹ VORHERIGE INSEL",
+      "fr": "‹ ÎLE PRÉCÉDENTE",
+      "es": "‹ ISLA ANTERIOR",
+      "pt-BR": "‹ ILHA ANTERIOR",
+      "it": "‹ ISOLA PRECEDENTE",
+      "pl": "‹ POPRZEDNIA WYSPA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.next",
+    "values": {
+      "tr": "SONRAKİ ADA ›",
+      "en": "NEXT ISLAND ›",
+      "de": "NÄCHSTE INSEL ›",
+      "fr": "ÎLE SUIVANTE ›",
+      "es": "ISLA SIGUIENTE ›",
+      "pt-BR": "PRÓXIMA ILHA ›",
+      "it": "PROSSIMA ISOLA ›",
+      "pl": "NASTĘPNA WYSPA ›"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.focus",
+    "values": {
+      "tr": "BÖLÜMÜME GİT",
+      "en": "MY LEVEL",
+      "de": "MEIN LEVEL",
+      "fr": "MON NIVEAU",
+      "es": "MI NIVEL",
+      "pt-BR": "MINHA FASE",
+      "it": "IL MIO LIVELLO",
+      "pl": "MÓJ POZIOM"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.scroll",
+    "values": {
+      "tr": "Yukarı kaydır • Bir bölüm grubu seç",
+      "en": "Swipe up • Choose a level group",
+      "de": "Nach oben wischen • Levelgruppe wählen",
+      "fr": "Glisse vers le haut • Choisis un groupe",
+      "es": "Desliza hacia arriba • Elige un grupo",
+      "pt-BR": "Deslize para cima • Escolha um grupo",
+      "it": "Scorri in alto • Scegli un gruppo",
+      "pl": "Przesuń w górę • Wybierz grupę"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.range_note",
+    "values": {
+      "tr": "Her adada 50 yeni macera",
+      "en": "50 new adventures on each island",
+      "de": "50 neue Abenteuer auf jeder Insel",
+      "fr": "50 nouvelles aventures par île",
+      "es": "50 nuevas aventuras por isla",
+      "pt-BR": "50 novas aventuras em cada ilha",
+      "it": "50 nuove avventure per isola",
+      "pl": "50 nowych przygód na każdej wyspie"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.region_title",
+    "values": {
+      "tr": "{0} • {1}",
+      "en": "{0} • {1}",
+      "de": "{0} • {1}",
+      "fr": "{0} • {1}",
+      "es": "{0} • {1}",
+      "pt-BR": "{0} • {1}",
+      "it": "{0} • {1}",
+      "pl": "{0} • {1}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.region_locked",
+    "values": {
+      "tr": "{0} • KİLİTLİ",
+      "en": "{0} • LOCKED",
+      "de": "{0} • GESPERRT",
+      "fr": "{0} • VERROUILLÉ",
+      "es": "{0} • BLOQUEADA",
+      "pt-BR": "{0} • BLOQUEADA",
+      "it": "{0} • BLOCCATA",
+      "pl": "{0} • ZABLOKOWANA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.levels",
+    "values": {
+      "tr": "Bölümler {0}–{1}",
+      "en": "Levels {0}–{1}",
+      "de": "Level {0}–{1}",
+      "fr": "Niveaux {0}–{1}",
+      "es": "Niveles {0}–{1}",
+      "pt-BR": "Fases {0}–{1}",
+      "it": "Livelli {0}–{1}",
+      "pl": "Poziomy {0}–{1}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.levels_locked",
+    "values": {
+      "tr": "KİLİTLİ • {0}–{1}",
+      "en": "LOCKED • {0}–{1}",
+      "de": "GESPERRT • {0}–{1}",
+      "fr": "VERROUILLÉ • {0}–{1}",
+      "es": "BLOQUEADO • {0}–{1}",
+      "pt-BR": "BLOQUEADO • {0}–{1}",
+      "it": "BLOCCATO • {0}–{1}",
+      "pl": "ZABLOKOWANE • {0}–{1}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.pending",
+    "values": {
+      "tr": "{0} • Sislerin ardında",
+      "en": "{0} • Beyond the mist",
+      "de": "{0} • Hinter dem Nebel",
+      "fr": "{0} • Au-delà de la brume",
+      "es": "{0} • Tras la niebla",
+      "pt-BR": "{0} • Além da névoa",
+      "it": "{0} • Oltre la nebbia",
+      "pl": "{0} • Za mgłą"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.unlock",
+    "values": {
+      "tr": "{0}\nYeni ada açıldı!",
+      "en": "{0}\nNew island unlocked!",
+      "de": "{0}\nNeue Insel freigeschaltet!",
+      "fr": "{0}\nNouvelle île débloquée !",
+      "es": "{0}\n¡Nueva isla desbloqueada!",
+      "pt-BR": "{0}\nNova ilha desbloqueada!",
+      "it": "{0}\nNuova isola sbloccata!",
+      "pl": "{0}\nNowa wyspa odblokowana!"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.chapter",
+    "values": {
+      "tr": "{0}\nBölümler {1}–{2}",
+      "en": "{0}\nLevels {1}–{2}",
+      "de": "{0}\nLevel {1}–{2}",
+      "fr": "{0}\nNiveaux {1}–{2}",
+      "es": "{0}\nNiveles {1}–{2}",
+      "pt-BR": "{0}\nFases {1}–{2}",
+      "it": "{0}\nLivelli {1}–{2}",
+      "pl": "{0}\nPoziomy {1}–{2}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.choose",
+    "values": {
+      "tr": "Bir bölüm seç • Yıldızlarını geliştir",
+      "en": "Choose a level • Improve your stars",
+      "de": "Wähle ein Level • Verbessere deine Sterne",
+      "fr": "Choisis un niveau • Améliore tes étoiles",
+      "es": "Elige un nivel • Mejora tus estrellas",
+      "pt-BR": "Escolha uma fase • Melhore suas estrelas",
+      "it": "Scegli un livello • Migliora le tue stelle",
+      "pl": "Wybierz poziom • Zdobądź więcej gwiazdek"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.return",
+    "values": {
+      "tr": "HARİTAYA DÖN",
+      "en": "BACK TO MAP",
+      "de": "ZUR KARTE",
+      "fr": "RETOUR À LA CARTE",
+      "es": "VOLVER AL MAPA",
+      "pt-BR": "VOLTAR AO MAPA",
+      "it": "TORNA ALLA MAPPA",
+      "pl": "WRÓĆ DO MAPY"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.level_locked",
+    "values": {
+      "tr": "Bölüm {0} kilitli. Önce önceki bölümü tamamla.",
+      "en": "Level {0} is locked. Complete the previous level first.",
+      "de": "Level {0} ist gesperrt. Schließe zuerst das vorherige Level ab.",
+      "fr": "Le niveau {0} est verrouillé. Termine d’abord le précédent.",
+      "es": "El nivel {0} está bloqueado. Completa primero el anterior.",
+      "pt-BR": "A fase {0} está bloqueada. Conclua a anterior primeiro.",
+      "it": "Il livello {0} è bloccato. Completa prima il precedente.",
+      "pl": "Poziom {0} jest zablokowany. Najpierw ukończ poprzedni."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.chest_taken",
+    "values": {
+      "tr": "Bu sandığın ödülü zaten alındı.",
+      "en": "This chest’s reward was already claimed.",
+      "de": "Die Truhenbelohnung wurde bereits abgeholt.",
+      "fr": "La récompense de ce coffre a déjà été récupérée.",
+      "es": "Ya recibiste la recompensa de este cofre.",
+      "pt-BR": "A recompensa deste baú já foi resgatada.",
+      "it": "La ricompensa di questo forziere è già stata riscattata.",
+      "pl": "Nagroda z tej skrzyni została już odebrana."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.chest_wait",
+    "values": {
+      "tr": "{0}\nSandık için adanın 50 bölümünü tamamla.",
+      "en": "{0}\nComplete all 50 island levels to open the chest.",
+      "de": "{0}\nSchließe alle 50 Insellevel ab, um die Truhe zu öffnen.",
+      "fr": "{0}\nTermine les 50 niveaux de l’île pour ouvrir le coffre.",
+      "es": "{0}\nCompleta los 50 niveles de la isla para abrir el cofre.",
+      "pt-BR": "{0}\nConclua as 50 fases da ilha para abrir o baú.",
+      "it": "{0}\nCompleta i 50 livelli dell’isola per aprire il forziere.",
+      "pl": "{0}\nUkończ 50 poziomów wyspy, by otworzyć skrzynię."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.chest_ready",
+    "values": {
+      "tr": "Sandığın hazır!\nÖdül: +{0} İpucu",
+      "en": "Your chest is ready!\nReward: +{0} Hint",
+      "de": "Deine Truhe ist bereit!\nBelohnung: +{0} Tipp",
+      "fr": "Ton coffre est prêt !\nRécompense : +{0} indice",
+      "es": "¡Tu cofre está listo!\nPremio: +{0} pista",
+      "pt-BR": "Seu baú está pronto!\nPrêmio: +{0} dica",
+      "it": "Il forziere è pronto!\nPremio: +{0} suggerimento",
+      "pl": "Skrzynia jest gotowa!\nNagroda: +{0} podpowiedź"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.chest_saved",
+    "values": {
+      "tr": "Sandık açıldı! İpucu kaydedildi.",
+      "en": "Chest opened! Hint saved.",
+      "de": "Truhe geöffnet! Tipp gespeichert.",
+      "fr": "Coffre ouvert ! Indice enregistré.",
+      "es": "¡Cofre abierto! Pista guardada.",
+      "pt-BR": "Baú aberto! Dica salva.",
+      "it": "Forziere aperto! Suggerimento salvato.",
+      "pl": "Skrzynia otwarta! Podpowiedź zapisana."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.preparing",
+    "values": {
+      "tr": "Bölüm hazırlanıyor…",
+      "en": "Preparing level…",
+      "de": "Level wird vorbereitet…",
+      "fr": "Préparation du niveau…",
+      "es": "Preparando nivel…",
+      "pt-BR": "Preparando fase…",
+      "it": "Preparazione livello…",
+      "pl": "Przygotowujemy poziom…"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.frontier",
+    "values": {
+      "tr": "Yeni Ufuklar {0}",
+      "en": "New Horizons {0}",
+      "de": "Neue Horizonte {0}",
+      "fr": "Nouveaux Horizons {0}",
+      "es": "Nuevos Horizontes {0}",
+      "pt-BR": "Novos Horizontes {0}",
+      "it": "Nuovi Orizzonti {0}",
+      "pl": "Nowe Horyzonty {0}"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.village",
+    "values": {
+      "tr": "Büyülü Köy",
+      "en": "Enchanted Village",
+      "de": "Verzaubertes Dorf",
+      "fr": "Village enchanté",
+      "es": "Aldea Encantada",
+      "pt-BR": "Vila Encantada",
+      "it": "Villaggio Incantato",
+      "pl": "Zaczarowana Wioska"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.crystal",
+    "values": {
+      "tr": "Kristal Şelaleler",
+      "en": "Crystal Falls",
+      "de": "Kristallfälle",
+      "fr": "Cascades de cristal",
+      "es": "Cascadas de Cristal",
+      "pt-BR": "Cataratas de Cristal",
+      "it": "Cascate di Cristallo",
+      "pl": "Kryształowe Wodospady"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.moon",
+    "values": {
+      "tr": "Ay Bahçesi",
+      "en": "Moon Garden",
+      "de": "Mondgarten",
+      "fr": "Jardin lunaire",
+      "es": "Jardín Lunar",
+      "pt-BR": "Jardim Lunar",
+      "it": "Giardino Lunare",
+      "pl": "Księżycowy Ogród"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.castle",
+    "values": {
+      "tr": "Gökyüzü Şatosu",
+      "en": "Sky Castle",
+      "de": "Himmelsschloss",
+      "fr": "Château céleste",
+      "es": "Castillo Celeste",
+      "pt-BR": "Castelo Celeste",
+      "it": "Castello Celeste",
+      "pl": "Podniebny Zamek"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.woods",
+    "values": {
+      "tr": "Fısıltılı Orman",
+      "en": "Whispering Woods",
+      "de": "Flüsterwald",
+      "fr": "Bois des murmures",
+      "es": "Bosque Susurrante",
+      "pt-BR": "Bosque dos Sussurros",
+      "it": "Bosco dei Sussurri",
+      "pl": "Szepczący Las"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.mirage",
+    "values": {
+      "tr": "Altın Serap",
+      "en": "Golden Mirage",
+      "de": "Goldene Fata Morgana",
+      "fr": "Mirage doré",
+      "es": "Espejismo Dorado",
+      "pt-BR": "Miragem Dourada",
+      "it": "Miraggio Dorato",
+      "pl": "Złoty Miraż"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.coral",
+    "values": {
+      "tr": "Mercan Krallığı",
+      "en": "Coral Kingdom",
+      "de": "Korallenkönigreich",
+      "fr": "Royaume de corail",
+      "es": "Reino de Coral",
+      "pt-BR": "Reino dos Corais",
+      "it": "Regno dei Coralli",
+      "pl": "Koralowe Królestwo"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.frost",
+    "values": {
+      "tr": "Işıltılı Buz Zirveleri",
+      "en": "Frostlight Peaks",
+      "de": "Frostlichtgipfel",
+      "fr": "Pics de givre lumineux",
+      "es": "Cumbres de Hielo Luminoso",
+      "pt-BR": "Picos de Gelo Luminoso",
+      "it": "Vette di Ghiaccio Luminoso",
+      "pl": "Szczyty Lodowego Blasku"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.clockwork",
+    "values": {
+      "tr": "Saat Adaları",
+      "en": "Clockwork Isles",
+      "de": "Uhrwerkinseln",
+      "fr": "Îles mécaniques",
+      "es": "Islas del Reloj",
+      "pt-BR": "Ilhas Mecânicas",
+      "it": "Isole Meccaniche",
+      "pl": "Mechaniczne Wyspy"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.starlight",
+    "values": {
+      "tr": "Yıldız Işığı Bahçesi",
+      "en": "Starlight Grove",
+      "de": "Sternenlichthain",
+      "fr": "Bosquet étoilé",
+      "es": "Arboleda Estelar",
+      "pt-BR": "Bosque Estelar",
+      "it": "Boschetto Stellato",
+      "pl": "Gwiezdny Gaj"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.library",
+    "values": {
+      "tr": "Büyülü Kütüphane",
+      "en": "Arcane Library",
+      "de": "Arkane Bibliothek",
+      "fr": "Bibliothèque des arcanes",
+      "es": "Biblioteca Arcana",
+      "pt-BR": "Biblioteca Arcana",
+      "it": "Biblioteca Arcana",
+      "pl": "Biblioteka Magii"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.island.aurora",
+    "values": {
+      "tr": "Aurora Kalesi",
+      "en": "Aurora Citadel",
+      "de": "Aurorazitadelle",
+      "fr": "Citadelle des aurores",
+      "es": "Ciudadela de la Aurora",
+      "pt-BR": "Cidadela da Aurora",
+      "it": "Cittadella dell’Aurora",
+      "pl": "Cytadela Zorzy"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "number.million",
+    "values": {
+      "tr": "{0:0.#}M",
+      "en": "{0:0.#}M",
+      "de": "{0:0.#} Mio.",
+      "fr": "{0:0.#} M",
+      "es": "{0:0.#} M",
+      "pt-BR": "{0:0.#} mi",
+      "it": "{0:0.#} mln",
+      "pl": "{0:0.#} mln"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "number.billion",
+    "values": {
+      "tr": "{0:0.#}B",
+      "en": "{0:0.#}B",
+      "de": "{0:0.#} Mrd.",
+      "fr": "{0:0.#} Md",
+      "es": "{0:0.#} mil M",
+      "pt-BR": "{0:0.#} bi",
+      "it": "{0:0.#} mld",
+      "pl": "{0:0.#} mld"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "number.trillion",
+    "values": {
+      "tr": "{0:0.#}T",
+      "en": "{0:0.#}T",
+      "de": "{0:0.#}T",
+      "fr": "{0:0.#}T",
+      "es": "{0:0.#}T",
+      "pt-BR": "{0:0.#}T",
+      "it": "{0:0.#}T",
+      "pl": "{0:0.#}T"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "number.quadrillion",
+    "values": {
+      "tr": "{0:0.#}Q",
+      "en": "{0:0.#}Q",
+      "de": "{0:0.#}Q",
+      "fr": "{0:0.#}Q",
+      "es": "{0:0.#}Q",
+      "pt-BR": "{0:0.#}Q",
+      "it": "{0:0.#}Q",
+      "pl": "{0:0.#}Q"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "daily.open",
+    "values": {
+      "tr": "GÜNLÜK GÖREVLERİ AÇ",
+      "en": "OPEN DAILY MISSIONS",
+      "de": "TAGESAUFGABEN ÖFFNEN",
+      "fr": "MISSIONS DU JOUR",
+      "es": "ABRIR MISIONES DIARIAS",
+      "pt-BR": "ABRIR MISSÕES DIÁRIAS",
+      "it": "APRI MISSIONI GIORNALIERE",
+      "pl": "OTWÓRZ CODZIENNE ZADANIA"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "home.gift",
+    "values": {
+      "tr": "Günlük Hediye",
+      "en": "Daily Gift",
+      "de": "Geschenk",
+      "fr": "Cadeau",
+      "es": "Regalo",
+      "pt-BR": "Presente",
+      "it": "Regalo",
+      "pl": "Prezent"
+    },
+    "review": "draft"
+  }
+]

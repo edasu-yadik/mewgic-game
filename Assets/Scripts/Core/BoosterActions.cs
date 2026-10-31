@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using System;using System.Collections.Generic;using System.Linq;
 namespace Mewgic.Core
 {
@@ -60,21 +61,21 @@ namespace Mewgic.Core
         readonly Puzzle puzzle;readonly ProgressLedger ledger;readonly int maximumBottles;
         public string Message {get;private set;}
         public BoosterActions(Puzzle model,ProgressLedger progress,int originalBottleCount){puzzle=model;ledger=progress;maximumBottles=originalBottleCount+1;}
-        bool Allowed(BoosterKind kind){if(puzzle.Won){Message="Bölüm tamamlandı.";return false;}if(ledger.Remaining(kind)<=0){Message="Kullanım hakkı kalmadı.";return false;}return true;}
-        bool Spend(BoosterKind kind){if(ledger.TrySpend(kind))return true;Message="Hak kaydedilemedi; işlem uygulanmadı.";return false;}
-        public bool Undo(){if(!Allowed(BoosterKind.Undo))return false;if(!puzzle.CanUndo){Message="Geri alınacak geçerli hamle yok.";return false;}if(!Spend(BoosterKind.Undo))return false;return puzzle.Undo();}
+        bool Allowed(BoosterKind kind){if(puzzle.Won){Message=L.V("gameplay.success");return false;}if(ledger.Remaining(kind)<=0){Message=L.V("booster.none");return false;}return true;}
+        bool Spend(BoosterKind kind){if(ledger.TrySpend(kind))return true;Message=L.V("error.save");return false;}
+        public bool Undo(){if(!Allowed(BoosterKind.Undo))return false;if(!puzzle.CanUndo){Message=L.V("booster.no_undo");return false;}if(!Spend(BoosterKind.Undo))return false;return puzzle.Undo();}
         public bool Hint(out PuzzleMove move)
         {
             move=default;if(!Allowed(BoosterKind.Hint))return false;var solution=PuzzleSolver.Solve(puzzle.Export());
-            if(solution.Status!=SearchStatus.Solved||solution.Moves.Count==0){Message="Şu anda ipucu bulunamadı; hakkın korunuyor.";return false;}
+            if(solution.Status!=SearchStatus.Solved||solution.Moves.Count==0){Message=L.V("booster.no_hint");return false;}
             if(!Spend(BoosterKind.Hint))return false;move=solution.Moves[0];Message="";return true;
         }
-        public bool Extra(){if(!Allowed(BoosterKind.ExtraBottle))return false;if(puzzle.Count>=maximumBottles){Message="Bu denemede en fazla bir ek şişe kullanılabilir.";return false;}if(!Spend(BoosterKind.ExtraBottle))return false;return puzzle.AddEmptyBottle(maximumBottles);}
+        public bool Extra(){if(!Allowed(BoosterKind.ExtraBottle))return false;if(puzzle.Count>=maximumBottles){Message=L.V("booster.extra_limit");return false;}if(!Spend(BoosterKind.ExtraBottle))return false;return puzzle.AddEmptyBottle(maximumBottles);}
         public bool Shuffle()
         {
-            if(!Allowed(BoosterKind.Shuffle))return false;var snapshot=puzzle.Export();var probe=new Puzzle(snapshot);if(!probe.RotateBottles()){Message="Değiştirilecek düzen yok; hak harcanmadı.";return false;}
-            if(PuzzleSolver.Solve(snapshot).Status!=SearchStatus.Solved||PuzzleSolver.Solve(probe.Export()).Status!=SearchStatus.Solved){Message="Çözüm doğrulanamadı; hak harcanmadı.";return false;}
-            if(!Spend(BoosterKind.Shuffle))return false;puzzle.RotateBottles();Message="Şişeler yeniden düzenlendi.";return true;
+            if(!Allowed(BoosterKind.Shuffle))return false;var snapshot=puzzle.Export();var probe=new Puzzle(snapshot);if(!probe.RotateBottles()){Message=L.V("booster.no_shuffle");return false;}
+            if(PuzzleSolver.Solve(snapshot).Status!=SearchStatus.Solved||PuzzleSolver.Solve(probe.Export()).Status!=SearchStatus.Solved){Message=L.V("booster.no_shuffle");return false;}
+            if(!Spend(BoosterKind.Shuffle))return false;puzzle.RotateBottles();Message=L.V("booster.used_shuffle");return true;
         }
     }
 }

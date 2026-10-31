@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Mewgic
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: 60c1040d6d22aac479a99d2dede8a5db, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 431a07a98d8e26747aedfd0837b346fb, type: 2}
+  - {fileID: 11400000, guid: 361f353f4c3c24e4fa18f6ccfcf83f51, type: 2}
+  - {fileID: 11400000, guid: 9451882021cec384599f4647198dee61, type: 2}
+  - {fileID: 11400000, guid: 31b7b31672c10dc44b8d55b80a688688, type: 2}
+  - {fileID: 11400000, guid: 89797450c7fb5924cb2e23b0108b2480, type: 2}
+  - {fileID: 11400000, guid: 6ab41908884ae6c4a86067afbb6e5bc2, type: 2}
+  - {fileID: 11400000, guid: 0d2415ffcc2e0294c9c77642019a1e1f, type: 2}
+  - {fileID: 11400000, guid: 2af365c778c452d4b9bb595386690a75, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

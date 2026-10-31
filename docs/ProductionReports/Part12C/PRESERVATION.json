@@ -1,0 +1,795 @@
+{
+  "success": true,
+  "baseline": "f42c4f34676523e2c5d07ee5c55a3abc047a708a",
+  "protectedCount": 191,
+  "files": [
+    {
+      "path": "Assets/Art/Atlases.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Backgrounds.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Boot.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Bottles.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/FX.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Atlases/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Backgrounds/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Boot/Mewgic_Startup_Background_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Boot/Mewgic_Startup_Background_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Bottles/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/FX/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/cormorantgaramond-CormorantGaramond-wght.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/cormorantgaramond-CormorantGaramond-wght.ttf.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/cormorantgaramond-OFL.txt",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/cormorantgaramond-OFL.txt.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/MewgicBody.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/MewgicBody.ttf.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/MewgicTitle.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/MewgicTitle.ttf.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/notosans-NotoSans-wdth,wght.ttf",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/notosans-NotoSans-wdth,wght.ttf.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/notosans-OFL.txt",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Typography/notosans-OFL.txt.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Common.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Icons.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Logo.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_FullBody_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_FullBody_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_NoWand_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_NoWand_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_Wand_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_Wand_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/BlinkLeft.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/BlinkLeft.asset.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/BlinkRight.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/BlinkRight.asset.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/MageCat_FullBody_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/MageCat_FullBody_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/MageCat_NoWand_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/MageCat_NoWand_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/MageCat_Wand_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/MageCat_Wand_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/WizardCat_ClosedEyePatches_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Characters/WizardCat/WizardCat_ClosedEyePatches_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_Backdrop_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_Backdrop_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_Foreground_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_Foreground_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_Shelf_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_Shelf_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_WaterMask.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Gameplay/Gameplay_WaterMask.asset.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer01_Sky_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer01_Sky_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer02_DistantIslands_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer02_DistantIslands_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer03_MainCastle_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer03_MainCastle_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer04_Village_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer04_Village_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer05_Foreground_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer05_Foreground_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer06_Atmosphere_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/Layer06_Atmosphere_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/MapProps.spriteatlas",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/MapProps.spriteatlas.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Castle_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Castle_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Chest_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Chest_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Moon_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Moon_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Node_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Node_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Sky_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Sky_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Village_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Village_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks/Layer02_DistantIslands_v001_Motion.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks/Layer02_DistantIslands_v001_Motion.asset.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks/Layer03_MainCastle_v001_Motion.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks/Layer03_MainCastle_v001_Motion.asset.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks/Layer04_Village_v001_Motion.asset",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Home/MotionMasks/Layer04_Village_v001_Motion.asset.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_Art_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_Art_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_Sparkles.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_Sparkles.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left_Art_Glow_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left_Art_Glow_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left_Art_Sparkles_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left_Art_Sparkles_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left_Art_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left_Art_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right_Art_Glow_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right_Art_Glow_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right_Art_Sparkles_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right_Art_Sparkles_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right_Art_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right_Art_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Common/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily/Daily_Button_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily/Daily_Button_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily/Daily_Chest_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily/Daily_Chest_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily/Daily_Parchment_v001.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Daily/Daily_Parchment_v001.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Icons/.gitkeep",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Logo/Mewgic_Logo_Main.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Logo/Mewgic_Logo_Main.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Navigation.spriteatlas",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Navigation.spriteatlas.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Active.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Active.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Events.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Events.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Home.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Home.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Inventory.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Inventory.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Map.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Map.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Team.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Team.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Tile.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/Navigation/Nav_Tile.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton/PlayButton_Glow.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton/PlayButton_Glow.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton/PlayButton_Normal.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton/PlayButton_Normal.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton/PlayButton_Pressed.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/PlayButton/PlayButton_Pressed.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Coin.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Coin.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Gem.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Gem.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Heart.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Heart.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Panel.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Panel.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Plus.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Plus.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Settings.png",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/UI/TopBar/TopBar_Settings.png.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Boot.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Boot.unity.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Gameplay.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Gameplay.unity.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Home.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Home.unity.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/LevelMap.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/LevelMap.unity.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/WizardCatAnimationTest.unity",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/WizardCatAnimationTest.unity.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/GeneratedFallbacks.json",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/GeneratedFallbacks.json.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/Level01.json",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/Level01.json.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/Level02.json",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/Level02.json.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Map/World.json",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Map/World.json.meta",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/Puzzle.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/PuzzleSolver.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/LevelGeneration.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/LevelArchive.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/DailyActivities.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/RewardHub.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/MapProgression.cs",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/WorldMapData.cs",
+      "unchanged": true
+    }
+  ],
+  "fonts": [
+    {
+      "font": "MewgicTitle",
+      "before": 325,
+      "after": 328,
+      "added": [
+        8217,
+        8249,
+        8250
+      ],
+      "removed": []
+    },
+    {
+      "font": "MewgicBody",
+      "before": 323,
+      "after": 326,
+      "added": [
+        8217,
+        8249,
+        8250
+      ],
+      "removed": []
+    }
+  ]
+}

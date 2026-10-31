@@ -1,0 +1,999 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Mewgic_pt-BR
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 60c1040d6d22aac479a99d2dede8a5db, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1668092879795126372
+  m_TableData:
+  - m_Id: 3055910912
+    m_Localized: VOLTAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3177545728
+    m_Localized: FECHAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740032
+    m_Localized: OK
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740033
+    m_Localized: INFO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740034
+    m_Localized: "IN\xCDCIO"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740035
+    m_Localized: MAPA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740036
+    m_Localized: RESGATAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740037
+    m_Localized: RESGATADO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740038
+    m_Localized: BLOQUEADO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740039
+    m_Localized: IR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740040
+    m_Localized: VER
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740041
+    m_Localized: COMO OBTER?
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740042
+    m_Localized: JOGAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740043
+    m_Localized: CHEIO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740044
+    m_Localized: Mapa
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740045
+    m_Localized: Eventos
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740046
+    m_Localized: Equipe
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740047
+    m_Localized: "Invent\xE1rio"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740048
+    m_Localized: "A loja de moedas ainda n\xE3o abriu. Nenhuma compra \xE9 feita."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740049
+    m_Localized: "A loja de gemas ainda n\xE3o abriu. Nenhuma compra \xE9 feita."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740050
+    m_Localized: "A recarga de energia ainda n\xE3o est\xE1 dispon\xEDvel. Sua energia
+      n\xE3o mudou."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740051
+    m_Localized: "O invent\xE1rio ainda n\xE3o est\xE1 dispon\xEDvel."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740052
+    m_Localized: "As equipes ainda n\xE3o est\xE3o dispon\xEDveis."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740053
+    m_Localized: "CONFIGURA\xC7\xD5ES"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740054
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740055
+    m_Localized: 'SOM: LIGADO'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740056
+    m_Localized: 'SOM: DESLIGADO'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740057
+    m_Localized: "O som e o idioma s\xE3o salvos neste dispositivo. O conte\xFAdo
+      de \xE1udio ainda n\xE3o est\xE1 dispon\xEDvel."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740058
+    m_Localized: "N\xE3o foi poss\xEDvel salvar. Seus dados anteriores est\xE3o seguros;
+      tente novamente."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740059
+    m_Localized: "N\xE3o foi poss\xEDvel preparar a fase. Seu progresso est\xE1 seguro;
+      tente novamente."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740060
+    m_Localized: "N\xE3o foi poss\xEDvel ler seu progresso, que foi preservado. Abra
+      o aplicativo novamente."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740061
+    m_Localized: "N\xE3o foi poss\xEDvel verificar a data ou o progresso. As recompensas
+      est\xE3o indispon\xEDveis."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740062
+    m_Localized: Fase {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740063
+    m_Localized: Jogadas {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740064
+    m_Localized: "Fase {0} \u2022 Jogadas: {1} \u2022 Estrelas: {2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740065
+    m_Localized: "MAGIA CONCLU\xCDDA!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740066
+    m_Localized: "PR\xD3XIMA FASE"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3181740067
+    m_Localized: JOGAR DE NOVO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934336
+    m_Localized: REINICIAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934337
+    m_Localized: PAUSADO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934338
+    m_Localized: CONTINUAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934339
+    m_Localized: REINICIAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934340
+    m_Localized: "\xDALTIMA FASE CONCLU\xCDDA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934341
+    m_Localized: "Primeira vit\xF3ria: +1 dica\nSua recompensa foi salva."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934342
+    m_Localized: "A recompensa j\xE1 foi resgatada.\nSua melhor pontua\xE7\xE3o de
+      estrelas \xE9 mantida."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934343
+    m_Localized: "Esta garrafa est\xE1 vazia."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934344
+    m_Localized: "Essa jogada n\xE3o \xE9 v\xE1lida."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934345
+    m_Localized: Boa jogada!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934346
+    m_Localized: Desfazer
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934347
+    m_Localized: Dica
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934348
+    m_Localized: Garrafa extra
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934349
+    m_Localized: Misturar
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934350
+    m_Localized: "A \xFAltima jogada foi desfeita."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934351
+    m_Localized: Uma garrafa vazia foi adicionada.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934352
+    m_Localized: As garrafas foram reorganizadas.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934353
+    m_Localized: "N\xE3o h\xE1 usos restantes."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934354
+    m_Localized: "N\xE3o h\xE1 jogadas para desfazer."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934355
+    m_Localized: "Nenhuma dica confi\xE1vel foi encontrada; seu uso foi preservado."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934356
+    m_Localized: "Uma dica j\xE1 est\xE1 sendo mostrada; nenhum uso foi gasto."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934357
+    m_Localized: "S\xF3 uma garrafa extra por tentativa."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934358
+    m_Localized: "N\xE3o foi poss\xEDvel mudar a disposi\xE7\xE3o com seguran\xE7a;
+      seu uso foi preservado."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934359
+    m_Localized: 'Junte as cores iguais.
+
+      Use uma garrafa vazia ou da mesma
+      cor.
+
+      Toque em mim para pedir ajuda!'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934360
+    m_Localized: "Preparando sua jornada m\xE1gica\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934361
+    m_Localized: "Lembrando da sua jornada\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934362
+    m_Localized: "Preparando recursos m\xE1gicos\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934363
+    m_Localized: "Carregando o mundo m\xE1gico\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934364
+    m_Localized: "\xDAltimos toques de magia\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934365
+    m_Localized: Boas-vindas ao Mewgic!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934366
+    m_Localized: TENTAR DE NOVO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934367
+    m_Localized: "N\xE3o foi poss\xEDvel carregar o mundo. Seu progresso est\xE1
+      seguro; tente novamente."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934368
+    m_Localized: "Presente di\xE1rio"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934369
+    m_Localized: "Miss\xF5es"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934370
+    m_Localized: "MAGIA DI\xC1RIA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934371
+    m_Localized: "MISS\xD5ES"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934372
+    m_Localized: "PRESENTE DI\xC1RIO"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934373
+    m_Localized: "Miss\xF5es di\xE1rias"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934374
+    m_Localized: Complete {0:plural:{} garrafa|{} garrafas} em fases vencidas
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934375
+    m_Localized: "Ven\xE7a {0:plural:{} fase|{} fases}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934376
+    m_Localized: Ganhe {0:plural:{} estrela|{} estrelas} em fases vencidas
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934377
+    m_Localized: Use {0:plural:{} poder|{} poderes}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934378
+    m_Localized: "As recompensas d\xE3o usos reais de poderes."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934379
+    m_Localized: RESGATAR PRESENTE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934380
+    m_Localized: +{0} dica
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934381
+    m_Localized: "Dica salva. Volte amanh\xE3!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934382
+    m_Localized: "N\xE3o foi poss\xEDvel resgatar o presente. Verifique a data e
+      seu progresso."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934383
+    m_Localized: "Recompensa de miss\xE3o salva!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934384
+    m_Localized: "O presente do dia est\xE1 pronto!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934385
+    m_Localized: O presente de hoje foi resgatado.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934386
+    m_Localized: Aguarde um novo dia local e pelo menos 20 horas.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3185934387
+    m_Localized: "Reinicia \xE0 meia-noite local \u2022 {0:d}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128640
+    m_Localized: "Cole\xE7\xE3o"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128641
+    m_Localized: EVENTOS E RECOMPENSAS
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128642
+    m_Localized: 'Evento
+
+      semanal'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128643
+    m_Localized: 'Passe de
+
+      temporada'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128644
+    m_Localized: "Miss\xF5es\ndi\xE1rias"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128645
+    m_Localized: "Pr\xEAmios de\ncole\xE7\xE3o"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128646
+    m_Localized: 'Evento semanal
+
+      Semana das Cataratas de Cristal'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128647
+    m_Localized: "Ven\xE7a {0} fases\n+1 mistura + distintivo estelar"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128648
+    m_Localized: "RESGATAR BA\xDA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128649
+    m_Localized: Recompensa salva!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128650
+    m_Localized: "A recompensa ainda n\xE3o est\xE1 pronta ou j\xE1 foi resgatada."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128651
+    m_Localized: "Passe de temporada \u2022 Caminho gr\xE1tis"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128652
+    m_Localized: +1 desfazer
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128653
+    m_Localized: '+1 garrafa extra
+
+      + carta do gato'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128654
+    m_Localized: "Premium \u2022 Em breve"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128655
+    m_Localized: "O conte\xFAdo premium e as compras n\xE3o est\xE3o dispon\xEDveis.
+      Nada \xE9 cobrado; apenas o caminho gr\xE1tis est\xE1 ativo."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128656
+    m_Localized: Distintivo estelar
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128657
+    m_Localized: Carta do gato mago
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128658
+    m_Localized: "Sua carta colecion\xE1vel. Aparece na galeria; n\xE3o \xE9 equipamento."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128659
+    m_Localized: "Ven\xE7a 3 fases em uma semana e resgate o ba\xFA semanal."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128660
+    m_Localized: "Resgate a recompensa final do caminho gr\xE1tis da temporada."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128661
+    m_Localized: "As cartas ganhas ficam na sua cole\xE7\xE3o."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128662
+    m_Localized: "Eventos offline \u2022 Ven\xE7a fases para avan\xE7ar."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128663
+    m_Localized: "Complete as miss\xF5es de hoje.\nPr\xEAmios dispon\xEDveis: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128664
+    m_Localized: "OFFLINE \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128665
+    m_Localized: "28 dias offline \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128666
+    m_Localized: '{0}
+
+      {1}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128667
+    m_Localized: "MEWGIC \u2022 MAPA DO MUNDO"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128668
+    m_Localized: "\u2039 ILHA ANTERIOR"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128669
+    m_Localized: "PR\xD3XIMA ILHA \u203A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128670
+    m_Localized: MINHA FASE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128671
+    m_Localized: "Deslize para cima \u2022 Escolha um grupo"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128672
+    m_Localized: 50 novas aventuras em cada ilha
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128673
+    m_Localized: "{0} \u2022 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128674
+    m_Localized: "{0} \u2022 BLOQUEADA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128675
+    m_Localized: "Fases {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128676
+    m_Localized: "BLOQUEADO \u2022 {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128677
+    m_Localized: "{0} \u2022 Al\xE9m da n\xE9voa"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128678
+    m_Localized: '{0}
+
+      Nova ilha desbloqueada!'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128679
+    m_Localized: "{0}\nFases {1}\u2013{2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128680
+    m_Localized: "Escolha uma fase \u2022 Melhore suas estrelas"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128681
+    m_Localized: VOLTAR AO MAPA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128682
+    m_Localized: "A fase {0} est\xE1 bloqueada. Conclua a anterior primeiro."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128683
+    m_Localized: "A recompensa deste ba\xFA j\xE1 foi resgatada."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128684
+    m_Localized: "{0}\nConclua as 50 fases da ilha para abrir o ba\xFA."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128685
+    m_Localized: "Seu ba\xFA est\xE1 pronto!\nPr\xEAmio: +{0} dica"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128686
+    m_Localized: "Ba\xFA aberto! Dica salva."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128687
+    m_Localized: "Preparando fase\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128688
+    m_Localized: Novos Horizontes {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128689
+    m_Localized: Vila Encantada
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128690
+    m_Localized: Cataratas de Cristal
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128691
+    m_Localized: Jardim Lunar
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128692
+    m_Localized: Castelo Celeste
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128693
+    m_Localized: Bosque dos Sussurros
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128694
+    m_Localized: Miragem Dourada
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128695
+    m_Localized: Reino dos Corais
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128696
+    m_Localized: Picos de Gelo Luminoso
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128697
+    m_Localized: "Ilhas Mec\xE2nicas"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128698
+    m_Localized: Bosque Estelar
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128699
+    m_Localized: Biblioteca Arcana
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 3190128700
+    m_Localized: Cidadela da Aurora
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1662448402432
+    m_Localized: '{0:0.#} mi'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1662528094208
+    m_Localized: '{0:0.#} bi'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1662528094209
+    m_Localized: '{0:0.#}T'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1662528094210
+    m_Localized: '{0:0.#}Q'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2225802149888
+    m_Localized: "ABRIR MISS\xD5ES DI\xC1RIAS"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2973327785984
+    m_Localized: Presente
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  references:
+    version: 2
+    RefIds:
+    - rid: 1668092879795126372
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 3055910912
+        - id: 3177545728
+        - id: 3181740032
+        - id: 3181740033
+        - id: 3181740034
+        - id: 3181740035
+        - id: 3181740036
+        - id: 3181740037
+        - id: 3181740038
+        - id: 3181740039
+        - id: 3181740040
+        - id: 3181740041
+        - id: 3181740042
+        - id: 3181740043
+        - id: 3181740044
+        - id: 3181740045
+        - id: 3181740046
+        - id: 3181740047
+        - id: 3181740048
+        - id: 3181740049
+        - id: 3181740050
+        - id: 3181740051
+        - id: 3181740052
+        - id: 3181740053
+        - id: 3181740054
+        - id: 3181740055
+        - id: 3181740056
+        - id: 3181740057
+        - id: 3181740058
+        - id: 3181740059
+        - id: 3181740060
+        - id: 3181740061
+        - id: 3181740062
+        - id: 3181740063
+        - id: 3181740064
+        - id: 3181740065
+        - id: 3181740066
+        - id: 3181740067
+        - id: 3185934336
+        - id: 3185934337
+        - id: 3185934338
+        - id: 3185934339
+        - id: 3185934340
+        - id: 3185934341
+        - id: 3185934342
+        - id: 3185934343
+        - id: 3185934344
+        - id: 3185934345
+        - id: 3185934346
+        - id: 3185934347
+        - id: 3185934348
+        - id: 3185934349
+        - id: 3185934350
+        - id: 3185934351
+        - id: 3185934352
+        - id: 3185934353
+        - id: 3185934354
+        - id: 3185934355
+        - id: 3185934356
+        - id: 3185934357
+        - id: 3185934358
+        - id: 3185934359
+        - id: 3185934360
+        - id: 3185934361
+        - id: 3185934362
+        - id: 3185934363
+        - id: 3185934364
+        - id: 3185934365
+        - id: 3185934366
+        - id: 3185934367
+        - id: 3185934368
+        - id: 3185934369
+        - id: 3185934370
+        - id: 3185934371
+        - id: 3185934372
+        - id: 3185934373
+        - id: 3185934374
+        - id: 3185934375
+        - id: 3185934376
+        - id: 3185934377
+        - id: 3185934378
+        - id: 3185934379
+        - id: 3185934380
+        - id: 3185934381
+        - id: 3185934382
+        - id: 3185934383
+        - id: 3185934384
+        - id: 3185934385
+        - id: 3185934386
+        - id: 3185934387
+        - id: 3190128640
+        - id: 3190128641
+        - id: 3190128642
+        - id: 3190128643
+        - id: 3190128644
+        - id: 3190128645
+        - id: 3190128646
+        - id: 3190128647
+        - id: 3190128648
+        - id: 3190128649
+        - id: 3190128650
+        - id: 3190128651
+        - id: 3190128652
+        - id: 3190128653
+        - id: 3190128654
+        - id: 3190128655
+        - id: 3190128656
+        - id: 3190128657
+        - id: 3190128658
+        - id: 3190128659
+        - id: 3190128660
+        - id: 3190128661
+        - id: 3190128662
+        - id: 3190128663
+        - id: 3190128664
+        - id: 3190128665
+        - id: 3190128666
+        - id: 3190128667
+        - id: 3190128668
+        - id: 3190128669
+        - id: 3190128670
+        - id: 3190128671
+        - id: 3190128672
+        - id: 3190128673
+        - id: 3190128674
+        - id: 3190128675
+        - id: 3190128676
+        - id: 3190128677
+        - id: 3190128678
+        - id: 3190128679
+        - id: 3190128680
+        - id: 3190128681
+        - id: 3190128682
+        - id: 3190128683
+        - id: 3190128684
+        - id: 3190128685
+        - id: 3190128686
+        - id: 3190128687
+        - id: 3190128688
+        - id: 3190128689
+        - id: 3190128690
+        - id: 3190128691
+        - id: 3190128692
+        - id: 3190128693
+        - id: 3190128694
+        - id: 3190128695
+        - id: 3190128696
+        - id: 3190128697
+        - id: 3190128698
+        - id: 3190128699
+        - id: 3190128700
+        - id: 1662448402432
+        - id: 1662528094208
+        - id: 1662528094209
+        - id: 1662528094210
+        - id: 2225802149888
+        - id: 2973327785984

@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using TMPro;using Mewgic.UI;
 using System;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Mewgic
         Image Art(Transform parent,string name,Sprite sprite,Vector2 min,Vector2 max,bool sliced=false)
         {var im=Rect(parent,name,min,max).gameObject.AddComponent<Image>();im.sprite=sprite;im.type=sliced?Image.Type.Sliced:Image.Type.Simple;im.raycastTarget=false;return im;}
         TMP_Text TMP_Text(Transform parent,string name,string value,int size,Vector2 min,Vector2 max)
-        {var t=Rect(parent,name,min,max).gameObject.AddComponent<TextMeshProUGUI>();t.font=font;t.text=value;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=17;t.fontSizeMax=size;t.alignment=TextAlignmentOptions.Midline;t.color=new Color32(255,248,224,255);t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
+        {var t=Rect(parent,name,min,max).gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();t.font=font;t.text=value;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=17;t.fontSizeMax=size;t.alignment=TextAlignmentOptions.Midline;t.color=new Color32(255,248,224,255);t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
         Button Control(Transform parent,string name,string value,Vector2 min,Vector2 max,Action action)
         {var im=Art(parent,name,panel,min,max,true);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());TMP_Text(im.transform,"Label",value,32,new Vector2(.08f,.12f),new Vector2(.92f,.88f));return b;}
         static Sprite Load(string name)=>Resources.Load<Sprite>("Gameplay/HUD/HUD_"+name+"_v001");
@@ -33,15 +34,15 @@ namespace Mewgic
             var cover=Rect(safe.parent,"GameplayPauseOverlay",Vector2.zero,Vector2.one);overlay=cover.gameObject;var dim=overlay.AddComponent<Image>();dim.color=new Color(.025f,.018f,.065f,.84f);dim.raycastTarget=true;
             var pauseSafe=Rect(cover,"PauseSafeArea",safe.anchorMin,safe.anchorMax);
             var modal=Art(pauseSafe,"PausePanel",panel,new Vector2(.10f,.30f),new Vector2(.90f,.72f),true);
-            TMP_Text(modal.transform,"PauseTitle","DURAKLATILDI",40,new Vector2(.06f,.78f),new Vector2(.94f,.94f));
-            Control(modal.transform,"Resume","DEVAM ET",new Vector2(.12f,.55f),new Vector2(.88f,.74f),resume);
-            Control(modal.transform,"PauseRestart","YENİDEN BAŞLAT",new Vector2(.12f,.32f),new Vector2(.88f,.51f),restart);
-            Control(modal.transform,"PauseHome",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.12f,.09f),new Vector2(.88f,.28f),home);
+            TMP_Text(modal.transform,"PauseTitle",L.V("gameplay.paused"),40,new Vector2(.06f,.78f),new Vector2(.94f,.94f));
+            Control(modal.transform,"Resume",L.V("gameplay.resume"),new Vector2(.12f,.55f),new Vector2(.88f,.74f),resume);
+            Control(modal.transform,"PauseRestart",L.V("gameplay.restart_full"),new Vector2(.12f,.32f),new Vector2(.88f,.51f),restart);
+            Control(modal.transform,"PauseHome",GameplayLevelCatalog.FromMap?L.V("common.map"):L.V("common.home"),new Vector2(.12f,.09f),new Vector2(.88f,.28f),home);
             overlay.SetActive(false);
         }
         public void Present(GameplayHudState state)
         {
-            State=state;level.text="Bölüm "+state.Level;moves.text="Hamle "+state.Moves;
+            State=state;level.text=L.V("gameplay.level",state.Level);moves.text=L.V("gameplay.moves",state.Moves);
             bool different=!string.Equals(state.Goal?.Trim(),"Renkleri ayır",StringComparison.OrdinalIgnoreCase)&&!string.Equals(state.Goal?.Trim(),"Üç rengi ayır",StringComparison.OrdinalIgnoreCase);
             specialGoal.gameObject.SetActive(different);goal.text=different?state.Goal:"";
             GetComponent<GameplayPresentation>()?.SetTopLimit(different?.84f:.90f);

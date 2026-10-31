@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using TMPro;using Mewgic.UI;
 using System;using UnityEngine;using UnityEngine.UI;
 namespace Mewgic
@@ -11,13 +12,13 @@ namespace Mewgic
         {
             paused=isPaused;var panel=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");var star=Resources.Load<Sprite>("Gameplay/HUD/HUD_Star_v001");
             root=GameplayTools.Art(safe,"Win panel",panel,new Vector2(.08f,.29f),new Vector2(.92f,.745f),true).rectTransform;root.GetComponent<Image>().raycastTarget=true;
-            GameplayTools.Label(root,"Success","BÜYÜ TAMAMLANDI!",38,new Vector2(.05f,.82f),new Vector2(.95f,.94f));
+            GameplayTools.Label(root,"Success",L.V("gameplay.success"),38,new Vector2(.05f,.82f),new Vector2(.95f,.94f));
             for(int i=0;i<3;i++){stars[i]=GameplayTools.Art(root,"AwardStar"+(i+1),star,new Vector2(.20f+i*.21f,.62f),new Vector2(.38f+i*.21f,.82f));stars[i].preserveAspect=true;}
             summary=GameplayTools.Label(root,"ResultSummary","",25,new Vector2(.08f,.54f),new Vector2(.92f,.63f));
             reward=GameplayTools.Label(root,"Reward","",25,new Vector2(.08f,.40f),new Vector2(.92f,.55f));
-            next=Control("NextLevel","SONRAKİ BÖLÜM",new Vector2(.12f,.275f),new Vector2(.88f,.39f),advance,panel);
-            Control("Replay","TEKRAR OYNA",new Vector2(.12f,.145f),new Vector2(.88f,.26f),replay,panel);
-            Control("ResultHome",GameplayLevelCatalog.FromMap?"HARİTA":"ANA MENÜ",new Vector2(.12f,.025f),new Vector2(.88f,.13f),home,panel);
+            next=Control("NextLevel",L.V("gameplay.next"),new Vector2(.12f,.275f),new Vector2(.88f,.39f),advance,panel);
+            Control("Replay",L.V("gameplay.replay"),new Vector2(.12f,.145f),new Vector2(.88f,.26f),replay,panel);
+            Control("ResultHome",GameplayLevelCatalog.FromMap?L.V("common.map"):L.V("common.home"),new Vector2(.12f,.025f),new Vector2(.88f,.13f),home,panel);
             for(int i=0;i<sparks.Length;i++){var im=GameplayTools.Art(root,"GoldParticle"+i,star,Vector2.zero,Vector2.zero);im.preserveAspect=true;im.raycastTarget=false;im.rectTransform.anchorMin=im.rectTransform.anchorMax=new Vector2(.5f,.5f);im.rectTransform.sizeDelta=Vector2.one*(5+i%4*2);sparks[i]=im;}
             root.gameObject.SetActive(false);
         }
@@ -26,9 +27,9 @@ namespace Mewgic
         public void Show(int level,int moves,int starCount,bool granted,bool saved,bool hasNext)
         {
             if(showing)return;showing=true;awarded=starCount;clock=0;root.gameObject.SetActive(true);root.SetAsLastSibling();
-            summary.text="Bölüm "+level+" • "+moves+" hamle • "+starCount+" yıldız";
-            reward.text=!saved?"Ödül kaydedilemedi; tekrar deneyebilirsin.":granted?"İlk tamamlama ödülü: +1 İpucu\nHak kalıcı olarak kaydedildi.":"Bu bölümün ödülü daha önce alındı.\nEn iyi yıldız sonucun korunur.";
-            next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?"SONRAKİ BÖLÜM":"SON BÖLÜM TAMAMLANDI";
+            summary.text=L.V("gameplay.result",level,moves,starCount);
+            reward.text=!saved?L.V("error.save"):granted?L.V("gameplay.first_reward"):L.V("gameplay.reward_taken");
+            next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?L.V("gameplay.next"):L.V("gameplay.last");
             Animate();
         }
         public void Hide(){showing=false;if(root!=null)root.gameObject.SetActive(false);}

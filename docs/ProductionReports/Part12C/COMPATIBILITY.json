@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "checks": [
+    "manualLocale alanı olmayan gerçek eski JSON korunur",
+    "Eski kayda dil ekleme ve yeniden açılış para/yıldızı korur",
+    "Yeni kullanıcıda manuel tercih yok, cihaz seçicisi kullanılabilir"
+  ]
+}

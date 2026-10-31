@@ -1,0 +1,993 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Mewgic_tr
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: 60c1040d6d22aac479a99d2dede8a5db, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1668092879795126368
+  m_TableData:
+  - m_Id: 3055910912
+    m_Localized: "GER\u0130"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3177545728
+    m_Localized: KAPAT
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740032
+    m_Localized: TAMAM
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740033
+    m_Localized: "B\u0130LG\u0130"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740034
+    m_Localized: "ANA MEN\xDC"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740035
+    m_Localized: "HAR\u0130TA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740036
+    m_Localized: "\xD6D\xDCL\xDC AL"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740037
+    m_Localized: ALINDI
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740038
+    m_Localized: "K\u0130L\u0130TL\u0130"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740039
+    m_Localized: "G\u0130T"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740040
+    m_Localized: "G\xD6R\xDCNT\xDCLE"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740041
+    m_Localized: NASIL ALINIR?
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740042
+    m_Localized: OYNA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740043
+    m_Localized: DOLU
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740044
+    m_Localized: Harita
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740045
+    m_Localized: Etkinlikler
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740046
+    m_Localized: "Tak\u0131m"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740047
+    m_Localized: Envanter
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740048
+    m_Localized: "Para ma\u011Fazas\u0131 hen\xFCz a\xE7\u0131k de\u011Fil. Sat\u0131n
+      alma yap\u0131lmaz."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740049
+    m_Localized: "Elmas ma\u011Fazas\u0131 hen\xFCz a\xE7\u0131k de\u011Fil. Sat\u0131n
+      alma yap\u0131lmaz."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740050
+    m_Localized: "Enerji yenileme hen\xFCz a\xE7\u0131k de\u011Fil. Enerjin de\u011Fi\u015Fmedi."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740051
+    m_Localized: "Envanter hen\xFCz haz\u0131r de\u011Fil."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740052
+    m_Localized: "Tak\u0131m \xF6zelli\u011Fi hen\xFCz haz\u0131r de\u011Fil."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740053
+    m_Localized: AYARLAR
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740054
+    m_Localized: Dil
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740055
+    m_Localized: "SES: A\xC7IK"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740056
+    m_Localized: 'SES: KAPALI'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740057
+    m_Localized: "Ses ve dil tercihlerin bu cihazda saklan\u0131r. Bu s\xFCr\xFCmde
+      ses i\xE7eri\u011Fi hen\xFCz yok."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740058
+    m_Localized: "Kaydedilemedi. \xD6nceki verilerin korundu; tekrar dene."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740059
+    m_Localized: "B\xF6l\xFCm haz\u0131rlanamad\u0131. Kayd\u0131n korundu; tekrar
+      dene."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740060
+    m_Localized: "Kayd\u0131n okunamad\u0131 ve korundu. L\xFCtfen uygulamay\u0131
+      yeniden a\xE7."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740061
+    m_Localized: "Data veya kay\u0131t do\u011Frulanamad\u0131. \xD6d\xFCller \u015Fu
+      an kapal\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740062
+    m_Localized: "B\xF6l\xFCm {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740063
+    m_Localized: Hamle {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740064
+    m_Localized: "B\xF6l\xFCm {0} \u2022 Hamle: {1} \u2022 Y\u0131ld\u0131z: {2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740065
+    m_Localized: "B\xDCY\xDC TAMAMLANDI!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740066
+    m_Localized: "SONRAK\u0130 B\xD6L\xDCM"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3181740067
+    m_Localized: TEKRAR OYNA
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934336
+    m_Localized: "YEN\u0130DEN"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934337
+    m_Localized: DURAKLATILDI
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934338
+    m_Localized: DEVAM ET
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934339
+    m_Localized: "YEN\u0130DEN BA\u015ELAT"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934340
+    m_Localized: "SON B\xD6L\xDCM TAMAMLANDI"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934341
+    m_Localized: "\u0130lk tamamlama \xF6d\xFCl\xFC: +1 \u0130pucu\nHakk\u0131n kaydedildi."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934342
+    m_Localized: "Bu b\xF6l\xFCm\xFCn \xF6d\xFCl\xFC al\u0131nd\u0131.\nEn iyi y\u0131ld\u0131z
+      sonucun korunur."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934343
+    m_Localized: "Bu \u015Fi\u015Fe bo\u015F."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934344
+    m_Localized: "Bu hamle yap\u0131lam\u0131yor."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934345
+    m_Localized: "G\xFCzel hamle!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934346
+    m_Localized: Geri Al
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934347
+    m_Localized: "\u0130pucu"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934348
+    m_Localized: "Ek \u015Ei\u015Fe"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934349
+    m_Localized: "Kar\u0131\u015Ft\u0131r"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934350
+    m_Localized: "Son hamle geri al\u0131nd\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934351
+    m_Localized: "Bir bo\u015F \u015Fi\u015Fe eklendi."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934352
+    m_Localized: "\u015Ei\u015Feler yeniden d\xFCzenlendi."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934353
+    m_Localized: "Kullan\u0131m hakk\u0131 kalmad\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934354
+    m_Localized: "Geri al\u0131nacak hamle yok."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934355
+    m_Localized: "G\xFCvenilir ipucu bulunamad\u0131; hakk\u0131n korunuyor."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934356
+    m_Localized: "\u0130pucu zaten g\xF6steriliyor; hak harcanmad\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934357
+    m_Localized: "Bu denemede yaln\u0131z bir ek \u015Fi\u015Fe kullan\u0131labilir."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934358
+    m_Localized: "D\xFCzen g\xFCvenle de\u011Fi\u015Ftirilemedi; hakk\u0131n korunuyor."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934359
+    m_Localized: "Renkleri ayr\u0131 \u015Fi\u015Felerde topla.\nBo\u015F ya da ayn\u0131
+      renkli \u015Fi\u015Feye aktar.\nYard\u0131m i\xE7in bana dokun!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934360
+    m_Localized: "B\xFCy\xFCl\xFC yolculu\u011Fun haz\u0131rlan\u0131yor\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934361
+    m_Localized: "Yolculu\u011Fun hat\u0131rlan\u0131yor\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934362
+    m_Localized: "B\xFCy\xFCl\xFC kaynaklar haz\u0131rlan\u0131yor\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934363
+    m_Localized: "B\xFCy\xFCl\xFC d\xFCnya y\xFCkleniyor\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934364
+    m_Localized: "Son sihirli dokunu\u015Flar\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934365
+    m_Localized: "Mewgic\u2019e ho\u015F geldin!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934366
+    m_Localized: TEKRAR DENE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934367
+    m_Localized: "D\xFCnya y\xFCklenemedi. Kayd\u0131n korundu; tekrar dene."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934368
+    m_Localized: "G\xFCnl\xFCk Hediye"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934369
+    m_Localized: "G\xF6revler"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934370
+    m_Localized: "G\xDCNL\xDCK B\xDCY\xDCLER"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934371
+    m_Localized: "G\xD6REVLER"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934372
+    m_Localized: "G\xDCNL\xDCK HED\u0130YE"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934373
+    m_Localized: "G\xFCnl\xFCk G\xF6revler"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934374
+    m_Localized: "Kazand\u0131\u011F\u0131n b\xF6l\xFCmlerde {0} \u015Fi\u015Fe tamamla"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934375
+    m_Localized: "{0} b\xF6l\xFCm kazan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934376
+    m_Localized: "Kazand\u0131\u011F\u0131n b\xF6l\xFCmlerde {0} y\u0131ld\u0131z
+      topla"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934377
+    m_Localized: "{0} g\xFC\xE7lendirici kullan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934378
+    m_Localized: "\xD6d\xFCller ger\xE7ek g\xFC\xE7lendirici haklar\u0131d\u0131r."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934379
+    m_Localized: "HED\u0130YEY\u0130 AL"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934380
+    m_Localized: "+{0} \u0130pucu"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934381
+    m_Localized: "\u0130pucu kaydedildi. Yar\u0131n yine bekleriz!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934382
+    m_Localized: "Hediye al\u0131namad\u0131. Tarihi ve kayd\u0131n\u0131 kontrol
+      et."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934383
+    m_Localized: "G\xF6rev \xF6d\xFCl\xFC kaydedildi!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934384
+    m_Localized: "Yeni g\xFCn\xFCn hediyesi haz\u0131r!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934385
+    m_Localized: "Bug\xFCnk\xFC hediye al\u0131nd\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934386
+    m_Localized: "Yeni yerel g\xFCn ve en az 20 saat gerekli."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3185934387
+    m_Localized: "Yenilenme: yerel gece yar\u0131s\u0131 \u2022 {0:d}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128640
+    m_Localized: Koleksiyon
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128641
+    m_Localized: "ETK\u0130NL\u0130K VE \xD6D\xDCLLER"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128642
+    m_Localized: "Haftal\u0131k\nEtkinlik"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128643
+    m_Localized: 'Sezon
+
+      Yolu'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128644
+    m_Localized: "G\xFCnl\xFCk\nG\xF6revler"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128645
+    m_Localized: "Koleksiyon\n\xD6d\xFClleri"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128646
+    m_Localized: "Haftal\u0131k Etkinlik\nKristal \u015Eelalesi Haftas\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128647
+    m_Localized: "{0} b\xF6l\xFCm kazan\n+1 Kar\u0131\u015Ft\u0131r + Y\u0131ld\u0131z
+      Rozeti"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128648
+    m_Localized: "SANDI\u011EI AL"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128649
+    m_Localized: "\xD6d\xFCl kaydedildi!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128650
+    m_Localized: "\xD6d\xFCl hen\xFCz haz\u0131r de\u011Fil veya zaten al\u0131nd\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128651
+    m_Localized: "Sezon Yolu \u2022 \xDCcretsiz"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128652
+    m_Localized: +1 Geri Al
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128653
+    m_Localized: "+1 Ek \u015Ei\u015Fe\n+ Kedi kart\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128654
+    m_Localized: "Premium \u2022 Gelecek \xF6zellik"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128655
+    m_Localized: "Premium i\xE7erik ve sat\u0131n alma hen\xFCz yok. \xD6deme al\u0131nmaz;
+      yaln\u0131z \xFCcretsiz yol a\xE7\u0131kt\u0131r."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128656
+    m_Localized: "Y\u0131ld\u0131z Rozeti"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128657
+    m_Localized: "B\xFCy\xFCc\xFC Kedi Kart\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128658
+    m_Localized: "Koleksiyon kart\u0131n. Galeride g\xF6r\xFCnt\xFClenir; ekipman
+      de\u011Fildir."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128659
+    m_Localized: "Haftada 3 b\xF6l\xFCm kazan\u0131p haftal\u0131k sand\u0131\u011F\u0131
+      al."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128660
+    m_Localized: "\xDCcretsiz sezon yolunun son \xF6d\xFCl\xFCn\xFC al."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128661
+    m_Localized: "Kazan\u0131lan kartlar koleksiyonunda kal\u0131r."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128662
+    m_Localized: "\xC7evrimd\u0131\u015F\u0131 etkinlikler \u2022 B\xF6l\xFCmler
+      kazanarak ilerle."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128663
+    m_Localized: "Bug\xFCnk\xFC g\xF6revlerini tamamla.\nAl\u0131nabilir \xF6d\xFCl:
+      {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128664
+    m_Localized: "\xC7EVR\u0130MDI\u015EI \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128665
+    m_Localized: "\xC7evrimd\u0131\u015F\u0131 28 g\xFCn \u2022 {0:dd MMM} \u2013
+      {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128666
+    m_Localized: '{0}
+
+      {1}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128667
+    m_Localized: "MEWGIC \u2022 D\xDCNYA HAR\u0130TASI"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128668
+    m_Localized: "\u2039 \xD6NCEK\u0130 ADA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128669
+    m_Localized: "SONRAK\u0130 ADA \u203A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128670
+    m_Localized: "B\xD6L\xDCM\xDCME G\u0130T"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128671
+    m_Localized: "Yukar\u0131 kayd\u0131r \u2022 Bir b\xF6l\xFCm grubu se\xE7"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128672
+    m_Localized: Her adada 50 yeni macera
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128673
+    m_Localized: "{0} \u2022 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128674
+    m_Localized: "{0} \u2022 K\u0130L\u0130TL\u0130"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128675
+    m_Localized: "B\xF6l\xFCmler {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128676
+    m_Localized: "K\u0130L\u0130TL\u0130 \u2022 {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128677
+    m_Localized: "{0} \u2022 Sislerin ard\u0131nda"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128678
+    m_Localized: "{0}\nYeni ada a\xE7\u0131ld\u0131!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128679
+    m_Localized: "{0}\nB\xF6l\xFCmler {1}\u2013{2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128680
+    m_Localized: "Bir b\xF6l\xFCm se\xE7 \u2022 Y\u0131ld\u0131zlar\u0131n\u0131
+      geli\u015Ftir"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128681
+    m_Localized: "HAR\u0130TAYA D\xD6N"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128682
+    m_Localized: "B\xF6l\xFCm {0} kilitli. \xD6nce \xF6nceki b\xF6l\xFCm\xFC tamamla."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128683
+    m_Localized: "Bu sand\u0131\u011F\u0131n \xF6d\xFCl\xFC zaten al\u0131nd\u0131."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128684
+    m_Localized: "{0}\nSand\u0131k i\xE7in adan\u0131n 50 b\xF6l\xFCm\xFCn\xFC tamamla."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128685
+    m_Localized: "Sand\u0131\u011F\u0131n haz\u0131r!\n\xD6d\xFCl: +{0} \u0130pucu"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128686
+    m_Localized: "Sand\u0131k a\xE7\u0131ld\u0131! \u0130pucu kaydedildi."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128687
+    m_Localized: "B\xF6l\xFCm haz\u0131rlan\u0131yor\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128688
+    m_Localized: Yeni Ufuklar {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128689
+    m_Localized: "B\xFCy\xFCl\xFC K\xF6y"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128690
+    m_Localized: "Kristal \u015Eelaleler"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128691
+    m_Localized: "Ay Bah\xE7esi"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128692
+    m_Localized: "G\xF6ky\xFCz\xFC \u015Eatosu"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128693
+    m_Localized: "F\u0131s\u0131lt\u0131l\u0131 Orman"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128694
+    m_Localized: "Alt\u0131n Serap"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128695
+    m_Localized: "Mercan Krall\u0131\u011F\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128696
+    m_Localized: "I\u015F\u0131lt\u0131l\u0131 Buz Zirveleri"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128697
+    m_Localized: "Saat Adalar\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128698
+    m_Localized: "Y\u0131ld\u0131z I\u015F\u0131\u011F\u0131 Bah\xE7esi"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128699
+    m_Localized: "B\xFCy\xFCl\xFC K\xFCt\xFCphane"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 3190128700
+    m_Localized: Aurora Kalesi
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1662448402432
+    m_Localized: '{0:0.#}M'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1662528094208
+    m_Localized: '{0:0.#}B'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1662528094209
+    m_Localized: '{0:0.#}T'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1662528094210
+    m_Localized: '{0:0.#}Q'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2225802149888
+    m_Localized: "G\xDCNL\xDCK G\xD6REVLER\u0130 A\xC7"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2973327785984
+    m_Localized: "G\xFCnl\xFCk Hediye"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  references:
+    version: 2
+    RefIds:
+    - rid: 1668092879795126368
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 3055910912
+        - id: 3177545728
+        - id: 3181740032
+        - id: 3181740033
+        - id: 3181740034
+        - id: 3181740035
+        - id: 3181740036
+        - id: 3181740037
+        - id: 3181740038
+        - id: 3181740039
+        - id: 3181740040
+        - id: 3181740041
+        - id: 3181740042
+        - id: 3181740043
+        - id: 3181740044
+        - id: 3181740045
+        - id: 3181740046
+        - id: 3181740047
+        - id: 3181740048
+        - id: 3181740049
+        - id: 3181740050
+        - id: 3181740051
+        - id: 3181740052
+        - id: 3181740053
+        - id: 3181740054
+        - id: 3181740055
+        - id: 3181740056
+        - id: 3181740057
+        - id: 3181740058
+        - id: 3181740059
+        - id: 3181740060
+        - id: 3181740061
+        - id: 3181740062
+        - id: 3181740063
+        - id: 3181740064
+        - id: 3181740065
+        - id: 3181740066
+        - id: 3181740067
+        - id: 3185934336
+        - id: 3185934337
+        - id: 3185934338
+        - id: 3185934339
+        - id: 3185934340
+        - id: 3185934341
+        - id: 3185934342
+        - id: 3185934343
+        - id: 3185934344
+        - id: 3185934345
+        - id: 3185934346
+        - id: 3185934347
+        - id: 3185934348
+        - id: 3185934349
+        - id: 3185934350
+        - id: 3185934351
+        - id: 3185934352
+        - id: 3185934353
+        - id: 3185934354
+        - id: 3185934355
+        - id: 3185934356
+        - id: 3185934357
+        - id: 3185934358
+        - id: 3185934359
+        - id: 3185934360
+        - id: 3185934361
+        - id: 3185934362
+        - id: 3185934363
+        - id: 3185934364
+        - id: 3185934365
+        - id: 3185934366
+        - id: 3185934367
+        - id: 3185934368
+        - id: 3185934369
+        - id: 3185934370
+        - id: 3185934371
+        - id: 3185934372
+        - id: 3185934373
+        - id: 3185934374
+        - id: 3185934375
+        - id: 3185934376
+        - id: 3185934377
+        - id: 3185934378
+        - id: 3185934379
+        - id: 3185934380
+        - id: 3185934381
+        - id: 3185934382
+        - id: 3185934383
+        - id: 3185934384
+        - id: 3185934385
+        - id: 3185934386
+        - id: 3185934387
+        - id: 3190128640
+        - id: 3190128641
+        - id: 3190128642
+        - id: 3190128643
+        - id: 3190128644
+        - id: 3190128645
+        - id: 3190128646
+        - id: 3190128647
+        - id: 3190128648
+        - id: 3190128649
+        - id: 3190128650
+        - id: 3190128651
+        - id: 3190128652
+        - id: 3190128653
+        - id: 3190128654
+        - id: 3190128655
+        - id: 3190128656
+        - id: 3190128657
+        - id: 3190128658
+        - id: 3190128659
+        - id: 3190128660
+        - id: 3190128661
+        - id: 3190128662
+        - id: 3190128663
+        - id: 3190128664
+        - id: 3190128665
+        - id: 3190128666
+        - id: 3190128667
+        - id: 3190128668
+        - id: 3190128669
+        - id: 3190128670
+        - id: 3190128671
+        - id: 3190128672
+        - id: 3190128673
+        - id: 3190128674
+        - id: 3190128675
+        - id: 3190128676
+        - id: 3190128677
+        - id: 3190128678
+        - id: 3190128679
+        - id: 3190128680
+        - id: 3190128681
+        - id: 3190128682
+        - id: 3190128683
+        - id: 3190128684
+        - id: 3190128685
+        - id: 3190128686
+        - id: 3190128687
+        - id: 3190128688
+        - id: 3190128689
+        - id: 3190128690
+        - id: 3190128691
+        - id: 3190128692
+        - id: 3190128693
+        - id: 3190128694
+        - id: 3190128695
+        - id: 3190128696
+        - id: 3190128697
+        - id: 3190128698
+        - id: 3190128699
+        - id: 3190128700
+        - id: 1662448402432
+        - id: 1662528094208
+        - id: 1662528094209
+        - id: 1662528094210
+        - id: 2225802149888
+        - id: 2973327785984

@@ -1,0 +1,1005 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Mewgic_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 60c1040d6d22aac479a99d2dede8a5db, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 1668092879795126371
+  m_TableData:
+  - m_Id: 3055910912
+    m_Localized: BACK
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3177545728
+    m_Localized: CLOSE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740032
+    m_Localized: OK
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740033
+    m_Localized: INFO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740034
+    m_Localized: HOME
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740035
+    m_Localized: MAP
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740036
+    m_Localized: CLAIM
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740037
+    m_Localized: CLAIMED
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740038
+    m_Localized: LOCKED
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740039
+    m_Localized: GO
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740040
+    m_Localized: VIEW
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740041
+    m_Localized: HOW TO GET?
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740042
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740043
+    m_Localized: FULL
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740044
+    m_Localized: Map
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740045
+    m_Localized: Events
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740046
+    m_Localized: Team
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740047
+    m_Localized: Inventory
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740048
+    m_Localized: The coin shop is not open yet. No purchases are made.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740049
+    m_Localized: The gem shop is not open yet. No purchases are made.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740050
+    m_Localized: Energy refills are not available yet. Your energy is unchanged.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740051
+    m_Localized: Inventory is not available yet.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740052
+    m_Localized: Teams are not available yet.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740053
+    m_Localized: SETTINGS
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740054
+    m_Localized: Language
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740055
+    m_Localized: 'SOUND: ON'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740056
+    m_Localized: 'SOUND: OFF'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740057
+    m_Localized: Sound and language preferences are saved on this device. Audio content
+      is not available yet.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740058
+    m_Localized: Could not save. Your previous data is safe; try again.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740059
+    m_Localized: Could not prepare the level. Your save is safe; try again.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740060
+    m_Localized: Your save could not be read and was preserved. Please reopen the
+      app.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740061
+    m_Localized: The date or save could not be verified. Rewards are unavailable
+      for now.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740062
+    m_Localized: Level {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740063
+    m_Localized: Moves {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740064
+    m_Localized: "Level {0} \u2022 Moves: {1} \u2022 Stars: {2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740065
+    m_Localized: MAGIC COMPLETE!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740066
+    m_Localized: NEXT LEVEL
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3181740067
+    m_Localized: PLAY AGAIN
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934336
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934337
+    m_Localized: PAUSED
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934338
+    m_Localized: RESUME
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934339
+    m_Localized: RESTART
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934340
+    m_Localized: FINAL LEVEL COMPLETE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934341
+    m_Localized: 'First-clear reward: +1 Hint
+
+      Your reward is saved.'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934342
+    m_Localized: "This level\u2019s reward was already claimed.\nYour best star score
+      is kept."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934343
+    m_Localized: This bottle is empty.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934344
+    m_Localized: You cannot make that move.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934345
+    m_Localized: Nice move!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934346
+    m_Localized: Undo
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934347
+    m_Localized: Hint
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934348
+    m_Localized: Extra Bottle
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934349
+    m_Localized: Shuffle
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934350
+    m_Localized: The last move was undone.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934351
+    m_Localized: An empty bottle was added.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934352
+    m_Localized: The bottles were rearranged.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934353
+    m_Localized: No uses remaining.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934354
+    m_Localized: There is no move to undo.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934355
+    m_Localized: No reliable hint was found; your use is preserved.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934356
+    m_Localized: A hint is already shown; no use was spent.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934357
+    m_Localized: Only one extra bottle can be used per attempt.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934358
+    m_Localized: The layout could not be safely changed; your use is preserved.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934359
+    m_Localized: 'One color per bottle.
+
+      Pour onto a match or into empties.
+
+      Tap
+      me for help!'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934360
+    m_Localized: "Preparing your magical journey\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934361
+    m_Localized: "Remembering your journey\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934362
+    m_Localized: "Preparing magical resources\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934363
+    m_Localized: "Loading the magical world\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934364
+    m_Localized: "Adding the final magic touches\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934365
+    m_Localized: Welcome to Mewgic!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934366
+    m_Localized: TRY AGAIN
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934367
+    m_Localized: The world could not be loaded. Your save is safe; try again.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934368
+    m_Localized: Daily Gift
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934369
+    m_Localized: Missions
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934370
+    m_Localized: DAILY MAGIC
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934371
+    m_Localized: MISSIONS
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934372
+    m_Localized: DAILY GIFT
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934373
+    m_Localized: Daily Missions
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934374
+    m_Localized: Complete {0:plural:{} bottle|{} bottles} in won levels
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934375
+    m_Localized: Win {0:plural:{} level|{} levels}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934376
+    m_Localized: Earn {0:plural:{} star|{} stars} in won levels
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934377
+    m_Localized: Use {0:plural:{} booster|{} boosters}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934378
+    m_Localized: Rewards grant real booster uses.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934379
+    m_Localized: CLAIM GIFT
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934380
+    m_Localized: +{0} Hint
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934381
+    m_Localized: Hint saved. Come back tomorrow!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934382
+    m_Localized: Could not claim the gift. Check the date and your save.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934383
+    m_Localized: Mission reward saved!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934384
+    m_Localized: "A new day\u2019s gift is ready!"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934385
+    m_Localized: "Today\u2019s gift was claimed."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934386
+    m_Localized: Wait for a new local day and at least 20 hours.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3185934387
+    m_Localized: "Resets at local midnight \u2022 {0:d}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128640
+    m_Localized: Collection
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128641
+    m_Localized: EVENTS & REWARDS
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128642
+    m_Localized: 'Weekly
+
+      Event'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128643
+    m_Localized: 'Season
+
+      Pass'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128644
+    m_Localized: 'Daily
+
+      Missions'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128645
+    m_Localized: 'Collection
+
+      Rewards'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128646
+    m_Localized: 'Weekly Event
+
+      Crystal Falls Week'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128647
+    m_Localized: 'Win {0} levels
+
+      +1 Shuffle + Star Badge'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128648
+    m_Localized: CLAIM CHEST
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128649
+    m_Localized: Reward saved!
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128650
+    m_Localized: The reward is not ready yet or was already claimed.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128651
+    m_Localized: "Season Pass \u2022 Free Track"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128652
+    m_Localized: +1 Undo
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128653
+    m_Localized: '+1 Extra Bottle
+
+      + Cat Card'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128654
+    m_Localized: "Premium \u2022 Coming later"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128655
+    m_Localized: Premium content and purchases are not available. No payment is taken;
+      only the free track is active.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128656
+    m_Localized: Star Badge
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128657
+    m_Localized: Wizard Cat Card
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128658
+    m_Localized: Your collectible card. Shown in the gallery; it is not equipment.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128659
+    m_Localized: Win 3 levels in a week and claim the weekly chest.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128660
+    m_Localized: Claim the final reward on the free season track.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128661
+    m_Localized: Earned cards stay in your collection.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128662
+    m_Localized: "Offline events \u2022 Win levels to progress."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128663
+    m_Localized: "Complete today\u2019s missions.\nRewards ready: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128664
+    m_Localized: "OFFLINE \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128665
+    m_Localized: "28 days offline \u2022 {0:dd MMM} \u2013 {1:dd MMM}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128666
+    m_Localized: '{0}
+
+      {1}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128667
+    m_Localized: "MEWGIC \u2022 WORLD MAP"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128668
+    m_Localized: "\u2039 PREVIOUS ISLAND"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128669
+    m_Localized: "NEXT ISLAND \u203A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128670
+    m_Localized: MY LEVEL
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128671
+    m_Localized: "Swipe up \u2022 Choose a level group"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128672
+    m_Localized: 50 new adventures on each island
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128673
+    m_Localized: "{0} \u2022 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128674
+    m_Localized: "{0} \u2022 LOCKED"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128675
+    m_Localized: "Levels {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128676
+    m_Localized: "LOCKED \u2022 {0}\u2013{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128677
+    m_Localized: "{0} \u2022 Beyond the mist"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128678
+    m_Localized: '{0}
+
+      New island unlocked!'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128679
+    m_Localized: "{0}\nLevels {1}\u2013{2}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128680
+    m_Localized: "Choose a level \u2022 Improve your stars"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128681
+    m_Localized: BACK TO MAP
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128682
+    m_Localized: Level {0} is locked. Complete the previous level first.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128683
+    m_Localized: "This chest\u2019s reward was already claimed."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128684
+    m_Localized: '{0}
+
+      Complete all 50 island levels to open the chest.'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128685
+    m_Localized: 'Your chest is ready!
+
+      Reward: +{0} Hint'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128686
+    m_Localized: Chest opened! Hint saved.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128687
+    m_Localized: "Preparing level\u2026"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128688
+    m_Localized: New Horizons {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128689
+    m_Localized: Enchanted Village
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128690
+    m_Localized: Crystal Falls
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128691
+    m_Localized: Moon Garden
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128692
+    m_Localized: Sky Castle
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128693
+    m_Localized: Whispering Woods
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128694
+    m_Localized: Golden Mirage
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128695
+    m_Localized: Coral Kingdom
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128696
+    m_Localized: Frostlight Peaks
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128697
+    m_Localized: Clockwork Isles
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128698
+    m_Localized: Starlight Grove
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128699
+    m_Localized: Arcane Library
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 3190128700
+    m_Localized: Aurora Citadel
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1662448402432
+    m_Localized: '{0:0.#}M'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1662528094208
+    m_Localized: '{0:0.#}B'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1662528094209
+    m_Localized: '{0:0.#}T'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1662528094210
+    m_Localized: '{0:0.#}Q'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2225802149888
+    m_Localized: OPEN DAILY MISSIONS
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2973327785984
+    m_Localized: Daily Gift
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  references:
+    version: 2
+    RefIds:
+    - rid: 1668092879795126371
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 3055910912
+        - id: 3177545728
+        - id: 3181740032
+        - id: 3181740033
+        - id: 3181740034
+        - id: 3181740035
+        - id: 3181740036
+        - id: 3181740037
+        - id: 3181740038
+        - id: 3181740039
+        - id: 3181740040
+        - id: 3181740041
+        - id: 3181740042
+        - id: 3181740043
+        - id: 3181740044
+        - id: 3181740045
+        - id: 3181740046
+        - id: 3181740047
+        - id: 3181740048
+        - id: 3181740049
+        - id: 3181740050
+        - id: 3181740051
+        - id: 3181740052
+        - id: 3181740053
+        - id: 3181740054
+        - id: 3181740055
+        - id: 3181740056
+        - id: 3181740057
+        - id: 3181740058
+        - id: 3181740059
+        - id: 3181740060
+        - id: 3181740061
+        - id: 3181740062
+        - id: 3181740063
+        - id: 3181740064
+        - id: 3181740065
+        - id: 3181740066
+        - id: 3181740067
+        - id: 3185934336
+        - id: 3185934337
+        - id: 3185934338
+        - id: 3185934339
+        - id: 3185934340
+        - id: 3185934341
+        - id: 3185934342
+        - id: 3185934343
+        - id: 3185934344
+        - id: 3185934345
+        - id: 3185934346
+        - id: 3185934347
+        - id: 3185934348
+        - id: 3185934349
+        - id: 3185934350
+        - id: 3185934351
+        - id: 3185934352
+        - id: 3185934353
+        - id: 3185934354
+        - id: 3185934355
+        - id: 3185934356
+        - id: 3185934357
+        - id: 3185934358
+        - id: 3185934359
+        - id: 3185934360
+        - id: 3185934361
+        - id: 3185934362
+        - id: 3185934363
+        - id: 3185934364
+        - id: 3185934365
+        - id: 3185934366
+        - id: 3185934367
+        - id: 3185934368
+        - id: 3185934369
+        - id: 3185934370
+        - id: 3185934371
+        - id: 3185934372
+        - id: 3185934373
+        - id: 3185934374
+        - id: 3185934375
+        - id: 3185934376
+        - id: 3185934377
+        - id: 3185934378
+        - id: 3185934379
+        - id: 3185934380
+        - id: 3185934381
+        - id: 3185934382
+        - id: 3185934383
+        - id: 3185934384
+        - id: 3185934385
+        - id: 3185934386
+        - id: 3185934387
+        - id: 3190128640
+        - id: 3190128641
+        - id: 3190128642
+        - id: 3190128643
+        - id: 3190128644
+        - id: 3190128645
+        - id: 3190128646
+        - id: 3190128647
+        - id: 3190128648
+        - id: 3190128649
+        - id: 3190128650
+        - id: 3190128651
+        - id: 3190128652
+        - id: 3190128653
+        - id: 3190128654
+        - id: 3190128655
+        - id: 3190128656
+        - id: 3190128657
+        - id: 3190128658
+        - id: 3190128659
+        - id: 3190128660
+        - id: 3190128661
+        - id: 3190128662
+        - id: 3190128663
+        - id: 3190128664
+        - id: 3190128665
+        - id: 3190128666
+        - id: 3190128667
+        - id: 3190128668
+        - id: 3190128669
+        - id: 3190128670
+        - id: 3190128671
+        - id: 3190128672
+        - id: 3190128673
+        - id: 3190128674
+        - id: 3190128675
+        - id: 3190128676
+        - id: 3190128677
+        - id: 3190128678
+        - id: 3190128679
+        - id: 3190128680
+        - id: 3190128681
+        - id: 3190128682
+        - id: 3190128683
+        - id: 3190128684
+        - id: 3190128685
+        - id: 3190128686
+        - id: 3190128687
+        - id: 3190128688
+        - id: 3190128689
+        - id: 3190128690
+        - id: 3190128691
+        - id: 3190128692
+        - id: 3190128693
+        - id: 3190128694
+        - id: 3190128695
+        - id: 3190128696
+        - id: 3190128697
+        - id: 3190128698
+        - id: 3190128699
+        - id: 3190128700
+        - id: 1662448402432
+        - id: 1662528094208
+        - id: 1662528094209
+        - id: 1662528094210
+        - id: 2225802149888
+        - id: 2973327785984

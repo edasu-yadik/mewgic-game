@@ -1,3 +1,5 @@
+using TMPro;using Mewgic.UI;
+using L=Mewgic.Localization.L;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +15,9 @@ namespace Mewgic
         public RectTransform Logo {get;private set;}
         public RectTransform Character {get;private set;}
         public RectTransform Bar {get;private set;}
-        public Text Message {get;private set;}
+        public TMP_Text Message {get;private set;}
         public Button RetryButton {get;private set;}
-        CanvasGroup group; BootProgressGraphic fill; Text percentage; float target;
+        CanvasGroup group; BootProgressGraphic fill; TMP_Text percentage; float target;
         public float RenderedProgress=>fill!=null?fill.Value:0;
         GameObject input; Rect lastSafe;int lastWidth,lastHeight;bool failed;
 #if UNITY_EDITOR
@@ -37,10 +39,10 @@ namespace Mewgic
             Rect(Safe,"Magic Motes",new Vector2(.06f,.25f),new Vector2(.94f,.82f)).gameObject.AddComponent<BootMagicGraphic>().raycastTarget=false;
             Bar=Rect(Safe,"Actual Loading Progress",new Vector2(.105f,.115f),new Vector2(.895f,.14f));fill=Bar.gameObject.AddComponent<BootProgressGraphic>();
             percentage=Label(Safe,"Loading Percentage","0%",22,new Vector2(.4f,.145f),new Vector2(.6f,.176f));
-            Message=Label(Safe,"Loading Message","Büyülü yolculuğun hazırlanıyor…",26,new Vector2(.055f,.055f),new Vector2(.945f,.105f));
+            Message=Label(Safe,"Loading Message",L.V("boot.preparing"),26,new Vector2(.055f,.055f),new Vector2(.945f,.105f));
             var retryRect=Rect(Safe,"Retry Loading",new Vector2(.28f,.185f),new Vector2(.72f,.235f));var retryGraphic=retryRect.gameObject.AddComponent<BootProgressGraphic>();retryGraphic.Value=1;
             RetryButton=retryRect.gameObject.AddComponent<Button>();RetryButton.targetGraphic=retryGraphic;RetryButton.onClick.AddListener(()=>retry());
-            Label(retryRect,"Retry Label","TEKRAR DENE",23,Vector2.zero,Vector2.one);RetryButton.gameObject.SetActive(false);
+            Label(retryRect,"Retry Label",L.V("boot.retry"),23,Vector2.zero,Vector2.one);RetryButton.gameObject.SetActive(false);
             input=new GameObject("Opening EventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));input.transform.SetParent(transform,false);input.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
             foreach(var graphic in root.GetComponentsInChildren<Graphic>(true))graphic.raycastTarget=graphic.gameObject==retryRect.gameObject;
         }
@@ -53,7 +55,7 @@ namespace Mewgic
             ApplySafeArea();
             DisplayProgress=Mathf.MoveTowards(DisplayProgress,target,Time.unscaledDeltaTime*4);
             if(fill!=null)fill.Value=DisplayProgress;
-            if(percentage!=null)percentage.text=failed?"Duraklatıldı":Mathf.FloorToInt(DisplayProgress*100)+"%";
+            if(percentage!=null)percentage.text=failed?L.V("gameplay.paused"):Mathf.FloorToInt(DisplayProgress*100)+"%";
             if(Character!=null){Character.anchoredPosition=new Vector2(0,Mathf.Sin(Time.unscaledTime*1.35f)*4);Character.localRotation=Quaternion.Euler(0,0,Mathf.Sin(Time.unscaledTime*.8f)*.35f);}
         }
         void ApplySafeArea()
@@ -70,7 +72,7 @@ namespace Mewgic
         {var go=new GameObject(name,typeof(RectTransform));go.transform.SetParent(parent,false);var r=(RectTransform)go.transform;r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         static RectTransform Raw(Transform parent,string name,Texture texture,Vector2 min,Vector2 max,AspectRatioFitter.AspectMode mode=AspectRatioFitter.AspectMode.FitInParent)
         {var box=Rect(parent,name+" Bounds",min,max);var r=Rect(box,name,Vector2.zero,Vector2.one);var image=r.gameObject.AddComponent<RawImage>();image.texture=texture;image.raycastTarget=false;var fit=r.gameObject.AddComponent<AspectRatioFitter>();fit.aspectMode=mode;fit.aspectRatio=texture!=null?(float)texture.width/texture.height:1;return r;}
-        static Text Label(Transform parent,string name,string message,int size,Vector2 min,Vector2 max)
-        {var r=Rect(parent,name,min,max);var t=r.gameObject.AddComponent<Text>();t.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");t.text=message;t.fontSize=size;t.alignment=TextAnchor.MiddleCenter;t.color=new Color(1,.94f,.8f);t.resizeTextForBestFit=true;t.resizeTextMinSize=18;t.resizeTextMaxSize=size;t.raycastTarget=false;var shadow=r.gameObject.AddComponent<Shadow>();shadow.effectColor=new Color(0,0,0,.9f);shadow.effectDistance=new Vector2(1,-2);return t;}
+        static TMP_Text Label(Transform parent,string name,string message,int size,Vector2 min,Vector2 max)
+        {var r=Rect(parent,name,min,max);var t=r.gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();MewgicTypographySettings.Prepare(t);t.text=message;t.fontSize=size;t.alignment=TextAlignmentOptions.Midline;t.color=new Color(1,.94f,.8f);t.enableAutoSizing=true;t.fontSizeMin=18;t.fontSizeMax=size;t.raycastTarget=false;return t;}
     }
 }

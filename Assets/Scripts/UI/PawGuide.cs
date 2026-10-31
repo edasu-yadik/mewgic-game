@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using System;using System.Collections;using UnityEngine;using UnityEngine.UI;using UnityEngine.InputSystem;using TMPro;using Mewgic.Core;
 namespace Mewgic.UI
 {
@@ -15,7 +16,7 @@ namespace Mewgic.UI
         public bool ThoughtVisible=>bubble!=null&&bubble.gameObject.activeSelf&&fade.alpha>.05f;
         public float CursorPress=>cursorArt!=null?cursorArt.Press:0;
         public event Action BoosterHelpRequested;
-        public const string HelpText="Renkleri aynı şişede topla.\nBoş ya da üst rengi aynı şişeye aktar.\nTakılırsan bana dokun!";
+        public static string HelpText=>L.V("tutorial.help");
         PrototypeApp app;Puzzle model;ProgressLedger ledger;RectTransform safe,cat,hit,bubble,cursor;
         TMP_Text message,gameplayStatus;CanvasGroup fade,cursorFade;PawCursorGraphic cursorArt;
         Mewgic.Characters.WizardCatPresentation actor;Coroutine routine;PawTutorialDefinition feature;
@@ -29,7 +30,7 @@ namespace Mewgic.UI
             hit=Rect(root,"PawCatTouch",Vector2.zero,Vector2.zero);var image=hit.gameObject.AddComponent<Image>();image.color=Color.clear;hit.gameObject.AddComponent<Button>().onClick.AddListener(OpenMenu);
             bubble=Rect(root,"PawThought",new Vector2(.025f,.205f),new Vector2(.645f,.303f));bubble.gameObject.AddComponent<PawThoughtGraphic>().raycastTarget=false;
             fade=bubble.gameObject.AddComponent<CanvasGroup>();fade.blocksRaycasts=fade.interactable=false;
-            var text=Rect(bubble,"PawMessage",new Vector2(.065f,.14f),new Vector2(.935f,.86f));message=text.gameObject.AddComponent<TextMeshProUGUI>();MewgicTypographySettings.Prepare(message);message.font=MewgicTypographySettings.Current.body;message.fontSize=23;message.enableAutoSizing=true;message.fontSizeMin=21;message.fontSizeMax=23;message.alignment=TextAlignmentOptions.Center;message.color=new Color32(62,34,56,255);message.raycastTarget=false;
+            var text=Rect(bubble,"PawMessage",new Vector2(.065f,.10f),new Vector2(.935f,.90f));message=text.gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();MewgicTypographySettings.Prepare(message);message.font=MewgicTypographySettings.Current.body;message.fontSize=23;message.enableAutoSizing=true;message.fontSizeMin=21;message.fontSizeMax=23;message.alignment=TextAlignmentOptions.Center;message.color=new Color32(62,34,56,255);message.raycastTarget=false;
             cursor=Rect(root,"PawCursor",new Vector2(.5f,.5f),new Vector2(.5f,.5f));cursor.sizeDelta=new Vector2(74,84);cursorArt=cursor.gameObject.AddComponent<PawCursorGraphic>();cursorArt.raycastTarget=false;cursorFade=cursor.gameObject.AddComponent<CanvasGroup>();cursorFade.blocksRaycasts=cursorFade.interactable=false;
             bubble.gameObject.SetActive(false);cursor.gameObject.SetActive(false);fade.alpha=0;
             if(level==1&&!ledger.Completed(1)&&!ledger.TutorialCompleted(BasicId))BeginDemo();
@@ -93,7 +94,7 @@ namespace Mewgic.UI
         public void SuspendHelp(){Close();}
         public void ResetGuide(){Close();}
         public bool HandleBack(){if(!Visible)return false;Close();return true;}
-        public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!Ready||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;ShowThought(definition.message,Phase.Feature);return true;}
+        public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!Ready||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;ShowThought(string.IsNullOrWhiteSpace(definition.messageKey)?L.V("tutorial.help"):L.V(definition.messageKey),Phase.Feature);return true;}
         public bool CompleteFeature(string completionKey){if(State!=Phase.Feature||feature==null||completionKey!=feature.completionKey||!ledger.CompleteTutorial(feature.tutorialId))return false;Close();return true;}
         void ShowThought(string text,Phase phase){State=phase;message.text=text;thoughtAt=Time.unscaledTime;thoughtClosing=false;fadeStart=thoughtAt;fade.alpha=0;bubble.localScale=Vector3.one*.94f;bubble.gameObject.SetActive(true);}
         public void Close()

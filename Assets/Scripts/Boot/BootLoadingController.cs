@@ -1,3 +1,4 @@
+using L=Mewgic.Localization.L;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -52,7 +53,7 @@ namespace Mewgic
                 catch (Exception e)
                 {
                     Error = e.Message; State = "Failed"; running = false;
-                    View.ShowError(Error);
+                    View.ShowError(L.V("boot.error"));
                     Debug.LogWarning("MEWGIC_BOOT_ERROR: " + Error);
                     break;
                 }
@@ -70,34 +71,35 @@ namespace Mewgic
         }
         IEnumerator Load()
         {
-            Stage("Save", 0, "Büyülü yolculuğun hazırlanıyor…");
+            while(!L.Ready)yield return null;
+            Stage("Save", 0, L.V("boot.preparing"));
             // Önce UI render edilsin; uzun süreli yapay bekleme yok.
             yield return null;
             var progress = GameplayProgress.Current;
             if (GameplayProgress.LoadError != null)
-                throw new InvalidOperationException("Kayıt okunamadı. Verilerin korundu. Uygulamayı yeniden açıp tekrar dene.");
+                throw new InvalidOperationException(L.V("error.load"));
             GameplayLevelCatalog.ResumeFromSave();
-            Stage("Dependencies", .15f, "Yolculuğun hatırlanıyor…");
+            Stage("Dependencies", .15f, L.V("boot.save"));
             if (background == null || logo == null || character == null)
                 throw new InvalidOperationException("Açılış görselleri yüklenemedi. Lütfen tekrar dene.");
             if (!Application.CanStreamedLevelBeLoaded(homeScene))
                 throw new InvalidOperationException("Ana menü yüklenemedi. Lütfen tekrar dene.");
             var prepare=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);
-            while(!prepare.IsCompleted){Stage("Dependencies",.25f,"Büyülü kaynaklar hazırlanıyor…");yield return null;}
+            while(!prepare.IsCompleted){Stage("Dependencies",.25f,L.V("boot.resources"));yield return null;}
             if(prepare.IsFaulted)throw new InvalidOperationException("Başlangıç bölümü doğrulanamadı. Kaydın korundu; tekrar dene.");
             GameplayLevelCatalog.Current(); // Bölüm kimliği, içerik ve çözülebilirlik doğrulanır.
             if (Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf") == null)
                 throw new InvalidOperationException("Yazı kaynağı yüklenemedi.");
-            Stage("HomeLoading", .30f, "Büyülü dünya yükleniyor…");
+            Stage("HomeLoading", .30f, L.V("boot.loading"));
             homeLoad = SceneManager.LoadSceneAsync(homeScene, LoadSceneMode.Single);
             if (homeLoad == null) throw new InvalidOperationException("Ana menü yüklemesi başlatılamadı.");
             homeLoad.allowSceneActivation = false;
             while (homeLoad.progress < .9f)
             {
-                Stage("HomeLoading", .30f + .65f * Mathf.Clamp01(homeLoad.progress / .9f), "Büyülü dünya yükleniyor…");
+                Stage("HomeLoading", .30f + .65f * Mathf.Clamp01(homeLoad.progress / .9f), L.V("boot.loading"));
                 yield return null;
             }
-            Stage("Ready", .95f, "Son sihirli dokunuşlar…");
+            Stage("Ready", .95f, L.V("boot.ready"));
 #if UNITY_EDITOR
             while (EditorHoldBeforeActivation) yield return null;
 #endif
@@ -109,7 +111,7 @@ namespace Mewgic
             if (SceneManager.GetActiveScene().name != homeScene)
                 throw new InvalidOperationException("Ana menü etkinleştirilemedi.");
             homeLoad = null; ActivationCount++;
-            Stage("Complete", 1, "Mewgic’e hoş geldin!");
+            Stage("Complete", 1, L.V("boot.welcome"));
             while (View.DisplayProgress < .999f) yield return null;
             // Yalnız 180ms görsel geçiş; yüzdeyi yükselten zamanlayıcı yok.
             float elapsed = 0;
