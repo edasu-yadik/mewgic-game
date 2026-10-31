@@ -70,6 +70,8 @@ Mewgic logosu, kedi, şişeler, arka planlar, oyun kuralları, solver/üretici, 
 
 ## Git teslimi
 
-Yalnız PART12C dosyaları geliştirme dalına gönderilecektir. Master'a merge yapılmaz. Uzak SHA doğrulaması teslim kaydına yazılacaktır. Önceden var olan ilgisiz untracked sanat/rapor dosyaları korunmuştur.
+Yalnız PART12C dosyaları recovery/part09-completion dalına commit/push edildi. Uygulama commit: **0daf1095fd7ca81ce027df07e71d3e6aa2e77857**. Git ls-remote ile uzak SHA eşleşti. Master **f243d7a355fedf9cfbc65f8060f1d3bc14cae169** değişmedi; merge yapılmadı. Önceden var olan ilgisiz untracked sanat/rapor dosyaları korunmuştur.
+
+İlk push GH007 e-posta gizliliği kuralıyla reddedildi. Hesap gizliliği değiştirilmeden, depodaki önceki commit'lerdeki GitHub noreply adresi yerel repo için kullanıldı; henüz yayımlanmamış commit yazarı düzeltildi ve ikinci push başarılı oldu. Bu teslim kaydı ayrı belge commit'iyle eklenir.
 
 **Yeni build alınmadı.** Unity Editor izole test profiliyle Türkçe Gameplay Play Mode'da bırakıldı; bu önizleme gerçek oyuncu verisini değiştirmez.

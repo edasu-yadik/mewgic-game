@@ -227,3 +227,5 @@ PART12B Git teslimi: dedfacc61e36dc28519db074196be532cd09f58b recovery/part09-co
 
 
 PART12C (31 Ekim 2026): Resmî Localization1.5.13; sekiz Locale/157 anahtar/1256 taslak çeviri. Kayıtlı manuel → cihaz → en seçici, anlık Settings dili, eski kayıt uyumu. Home/Gameplay/Map/Daily/Events/Season/Collection/Pati/Boot yerelleşti; Masalsı fontlar/oyun verileri korundu.132157 Unity assertion +328 Boot/reload +3 JSON uyumu;3 mobil oran/Safe Area,0 eksik anahtar/glif/taşma; Console/derleme/runtime0 hata-0 uyarı. Fiziksel cihaz ve ana dil incelemesi bekliyor. Rapor ProductionReports/Part12C/PART12C_REPORT.md; teknik belge LOCALIZATION_SYSTEM.md. Yeni build yok.
+
+PART12C Git teslimi: 0daf1095fd7ca81ce027df07e71d3e6aa2e77857 recovery/part09-completion push başarılı; uzak SHA eşleşti. Master f243d7a aynı. GH007 ilk reddi mevcut GitHub noreply kimliğiyle giderildi; hesap gizliliği değiştirilmedi.
