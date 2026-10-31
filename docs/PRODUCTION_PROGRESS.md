@@ -217,3 +217,5 @@ PART11F (31 Ekim 2026): Kullanıcı yeni tasarımı doğrultusunda kutulu Pati m
 PART11F Git teslimi:48d253a7a26a9b7426fb20ec4077a9ae2db29136 recovery/part09-completion push başarılı; uzak SHA eşleşti. Master f243d7a korundu.
 
 PART12A (31 Ekim 2026): Bölüm3+ deterministik Xorshift32, gerçek Pour sertifikalı ters üretim + kanonik bütçeli BFS, ölçülen zorluk/tempo ve64 imza penceresi.192 doğrulanmış yedek, asenkron prewarm ve kalıcı değişmez tam bölüm pinleri.1000/1000 doğrulama:845 yeni/155 yedek,64 içinde0 tekrar;toplam567 benzersiz,433 pencere dışı tekrar.9013 model +242 Unity +5 Boot/kayıt kontrolü geçti;Console/derleme/runtime0 hata-0 uyarı. Authored1/2, oyuncu kaydı, sanat ve mekanikler korundu. Fiziksel cihaz/yeni build yok. Tasarım LEVEL_GENERATOR_DESIGN.md;rapor ProductionReports/Part12A/PART12A_REPORT.md.
+
+PART12A Git teslimi:ab70130e8243ae11d346dc2a04c00c0183d7aab5 recovery/part09-completion push başarılı; uzak SHA eşleşti. Master f243d7a korundu.

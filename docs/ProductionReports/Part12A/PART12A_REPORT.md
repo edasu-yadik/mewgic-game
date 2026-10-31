@@ -98,4 +98,4 @@ Authored Level01/Level02, Puzzle.Pour/Undo/Restart modeli, BoosterActions, oyunc
 
 ## Git
 
-Doğrulanmış PART12A değişiklikleri mevcut private geliştirme branch'ine gönderilecek; kesin uzak SHA teslim kaydına eklenir.
+Uygulama/test/tasarım/görsel commit’i `ab70130e8243ae11d346dc2a04c00c0183d7aab5`, private origin `recovery/part09-completion` dalına başarıyla push edildi. `git ls-remote` uzak SHA eşleşmesini doğruladı. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak aynı kaldı. Bu teslim kaydı ayrıca dokümantasyon commit’iyle gönderilir.
