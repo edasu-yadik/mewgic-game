@@ -1,67 +1,21 @@
-using TMPro;using Mewgic.UI;
-using System;using Mewgic.Core;using UnityEngine;using UnityEngine.UI;using UnityEngine.SceneManagement;
+using TMPro;using Mewgic.UI;using System;using Mewgic.Core;using UnityEngine;using UnityEngine.UI;
 namespace Mewgic.Map
 {
  public sealed partial class MapWorld
  {
-  MapProgression progression;ProgressLedger ledger;Button claimButton;int selectedChest=-1;bool navigating;MapNodeBadge[] badges;TMP_Text[] regionProgress;MagicalProgressBar[] regionBars;
+  MapProgression progression;ProgressLedger ledger;Button claimButton;int selectedChest=-1;bool navigating;
   public MapProgression Progression=>progression;
-  void BindProgress()
-  {
-   ledger=GameplayProgress.Current;
-   try{progression=MapProgressionCatalog.Open(ledger);}catch(Exception e){Message("Harita verisi açılamadı: "+e.Message);return;}
-   badges=new MapNodeBadge[points.Count];regionProgress=new TMP_Text[4];regionBars=new MagicalProgressBar[4];
-   var star=Resources.Load<Sprite>("Gameplay/HUD/HUD_Star_v001");
-   for(int i=0;i<points.Count;i++){badges[i]=points[i].gameObject.AddComponent<MapNodeBadge>();badges[i].Build(points[i].kind==MapPointKind.Chest,star,font);}
-   for(int i=0;i<4;i++){
-    var plate=WorldRoot.Find("RegionLabels/"+RegionNames[i]+"/RegionName_"+i);
-    plate.GetComponent<RectTransform>().sizeDelta=new Vector2(0,110);
-    var title=plate.Find("Label").GetComponent<RectTransform>();title.anchorMin=new Vector2(.04f,.62f);title.anchorMax=new Vector2(.96f,.94f);plate.Find("Label").GetComponent<TMP_Text>().fontSizeMax=23;
-    regionBars[i]=MagicalProgressBar.Create(plate,"RegionProgress",new Vector2(.12f,.31f),new Vector2(.88f,.54f));regionBars[i].label.fontSizeMin=12;regionBars[i].label.fontSizeMax=15;regionProgress[i]=Label(plate,"RegionCompletion","",17,new Vector2(.04f,.03f),new Vector2(.96f,.29f));
-   }
-   var box=information.transform.Find("InformationPanel");box.Find("Title").GetComponent<TMP_Text>().text="HARİTA";
-   var msg=informationText.rectTransform;msg.anchorMin=new Vector2(.08f,.48f);msg.anchorMax=new Vector2(.92f,.73f);
-   claimButton=Control(box,"ClaimMapChest","ÖDÜLÜ AL",new Vector2(.15f,.30f),new Vector2(.85f,.46f),ClaimSelectedChest);claimButton.gameObject.SetActive(false);
-   RefreshProgress();
-   if(GameplayProgress.LoadError!=null)Message("Kayıt okunamadı. Özgün kayıt korundu; ödül kaydetme kapalı.");
-  }
-  public void RefreshProgress()
-  {
-   if(progression==null)return;
-   for(int i=0;i<points.Count;i++){
-    var p=points[i];int r=p.regionIndex;
-    if(p.kind==MapPointKind.LevelSlot)badges[i].Present(progression.LevelId(r,p.slotIndex),progression.Status(r,p.slotIndex),progression.Stars(progression.LevelId(r,p.slotIndex)));
-    else badges[i].PresentChest(progression.ChestReady(r),progression.ChestClaimed(r));
-   }
-   for(int r=0;r<4;r++){
-    int count=progression.Completed(r),total=progression.Total(r),stars=0;for(int n=0;n<3;n++)stars+=progression.Stars(progression.LevelId(r,n));
-    regionBars[r].SetValue(count,total,0,true,!progression.RegionOpen(r));regionProgress[r].text=progression.RegionOpen(r)?count+"/"+total+" bölüm • "+stars+"/"+(total*3)+" yıldız"+(progression.RegionComplete(r)?" • TAMAMLANDI":""):"KİLİTLİ • Bölümler hazırlanıyor";
-    var tab=tabs.Find("RegionJump_"+r+"/Label").GetComponent<TMP_Text>();tab.fontSizeMax=progression.RegionOpen(r)?24:20;tab.text=RegionNames[r].Replace(" ","\n")+(progression.RegionOpen(r)?"":"\nKİLİTLİ");
-   }
-   UpdateProgressTitle();
-  }
-  void UpdateProgressTitle(){if(progression==null)return;regionTitle.text=RegionNames[ActiveRegion]+(progression.RegionOpen(ActiveRegion)?"":" • KİLİTLİ");}
-  void Message(string text){CancelJump();Scroll.StopMovement();informationText.text=text;information.SetActive(true);information.transform.SetAsLastSibling();if(claimButton!=null)claimButton.gameObject.SetActive(false);}
-  public void ShowInformation(MapPoint point)
-  {
-   if(navigating)return;
-   if(progression==null){Message("Harita verisi doğrulanamadı.");return;}
-   int r=point.regionIndex;
-   if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);var state=progression.Status(r,point.slotIndex);
-    if(state==MapLevelStatus.Unavailable){Message("Bu konum henüz hazır değil.\nDoğrulanmış bölüm verisi bulunmuyor.");return;}
-    if(state==MapLevelStatus.Locked||!GameplayLevelCatalog.Select(id,ledger)){Message("Bölüm "+id+" kilitli.\nÖnce önceki bölümleri tamamla.");return;}
-    navigating=true;Mewgic.SceneNavigation.LoadOnce("Gameplay");return;
-   }
-   selectedChest=r;
-   if(progression.ChestClaimed(r)){Message("Bu sandığın ödülü daha önce alındı.");return;}
-   if(!progression.ChestReady(r)){Message(RegionNames[r]+"\nSandık için bölgedeki doğrulanmış bölümlerin tamamı bitmeli. Hazır olmayan bölgeler açılamaz.");return;}
-   Message(RegionNames[r]+" tamamlandı!\nSandık ödülü: +"+progression.Reward(r).amount+" İpucu");claimButton.gameObject.SetActive(true);
-  }
+  void BindProgress(){ledger=GameplayProgress.Current;try{progression=MapProgressionCatalog.Open(ledger);}catch(Exception){Message("Harita açılamadı. Kaydın korunuyor; tekrar deneyebilirsin.");return;}if(GameplayProgress.LoadError!=null)Message("Kayıt okunamadı. Özgün kayıt korundu; ödül kaydetme kapalı.");}
+  public void RefreshProgress(){if(ledger==null)return;progression=MapProgressionCatalog.Open(ledger);foreach(var v in views)if(v.region>=0)BindIsland(v,v.region);UpdateProgressTitle();}
+  void UpdateProgressTitle(){if(progression==null)return;regionTitle.text=progression.Region(ActiveRegion).displayName+(progression.RegionOpen(ActiveRegion)?"":" • KİLİTLİ");}
+  void Message(string text){CancelJump();Scroll.StopMovement();informationText.text=text;information.SetActive(true);information.transform.SetAsLastSibling();claimButton.gameObject.SetActive(false);}
+  public void ShowInformation(MapPoint point){if(navigating)return;if(progression==null){Message("Harita verisi doğrulanamadı.");return;}int r=point.regionIndex;if(point.kind==MapPointKind.LevelGroup){OpenChapter(r,point.slotIndex);return;}if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);if(!progression.CanEnter(id)){Message("Bölüm "+id+" kilitli. Önce önceki bölümü tamamla.");return;}EnterLevel(id);return;}selectedChest=r;if(progression.ChestClaimed(r)){Message("Bu sandığın ödülü daha önce alındı.");return;}if(!progression.ChestReady(r)){Message(progression.Region(r).displayName+"\nSandık için adanın 50 bölümünü tamamla.");return;}Message("Sandığın hazır!\nÖdül: +"+progression.Reward(r).amount+" İpucu");claimButton.gameObject.SetActive(true);}
+  public async void EnterLevel(int id){if(navigating||progression==null||!progression.CanEnter(id))return;navigating=true;Message("Bölüm hazırlanıyor…");try{await GameplayLevelCatalog.PrepareAsync(id);if(this==null)return;if(!GameplayLevelCatalog.Select(id,ledger))throw new InvalidOperationException();pendingFocus=-1;ledger.SaveMapFocus(id);SceneNavigation.LoadOnce("Gameplay");}catch(Exception){if(this!=null){navigating=false;Message("Bölüm hazırlanamadı. Kaydın korundu; tekrar deneyebilirsin.");}}}
   void ClaimSelectedChest(){if(selectedChest<0||progression==null)return;bool saved=progression.ClaimChest(selectedChest,out bool granted);RefreshProgress();Message(!saved?"Ödül kaydedilemedi. Hak değişmedi; tekrar deneyebilirsin.":granted?"Sandık açıldı! +1 İpucu kaydedildi.":"Bu sandığın ödülü zaten alındı.");}
  }
  public sealed class MapNodeBadge : MonoBehaviour
  {
-  Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;bool chest;float clock;bool current;
+  Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;MapClaimGraphic claimedMark;bool chest;float clock;bool current;
   public MapLevelStatus Status {get;private set;}public int Stars {get;private set;}
   static RectTransform Rect(Transform p,string name,Vector2 center,Vector2 size){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=center;return r;}
   public void Build(bool isChest,Sprite star,TMP_FontAsset font){chest=isChest;art=transform.Find("Art").GetComponent<Image>();
@@ -69,11 +23,13 @@ namespace Mewgic.Map
    var n=Rect(transform,"LevelNumber",new Vector2(0,1),new Vector2(65,46));number=n.gameObject.AddComponent<TextMeshProUGUI>();number.font=font;MewgicTypographySettings.Prepare(number);number.fontStyle=FontStyles.Bold;number.fontSize=40;number.alignment=TextAlignmentOptions.Midline;number.textWrappingMode=TextWrappingModes.NoWrap;number.enableAutoSizing=true;number.fontSizeMin=18;number.fontSizeMax=36;number.color=Color.white;number.raycastTarget=false;
    var arrowRect=Rect(transform,"CurrentMarker",new Vector2(0,52),new Vector2(40,38));arrow=arrowRect.gameObject.AddComponent<TextMeshProUGUI>();arrow.font=font;MewgicTypographySettings.Prepare(arrow);arrow.fontSize=22;arrow.textWrappingMode=TextWrappingModes.NoWrap;arrow.text="▼";arrow.alignment=TextAlignmentOptions.Midline;arrow.color=new Color32(255,220,80,255);arrow.raycastTarget=false;arrow.gameObject.SetActive(false);
    locked=Rect(transform,"Lock",new Vector2(0,3),new Vector2(26,29)).gameObject.AddComponent<MapLockGraphic>();locked.raycastTarget=false;
+   claimedMark=Rect(transform,"ClaimedCheck",new Vector2(0,-28),new Vector2(30,24)).gameObject.AddComponent<MapClaimGraphic>();claimedMark.raycastTarget=false;claimedMark.gameObject.SetActive(false);
    stars=new Image[3];for(int i=0;i<3;i++){var im=Rect(transform,"MapStar"+i,new Vector2((i-1)*22,-31),Vector2.one*25).gameObject.AddComponent<Image>();im.sprite=star;im.preserveAspect=true;im.raycastTarget=false;stars[i]=im;}
   }
   public void Present(int id,MapLevelStatus status,int count){Status=status;Stars=count;current=status==MapLevelStatus.Current;bool closed=status==MapLevelStatus.Locked||status==MapLevelStatus.Unavailable;number.text=id>0?id.ToString():"…";number.rectTransform.anchoredPosition=closed?new Vector2(0,-16):new Vector2(0,1);number.fontSize=closed?23:40;locked.gameObject.SetActive(closed);halo.gameObject.SetActive(current);arrow.gameObject.SetActive(current);art.color=closed?new Color(.48f,.32f,.64f,1):status==MapLevelStatus.Completed?new Color(.40f,1,.50f,1):Color.white;
    for(int i=0;i<3;i++){stars[i].gameObject.SetActive(!closed);stars[i].color=i<count?Color.white:new Color(.25f,.22f,.35f,.75f);} }
-  public void PresentChest(bool ready,bool claimed){current=ready;halo.gameObject.SetActive(ready);locked.gameObject.SetActive(!ready&&!claimed);number.text=claimed?"✓":"";number.fontSize=34;number.rectTransform.anchoredPosition=new Vector2(0,-30);art.color=claimed?new Color(.65f,.65f,.75f,1):ready?Color.white:new Color(.65f,.56f,.80f,1);foreach(var s in stars)s.gameObject.SetActive(false);}
+  public void PresentGroup(int first,int last,int done,bool isCurrent,bool open){Present(first,isCurrent?MapLevelStatus.Current:done==10?MapLevelStatus.Completed:open?MapLevelStatus.Available:MapLevelStatus.Locked,0);number.rectTransform.sizeDelta=new Vector2(90,48);number.text=first+"–"+last;number.fontSizeMin=14;number.fontSizeMax=21;number.rectTransform.anchoredPosition=new Vector2(0,open?0:-22);foreach(var s in stars)s.gameObject.SetActive(false);}
+  public void PresentChest(bool ready,bool claimed){current=ready;halo.gameObject.SetActive(ready);locked.gameObject.SetActive(!ready&&!claimed);claimedMark.gameObject.SetActive(claimed);number.text="";number.fontSize=34;number.rectTransform.anchoredPosition=new Vector2(0,-30);art.color=claimed?new Color(.65f,.65f,.75f,1):ready?Color.white:new Color(.65f,.56f,.80f,1);foreach(var s in stars)s.gameObject.SetActive(false);}
   void Update(){if(!current)return;clock+=Time.unscaledDeltaTime;halo.color=new Color(1,.84f,.28f,.25f+Mathf.Sin(clock*2)*.12f);halo.rectTransform.localScale=Vector3.one*(1+Mathf.Sin(clock*2)*.04f);}
  }
  [RequireComponent(typeof(CanvasRenderer))]public sealed class MapLockGraphic:MaskableGraphic
@@ -81,4 +37,10 @@ namespace Mewgic.Map
   protected override void OnPopulateMesh(VertexHelper v){v.Clear();float w=rectTransform.rect.width,h=rectTransform.rect.height;var gold=new Color32(255,224,142,255);Box(v,new Rect(-w*.4f,-h*.45f,w*.8f,h*.58f),gold);for(int n=0;n<16;n++){float a=n*Mathf.PI/16,b=(n+1)*Mathf.PI/16;Vector2 p=new Vector2(Mathf.Cos(a)*w*.27f,Mathf.Sin(a)*h*.33f+h*.10f),q=new Vector2(Mathf.Cos(b)*w*.27f,Mathf.Sin(b)*h*.33f+h*.10f);int i=v.currentVertCount;var d=(q-p).normalized;var normal=new Vector2(-d.y,d.x)*w*.08f;v.AddVert(p-normal,gold,Vector2.zero);v.AddVert(q-normal,gold,Vector2.zero);v.AddVert(q+normal,gold,Vector2.zero);v.AddVert(p+normal,gold,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}Box(v,new Rect(-w*.055f,-h*.28f,w*.11f,h*.20f),new Color32(62,35,93,255));}
   static void Box(VertexHelper v,Rect r,Color c){int i=v.currentVertCount;v.AddVert(new Vector2(r.xMin,r.yMin),c,Vector2.zero);v.AddVert(new Vector2(r.xMax,r.yMin),c,Vector2.zero);v.AddVert(new Vector2(r.xMax,r.yMax),c,Vector2.zero);v.AddVert(new Vector2(r.xMin,r.yMax),c,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}
  }
+ [RequireComponent(typeof(CanvasRenderer))]public sealed class MapClaimGraphic:MaskableGraphic
+ {
+  protected override void OnPopulateMesh(VertexHelper v){v.Clear();var size=rectTransform.rect.size;Line(v,new Vector2(-.42f,-.02f)*size,new Vector2(-.12f,-.32f)*size);Line(v,new Vector2(-.12f,-.32f)*size,new Vector2(.44f,.36f)*size);}
+  static void Line(VertexHelper v,Vector2 a,Vector2 b){var d=(b-a).normalized;var n=new Vector2(-d.y,d.x)*2.5f;int i=v.currentVertCount;var c=new Color32(255,225,115,255);v.AddVert(a-n,c,Vector2.zero);v.AddVert(b-n,c,Vector2.zero);v.AddVert(b+n,c,Vector2.zero);v.AddVert(a+n,c,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}
+ }
+
 }

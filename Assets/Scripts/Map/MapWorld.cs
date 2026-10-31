@@ -1,37 +1,17 @@
-using TMPro;using Mewgic.UI;
-using System;using System.Collections.Generic;using UnityEngine;using UnityEngine.EventSystems;using UnityEngine.InputSystem.UI;using UnityEngine.SceneManagement;using UnityEngine.UI;
+using TMPro;using Mewgic.UI;using System;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEngine.EventSystems;using UnityEngine.InputSystem.UI;using UnityEngine.UI;using Mewgic.Core;
 namespace Mewgic.Map
 {
-    // Harita katmanları; gerçek seviye ve kayıt bağlantısı diğer partial dosyadadır.
-    public sealed partial class MapWorld : MonoBehaviour
-    {
-        public Sprite sky,node,chest,fog,homeIcon;
-        public Sprite[] terrain=new Sprite[4];
-        public Shader waterLightShader;
-        public bool animateEnvironment=true;
-        public Canvas Canvas {get;private set;}
-        public RectTransform SafeArea {get;private set;}
-        public RectTransform Viewport {get;private set;}
-        public RectTransform Content {get;private set;}
-        public RectTransform WorldRoot {get;private set;}
-        public MapScrollRect Scroll {get;private set;}
-        public float WorldHeight {get;private set;}
-        public float EnvironmentTime {get;private set;}
-        public int ActiveRegion {get;private set;}
-        public bool Mounted {get;private set;}
-        public bool ProgressionConnected=>progression!=null;
-        public bool InformationVisible=>information!=null&&information.activeSelf;
-        public IReadOnlyList<MapPoint> Points=>points;
-        public static readonly string[] RegionNames={"Enchanted Village","Crystal Falls","Moon Garden","Sky Castle"};
-        readonly List<MapPoint> points=new List<MapPoint>();readonly List<Graphic> motesGraphics=new List<Graphic>();
-        readonly List<RectTransform>[] regionGroups={new List<RectTransform>(),new List<RectTransform>(),new List<RectTransform>(),new List<RectTransform>()};
-        readonly Vector2[] bases={new Vector2(335,60),new Vector2(590,510),new Vector2(320,980),new Vector2(610,1430)};
-        readonly float[] widths={620,560,600,540};
-        readonly float[] heights=new float[4];
-        readonly Vector2[] pointPositions={new Vector2(.23f,.43f),new Vector2(.45f,.39f),new Vector2(.67f,.44f)};
-        Image background,mist;MapPathGraphic paths;RectTransform header,tabs,navigation,scrollArea;TMP_Text regionTitle,informationText;
-        GameObject information;Image[] tabImages=new Image[4];Sprite panel;TMP_FontAsset font;Material waterLight;Rect nativeSafe;int screenWidth,screenHeight;Vector2 lastSafeSize;bool jumping;int requestedRegion=-1;float jumpTarget,scale;
-
+ public sealed partial class MapWorld:MonoBehaviour
+ {
+  public Sprite sky,node,chest,fog,homeIcon;public Sprite[] terrain=new Sprite[4];public Shader waterLightShader;public bool animateEnvironment=true;
+  public Canvas Canvas{get;private set;}public RectTransform SafeArea{get;private set;}public RectTransform Viewport{get;private set;}public RectTransform Content{get;private set;}public RectTransform WorldRoot{get;private set;}public MapScrollRect Scroll{get;private set;}
+  public float WorldHeight{get;private set;}public float EnvironmentTime{get;private set;}public int ActiveRegion{get;private set;}public bool Mounted{get;private set;}public bool ProgressionConnected=>progression!=null;public bool InformationVisible=>information!=null&&information.activeSelf;public IReadOnlyList<MapPoint> Points=>points;
+  public static readonly string[] RegionNames={"Enchanted Village","Crystal Falls","Moon Garden","Sky Castle"};
+  const float Spacing=700;const int PoolSize=5;public int PackStart{get;private set;}public int PooledIslands=>views.Count;public int ActivePointCount=>points.Count(p=>p.gameObject.activeInHierarchy);public int SelectedChapter{get;private set;}=-1;
+  readonly List<MapPoint> points=new List<MapPoint>();readonly List<IslandView> views=new List<IslandView>();readonly List<Graphic> motesGraphics=new List<Graphic>();
+  Image background,mist;RectTransform header,tabs,navigation,scrollArea;TMP_Text regionTitle,informationText,celebration;GameObject celebrationRoot;CanvasGroup celebrationFade;MapPathGraphic paths;GameObject information,chapter;TMP_Text chapterTitle;readonly List<MapPoint> chapterNodes=new List<MapPoint>();
+  Sprite panel;TMP_FontAsset font;Material waterLight;Rect nativeSafe;int screenWidth,screenHeight;Vector2 lastSafeSize;float scale,jumpTarget,celebrationUntil,focusSaveAt;bool jumping;int requestedRegion=-1,pendingFocus=-1;
+  sealed class IslandView {public int region=-1;public RectTransform root;public Image art;public TMP_Text title,summary;public MagicalProgressBar bar;public MapPoint[] groups=new MapPoint[5];public MapPoint chest;}
         static RectTransform Rect(Transform p,string name,Vector2 min,Vector2 max)
         {var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         static Image Art(Transform p,string name,Sprite sprite,Vector2 min,Vector2 max)
@@ -42,107 +22,75 @@ namespace Mewgic.Map
         {var im=Art(p,name,panel,min,max);im.type=Image.Type.Sliced;return im;}
         Button Control(Transform p,string name,string text,Vector2 min,Vector2 max,Action action)
         {var im=Panel(p,name,min,max);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());Label(im.transform,"Label",text,24,new Vector2(.07f,.1f),new Vector2(.93f,.9f));return b;}
-        void Start(){Mount();}
-        public void Mount()
-        {
-            if(Mounted)return;
-            if(sky==null||node==null||chest==null||fog==null||terrain==null||terrain.Length!=4)throw new InvalidOperationException("Map art references missing");
-            for(int i=0;i<4;i++)if(terrain[i]==null)throw new InvalidOperationException("Map region art missing");
-            font=MewgicTypographySettings.Current.body;panel=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
-            var canvasGo=new GameObject("LevelMapCanvas",typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));Canvas=canvasGo.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;
-            var scaler=canvasGo.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(900,1600);scaler.matchWidthOrHeight=.5f;
-            background=Art(canvasGo.transform,"SkyAndDistantIslands",sky,Vector2.zero,Vector2.one);
-            SafeArea=Rect(canvasGo.transform,"MapSafeArea",Vector2.zero,Vector2.one);ApplySafeArea();
-            scrollArea=Rect(SafeArea,"MapScrollArea",Vector2.zero,Vector2.one);Scroll=scrollArea.gameObject.AddComponent<MapScrollRect>();Scroll.horizontal=false;Scroll.vertical=true;Scroll.movementType=ScrollRect.MovementType.Clamped;Scroll.inertia=true;Scroll.decelerationRate=.12f;Scroll.scrollSensitivity=45;
-            Viewport=Rect(scrollArea,"MapViewport",Vector2.zero,Vector2.one);Viewport.gameObject.AddComponent<RectMask2D>();var hit=Viewport.gameObject.AddComponent<Image>();hit.color=Color.clear;hit.raycastTarget=true;Scroll.viewport=Viewport;
-            Content=Rect(Viewport,"MapContent",Vector2.one*.5f,Vector2.one*.5f);Content.anchorMin=Content.anchorMax=new Vector2(.5f,1);Content.pivot=new Vector2(.5f,1);Scroll.content=Content;
-            WorldRoot=Rect(Content,"MapWorldLayers",Vector2.zero,Vector2.zero);WorldRoot.pivot=Vector2.zero;WorldRoot.anchoredPosition=Vector2.zero;
-            var ground=Rect(WorldRoot,"RegionTerrain",Vector2.zero,Vector2.one);
-            var routes=Rect(WorldRoot,"MagicalPaths",Vector2.zero,Vector2.one);paths=routes.gameObject.AddComponent<MapPathGraphic>();paths.raycastTarget=false;
-            var slots=Rect(WorldRoot,"LevelSlots",Vector2.zero,Vector2.one);var chests=Rect(WorldRoot,"TreasureChests",Vector2.zero,Vector2.one);var labels=Rect(WorldRoot,"RegionLabels",Vector2.zero,Vector2.one);
-            if(waterLightShader!=null){waterLight=new Material(waterLightShader);waterLight.EnableKeyword("UNITY_UI_CLIP_RECT");}
-            for(int i=0;i<4;i++){heights[i]=widths[i]*terrain[i].rect.height/terrain[i].rect.width;WorldHeight=Mathf.Max(WorldHeight,bases[i].y+heights[i]+130);}
-            for(int i=3;i>=0;i--){var group=RegionGroup(ground,i);var im=Art(group,"Terrain_"+i,terrain[i],Vector2.zero,Vector2.one);im.preserveAspect=true;if(waterLight!=null)im.material=waterLight;}
-            var routePoints=new List<RectTransform>();
-            for(int i=0;i<4;i++)
-            {
-                var slotGroup=RegionGroup(slots,i);for(int n=0;n<3;n++){var location=Point(slotGroup,i,n,MapPointKind.LevelSlot,pointPositions[n],node,74);routePoints.Add((RectTransform)location.transform);}
-                var chestGroup=RegionGroup(chests,i);Point(chestGroup,i,0,MapPointKind.Chest,new Vector2(.90f,.50f),chest,92);
-                var labelGroup=RegionGroup(labels,i);var name=Panel(labelGroup,"RegionName_"+i,new Vector2(.10f,.14f),new Vector2(.90f,.25f));name.rectTransform.anchorMin=new Vector2(.10f,.18f);name.rectTransform.anchorMax=new Vector2(.90f,.18f);name.rectTransform.sizeDelta=new Vector2(0,62);Label(name.transform,"Label",RegionNames[i],26,new Vector2(.06f,.12f),new Vector2(.94f,.88f));
-            }
-            paths.Points=routePoints.ToArray();
-            mist=Art(canvasGo.transform,"DriftingMist",fog,Vector2.zero,Vector2.one);mist.color=new Color(.78f,.86f,1,.18f);
-            var motes=Rect(canvasGo.transform,"AtmosphereMotes",Vector2.zero,Vector2.one);
-            for(int i=0;i<18;i++){var r=Rect(motes,"MapMote_"+i,new Vector2((i*37%97)/100f,(i*23%93)/100f),new Vector2((i*37%97)/100f,(i*23%93)/100f));r.sizeDelta=Vector2.one*(i%4==0?9:4);var g=r.gameObject.AddComponent<Characters.WizardSparkGraphic>();g.raycastTarget=false;g.color=new Color(1,.8f,.4f,.18f);motesGraphics.Add(g);}
-            // Navigation is fixed above the world viewport; it never scrolls with terrain.
-            header=Panel(SafeArea,"MapHeader",Vector2.zero,Vector2.one).rectTransform;
-            Label(header,"MapPreviewTitle","MEWGIC • DÜNYA HARİTASI",23,new Vector2(.04f,.64f),new Vector2(.96f,.90f));
-            regionTitle=Label(header,"VisibleRegion",RegionNames[0],35,new Vector2(.04f,.13f),new Vector2(.96f,.65f));
-            tabs=Rect(SafeArea,"RegionNavigation",Vector2.zero,Vector2.one);
-            for(int i=0;i<4;i++){int index=i;var b=Control(tabs,"RegionJump_"+i,RegionNames[i].Replace(" ","\n"),new Vector2(i*.25f+.003f,0),new Vector2((i+1)*.25f-.003f,1),()=>FocusRegion(index));tabImages[i]=b.GetComponent<Image>();}
-            navigation=Panel(SafeArea,"MapNavigation",Vector2.zero,Vector2.one).rectTransform;
-            var home=Control(navigation,"MapHome","ANA MENÜ",new Vector2(.015f,.14f),new Vector2(.31f,.86f),()=>{GameplayLevelCatalog.ResetSelection();Mewgic.SceneNavigation.LoadOnce("Home");});
-            if(homeIcon!=null){var icon=Art(home.transform,"HomeIcon",homeIcon,new Vector2(.02f,.1f),new Vector2(.27f,.9f));icon.preserveAspect=true;home.transform.Find("Label").GetComponent<RectTransform>().anchorMin=new Vector2(.27f,.1f);}
-            Label(navigation,"ScrollInstruction","Keşfetmek için yukarı kaydır",23,new Vector2(.33f,.35f),new Vector2(.98f,.84f));
-            Label(navigation,"PreviewNotice","Bölüm seç • Yıldızları topla",18,new Vector2(.33f,.10f),new Vector2(.98f,.43f));
-            BuildInformation();
-            if(UnityEngine.Object.FindFirstObjectByType<EventSystem>()==null){var es=new GameObject("MapEventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));es.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();}
-            Scroll.onValueChanged.AddListener(_=>UpdateVisibleRegion());Scroll.UserInput=CancelJump;
-            Mounted=true;BindProgress();UnityEngine.Canvas.ForceUpdateCanvases();Layout();Scroll.verticalNormalizedPosition=0;FocusRegion(progression!=null?progression.CurrentRegion:0,false);UpdateVisibleRegion();
-        }
-        RectTransform RegionGroup(Transform parent,int index)
-        {var r=Rect(parent,RegionNames[index],Vector2.zero,Vector2.zero);r.pivot=new Vector2(.5f,0);r.sizeDelta=new Vector2(widths[index],heights[index]);r.anchoredPosition=bases[index];regionGroups[index].Add(r);return r;}
-        MapPoint Point(RectTransform parent,int region,int slot,MapPointKind kind,Vector2 position,Sprite sprite,float artSize)
-        {
-            var r=Rect(parent,(kind==MapPointKind.Chest?"Chest_":"LevelSlot_")+region+"_"+slot,position,position);r.sizeDelta=Vector2.one*artSize;
-            var hit=r.gameObject.AddComponent<Image>();hit.color=Color.clear;hit.raycastTarget=true;var button=r.gameObject.AddComponent<Button>();button.targetGraphic=hit;
-            var art=Art(r,"Art",sprite,new Vector2(.5f,.5f),new Vector2(.5f,.5f));art.rectTransform.sizeDelta=Vector2.one*artSize;art.preserveAspect=true;button.targetGraphic=art;
-            var marker=r.gameObject.AddComponent<MapPoint>();marker.kind=kind;marker.regionIndex=region;marker.slotIndex=slot;points.Add(marker);
-            button.onClick.AddListener(()=>ShowInformation(marker));return marker;
-        }
-        void BuildInformation()
-        {
-            var overlay=Rect(SafeArea,"MapInformation",Vector2.zero,Vector2.one);information=overlay.gameObject;var dim=overlay.gameObject.AddComponent<Image>();dim.color=new Color(.02f,.02f,.07f,.78f);dim.raycastTarget=true;
-            var box=Panel(overlay,"InformationPanel",new Vector2(.10f,.34f),new Vector2(.90f,.68f));box.raycastTarget=true;
-            Label(box.transform,"Title","HARİTA ÖNİZLEMESİ",35,new Vector2(.07f,.72f),new Vector2(.93f,.93f));informationText=Label(box.transform,"Message","",27,new Vector2(.08f,.32f),new Vector2(.92f,.70f));Control(box.transform,"MapInfoClose","TAMAM",new Vector2(.15f,.08f),new Vector2(.85f,.28f),()=>information.SetActive(false));information.SetActive(false);
-        }
-        void ApplySafeArea(){nativeSafe=Screen.safeArea;screenWidth=Screen.width;screenHeight=Screen.height;if(screenWidth<=0||screenHeight<=0)return;SafeArea.anchorMin=new Vector2(nativeSafe.xMin/screenWidth,nativeSafe.yMin/screenHeight);SafeArea.anchorMax=new Vector2(nativeSafe.xMax/screenWidth,nativeSafe.yMax/screenHeight);SafeArea.offsetMin=SafeArea.offsetMax=Vector2.zero;}
-        static void Edge(RectTransform r,bool top,float height,float y){r.anchorMin=new Vector2(0,top?1:0);r.anchorMax=new Vector2(1,top?1:0);r.pivot=new Vector2(.5f,top?1:0);r.sizeDelta=new Vector2(-32,height);r.anchoredPosition=new Vector2(0,y);}
-        public void Layout()
-        {
-            if(!Mounted)return;float normalized=Scroll.verticalNormalizedPosition;
-            float headerHeight=Mathf.Max(148,68/Canvas.scaleFactor),tabHeight=Mathf.Max(96,48/Canvas.scaleFactor),bottomHeight=Mathf.Max(112,56/Canvas.scaleFactor);
-            Edge(header,true,headerHeight,-8);Edge(tabs,true,tabHeight,-headerHeight-16);Edge(navigation,false,bottomHeight,8);
-            scrollArea.offsetMin=new Vector2(0,bottomHeight+20);scrollArea.offsetMax=new Vector2(0,-headerHeight-tabHeight-28);
-            UnityEngine.Canvas.ForceUpdateCanvases();scale=Viewport.rect.width/900f;
-            WorldRoot.sizeDelta=new Vector2(900,WorldHeight);WorldRoot.localScale=Vector3.one*scale;Content.sizeDelta=new Vector2(Viewport.rect.width,WorldHeight*scale);
-            float touch=Mathf.Max(78,44/(Canvas.scaleFactor*scale));foreach(var p in points)((RectTransform)p.transform).sizeDelta=Vector2.one*Mathf.Max(touch,p.kind==MapPointKind.Chest?92:78);
-            Cover(background,((RectTransform)Canvas.transform).rect.size,40);Cover(mist,((RectTransform)Canvas.transform).rect.size,20);
-            UnityEngine.Canvas.ForceUpdateCanvases();Scroll.verticalNormalizedPosition=Mathf.Clamp01(normalized);lastSafeSize=SafeArea.rect.size;UpdateVisibleRegion();
-        }
+
+  void Start()=>Mount();
+  public void Mount()
+  {
+   if(Mounted)return;if(sky==null||node==null||chest==null||fog==null||terrain==null||terrain.Length<4||terrain.Take(4).Any(t=>t==null))throw new InvalidOperationException("Harita sanat referansları eksik");
+   font=MewgicTypographySettings.Current.body;panel=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
+   var go=new GameObject("LevelMapCanvas",typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));Canvas=go.GetComponent<Canvas>();Canvas.renderMode=RenderMode.ScreenSpaceOverlay;var scaler=go.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(900,1600);scaler.matchWidthOrHeight=.5f;
+   background=Art(go.transform,"SkyAndDistantIslands",sky,Vector2.zero,Vector2.one);SafeArea=Rect(go.transform,"MapSafeArea",Vector2.zero,Vector2.one);ApplySafeArea();
+   scrollArea=Rect(SafeArea,"MapScrollArea",Vector2.zero,Vector2.one);Scroll=scrollArea.gameObject.AddComponent<MapScrollRect>();Scroll.horizontal=false;Scroll.vertical=true;Scroll.movementType=ScrollRect.MovementType.Clamped;Scroll.inertia=true;Scroll.decelerationRate=.12f;Scroll.scrollSensitivity=65;
+   Viewport=Rect(scrollArea,"MapViewport",Vector2.zero,Vector2.one);Viewport.gameObject.AddComponent<RectMask2D>();var hit=Viewport.gameObject.AddComponent<Image>();hit.color=Color.clear;Scroll.viewport=Viewport;
+   Content=Rect(Viewport,"MapContent",new Vector2(.5f,1),new Vector2(.5f,1));Content.pivot=new Vector2(.5f,1);Scroll.content=Content;WorldRoot=Rect(Content,"MapWorldLayers",Vector2.zero,Vector2.zero);WorldRoot.pivot=Vector2.zero;
+   paths=Rect(WorldRoot,"MagicalPaths",Vector2.zero,Vector2.one).gameObject.AddComponent<MapPathGraphic>();paths.raycastTarget=false;
+   if(waterLightShader!=null){waterLight=new Material(waterLightShader);waterLight.EnableKeyword("UNITY_UI_CLIP_RECT");}
+   for(int i=0;i<PoolSize;i++)views.Add(CreateIsland(i));
+   mist=Art(go.transform,"DriftingMist",fog,Vector2.zero,Vector2.one);mist.color=new Color(.78f,.86f,1,.12f);
+   var motes=Rect(go.transform,"AtmosphereMotes",Vector2.zero,Vector2.one);for(int i=0;i<12;i++){var r=Rect(motes,"MapMote_"+i,new Vector2((i*37%97)/100f,(i*23%93)/100f),new Vector2((i*37%97)/100f,(i*23%93)/100f));r.sizeDelta=Vector2.one*5;var g=r.gameObject.AddComponent<Characters.WizardSparkGraphic>();g.raycastTarget=false;g.color=new Color(1,.8f,.4f,.18f);motesGraphics.Add(g);}
+   header=Panel(SafeArea,"MapHeader",Vector2.zero,Vector2.one).rectTransform;Label(header,"WorldTitle","MEWGIC • DÜNYA HARİTASI",23,new Vector2(.04f,.66f),new Vector2(.96f,.94f));regionTitle=Label(header,"VisibleRegion","",33,new Vector2(.04f,.13f),new Vector2(.96f,.66f));
+   tabs=Rect(SafeArea,"RegionNavigation",Vector2.zero,Vector2.one);Control(tabs,"PreviousIsland","‹ ÖNCEKİ ADA",new Vector2(0,0),new Vector2(.31f,1),()=>FocusRegion(ActiveRegion-1));Control(tabs,"FocusCurrent","BÖLÜMÜME GİT",new Vector2(.325f,0),new Vector2(.675f,1),()=>FocusCurrent());Control(tabs,"NextIsland","SONRAKİ ADA ›",new Vector2(.69f,0),Vector2.one,()=>FocusRegion(ActiveRegion+1));
+   navigation=Panel(SafeArea,"MapNavigation",Vector2.zero,Vector2.one).rectTransform;Control(navigation,"MapHome","ANA MENÜ",new Vector2(.025f,.16f),new Vector2(.32f,.84f),()=>{SaveFocus();GameplayLevelCatalog.ResetSelection();SceneNavigation.LoadOnce("Home");});Label(navigation,"ScrollInstruction","Yukarı kaydır • Bir bölüm grubu seç",22,new Vector2(.34f,.42f),new Vector2(.98f,.86f));Label(navigation,"MapRange","Her adada 50 yeni macera",19,new Vector2(.34f,.10f),new Vector2(.98f,.46f));
+   BuildInformation();BuildChapter();var toast=Panel(SafeArea,"IslandUnlockToast",new Vector2(.10f,.72f),new Vector2(.90f,.83f));celebrationRoot=toast.gameObject;celebrationFade=toast.gameObject.AddComponent<CanvasGroup>();celebrationFade.blocksRaycasts=false;celebration=Label(toast.transform,"NewIslandCelebration","",28,new Vector2(.08f,.12f),new Vector2(.92f,.88f));celebrationRoot.SetActive(false);
+   if(FindFirstObjectByType<EventSystem>()==null){var es=new GameObject("MapEventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));es.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();}
+   Scroll.onValueChanged.AddListener(_=>UpdateVisibleRegion());Scroll.UserInput=CancelJump;Mounted=true;BindProgress();UnityEngine.Canvas.ForceUpdateCanvases();Layout();
+   int focus=ledger?.WorldMap.lastFocusedLevel??1;FocusRegion(WorldMapRules.Island(focus),false);UpdateVisibleRegion();
+   if(ledger!=null&&ledger.WorldMap.highestUnlockedIsland>ledger.WorldMap.lastCelebratedIsland){int r=ledger.WorldMap.highestUnlockedIsland;celebration.text=progression.Region(r).displayName+"\nYeni ada açıldı!";celebrationRoot.SetActive(true);celebrationUntil=Time.unscaledTime+2.6f;ledger.AcknowledgeIsland(r);}
+  }
+  IslandView CreateIsland(int index)
+  {
+   var v=new IslandView();v.root=Rect(WorldRoot,"IslandPool_"+index,Vector2.zero,Vector2.zero);v.root.pivot=new Vector2(.5f,0);v.art=Art(v.root,"IslandArtwork",terrain[0],Vector2.zero,Vector2.one);v.art.preserveAspect=true;if(waterLight!=null)v.art.material=waterLight;
+   for(int n=0;n<5;n++)v.groups[n]=Point(v.root,-1,n,MapPointKind.LevelGroup,new Vector2(.12f+n*.19f,n%2==0?.46f:.40f),node,88);
+   v.chest=Point(v.root,-1,0,MapPointKind.Chest,new Vector2(.90f,.72f),chest,94);
+   var plate=Panel(v.root,"IslandName",new Vector2(.5f,0),new Vector2(.5f,0));plate.rectTransform.sizeDelta=new Vector2(610,132);plate.rectTransform.anchoredPosition=new Vector2(0,25);
+   v.title=Label(plate.transform,"Title","",29,new Vector2(.04f,.65f),new Vector2(.96f,.96f));v.bar=MagicalProgressBar.Create(plate.transform,"IslandCompletion",new Vector2(.14f,.36f),new Vector2(.86f,.56f));v.bar.label.fontSizeMin=14;v.bar.label.fontSizeMax=17;v.summary=Label(plate.transform,"Summary","",21,new Vector2(.05f,.05f),new Vector2(.95f,.30f));v.root.gameObject.SetActive(false);return v;
+  }
+  MapPoint Point(RectTransform parent,int region,int slot,MapPointKind kind,Vector2 position,Sprite sprite,float size)
+  {
+   var r=Rect(parent,"MapPoint_"+points.Count,position,position);r.sizeDelta=Vector2.one*size;var hit=r.gameObject.AddComponent<Image>();hit.color=Color.clear;var button=r.gameObject.AddComponent<Button>();button.targetGraphic=hit;var art=Art(r,"Art",sprite,Vector2.one*.5f,Vector2.one*.5f);art.rectTransform.sizeDelta=Vector2.one*size;art.preserveAspect=true;button.targetGraphic=art;
+   var marker=r.gameObject.AddComponent<MapPoint>();marker.kind=kind;marker.regionIndex=region;marker.slotIndex=slot;points.Add(marker);var badge=r.gameObject.AddComponent<MapNodeBadge>();badge.Build(kind==MapPointKind.Chest,Resources.Load<Sprite>("Gameplay/HUD/HUD_Star_v001"),font);button.onClick.AddListener(()=>ShowInformation(marker));return marker;
+  }
+  void BindIsland(IslandView v,int region)
+  {
+   v.region=region;var data=progression.Region(region);int a=data.artIndex;bool ready=data.artReady&&a>=0&&a<terrain.Length&&terrain[a]!=null;float w=ready&&a<4?new[]{620f,560f,600f,540f}[a]:620;float h=ready?w*terrain[a].rect.height/terrain[a].rect.width:620;
+   v.root.sizeDelta=new Vector2(w,h);v.root.anchoredPosition=new Vector2(region%2==0?335:565,120+(region-PackStart)*Spacing);v.art.gameObject.SetActive(ready);v.art.sprite=ready?terrain[a]:fog;v.art.material=ready?waterLight:null;v.art.color=ready?Color.white:new Color(.78f,.76f,1,.42f);
+   v.title.text=(region+1)+" • "+data.displayName;int count=progression.Completed(region);v.bar.SetValue(count,50,0,true,!progression.RegionOpen(region));v.summary.text=(progression.RegionOpen(region)?"Bölümler ":"KİLİTLİ • ")+data.firstLevel+"–"+(data.firstLevel+49)+(ready?"":" • Sislerin ardında");
+   for(int n=0;n<5;n++){var p=v.groups[n];p.regionIndex=region;p.slotIndex=n;int first=data.firstLevel+n*10,done=Enumerable.Range(first,10).Count(x=>progression.Stars(x)>0);p.GetComponent<MapNodeBadge>().PresentGroup(first,first+9,done,progression.CurrentId>=first&&progression.CurrentId<=first+9,progression.CanEnter(first));}
+   v.chest.regionIndex=region;v.chest.GetComponent<MapNodeBadge>().PresentChest(progression.ChestReady(region),progression.ChestClaimed(region));v.root.gameObject.SetActive(true);
+  }
+  void UpdatePool(float center)
+  {
+   if(progression==null)return;float half=Viewport.rect.height/Mathf.Max(.01f,scale)*.5f;int first=Mathf.Clamp(Mathf.FloorToInt((center-half-780)/Spacing),0,11),last=Mathf.Clamp(Mathf.FloorToInt((center+half)/Spacing),0,11);
+   var needed=new HashSet<int>();for(int n=first;n<=last;n++)needed.Add(PackStart+n);foreach(var v in views)if(!needed.Contains(v.region)){v.region=-1;v.root.gameObject.SetActive(false);}
+   foreach(int r in needed){if(views.Any(v=>v.region==r))continue;var free=views.FirstOrDefault(v=>v.region<0);if(free!=null)BindIsland(free,r);}
+   paths.Points=views.Where(v=>v.region>=0).OrderBy(v=>v.region).SelectMany(v=>v.groups.Select(p=>(RectTransform)p.transform)).ToArray();paths.SetVerticesDirty();
+  }
+  void BuildInformation(){var overlay=Rect(SafeArea,"MapInformation",Vector2.zero,Vector2.one);information=overlay.gameObject;var dim=overlay.gameObject.AddComponent<Image>();dim.color=new Color(.02f,.02f,.07f,.78f);var box=Panel(overlay,"InformationPanel",new Vector2(.08f,.32f),new Vector2(.92f,.68f));box.raycastTarget=true;Label(box.transform,"Title","HARİTA",35,new Vector2(.07f,.76f),new Vector2(.93f,.94f));informationText=Label(box.transform,"Message","",27,new Vector2(.08f,.45f),new Vector2(.92f,.75f));claimButton=Control(box.transform,"ClaimMapChest","ÖDÜLÜ AL",new Vector2(.15f,.28f),new Vector2(.85f,.44f),ClaimSelectedChest);Control(box.transform,"MapInfoClose","TAMAM",new Vector2(.15f,.07f),new Vector2(.85f,.25f),()=>information.SetActive(false));information.SetActive(false);}
+  void BuildChapter(){var overlay=Rect(SafeArea,"ChapterSelection",Vector2.zero,Vector2.one);chapter=overlay.gameObject;var dim=overlay.gameObject.AddComponent<Image>();dim.color=new Color(.02f,.02f,.07f,.82f);var box=Panel(overlay,"ChapterPanel",new Vector2(.055f,.25f),new Vector2(.945f,.77f));box.raycastTarget=true;chapterTitle=Label(box.transform,"ChapterTitle","",32,new Vector2(.05f,.79f),new Vector2(.95f,.97f));Label(box.transform,"ChapterInstruction","Bir bölüm seç • Yıldızlarını geliştir",22,new Vector2(.05f,.71f),new Vector2(.95f,.80f));
+   for(int i=0;i<10;i++){var p=Point(box.rectTransform,0,i,MapPointKind.LevelSlot,new Vector2(.12f+(i%5)*.19f,i<5?.56f:.31f),node,100);chapterNodes.Add(p);}Control(box.transform,"ChapterClose","HARİTAYA DÖN",new Vector2(.20f,.035f),new Vector2(.80f,.15f),()=>chapter.SetActive(false));chapter.SetActive(false);}
+  public void OpenChapter(int region,int group){if(navigating||group<0||group>4)return;SelectedChapter=region*5+group;chapterTitle.text=progression.Region(region).displayName+"\nBölümler "+(region*50+group*10+1)+"–"+(region*50+group*10+10);for(int i=0;i<10;i++){var p=chapterNodes[i];p.regionIndex=region;p.slotIndex=group*10+i;int id=progression.LevelId(region,p.slotIndex);p.GetComponent<MapNodeBadge>().Present(id,progression.Status(id),progression.Stars(id));}pendingFocus=-1;ledger.SaveMapFocus(region*50+group*10+1);chapter.SetActive(true);chapter.transform.SetAsLastSibling();}
+  void ApplySafeArea(){nativeSafe=Screen.safeArea;screenWidth=Screen.width;screenHeight=Screen.height;if(screenWidth<=0||screenHeight<=0)return;SafeArea.anchorMin=new Vector2(nativeSafe.xMin/screenWidth,nativeSafe.yMin/screenHeight);SafeArea.anchorMax=new Vector2(nativeSafe.xMax/screenWidth,nativeSafe.yMax/screenHeight);SafeArea.offsetMin=SafeArea.offsetMax=Vector2.zero;}
+  static void Edge(RectTransform r,bool top,float height,float y){r.anchorMin=new Vector2(0,top?1:0);r.anchorMax=new Vector2(1,top?1:0);r.pivot=new Vector2(.5f,top?1:0);r.sizeDelta=new Vector2(-32,height);r.anchoredPosition=new Vector2(0,y);}
+  public void Layout(){if(!Mounted)return;float normalized=Scroll.verticalNormalizedPosition;float hh=Mathf.Max(140,66/Canvas.scaleFactor),th=Mathf.Max(86,48/Canvas.scaleFactor),bh=Mathf.Max(108,56/Canvas.scaleFactor);Edge(header,true,hh,-8);Edge(tabs,true,th,-hh-16);Edge(navigation,false,bh,8);scrollArea.offsetMin=new Vector2(0,bh+20);scrollArea.offsetMax=new Vector2(0,-hh-th-28);UnityEngine.Canvas.ForceUpdateCanvases();scale=Viewport.rect.width/900;WorldHeight=12*Spacing+180;WorldRoot.sizeDelta=new Vector2(900,WorldHeight);WorldRoot.localScale=Vector3.one*scale;Content.sizeDelta=new Vector2(Viewport.rect.width,WorldHeight*scale);float touch=Mathf.Max(94,44/(Canvas.scaleFactor*scale));foreach(var p in points)if(p.kind!=MapPointKind.LevelSlot)((RectTransform)p.transform).sizeDelta=Vector2.one*touch;Cover(background,((RectTransform)Canvas.transform).rect.size,40);Cover(mist,((RectTransform)Canvas.transform).rect.size,20);UnityEngine.Canvas.ForceUpdateCanvases();Scroll.verticalNormalizedPosition=Mathf.Clamp01(normalized);lastSafeSize=SafeArea.rect.size;UpdateVisibleRegion();}
         static void Cover(Image im,Vector2 viewport,float margin){var s=im.sprite.rect.size;im.rectTransform.anchorMin=im.rectTransform.anchorMax=new Vector2(.5f,.5f);im.rectTransform.sizeDelta=s*Mathf.Max((viewport.x+margin)/s.x,(viewport.y+margin)/s.y);im.rectTransform.anchoredPosition=Vector2.zero;}
-        public float RegionScrollPosition(int index)
-        {float hidden=Content.rect.height-Viewport.rect.height;if(hidden<=0)return 0;float center=(bases[index].y+heights[index]*.45f)*scale;return Mathf.Clamp01((center-Viewport.rect.height*.5f)/hidden);}
-        public void FocusRegion(int index,bool smooth=true){if(index<0||index>=4)return;Scroll.StopMovement();requestedRegion=index;jumpTarget=RegionScrollPosition(index);jumping=smooth;if(!smooth){Scroll.verticalNormalizedPosition=jumpTarget;UpdateVisibleRegion();}}
-        public void CancelJump(){jumping=false;requestedRegion=-1;UpdateVisibleRegion();}
-        void UpdateVisibleRegion()
-        {
-            if(!Mounted)return;float center=(Mathf.Clamp01(Scroll.verticalNormalizedPosition)*Mathf.Max(0,Content.rect.height-Viewport.rect.height)+Viewport.rect.height*.5f)/Mathf.Max(.01f,scale);int closest=0;float distance=float.MaxValue;
-            for(int i=0;i<4;i++){float d=Mathf.Abs(center-(bases[i].y+heights[i]*.45f));if(d<distance){distance=d;closest=i;}}
-            if(requestedRegion>=0)closest=requestedRegion;else if(Scroll.verticalNormalizedPosition<.02f)closest=0;else if(Scroll.verticalNormalizedPosition>.98f)closest=3;
-            ActiveRegion=closest;regionTitle.text=RegionNames[closest];for(int i=0;i<4;i++)tabImages[i].color=i==closest?Color.white:new Color(.65f,.65f,.83f,1);
-            background.rectTransform.anchoredPosition=new Vector2(0,-Scroll.verticalNormalizedPosition*18);UpdateProgressTitle();
-        }
-        void LateUpdate()
-        {
-            if(!Mounted)return;if(screenWidth!=Screen.width||screenHeight!=Screen.height||nativeSafe!=Screen.safeArea)ApplySafeArea();if(lastSafeSize!=SafeArea.rect.size)Layout();
-            if(jumping){Scroll.verticalNormalizedPosition=Mathf.Lerp(Scroll.verticalNormalizedPosition,jumpTarget,1-Mathf.Exp(-Time.unscaledDeltaTime*7));if(Mathf.Abs(Scroll.verticalNormalizedPosition-jumpTarget)<.001f){Scroll.verticalNormalizedPosition=jumpTarget;jumping=false;}}
-            if(animateEnvironment)EnvironmentTime+=Time.unscaledDeltaTime;
-            if(waterLight!=null)waterLight.SetFloat("_EnvironmentTime",EnvironmentTime);
-            for(int i=0;i<4;i++){float bob=animateEnvironment?Mathf.Sin(EnvironmentTime*.45f+i*1.7f)*2:0;foreach(var r in regionGroups[i])r.anchoredPosition=bases[i]+new Vector2(0,bob);}
-            for(int i=0;i<motesGraphics.Count;i++){var g=motesGraphics[i];float t=EnvironmentTime*.35f+i*1.8f;g.rectTransform.anchoredPosition=new Vector2(Mathf.Sin(t*.4f)*7,Mathf.Sin(t*.25f)*9);g.color=new Color(1,.8f,.4f,.12f+Mathf.Sin(t)*.06f);}
-            if(animateEnvironment){mist.rectTransform.anchoredPosition=new Vector2(Mathf.Sin(EnvironmentTime*.06f)*6,Mathf.Cos(EnvironmentTime*.04f)*4);paths.SetVerticesDirty();}
-        }
-        void OnDestroy(){if(waterLight!=null)Destroy(waterLight);}
-    }
+
+  public float RegionScrollPosition(int index){float hidden=Content.rect.height-Viewport.rect.height;return hidden<=0?0:Mathf.Clamp01(((120+(index-PackStart)*Spacing+340)*scale-Viewport.rect.height*.5f)/hidden);}
+  public void FocusCurrent(){FocusRegion(progression.CurrentRegion);}
+  public void FocusRegion(int index,bool smooth=true){if(progression==null||index<0||index>(int.MaxValue-50)/50)return;int pack=index/12*12;if(PackStart!=pack){PackStart=pack;foreach(var v in views){v.region=-1;v.root.gameObject.SetActive(false);}}Scroll.StopMovement();requestedRegion=index;jumpTarget=RegionScrollPosition(index);jumping=smooth;if(!smooth){Scroll.verticalNormalizedPosition=jumpTarget;UpdateVisibleRegion();}pendingFocus=index*50+1;focusSaveAt=Time.unscaledTime+.6f;}
+  public void CancelJump(){jumping=false;requestedRegion=-1;UpdateVisibleRegion();}
+  void UpdateVisibleRegion(){if(!Mounted||progression==null||scale<=0)return;float center=(Mathf.Clamp01(Scroll.verticalNormalizedPosition)*Mathf.Max(0,Content.rect.height-Viewport.rect.height)+Viewport.rect.height*.5f)/scale;int closest=PackStart+Mathf.Clamp(Mathf.RoundToInt((center-460)/Spacing),0,11);if(requestedRegion>=0)closest=requestedRegion;if(ActiveRegion!=closest){ActiveRegion=closest;pendingFocus=closest*50+1;focusSaveAt=Time.unscaledTime+.7f;}UpdatePool(center);UpdateProgressTitle();background.rectTransform.anchoredPosition=new Vector2(0,-Scroll.verticalNormalizedPosition*18);}
+  void SaveFocus(){if(ledger!=null&&pendingFocus>0){ledger.SaveMapFocus(pendingFocus);pendingFocus=-1;}}
+  void LateUpdate(){if(!Mounted)return;if(screenWidth!=Screen.width||screenHeight!=Screen.height||nativeSafe!=Screen.safeArea)ApplySafeArea();if(lastSafeSize!=SafeArea.rect.size)Layout();if(jumping){Scroll.verticalNormalizedPosition=Mathf.Lerp(Scroll.verticalNormalizedPosition,jumpTarget,1-Mathf.Exp(-Time.unscaledDeltaTime*7));if(Mathf.Abs(Scroll.verticalNormalizedPosition-jumpTarget)<.001f){Scroll.verticalNormalizedPosition=jumpTarget;jumping=false;requestedRegion=-1;}}if(pendingFocus>0&&!jumping&&Scroll.velocity.sqrMagnitude<4&&Time.unscaledTime>focusSaveAt)SaveFocus();if(animateEnvironment)EnvironmentTime+=Time.unscaledDeltaTime;if(waterLight!=null)waterLight.SetFloat("_EnvironmentTime",EnvironmentTime);if(animateEnvironment){foreach(var v in views)if(v.region>=0)v.root.anchoredPosition=new Vector2(v.region%2==0?335:565,120+(v.region-PackStart)*Spacing+Mathf.Sin(EnvironmentTime*.45f+v.region*1.7f)*2);paths.SetVerticesDirty();}for(int i=0;i<motesGraphics.Count;i++){float t=EnvironmentTime*.35f+i*1.8f;motesGraphics[i].rectTransform.anchoredPosition=new Vector2(Mathf.Sin(t*.4f)*7,Mathf.Sin(t*.25f)*9);}if(celebrationRoot!=null&&celebrationRoot.activeSelf){float left=celebrationUntil-Time.unscaledTime;celebrationFade.alpha=Mathf.Clamp01(left*2);celebrationRoot.transform.localScale=Vector3.one*(1+Mathf.Sin(EnvironmentTime*4)*.015f);if(left<=0)celebrationRoot.SetActive(false);}}
+  void OnApplicationPause(bool pause){if(pause)SaveFocus();}void OnDestroy(){SaveFocus();if(waterLight!=null)Destroy(waterLight);}
+ }
 }

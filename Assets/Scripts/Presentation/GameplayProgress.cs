@@ -28,7 +28,7 @@ namespace Mewgic
                 catch(Exception primary)
                 {
                     // Never downgrade a future schema through an older backup.
-                    try{var future=JsonUtility.FromJson<ProgressData>(raw);if(future!=null&&(future.version>1||(future.presentation!=null&&future.presentation.version>1)||(future.daily!=null&&future.daily.version>1)||(future.hub!=null&&future.hub.version>1)))throw new NotSupportedException("Yeni kayıt sürümü; daha güncel uygulama gerekli.");}catch(NotSupportedException){throw;}catch{}
+                    try{var future=JsonUtility.FromJson<ProgressData>(raw);if(future!=null&&(future.version>1||(future.worldMap!=null&&future.worldMap.version>1)||(future.presentation!=null&&future.presentation.version>1)||(future.daily!=null&&future.daily.version>1)||(future.hub!=null&&future.hub.version>1)))throw new NotSupportedException("Yeni kayıt sürümü; daha güncel uygulama gerekli.");}catch(NotSupportedException){throw;}catch{}
                     try
                     {
                         data=ValidateJson(PlayerPrefs.GetString(key+".backup",""));

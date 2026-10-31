@@ -1,0 +1,168 @@
+{
+  "baseline": {
+    "master": "f243d7a355fedf9cfbc65f8060f1d3bc14cae169",
+    "head": "378e291f6c2e954d1c5267ea9d8bbd78564ca9c2",
+    "branch": "recovery/part09-completion",
+    "time": "2026-10-31T02:29:04.2014882+02:00",
+    "tracked": null
+  },
+  "success": true,
+  "files": [
+    {
+      "path": "Assets/Art/Environment/Map/MapProps.spriteatlas",
+      "baseline": "c1e0cc92da8c8c199d06a6baeae1ad85de068532",
+      "current": "c1e0cc92da8c8c199d06a6baeae1ad85de068532",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/MapProps.spriteatlas.meta",
+      "baseline": "8e3a1f1cd0b68bbbd51ec1b8fb8bbd917c3c0789",
+      "current": "8e3a1f1cd0b68bbbd51ec1b8fb8bbd917c3c0789",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Castle_v001.png",
+      "baseline": "60b6f77655ae08721d7973df5c9a5950267e3f76",
+      "current": "60b6f77655ae08721d7973df5c9a5950267e3f76",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Castle_v001.png.meta",
+      "baseline": "75e475f42f04883088743aa38634979b85418937",
+      "current": "75e475f42f04883088743aa38634979b85418937",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Chest_v001.png",
+      "baseline": "6cc0233f4a6d42486136f19ed1f8e32239552683",
+      "current": "6cc0233f4a6d42486136f19ed1f8e32239552683",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Chest_v001.png.meta",
+      "baseline": "017f6d80738c13e1859649c4531286ebeb238460",
+      "current": "017f6d80738c13e1859649c4531286ebeb238460",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png",
+      "baseline": "8808875335488381389678d47fbe46f26eddc97f",
+      "current": "8808875335488381389678d47fbe46f26eddc97f",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png.meta",
+      "baseline": "8bcab6e486f8737ff6d9c154b481ff8fffd08a83",
+      "current": "8bcab6e486f8737ff6d9c154b481ff8fffd08a83",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Moon_v001.png",
+      "baseline": "c8fe363d4b93a93df8cac66c3cdccecdb9bb1bd6",
+      "current": "c8fe363d4b93a93df8cac66c3cdccecdb9bb1bd6",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Moon_v001.png.meta",
+      "baseline": "0bc17f922fdba32514ea8802d78dbae924b0010a",
+      "current": "0bc17f922fdba32514ea8802d78dbae924b0010a",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Node_v001.png",
+      "baseline": "24e4a63f11117a6df23ac2214ab0a674d93c03ad",
+      "current": "24e4a63f11117a6df23ac2214ab0a674d93c03ad",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Node_v001.png.meta",
+      "baseline": "53e6174dad2c891b92aeec17ab9839897e538a11",
+      "current": "53e6174dad2c891b92aeec17ab9839897e538a11",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Sky_v001.png",
+      "baseline": "f43925c22ca915576a1d03e9ee3450e5d8728ca6",
+      "current": "f43925c22ca915576a1d03e9ee3450e5d8728ca6",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Sky_v001.png.meta",
+      "baseline": "aab43f8c09b3282e5b47c4b96576daeb03ac77a4",
+      "current": "aab43f8c09b3282e5b47c4b96576daeb03ac77a4",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Village_v001.png",
+      "baseline": "ccbb2a33f490d92b183a66f0bed19158a6348f9d",
+      "current": "ccbb2a33f490d92b183a66f0bed19158a6348f9d",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Village_v001.png.meta",
+      "baseline": "b3a7b7346d2c931e17c3c3172f963cd64855fc15",
+      "current": "b3a7b7346d2c931e17c3c3172f963cd64855fc15",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Home.unity",
+      "baseline": "9dc23c0c22f92d06adc184e56d9b9098ab9ad90c",
+      "current": "9dc23c0c22f92d06adc184e56d9b9098ab9ad90c",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Gameplay.unity",
+      "baseline": "73cd2833371ee0065715ba6ae971194077b44989",
+      "current": "73cd2833371ee0065715ba6ae971194077b44989",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/LevelMap.unity",
+      "baseline": "f6cb0f6fdc4da8152a3e7e8d0a4639a44769cbe7",
+      "current": "f6cb0f6fdc4da8152a3e7e8d0a4639a44769cbe7",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scenes/Boot.unity",
+      "baseline": "07a171b675a94d6aa6ad4d0f6f2d4cee503e386b",
+      "current": "07a171b675a94d6aa6ad4d0f6f2d4cee503e386b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/Puzzle.cs",
+      "baseline": "47a40957b964aecf6b9c00055c9a1f6299eda9df",
+      "current": "47a40957b964aecf6b9c00055c9a1f6299eda9df",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/Core/LevelGeneration.cs",
+      "baseline": "fd3699ae38359d1d8bf287ec58f580a935ca74a0",
+      "current": "fd3699ae38359d1d8bf287ec58f580a935ca74a0",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/Level01.json",
+      "baseline": "568115be8bbdcb8a72e7ed7fe56f02b186f0fa59",
+      "current": "568115be8bbdcb8a72e7ed7fe56f02b186f0fa59",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/Level02.json",
+      "baseline": "6902a98d1c51ee7de61925b02af3004913ae830d",
+      "current": "6902a98d1c51ee7de61925b02af3004913ae830d",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Resources/Levels/GeneratedFallbacks.json",
+      "baseline": "375067537d8bc6c57d03bd96622058c90ad10d93",
+      "current": "375067537d8bc6c57d03bd96622058c90ad10d93",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Scripts/UI/PawGuide.cs",
+      "baseline": "af45c21ad3e07f8f7a702ce58a05d96de3a6e56a",
+      "current": "af45c21ad3e07f8f7a702ce58a05d96de3a6e56a",
+      "unchanged": true
+    }
+  ]
+}

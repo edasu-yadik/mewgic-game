@@ -1,1 +1,198 @@
-{"regions":[{"key":"village","levels":[1,2,0],"reward":{"id":"map.village.v1","kind":1,"amount":1}},{"key":"crystal","levels":[3,4,5],"reward":{"id":"map.crystal.v1","kind":1,"amount":1}},{"key":"moon","levels":[6,7,8],"reward":{"id":"map.moon.v1","kind":1,"amount":1}},{"key":"castle","levels":[9,10,11],"reward":{"id":"map.castle.v1","kind":1,"amount":1}}]}
+{
+  "version": 1,
+  "expandable": true,
+  "regions": [
+    {
+      "key": "village",
+      "displayName": "Enchanted Village",
+      "theme": "Büyülü köy",
+      "firstLevel": 1,
+      "levelCount": 50,
+      "artIndex": 0,
+      "artReady": true,
+      "artKey": "village",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.village.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "crystal",
+      "displayName": "Crystal Falls",
+      "theme": "Kristal şelaleler",
+      "firstLevel": 51,
+      "levelCount": 50,
+      "artIndex": 1,
+      "artReady": true,
+      "artKey": "crystal",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.crystal.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "moon",
+      "displayName": "Moon Garden",
+      "theme": "Ay bahçesi",
+      "firstLevel": 101,
+      "levelCount": 50,
+      "artIndex": 2,
+      "artReady": true,
+      "artKey": "moon",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.moon.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "castle",
+      "displayName": "Sky Castle",
+      "theme": "Gökyüzü şatosu",
+      "firstLevel": 151,
+      "levelCount": 50,
+      "artIndex": 3,
+      "artReady": true,
+      "artKey": "castle",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.castle.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "woods",
+      "displayName": "Whispering Woods",
+      "theme": "Büyülü orman",
+      "firstLevel": 201,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "woods",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.201.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "mirage",
+      "displayName": "Golden Mirage",
+      "theme": "Altın çöl ve vaha",
+      "firstLevel": 251,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "mirage",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.251.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "coral",
+      "displayName": "Coral Kingdom",
+      "theme": "Mercan ve su krallığı",
+      "firstLevel": 301,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "coral",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.301.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "frost",
+      "displayName": "Frostlight Peaks",
+      "theme": "Buzlu kristal dağları",
+      "firstLevel": 351,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "frost",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.351.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "clockwork",
+      "displayName": "Clockwork Isles",
+      "theme": "Saat ve mekanik adalar",
+      "firstLevel": 401,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "clockwork",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.401.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "starlight",
+      "displayName": "Starlight Grove",
+      "theme": "Yıldızlı çiçek bahçesi",
+      "firstLevel": 451,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "starlight",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.451.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "library",
+      "displayName": "Arcane Library",
+      "theme": "Büyülü kitaplar ve akademi",
+      "firstLevel": 501,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "library",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.501.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    },
+    {
+      "key": "aurora",
+      "displayName": "Aurora Citadel",
+      "theme": "Gökyüzü ve aurora kalesi",
+      "firstLevel": 551,
+      "levelCount": 50,
+      "artIndex": -1,
+      "artReady": false,
+      "artKey": "aurora",
+      "tutorialIds": [],
+      "reward": {
+        "id": "map.island.551.v1",
+        "kind": 1,
+        "amount": 1
+      }
+    }
+  ]
+}

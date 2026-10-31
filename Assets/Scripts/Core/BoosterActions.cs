@@ -6,16 +6,17 @@ namespace Mewgic.Core
     [Serializable] public sealed class ProgressData
     {
         public DailyData daily=new DailyData();public RewardHubData hub=new RewardHubData();
+        public WorldMapData worldMap=new WorldMapData();
         public PlayerPresentationData presentation=new PlayerPresentationData();
         public List<string> completedTutorials=new List<string>();
         public int version=1;public int undo=3,hint=3,extra=1,shuffle=1;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{version=version,completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
+        public ProgressData Copy()=>new ProgressData{worldMap=(worldMap??new WorldMapData()).Copy(),version=version,completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed}).ToList()};
     }
     public sealed partial class ProgressLedger
     {
         ProgressData state;readonly Action<ProgressData> save;
-        public string LastError {get;private set;}
+        public string LastError {get;private set;}public int Revision{get;private set;}
         public ProgressData Snapshot=>state.Copy();
         public ProgressLedger(ProgressData data,Action<ProgressData> persist,Func<DateTimeOffset> localClock=null)
         {
@@ -23,12 +24,12 @@ namespace Mewgic.Core
             if(data.claimedMilestones!=null&&(data.claimedMilestones.Any(string.IsNullOrWhiteSpace)||data.claimedMilestones.Distinct().Count()!=data.claimedMilestones.Count))throw new ArgumentException("Geçersiz sandık kaydı");
             if(data.completedTutorials!=null&&(data.completedTutorials.Any(id=>string.IsNullOrWhiteSpace(id)||id.Length>120)||data.completedTutorials.Distinct().Count()!=data.completedTutorials.Count))throw new ArgumentException("Geçersiz öğretici geçmişi");
             (data.presentation??new PlayerPresentationData()).Validate();(data.hub??new RewardHubData()).Validate();(data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);
-            state=data.Copy();save=persist??throw new ArgumentNullException(nameof(persist));
+            state=data.Copy();WorldMapRules.Initialize(state);save=persist??throw new ArgumentNullException(nameof(persist));
         }
         public int Remaining(BoosterKind kind)=>Enum.IsDefined(typeof(BoosterKind),kind)?Get(state,kind):0;
         static int Get(ProgressData d,BoosterKind k)=>k==BoosterKind.Undo?d.undo:k==BoosterKind.Hint?d.hint:k==BoosterKind.ExtraBottle?d.extra:d.shuffle;
         static void Set(ProgressData d,BoosterKind k,int value){switch(k){case BoosterKind.Undo:d.undo=value;break;case BoosterKind.Hint:d.hint=value;break;case BoosterKind.ExtraBottle:d.extra=value;break;case BoosterKind.Shuffle:d.shuffle=value;break;}}
-        bool Commit(ProgressData copy){try{save(copy.Copy());state=copy;LastError=null;return true;}catch(Exception e){LastError=e.Message;return false;}}
+        bool Commit(ProgressData copy){try{save(copy.Copy());state=copy;Revision++;LastError=null;return true;}catch(Exception e){LastError=e.Message;return false;}}
         public bool TrySpend(BoosterKind kind){if(Remaining(kind)<=0)return false;var copy=state.Copy();Set(copy,kind,Get(copy,kind)-1);if(DailyRules.Sync(copy.daily,clock()))DailyRules.Add(copy.daily,DailyTaskKind.Boosters,1);return Commit(copy);}
         public bool Completed(int level)=>state.levels.Any(l=>l.level==level&&l.rewardClaimed);
         public int BestStars(int level)=>state.levels.FirstOrDefault(l=>l.level==level&&l.rewardClaimed)?.bestStars??0;
@@ -51,7 +52,7 @@ namespace Mewgic.Core
             if(record==null){record=new LevelRecord{level=level};copy.levels.Add(record);}
             bool first=!record.rewardClaimed;record.bestStars=Math.Max(record.bestStars,stars);
             if(first){try{copy.hint=checked(copy.hint+1);}catch(OverflowException){LastError="Ödül sayacı sınırda.";return false;}record.rewardClaimed=true;}
-            if(!Commit(copy))return false;granted=first;return true;
+            WorldMapRules.Sync(copy);if(!Commit(copy))return false;granted=first;return true;
         }
     }
     public sealed class BoosterActions
