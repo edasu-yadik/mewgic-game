@@ -1,0 +1,58 @@
+{
+  "environment": "Windows Unity 6000.3.27f1 Editor; fiziksel mobil ölçüm değil",
+  "generation1000": {
+    "medianMs": 22.285600000000002,
+    "p95Ms": 209.05620000000002,
+    "maxMs": 469.0887,
+    "meanMs": 51.37246719999999
+  },
+  "integrationPrepare": [
+    {
+      "operation": "prepare",
+      "level": 3,
+      "elapsedMs": 139.1925,
+      "mainThreadCallMs": 3.1968,
+      "frames": 31
+    },
+    {
+      "operation": "prepare",
+      "level": 8,
+      "elapsedMs": 18.697,
+      "mainThreadCallMs": 0.5203,
+      "frames": 4
+    },
+    {
+      "operation": "prepare",
+      "level": 20,
+      "elapsedMs": 40.1293,
+      "mainThreadCallMs": 0.4902,
+      "frames": 9
+    },
+    {
+      "operation": "prepare",
+      "level": 600,
+      "elapsedMs": 111.0948,
+      "mainThreadCallMs": 0.44,
+      "frames": 23
+    },
+    {
+      "operation": "prepare",
+      "level": 601,
+      "elapsedMs": 23.8231,
+      "mainThreadCallMs": 0.1236,
+      "frames": 5
+    }
+  ],
+  "localeMinMs": 0.17980000000000002,
+  "localeMaxMs": 6.2034,
+  "scroll120Ms": 25.2756,
+  "bootEditorMs": 2816.236,
+  "reloadBoot": [
+    {
+      "operation": "saved-Boot-to-Home",
+      "editorElapsedMs": 2153.412
+    }
+  ],
+  "fps": "Ölçülmedi / cihaz FPS iddiası yok",
+  "allocation": "4096 byte kontrol tahsisine bile 0 bildiren Mono API nedeniyle sıfır tahsis sonucu güvenilir sayılmadı."
+}

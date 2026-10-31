@@ -1,0 +1,5 @@
+{
+  "testAllocationBytes": 4096,
+  "reportedDeltaBytes": 0,
+  "conclusion": "Unity Mono API sonucu bu oturumda tahsis yokluğu kanıtı olarak güvenilir değil; harita döngüsünün ham 0 değeri mobil GC garantisi olarak sunulmaz."
+}
