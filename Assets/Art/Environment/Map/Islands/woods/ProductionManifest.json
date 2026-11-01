@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "islandKey": "woods",
+  "firstLevel": 201,
+  "levelCount": 50,
+  "artReady": false,
+  "layers": [
+    "Background",
+    "IslandBase",
+    "Architecture",
+    "Vegetation",
+    "WaterOrSpecialEffects",
+    "Decorations",
+    "LevelNodes",
+    "Rewards",
+    "ForegroundEffects"
+  ],
+  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
+  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
+  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+}

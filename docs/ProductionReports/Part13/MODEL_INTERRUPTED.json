@@ -1,0 +1,5 @@
+{
+  "success": false,
+  "checks": 2080,
+  "error": "System.Threading.ThreadAbortException: Thread was being aborted.\r\n  at Mewgic.Core.Puzzle..ctor (System.Int32[][] data) [0x00011] in C:\\Dev\\Mewgic\\Assets\\Scripts\\Core\\Puzzle.cs:21 \r\n  at Mewgic.Core.PuzzleSolver.Solve (System.Int32[][] data, System.Int32 limit) [0x00081] in C:\\Dev\\Mewgic\\Assets\\Scripts\\Core\\PuzzleSolver.cs:20 \r\n  at Part12DModelTests.RunAll (System.String poolJson) [0x00419] in C:\\Dev\\Mewgic\\Assets\\Editor\\Part12DModelTests.cs:17 \r\n  at Part12DModelTests+<>c__DisplayClass3_0.<Run>b__0 () [0x00000] in C:\\Dev\\Mewgic\\Assets\\Editor\\Part12DModelTests.cs:5 "
+}

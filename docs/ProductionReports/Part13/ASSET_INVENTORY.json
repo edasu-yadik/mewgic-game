@@ -1,0 +1,51 @@
+[
+  {
+    "path": "Assets/Art/Environment/Map/Map_Castle_v001.png",
+    "width": 1145,
+    "height": 1374,
+    "pngColorType": 6,
+    "diskBytes": 2064943
+  },
+  {
+    "path": "Assets/Art/Environment/Map/Map_Chest_v001.png",
+    "width": 1351,
+    "height": 1164,
+    "pngColorType": 6,
+    "diskBytes": 1729322
+  },
+  {
+    "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png",
+    "width": 1206,
+    "height": 1305,
+    "pngColorType": 6,
+    "diskBytes": 2551784
+  },
+  {
+    "path": "Assets/Art/Environment/Map/Map_Moon_v001.png",
+    "width": 1240,
+    "height": 1268,
+    "pngColorType": 6,
+    "diskBytes": 2689471
+  },
+  {
+    "path": "Assets/Art/Environment/Map/Map_Node_v001.png",
+    "width": 1254,
+    "height": 1254,
+    "pngColorType": 6,
+    "diskBytes": 1448440
+  },
+  {
+    "path": "Assets/Art/Environment/Map/Map_Sky_v001.png",
+    "width": 941,
+    "height": 1671,
+    "pngColorType": 2,
+    "diskBytes": 2087785
+  },
+  {
+    "path": "Assets/Art/Environment/Map/Map_Village_v001.png",
+    "width": 1536,
+    "height": 1024,
+    "pngColorType": 6,
+    "diskBytes": 3050101
+  }
+]
