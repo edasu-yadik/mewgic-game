@@ -1,0 +1,3601 @@
+fileFormatVersion: 2
+guid: 2e83dd85d3f68d8479dfeeed880d5d6a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4987928007517327225
+    second: Mirage_Mist_v001_0
+  - first:
+      213: -1011655301639864624
+    second: Mirage_Mist_v001_1
+  - first:
+      213: 7427495112351774192
+    second: Mirage_Mist_v001_2
+  - first:
+      213: 5971553715956574485
+    second: Mirage_Mist_v001_3
+  - first:
+      213: 2511114287736204383
+    second: Mirage_Mist_v001_4
+  - first:
+      213: 1958829647257773887
+    second: Mirage_Mist_v001_5
+  - first:
+      213: -3030631984231671945
+    second: Mirage_Mist_v001_6
+  - first:
+      213: 5070051681984086039
+    second: Mirage_Mist_v001_7
+  - first:
+      213: 2802655405696990038
+    second: Mirage_Mist_v001_8
+  - first:
+      213: 61744244327933362
+    second: Mirage_Mist_v001_9
+  - first:
+      213: -2082407395256360765
+    second: Mirage_Mist_v001_10
+  - first:
+      213: -6291328948423911887
+    second: Mirage_Mist_v001_11
+  - first:
+      213: -2408509453116200949
+    second: Mirage_Mist_v001_12
+  - first:
+      213: -701225273099902211
+    second: Mirage_Mist_v001_13
+  - first:
+      213: 2597453484695620856
+    second: Mirage_Mist_v001_14
+  - first:
+      213: 8952072854253201688
+    second: Mirage_Mist_v001_15
+  - first:
+      213: -8272747146340736130
+    second: Mirage_Mist_v001_16
+  - first:
+      213: -4011882433021111695
+    second: Mirage_Mist_v001_17
+  - first:
+      213: -2850829134112821266
+    second: Mirage_Mist_v001_18
+  - first:
+      213: -1466976816273387484
+    second: Mirage_Mist_v001_19
+  - first:
+      213: 4922109933632826698
+    second: Mirage_Mist_v001_20
+  - first:
+      213: -3989925479116595419
+    second: Mirage_Mist_v001_21
+  - first:
+      213: 7760591906437569017
+    second: Mirage_Mist_v001_22
+  - first:
+      213: -6931191828387876952
+    second: Mirage_Mist_v001_23
+  - first:
+      213: -7000571559229580993
+    second: Mirage_Mist_v001_24
+  - first:
+      213: -5421753077037855163
+    second: Mirage_Mist_v001_25
+  - first:
+      213: -657786674582956559
+    second: Mirage_Mist_v001_26
+  - first:
+      213: -6400475796938928848
+    second: Mirage_Mist_v001_27
+  - first:
+      213: 8083680849627088383
+    second: Mirage_Mist_v001_28
+  - first:
+      213: -5807547653151835520
+    second: Mirage_Mist_v001_29
+  - first:
+      213: -6208443278584383956
+    second: Mirage_Mist_v001_30
+  - first:
+      213: -3751134621333938464
+    second: Mirage_Mist_v001_31
+  - first:
+      213: 5629748845869223259
+    second: Mirage_Mist_v001_32
+  - first:
+      213: 1371048846474392662
+    second: Mirage_Mist_v001_33
+  - first:
+      213: 5401293183718916864
+    second: Mirage_Mist_v001_34
+  - first:
+      213: -8039919812584569682
+    second: Mirage_Mist_v001_35
+  - first:
+      213: -425026335956351227
+    second: Mirage_Mist_v001_36
+  - first:
+      213: -3311126810393438742
+    second: Mirage_Mist_v001_37
+  - first:
+      213: 2248488733706929909
+    second: Mirage_Mist_v001_38
+  - first:
+      213: 4145528598757073997
+    second: Mirage_Mist_v001_39
+  - first:
+      213: 706372307154004777
+    second: Mirage_Mist_v001_40
+  - first:
+      213: -2395572819524674425
+    second: Mirage_Mist_v001_41
+  - first:
+      213: -6647468977326786064
+    second: Mirage_Mist_v001_42
+  - first:
+      213: -8163351262018026342
+    second: Mirage_Mist_v001_43
+  - first:
+      213: 8843286808998838746
+    second: Mirage_Mist_v001_44
+  - first:
+      213: -5912207207658959951
+    second: Mirage_Mist_v001_45
+  - first:
+      213: 1385427707238892227
+    second: Mirage_Mist_v001_46
+  - first:
+      213: 821669810224252366
+    second: Mirage_Mist_v001_47
+  - first:
+      213: -1379218098378250586
+    second: Mirage_Mist_v001_48
+  - first:
+      213: -5882179292627017749
+    second: Mirage_Mist_v001_49
+  - first:
+      213: 6834020009471793893
+    second: Mirage_Mist_v001_50
+  - first:
+      213: -9065515135533621866
+    second: Mirage_Mist_v001_51
+  - first:
+      213: -8062400570680405481
+    second: Mirage_Mist_v001_52
+  - first:
+      213: -859652698307292933
+    second: Mirage_Mist_v001_53
+  - first:
+      213: 7914956784504883656
+    second: Mirage_Mist_v001_54
+  - first:
+      213: 5120860783800886613
+    second: Mirage_Mist_v001_55
+  - first:
+      213: -2888915526645758239
+    second: Mirage_Mist_v001_56
+  - first:
+      213: 4666420555990506795
+    second: Mirage_Mist_v001_57
+  - first:
+      213: 4425240864357005009
+    second: Mirage_Mist_v001_58
+  - first:
+      213: 5193690162156313406
+    second: Mirage_Mist_v001_59
+  - first:
+      213: -5533370702854974554
+    second: Mirage_Mist_v001_60
+  - first:
+      213: 7700403539963969528
+    second: Mirage_Mist_v001_61
+  - first:
+      213: 1305789853362198984
+    second: Mirage_Mist_v001_62
+  - first:
+      213: 1574719878118680696
+    second: Mirage_Mist_v001_63
+  - first:
+      213: 2900697304166260297
+    second: Mirage_Mist_v001_64
+  - first:
+      213: -7529684314022268593
+    second: Mirage_Mist_v001_65
+  - first:
+      213: 115304870908458104
+    second: Mirage_Mist_v001_66
+  - first:
+      213: 1562340500946752445
+    second: Mirage_Mist_v001_67
+  - first:
+      213: 7612301006181089323
+    second: Mirage_Mist_v001_68
+  - first:
+      213: -7677045507208134467
+    second: Mirage_Mist_v001_69
+  - first:
+      213: -6108248146235319695
+    second: Mirage_Mist_v001_70
+  - first:
+      213: -2604177504116691221
+    second: Mirage_Mist_v001_71
+  - first:
+      213: 5669084461596611604
+    second: Mirage_Mist_v001_72
+  - first:
+      213: 5800840031074023021
+    second: Mirage_Mist_v001_73
+  - first:
+      213: 4529112546402061461
+    second: Mirage_Mist_v001_74
+  - first:
+      213: -632642337584601301
+    second: Mirage_Mist_v001_75
+  - first:
+      213: -4647153874427663934
+    second: Mirage_Mist_v001_76
+  - first:
+      213: 8607613648841422413
+    second: Mirage_Mist_v001_77
+  - first:
+      213: 4002710807991996119
+    second: Mirage_Mist_v001_78
+  - first:
+      213: 4831996741260097687
+    second: Mirage_Mist_v001_79
+  - first:
+      213: -1886564419091177149
+    second: Mirage_Mist_v001_80
+  - first:
+      213: -5164518653141864791
+    second: Mirage_Mist_v001_81
+  - first:
+      213: -8351980371078233326
+    second: Mirage_Mist_v001_82
+  - first:
+      213: 275171400754979138
+    second: Mirage_Mist_v001_83
+  - first:
+      213: 6752979867334302200
+    second: Mirage_Mist_v001_84
+  - first:
+      213: 3555346867236998597
+    second: Mirage_Mist_v001_85
+  - first:
+      213: 8072905312905373917
+    second: Mirage_Mist_v001_86
+  - first:
+      213: 9116470772064840900
+    second: Mirage_Mist_v001_87
+  - first:
+      213: -9040196589867616843
+    second: Mirage_Mist_v001_88
+  - first:
+      213: 6738355150308633081
+    second: Mirage_Mist_v001_89
+  - first:
+      213: 5020402377815684090
+    second: Mirage_Mist_v001_90
+  - first:
+      213: -8982539051622950159
+    second: Mirage_Mist_v001_91
+  - first:
+      213: 6017040492694576050
+    second: Mirage_Mist_v001_92
+  - first:
+      213: -3433633637340304343
+    second: Mirage_Mist_v001_93
+  - first:
+      213: 5158716393036043548
+    second: Mirage_Mist_v001_94
+  - first:
+      213: 7448640591646951078
+    second: Mirage_Mist_v001_95
+  - first:
+      213: -510725109715545092
+    second: Mirage_Mist_v001_96
+  - first:
+      213: -671860655037657911
+    second: Mirage_Mist_v001_97
+  - first:
+      213: 2267799015682972235
+    second: Mirage_Mist_v001_98
+  - first:
+      213: 5218035895066262506
+    second: Mirage_Mist_v001_99
+  - first:
+      213: 1274530296541938749
+    second: Mirage_Mist_v001_100
+  - first:
+      213: -4542048536700728124
+    second: Mirage_Mist_v001_101
+  - first:
+      213: 2234516908316839891
+    second: Mirage_Mist_v001_102
+  - first:
+      213: -6409271542408191407
+    second: Mirage_Mist_v001_103
+  - first:
+      213: 7454646687740429448
+    second: Mirage_Mist_v001_104
+  - first:
+      213: 5583217123688500424
+    second: Mirage_Mist_v001_105
+  - first:
+      213: 793255127151027379
+    second: Mirage_Mist_v001_106
+  - first:
+      213: -686567783941183144
+    second: Mirage_Mist_v001_107
+  - first:
+      213: -3434422437223125982
+    second: Mirage_Mist_v001_108
+  - first:
+      213: -404531504300279972
+    second: Mirage_Mist_v001_109
+  - first:
+      213: -8785325334688155716
+    second: Mirage_Mist_v001_110
+  - first:
+      213: 2537161009540006950
+    second: Mirage_Mist_v001_111
+  - first:
+      213: 7328762549979460363
+    second: Mirage_Mist_v001_112
+  - first:
+      213: -464074936820070660
+    second: Mirage_Mist_v001_113
+  - first:
+      213: -7965547853259057366
+    second: Mirage_Mist_v001_114
+  - first:
+      213: 4325899891909955747
+    second: Mirage_Mist_v001_115
+  - first:
+      213: 3542359624723762058
+    second: Mirage_Mist_v001_116
+  - first:
+      213: -292819529135334267
+    second: Mirage_Mist_v001_117
+  - first:
+      213: 7493257727116315547
+    second: Mirage_Mist_v001_118
+  - first:
+      213: 3656955402665865575
+    second: Mirage_Mist_v001_119
+  - first:
+      213: -7708249812042775148
+    second: Mirage_Mist_v001_120
+  - first:
+      213: 3584105776383045280
+    second: Mirage_Mist_v001_121
+  - first:
+      213: -1578367512090970240
+    second: Mirage_Mist_v001_122
+  - first:
+      213: -4298042918613571168
+    second: Mirage_Mist_v001_123
+  - first:
+      213: -3010226759831038455
+    second: Mirage_Mist_v001_124
+  - first:
+      213: 7598368936544510678
+    second: Mirage_Mist_v001_125
+  - first:
+      213: 6047145082382278013
+    second: Mirage_Mist_v001_126
+  - first:
+      213: 2759243626096018008
+    second: Mirage_Mist_v001_127
+  - first:
+      213: -4494259710556673640
+    second: Mirage_Mist_v001_128
+  - first:
+      213: -2891548197547591432
+    second: Mirage_Mist_v001_129
+  - first:
+      213: -6186300173165556815
+    second: Mirage_Mist_v001_130
+  - first:
+      213: 4364162805661335349
+    second: Mirage_Mist_v001_131
+  - first:
+      213: 937276487205246806
+    second: Mirage_Mist_v001_132
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 2
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 921
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78035b287e157cab0800000000000000
+      internalID: -4987928007517327225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 883
+        width: 438
+        height: 362
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de7d96fcd0e5f1f0800000000000000
+      internalID: -1011655301639864624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 941
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f57daeb373c31760800000000000000
+      internalID: 7427495112351774192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 958
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51961cc47783fd250800000000000000
+      internalID: 5971553715956574485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_4
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 907
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5cace6e32549d220800000000000000
+      internalID: 2511114287736204383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_5
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 875
+        width: 118
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37ad449f292f2b10800000000000000
+      internalID: 1958829647257773887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_6
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 891
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7771fee644801f5d0800000000000000
+      internalID: -3030631984231671945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_7
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 769
+        width: 156
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 710888974217c5640800000000000000
+      internalID: 5070051681984086039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_8
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1124
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65bb56c0e3805e620800000000000000
+      internalID: 2802655405696990038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_9
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 907
+        width: 23
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b56716201c5bd000800000000000000
+      internalID: 61744244327933362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_10
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 1028
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c02910d18dc913e0800000000000000
+      internalID: -2082407395256360765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_11
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 891
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1369f0087a5b0b8a0800000000000000
+      internalID: -6291328948423911887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_12
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1096
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b08a6d8c961439ed0800000000000000
+      internalID: -2408509453116200949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_13
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 698
+        width: 463
+        height: 534
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df2aa51545fb446f0800000000000000
+      internalID: -701225273099902211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_14
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1068
+        width: 91
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc02e3be220c0420800000000000000
+      internalID: 2597453484695620856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_15
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1128
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819ed21b4d62c3c70800000000000000
+      internalID: 8952072854253201688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_16
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1002
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73ebb12d4c413d80800000000000000
+      internalID: -8272747146340736130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_17
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 885
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 172952bde2ee258c0800000000000000
+      internalID: -4011882433021111695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_18
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 863
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefeed1c102df68d0800000000000000
+      internalID: -2850829134112821266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 796
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4209a44ab5044abe0800000000000000
+      internalID: -1466976816273387484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 849
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d2b9bf7e8de4440800000000000000
+      internalID: 4922109933632826698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_21
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 700
+        width: 121
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f99f09aefe0a8c0800000000000000
+      internalID: -3989925479116595419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_22
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 771
+        width: 100
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f99bf5b83923bb60800000000000000
+      internalID: 7760591906437569017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_23
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 853
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8afa9de41c57fcf90800000000000000
+      internalID: -6931191828387876952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_24
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 857
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f391b6be149f8de90800000000000000
+      internalID: -7000571559229580993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_25
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 859
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e07475d4012c4b0800000000000000
+      internalID: -5421753077037855163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_26
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 827
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f55f7b21821fd6f0800000000000000
+      internalID: -657786674582956559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_27
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 799
+        width: 57
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d48f18c21fc27a0800000000000000
+      internalID: -6400475796938928848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_28
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 787
+        width: 35
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff586af47e00f2070800000000000000
+      internalID: 8083680849627088383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_29
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 811
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a3bbddd22776fa0800000000000000
+      internalID: -5807547653151835520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_30
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 807
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26f0db5bbd27d9a0800000000000000
+      internalID: -6208443278584383956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_31
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 813
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee98beafea41fbc0800000000000000
+      internalID: -3751134621333938464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_32
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 816
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d43b46fb2e02e40800000000000000
+      internalID: 5629748845869223259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_33
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 819
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 654b0d769a1f60310800000000000000
+      internalID: 1371048846474392662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_34
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 823
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0030e47888f35fa40800000000000000
+      internalID: 5401293183718916864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_35
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 802
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea4854c17877c6090800000000000000
+      internalID: -8039919812584569682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_36
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 779
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 507c221acc00a1af0800000000000000
+      internalID: -425026335956351227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_37
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 771
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae51a3485b38c02d0800000000000000
+      internalID: -3311126810393438742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_38
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 755
+        width: 9
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6c11e179c343f10800000000000000
+      internalID: 2248488733706929909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_39
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 706
+        width: 53
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44632feb40e78930800000000000000
+      internalID: 4145528598757073997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_40
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 746
+        width: 49
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b661feed98dc900800000000000000
+      internalID: 706372307154004777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_41
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 774
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78c96a2863731ced0800000000000000
+      internalID: -2395572819524674425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_42
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 771
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f9f1075f227fb3a0800000000000000
+      internalID: -6647468977326786064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_43
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 762
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94cdaa4743f5be80800000000000000
+      internalID: -8163351262018026342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_44
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 738
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad10641cf7aa9ba70800000000000000
+      internalID: 8843286808998838746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_45
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 757
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbcbfc6ede93fda0800000000000000
+      internalID: -5912207207658959951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_46
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 757
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c245ffc8270a3310800000000000000
+      internalID: 1385427707238892227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_47
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 759
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec54419c658276b00800000000000000
+      internalID: 821669810224252366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_48
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 740
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6ef5a62780cdce0800000000000000
+      internalID: -1379218098378250586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_49
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 742
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befdec5391d4e5ea0800000000000000
+      internalID: -5882179292627017749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_50
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 712
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea5a7c8df057de50800000000000000
+      internalID: 6834020009471793893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_51
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 754
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d5790f302d03280800000000000000
+      internalID: -9065515135533621866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_52
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 754
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71210bbb5699c1090800000000000000
+      internalID: -8062400570680405481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_53
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 757
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0103fec66e114f0800000000000000
+      internalID: -859652698307292933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_54
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 738
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c94bf0a24397dd60800000000000000
+      internalID: 7914956784504883656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_55
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 738
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5552eaa50c3f01740800000000000000
+      internalID: 5120860783800886613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_56
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 753
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e64b2872a288e7d0800000000000000
+      internalID: -2888915526645758239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_57
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 738
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d156c95c472c040800000000000000
+      internalID: 4666420555990506795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_58
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 738
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6ba85ce1d996d30800000000000000
+      internalID: 4425240864357005009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_59
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 739
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b94c46fa1b31840800000000000000
+      internalID: 5193690162156313406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_60
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 738
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a396cda9a48533b0800000000000000
+      internalID: -5533370702854974554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_61
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 698
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff76ba98345dda60800000000000000
+      internalID: 7700403539963969528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_62
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 698
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c996f804f81f1210800000000000000
+      internalID: 1305789853362198984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_63
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 738
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878a20cc2678ad510800000000000000
+      internalID: 1574719878118680696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_64
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 698
+        width: 84
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e53cf54d8514820800000000000000
+      internalID: 2900697304166260297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_65
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 738
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f413fd7a200318790800000000000000
+      internalID: -7529684314022268593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_66
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 704
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874fe5f4b25a99100800000000000000
+      internalID: 115304870908458104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_67
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 732
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db31321786c8ea510800000000000000
+      internalID: 1562340500946752445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_68
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 737
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20c5c4fe6354a960800000000000000
+      internalID: 7612301006181089323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_69
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 738
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0c95239c7a57590800000000000000
+      internalID: -7677045507208134467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_70
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 730
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a94b38ca42b3ba0800000000000000
+      internalID: -6108248146235319695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_71
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 742
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beeaf078b5a1cdbd0800000000000000
+      internalID: -2604177504116691221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_72
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 714
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 414172f1842acae40800000000000000
+      internalID: 5669084461596611604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_73
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 745
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66780b2649b08050800000000000000
+      internalID: 5800840031074023021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_74
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 722
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c4f0c5dd3aade30800000000000000
+      internalID: 4529112546402061461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_75
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 730
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b27a56655276837f0800000000000000
+      internalID: -632642337584601301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_76
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 722
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9a8224c2ef18fb0800000000000000
+      internalID: -4647153874427663934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_77
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 721
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d463ffe2203647770800000000000000
+      internalID: 8607613648841422413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_78
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 710
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7decaf8c54c7c8730800000000000000
+      internalID: 4002710807991996119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_79
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 710
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79837a66f63be0340800000000000000
+      internalID: 4831996741260097687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_80
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 708
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341ed2208a391d5e0800000000000000
+      internalID: -1886564419091177149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_81
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 708
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aea993d5a1f358b0800000000000000
+      internalID: -5164518653141864791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_82
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 717
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 213c8da6a1ec71c80800000000000000
+      internalID: -8351980371078233326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_83
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 706
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241e85a5eea91d300800000000000000
+      internalID: 275171400754979138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_84
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 682
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f953d7196767bd50800000000000000
+      internalID: 6752979867334302200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_85
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 708
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd85f28321275130800000000000000
+      internalID: 3555346867236998597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_86
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 706
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8a6192c98b80070800000000000000
+      internalID: 8072905312905373917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_87
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 705
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cce726bdd5348e70800000000000000
+      internalID: 9116470772064840900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_88
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 706
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b53e393915ca8280800000000000000
+      internalID: -9040196589867616843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_89
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 714
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f9e190de42738d50800000000000000
+      internalID: 6738355150308633081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_90
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 711
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af3fa370d5d0ca540800000000000000
+      internalID: 5020402377815684090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_91
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 690
+        width: 37
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa90f6f25c975380800000000000000
+      internalID: -8982539051622950159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_92
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 690
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb933ec272d08350800000000000000
+      internalID: 6017040492694576050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_93
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 706
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92caf7526684950d0800000000000000
+      internalID: -3433633637340304343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 703
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c15d5e73a31779740800000000000000
+      internalID: 5158716393036043548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_95
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 676
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a60cac4723ee5760800000000000000
+      internalID: 7448640591646951078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_96
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 674
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf35889f73a89e8f0800000000000000
+      internalID: -510725109715545092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_97
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 578
+        width: 71
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc4bed3b421da6f0800000000000000
+      internalID: -671860655037657911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_98
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 682
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a93cf7037d87f10800000000000000
+      internalID: 2267799015682972235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_99
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 672
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb79ae00003a6840800000000000000
+      internalID: 5218035895066262506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_100
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 674
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d340bdc4d8a00b110800000000000000
+      internalID: 1274530296541938749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_101
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 77
+        width: 5
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccce51bbe667f0c0800000000000000
+      internalID: -4542048536700728124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_102
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 79
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df44d40a49920f10800000000000000
+      internalID: 2234516908316839891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_103
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 79
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1526dbd6d71bd07a0800000000000000
+      internalID: -6409271542408191407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_104
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 73
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8848fc48aa9347760800000000000000
+      internalID: 7454646687740429448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_105
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 65
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ccc45194629b7d40800000000000000
+      internalID: 5583217123688500424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_106
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 71
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b42816d555320b00800000000000000
+      internalID: 793255127151027379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_107
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85965f3fc32d876f0800000000000000
+      internalID: -686567783941183144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_108
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 71
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c2fac5dfa7650d0800000000000000
+      internalID: -3434422437223125982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_109
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 79
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c573ab97db0d26af0800000000000000
+      internalID: -404531504300279972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_110
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 47
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb73cad9721441680800000000000000
+      internalID: -8785325334688155716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_111
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 65
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6248a97ee7ec53320800000000000000
+      internalID: 2537161009540006950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_112
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 39
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0336b2b5bef4b560800000000000000
+      internalID: 7328762549979460363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_113
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 57
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf68da1cd464f89f0800000000000000
+      internalID: -464074936820070660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_114
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 65
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a275e154e60b47190800000000000000
+      internalID: -7965547853259057366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_115
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 57
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a09137380fa80c30800000000000000
+      internalID: 4325899891909955747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_116
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 65
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8b885a7f4df82130800000000000000
+      internalID: 3542359624723762058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_117
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 31
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c579e8032bfebf0800000000000000
+      internalID: -292819529135334267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_118
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 31
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b083ba3366df760800000000000000
+      internalID: 7493257727116315547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_119
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 30
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7613857309d10c230800000000000000
+      internalID: 3656955402665865575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_120
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 25
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4950831d2abc60590800000000000000
+      internalID: -7708249812042775148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_121
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 25
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aeacb6d63d4db130800000000000000
+      internalID: 3584105776383045280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_122
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 29
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087fccc3c13881ae0800000000000000
+      internalID: -1578367512090970240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_123
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 23
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9a7aeccb84a54c0800000000000000
+      internalID: -4298042918613571168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_124
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 25
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90655e6f5b68936d0800000000000000
+      internalID: -3010226759831038455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_125
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 21
+        width: 38
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d229173a44d27960800000000000000
+      internalID: 7598368936544510678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_126
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 39
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d55acc966cbe350800000000000000
+      internalID: 6047145082382278013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_127
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 31
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 852c636757dca4620800000000000000
+      internalID: 2759243626096018008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_128
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 29
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8996be7da9e21a1c0800000000000000
+      internalID: -4494259710556673640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_129
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 29
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f831420c382fd7d0800000000000000
+      internalID: -2891548197547591432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_130
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 23
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb8788d4c8d52aa0800000000000000
+      internalID: -6186300173165556815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_131
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 20
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f7a6d03fe909c30800000000000000
+      internalID: 4364162805661335349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mirage_Mist_v001_132
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 11
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657d13ccfffd10d00800000000000000
+      internalID: 937276487205246806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mirage_Mist_v001_0: -4987928007517327225
+      Mirage_Mist_v001_1: -1011655301639864624
+      Mirage_Mist_v001_10: -2082407395256360765
+      Mirage_Mist_v001_100: 1274530296541938749
+      Mirage_Mist_v001_101: -4542048536700728124
+      Mirage_Mist_v001_102: 2234516908316839891
+      Mirage_Mist_v001_103: -6409271542408191407
+      Mirage_Mist_v001_104: 7454646687740429448
+      Mirage_Mist_v001_105: 5583217123688500424
+      Mirage_Mist_v001_106: 793255127151027379
+      Mirage_Mist_v001_107: -686567783941183144
+      Mirage_Mist_v001_108: -3434422437223125982
+      Mirage_Mist_v001_109: -404531504300279972
+      Mirage_Mist_v001_11: -6291328948423911887
+      Mirage_Mist_v001_110: -8785325334688155716
+      Mirage_Mist_v001_111: 2537161009540006950
+      Mirage_Mist_v001_112: 7328762549979460363
+      Mirage_Mist_v001_113: -464074936820070660
+      Mirage_Mist_v001_114: -7965547853259057366
+      Mirage_Mist_v001_115: 4325899891909955747
+      Mirage_Mist_v001_116: 3542359624723762058
+      Mirage_Mist_v001_117: -292819529135334267
+      Mirage_Mist_v001_118: 7493257727116315547
+      Mirage_Mist_v001_119: 3656955402665865575
+      Mirage_Mist_v001_12: -2408509453116200949
+      Mirage_Mist_v001_120: -7708249812042775148
+      Mirage_Mist_v001_121: 3584105776383045280
+      Mirage_Mist_v001_122: -1578367512090970240
+      Mirage_Mist_v001_123: -4298042918613571168
+      Mirage_Mist_v001_124: -3010226759831038455
+      Mirage_Mist_v001_125: 7598368936544510678
+      Mirage_Mist_v001_126: 6047145082382278013
+      Mirage_Mist_v001_127: 2759243626096018008
+      Mirage_Mist_v001_128: -4494259710556673640
+      Mirage_Mist_v001_129: -2891548197547591432
+      Mirage_Mist_v001_13: -701225273099902211
+      Mirage_Mist_v001_130: -6186300173165556815
+      Mirage_Mist_v001_131: 4364162805661335349
+      Mirage_Mist_v001_132: 937276487205246806
+      Mirage_Mist_v001_14: 2597453484695620856
+      Mirage_Mist_v001_15: 8952072854253201688
+      Mirage_Mist_v001_16: -8272747146340736130
+      Mirage_Mist_v001_17: -4011882433021111695
+      Mirage_Mist_v001_18: -2850829134112821266
+      Mirage_Mist_v001_19: -1466976816273387484
+      Mirage_Mist_v001_2: 7427495112351774192
+      Mirage_Mist_v001_20: 4922109933632826698
+      Mirage_Mist_v001_21: -3989925479116595419
+      Mirage_Mist_v001_22: 7760591906437569017
+      Mirage_Mist_v001_23: -6931191828387876952
+      Mirage_Mist_v001_24: -7000571559229580993
+      Mirage_Mist_v001_25: -5421753077037855163
+      Mirage_Mist_v001_26: -657786674582956559
+      Mirage_Mist_v001_27: -6400475796938928848
+      Mirage_Mist_v001_28: 8083680849627088383
+      Mirage_Mist_v001_29: -5807547653151835520
+      Mirage_Mist_v001_3: 5971553715956574485
+      Mirage_Mist_v001_30: -6208443278584383956
+      Mirage_Mist_v001_31: -3751134621333938464
+      Mirage_Mist_v001_32: 5629748845869223259
+      Mirage_Mist_v001_33: 1371048846474392662
+      Mirage_Mist_v001_34: 5401293183718916864
+      Mirage_Mist_v001_35: -8039919812584569682
+      Mirage_Mist_v001_36: -425026335956351227
+      Mirage_Mist_v001_37: -3311126810393438742
+      Mirage_Mist_v001_38: 2248488733706929909
+      Mirage_Mist_v001_39: 4145528598757073997
+      Mirage_Mist_v001_4: 2511114287736204383
+      Mirage_Mist_v001_40: 706372307154004777
+      Mirage_Mist_v001_41: -2395572819524674425
+      Mirage_Mist_v001_42: -6647468977326786064
+      Mirage_Mist_v001_43: -8163351262018026342
+      Mirage_Mist_v001_44: 8843286808998838746
+      Mirage_Mist_v001_45: -5912207207658959951
+      Mirage_Mist_v001_46: 1385427707238892227
+      Mirage_Mist_v001_47: 821669810224252366
+      Mirage_Mist_v001_48: -1379218098378250586
+      Mirage_Mist_v001_49: -5882179292627017749
+      Mirage_Mist_v001_5: 1958829647257773887
+      Mirage_Mist_v001_50: 6834020009471793893
+      Mirage_Mist_v001_51: -9065515135533621866
+      Mirage_Mist_v001_52: -8062400570680405481
+      Mirage_Mist_v001_53: -859652698307292933
+      Mirage_Mist_v001_54: 7914956784504883656
+      Mirage_Mist_v001_55: 5120860783800886613
+      Mirage_Mist_v001_56: -2888915526645758239
+      Mirage_Mist_v001_57: 4666420555990506795
+      Mirage_Mist_v001_58: 4425240864357005009
+      Mirage_Mist_v001_59: 5193690162156313406
+      Mirage_Mist_v001_6: -3030631984231671945
+      Mirage_Mist_v001_60: -5533370702854974554
+      Mirage_Mist_v001_61: 7700403539963969528
+      Mirage_Mist_v001_62: 1305789853362198984
+      Mirage_Mist_v001_63: 1574719878118680696
+      Mirage_Mist_v001_64: 2900697304166260297
+      Mirage_Mist_v001_65: -7529684314022268593
+      Mirage_Mist_v001_66: 115304870908458104
+      Mirage_Mist_v001_67: 1562340500946752445
+      Mirage_Mist_v001_68: 7612301006181089323
+      Mirage_Mist_v001_69: -7677045507208134467
+      Mirage_Mist_v001_7: 5070051681984086039
+      Mirage_Mist_v001_70: -6108248146235319695
+      Mirage_Mist_v001_71: -2604177504116691221
+      Mirage_Mist_v001_72: 5669084461596611604
+      Mirage_Mist_v001_73: 5800840031074023021
+      Mirage_Mist_v001_74: 4529112546402061461
+      Mirage_Mist_v001_75: -632642337584601301
+      Mirage_Mist_v001_76: -4647153874427663934
+      Mirage_Mist_v001_77: 8607613648841422413
+      Mirage_Mist_v001_78: 4002710807991996119
+      Mirage_Mist_v001_79: 4831996741260097687
+      Mirage_Mist_v001_8: 2802655405696990038
+      Mirage_Mist_v001_80: -1886564419091177149
+      Mirage_Mist_v001_81: -5164518653141864791
+      Mirage_Mist_v001_82: -8351980371078233326
+      Mirage_Mist_v001_83: 275171400754979138
+      Mirage_Mist_v001_84: 6752979867334302200
+      Mirage_Mist_v001_85: 3555346867236998597
+      Mirage_Mist_v001_86: 8072905312905373917
+      Mirage_Mist_v001_87: 9116470772064840900
+      Mirage_Mist_v001_88: -9040196589867616843
+      Mirage_Mist_v001_89: 6738355150308633081
+      Mirage_Mist_v001_9: 61744244327933362
+      Mirage_Mist_v001_90: 5020402377815684090
+      Mirage_Mist_v001_91: -8982539051622950159
+      Mirage_Mist_v001_92: 6017040492694576050
+      Mirage_Mist_v001_93: -3433633637340304343
+      Mirage_Mist_v001_94: 5158716393036043548
+      Mirage_Mist_v001_95: 7448640591646951078
+      Mirage_Mist_v001_96: -510725109715545092
+      Mirage_Mist_v001_97: -671860655037657911
+      Mirage_Mist_v001_98: 2267799015682972235
+      Mirage_Mist_v001_99: 5218035895066262506
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

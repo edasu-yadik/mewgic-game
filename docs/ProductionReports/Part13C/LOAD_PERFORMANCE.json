@@ -1,0 +1,11 @@
+{
+  "environment": "Windows Editor AssetDatabase / warm session",
+  "loadToInstanceMs": [
+    1.4285,
+    1.6535,
+    30.982000000000003,
+    27.9677,
+    0.2775
+  ],
+  "note": "Giriş animasyonunun1sn QA beklemesi dahil değil; telefon soğuk açılış ölçümü değildir."
+}

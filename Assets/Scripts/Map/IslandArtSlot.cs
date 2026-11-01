@@ -16,6 +16,7 @@ namespace Mewgic.Map
         public string BoundKey => boundKey;
         public string LoadError { get; private set; }
         public WoodsIslandPresentation Presentation => instance != null ? instance.GetComponent<WoodsIslandPresentation>() : null;
+        public MirageIslandPresentation MiragePresentation => instance != null ? instance.GetComponent<MirageIslandPresentation>() : null;
         public static int LiveHandles { get; private set; }
         public static int LiveInstances { get; private set; }
 
@@ -24,14 +25,15 @@ namespace Mewgic.Map
             if (boundKey == key && (ownsHandle || key == null))
             {
                 if (Presentation != null) Presentation.Animate = animate;
+                if (MiragePresentation != null) MiragePresentation.Animate = animate;
                 return;
             }
             Release();
-            if (key != "woods") return;
+            if (key != "woods" && key != "mirage") return;
             boundKey = key;
             LoadError = null;
             int token = ++generation;
-            operation = Addressables.LoadAssetAsync<GameObject>("Map/woods");
+            operation = Addressables.LoadAssetAsync<GameObject>("Map/" + key);
             ownsHandle = true;
             LiveHandles++;
             operation.Completed += completed =>
@@ -40,16 +42,16 @@ namespace Mewgic.Map
                 if (this == null || token != generation || !ownsHandle) return;
                 if (completed.Status != AsyncOperationStatus.Succeeded)
                 {
-                    LoadError = "Whispering Woods sanatı yüklenemedi.";
+                    LoadError = key + " ada sanatı yüklenemedi.";
                     Release();
                     Debug.LogWarning(LoadError);
                     return;
                 }
                 instance = Instantiate(completed.Result, transform, false);
-                instance.name = "WhisperingWoods_LayeredArt";
+                instance.name = key == "woods" ? "WhisperingWoods_LayeredArt" : "GoldenMirage_LayeredArt";
                 LiveInstances++;
-                Presentation.Animate = animate;
-                Presentation.BeginEntrance();
+                if (Presentation != null) { Presentation.Animate = animate; Presentation.BeginEntrance(); }
+                if (MiragePresentation != null) { MiragePresentation.Animate = animate; MiragePresentation.BeginEntrance(); }
                 // Sanat UI düğümleri ve isim plakasının arkasında kalır.
                 instance.transform.SetAsFirstSibling();
             };

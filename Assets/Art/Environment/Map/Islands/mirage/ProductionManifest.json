@@ -3,7 +3,7 @@
   "islandKey": "mirage",
   "firstLevel": 251,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,8 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "runtimeBinding": "Mevcut MapWorld görünür bölge havuzunda ada başına yerel Addressables; en fazla Woods+Mirage2 handle, çıkışta release.",
+  "delivery": "Ana kaynak1254x1254 RGBA; bağımsız dekor/sis kaynak1254, runtime512. Su/taban tamamlayıcı atlas maskeleri; kum/ışık/sis ayrı efektler. Düğümler ve sandık gerçekUI.",
+  "prefab": "Assets/Prefabs/Map/GoldenMirage.prefab",
+  "address": "Map/mirage"
 }

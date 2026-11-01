@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2162,
+  "unchangedFiles": 2155,
+  "intentionalChanges": [
+    "Assets/AddressableAssetsData/AddressableAssetSettings.asset",
+    "Assets/Art/Environment/Map/Islands/mirage/ProductionManifest.json",
+    "Assets/Editor/Part12BEditor.cs",
+    "Assets/Resources/Map/World.json",
+    "Assets/Scripts/Map/IslandArtSlot.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpectedChanges": [],
+  "catalogChange": "Only mirage artReady false -> true; all level/reward/tutorial data identical",
+  "otherTrackedIslandManifestsUnchanged": true
+}
