@@ -70,3 +70,7 @@ Diğer yedi ada için üretim yapılmadı. Önceki hazırlıktaki `library` klas
 - PRESERVATION.json: yalnız yedi ilgili mevcut dosya (ilerleme belgesi dahil) değişti; diğer2100 başlangıç dosyasından2093'ü byte olarak aynı. Başlangıçtaki ilgisiz font farkı birebir korundu. İlk dört ada/sahne, oyun modeli, üretici, kayıt ve Pati üretim dosyaları değişmedi.
 
 Editör Türkçe, izole201 başlangıç profiliyle LevelMap Game View büyütülmüş halde bırakıldı. Gerçek oyuncunun ilerlemesi değiştirilmedi. Teknik/görsel Editor kabulü tamamlandı; fiziksel cihaz ve paketlenmiş Player kabulü bu raporun dışında, yeni iOS build'i yok.
+
+## Git teslimi
+
+Uygulama ve kabul commit'i `7b232812f2a66f6ae1f0bd415a8c4983acf29fb3`. `git push origin recovery/part09-completion` başarılı; `git ls-remote` uzak dalın aynı SHA olduğunu doğruladı. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak değişmedi. Yalnız69 ilgili dosya (sanat, prefab/yerel grup, yükleyici/efekt, kabul araçları ve kanıtlar) gönderildi. Önceden var olan font ve diğer ilgisiz dosyalar commit kapsamı dışında kaldı. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. **Yalnız PART13B tamamlandı.**
