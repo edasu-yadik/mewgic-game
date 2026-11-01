@@ -73,7 +73,7 @@
       "firstLevel": 201,
       "levelCount": 50,
       "artIndex": -1,
-      "artReady": false,
+      "artReady": true,
       "artKey": "woods",
       "tutorialIds": [],
       "reward": {

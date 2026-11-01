@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2100,
+  "unchangedFiles": 2093,
+  "intentionalChanges": [
+    "Assets/AddressableAssetsData/AddressableAssetSettings.asset",
+    "Assets/Art/Environment/Map/Islands/woods/ProductionManifest.json",
+    "Assets/Editor/Part12BEditor.cs",
+    "Assets/Resources/Map/World.json",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "Assets/Scripts/Tests/Part12BProbe.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpectedChanges": [],
+  "catalogChange": "Only woods artReady false -> true; all level/reward/tutorial data identical",
+  "otherTrackedIslandManifestsUnchanged": true
+}

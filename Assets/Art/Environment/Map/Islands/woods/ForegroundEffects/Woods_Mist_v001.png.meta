@@ -1,0 +1,2899 @@
+fileFormatVersion: 2
+guid: 47d0dd407d20bb04ba1e9bdc0d3b13ec
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 27784628156472688
+    second: Woods_Mist_v001_0
+  - first:
+      213: 4386533615645202882
+    second: Woods_Mist_v001_1
+  - first:
+      213: -7443751560049359899
+    second: Woods_Mist_v001_2
+  - first:
+      213: -2370101082225080994
+    second: Woods_Mist_v001_3
+  - first:
+      213: -6554596290641612501
+    second: Woods_Mist_v001_4
+  - first:
+      213: 7742616169690424951
+    second: Woods_Mist_v001_5
+  - first:
+      213: 49394701700203489
+    second: Woods_Mist_v001_6
+  - first:
+      213: 4907387411770060998
+    second: Woods_Mist_v001_7
+  - first:
+      213: -1238191260811383262
+    second: Woods_Mist_v001_8
+  - first:
+      213: -7518072958699863198
+    second: Woods_Mist_v001_9
+  - first:
+      213: -7650909834126380611
+    second: Woods_Mist_v001_10
+  - first:
+      213: 1888842847001646378
+    second: Woods_Mist_v001_11
+  - first:
+      213: -5051280363085178191
+    second: Woods_Mist_v001_12
+  - first:
+      213: 4452877147228922867
+    second: Woods_Mist_v001_13
+  - first:
+      213: -8860852961393621440
+    second: Woods_Mist_v001_14
+  - first:
+      213: -6356855747570568807
+    second: Woods_Mist_v001_15
+  - first:
+      213: 5937730508285449979
+    second: Woods_Mist_v001_16
+  - first:
+      213: 6083734986090581907
+    second: Woods_Mist_v001_17
+  - first:
+      213: 7941935918987616227
+    second: Woods_Mist_v001_18
+  - first:
+      213: -3532923712117489096
+    second: Woods_Mist_v001_19
+  - first:
+      213: 383709711652187116
+    second: Woods_Mist_v001_20
+  - first:
+      213: -5929716716863580365
+    second: Woods_Mist_v001_21
+  - first:
+      213: 1552436479266358698
+    second: Woods_Mist_v001_22
+  - first:
+      213: -2646637580001154051
+    second: Woods_Mist_v001_23
+  - first:
+      213: 1584888878736756747
+    second: Woods_Mist_v001_24
+  - first:
+      213: -6440226912019772722
+    second: Woods_Mist_v001_25
+  - first:
+      213: -1539589581063178024
+    second: Woods_Mist_v001_26
+  - first:
+      213: 3976134718292766179
+    second: Woods_Mist_v001_27
+  - first:
+      213: -3370451615727124994
+    second: Woods_Mist_v001_28
+  - first:
+      213: -929955922550710765
+    second: Woods_Mist_v001_29
+  - first:
+      213: -229453568445310943
+    second: Woods_Mist_v001_30
+  - first:
+      213: 6888761095286655115
+    second: Woods_Mist_v001_31
+  - first:
+      213: -6603310843112799573
+    second: Woods_Mist_v001_32
+  - first:
+      213: 3553564935225024144
+    second: Woods_Mist_v001_33
+  - first:
+      213: -8420427898590113467
+    second: Woods_Mist_v001_34
+  - first:
+      213: 1080614147356418647
+    second: Woods_Mist_v001_35
+  - first:
+      213: -8764574651457385631
+    second: Woods_Mist_v001_36
+  - first:
+      213: 5854037851523515961
+    second: Woods_Mist_v001_37
+  - first:
+      213: -137156017869678431
+    second: Woods_Mist_v001_38
+  - first:
+      213: -2008700828835079100
+    second: Woods_Mist_v001_39
+  - first:
+      213: 2891803021820469272
+    second: Woods_Mist_v001_40
+  - first:
+      213: -5820483973020913159
+    second: Woods_Mist_v001_41
+  - first:
+      213: -8098229006505121018
+    second: Woods_Mist_v001_42
+  - first:
+      213: -2747038675574714868
+    second: Woods_Mist_v001_43
+  - first:
+      213: -2592836486115963635
+    second: Woods_Mist_v001_44
+  - first:
+      213: -8023446043274181154
+    second: Woods_Mist_v001_45
+  - first:
+      213: 4109473622884432546
+    second: Woods_Mist_v001_46
+  - first:
+      213: 793517379822215148
+    second: Woods_Mist_v001_47
+  - first:
+      213: -5532572256107738467
+    second: Woods_Mist_v001_48
+  - first:
+      213: 8358587860809177222
+    second: Woods_Mist_v001_49
+  - first:
+      213: 5065754041142389885
+    second: Woods_Mist_v001_50
+  - first:
+      213: 985044876516492502
+    second: Woods_Mist_v001_51
+  - first:
+      213: 4715440353585731769
+    second: Woods_Mist_v001_52
+  - first:
+      213: -48147760905776071
+    second: Woods_Mist_v001_53
+  - first:
+      213: 7733290574870602376
+    second: Woods_Mist_v001_54
+  - first:
+      213: -6490699818170662470
+    second: Woods_Mist_v001_55
+  - first:
+      213: 4230995007896706099
+    second: Woods_Mist_v001_56
+  - first:
+      213: 8965258611447050328
+    second: Woods_Mist_v001_57
+  - first:
+      213: -286425253637445442
+    second: Woods_Mist_v001_58
+  - first:
+      213: 875021136571985356
+    second: Woods_Mist_v001_59
+  - first:
+      213: -1253622694985493189
+    second: Woods_Mist_v001_60
+  - first:
+      213: 249695412839537699
+    second: Woods_Mist_v001_61
+  - first:
+      213: -8892636880937093460
+    second: Woods_Mist_v001_62
+  - first:
+      213: 3411186991844957354
+    second: Woods_Mist_v001_63
+  - first:
+      213: 3246910909865392901
+    second: Woods_Mist_v001_64
+  - first:
+      213: -1178363910507641920
+    second: Woods_Mist_v001_65
+  - first:
+      213: 5726713732725777632
+    second: Woods_Mist_v001_66
+  - first:
+      213: -2364043037111506019
+    second: Woods_Mist_v001_67
+  - first:
+      213: -4843624342463674931
+    second: Woods_Mist_v001_68
+  - first:
+      213: -7532623999587100825
+    second: Woods_Mist_v001_69
+  - first:
+      213: -5909598168906788555
+    second: Woods_Mist_v001_70
+  - first:
+      213: 7941780618903490442
+    second: Woods_Mist_v001_71
+  - first:
+      213: -5673619554020314918
+    second: Woods_Mist_v001_72
+  - first:
+      213: -4449902727572933476
+    second: Woods_Mist_v001_73
+  - first:
+      213: -4125042326246107680
+    second: Woods_Mist_v001_74
+  - first:
+      213: 4906400157759253925
+    second: Woods_Mist_v001_75
+  - first:
+      213: -187715581139186857
+    second: Woods_Mist_v001_76
+  - first:
+      213: 2875801445282565280
+    second: Woods_Mist_v001_77
+  - first:
+      213: 5830961983239851184
+    second: Woods_Mist_v001_78
+  - first:
+      213: 9204566304242704754
+    second: Woods_Mist_v001_79
+  - first:
+      213: 759385011754047404
+    second: Woods_Mist_v001_80
+  - first:
+      213: -3803040572220976594
+    second: Woods_Mist_v001_81
+  - first:
+      213: -2714592446357973292
+    second: Woods_Mist_v001_82
+  - first:
+      213: 9150998391023308657
+    second: Woods_Mist_v001_83
+  - first:
+      213: 6110401773877927641
+    second: Woods_Mist_v001_84
+  - first:
+      213: -1221855353341420990
+    second: Woods_Mist_v001_85
+  - first:
+      213: -1994993647530706010
+    second: Woods_Mist_v001_86
+  - first:
+      213: 3006556471383824398
+    second: Woods_Mist_v001_87
+  - first:
+      213: 3341393003070604961
+    second: Woods_Mist_v001_88
+  - first:
+      213: 8293751295136307894
+    second: Woods_Mist_v001_89
+  - first:
+      213: 4120208153784936228
+    second: Woods_Mist_v001_90
+  - first:
+      213: 2871070433570732829
+    second: Woods_Mist_v001_91
+  - first:
+      213: -5888918308091550515
+    second: Woods_Mist_v001_92
+  - first:
+      213: 6814885761074636527
+    second: Woods_Mist_v001_93
+  - first:
+      213: -5992476046198652643
+    second: Woods_Mist_v001_94
+  - first:
+      213: -8829631491078915297
+    second: Woods_Mist_v001_95
+  - first:
+      213: 5427959041238247886
+    second: Woods_Mist_v001_96
+  - first:
+      213: -7192968645146706545
+    second: Woods_Mist_v001_97
+  - first:
+      213: -6825007362472735277
+    second: Woods_Mist_v001_98
+  - first:
+      213: 1149612892116118423
+    second: Woods_Mist_v001_99
+  - first:
+      213: 4193598685746339730
+    second: Woods_Mist_v001_100
+  - first:
+      213: 5517522403638707458
+    second: Woods_Mist_v001_101
+  - first:
+      213: 7694916916206580851
+    second: Woods_Mist_v001_102
+  - first:
+      213: -6260885532886851374
+    second: Woods_Mist_v001_103
+  - first:
+      213: 6075691583723943823
+    second: Woods_Mist_v001_104
+  - first:
+      213: -6324107133400800719
+    second: Woods_Mist_v001_105
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 2
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Woods_Mist_v001_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 708
+        width: 389
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d9b7bd8f5b26000800000000000000
+      internalID: 27784628156472688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 1238
+        height: 717
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c997d3251910ec30800000000000000
+      internalID: 4386533615645202882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 795
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e38ff2156b72b890800000000000000
+      internalID: -7443751560049359899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_3
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 755
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5584308f95bb1fd0800000000000000
+      internalID: -2370101082225080994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 698
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21b632c6656905a0800000000000000
+      internalID: -6554596290641612501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 923
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776e79a526c437b60800000000000000
+      internalID: 7742616169690424951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_6
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 708
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e380a0383c7fa000800000000000000
+      internalID: 49394701700203489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_7
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 704
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c037cdb9da8a1440800000000000000
+      internalID: 4907387411770060998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_8
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 738
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e2857cb9f01dee0800000000000000
+      internalID: -1238191260811383262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_9
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 708
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263893df9707aa790800000000000000
+      internalID: -7518072958699863198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_10
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 702
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1ba58ca0282d590800000000000000
+      internalID: -7650909834126380611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_11
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 950
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a251214df84863a10800000000000000
+      internalID: 1888842847001646378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_12
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1083
+        width: 238
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bad669c54f36e9b0800000000000000
+      internalID: -5051280363085178191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_13
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 708
+        width: 136
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f3e80d4c2ccbcd30800000000000000
+      internalID: 4452877147228922867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_14
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 706
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0464a2dad2de70580800000000000000
+      internalID: -8860852961393621440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_15
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 823
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 991f7ada069e7c7a0800000000000000
+      internalID: -6356855747570568807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_16
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 835
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf69a56107e076250800000000000000
+      internalID: 5937730508285449979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_17
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1012
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f8b81acb4cd6450800000000000000
+      internalID: 6083734986090581907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_18
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 714
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef1c20e3ac673e60800000000000000
+      internalID: 7941935918987616227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_19
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 741
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832cea02a9888fec0800000000000000
+      internalID: -3532923712117489096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_20
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 899
+        width: 113
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb65e323f5335500800000000000000
+      internalID: 383709711652187116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_21
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 779
+        width: 35
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33796a0201a65bda0800000000000000
+      internalID: -5929716716863580365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_22
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 720
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa58703b0cc5b8510800000000000000
+      internalID: 1552436479266358698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_23
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 843
+        width: 51
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfbe4dab421454bd0800000000000000
+      internalID: -2646637580001154051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_24
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 684
+        width: 87
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b005291c908aef510800000000000000
+      internalID: 1584888878736756747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_25
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 706
+        width: 345
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca862cceb7bf96a0800000000000000
+      internalID: -6440226912019772722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_26
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 907
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d836d0ee6742aae0800000000000000
+      internalID: -1539589581063178024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_27
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 746
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed20f6b5711e2730800000000000000
+      internalID: 3976134718292766179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_28
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 738
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd71f7ec10c931d0800000000000000
+      internalID: -3370451615727124994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_29
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 891
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e189bf3022813f0800000000000000
+      internalID: -929955922550710765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_30
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 720
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1281f58f131d0dcf0800000000000000
+      internalID: -229453568445310943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_31
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 706
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88871bc7bbc99f50800000000000000
+      internalID: 6888761095286655115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_32
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 898
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2c6c626c35c54a0800000000000000
+      internalID: -6603310843112799573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_33
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 738
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09e1f522b7cc05130800000000000000
+      internalID: 3553564935225024144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_34
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 719
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5415fb78071a42b80800000000000000
+      internalID: -8420427898590113467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_35
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 931
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752e07877dc1ffe00800000000000000
+      internalID: 1080614147356418647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_36
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 937
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b4d7c8ac9fd5680800000000000000
+      internalID: -8764574651457385631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_37
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 966
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93600c1f868bd3150800000000000000
+      internalID: 5854037851523515961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_38
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 727
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a812141459b81ef0800000000000000
+      internalID: -137156017869678431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_39
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 754
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44c904d1d39af14e0800000000000000
+      internalID: -2008700828835079100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_40
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 733
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810a204e68fb12820800000000000000
+      internalID: 2891803021820469272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_41
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 867
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f1fb3f2aac793fa0800000000000000
+      internalID: -5820483973020913159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_42
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 722
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60b6f75ff9f4d9f80800000000000000
+      internalID: -8098229006505121018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_43
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 744
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e0c1601ee80e9d0800000000000000
+      internalID: -2747038675574714868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_44
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 738
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0dc26c04f4640cd0800000000000000
+      internalID: -2592836486115963635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_45
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 706
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5012c655ef6a090800000000000000
+      internalID: -8023446043274181154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_46
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 698
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa3dd1bc78c70930800000000000000
+      internalID: 4109473622884432546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_47
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 736
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cefd66b4ad3230b00800000000000000
+      internalID: 793517379822215148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_48
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 717
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a448c88da5833b0800000000000000
+      internalID: -5532572256107738467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_49
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 690
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6885c6baf5baff370800000000000000
+      internalID: 8358587860809177222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_50
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 702
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7caacdf57c2d4640800000000000000
+      internalID: 5065754041142389885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_51
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 728
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d48590a8159bad00800000000000000
+      internalID: 985044876516492502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_52
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 755
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b81503a40c907140800000000000000
+      internalID: 4715440353585731769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_53
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 698
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9341b76ddd1f45ff0800000000000000
+      internalID: -48147760905776071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_54
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1012
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882e90c1eca225b60800000000000000
+      internalID: 7733290574870602376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_55
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 784
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1ce3297e66ce5a0800000000000000
+      internalID: -6490699818170662470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_56
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1054
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33c522cfa8387ba30800000000000000
+      internalID: 4230995007896706099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_57
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 787
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85030d6053ffa6c70800000000000000
+      internalID: 8965258611447050328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_58
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 771
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb82d36dfb9660cf0800000000000000
+      internalID: -286425253637445442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_59
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 738
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccde4507613b42c00800000000000000
+      internalID: 875021136571985356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_60
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 771
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3595070dcc3a9ee0800000000000000
+      internalID: -1253622694985493189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_61
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 789
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c5850b7a8177300800000000000000
+      internalID: 249695412839537699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_62
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 901
+        width: 182
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6f43b3fd1079480800000000000000
+      internalID: -8892636880937093460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_63
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 738
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac1a5fee78f65f20800000000000000
+      internalID: 3411186991844957354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_64
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 714
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50bfdd705485f0d20800000000000000
+      internalID: 3246910909865392901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_65
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 706
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c34d02444c95afe0800000000000000
+      internalID: -1178363910507641920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_66
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 761
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4a8796ccf597f40800000000000000
+      internalID: 5726713732725777632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_67
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 738
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9bab3b026b313fd0800000000000000
+      internalID: -2364043037111506019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_68
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 799
+        width: 53
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5840ab25df7ccb0800000000000000
+      internalID: -4843624342463674931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_69
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 835
+        width: 77
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7675706c16eb67790800000000000000
+      internalID: -7532623999587100825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_70
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 722
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531130996c3ecfda0800000000000000
+      internalID: -5909598168906788555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_71
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 777
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f03d1456fd63e60800000000000000
+      internalID: 7941780618903490442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_72
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 742
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0b8e363114341b0800000000000000
+      internalID: -5673619554020314918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_73
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 1082
+        width: 148
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9439fdbb05ce32c0800000000000000
+      internalID: -4449902727572933476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_74
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 720
+        width: 39
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e556a41cd7e0c6c0800000000000000
+      internalID: -4125042326246107680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_75
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 723
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad2921c2f8071440800000000000000
+      internalID: 4906400157759253925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_76
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 769
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75b846b6ca9156df0800000000000000
+      internalID: -187715581139186857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_77
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 706
+        width: 47
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac4f968d26e8e720800000000000000
+      internalID: 2875801445282565280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_78
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 785
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc81dda70dbbe050800000000000000
+      internalID: 5830961983239851184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_79
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 754
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271aaeb29403dbf70800000000000000
+      internalID: 9204566304242704754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_80
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 770
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca71b5115a0e98a00800000000000000
+      internalID: 759385011754047404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_81
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 706
+        width: 148
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22de5abfb2e83bc0800000000000000
+      internalID: -3803040572220976594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_82
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 707
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d6dfd47d84d35ad0800000000000000
+      internalID: -2714592446357973292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_83
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 745
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f8d157d80eefe70800000000000000
+      internalID: 9150998391023308657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_84
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 742
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de19eef9028cc450800000000000000
+      internalID: 6110401773877927641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_85
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 720
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24adc21a7091b0fe0800000000000000
+      internalID: -1221855353341420990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_86
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 825
+        width: 100
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab75c5f8db5054e0800000000000000
+      internalID: -1994993647530706010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_87
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 702
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e081cf96e2f69b920800000000000000
+      internalID: 3006556471383824398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_88
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 1164
+        width: 88
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a6cffa9b330f5e20800000000000000
+      internalID: 3341393003070604961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_89
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 742
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ba190a5cd2591370800000000000000
+      internalID: 8293751295136307894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_90
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1036
+        width: 100
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427e40f6c7bed2930800000000000000
+      internalID: 4120208153784936228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_91
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 712
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b3c16095718d720800000000000000
+      internalID: 2871070433570732829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_92
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 1040
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4a8e6effb564ea0800000000000000
+      internalID: -5888918308091550515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_93
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 1034
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6a8bd2e76539e50800000000000000
+      internalID: 6814885761074636527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_94
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 777
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11ca4519c276dca0800000000000000
+      internalID: -5992476046198652643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_95
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 759
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b73a4b0f8d67580800000000000000
+      internalID: -8829631491078915297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_96
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 730
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9206c4dfbf35b40800000000000000
+      internalID: 5427959041238247886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_97
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 701
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8df18190217d2c90800000000000000
+      internalID: -7192968645146706545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_98
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 706
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dd036ad6f3b841a0800000000000000
+      internalID: -6825007362472735277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_99
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 690
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b6acf95de34ff00800000000000000
+      internalID: 1149612892116118423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_100
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 684
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f947a39c7a23a30800000000000000
+      internalID: 4193598685746339730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_101
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 670
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 205052d946d229c40800000000000000
+      internalID: 5517522403638707458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_102
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 674
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37433a67a26d9ca60800000000000000
+      internalID: 7694916916206580851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_103
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 468
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0a5e887cddc19a0800000000000000
+      internalID: -6260885532886851374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_104
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 485
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8732b41e41315450800000000000000
+      internalID: 6075691583723943823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods_Mist_v001_105
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 101
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132a12891124c38a0800000000000000
+      internalID: -6324107133400800719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Woods_Mist_v001_0: 27784628156472688
+      Woods_Mist_v001_1: 4386533615645202882
+      Woods_Mist_v001_10: -7650909834126380611
+      Woods_Mist_v001_100: 4193598685746339730
+      Woods_Mist_v001_101: 5517522403638707458
+      Woods_Mist_v001_102: 7694916916206580851
+      Woods_Mist_v001_103: -6260885532886851374
+      Woods_Mist_v001_104: 6075691583723943823
+      Woods_Mist_v001_105: -6324107133400800719
+      Woods_Mist_v001_11: 1888842847001646378
+      Woods_Mist_v001_12: -5051280363085178191
+      Woods_Mist_v001_13: 4452877147228922867
+      Woods_Mist_v001_14: -8860852961393621440
+      Woods_Mist_v001_15: -6356855747570568807
+      Woods_Mist_v001_16: 5937730508285449979
+      Woods_Mist_v001_17: 6083734986090581907
+      Woods_Mist_v001_18: 7941935918987616227
+      Woods_Mist_v001_19: -3532923712117489096
+      Woods_Mist_v001_2: -7443751560049359899
+      Woods_Mist_v001_20: 383709711652187116
+      Woods_Mist_v001_21: -5929716716863580365
+      Woods_Mist_v001_22: 1552436479266358698
+      Woods_Mist_v001_23: -2646637580001154051
+      Woods_Mist_v001_24: 1584888878736756747
+      Woods_Mist_v001_25: -6440226912019772722
+      Woods_Mist_v001_26: -1539589581063178024
+      Woods_Mist_v001_27: 3976134718292766179
+      Woods_Mist_v001_28: -3370451615727124994
+      Woods_Mist_v001_29: -929955922550710765
+      Woods_Mist_v001_3: -2370101082225080994
+      Woods_Mist_v001_30: -229453568445310943
+      Woods_Mist_v001_31: 6888761095286655115
+      Woods_Mist_v001_32: -6603310843112799573
+      Woods_Mist_v001_33: 3553564935225024144
+      Woods_Mist_v001_34: -8420427898590113467
+      Woods_Mist_v001_35: 1080614147356418647
+      Woods_Mist_v001_36: -8764574651457385631
+      Woods_Mist_v001_37: 5854037851523515961
+      Woods_Mist_v001_38: -137156017869678431
+      Woods_Mist_v001_39: -2008700828835079100
+      Woods_Mist_v001_4: -6554596290641612501
+      Woods_Mist_v001_40: 2891803021820469272
+      Woods_Mist_v001_41: -5820483973020913159
+      Woods_Mist_v001_42: -8098229006505121018
+      Woods_Mist_v001_43: -2747038675574714868
+      Woods_Mist_v001_44: -2592836486115963635
+      Woods_Mist_v001_45: -8023446043274181154
+      Woods_Mist_v001_46: 4109473622884432546
+      Woods_Mist_v001_47: 793517379822215148
+      Woods_Mist_v001_48: -5532572256107738467
+      Woods_Mist_v001_49: 8358587860809177222
+      Woods_Mist_v001_5: 7742616169690424951
+      Woods_Mist_v001_50: 5065754041142389885
+      Woods_Mist_v001_51: 985044876516492502
+      Woods_Mist_v001_52: 4715440353585731769
+      Woods_Mist_v001_53: -48147760905776071
+      Woods_Mist_v001_54: 7733290574870602376
+      Woods_Mist_v001_55: -6490699818170662470
+      Woods_Mist_v001_56: 4230995007896706099
+      Woods_Mist_v001_57: 8965258611447050328
+      Woods_Mist_v001_58: -286425253637445442
+      Woods_Mist_v001_59: 875021136571985356
+      Woods_Mist_v001_6: 49394701700203489
+      Woods_Mist_v001_60: -1253622694985493189
+      Woods_Mist_v001_61: 249695412839537699
+      Woods_Mist_v001_62: -8892636880937093460
+      Woods_Mist_v001_63: 3411186991844957354
+      Woods_Mist_v001_64: 3246910909865392901
+      Woods_Mist_v001_65: -1178363910507641920
+      Woods_Mist_v001_66: 5726713732725777632
+      Woods_Mist_v001_67: -2364043037111506019
+      Woods_Mist_v001_68: -4843624342463674931
+      Woods_Mist_v001_69: -7532623999587100825
+      Woods_Mist_v001_7: 4907387411770060998
+      Woods_Mist_v001_70: -5909598168906788555
+      Woods_Mist_v001_71: 7941780618903490442
+      Woods_Mist_v001_72: -5673619554020314918
+      Woods_Mist_v001_73: -4449902727572933476
+      Woods_Mist_v001_74: -4125042326246107680
+      Woods_Mist_v001_75: 4906400157759253925
+      Woods_Mist_v001_76: -187715581139186857
+      Woods_Mist_v001_77: 2875801445282565280
+      Woods_Mist_v001_78: 5830961983239851184
+      Woods_Mist_v001_79: 9204566304242704754
+      Woods_Mist_v001_8: -1238191260811383262
+      Woods_Mist_v001_80: 759385011754047404
+      Woods_Mist_v001_81: -3803040572220976594
+      Woods_Mist_v001_82: -2714592446357973292
+      Woods_Mist_v001_83: 9150998391023308657
+      Woods_Mist_v001_84: 6110401773877927641
+      Woods_Mist_v001_85: -1221855353341420990
+      Woods_Mist_v001_86: -1994993647530706010
+      Woods_Mist_v001_87: 3006556471383824398
+      Woods_Mist_v001_88: 3341393003070604961
+      Woods_Mist_v001_89: 8293751295136307894
+      Woods_Mist_v001_9: -7518072958699863198
+      Woods_Mist_v001_90: 4120208153784936228
+      Woods_Mist_v001_91: 2871070433570732829
+      Woods_Mist_v001_92: -5888918308091550515
+      Woods_Mist_v001_93: 6814885761074636527
+      Woods_Mist_v001_94: -5992476046198652643
+      Woods_Mist_v001_95: -8829631491078915297
+      Woods_Mist_v001_96: 5427959041238247886
+      Woods_Mist_v001_97: -7192968645146706545
+      Woods_Mist_v001_98: -6825007362472735277
+      Woods_Mist_v001_99: 1149612892116118423
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

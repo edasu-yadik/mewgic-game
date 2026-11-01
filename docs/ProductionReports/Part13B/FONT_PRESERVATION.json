@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "initialSha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52",
+  "restoredSha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52",
+  "method": "HEAD content plus original whitespace; restored only after exact initial byte hash matched",
+  "note": "TMP automatically cached U+25BC during setup; initial pre-existing whitespace changes preserved byte-for-byte"
+}

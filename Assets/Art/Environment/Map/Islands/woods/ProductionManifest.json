@@ -3,7 +3,7 @@
   "islandKey": "woods",
   "firstLevel": 201,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,8 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "runtimeBinding": "Mevcut MapWorld görünür bölge havuzuna bağlı IslandArtSlot; çıkışta handle/instance serbest bırakılır.",
+  "delivery": "1254x1254 RGBA kaynak; ada ASTC6x6, sis max1024. Statik taban/mimari/bitki/dekor bake; su/ışık/sis/ateşböcekleri ayrı katmanlar. Düğüm/sandık gerçek UI.",
+  "prefab": "Assets/Prefabs/Map/WhisperingWoods.prefab",
+  "address": "Map/woods"
 }

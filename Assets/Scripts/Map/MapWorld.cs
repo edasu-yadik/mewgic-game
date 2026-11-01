@@ -12,7 +12,7 @@ namespace Mewgic.Map
   readonly List<MapPoint> points=new List<MapPoint>();readonly List<IslandView> views=new List<IslandView>();readonly List<Graphic> motesGraphics=new List<Graphic>();
   Image background,mist;RectTransform header,tabs,navigation,scrollArea;TMP_Text regionTitle,informationText,celebration;GameObject celebrationRoot;CanvasGroup celebrationFade;MapPathGraphic paths;GameObject information,chapter;TMP_Text chapterTitle;readonly List<MapPoint> chapterNodes=new List<MapPoint>();
   Sprite panel;TMP_FontAsset font;Material waterLight;Rect nativeSafe;int screenWidth,screenHeight;Vector2 lastSafeSize;float scale,jumpTarget,celebrationUntil,focusSaveAt;bool jumping;int requestedRegion=-1,pendingFocus=-1;
-  sealed class IslandView {public int region=-1;public RectTransform root;public Image art;public TMP_Text title,summary;public MagicalProgressBar bar;public MapPoint[] groups=new MapPoint[5];public MapPoint chest;}
+  sealed class IslandView {public int region=-1;public RectTransform root;public Image art;public TMP_Text title,summary;public MagicalProgressBar bar;public MapPoint[] groups=new MapPoint[5];public MapPoint chest;public IslandArtSlot layered;}
         static RectTransform Rect(Transform p,string name,Vector2 min,Vector2 max)
         {var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         static Image Art(Transform p,string name,Sprite sprite,Vector2 min,Vector2 max)
@@ -50,7 +50,7 @@ namespace Mewgic.Map
   }
   IslandView CreateIsland(int index)
   {
-   var v=new IslandView();v.root=Rect(WorldRoot,"IslandPool_"+index,Vector2.zero,Vector2.zero);v.root.pivot=new Vector2(.5f,0);v.art=Art(v.root,"IslandArtwork",terrain[0],Vector2.zero,Vector2.one);v.art.preserveAspect=true;if(waterLight!=null)v.art.material=waterLight;
+   var v=new IslandView();v.root=Rect(WorldRoot,"IslandPool_"+index,Vector2.zero,Vector2.zero);v.root.pivot=new Vector2(.5f,0);v.art=Art(v.root,"IslandArtwork",terrain[0],Vector2.zero,Vector2.one);v.art.preserveAspect=true;if(waterLight!=null)v.art.material=waterLight;v.layered=v.root.gameObject.AddComponent<IslandArtSlot>();
    for(int n=0;n<5;n++)v.groups[n]=Point(v.root,-1,n,MapPointKind.LevelGroup,new Vector2(.12f+n*.19f,n%2==0?.46f:.40f),node,88);
    v.chest=Point(v.root,-1,0,MapPointKind.Chest,new Vector2(.90f,.72f),chest,94);
    var plate=Panel(v.root,"IslandName",new Vector2(.5f,0),new Vector2(.5f,0));plate.rectTransform.sizeDelta=new Vector2(610,132);plate.rectTransform.anchoredPosition=new Vector2(0,25);
@@ -63,16 +63,16 @@ namespace Mewgic.Map
   }
   void BindIsland(IslandView v,int region)
   {
-   v.region=region;var data=progression.Region(region);int a=data.artIndex;bool ready=data.artReady&&a>=0&&a<terrain.Length&&terrain[a]!=null;float w=ready&&a<4?new[]{620f,560f,600f,540f}[a]:620;float h=ready?w*terrain[a].rect.height/terrain[a].rect.width:620;
-   v.root.sizeDelta=new Vector2(w,h);v.root.anchoredPosition=new Vector2(region%2==0?335:565,120+(region-PackStart)*Spacing);v.art.gameObject.SetActive(ready);v.art.sprite=ready?terrain[a]:fog;v.art.material=ready?waterLight:null;v.art.color=ready?Color.white:new Color(.78f,.76f,1,.42f);
-   v.title.text=L.V("map.region_title",region+1,L.Island(region));int count=progression.Completed(region);v.bar.SetValue(count,50,0,true,!progression.RegionOpen(region));v.summary.text=ready?L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49):L.V("map.pending",L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49));
-   for(int n=0;n<5;n++){var p=v.groups[n];p.regionIndex=region;p.slotIndex=n;int first=data.firstLevel+n*10,done=Enumerable.Range(first,10).Count(x=>progression.Stars(x)>0);p.GetComponent<MapNodeBadge>().PresentGroup(first,first+9,done,progression.CurrentId>=first&&progression.CurrentId<=first+9,progression.CanEnter(first));}
-   v.chest.regionIndex=region;v.chest.GetComponent<MapNodeBadge>().PresentChest(progression.ChestReady(region),progression.ChestClaimed(region));v.root.gameObject.SetActive(true);
+   v.region=region;var data=progression.Region(region);bool woods=data.artReady&&data.artKey=="woods";int a=data.artIndex;bool ready=data.artReady&&a>=0&&a<terrain.Length&&terrain[a]!=null;float w=woods?640:ready&&a<4?new[]{620f,560f,600f,540f}[a]:620;float h=woods?640:ready?w*terrain[a].rect.height/terrain[a].rect.width:620;v.layered.Bind(woods?"woods":null,animateEnvironment);
+   v.root.sizeDelta=new Vector2(w,h);v.root.anchoredPosition=new Vector2(region%2==0?335:565,120+(region-PackStart)*Spacing);v.art.gameObject.SetActive(ready&&!woods);v.art.sprite=ready?terrain[a]:fog;v.art.material=ready?waterLight:null;v.art.color=ready?Color.white:new Color(.78f,.76f,1,.42f);
+   v.title.text=L.V("map.region_title",region+1,L.Island(region));int count=progression.Completed(region);v.bar.SetValue(count,50,0,true,!progression.RegionOpen(region));v.summary.text=ready||woods?L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49):L.V("map.pending",L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49));
+   for(int n=0;n<5;n++){var p=v.groups[n];var pr=(RectTransform)p.transform;pr.anchorMin=pr.anchorMax=woods?new Vector2(.17f+n*.16f,.505f-n*.027f):new Vector2(.12f+n*.19f,n%2==0?.46f:.40f);p.regionIndex=region;p.slotIndex=n;int first=data.firstLevel+n*10,done=Enumerable.Range(first,10).Count(x=>progression.Stars(x)>0);p.GetComponent<MapNodeBadge>().PresentGroup(first,first+9,done,progression.CurrentId>=first&&progression.CurrentId<=first+9,progression.CanEnter(first));}
+   var cr=(RectTransform)v.chest.transform;cr.anchorMin=cr.anchorMax=woods?new Vector2(.90f,.58f):new Vector2(.90f,.72f);v.chest.regionIndex=region;v.chest.GetComponent<MapNodeBadge>().PresentChest(progression.ChestReady(region),progression.ChestClaimed(region));v.root.gameObject.SetActive(true);
   }
   void UpdatePool(float center)
   {
    if(progression==null)return;float half=Viewport.rect.height/Mathf.Max(.01f,scale)*.5f;int first=Mathf.Clamp(Mathf.FloorToInt((center-half-780)/Spacing),0,11),last=Mathf.Clamp(Mathf.FloorToInt((center+half)/Spacing),0,11);
-   var needed=new HashSet<int>();for(int n=first;n<=last;n++)needed.Add(PackStart+n);foreach(var v in views)if(!needed.Contains(v.region)){v.region=-1;v.root.gameObject.SetActive(false);}
+   var needed=new HashSet<int>();for(int n=first;n<=last;n++)needed.Add(PackStart+n);foreach(var v in views)if(!needed.Contains(v.region)){v.region=-1;v.layered.Release();v.root.gameObject.SetActive(false);}
    foreach(int r in needed){if(views.Any(v=>v.region==r))continue;var free=views.FirstOrDefault(v=>v.region<0);if(free!=null)BindIsland(free,r);}
    paths.Points=views.Where(v=>v.region>=0).OrderBy(v=>v.region).SelectMany(v=>v.groups.Select(p=>(RectTransform)p.transform)).ToArray();paths.SetVerticesDirty();
   }
@@ -87,7 +87,7 @@ namespace Mewgic.Map
 
   public float RegionScrollPosition(int index){float hidden=Content.rect.height-Viewport.rect.height;return hidden<=0?0:Mathf.Clamp01(((120+(index-PackStart)*Spacing+340)*scale-Viewport.rect.height*.5f)/hidden);}
   public void FocusCurrent(){FocusRegion(progression.CurrentRegion);}
-  public void FocusRegion(int index,bool smooth=true){if(progression==null||index<0||index>(int.MaxValue-50)/50)return;int pack=index/12*12;if(PackStart!=pack){PackStart=pack;foreach(var v in views){v.region=-1;v.root.gameObject.SetActive(false);}}Scroll.StopMovement();requestedRegion=index;jumpTarget=RegionScrollPosition(index);jumping=smooth;if(!smooth){Scroll.verticalNormalizedPosition=jumpTarget;UpdateVisibleRegion();}pendingFocus=index*50+1;focusSaveAt=Time.unscaledTime+.6f;}
+  public void FocusRegion(int index,bool smooth=true){if(progression==null||index<0||index>(int.MaxValue-50)/50)return;int pack=index/12*12;if(PackStart!=pack){PackStart=pack;foreach(var v in views){v.region=-1;v.layered.Release();v.root.gameObject.SetActive(false);}}Scroll.StopMovement();requestedRegion=index;jumpTarget=RegionScrollPosition(index);jumping=smooth;if(!smooth){Scroll.verticalNormalizedPosition=jumpTarget;UpdateVisibleRegion();}pendingFocus=index*50+1;focusSaveAt=Time.unscaledTime+.6f;}
   public void CancelJump(){jumping=false;requestedRegion=-1;UpdateVisibleRegion();}
   void UpdateVisibleRegion(){if(!Mounted||progression==null||scale<=0)return;float center=(Mathf.Clamp01(Scroll.verticalNormalizedPosition)*Mathf.Max(0,Content.rect.height-Viewport.rect.height)+Viewport.rect.height*.5f)/scale;int closest=PackStart+Mathf.Clamp(Mathf.RoundToInt((center-460)/Spacing),0,11);if(requestedRegion>=0)closest=requestedRegion;if(ActiveRegion!=closest){ActiveRegion=closest;pendingFocus=closest*50+1;focusSaveAt=Time.unscaledTime+.7f;}UpdatePool(center);UpdateProgressTitle();background.rectTransform.anchoredPosition=new Vector2(0,-Scroll.verticalNormalizedPosition*18);}
   void SaveFocus(){if(ledger!=null&&pendingFocus>0){ledger.SaveMapFocus(pendingFocus);pendingFocus=-1;}}
