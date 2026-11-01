@@ -85,3 +85,7 @@ Fiziksel iPhone/Android dokunma/FPS/RAM/termal ve paketlenmiş Player/IL2CPP tes
 PRESERVATION.json: başlangıçtaki2162 takipli dosyanın yalnız yedi ilgili dosyası (ilerleme belgesi dahil) değişti;2155 dosya byte olarak aynı. Mevcut beş adanın sanat/prefab/animasyon dosyaları, bütün Gameplay/Core/save/Pati/localization üretim dosyaları korundu. Önceden kirli olan TMP fallback dosyası başlangıçtaki gerçek byte kopyasından geri getirildi ve SHA256 doğrulandı; commit kapsamı dışında. Diğer altı yeni adanın üretimine başlanmadı.
 
 Editör Türkçe, izole251 başlangıç profiliyle Altın Serap Game View büyütülmüş halde bırakıldı. Yeni TestFlight build'i yok. Git teslim kaydı aşağıya eklenir.
+
+## Git teslimi
+
+Uygulama/kabul commit'i `0c0bce7634d5bfdbd962f04827597f67cadd76e3`. `git push origin recovery/part09-completion` başarılı; `git ls-remote` uzak dalın aynı SHA olduğunu doğruladı. Master `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak değişmedi. Yalnız76 ilgili dosya (Mirage sanatı/prefabı/grubu, gereken ortak bağlantılar, QA/performans araçları ve raporlar) gönderildi. Önceden var olan font ve diğer ilgisiz çalışmalar commit edilmedi. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. **Yalnız PART13C tamamlandı.**
