@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var m=UnityEngine.Object.FindFirstObjectByType<Mewgic.Map.MapWorld>();var w=UnityEditor.EditorWindow.GetWindow(typeof(UnityEditor.Editor).Assembly.GetType(\"UnityEditor.GameView\"));return new{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path,playing=UnityEditor.EditorApplication.isPlaying,gameViewFocused=UnityEditor.EditorWindow.focusedWindow==w,maximized=w.maximized,region=m.ActiveRegion,current=m.Progression.CurrentId,allTwelveOpen=System.Linq.Enumerable.Range(0,12).All(i=>m.Progression.RegionOpen(i)),testProfile=Mewgic.GameplayProgress.IsTestProfile};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "scene": "Assets/Scenes/LevelMap.unity",
+        "playing": true,
+        "gameViewFocused": true,
+        "maximized": true,
+        "region": 0,
+        "current": 600,
+        "allTwelveOpen": true,
+        "testProfile": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

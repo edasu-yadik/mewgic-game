@@ -1,0 +1,89 @@
+{
+  "success": true,
+  "transitions": [
+    {
+      "from": 50,
+      "to": 51,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 50→51",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 100,
+      "to": 101,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 100→101",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 150,
+      "to": 151,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 150→151",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 200,
+      "to": 201,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 200→201",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 250,
+      "to": 251,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 250→251",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 300,
+      "to": 301,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 300→301",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 350,
+      "to": 351,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 350→351",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 400,
+      "to": 401,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 400→401",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 450,
+      "to": 451,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 450→451",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 500,
+      "to": 501,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 500→501",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 550,
+      "to": 551,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 550→551",
+      "mapStarsReloadReplayPassed": true
+    },
+    {
+      "from": 600,
+      "to": 601,
+      "actualWinAndNext": true,
+      "assertion": "Gerçek sınır geçişi 600→601",
+      "mapStarsReloadReplayPassed": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2710,
+  "unchangedFiles": 2709,
+  "intentionalChanges": [
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpectedChanges": [],
+  "scope": "Existing production art, scenes, generator, localization, save, gameplay and Pati files unchanged. Preexisting TMP fallback bytes included."
+}

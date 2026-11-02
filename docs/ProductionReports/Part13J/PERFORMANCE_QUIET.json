@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "stationaryArtInstanceIdsStable": true,
+  "environment": "Windows Unity6000.3.27f1 / Android import target / AssetDatabase Play Mode",
+  "warmupFrames": 60,
+  "sampledFrames": 180,
+  "medianMs": 8.295897394418716,
+  "p95Ms": 10.454598814249039,
+  "maxMs": 19.10119690001011,
+  "drawCalls": 80,
+  "triangles": 4434,
+  "liveHandles": 3,
+  "liveInstances": 3,
+  "note": "Ölçüm sırasında Unity araç çağrısı yapılmadı. Telefon/GPU/termal ölçümü değildir."
+}

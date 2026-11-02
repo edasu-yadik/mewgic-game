@@ -1,0 +1,10 @@
+{
+  "frames": 360,
+  "medianMs": 8.7068025022745132,
+  "p95Ms": 11.713705025613308,
+  "maxMs": 15.85470512509346,
+  "peakHandles": 4,
+  "peakInstances": 3,
+  "pooledNodes": 40,
+  "note": "Windows Editor, gerçek360 çizilen kaydırma karesi; telefon FPS değildir"
+}

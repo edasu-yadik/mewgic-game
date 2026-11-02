@@ -1,0 +1,673 @@
+{
+  "success": true,
+  "islands": [
+    {
+      "island": 1,
+      "displayName": "Enchanted Village",
+      "theme": "Büyülü köy",
+      "firstLevel": 1,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Art/Environment/Map/Map_Village_v001.png",
+      "address": null,
+      "layers": [],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Map_Village_v001.png",
+          "width": 1536,
+          "height": 1024,
+          "format": "ASTC_4x4",
+          "astc6x6Bytes": 700416,
+          "rgbaBytes": 6291456,
+          "editorBytes": 7865216,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_4x4",
+          "ios": "AutomaticCompressed"
+        }
+      ]
+    },
+    {
+      "island": 2,
+      "displayName": "Crystal Falls",
+      "theme": "Kristal şelaleler",
+      "firstLevel": 51,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png",
+      "address": null,
+      "layers": [],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Map_Crystal_v001.png",
+          "width": 1206,
+          "height": 1305,
+          "format": "ASTC_4x4",
+          "astc6x6Bytes": 701088,
+          "rgbaBytes": 6295320,
+          "editorBytes": 1580960,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_4x4",
+          "ios": "AutomaticCompressed"
+        }
+      ]
+    },
+    {
+      "island": 3,
+      "displayName": "Moon Garden",
+      "theme": "Ay bahçesi",
+      "firstLevel": 101,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Art/Environment/Map/Map_Moon_v001.png",
+      "address": null,
+      "layers": [],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Map_Moon_v001.png",
+          "width": 1240,
+          "height": 1268,
+          "format": "ASTC_4x4",
+          "astc6x6Bytes": 702144,
+          "rgbaBytes": 6289280,
+          "editorBytes": 1573216,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_4x4",
+          "ios": "AutomaticCompressed"
+        }
+      ]
+    },
+    {
+      "island": 4,
+      "displayName": "Sky Castle",
+      "theme": "Gökyüzü şatosu",
+      "firstLevel": 151,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Art/Environment/Map/Map_Castle_v001.png",
+      "address": null,
+      "layers": [],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Map_Castle_v001.png",
+          "width": 1145,
+          "height": 1374,
+          "format": "ASTC_4x4",
+          "astc6x6Bytes": 699824,
+          "rgbaBytes": 6292920,
+          "editorBytes": 1580544,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_4x4",
+          "ios": "AutomaticCompressed"
+        }
+      ]
+    },
+    {
+      "island": 5,
+      "displayName": "Whispering Woods",
+      "theme": "Büyülü orman",
+      "firstLevel": 201,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/WhisperingWoods.prefab",
+      "address": "Map/woods",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/woods/ForegroundEffects/Woods_Mist_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/woods/IslandBase/Woods_Island_v002.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 6,
+      "displayName": "Golden Mirage",
+      "theme": "Altın çöl ve vaha",
+      "firstLevel": 251,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/GoldenMirage.prefab",
+      "address": "Map/mirage",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/mirage/ForegroundEffects/Mirage_Mist_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/mirage/Decorations/Mirage_CrystalArch_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/mirage/IslandBase/Mirage_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 7,
+      "displayName": "Coral Kingdom",
+      "theme": "Mercan ve su krallığı",
+      "firstLevel": 301,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/CoralKingdom.prefab",
+      "address": "Map/coral",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/coral/Architecture/Coral_Palace_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/coral/ForegroundEffects/Coral_Rays_v001.png",
+          "width": 512,
+          "height": 341,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 78432,
+          "rgbaBytes": 698368,
+          "editorBytes": 79328,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/coral/IslandBase/Coral_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/coral/Vegetation/Coral_Cluster_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 8,
+      "displayName": "Frostlight Peaks",
+      "theme": "Buzlu kristal dağları",
+      "firstLevel": 351,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/FrostlightPeaks.prefab",
+      "address": "Map/frost",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/frost/IslandBase/Frost_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/frost/Architecture/Frost_Palace_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/frost/Vegetation/Frost_Trees_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/frost/ForegroundEffects/Frost_Aurora_v001.png",
+          "width": 512,
+          "height": 256,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 59168,
+          "rgbaBytes": 524288,
+          "editorBytes": 60064,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 9,
+      "displayName": "Clockwork Isles",
+      "theme": "Saat ve mekanik adalar",
+      "firstLevel": 401,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/ClockworkIsles.prefab",
+      "address": "Map/clockwork",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/clockwork/Decorations/Clockwork_Gear_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Workshops_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Tower_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/clockwork/IslandBase/Clockwork_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 10,
+      "displayName": "Starlight Grove",
+      "theme": "Yıldızlı çiçek bahçesi",
+      "firstLevel": 451,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/StarlightGrove.prefab",
+      "address": "Map/starlight",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/starlight/Architecture/Starlight_Cottages_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/starlight/IslandBase/Starlight_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/starlight/Vegetation/Starlight_Tree_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/starlight/ForegroundEffects/Starlight_Petal_v001.png",
+          "width": 256,
+          "height": 256,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 29584,
+          "rgbaBytes": 262144,
+          "editorBytes": 30480,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 11,
+      "displayName": "Arcane Library",
+      "theme": "Büyülü kitaplar ve akademi",
+      "firstLevel": 501,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/ArcaneLibrary.prefab",
+      "address": "Map/library",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/library/Architecture/Library_Academy_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/library/ForegroundEffects/Library_Ring_v001.png",
+          "width": 256,
+          "height": 256,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 29584,
+          "rgbaBytes": 262144,
+          "editorBytes": 30480,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/library/IslandBase/Library_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/library/Decorations/Library_Book_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    },
+    {
+      "island": 12,
+      "displayName": "Aurora Citadel",
+      "theme": "Gökyüzü ve aurora kalesi",
+      "firstLevel": 551,
+      "levelCount": 50,
+      "artReady": true,
+      "path": "Assets/Prefabs/Map/AuroraCitadel.prefab",
+      "address": "Map/aurora",
+      "layers": [
+        "Background",
+        "IslandBase",
+        "Architecture",
+        "Vegetation",
+        "WaterOrSpecialEffects",
+        "Decorations",
+        "LevelNodes",
+        "Rewards",
+        "ForegroundEffects"
+      ],
+      "textures": [
+        {
+          "path": "Assets/Art/Environment/Map/Islands/aurora/Decorations/Aurora_StarIslet_v001.png",
+          "width": 512,
+          "height": 512,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 118336,
+          "rgbaBytes": 1048576,
+          "editorBytes": 119232,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/aurora/Architecture/Aurora_Castle_v001.png",
+          "width": 1024,
+          "height": 1024,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 467856,
+          "rgbaBytes": 4194304,
+          "editorBytes": 468752,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/aurora/IslandBase/Aurora_Island_v001.png",
+          "width": 1254,
+          "height": 1254,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 698896,
+          "rgbaBytes": 6290064,
+          "editorBytes": 699792,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        },
+        {
+          "path": "Assets/Art/Environment/Map/Islands/aurora/Background/Aurora_Ribbons_v001.png",
+          "width": 512,
+          "height": 341,
+          "format": "ASTC_6x6",
+          "astc6x6Bytes": 78432,
+          "rgbaBytes": 698368,
+          "editorBytes": 79328,
+          "readWrite": false,
+          "mipmap": false,
+          "android": "ASTC_6x6",
+          "ios": "ASTC_6x6"
+        }
+      ]
+    }
+  ],
+  "allArtAstcEstimateBytes": 13009856,
+  "allArtRgbaFallbackBytes": 116732112,
+  "note": "Tum12 adanin sanat kaynaklari toplami; ayni anda yuklu RAM degildir. Sky/UI/material/driver/atlas overhead haric; Editor bellegi telefon RAM degildir."
+}
