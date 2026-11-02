@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 25fa6750affb4a5478fcf78608fada94
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4038295853353282919
+    second: Frost_Aurora_v001_0
+  - first:
+      213: -7825066239990271646
+    second: Frost_Aurora_v001_1
+  - first:
+      213: 8973688913830048190
+    second: Frost_Aurora_v001_2
+  - first:
+      213: -8317443372911162336
+    second: Frost_Aurora_v001_3
+  - first:
+      213: -9062573434326558692
+    second: Frost_Aurora_v001_4
+  - first:
+      213: -4505882627422421841
+    second: Frost_Aurora_v001_5
+  - first:
+      213: -6550527726526824052
+    second: Frost_Aurora_v001_6
+  - first:
+      213: 5658183154218286044
+    second: Frost_Aurora_v001_7
+  - first:
+      213: -7076196797296368374
+    second: Frost_Aurora_v001_8
+  - first:
+      213: -1691163304859483741
+    second: Frost_Aurora_v001_9
+  - first:
+      213: -127358312132000944
+    second: Frost_Aurora_v001_10
+  - first:
+      213: -4070538630831709120
+    second: Frost_Aurora_v001_11
+  - first:
+      213: -788685451006502237
+    second: Frost_Aurora_v001_12
+  - first:
+      213: -562806050562263726
+    second: Frost_Aurora_v001_13
+  - first:
+      213: -3532687819750881968
+    second: Frost_Aurora_v001_14
+  - first:
+      213: 5281360013655660679
+    second: Frost_Aurora_v001_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 2
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1774
+        height: 887
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d2e0dcea8ea0830800000000000000
+      internalID: 4038295853353282919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_1
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 882
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2617a75b6b7c76390800000000000000
+      internalID: -7825066239990271646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_2
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 820
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb173b1c582f88c70800000000000000
+      internalID: 8973688913830048190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_3
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 870
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c043ee151829c80800000000000000
+      internalID: -8317443372911162336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_4
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 872
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18d2102a754b3280800000000000000
+      internalID: -9062573434326558692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_5
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 874
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: facf1e0af93e771c0800000000000000
+      internalID: -4505882627422421841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_6
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 841
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8185092db9d715a0800000000000000
+      internalID: -6550527726526824052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_7
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 874
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdbb745b997e58e40800000000000000
+      internalID: 5658183154218286044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_8
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 870
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05a460118c4ccd90800000000000000
+      internalID: -7076196797296368374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_9
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 854
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1cca43fe7c788e0800000000000000
+      internalID: -1691163304859483741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 457
+        width: 96
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053cd263a488b3ef0800000000000000
+      internalID: -127358312132000944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_11
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 417
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04465c09eaa8287c0800000000000000
+      internalID: -4070538630831709120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 9
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa1d3dc2c60e05f0800000000000000
+      internalID: -788685451006502237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_13
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 243
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255bbcef0e28038f0800000000000000
+      internalID: -562806050562263726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_14
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 241
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0554669152f59fec0800000000000000
+      internalID: -3532687819750881968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frost_Aurora_v001_15
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 110
+        width: 161
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 788d5e853f82b4940800000000000000
+      internalID: 5281360013655660679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Frost_Aurora_v001_0: 4038295853353282919
+      Frost_Aurora_v001_1: -7825066239990271646
+      Frost_Aurora_v001_10: -127358312132000944
+      Frost_Aurora_v001_11: -4070538630831709120
+      Frost_Aurora_v001_12: -788685451006502237
+      Frost_Aurora_v001_13: -562806050562263726
+      Frost_Aurora_v001_14: -3532687819750881968
+      Frost_Aurora_v001_15: 5281360013655660679
+      Frost_Aurora_v001_2: 8973688913830048190
+      Frost_Aurora_v001_3: -8317443372911162336
+      Frost_Aurora_v001_4: -9062573434326558692
+      Frost_Aurora_v001_5: -4505882627422421841
+      Frost_Aurora_v001_6: -6550527726526824052
+      Frost_Aurora_v001_7: 5658183154218286044
+      Frost_Aurora_v001_8: -7076196797296368374
+      Frost_Aurora_v001_9: -1691163304859483741
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

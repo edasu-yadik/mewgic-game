@@ -1,0 +1,35 @@
+{
+  "textures": [
+    {
+      "path": "Assets/Art/Environment/Map/Islands/frost/IslandBase/Frost_Island_v001.png",
+      "width": 1254,
+      "height": 1254,
+      "astc6x6Bytes": 698896,
+      "rgba32Bytes": 6290064
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/frost/Architecture/Frost_Palace_v001.png",
+      "width": 1024,
+      "height": 1024,
+      "astc6x6Bytes": 467856,
+      "rgba32Bytes": 4194304
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/frost/Vegetation/Frost_Trees_v001.png",
+      "width": 512,
+      "height": 512,
+      "astc6x6Bytes": 118336,
+      "rgba32Bytes": 1048576
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/frost/ForegroundEffects/Frost_Aurora_v001.png",
+      "width": 512,
+      "height": 256,
+      "astc6x6Bytes": 59168,
+      "rgba32Bytes": 524288
+    }
+  ],
+  "astc6x6PayloadBytes": 1344256,
+  "rgba32FallbackBytes": 12057232,
+  "note": "Sadece doku payload hesabı; kaynak PNG disk boyutu ve Editor RAM cihaz RAM ölçümü değildir. Mesh/materyal/Addressables/diğer adalar/gökyüzü dahil değil."
+}

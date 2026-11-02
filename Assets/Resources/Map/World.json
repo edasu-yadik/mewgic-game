@@ -121,7 +121,7 @@
       "firstLevel": 351,
       "levelCount": 50,
       "artIndex": -1,
-      "artReady": false,
+      "artReady": true,
       "artKey": "frost",
       "tutorialIds": [],
       "reward": {

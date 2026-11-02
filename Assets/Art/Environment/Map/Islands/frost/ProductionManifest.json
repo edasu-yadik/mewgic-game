@@ -3,7 +3,7 @@
   "islandKey": "frost",
   "firstLevel": 351,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,14 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "plannedPrefab": "Assets/Prefabs/Map/FrostlightPeaks.prefab",
+  "runtimeBinding": "IslandArtSlot / Map/frost; görünür MapWorld havuzunda yerel Addressables",
+  "delivery": "Gerçek boyutlu RGBA PNG kaynakları; ayrı taban, buz sarayı, kristal ağaç ve aurora. ASTC6x6; ReadWrite/mipmap kapalı.",
+  "sources": [
+    "IslandBase/Frost_Island_v001.png",
+    "Architecture/Frost_Palace_v001.png",
+    "Vegetation/Frost_Trees_v001.png",
+    "ForegroundEffects/Frost_Aurora_v001.png"
+  ],
+  "effects": "Ayrı buz parıltısı geçişi, düşük alpha aurora,10 küçük kar; statik donmuş şelale; gerçek düğüm/sandık bağımsız."
 }
