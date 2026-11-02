@@ -5,7 +5,7 @@ namespace Mewgic
 {
     public sealed class GameplayEndScreen : MonoBehaviour
     {
-        RectTransform root;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary;Button next;int awarded;float clock;Func<bool> paused;bool showing;
+        RectTransform root;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary;Button next;int awarded;float clock;Func<bool> paused;bool showing;int coinReward;bool firstReward,saveOk;
         public GameObject Panel=>root.gameObject;
         public bool IsShowing=>showing;
         public void Mount(RectTransform safe,Action replay,Action advance,Action home,Func<bool> isPaused)
@@ -24,19 +24,21 @@ namespace Mewgic
         }
         Button Control(string name,string text,Vector2 min,Vector2 max,Action action,Sprite panel)
         {var im=GameplayTools.Art(root,name,panel,min,max,true);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());GameplayTools.Label(im.transform,"Label",text,27,new Vector2(.05f,.12f),new Vector2(.95f,.88f));return b;}
-        public void Show(int level,int moves,int starCount,bool granted,bool saved,bool hasNext)
+        public void Show(int level,int moves,int starCount,bool granted,bool saved,bool hasNext,int coins=0)
         {
-            if(showing)return;showing=true;awarded=starCount;clock=0;root.gameObject.SetActive(true);root.SetAsLastSibling();
+            if(showing)return;coinReward=coins;firstReward=granted;saveOk=saved;showing=true;awarded=starCount;clock=0;root.gameObject.SetActive(true);root.SetAsLastSibling();
             summary.text=L.V("gameplay.result",level,moves,starCount);
-            reward.text=!saved?L.V("error.save"):granted?L.V("gameplay.first_reward"):L.V("gameplay.reward_taken");
+            reward.text=!saved?L.V("error.save"):L.V("reward.coins",coins);
             next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?L.V("gameplay.next"):L.V("gameplay.last");
             Animate();
         }
         public void Hide(){showing=false;if(root!=null)root.gameObject.SetActive(false);}
-        void Update(){if(showing&&!paused()){clock+=Time.unscaledDeltaTime;Animate();}}
+        void Update(){if(showing&&!paused()&&clock<2.4f){clock+=Time.unscaledDeltaTime;Animate();}}
         void Animate()
         {
-            for(int i=0;i<3;i++){float t=Mathf.Clamp01((clock-i*.17f)/.4f);stars[i].rectTransform.localScale=Vector3.one*Mathf.Lerp(.05f,1,Mathf.Sin(t*Mathf.PI*.5f));stars[i].color=i<awarded?Color.white:new Color(.3f,.24f,.4f,.75f);}
+            root.localScale=Vector3.one*Mathf.Lerp(.94f,1,Mathf.SmoothStep(0,1,Mathf.Clamp01(clock/.35f)));
+            if(saveOk)reward.text=L.V("reward.result",(int)(coinReward*Mathf.SmoothStep(0,1,Mathf.Clamp01(clock/1.2f))),coinReward>0?Mewgic.Core.CompletionReward.Base(firstReward):0,coinReward>0?Mewgic.Core.CompletionReward.StarBonus(awarded,firstReward):0,firstReward?1:0);
+            for(int i=0;i<3;i++){float t=Mathf.Clamp01((clock-i*.17f)/.4f);stars[i].rectTransform.localScale=Vector3.one*Mathf.Lerp(.05f,1,Mathf.Sin(t*Mathf.PI*.5f));stars[i].color=i<awarded?Color.Lerp(new Color(1,.75f,.2f,1),Color.white,Mathf.Clamp01((clock-i*.17f)/.8f)):new Color(.3f,.24f,.4f,.75f);}
             for(int i=0;i<sparks.Length;i++){float t=Mathf.Repeat(clock*.45f+i*.071f,1);var r=sparks[i].rectTransform;r.anchoredPosition=new Vector2(Mathf.Sin(i*2.4f)*root.rect.width*.43f,Mathf.Lerp(root.rect.height*.35f,-root.rect.height*.15f,t));r.localRotation=Quaternion.Euler(0,0,clock*25+i*13);sparks[i].color=new Color(1,.8f,.3f,clock<2.3f?Mathf.Sin(t*Mathf.PI)*.8f:0);}
         }
     }

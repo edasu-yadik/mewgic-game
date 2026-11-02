@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2833,
+  "unchanged": 2812,
+  "intentionalChanges": [
+    "Assets/Localization/Source/Mewgic.json",
+    "Assets/Localization/Tables/Mewgic Shared Data.asset",
+    "Assets/Localization/Tables/Mewgic_de.asset",
+    "Assets/Localization/Tables/Mewgic_en.asset",
+    "Assets/Localization/Tables/Mewgic_es.asset",
+    "Assets/Localization/Tables/Mewgic_fr.asset",
+    "Assets/Localization/Tables/Mewgic_it.asset",
+    "Assets/Localization/Tables/Mewgic_pl.asset",
+    "Assets/Localization/Tables/Mewgic_pt-BR.asset",
+    "Assets/Localization/Tables/Mewgic_tr.asset",
+    "Assets/Scripts/Core/BoosterActions.cs",
+    "Assets/Scripts/Core/DailyActivities.cs",
+    "Assets/Scripts/Daily/DailyActivitiesPanel.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "Assets/Scripts/Map/MapWorldProgression.cs",
+    "Assets/Scripts/Presentation/GameplayEndScreen.cs",
+    "Assets/Scripts/Presentation/HomeResourceModel.cs",
+    "Assets/Scripts/Presentation/HomeTopBar.cs",
+    "Assets/Scripts/Presentation/PrototypeApp.cs",
+    "Assets/Scripts/Rewards/RewardHubPanel.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpected": [],
+  "note": "Ada sanati, sahneler, prefablar, puzzle/uretici/Pati ve onceki raporlar korundu; baslangicta degismis font byte olarak ayni."
+}

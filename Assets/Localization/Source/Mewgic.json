@@ -1164,14 +1164,14 @@
   {
     "key": "daily.gift_saved",
     "values": {
-      "tr": "İpucu kaydedildi. Yarın yine bekleriz!",
-      "en": "Hint saved. Come back tomorrow!",
-      "de": "Tipp gespeichert. Komm morgen wieder!",
-      "fr": "Indice enregistré. Reviens demain !",
-      "es": "Pista guardada. ¡Vuelve mañana!",
-      "pt-BR": "Dica salva. Volte amanhã!",
-      "it": "Suggerimento salvato. Torna domani!",
-      "pl": "Podpowiedź zapisana. Wróć jutro!"
+      "tr": "100 coin ve 1 ipucu kaydedildi.",
+      "en": "100 coins and 1 hint saved.",
+      "de": "100 Münzen und 1 Hinweis gespeichert.",
+      "fr": "100 pièces et 1 indice enregistrés.",
+      "es": "100 monedas y 1 pista guardadas.",
+      "pt-BR": "100 moedas e 1 dica salvas.",
+      "it": "100 monete e 1 aiuto salvati.",
+      "pl": "Zapisano 100 monet i 1 podpowiedź."
     },
     "review": "draft"
   },
@@ -1234,14 +1234,14 @@
   {
     "key": "daily.wait",
     "values": {
-      "tr": "Yeni yerel gün ve en az 20 saat gerekli.",
-      "en": "Wait for a new local day and at least 20 hours.",
-      "de": "Warte auf einen neuen lokalen Tag und mindestens 20 Stunden.",
-      "fr": "Attends un nouveau jour local et au moins 20 heures.",
-      "es": "Espera un nuevo día local y al menos 20 horas.",
-      "pt-BR": "Aguarde um novo dia local e pelo menos 20 horas.",
-      "it": "Attendi un nuovo giorno locale e almeno 20 ore.",
-      "pl": "Poczekaj na nowy lokalny dzień i co najmniej 20 godzin."
+      "tr": "Son ödülden 24 saat sonra hazır.",
+      "en": "Ready 24 hours after your last reward.",
+      "de": "24 Stunden nach der letzten Belohnung bereit.",
+      "fr": "Disponible 24 heures après la dernière récompense.",
+      "es": "Disponible 24 horas después de tu última recompensa.",
+      "pt-BR": "Disponível 24 horas após a última recompensa.",
+      "it": "Disponibile 24 ore dopo l’ultima ricompensa.",
+      "pl": "Dostępne 24 godziny po ostatniej nagrodzie."
     },
     "review": "draft"
   },
@@ -1696,14 +1696,14 @@
   {
     "key": "map.scroll",
     "values": {
-      "tr": "Yukarı kaydır • Bir bölüm grubu seç",
-      "en": "Swipe up • Choose a level group",
-      "de": "Nach oben wischen • Levelgruppe wählen",
-      "fr": "Glisse vers le haut • Choisis un groupe",
-      "es": "Desliza hacia arriba • Elige un grupo",
-      "pt-BR": "Deslize para cima • Escolha um grupo",
-      "it": "Scorri in alto • Scegli un gruppo",
-      "pl": "Przesuń w górę • Wybierz grupę"
+      "tr": "Kaydır • Bir ada seç",
+      "en": "Scroll • Select an island",
+      "de": "Scrollen • Insel wählen",
+      "fr": "Défiler • Choisir une île",
+      "es": "Desliza • Elige una isla",
+      "pt-BR": "Role • Escolha uma ilha",
+      "it": "Scorri • Scegli un’isola",
+      "pl": "Przewiń • Wybierz wyspę"
     },
     "review": "draft"
   },
@@ -2196,5 +2196,75 @@
       "pl": "Prezent"
     },
     "review": "draft"
+  },
+  {
+    "key": "reward.coins",
+    "review": "PART14A",
+    "values": {
+      "tr": "+{0} coin",
+      "en": "+{0} coins",
+      "de": "+{0} Münzen",
+      "fr": "+{0} pièces",
+      "es": "+{0} monedas",
+      "pt-BR": "+{0} moedas",
+      "it": "+{0} monete",
+      "pl": "+{0} monet"
+    }
+  },
+  {
+    "key": "reward.result",
+    "review": "PART14A",
+    "values": {
+      "tr": "+{0} coin\nTamamlama {1} + Yıldız {2}\nİpucu +{3}",
+      "en": "+{0} coins\nCompletion {1} + Stars {2}\nHints +{3}",
+      "de": "+{0} Münzen\nAbschluss {1} + Sterne {2}\nHinweise +{3}",
+      "fr": "+{0} pièces\nFin {1} + Étoiles {2}\nIndices +{3}",
+      "es": "+{0} monedas\nCompletar {1} + Estrellas {2}\nPistas +{3}",
+      "pt-BR": "+{0} moedas\nConclusão {1} + Estrelas {2}\nDicas +{3}",
+      "it": "+{0} monete\nCompletamento {1} + Stelle {2}\nAiuti +{3}",
+      "pl": "+{0} monet\nUkończenie {1} + Gwiazdy {2}\nPodpowiedzi +{3}"
+    }
+  },
+  {
+    "key": "reward.daily",
+    "review": "PART14A",
+    "values": {
+      "tr": "{0} coin + {1} ipucu",
+      "en": "{0} coins + {1} hint",
+      "de": "{0} Münzen + {1} Hinweis",
+      "fr": "{0} pièces + {1} indice",
+      "es": "{0} monedas + {1} pista",
+      "pt-BR": "{0} moedas + {1} dica",
+      "it": "{0} monete + {1} aiuto",
+      "pl": "{0} monet + {1} podpowiedź"
+    }
+  },
+  {
+    "key": "reward.open",
+    "review": "PART14A",
+    "values": {
+      "tr": "SANDIĞI AÇ",
+      "en": "OPEN CHEST",
+      "de": "TRUHE ÖFFNEN",
+      "fr": "OUVRIR LE COFFRE",
+      "es": "ABRIR COFRE",
+      "pt-BR": "ABRIR BAÚ",
+      "it": "APRI FORZIERE",
+      "pl": "OTWÓRZ SKRZYNIĘ"
+    }
+  },
+  {
+    "key": "map.levels_short",
+    "review": "PART14A",
+    "values": {
+      "tr": "BÖLÜMLER",
+      "en": "LEVELS",
+      "de": "LEVEL",
+      "fr": "NIVEAUX",
+      "es": "NIVELES",
+      "pt-BR": "FASES",
+      "it": "LIVELLI",
+      "pl": "POZIOMY"
+    }
   }
 ]

@@ -448,7 +448,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126369
   - m_Id: 3185934381
-    m_Localized: Suggerimento salvato. Torna domani!
+    m_Localized: 100 monete e 1 aiuto salvati.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
@@ -473,7 +473,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126369
   - m_Id: 3185934386
-    m_Localized: Attendi un nuovo giorno locale e almeno 20 ore.
+    m_Localized: "Disponibile 24 ore dopo l\u2019ultima ricompensa."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
@@ -657,7 +657,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126369
   - m_Id: 3190128671
-    m_Localized: "Scorri in alto \u2022 Scegli un gruppo"
+    m_Localized: "Scorri \u2022 Scegli un\u2019isola"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
@@ -838,6 +838,36 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
+  - m_Id: 1044860214018048
+    m_Localized: +{0} monete
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1044860339847168
+    m_Localized: '+{0} monete
+
+      Completamento {1} + Stelle {2}
+
+      Aiuti
+      +{3}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1044860339847169
+    m_Localized: '{0} monete + {1} aiuto'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1044860339847170
+    m_Localized: APRI FORZIERE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1048086925639680
+    m_Localized: LIVELLI
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
   references:
     version: 2
     RefIds:
@@ -1003,3 +1033,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

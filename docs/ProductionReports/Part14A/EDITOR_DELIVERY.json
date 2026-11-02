@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var m=UnityEngine.Object.FindFirstObjectByType<Mewgic.Map.MapWorld>();m.FocusRegion(1,false);m.OpenChapter(1,4);var q=UnityEngine.Object.FindFirstObjectByType<Mewgic.Part14AProbe>();var old=(System.Collections.Generic.Dictionary<string,string>)typeof(Mewgic.Part14AProbe).GetField(\"player\",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(q);return new{playerIntact=System.Linq.Enumerable.All(old,p=>p.Value==null?!UnityEngine.PlayerPrefs.HasKey(p.Key):UnityEngine.PlayerPrefs.GetString(p.Key)==p.Value),testProfile=Mewgic.GameplayProgress.IsTestProfile,scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,chapter=m.SelectedChapter};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "playerIntact": true,
+        "testProfile": true,
+        "scene": "LevelMap",
+        "chapter": 9
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

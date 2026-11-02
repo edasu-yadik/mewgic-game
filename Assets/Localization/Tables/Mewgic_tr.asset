@@ -444,7 +444,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126368
   - m_Id: 3185934381
-    m_Localized: "\u0130pucu kaydedildi. Yar\u0131n yine bekleriz!"
+    m_Localized: 100 coin ve 1 ipucu kaydedildi.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
@@ -470,7 +470,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126368
   - m_Id: 3185934386
-    m_Localized: "Yeni yerel g\xFCn ve en az 20 saat gerekli."
+    m_Localized: "Son \xF6d\xFClden 24 saat sonra haz\u0131r."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
@@ -646,7 +646,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126368
   - m_Id: 3190128671
-    m_Localized: "Yukar\u0131 kayd\u0131r \u2022 Bir b\xF6l\xFCm grubu se\xE7"
+    m_Localized: "Kayd\u0131r \u2022 Bir ada se\xE7"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
@@ -826,6 +826,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
+  - m_Id: 1044860214018048
+    m_Localized: +{0} coin
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1044860339847168
+    m_Localized: "+{0} coin\nTamamlama {1} + Y\u0131ld\u0131z {2}\n\u0130pucu +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1044860339847169
+    m_Localized: '{0} coin + {1} ipucu'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1044860339847170
+    m_Localized: "SANDI\u011EI A\xC7"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1048086925639680
+    m_Localized: "B\xD6L\xDCMLER"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
   references:
     version: 2
     RefIds:
@@ -991,3 +1016,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

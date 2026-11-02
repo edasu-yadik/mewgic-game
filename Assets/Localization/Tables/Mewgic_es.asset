@@ -446,7 +446,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126367
   - m_Id: 3185934381
-    m_Localized: "Pista guardada. \xA1Vuelve ma\xF1ana!"
+    m_Localized: 100 monedas y 1 pista guardadas.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126367
@@ -471,7 +471,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126367
   - m_Id: 3185934386
-    m_Localized: "Espera un nuevo d\xEDa local y al menos 20 horas."
+    m_Localized: "Disponible 24 horas despu\xE9s de tu \xFAltima recompensa."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126367
@@ -653,7 +653,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126367
   - m_Id: 3190128671
-    m_Localized: "Desliza hacia arriba \u2022 Elige un grupo"
+    m_Localized: "Desliza \u2022 Elige una isla"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126367
@@ -834,6 +834,36 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126367
+  - m_Id: 1044860214018048
+    m_Localized: +{0} monedas
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1044860339847168
+    m_Localized: '+{0} monedas
+
+      Completar {1} + Estrellas {2}
+
+      Pistas
+      +{3}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1044860339847169
+    m_Localized: '{0} monedas + {1} pista'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1044860339847170
+    m_Localized: ABRIR COFRE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1048086925639680
+    m_Localized: NIVELES
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
   references:
     version: 2
     RefIds:
@@ -999,3 +1029,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

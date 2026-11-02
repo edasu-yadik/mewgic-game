@@ -446,7 +446,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126365
   - m_Id: 3185934381
-    m_Localized: "Indice enregistr\xE9. Reviens demain !"
+    m_Localized: "100 pi\xE8ces et 1 indice enregistr\xE9s."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
@@ -471,7 +471,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126365
   - m_Id: 3185934386
-    m_Localized: Attends un nouveau jour local et au moins 20 heures.
+    m_Localized: "Disponible 24 heures apr\xE8s la derni\xE8re r\xE9compense."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
@@ -648,7 +648,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126365
   - m_Id: 3190128671
-    m_Localized: "Glisse vers le haut \u2022 Choisis un groupe"
+    m_Localized: "D\xE9filer \u2022 Choisir une \xEEle"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
@@ -827,6 +827,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
+  - m_Id: 1044860214018048
+    m_Localized: "+{0} pi\xE8ces"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1044860339847168
+    m_Localized: "+{0} pi\xE8ces\nFin {1} + \xC9toiles {2}\nIndices +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1044860339847169
+    m_Localized: "{0} pi\xE8ces + {1} indice"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1044860339847170
+    m_Localized: OUVRIR LE COFFRE
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1048086925639680
+    m_Localized: NIVEAUX
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
   references:
     version: 2
     RefIds:
@@ -992,3 +1017,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

@@ -1,0 +1,44 @@
+{
+  "samples": [
+    {
+      "time": "2026-11-01T22:52:15.5101709Z",
+      "level": "warn",
+      "message": "Import Error Code:(4)\nMessage: Build asset version error: assets/part13a-gameview-1950.png in SourceAssetDB has modification time of '2026-11-01T22:45:53.5249308Z' while content on disk has modification time of '0001-01-01T00:00:00Z' with error code 2\nStacktrace:\n0x00007ff978b3648e (Unity) StackWalker::ShowCallstack\n0x00007ff97a37e4b9 (Unity) PlatformStacktrace::GetStacktrace\n0x00007ff97a37ed3e (Unity) Stacktrace::GetStacktrace\n0x00007ff97b32c4b0 (Unity) GetAssetHashAndValidate\n0x00007ff97b327de3 (Unity) AssetVersionBuilder::BuildHashOfSourceAssetArray\n0x00007ff97b325ef7 (Unity) AssetVersionBuilder::BuildAssetVersion\n0x00007ff97b2a709d (Unity) CreateAssetVersionBuilder\n0x00007ff97b2ac953 (Unity) ImportToObjects\n0x00007ff97b2ab5a2 (Unity) ImportAsset\n0x00007ff97b2cfac9 (Unity) AssetImportWo"
+    },
+    {
+      "time": "2026-11-01T22:52:15.6390491Z",
+      "level": "warn",
+      "message": "Import Error Code:(4)\nMessage: Build asset version error: assets/part13a-gameview-1950.png in SourceAssetDB has modification time of '2026-11-01T22:45:53.5249308Z' while content on disk has modification time of '0001-01-01T00:00:00Z' with error code 2\nStacktrace:\n0x00007ff978b3648e (Unity) StackWalker::ShowCallstack\n0x00007ff97a37e4b9 (Unity) PlatformStacktrace::GetStacktrace\n0x00007ff97a37ed3e (Unity) Stacktrace::GetStacktrace\n0x00007ff97b32c4b0 (Unity) GetAssetHashAndValidate\n0x00007ff97b327de3 (Unity) AssetVersionBuilder::BuildHashOfSourceAssetArray\n0x00007ff97b325ef7 (Unity) AssetVersionBuilder::BuildAssetVersion\n0x00007ff97b2a709d (Unity) CreateAssetVersionBuilder\n0x00007ff97b2ac953 (Unity) ImportToObjects\n0x00007ff97b2ab5a2 (Unity) ImportAsset\n0x00007ff97b2cfac9 (Unity) AssetImportWo"
+    },
+    {
+      "time": "2026-11-01T22:52:15.7486935Z",
+      "level": "warn",
+      "message": "Import Error Code:(4)\nMessage: Build asset version error: assets/part13a-gameview-1950.png in SourceAssetDB has modification time of '2026-11-01T22:45:53.5249308Z' while content on disk has modification time of '0001-01-01T00:00:00Z' with error code 2\nStacktrace:\n0x00007ff978b3648e (Unity) StackWalker::ShowCallstack\n0x00007ff97a37e4b9 (Unity) PlatformStacktrace::GetStacktrace\n0x00007ff97a37ed3e (Unity) Stacktrace::GetStacktrace\n0x00007ff97b32c4b0 (Unity) GetAssetHashAndValidate\n0x00007ff97b327de3 (Unity) AssetVersionBuilder::BuildHashOfSourceAssetArray\n0x00007ff97b325ef7 (Unity) AssetVersionBuilder::BuildAssetVersion\n0x00007ff97b2a709d (Unity) CreateAssetVersionBuilder\n0x00007ff97b2ac953 (Unity) ImportToObjects\n0x00007ff97b2ab5a2 (Unity) ImportAsset\n0x00007ff97b2cfac9 (Unity) AssetImportWo"
+    },
+    {
+      "time": "2026-11-02T20:06:29.2307534Z",
+      "level": "error",
+      "message": "ScriptableSingleton already exists. Did you query the singleton in a constructor?"
+    },
+    {
+      "time": "2026-11-02T22:09:18.687132Z",
+      "level": "warn",
+      "message": "[Worker0] Import Error Code:(4)\nMessage: Build asset version error: assets/scripts/rewards/rewardhubpanel.cs in SourceAssetDB has modification time of '2026-10-31T01:09:14.4076736Z' while content on disk has modification time of '2026-11-02T22:09:01.6576491Z'\n"
+    },
+    {
+      "time": "2026-11-02T22:09:19.0574096Z",
+      "level": "warn",
+      "message": "[Worker1] Import Error Code:(4)\nMessage: Build asset version error: assets/scripts/presentation/gameplayendscreen.cs in SourceAssetDB has modification time of '2026-10-31T00:59:26.6928033Z' while content on disk has modification time of '2026-11-02T22:09:01.6591581Z'\n"
+    },
+    {
+      "time": "2026-11-02T22:09:19.1032306Z",
+      "level": "warn",
+      "message": "[Worker3] Import Error Code:(4)\nMessage: Build asset version error: assets/scripts/daily/dailyactivitiespanel.cs in SourceAssetDB has modification time of '2026-10-31T01:11:34.1333667Z' while content on disk has modification time of '2026-11-02T22:09:01.6556269Z'\n"
+    },
+    {
+      "time": "2026-11-02T22:34:41.3782004Z",
+      "level": "error",
+      "message": "Exception: Hazır gerçek sahne LevelMap/0"
+    }
+  ]
+}

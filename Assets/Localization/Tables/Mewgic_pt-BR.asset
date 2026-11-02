@@ -449,7 +449,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126372
   - m_Id: 3185934381
-    m_Localized: "Dica salva. Volte amanh\xE3!"
+    m_Localized: 100 moedas e 1 dica salvas.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126372
   - m_Id: 3185934386
-    m_Localized: Aguarde um novo dia local e pelo menos 20 horas.
+    m_Localized: "Dispon\xEDvel 24 horas ap\xF3s a \xFAltima recompensa."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
@@ -651,7 +651,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126372
   - m_Id: 3190128671
-    m_Localized: "Deslize para cima \u2022 Escolha um grupo"
+    m_Localized: "Role \u2022 Escolha uma ilha"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
@@ -832,6 +832,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
+  - m_Id: 1044860214018048
+    m_Localized: +{0} moedas
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1044860339847168
+    m_Localized: "+{0} moedas\nConclus\xE3o {1} + Estrelas {2}\nDicas +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1044860339847169
+    m_Localized: '{0} moedas + {1} dica'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1044860339847170
+    m_Localized: "ABRIR BA\xDA"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1048086925639680
+    m_Localized: FASES
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
   references:
     version: 2
     RefIds:
@@ -997,3 +1022,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

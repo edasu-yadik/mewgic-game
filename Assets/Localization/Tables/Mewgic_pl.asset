@@ -451,7 +451,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126370
   - m_Id: 3185934381
-    m_Localized: "Podpowied\u017A zapisana. Wr\xF3\u0107 jutro!"
+    m_Localized: "Zapisano 100 monet i 1 podpowied\u017A."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
@@ -477,7 +477,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126370
   - m_Id: 3185934386
-    m_Localized: "Poczekaj na nowy lokalny dzie\u0144 i co najmniej 20 godzin."
+    m_Localized: "Dost\u0119pne 24 godziny po ostatniej nagrodzie."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
@@ -656,7 +656,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126370
   - m_Id: 3190128671
-    m_Localized: "Przesu\u0144 w g\xF3r\u0119 \u2022 Wybierz grup\u0119"
+    m_Localized: "Przewi\u0144 \u2022 Wybierz wysp\u0119"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
@@ -837,6 +837,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
+  - m_Id: 1044860214018048
+    m_Localized: +{0} monet
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1044860339847168
+    m_Localized: "+{0} monet\nUko\u0144czenie {1} + Gwiazdy {2}\nPodpowiedzi +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1044860339847169
+    m_Localized: "{0} monet + {1} podpowied\u017A"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1044860339847170
+    m_Localized: "OTW\xD3RZ SKRZYNI\u0118"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1048086925639680
+    m_Localized: POZIOMY
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
   references:
     version: 2
     RefIds:
@@ -1002,3 +1027,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

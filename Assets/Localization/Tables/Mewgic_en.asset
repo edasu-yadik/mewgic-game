@@ -446,7 +446,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126371
   - m_Id: 3185934381
-    m_Localized: Hint saved. Come back tomorrow!
+    m_Localized: 100 coins and 1 hint saved.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
@@ -471,7 +471,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126371
   - m_Id: 3185934386
-    m_Localized: Wait for a new local day and at least 20 hours.
+    m_Localized: Ready 24 hours after your last reward.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
@@ -653,7 +653,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126371
   - m_Id: 3190128671
-    m_Localized: "Swipe up \u2022 Choose a level group"
+    m_Localized: "Scroll \u2022 Select an island"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
@@ -838,6 +838,35 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
+  - m_Id: 1044860214018048
+    m_Localized: +{0} coins
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1044860339847168
+    m_Localized: '+{0} coins
+
+      Completion {1} + Stars {2}
+
+      Hints +{3}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1044860339847169
+    m_Localized: '{0} coins + {1} hint'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1044860339847170
+    m_Localized: OPEN CHEST
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1048086925639680
+    m_Localized: LEVELS
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
   references:
     version: 2
     RefIds:
@@ -1003,3 +1032,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

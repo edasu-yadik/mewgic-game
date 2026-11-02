@@ -643,6 +643,26 @@ MonoBehaviour:
     m_Key: home.gift
     m_Metadata:
       m_Items: []
+  - m_Id: 1044860214018048
+    m_Key: reward.coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1044860339847168
+    m_Key: reward.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1044860339847169
+    m_Key: reward.daily
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1044860339847170
+    m_Key: reward.open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639680
+    m_Key: map.levels_short
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

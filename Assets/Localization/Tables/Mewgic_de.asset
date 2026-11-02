@@ -449,7 +449,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126366
   - m_Id: 3185934381
-    m_Localized: Tipp gespeichert. Komm morgen wieder!
+    m_Localized: "100 M\xFCnzen und 1 Hinweis gespeichert."
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
@@ -474,7 +474,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126366
   - m_Id: 3185934386
-    m_Localized: Warte auf einen neuen lokalen Tag und mindestens 20 Stunden.
+    m_Localized: 24 Stunden nach der letzten Belohnung bereit.
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
@@ -652,7 +652,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126366
   - m_Id: 3190128671
-    m_Localized: "Nach oben wischen \u2022 Levelgruppe w\xE4hlen"
+    m_Localized: "Scrollen \u2022 Insel w\xE4hlen"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
@@ -836,6 +836,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
+  - m_Id: 1044860214018048
+    m_Localized: "+{0} M\xFCnzen"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1044860339847168
+    m_Localized: "+{0} M\xFCnzen\nAbschluss {1} + Sterne {2}\nHinweise +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1044860339847169
+    m_Localized: "{0} M\xFCnzen + {1} Hinweis"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1044860339847170
+    m_Localized: "TRUHE \xD6FFNEN"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1048086925639680
+    m_Localized: LEVEL
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:
@@ -1001,3 +1026,8 @@ MonoBehaviour:
         - id: 1662528094210
         - id: 2225802149888
         - id: 2973327785984
+        - id: 1044860214018048
+        - id: 1044860339847168
+        - id: 1044860339847169
+        - id: 1044860339847170
+        - id: 1048086925639680

@@ -35,12 +35,12 @@ namespace Mewgic.Core
   public DailyData DailySnapshot=>state.daily.Copy();
   public bool DailyClockBlocked=>DailyRules.Blocked(state.daily,clock());
   public bool ObserveDaily(){var copy=state.Copy();if(!DailyRules.Sync(copy.daily,clock()))return false;return Commit(copy);}
-  public TimeSpan GiftWait {get{var d=state.daily;long remaining=d.lastGiftUtc==0?0:TimeSpan.FromHours(20).Ticks-(clock().UtcTicks-d.lastGiftUtc);return TimeSpan.FromTicks(Math.Max(0,remaining));}}
-  public bool GiftReady=>!DailyClockBlocked&&DailyRules.Day(clock())>state.daily.lastGiftDay&&GiftWait==TimeSpan.Zero;
+  public TimeSpan GiftWait {get{var d=state.daily;long remaining=d.lastGiftUtc==0?0:TimeSpan.FromHours(24).Ticks-(clock().UtcTicks-d.lastGiftUtc);return TimeSpan.FromTicks(Math.Max(0,remaining));}}
+  public bool GiftReady=>!DailyClockBlocked&&GiftWait==TimeSpan.Zero;
   public bool ClaimDailyGift()
   {
-   var now=clock();var copy=state.Copy();if(!DailyRules.Sync(copy.daily,now)||copy.daily.lastGiftDay>=copy.daily.day||(copy.daily.lastGiftUtc>0&&now.UtcTicks-copy.daily.lastGiftUtc<TimeSpan.FromHours(20).Ticks))return false;
-   try{copy.hint=checked(copy.hint+1);}catch(OverflowException){return false;}copy.daily.lastGiftDay=copy.daily.day;copy.daily.lastGiftUtc=now.UtcTicks;return Commit(copy);
+   var now=clock();var copy=state.Copy();if(!DailyRules.Sync(copy.daily,now)||(copy.daily.lastGiftUtc>0&&now.UtcTicks-copy.daily.lastGiftUtc<TimeSpan.FromHours(24).Ticks))return false;
+   try{copy.hint=checked(copy.hint+1);copy.presentation.coins=checked(copy.presentation.coins+100);}catch(OverflowException){return false;}copy.daily.lastGiftDay=copy.daily.day;copy.daily.lastGiftUtc=now.UtcTicks;return Commit(copy);
   }
   public bool ClaimDailyTask(DailyTaskKind kind)
   {

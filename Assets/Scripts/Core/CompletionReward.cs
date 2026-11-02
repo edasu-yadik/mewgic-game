@@ -1,0 +1,1 @@
+namespace Mewgic.Core { public static class CompletionReward { public static int Base(bool first)=>first?20:5; public static int StarBonus(int stars,bool first)=>System.Math.Max(1,System.Math.Min(3,stars))*(first?10:2); public static int Coins(int stars,bool first)=>Base(first)+StarBonus(stars,first); } }

@@ -120,6 +120,7 @@ namespace Mewgic
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
             gameObject.AddComponent<Mewgic.Rewards.RewardHubPanel>().Mount(safe);
+            gameObject.AddComponent<Mewgic.Daily.DailyArrivalPopup>().Mount(safe);
         }
         public static Puzzle LoadLevel()
         {
@@ -206,7 +207,7 @@ namespace Mewgic
             {
                 completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
                 bool saved=progress.Claim(levelInfo.id,stars,puzzle.Won,out bool granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed);UpdateTools();
-                endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,GameplayLevelCatalog.CanAdvance(levelInfo.id,progress));
+                endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),progress.LastCoinReward);
             }
         }
         void Select(int target)
