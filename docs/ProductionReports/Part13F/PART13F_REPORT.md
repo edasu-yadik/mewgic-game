@@ -81,3 +81,7 @@ Fiziksel iPhone/Android dokunma/FPS/GPU/RAM/termal ve paketlenmiş Player/IL2CPP
 PRESERVATION.json2382 başlangıç tracked dosyasından yalnız7 ilgili dosyanın değiştiğini,2375 dosyanın byte olarak aynı olduğunu denetler. Önceki sekiz ada sanat/prefab/animasyonları ve Gameplay/Core/save/Pati/görev/event/localization üretim dosyaları aynı. Başlangıçtaki kirli TMP fallback gerçek byte yedeğinden geri getirildi ve SHA256 doğrulandı; teslim dışıdır. İlgisiz untracked çalışmalar korunur. Starlight Garden ve sonraki adalara başlanmadı.
 
 Private edasu-yadik/mewgic-game hedefi isPrivate=true ile doğrulandı. Hedef branch recovery/part09-completion, master korunur. Editör Türkçe, izole401 başlangıç profiliyle Clockwork Game View'da bırakıldı. Git teslim kaydı push sonrası eklenir.
+
+## Git teslim kaydı
+
+Uygulama/sanat/test commit'i: f682c879259fbbac2e6a7142aec18f22a7372255. Private origin/recovery/part09-completion push başarılı; git ls-remote aynı SHA'yı doğruladı. master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Push sonrası koruma denetimi başarılı. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. Başlangıçtaki kirli TMP fallback ve ilgisiz untracked dosyalar teslim dışında bırakıldı. Yalnız PART13F tamamlandı; yeni build yok.
