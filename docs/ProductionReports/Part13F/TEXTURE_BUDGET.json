@@ -1,0 +1,35 @@
+{
+  "textures": [
+    {
+      "path": "Assets/Art/Environment/Map/Islands/clockwork/IslandBase/Clockwork_Island_v001.png",
+      "width": 1254,
+      "height": 1254,
+      "astc6x6Bytes": 698896,
+      "rgba32Bytes": 6290064
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Tower_v001.png",
+      "width": 1024,
+      "height": 1024,
+      "astc6x6Bytes": 467856,
+      "rgba32Bytes": 4194304
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Workshops_v001.png",
+      "width": 512,
+      "height": 512,
+      "astc6x6Bytes": 118336,
+      "rgba32Bytes": 1048576
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/clockwork/Decorations/Clockwork_Gear_v001.png",
+      "width": 512,
+      "height": 512,
+      "astc6x6Bytes": 118336,
+      "rgba32Bytes": 1048576
+    }
+  ],
+  "astc6x6PayloadBytes": 1403424,
+  "rgba32FallbackBytes": 12581520,
+  "note": "Doku payload hesabı; materyal/mesh/Addressables/diğer adalar/gökyüzü/overhead hariç. Editor cache veya PNG disk boyutu cihaz RAM ölçümü değildir."
+}

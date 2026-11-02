@@ -1,0 +1,104 @@
+{
+  "success": true,
+  "command": "command script run",
+  "data": {
+    "command": "script run",
+    "parameters": {
+      "file": "tools/Part13F/AssetAudit.cs",
+      "entry": "Part13FAssetAudit.Run"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 57,
+      "executeMs": 20,
+      "assemblyName": "PipelineRunScript_AssetAudit_fce1281d0ad447a295627737adba161f",
+      "success": true,
+      "result": {
+        "success": true,
+        "separateGroundTowerWorkshops": true,
+        "textures": [
+          {
+            "path": "Assets/Art/Environment/Map/Islands/clockwork/IslandBase/Clockwork_Island_v001.png",
+            "width": 1254,
+            "height": 1254,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 7187856,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          },
+          {
+            "path": "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Tower_v001.png",
+            "width": 1024,
+            "height": 1024,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 4663056,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          },
+          {
+            "path": "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Workshops_v001.png",
+            "width": 512,
+            "height": 512,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 1167808,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          },
+          {
+            "path": "Assets/Art/Environment/Map/Islands/clockwork/Decorations/Clockwork_Gear_v001.png",
+            "width": 512,
+            "height": 512,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 1167808,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          }
+        ],
+        "layers": [
+          "Background",
+          "IslandBase",
+          "Architecture",
+          "Vegetation",
+          "WaterOrSpecialEffects",
+          "Decorations",
+          "LevelNodes",
+          "Rewards",
+          "ForegroundEffects"
+        ],
+        "gears": 3,
+        "group": "Map-ClockworkIsles",
+        "localBuildPath": "Library/com.unity.addressables/aa/Android/Android",
+        "localLoadPath": "{UnityEngine.AddressableAssets.Addressables.RuntimePath}/Android",
+        "includeInBuild": true,
+        "shaderMessages": [],
+        "dependencies": [
+          "Assets/Art/Environment/Map/Islands/clockwork/Decorations/Clockwork_Gear_v001.png",
+          "Assets/Art/Environment/Map/Islands/clockwork/WaterOrSpecialEffects/Clockwork_Energy.mat",
+          "Assets/Art/Environment/Map/Islands/clockwork/WaterOrSpecialEffects/Clockwork_Static.mat",
+          "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Workshops_v001.png",
+          "Assets/Scripts/Map/ClockworkIslandPresentation.cs",
+          "Assets/Prefabs/Map/ClockworkIsles.prefab",
+          "Assets/Shaders/ClockworkIslandLayers.shader",
+          "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs",
+          "Assets/Art/Environment/Map/Islands/clockwork/Architecture/Clockwork_Tower_v001.png",
+          "Assets/Art/Environment/Map/Islands/clockwork/IslandBase/Clockwork_Island_v001.png"
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

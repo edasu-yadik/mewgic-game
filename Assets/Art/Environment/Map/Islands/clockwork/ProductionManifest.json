@@ -3,7 +3,7 @@
   "islandKey": "clockwork",
   "firstLevel": 401,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,14 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "plannedPrefab": "Assets/Prefabs/Map/ClockworkIsles.prefab",
+  "runtimeBinding": "IslandArtSlot / Map/clockwork; görünür MapWorld havuzunda yerel Addressables",
+  "delivery": "RGBA PNG taban/kule/atölye/dişli ayrı kaynaklar. ASTC6x6, mipmap/ReadWrite kapalı.",
+  "sources": [
+    "IslandBase/Clockwork_Island_v001.png",
+    "Architecture/Clockwork_Tower_v001.png",
+    "Architecture/Clockwork_Workshops_v001.png",
+    "Decorations/Clockwork_Gear_v001.png"
+  ],
+  "effects": "3 merkez pivotlu dişli yavaş ters yönlü görsel dönüş; ayrı kristal/saat/pencere ışığı. Karmaşık fizik veya yeni mekanik yok. Gerçek düğüm/sandık bağımsız."
 }
