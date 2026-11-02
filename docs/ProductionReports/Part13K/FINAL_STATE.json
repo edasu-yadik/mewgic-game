@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "command": "command script run",
+  "data": {
+    "command": "script run",
+    "parameters": {
+      "file": "tools/Part13K/Inspect.cs",
+      "entry": "Part13KInspect.Run"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 57,
+      "executeMs": 21,
+      "assemblyName": "PipelineRunScript_Inspect_b50010026d004362a1af9edd042be7d1",
+      "success": true,
+      "result": {
+        "scene": "LevelMap",
+        "playing": true,
+        "screen": {
+          "width": 900,
+          "height": 1600
+        },
+        "camera": true,
+        "testProfile": true,
+        "playerSaveIntact": true,
+        "currentLevel": 600,
+        "selected": 600,
+        "bootState": null,
+        "bootActivation": null,
+        "allTwelveArt": true,
+        "allTwelveOpen": true,
+        "overflow": [],
+        "badMaterial": []
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

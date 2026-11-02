@@ -1,0 +1,78 @@
+{
+    "format": 1,
+    "level": 601,
+    "version": 1,
+    "capacity": 4,
+    "colors": 3,
+    "emptyBottles": 2,
+    "attempt": 1,
+    "seed": 3048219957,
+    "requestSeed": 611756537,
+    "recipeDifficulty": 1,
+    "signature": "||AAAB|ACCC|BBBC",
+    "fallback": false,
+    "target": 1,
+    "difficulty": {
+        "optimalMoves": 4,
+        "mixedBoundaries": 3,
+        "initialChoices": 3,
+        "branchSum": 10,
+        "pathStates": 4,
+        "visited": 16,
+        "stored": 17,
+        "peakQueue": 6,
+        "deadEndStates": 0,
+        "score": 30,
+        "measured": 1
+    },
+    "bottles": [
+        {
+            "layers": []
+        },
+        {
+            "layers": [
+                1,
+                1,
+                1,
+                2
+            ]
+        },
+        {
+            "layers": []
+        },
+        {
+            "layers": [
+                2,
+                2,
+                2,
+                0
+            ]
+        },
+        {
+            "layers": [
+                1,
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "solution": [
+        {
+            "source": 3,
+            "target": 0
+        },
+        {
+            "source": 1,
+            "target": 3
+        },
+        {
+            "source": 4,
+            "target": 0
+        },
+        {
+            "source": 1,
+            "target": 4
+        }
+    ]
+}

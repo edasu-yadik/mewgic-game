@@ -1,0 +1,26 @@
+{
+  "note": "Tampon gecmis kayitlari; canli Console groundTruth ayrica CONSOLE.json icinde.",
+  "sampleCount": 100,
+  "samples": [
+    {
+      "time": "2026-11-01T22:52:04.5318748Z",
+      "level": "warn",
+      "message": "Import Error Code:(4)\nMessage: Build asset version error: assets/part13a-gameview-1950.png in SourceAssetDB has modification time of '2026-11-01T22:45:53.5249308Z' while content on disk has modification time of '0001-01-01T00:00:00Z' with error code 2\nStacktra"
+    },
+    {
+      "time": "2026-11-01T22:52:04.6418478Z",
+      "level": "warn",
+      "message": "Import Error Code:(4)\nMessage: Build asset version error: assets/part13a-gameview-1950.png in SourceAssetDB has modification time of '2026-11-01T22:45:53.5249308Z' while content on disk has modification time of '0001-01-01T00:00:00Z' with error code 2\nStacktra"
+    },
+    {
+      "time": "2026-11-01T22:52:04.7581546Z",
+      "level": "warn",
+      "message": "Import Error Code:(4)\nMessage: Build asset version error: assets/part13a-gameview-1950.png in SourceAssetDB has modification time of '2026-11-01T22:45:53.5249308Z' while content on disk has modification time of '0001-01-01T00:00:00Z' with error code 2\nStacktra"
+    },
+    {
+      "time": "2026-11-02T20:06:29.2307534Z",
+      "level": "error",
+      "message": "ScriptableSingleton already exists. Did you query the singleton in a constructor?"
+    }
+  ]
+}
