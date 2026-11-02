@@ -22,6 +22,7 @@ namespace Mewgic.Map
         public ClockworkIslandPresentation ClockworkPresentation => instance != null ? instance.GetComponent<ClockworkIslandPresentation>() : null;
         public StarlightIslandPresentation StarlightPresentation => instance != null ? instance.GetComponent<StarlightIslandPresentation>() : null;
         public LibraryIslandPresentation LibraryPresentation => instance != null ? instance.GetComponent<LibraryIslandPresentation>() : null;
+        public AuroraIslandPresentation AuroraPresentation => instance != null ? instance.GetComponent<AuroraIslandPresentation>() : null;
         public static int LiveHandles { get; private set; }
         public static int LiveInstances { get; private set; }
 
@@ -36,10 +37,11 @@ namespace Mewgic.Map
                 if (ClockworkPresentation != null) ClockworkPresentation.Animate = animate;
                 if (StarlightPresentation != null) StarlightPresentation.Animate = animate;
                 if (LibraryPresentation != null) LibraryPresentation.Animate = animate;
+                if (AuroraPresentation != null) AuroraPresentation.Animate = animate;
                 return;
             }
             Release();
-            if (key != "woods" && key != "mirage" && key != "coral" && key != "frost" && key != "clockwork" && key != "starlight" && key != "library") return;
+            if (key != "woods" && key != "mirage" && key != "coral" && key != "frost" && key != "clockwork" && key != "starlight" && key != "library" && key != "aurora") return;
             boundKey = key;
             LoadError = null;
             int token = ++generation;
@@ -58,7 +60,7 @@ namespace Mewgic.Map
                     return;
                 }
                 instance = Instantiate(completed.Result, transform, false);
-                instance.name = key == "woods" ? "WhisperingWoods_LayeredArt" : key == "mirage" ? "GoldenMirage_LayeredArt" : key == "coral" ? "CoralKingdom_LayeredArt" : key == "frost" ? "FrostlightPeaks_LayeredArt" : key == "clockwork" ? "ClockworkIsles_LayeredArt" : key == "starlight" ? "StarlightGrove_LayeredArt" : "ArcaneLibrary_LayeredArt";
+                instance.name = key == "woods" ? "WhisperingWoods_LayeredArt" : key == "mirage" ? "GoldenMirage_LayeredArt" : key == "coral" ? "CoralKingdom_LayeredArt" : key == "frost" ? "FrostlightPeaks_LayeredArt" : key == "clockwork" ? "ClockworkIsles_LayeredArt" : key == "starlight" ? "StarlightGrove_LayeredArt" : key == "library" ? "ArcaneLibrary_LayeredArt" : "AuroraCitadel_LayeredArt";
                 LiveInstances++;
                 if (Presentation != null) { Presentation.Animate = animate; Presentation.BeginEntrance(); }
                 if (MiragePresentation != null) { MiragePresentation.Animate = animate; MiragePresentation.BeginEntrance(); }
@@ -67,6 +69,7 @@ namespace Mewgic.Map
                 if (ClockworkPresentation != null) { ClockworkPresentation.Animate = animate; ClockworkPresentation.BeginEntrance(); }
                 if (StarlightPresentation != null) { StarlightPresentation.Animate = animate; StarlightPresentation.BeginEntrance(); }
                 if (LibraryPresentation != null) { LibraryPresentation.Animate = animate; LibraryPresentation.BeginEntrance(); }
+                if (AuroraPresentation != null) { AuroraPresentation.Animate = animate; AuroraPresentation.BeginEntrance(); }
                 // Sanat UI düğümleri ve isim plakasının arkasında kalır.
                 instance.transform.SetAsFirstSibling();
             };

@@ -1,0 +1,12 @@
+{
+  "environment": "Windows Unity Editor / Android import target / AssetDatabase Play Mode",
+  "frames": 180,
+  "medianFrameMs": 7.5809950940310955,
+  "p95FrameMs": 8.8648032397031784,
+  "maxFrameMs": 1227.3252010345459,
+  "liveHandles": 3,
+  "liveInstances": 3,
+  "renderedImages": 7,
+  "drawCalls": 80,
+  "note": "Editor kare süreleri; telefon FPS/GPU/termal ölçümü değildir."
+}

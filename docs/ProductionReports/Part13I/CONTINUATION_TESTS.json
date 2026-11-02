@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "realWonLevels": [
+    599,
+    600,
+    601
+  ],
+  "nextGameplayOpened": 602,
+  "currentId": 602,
+  "packStart": 12,
+  "activeRegion": 12,
+  "futureArtReady": false,
+  "stars600": 3,
+  "stars601": 3,
+  "signature601": "||AAAB|ACCC|BBBC",
+  "reloadAndReplayPinIntact": true
+}

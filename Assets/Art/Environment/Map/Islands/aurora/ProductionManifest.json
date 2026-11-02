@@ -3,7 +3,7 @@
   "islandKey": "aurora",
   "firstLevel": 551,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,14 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "plannedPrefab": "Assets/Prefabs/Map/AuroraCitadel.prefab",
+  "runtimeBinding": "IslandArtSlot / Map/aurora; görünür MapWorld havuzunda yerel Addressables",
+  "delivery": "RGBA PNG taban/kale/aurora/yıldız adacığı ayrı kaynaklar. ASTC6x6, mipmap/ReadWrite kapalı.",
+  "sources": [
+    "IslandBase/Aurora_Island_v001.png",
+    "Architecture/Aurora_Castle_v001.png",
+    "Background/Aurora_Ribbons_v001.png",
+    "Decorations/Aurora_StarIslet_v001.png"
+  ],
+  "effects": "Ayrı su akışı/kristal kapı ışığı, düşük alpha aurora,2 hafif süzülen adacık/4 küçük yıldız. Düğüm/sandık MapWorld sahibi;601+ prosedürel devam değişmez."
 }

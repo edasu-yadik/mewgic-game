@@ -1,0 +1,35 @@
+{
+  "textures": [
+    {
+      "path": "Assets/Art/Environment/Map/Islands/aurora/IslandBase/Aurora_Island_v001.png",
+      "width": 1254,
+      "height": 1254,
+      "astc6x6Bytes": 698896,
+      "rgba32Bytes": 6290064
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/aurora/Architecture/Aurora_Castle_v001.png",
+      "width": 1024,
+      "height": 1024,
+      "astc6x6Bytes": 467856,
+      "rgba32Bytes": 4194304
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/aurora/Decorations/Aurora_StarIslet_v001.png",
+      "width": 512,
+      "height": 512,
+      "astc6x6Bytes": 118336,
+      "rgba32Bytes": 1048576
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/aurora/Background/Aurora_Ribbons_v001.png",
+      "width": 512,
+      "height": 341,
+      "astc6x6Bytes": 78432,
+      "rgba32Bytes": 698368
+    }
+  ],
+  "astc6x6PayloadBytes": 1363520,
+  "rgba32FallbackBytes": 12231312,
+  "note": "Doku payload hesabı; materyal/mesh/Addressables/diğer adalar/gökyüzü/overhead hariç. PNG disk boyutu/Editor cache cihaz RAM ölçümü değildir."
+}
