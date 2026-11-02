@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2231,
+  "unchangedFiles": 2224,
+  "intentionalChanges": [
+    "Assets/AddressableAssetsData/AddressableAssetSettings.asset",
+    "Assets/Art/Environment/Map/Islands/coral/ProductionManifest.json",
+    "Assets/Editor/Part12BEditor.cs",
+    "Assets/Resources/Map/World.json",
+    "Assets/Scripts/Map/IslandArtSlot.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpectedChanges": [],
+  "catalogChange": "Only coral artReady false -> true; all level/reward/tutorial data identical",
+  "otherTrackedIslandManifestsUnchanged": true
+}

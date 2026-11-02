@@ -17,6 +17,7 @@ namespace Mewgic.Map
         public string LoadError { get; private set; }
         public WoodsIslandPresentation Presentation => instance != null ? instance.GetComponent<WoodsIslandPresentation>() : null;
         public MirageIslandPresentation MiragePresentation => instance != null ? instance.GetComponent<MirageIslandPresentation>() : null;
+        public CoralIslandPresentation CoralPresentation => instance != null ? instance.GetComponent<CoralIslandPresentation>() : null;
         public static int LiveHandles { get; private set; }
         public static int LiveInstances { get; private set; }
 
@@ -26,10 +27,11 @@ namespace Mewgic.Map
             {
                 if (Presentation != null) Presentation.Animate = animate;
                 if (MiragePresentation != null) MiragePresentation.Animate = animate;
+                if (CoralPresentation != null) CoralPresentation.Animate = animate;
                 return;
             }
             Release();
-            if (key != "woods" && key != "mirage") return;
+            if (key != "woods" && key != "mirage" && key != "coral") return;
             boundKey = key;
             LoadError = null;
             int token = ++generation;
@@ -48,10 +50,11 @@ namespace Mewgic.Map
                     return;
                 }
                 instance = Instantiate(completed.Result, transform, false);
-                instance.name = key == "woods" ? "WhisperingWoods_LayeredArt" : "GoldenMirage_LayeredArt";
+                instance.name = key == "woods" ? "WhisperingWoods_LayeredArt" : key == "mirage" ? "GoldenMirage_LayeredArt" : "CoralKingdom_LayeredArt";
                 LiveInstances++;
                 if (Presentation != null) { Presentation.Animate = animate; Presentation.BeginEntrance(); }
                 if (MiragePresentation != null) { MiragePresentation.Animate = animate; MiragePresentation.BeginEntrance(); }
+                if (CoralPresentation != null) { CoralPresentation.Animate = animate; CoralPresentation.BeginEntrance(); }
                 // Sanat UI düğümleri ve isim plakasının arkasında kalır.
                 instance.transform.SetAsFirstSibling();
             };

@@ -105,7 +105,7 @@
       "firstLevel": 301,
       "levelCount": 50,
       "artIndex": -1,
-      "artReady": false,
+      "artReady": true,
       "artKey": "coral",
       "tutorialIds": [],
       "reward": {

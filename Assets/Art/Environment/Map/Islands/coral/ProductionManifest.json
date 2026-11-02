@@ -3,7 +3,7 @@
   "islandKey": "coral",
   "firstLevel": 301,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,8 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "runtimeBinding": "Mevcut MapWorld havuzunda görünür Coral/komşular; en fazla3 katmanlı sanat handle, çıkışta release.",
+  "delivery": "Ayrı ada/su tabanı1254, inci sarayı1254, mercan1254 ve ışık1536x1024 kaynak PNG. Runtime1254/1024/512/512x341, ASTC6x6. Su tamamlayıcı maskede, mimari/mercan/efekt/düğümler ayrı bileşenler.",
+  "prefab": "Assets/Prefabs/Map/CoralKingdom.prefab",
+  "address": "Map/coral"
 }
