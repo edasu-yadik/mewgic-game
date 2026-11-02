@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "islandKey": "library",
+  "firstLevel": 501,
+  "levelCount": 50,
+  "artReady": true,
+  "layers": [
+    "Background",
+    "IslandBase",
+    "Architecture",
+    "Vegetation",
+    "WaterOrSpecialEffects",
+    "Decorations",
+    "LevelNodes",
+    "Rewards",
+    "ForegroundEffects"
+  ],
+  "plannedPrefab": "Assets/Prefabs/Map/ArcaneLibrary.prefab",
+  "runtimeBinding": "IslandArtSlot / Map/library; görünür MapWorld havuzunda yerel Addressables",
+  "delivery": "RGBA PNG taban/akademi/kitap/halka ayrı kaynaklar. ASTC6x6, mipmap/ReadWrite kapalı.",
+  "sources": [
+    "IslandBase/Library_Island_v001.png",
+    "Architecture/Library_Academy_v001.png",
+    "Decorations/Library_Book_v001.png",
+    "ForegroundEffects/Library_Ring_v001.png"
+  ],
+  "effects": "3 yavaş süzülen kitap,2 hafif parlayan halka ve ayrı akademi/kristal ışığı; gerçek düğüm/sandık MapWorld sahibi. Pahalı3D/fizik yok."
+}

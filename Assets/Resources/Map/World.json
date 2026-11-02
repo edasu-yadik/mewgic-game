@@ -169,7 +169,7 @@
       "firstLevel": 501,
       "levelCount": 50,
       "artIndex": -1,
-      "artReady": false,
+      "artReady": true,
       "artKey": "library",
       "tutorialIds": [],
       "reward": {

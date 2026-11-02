@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2533,
+  "unchangedFiles": 2527,
+  "intentionalChanges": [
+    "Assets/AddressableAssetsData/AddressableAssetSettings.asset",
+    "Assets/Editor/Part12BEditor.cs",
+    "Assets/Resources/Map/World.json",
+    "Assets/Scripts/Map/IslandArtSlot.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpectedChanges": [],
+  "catalogChange": "Only library artReady false -> true; all level/reward/tutorial data identical",
+  "otherTrackedIslandManifestsUnchanged": true
+}
