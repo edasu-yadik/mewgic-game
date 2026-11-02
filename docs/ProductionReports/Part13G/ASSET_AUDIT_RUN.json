@@ -1,0 +1,107 @@
+{
+  "success": true,
+  "command": "command script run",
+  "data": {
+    "command": "script run",
+    "parameters": {
+      "file": "tools/Part13G/AssetAudit.cs",
+      "entry": "Part13GAssetAudit.Run"
+    },
+    "result": {
+      "diagnostics": [],
+      "compileMs": 66,
+      "executeMs": 23,
+      "assemblyName": "PipelineRunScript_AssetAudit_e35bf8401d79412cb153b8a0923bdf3e",
+      "success": true,
+      "result": {
+        "success": true,
+        "separateGroundWaterDecoration": true,
+        "textures": [
+          {
+            "path": "Assets/Art/Environment/Map/Islands/starlight/IslandBase/Starlight_Island_v001.png",
+            "width": 1254,
+            "height": 1254,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 7187856,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          },
+          {
+            "path": "Assets/Art/Environment/Map/Islands/starlight/Vegetation/Starlight_Tree_v001.png",
+            "width": 1024,
+            "height": 1024,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 4663056,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          },
+          {
+            "path": "Assets/Art/Environment/Map/Islands/starlight/Architecture/Starlight_Cottages_v001.png",
+            "width": 512,
+            "height": 512,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 1167808,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          },
+          {
+            "path": "Assets/Art/Environment/Map/Islands/starlight/ForegroundEffects/Starlight_Petal_v001.png",
+            "width": 256,
+            "height": 256,
+            "format": "ASTC_6x6",
+            "editorRuntimeBytes": 292624,
+            "readWrite": false,
+            "mipmap": false,
+            "android": "ASTC_6x6",
+            "ios": "ASTC_6x6"
+          }
+        ],
+        "layers": [
+          "Background",
+          "IslandBase",
+          "Architecture",
+          "Vegetation",
+          "WaterOrSpecialEffects",
+          "Decorations",
+          "LevelNodes",
+          "Rewards",
+          "ForegroundEffects"
+        ],
+        "petals": 6,
+        "stars": 4,
+        "group": "Map-StarlightGrove",
+        "localBuildPath": "Library/com.unity.addressables/aa/Android/Android",
+        "localLoadPath": "{UnityEngine.AddressableAssets.Addressables.RuntimePath}/Android",
+        "includeInBuild": true,
+        "shaderMessages": [],
+        "dependencies": [
+          "Assets/Art/Environment/Map/Islands/starlight/WaterOrSpecialEffects/Starlight_Ground.mat",
+          "Assets/Art/Environment/Map/Islands/starlight/Architecture/Starlight_Cottages_v001.png",
+          "Assets/Scripts/Map/StarlightEffectGraphic.cs",
+          "Assets/Art/Environment/Map/Islands/starlight/IslandBase/Starlight_Island_v001.png",
+          "Assets/Scripts/Map/StarlightIslandPresentation.cs",
+          "Assets/Prefabs/Map/StarlightGrove.prefab",
+          "Packages/com.unity.ugui/Runtime/UGUI/UI/Core/Image.cs",
+          "Assets/Art/Environment/Map/Islands/starlight/Vegetation/Starlight_Tree_v001.png",
+          "Assets/Art/Environment/Map/Islands/starlight/ForegroundEffects/Starlight_Petal_v001.png",
+          "Assets/Shaders/StarlightIslandLayers.shader",
+          "Assets/Art/Environment/Map/Islands/starlight/WaterOrSpecialEffects/Starlight_Lights.mat",
+          "Assets/Art/Environment/Map/Islands/starlight/WaterOrSpecialEffects/Starlight_Water.mat"
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

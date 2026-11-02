@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "baselineTrackedFiles": 2456,
+  "unchangedFiles": 2449,
+  "intentionalChanges": [
+    "Assets/AddressableAssetsData/AddressableAssetSettings.asset",
+    "Assets/Art/Environment/Map/Islands/starlight/ProductionManifest.json",
+    "Assets/Editor/Part12BEditor.cs",
+    "Assets/Resources/Map/World.json",
+    "Assets/Scripts/Map/IslandArtSlot.cs",
+    "Assets/Scripts/Map/MapWorld.cs",
+    "docs/PRODUCTION_PROGRESS.md"
+  ],
+  "unexpectedChanges": [],
+  "catalogChange": "Only starlight artReady false -> true; all level/reward/tutorial data identical",
+  "otherTrackedIslandManifestsUnchanged": true
+}

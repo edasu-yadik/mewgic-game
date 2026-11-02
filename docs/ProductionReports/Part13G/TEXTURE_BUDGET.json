@@ -1,0 +1,35 @@
+{
+  "textures": [
+    {
+      "path": "Assets/Art/Environment/Map/Islands/starlight/IslandBase/Starlight_Island_v001.png",
+      "width": 1254,
+      "height": 1254,
+      "astc6x6Bytes": 698896,
+      "rgba32Bytes": 6290064
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/starlight/Vegetation/Starlight_Tree_v001.png",
+      "width": 1024,
+      "height": 1024,
+      "astc6x6Bytes": 467856,
+      "rgba32Bytes": 4194304
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/starlight/Architecture/Starlight_Cottages_v001.png",
+      "width": 512,
+      "height": 512,
+      "astc6x6Bytes": 118336,
+      "rgba32Bytes": 1048576
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Islands/starlight/ForegroundEffects/Starlight_Petal_v001.png",
+      "width": 256,
+      "height": 256,
+      "astc6x6Bytes": 29584,
+      "rgba32Bytes": 262144
+    }
+  ],
+  "astc6x6PayloadBytes": 1314672,
+  "rgba32FallbackBytes": 11795088,
+  "note": "Doku payload hesabı; materyal/mesh/Addressables/diğer adalar/gökyüzü/overhead hariç. Editor cache ve PNG disk boyutu cihaz RAM ölçümü değildir."
+}

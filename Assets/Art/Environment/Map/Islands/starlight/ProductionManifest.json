@@ -3,7 +3,7 @@
   "islandKey": "starlight",
   "firstLevel": 451,
   "levelCount": 50,
-  "artReady": false,
+  "artReady": true,
   "layers": [
     "Background",
     "IslandBase",
@@ -15,7 +15,14 @@
     "Rewards",
     "ForegroundEffects"
   ],
-  "plannedPrefab": "Assets/Prefabs/Map/IslandLayerTemplate.prefab",
-  "runtimeBinding": "Mevcut MapWorld havuzu; sanat entegrasyonu sonraki ada görevinde.",
-  "delivery": "PNG RGBA sRGB, ortak pivot (0.5,0), 2048x2048 ana tuval; düğüm/metin resme gömülmez."
+  "plannedPrefab": "Assets/Prefabs/Map/StarlightGrove.prefab",
+  "runtimeBinding": "IslandArtSlot / Map/starlight; görünür MapWorld havuzunda yerel Addressables",
+  "delivery": "RGBA PNG taban/ağaç/ev/yaprak ayrı kaynaklar. ASTC6x6, ReadWrite/mipmap kapalı.",
+  "sources": [
+    "IslandBase/Starlight_Island_v001.png",
+    "Vegetation/Starlight_Tree_v001.png",
+    "Architecture/Starlight_Cottages_v001.png",
+    "ForegroundEffects/Starlight_Petal_v001.png"
+  ],
+  "effects": "Ayrı su akışı ve ağaç ışığı;6 küçük düşen yaprak/4 yıldız, yerel mor atmosfer. Düğüm/sandık MapWorld sahibi, sanata gömülmez."
 }
