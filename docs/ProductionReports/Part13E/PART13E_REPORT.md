@@ -76,3 +76,7 @@ Fiziksel iPhone/Android dokunma/FPS/GPU/RAM/termal ve paketlenmiş Player/IL2CPP
 PRESERVATION.json2308 başlangıç tracked dosyasından yalnız7 ilgili dosyanın değiştiğini,2301 dosyanın byte olarak aynı kaldığını denetler. Önceki yedi ada sanat/prefab/animasyonları ve Gameplay/Core/save/Pati/görev/event/localization üretim dosyaları aynı. Başlangıçta kirli TMP fallback gerçek byte kopyasından geri getirildi, SHA256 doğrulandı; teslim dışıdır. İlgisiz untracked dosyalar korunur. Clockwork ve sonraki adalara başlanmadı.
 
 Private edasu-yadik/mewgic-game hedefi isPrivate=true ile doğrulandı. Geliştirme branch'i recovery/part09-completion; master korunur. Editör Türkçe, izole351 başlangıç profiliyle Frost Game View'da bırakıldı. Git teslim kaydı push sonrası eklenir.
+
+## Git teslim kaydı
+
+Uygulama/sanat/test commit'i: 826536ef3c0d01d36928749c462335c9b45bd1e8. Private origin/recovery/part09-completion push başarılı; git ls-remote aynı SHA'yı doğruladı. master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Push sonrası koruma denetimi de başarılı. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. Başlangıçtaki kirli TMP fallback ve ilgisiz untracked dosyalar teslim dışında bırakıldı. Yeni build alınmadı.
