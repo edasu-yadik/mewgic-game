@@ -82,4 +82,8 @@ Gerçek oyuncu kaydına test yazılmadı. Test profilleri ve üretici arşivleri
 
 Fiziksel iPhone/Android GPU/RAM/FPS/termal testi ve uzun süreli ekonomi dengesi yapılmadı; kesin telefon FPS iddiası yok. Yeni texture veya büyük asset eklenmedi. UI efektleri sınırlıdır; sayaç aralığında metin güncellemesi vardır. Ağır refactor, yeni mekanik, paket kurulumu veya yeni build yok.
 
-Editor teslimde ayrı QA profilinde LevelMap ada detayı açık bırakılır; test nesnesiyle üretim sahnesini kaydetmeyin. Önceden değişmiş TMP fallback dosyasının başlangıç byte'ları korunup commit dışında tutulur. İlgisiz untracked dosyalar korunur. Git teslimi doğrulanınca aşağıda kaydedilir.
+Editor teslimde ayrı QA profilinde LevelMap ada detayı açık bırakılır; test nesnesiyle üretim sahnesini kaydetmeyin. Önceden değişmiş TMP fallback dosyasının başlangıç byte'ları korunup commit dışında tutulur. İlgisiz untracked dosyalar korunur. Git teslimi aşağıda uzak SHA ile doğrulanmıştır.
+
+## Doğrulanmış Git teslimi
+
+Uygulama/kanıt commit’i **75dce9817e713c1127dc67251cf34073ebae9fc2**, private origin/recovery/part09-completion üzerinde git ls-remote ile doğrulandı. Master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak kaldı; merge yok. [GIT_DELIVERY.json](GIT_DELIVERY.json) uzak doğrulamayı içerir. Bu teslim kaydı ayrı belge commit’iyle aynı branch’e gönderilir. Önceden değişmiş TMP font commit dışında ve byte olarak korunmuştur. Yeni build oluşturulmadı.
