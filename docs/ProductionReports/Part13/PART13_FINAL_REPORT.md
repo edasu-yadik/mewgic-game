@@ -85,6 +85,10 @@ Ana tur: Play Mode kapalıyken `Mewgic.Part13JProbe.Begin()`; otomatik biter. Ye
 
 [PRESERVATION.json](../Part13J/PRESERVATION.json) başlangıçtaki tüm izlenen dosyaları SHA-256 ile karşılaştırır. Önceden değişmiş TMP fallback dosyasının başlangıç byte'ları korundu ve commit'e alınmadı. İlgisiz untracked dosyalar korunup kapsam dışında bırakıldı. Üretim sanatları, LevelMap sahnesi ve12 ada kataloğu değişmedi; yalnız ilerleme raporu mevcut dosyada güncellendi.
 
-Yeni iOS/Player/IPA/Addressables içerik/TestFlight/Cloud build'i yok. Master'a merge yok; master başlangıç `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak korunacak. Commit/push sonucu aşağıya gerçek uzak SHA doğrulamasıyla eklenecek.
+Yeni iOS/Player/IPA/Addressables içerik/TestFlight/Cloud build'i yok. Master'a merge yok; master başlangıç `f243d7a355fedf9cfbc65f8060f1d3bc14cae169` olarak korundu. Commit/push sonucu aşağıda gerçek uzak SHA ile doğrulandı.
 
 Kalan kabul: fiziksel iOS/Android GPU/RAM/termal ve küçük ekran okunurluğu; uygulama prosesini kapat/aç ve low-memory; yerel bundle soğuk yükleme/tekrarlı sınır kaydırma jank'i. 601 sonrası sanat bekleniyor ve prosedürel oynanış güvenli devam ediyor. Bunlar test edilmemiş cihaz sonuçları olarak açık bırakılmıştır.
+
+## Doğrulanmış Git teslimi
+
+Testler, gerçek görüntüler ve rapor commit’i **`6804a592caf9648d06d7bbaab3356ef7d1275fc2`**, private `origin/recovery/part09-completion` üzerinde `git ls-remote` ile birebir doğrulandı. Master hâlâ `f243d7a355fedf9cfbc65f8060f1d3bc14cae169`; merge yapılmadı. [GIT_DELIVERY.json](../Part13J/GIT_DELIVERY.json) uzak doğrulamayı içerir. Bu teslim kanıtı ve ilerleme güncellemesi ayrı belge commit’iyle aynı geliştirme branch’ine gönderilir. Önceden değişmiş TMP font ve ilgisiz untracked dosyalar commit dışında korundu. Yalnız PART13J tamamlandı; yeni build başlatılmadı.

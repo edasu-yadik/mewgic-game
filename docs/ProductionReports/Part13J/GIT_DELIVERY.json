@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "verifiedUtc": "2026-11-02T02:00:32.494909+00:00",
+  "privateRepository": "edasu-yadik/mewgic-game",
+  "branch": "recovery/part09-completion",
+  "implementationCommit": "6804a592caf9648d06d7bbaab3356ef7d1275fc2",
+  "remoteDevelopmentHead": "6804a592caf9648d06d7bbaab3356ef7d1275fc2",
+  "masterUnchanged": true,
+  "masterHead": "f243d7a355fedf9cfbc65f8060f1d3bc14cae169",
+  "newBuild": false,
+  "note": "Bu dosya ve son rapor teslim kanıtı ayrı belge commitinde gönderilir."
+}
