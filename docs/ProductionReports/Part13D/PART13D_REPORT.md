@@ -90,3 +90,7 @@ PRESERVATION.json:2231 başlangıç dosyasının yalnız7 ilgili dosyası (ilerl
 Fiziksel iPhone/Android FPS/GPU/RAM/termal/dokunma ve paketlenmiş Player/IL2CPP kabulü yapılmadı. Su renk/konum maskeli2D akıştır; nötr köpükte bazı statik ayrıntılar kalır. Her küçük kabuk ayrı3D model değildir. Mevcut gece gökyüzü/paneller/beş grup düzeni korunur; isim plakası kayanın en altını kısmen örter. Genel UI,03_Map'in tekil düğümlü yolunun piksel kopyası olarak yeniden tasarlanmadı.
 
 Private hedef `edasu-yadik/mewgic-game`, isPrivate=true ile doğrulandı (PRIVATE_REPOSITORY.json). Editör Türkçe, izole301 başlangıç profiliyle Coral Game View büyütülmüş halde bırakıldı. **Yeni build yok.** Git teslim kaydı aşağıya eklenir.
+
+## Git teslim kaydı
+
+Uygulama, sanat ve doğrulama kanıtları: 96464ce0e300b489424f34710aa9203d7a082a6e. Private origin üzerindeki recovery/part09-completion branch'ine push başarılı; git ls-remote aynı SHA'yı doğruladı. master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. Önceden kirli TMP ve ilgisiz untracked dosyalar commit dışı bırakıldı. Yeni build alınmadı.
