@@ -85,3 +85,7 @@ Fiziksel iPhone/Android dokunma/FPS/GPU/RAM/termal ve paketlenmiş Player/IL2CPP
 PRESERVATION.json2456 başlangıç tracked dosyasından yalnız7 ilgili dosyanın değiştiğini,2449 dosyanın byte olarak aynı olduğunu denetler. Önceki dokuz ada sanat/prefab/animasyonları; Gameplay/Core/save/Pati/görev/event/localization üretim dosyaları aynı. Başlangıçtaki kirli TMP fallback gerçek byte yedeğinden geri getirildi ve SHA256 doğrulandı; teslim dışıdır. İlgisiz untracked çalışmalar korunur. Arcane Library ve son adaya başlanmadı.
 
 Private edasu-yadik/mewgic-game hedefi isPrivate=true ile doğrulandı. Hedef recovery/part09-completion; master korunur. Editör Türkçe, izole451 başlangıç profiliyle Starlight Game View'da bırakıldı. Git teslim kaydı push sonrası eklenir.
+
+## Git teslim kaydı
+
+Uygulama/sanat/test commit'i: c3d709fe68d904a440fe0a6ba90b7bbf51227c81. Private origin/recovery/part09-completion push başarılı; git ls-remote aynı SHA'yı doğruladı. master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Push sonrası koruma denetimi başarılı. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. Başlangıçtaki kirli TMP fallback ve ilgisiz untracked dosyalar teslim dışında bırakıldı. Yalnız PART13G tamamlandı; yeni build yok.
