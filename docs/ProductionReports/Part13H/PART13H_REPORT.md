@@ -76,3 +76,7 @@ Fiziksel iPhone/Android dokunma/FPS/GPU/RAM/termal ve paketlenmiş Player/IL2CPP
 PRESERVATION.json2533 başlangıç tracked dosyasından yalnız6 ilgili dosyanın değiştiğini,2527 dosyanın byte olarak aynı olduğunu denetler. Önceki on ada sanat/prefab/animasyonları ve Gameplay/Core/save/Pati/görev/event/localization üretim dosyaları aynı. Başlangıçta kirli TMP fallback gerçek byte yedeğinden geri getirildi/SHA256 doğrulandı, teslim dışıdır. İlgisiz untracked çalışmalar korunur.
 
 Mevcut .gitignore içindeki [Ll]ibrary/ kuralı bu ada adına da eşleşir. Kural değiştirilmeden yalnız bu partın açıkça adlandırılmış Library PNG/meta/mat/manifest/klasör şablonları ve iki SourceArt kaynağı force-add edilir; Unity kök Library cache'i eklenmez. Private edasu-yadik/mewgic-game isPrivate=true ile doğrulandı. Hedef recovery/part09-completion, master korunur. Editör Türkçe, izole501 başlangıç profiliyle Arcane Library Game View'da bırakıldı. Git teslim kaydı push sonrası eklenir.
+
+## Doğrulanmış Git teslimi
+
+Uygulama/sanat/test commit'i: 6c04816a36e2eef4441105b72b465ec6248427fe. Private origin/recovery/part09-completion push başarılı; git ls-remote aynı SHA'yı doğruladı. master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Push sonrası koruma denetimi başarılı. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. Başlangıçtaki kirli TMP fallback ve ilgisiz untracked dosyalar teslim dışında bırakıldı. Yalnız PART13H tamamlandı; yeni build yok.
