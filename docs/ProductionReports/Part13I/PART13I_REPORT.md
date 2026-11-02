@@ -85,3 +85,7 @@ Fiziksel iPhone/Android dokunma/FPS/GPU/RAM/termal ve paketlenmiş Player/IL2CPP
 PRESERVATION.json2626 başlangıç tracked dosyasından yalnız7 ilgili dosyanın değiştiğini,2619 dosyanın byte olarak aynı olduğunu denetler. Önceki on bir ada sanat/prefab/animasyonları, Gameplay/Core/save/Pati/görev/event/localization üretim dosyaları aynı. Başlangıçtaki kirli TMP fallback gerçek byte yedeğinden geri getirildi/SHA256 doğrulandı ve teslim dışıdır. İlgisiz untracked çalışmalar korunur.
 
 Private edasu-yadik/mewgic-game isPrivate=true ile doğrulandı. Hedef recovery/part09-completion, master korunur. Editör Türkçe, izole551 başlangıç profiliyle Aurora Game View'da bırakıldı. Yalnız PART13I tamamlandı; sonraki part/genel harita yeniden tasarımı yapılmadı. Git teslim kaydı push sonrası eklenir.
+
+## Doğrulanmış Git teslimi
+
+Uygulama/sanat/test commit'i: 959665c87defd8d71fa98ae171de31538fae569c. Private origin/recovery/part09-completion push başarılı; git ls-remote aynı SHA'yı doğruladı. master f243d7a355fedf9cfbc65f8060f1d3bc14cae169 olarak korundu. Push sonrası koruma denetimi başarılı. Bu teslim kaydı ayrı dokümantasyon commit'iyle gönderilir. Başlangıçtaki kirli TMP fallback ve ilgisiz untracked dosyalar teslim dışında bırakıldı. Yalnız PART13I tamamlandı; yeni build yok.
