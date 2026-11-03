@@ -211,7 +211,7 @@ namespace Mewgic.Map
                     var rect = (RectTransform)point.transform;
                     rect.anchoredPosition = new Vector2(width * JourneyLane(slot), -(slot + .5f) * rowHeight);
                     bool milestone = HasCrystalArt && slot == JourneyLevelCount - 1;
-                    float stoneWidth = HasCrystalArt ? width * (milestone ? .205f : .158f) : 156;
+                    float stoneWidth = HasCrystalArt ? width * (milestone ? .205f : .145f) : 156;
                     float stoneHeight = HasCrystalArt ? rowHeight * (milestone ? .88f : .72f) : 110;
                     rect.sizeDelta = new Vector2(Mathf.Max(stoneWidth, 48 / Canvas.scaleFactor),
                         Mathf.Max(stoneHeight, 48 / Canvas.scaleFactor));

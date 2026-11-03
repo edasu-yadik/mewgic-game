@@ -65,7 +65,7 @@ namespace Mewgic.Map
             SetVerticesDirty();
         }
 
-        static readonly Vector2[] Outline =
+        internal static readonly Vector2[] Outline =
         {
             new Vector2(-.48f, -.24f), new Vector2(-.32f, -.43f), new Vector2(.29f, -.45f),
             new Vector2(.49f, -.23f), new Vector2(.47f, .24f), new Vector2(.31f, .43f),
@@ -106,6 +106,35 @@ namespace Mewgic.Map
             }
             for (int i = 0; i < Outline.Length; i++)
                 mesh.AddTriangle(index, index + i + 1, index + (i + 1) % Outline.Length + 1);
+        }
+    }
+    [RequireComponent(typeof(CanvasRenderer))]
+    public sealed class JourneyStoneRing : MaskableGraphic
+    {
+        protected override void OnPopulateMesh(VertexHelper mesh)
+        {
+            mesh.Clear();
+            var outline = JourneyStoneGraphic.Outline;
+            var size = rectTransform.rect.size;
+            for (int i = 0; i < outline.Length; i++)
+            {
+                Vector2 edge = Vector2.Scale(outline[i], size);
+                mesh.AddVert(edge * .85f, new Color32(148, 67, 240, 0), Vector2.zero);
+                mesh.AddVert(edge * .98f, new Color32(255, 216, 117, 245), Vector2.zero);
+                mesh.AddVert(edge * 1.035f, new Color32(190, 98, 247, 168), Vector2.zero);
+                mesh.AddVert(edge * 1.115f, new Color32(175, 76, 242, 0), Vector2.zero);
+            }
+
+            for (int i = 0; i < outline.Length; i++)
+            {
+                int start = i * 4;
+                int next = (i + 1) % outline.Length * 4;
+                for (int band = 0; band < 3; band++)
+                {
+                    mesh.AddTriangle(start + band, start + band + 1, next + band);
+                    mesh.AddTriangle(next + band, start + band + 1, next + band + 1);
+                }
+            }
         }
     }
 }

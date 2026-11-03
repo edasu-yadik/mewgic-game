@@ -7,9 +7,9 @@ namespace Mewgic.Map
     {
         const int CrystalRegion = 1;
         const int LevelsPerTerrace = 10;
-        const float TerraceFeather = .024f;
+        const float TerraceFeather = .036f;
         [SerializeField] Texture2D[] crystalTerraces;
-        readonly RawImage[] crystalArt = new RawImage[5];
+        readonly CrystalTerraceImage[] crystalArt = new CrystalTerraceImage[5];
         readonly Graphic[] crystalMotes = new Graphic[6];
         RectTransform crystalBackdrop;
         JourneySoftDisc crystalCatShadow;
@@ -23,8 +23,12 @@ namespace Mewgic.Map
             { .48f, .69f, .47f, .22f, .33f, .31f, .64f, .68f, .48f, .48f },
             { .48f, .66f, .55f, .20f, .23f, .34f, .71f, .71f, .48f, .49f },
             { .54f, .74f, .53f, .26f, .32f, .34f, .63f, .62f, .46f, .49f },
-            { .48f, .73f, .55f, .275f, .24f, .52f, .55f, .70f, .49f, .455f }
+            { .48f, .73f, .55f, .275f, .24f, .49f, .55f, .68f, .49f, .455f }
         };
+
+        // Painted road center at the upper and lower edge of each terrace.
+        static readonly float[] TerraceEntrance = { .50f, .49f, .50f, .53f, .50f };
+        static readonly float[] TerraceExit = { .43f, .49f, .50f, .51f, .49f };
 
         bool HasCrystalArt => crystalBackdrop != null && journeyRegion == CrystalRegion;
         float JourneyLane(int slot) => HasCrystalArt
@@ -51,7 +55,9 @@ namespace Mewgic.Map
             for (int i = 0; i < crystalArt.Length; i++)
             {
                 var terrace = Rect(crystalBackdrop, "CrystalTerrace_" + (i + 1), Vector2.up, Vector2.one);
-                var art = terrace.gameObject.AddComponent<RawImage>();
+                var art = terrace.gameObject.AddComponent<CrystalTerraceImage>();
+                art.Entrance = TerraceEntrance[i];
+                art.Exit = TerraceExit[i];
                 art.texture = crystalTerraces[i];
                 art.material = crystalWater;
                 art.raycastTarget = false;
@@ -63,10 +69,10 @@ namespace Mewgic.Map
             crystalCatShadow.color = new Color(.12f, .045f, .19f, .74f);
             crystalCatShadow.raycastTarget = false;
 
-            var motes = Rect(journeyScroll.viewport, "CrystalFallsMotes", Vector2.zero, Vector2.one);
+            var motes = Rect(journeyContent, "CrystalFallsMotes", Vector2.zero, Vector2.one);
             for (int i = 0; i < crystalMotes.Length; i++)
             {
-                var spark = Rect(motes, "CrystalMote_" + i, new Vector2(.5f, .5f), new Vector2(.5f, .5f));
+                var spark = Rect(motes, "CrystalMote_" + i, Vector2.up, Vector2.up);
                 spark.sizeDelta = Vector2.one * (5 + i % 3 * 2);
                 var graphic = spark.gameObject.AddComponent<Characters.WizardSparkGraphic>();
                 graphic.raycastTarget = false;
@@ -116,14 +122,51 @@ namespace Mewgic.Map
             float time = EnvironmentTime;
             if (crystalWater != null)
                 crystalWater.SetFloat("_EnvironmentTime", time);
-            var size = journeyScroll.viewport.rect.size;
+            float width = journeyScroll.viewport.rect.width;
+            float top = Mathf.Max(0, journeyContent.anchoredPosition.y);
+            int first = Mathf.FloorToInt(top / rowHeight);
             for (int i = 0; i < crystalMotes.Length; i++)
             {
                 var mote = crystalMotes[i];
-                float phase = Mathf.Repeat(time * (.045f + i * .005f) + i * .153f, 1);
-                float x = Mathf.Sin(i * 9.14f) * .38f + Mathf.Sin(time * .4f + i) * .045f;
-                mote.rectTransform.anchoredPosition = new Vector2(x * size.x, (phase - .5f) * size.y);
-                mote.canvasRenderer.SetAlpha(Mathf.Sin(phase * Mathf.PI) * .52f);
+                int slot = first + i;
+                if (slot >= JourneyLevelCount - 1)
+                {
+                    mote.canvasRenderer.SetAlpha(0);
+                    continue;
+                }
+
+                // Only the spaces between nearby stones receive directional light.
+                float phase = Mathf.Repeat(time * .42f + slot * .27f, 1);
+                float progress = Mathf.Lerp(.39f, .61f, phase);
+                float x = Mathf.Lerp(JourneyLane(slot), JourneyLane(slot + 1), progress);
+                mote.rectTransform.anchoredPosition = new Vector2(x * width, -(slot + .5f + progress) * rowHeight);
+                mote.canvasRenderer.SetAlpha(Mathf.Sin(phase * Mathf.PI) * .86f);
+            }
+        }
+    }
+
+    // Align the road mouths only at the edges, leaving the central artwork and stone anchors intact.
+    public sealed class CrystalTerraceImage : RawImage
+    {
+        static readonly float[] Rows = { 0, .04f, .12f, .88f, .96f, 1 };
+        public float Entrance = .5f;
+        public float Exit = .5f;
+
+        protected override void OnPopulateMesh(VertexHelper mesh)
+        {
+            mesh.Clear();
+            Rect bounds = GetPixelAdjustedRect();
+            foreach (float row in Rows)
+            {
+                float offset = row <= .04f ? Exit - .5f : row >= .96f ? Entrance - .5f : 0;
+                float y = Mathf.Lerp(bounds.yMin, bounds.yMax, row);
+                mesh.AddVert(new Vector2(bounds.xMin, y), color, new Vector2(offset, row));
+                mesh.AddVert(new Vector2(bounds.xMax, y), color, new Vector2(1 + offset, row));
+            }
+            for (int i = 0; i < (Rows.Length - 1) * 2; i += 2)
+            {
+                mesh.AddTriangle(i, i + 2, i + 1);
+                mesh.AddTriangle(i + 1, i + 2, i + 3);
             }
         }
     }

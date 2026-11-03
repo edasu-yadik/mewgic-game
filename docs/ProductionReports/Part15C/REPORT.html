@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MeWGic PART 15C · Kristal Şelaleler</title>
+<style>
+body{margin:0;background:#11172b;color:#f4eadc;font:16px/1.55 system-ui}main{max-width:1080px;margin:auto;padding:28px}a{color:#9de7ed}.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:20px}figure{margin:0}img{width:100%;display:block;border-radius:8px}figcaption{padding:8px 0}section{margin:28px 0}code{color:#eccc87}
+</style>
+<main>
+<h1>PART 15C · Kristal Şelaleler</h1>
+<p>4 Kasım 2026 · Unity 6000.3.27f1 · Başlangıç <code>4465314</code></p>
+<p>PART 15B’nin beş arazi dokusu korunuyor. Orijinal sohbet referansı bu oturumda erişilebilir değildi. Solda Unity’de kullanılan PART 15B kaynak ortamı, sağda aynı terasın gerçek Play Mode ekranı yer alıyor. Her kareye tıklayarak tam boyutunu açabilirsin.</p>
+<div class="pair">
+<figure><a href="../../../Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_05.png"><img src="../../../Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_05.png" alt="Teras 05 kaynak ortam çizimi"></a><figcaption>PART 15B kaynak ortamı · Teras 05</figcaption></figure>
+<figure><a href="Native_92_100.png"><img src="Native_92_100.png" alt="Bölüm taşları, kazanılmış yıldızlar ve altın halkalı 100. bölüm"></a><figcaption>Unity Game View · 92–100, güncel bölüm 100</figcaption></figure>
+</div>
+<section><h2>Diğer Game View kareleri</h2><ul>
+<li><a href="Native_91_98.png">91–98 ve üst köprü</a></li>
+<li><a href="Native_95_Aktif_Kilitli.png">95 güncel, sonraki taşlar kilitli</a></li>
+<li><a href="Native_Teras_Gecisi.png">90–91 teras geçişi</a></li>
+<li><a href="Compact_360x640.png">360×640 kompakt portre</a> ve <a href="SafeArea_900x2000.png">900×2000 çentik paylı portre</a></li>
+</ul></section>
+<section><h2>Entegrasyon</h2>
+<ul><li>Taşlar ve kedi aynı teras sanatını kullanıyor. Standart taşlar daraltıldı, 96 ve 98 yol merkezine doğru kaydırıldı. 100 daha büyük altın kilometre taşı olarak kaldı.</li>
+<li>Güncel taşın altın ve mor halkası hafifçe canlanıyor. Altı ışık parçacığı yakın taşların arasındaki boşluklarda artan bölüm sırasına doğru ilerliyor. Etkileşim alanları ve durum verisi Unity’de ayrı çalışıyor.</li>
+<li>Teras çizimlerinin yalnızca üst ve alt kenarları, yol ağızları ortak eksene yaklaşacak şekilde UV ile hizalandı. Geçiş bandı genişletildi. Görseldeki manzara ve perspektif farkı, özellikle 90–91 sınırında hâlâ görülebiliyor.</li>
+<li>Ada açılırken mevcut güncel bölüme odaklama ve dikey kaydırma kullanılıyor. 12 ada, 50 bölüm, prosedürel devam ve kayıt şeması mevcut altyapıdan geliyor.</li></ul>
+</section>
+<section><h2>Play Mode</h2>
+<p><a href="UNITY_TESTS.json">8.962 kontrol, hata veya uyarı yok</a>. 1–650 tarandı. Kristal Şelaleler’de örneklenen pencerelerde taşların dokunma alanları ayrık kaldı. En fazla 12 taş etkindi. Halka ve rota ışığı hareketi, 48 px dokunma alanı, raycast, kaydırma, tuş odağı, üç Game View portre oranı ve 100’ün gerçek Gameplay geçişi denetlendi. Ayrı profilde 95’e odaklandı ve kilitli 96 tıklaması açıklamayı açıp LevelMap’te kaldı. Oyuncu kaydı ve yedek alanları korundu. Fiziksel cihaz performansı ölçülmedi.</p>
+</section>
+</main>

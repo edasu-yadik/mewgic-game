@@ -125,12 +125,20 @@ namespace Mewgic
             Check(terraces.Length == 5 && terraces.Select(a => a.texture).Distinct().Count() == 5, "Beş ayrı Kristal Şelaleler zemini");
             Check(GameObject.Find("StoneRoute") == null && GameObject.Find("WizardCatContactShadow") != null, "Boyanmış rota ve kedi temas gölgesi");
             Check(Stone(49).transform.Find("StoneLight").gameObject.activeInHierarchy, "100. bölüm kilometre taşı ışığı");
+            Check(terraces.All(a => a is CrystalTerraceImage), "Teras uçları yola hizalanan ayrı mesh kullanıyor");
+            var ring = Stone(49).transform.Find("StoneLight").GetComponent<JourneyStoneRing>();
+            Check(ring != null && !ring.raycastTarget, "Kilometre taşı halkası dokunmayı engellemez");
+            float ringBefore = ring.canvasRenderer.GetAlpha();
+            var trail = GameObject.Find("CrystalMote_1").GetComponent<RectTransform>();
+            float trailBefore = trail.anchoredPosition.y;
             var water = terraces[4].material;
             float waterBefore = water.GetFloat("_EnvironmentTime");
             var marker = Stone(49).transform.Find("CurrentMarker");
             float markerBefore = marker.localPosition.y;
             yield return new WaitForSecondsRealtime(.26f);
             Check(water.IsKeywordEnabled("MEWGIC_CRYSTAL_FLOW") && water.GetFloat("_EnvironmentTime") > waterBefore, "Şelale materyali akıyor");
+            Check(Mathf.Abs(ring.canvasRenderer.GetAlpha() - ringBefore) > .002f, "Aktif ışık halkası titreşiyor");
+            Check(Mathf.Abs(trail.anchoredPosition.y - trailBefore) > .01f, "Yol ışığı taşların arasından ilerliyor");
             Check(Mathf.Abs(marker.localPosition.y - markerBefore) > .01f, "Aktif bölüm işareti hareket ediyor");
             Check(Stone(49).GetComponent<MapNodeBadge>().Status == MapLevelStatus.Current, "100 güncel olmalı");
             Check(Stone(48).GetComponent<MapNodeBadge>().Stars == map.Progression.Stars(99), "99 yıldız kaydı");
@@ -146,6 +154,19 @@ namespace Mewgic
                     var stones = Stones();
                     peakStones = Mathf.Max(peakStones, stones.Length);
                     Check(stones.Length < 20, "Görünür düğüm havuzu sınırlı");
+                    if (region == 1)
+                    {
+                        var rectangles = stones.Select(p =>
+                        {
+                            var rect = (RectTransform)p.transform;
+                            var bounds = rect.rect;
+                            bounds.position += rect.anchoredPosition;
+                            return bounds;
+                        }).ToArray();
+                        for (int i = 0; i < rectangles.Length; i++)
+                            for (int j = i + 1; j < rectangles.Length; j++)
+                                Check(!rectangles[i].Overlaps(rectangles[j]), "Kristal taşlarının dokunma alanları ayrık");
+                    }
                     foreach (var point in stones)
                     {
                         seen.Add(point.slotIndex);

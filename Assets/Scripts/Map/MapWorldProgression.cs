@@ -16,7 +16,7 @@ namespace Mewgic.Map
  }
  public sealed class MapNodeBadge : MonoBehaviour
  {
-  JourneyStoneGraphic stone;JourneySoftDisc stoneLight;bool crystalStone;float arrowHeight=66;bool animateBadge=true;Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;MapClaimGraphic claimedMark;bool chest;float clock;bool current;
+  JourneyStoneGraphic stone;JourneyStoneRing stoneLight;bool crystalStone;float arrowHeight=66;bool animateBadge=true;Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;MapClaimGraphic claimedMark;bool chest;float clock;bool current;
   public MapLevelStatus Status {get;private set;}public int Stars {get;private set;}
   static RectTransform Rect(Transform p,string name,Vector2 center,Vector2 size){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=center;return r;}
   public void Build(bool isChest,Sprite star,TMP_FontAsset font){chest=isChest;art=transform.Find("Art").GetComponent<Image>();
@@ -50,10 +50,10 @@ namespace Mewgic.Map
     button.colors=colors;
     var aura=Rect(root,"StoneLight",Vector2.zero,Vector2.zero);
     aura.anchorMin=Vector2.zero;aura.anchorMax=Vector2.one;
-    aura.offsetMin=new Vector2(-28,-22);aura.offsetMax=new Vector2(28,22);
+    aura.offsetMin=new Vector2(-9,-8);aura.offsetMax=new Vector2(9,8);
     aura.SetAsFirstSibling();
-    stoneLight=aura.gameObject.AddComponent<JourneySoftDisc>();
-    stoneLight.color=new Color(1f,.66f,.25f,.72f);
+    stoneLight=aura.gameObject.AddComponent<JourneyStoneRing>();
+
     stoneLight.raycastTarget=false;
     art.enabled=false;
     number.rectTransform.sizeDelta=new Vector2(106,48);
@@ -70,7 +70,7 @@ namespace Mewgic.Map
    arrowHeight=crystal?((RectTransform)transform).rect.height*.49f+12:66;
    arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight);
    stoneLight.gameObject.SetActive(crystal&&(current||milestone));
-   if(stoneLight.gameObject.activeSelf)stoneLight.canvasRenderer.SetAlpha(current?.76f:.38f);
+   if(stoneLight.gameObject.activeSelf)stoneLight.canvasRenderer.SetAlpha(current?.92f:.48f);
    stone.color=crystal?(current||milestone?new Color32(255,214,130,255):
       closed?new Color32(144,123,163,255):status==MapLevelStatus.Completed?
       new Color32(150,216,200,255):new Color32(211,156,207,255)):current?new Color32(255,208,96,255):
@@ -81,7 +81,7 @@ namespace Mewgic.Map
   }
   public void PresentGroup(int first,int last,int done,bool isCurrent,bool open){Present(first,isCurrent?MapLevelStatus.Current:done==10?MapLevelStatus.Completed:open?MapLevelStatus.Available:MapLevelStatus.Locked,0);art.sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");art.type=Image.Type.Sliced;art.preserveAspect=false;art.rectTransform.sizeDelta=new Vector2(180,88);number.rectTransform.sizeDelta=new Vector2(158,50);number.text=L.V("map.levels_short");number.fontSizeMin=14;number.fontSizeMax=23;number.rectTransform.anchoredPosition=Vector2.zero;locked.gameObject.SetActive(false);foreach(var star in stars)star.gameObject.SetActive(false);}
   public void PresentChest(bool ready,bool claimed){current=ready;halo.gameObject.SetActive(ready);locked.gameObject.SetActive(!ready&&!claimed);claimedMark.gameObject.SetActive(claimed);number.text="";number.fontSize=34;number.rectTransform.anchoredPosition=new Vector2(0,-30);art.color=claimed?new Color(.65f,.65f,.75f,1):ready?Color.white:new Color(.65f,.56f,.80f,1);foreach(var s in stars)s.gameObject.SetActive(false);}
-  void Update(){if(!current||!animateBadge)return;clock+=Time.unscaledDeltaTime;if(stone!=null){arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight+Mathf.Sin(clock*3)*5);if(crystalStone)stoneLight.canvasRenderer.SetAlpha(.72f+Mathf.Sin(clock*2.3f)*.21f);return;}halo.color=new Color(1,.84f,.28f,.25f+Mathf.Sin(clock*2)*.12f);halo.rectTransform.localScale=Vector3.one*(1+Mathf.Sin(clock*2)*.04f);}
+  void Update(){if(!current||!animateBadge)return;clock+=Time.unscaledDeltaTime;if(stone!=null){arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight+Mathf.Sin(clock*3)*5);if(crystalStone)stoneLight.canvasRenderer.SetAlpha(.86f+Mathf.Sin(clock*2.3f)*.13f);return;}halo.color=new Color(1,.84f,.28f,.25f+Mathf.Sin(clock*2)*.12f);halo.rectTransform.localScale=Vector3.one*(1+Mathf.Sin(clock*2)*.04f);}
  }
  [RequireComponent(typeof(CanvasRenderer))]public sealed class MapLockGraphic:MaskableGraphic
  {
