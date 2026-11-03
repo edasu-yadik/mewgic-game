@@ -296,12 +296,11 @@ namespace Mewgic.Map
 
         Vector2 CatRest(int slot)
         {
-            var pos = RoutePosition(slot);
+            var pos = RoutePosition(slot + .31f);
             float width = journeyScroll.viewport.rect.width;
             if (HasCrystalArt && slot == JourneyLevelCount - 1)
-                return new Vector2(width * .827f, -rowHeight * 48.60f);
-            pos.x += width * (JourneyLane(slot) < .52f ? .12f : -.12f);
-            pos.y -= rowHeight * .23f;
+                return new Vector2(width * .572f, -rowHeight * 49.22f);
+            pos.x += width * (JourneyLane(slot) < .52f ? .092f : -.092f);
             return pos;
         }
 
@@ -319,7 +318,7 @@ namespace Mewgic.Map
             if (journeyMascot == null)
                 return;
             float width = journeyScroll.viewport.rect.width;
-            float height = width * .139f * size;
+            float height = width * .124f * size;
             var r = journeyCat.rectTransform;
             r.pivot = new Vector2(.5f, .12f);
             r.sizeDelta = new Vector2(height * journeyMascot.width / journeyMascot.height, height);

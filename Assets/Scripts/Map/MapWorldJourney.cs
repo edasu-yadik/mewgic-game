@@ -17,7 +17,8 @@ namespace Mewgic.Map
         RawImage journeyCat;
         Button journeyBack, journeyFocus;
         int journeyRegion, firstBound = -1, lastBound = -1;
-        float rowHeight, journeyViewportHeight;
+        float rowHeight, journeyViewportHeight, focusVelocity;
+        int journeyFocusSlot = -1;
 
         void BuildChapter()
         {
@@ -30,11 +31,12 @@ namespace Mewgic.Map
 
             var scroll = Rect(overlay, "JourneyScroll", new Vector2(0, .105f), new Vector2(1, .87f));
             var mapScroll = scroll.gameObject.AddComponent<MapScrollRect>();
-            mapScroll.UserInput = () => FinishJourney(false);
+            mapScroll.UserInput = CancelJourneyFocus;
             journeyScroll = mapScroll;
             journeyScroll.horizontal = false;
             journeyScroll.movementType = ScrollRect.MovementType.Clamped;
-            journeyScroll.scrollSensitivity = 70;
+            journeyScroll.scrollSensitivity = 56;
+            journeyScroll.decelerationRate = .10f;
             scroll.gameObject.AddComponent<Image>().color = Color.clear;
             scroll.gameObject.AddComponent<RectMask2D>();
             journeyScroll.viewport = scroll;
@@ -64,7 +66,8 @@ namespace Mewgic.Map
             journeyCat.enabled = journeyMascot != null;
 
             var heading = Art(overlay, "JourneyHeading", null, new Vector2(0, .87f), Vector2.one);
-            heading.color = new Color32(12, 26, 44, 255);
+            heading.color = new Color32(23, 20, 40, 255);
+            Art(heading.transform, "GoldEdge", null, Vector2.zero, new Vector2(1, .013f)).color = new Color32(159, 115, 58, 255);
             chapterTitle = Label(heading.transform, "ChapterTitle", "", 36, new Vector2(.04f, .34f), new Vector2(.96f, .95f));
             Label(heading.transform, "ChapterInstruction", L.V("map.choose"), 24,
                 new Vector2(.05f, .03f), new Vector2(.70f, .35f));
@@ -75,7 +78,7 @@ namespace Mewgic.Map
             journeyBack = Control(footer.transform, "ChapterClose", L.V("map.return"),
                 new Vector2(.07f, .12f), new Vector2(.60f, .88f), CloseJourney);
             journeyFocus = Control(footer.transform, "JourneyFocus", L.V("map.focus"),
-                new Vector2(.63f, .12f), new Vector2(.93f, .88f), () => { FinishJourney(false); JumpToJourneySlot(CurrentJourneySlot()); });
+                new Vector2(.63f, .12f), new Vector2(.93f, .88f), FocusJourneyCurrent);
             journeyScroll.onValueChanged.AddListener(_ => BindJourneyWindow());
             chapter.SetActive(false);
         }
@@ -91,6 +94,7 @@ namespace Mewgic.Map
             if (navigating || progression == null || region < 0 || region > (int.MaxValue - 50) / 50 || group < 0 || group > 4)
                 return;
 
+            journeyFocusSlot = -1;
             journeyRegion = region;
             LoadThemedJourney(region);
             SelectedChapter = region * 5 + group;
@@ -118,6 +122,47 @@ namespace Mewgic.Map
             var island = views.Find(view => view.region == journeyRegion);
             if (island != null)
                 island.groups[0].GetComponent<Button>().Select();
+        }
+
+        void CancelJourneyFocus()
+        {
+            journeyFocusSlot = -1;
+            FinishJourney(false);
+        }
+
+        void FocusJourneyCurrent()
+        {
+            CancelJourneyFocus();
+            if (journeyRegion != progression.CurrentRegion)
+            {
+                FocusCurrent();
+                return;
+            }
+
+            int slot = CurrentJourneySlot();
+            if (reducedJourneyMotion || !animateEnvironment)
+            {
+                JumpToJourneySlot(slot);
+                return;
+            }
+            journeyScroll.StopMovement();
+            focusVelocity = 0;
+            journeyFocusSlot = slot;
+        }
+
+        void AnimateJourneyFocus()
+        {
+            if (journeyFocusSlot < 0)
+                return;
+            var position = journeyContent.anchoredPosition;
+            float target = ScrollForSlot(journeyFocusSlot);
+            position.y = Mathf.SmoothDamp(position.y, target, ref focusVelocity, .19f, 5400, Time.unscaledDeltaTime);
+            journeyContent.anchoredPosition = position;
+            if (Mathf.Abs(position.y - target) < .5f)
+            {
+                JumpToJourneySlot(journeyFocusSlot);
+                journeyFocusSlot = -1;
+            }
         }
 
         int CurrentJourneySlot() => Mathf.Clamp(progression.CurrentId - progression.LevelId(journeyRegion, 0), 0, 49);
@@ -195,6 +240,7 @@ namespace Mewgic.Map
                     SetJourneyNavigation(point.GetComponent<Button>(), null, null);
                     chapterNodes.Add(point);
                 }
+                journeyCat.transform.SetAsLastSibling();
                 firstBound = -1;
             }
 
@@ -218,7 +264,7 @@ namespace Mewgic.Map
                     point.slotIndex = slot;
                     var rect = (RectTransform)point.transform;
                     rect.anchoredPosition = new Vector2(width * JourneyLane(slot), -(slot + .5f) * rowHeight);
-                    bool milestone = HasPaintedJourney && slot == JourneyLevelCount - 1;
+                    bool milestone = slot == JourneyLevelCount - 1;
                     float stoneWidth = HasPaintedJourney ? width * (milestone ? .205f : .145f) : 156;
                     float stoneHeight = HasPaintedJourney ? rowHeight * (milestone ? .88f : .72f) : 110;
                     rect.sizeDelta = new Vector2(Mathf.Max(stoneWidth, 48 / Canvas.scaleFactor),
@@ -226,7 +272,7 @@ namespace Mewgic.Map
                     int id = progression.LevelId(journeyRegion, slot);
                     var status = JourneyLockPending(id) ? MapLevelStatus.Locked : progression.Status(id);
                     point.GetComponent<MapNodeBadge>().PresentJourney(id, status, progression.Stars(id),
-                        animateEnvironment && !reducedJourneyMotion, HasPaintedJourney, milestone);
+                        animateEnvironment && !reducedJourneyMotion, milestone);
                 }
 
                 point.gameObject.SetActive(true);

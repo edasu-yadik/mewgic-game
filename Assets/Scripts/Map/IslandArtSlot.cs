@@ -71,6 +71,8 @@ namespace Mewgic.Map
                 if (LibraryPresentation != null) { LibraryPresentation.Animate = animate; LibraryPresentation.BeginEntrance(); }
                 if (AuroraPresentation != null) { AuroraPresentation.Animate = animate; AuroraPresentation.BeginEntrance(); }
                 // Sanat UI düğümleri ve isim plakasının arkasında kalır.
+                foreach (var graphic in instance.GetComponentsInChildren<UnityEngine.UI.Graphic>(true))
+                    graphic.raycastTarget = false;
                 instance.transform.SetAsFirstSibling();
             };
         }

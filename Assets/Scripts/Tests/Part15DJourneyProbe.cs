@@ -21,7 +21,7 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class Part15DJourneyProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/Part15D";
+        [SerializeField] string output = "docs/ProductionReports/Part15D";
         readonly List<string> checks = new List<string>();
         readonly List<string> issues = new List<string>();
         readonly Dictionary<string, string> player = new Dictionary<string, string>();
@@ -31,10 +31,10 @@ namespace Mewgic
         RectTransform Cat => (RectTransform)GameObject.Find("WizardCatGuide").transform;
         MapScrollRect Scroll => GameObject.Find("JourneyScroll").GetComponent<MapScrollRect>();
 
-        public static void Begin()
+        public static void Begin(string folder = "docs/ProductionReports/Part15D")
         {
             EditorSceneManager.OpenScene("Assets/Scenes/LevelMap.unity");
-            new GameObject("PART15D isolated QA").AddComponent<Part15DJourneyProbe>();
+            new GameObject("PART15D isolated QA").AddComponent<Part15DJourneyProbe>().output = folder;
             EditorApplication.isPlaying = true;
         }
 
@@ -43,7 +43,7 @@ namespace Mewgic
             if (active != null) { Destroy(gameObject); return; }
             active = this;
             DontDestroyOnLoad(gameObject);
-            Directory.CreateDirectory(Output);
+            Directory.CreateDirectory(output);
             Application.runInBackground = true;
             foreach (string suffix in new[] { "", ".backup", ".corrupt" })
             {
@@ -105,7 +105,7 @@ namespace Mewgic
                 yield return next;
             }
             bool intact = player.All(p => p.Value == null ? !PlayerPrefs.HasKey(p.Key) : PlayerPrefs.GetString(p.Key) == p.Value);
-            File.WriteAllText(Path.Combine(Output, "UNITY_TESTS.json"), Newtonsoft.Json.JsonConvert.SerializeObject(
+            File.WriteAllText(Path.Combine(output, "UNITY_TESTS.json"), Newtonsoft.Json.JsonConvert.SerializeObject(
                 new { success = failure == null && issues.Count == 0 && intact, failure, checks, issues, playerSaveIntact = intact },
                 Newtonsoft.Json.Formatting.Indented));
             EditorApplication.isPlaying = false;
@@ -166,7 +166,7 @@ namespace Mewgic
                 RenderTexture.active = flipped;
                 texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
                 texture.Apply();
-                File.WriteAllBytes(Path.Combine(Output, name + ".png"), texture.EncodeToPNG());
+                File.WriteAllBytes(Path.Combine(output, name + ".png"), texture.EncodeToPNG());
             }
             finally
             {

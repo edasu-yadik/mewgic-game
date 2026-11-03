@@ -15,6 +15,7 @@ namespace Mewgic.Map
         JourneySoftDisc crystalCatShadow;
         Graphic journeyRoute;
         Material crystalWater;
+        bool crystalLite;
 
         // The anchors follow the painted walkable surfaces in each illustration.
         static readonly float[,] CrystalLanes =
@@ -48,6 +49,9 @@ namespace Mewgic.Map
                 crystalWater = new Material(waterLightShader);
                 crystalWater.EnableKeyword("UNITY_UI_CLIP_RECT");
                 crystalWater.EnableKeyword("MEWGIC_CRYSTAL_FLOW");
+                crystalLite = Application.isMobilePlatform || SystemInfo.graphicsMemorySize is > 0 and < 768;
+                if (crystalLite)
+                    crystalWater.EnableKeyword("MEWGIC_CRYSTAL_FLOW_LITE");
                 crystalWater.SetFloat("_TerraceFeather", TerraceFeather);
             }
 
@@ -116,11 +120,12 @@ namespace Mewgic.Map
             float width = journeyScroll.viewport.rect.width;
             float top = Mathf.Max(0, journeyContent.anchoredPosition.y);
             int first = Mathf.FloorToInt(top / rowHeight);
+            int budget = crystalLite ? 3 : crystalMotes.Length;
             for (int i = 0; i < crystalMotes.Length; i++)
             {
                 var mote = crystalMotes[i];
                 int slot = first + i;
-                if (slot >= JourneyLevelCount - 1)
+                if (i >= budget || slot >= JourneyLevelCount - 1)
                 {
                     mote.canvasRenderer.SetAlpha(0);
                     continue;

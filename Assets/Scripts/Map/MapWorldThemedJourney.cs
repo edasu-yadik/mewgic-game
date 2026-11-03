@@ -6,11 +6,12 @@ namespace Mewgic.Map
 {
     public sealed partial class MapWorld
     {
+        const float ThemedOverlap = .058f;
         static readonly int[] TerraceStarts = { 0, 12, 25, 37, 50 };
         readonly ThemedTerraceImage[] themedTerraces = new ThemedTerraceImage[4];
         RectTransform themedBackdrop;
         Texture2D themedAtlas;
-        int themedRegion = -1;
+        int themedRegion = -1, themedSource;
 
         bool HasThemedArt => themedAtlas != null && themedRegion == journeyRegion;
         bool HasPaintedJourney => HasCrystalArt || HasThemedArt;
@@ -36,20 +37,26 @@ namespace Mewgic.Map
                 return;
             ReleaseThemedJourney();
             themedRegion = region;
-            if (region == CrystalRegion || region < 0 || region >= WorldMapRules.IslandsPerPack)
+            if (region == CrystalRegion || region < 0)
                 return;
 
-            themedAtlas = Resources.Load<Texture2D>("Map/Journeys/Island_" + (region + 1).ToString("D2"));
+            themedSource = region;
+            if (region >= WorldMapRules.IslandsPerPack)
+            {
+                themedSource = region % (WorldMapRules.IslandsPerPack - 1);
+                if (themedSource >= CrystalRegion) themedSource++;
+            }
+            themedAtlas = Resources.Load<Texture2D>("Map/Journeys/Island_" + (themedSource + 1).ToString("D2"));
             if (themedAtlas == null)
                 return;
             for (int i = 0; i < themedTerraces.Length; i++)
             {
                 var terrace = themedTerraces[i];
                 terrace.texture = themedAtlas;
-                float crop = TopCrop(region, i);
+                float crop = TopCrop(themedSource, i);
                 terrace.uvRect = new Rect(i % 2 * .5f, i < 2 ? .5f : 0, .5f, .5f * (1 - crop));
-                terrace.Entrance = ThemedPath.Lane(region, i, crop);
-                terrace.Exit = ThemedPath.Lane(region, i, 1);
+                terrace.Entrance = ThemedPath.Lane(themedSource, i, crop);
+                terrace.Exit = ThemedPath.Lane(themedSource, i, 1);
             }
         }
 
@@ -74,7 +81,7 @@ namespace Mewgic.Map
             {
                 float top = TerraceStarts[i] * rowHeight;
                 float height = (TerraceStarts[i + 1] - TerraceStarts[i]) * rowHeight;
-                float overlap = i < themedTerraces.Length - 1 ? height * .049f : 0;
+                float overlap = i < themedTerraces.Length - 1 ? height * ThemedOverlap : 0;
                 var rect = themedTerraces[i].rectTransform;
                 rect.sizeDelta = new Vector2(0, height + overlap + .5f);
                 rect.anchoredPosition = Vector2.down * (top + (height + overlap) * .5f);
@@ -91,14 +98,14 @@ namespace Mewgic.Map
                 panel++;
 
             float height = TerraceStarts[panel + 1] - TerraceStarts[panel];
-            float overlap = panel < themedTerraces.Length - 1 ? .049f : 0;
+            float overlap = panel < themedTerraces.Length - 1 ? ThemedOverlap : 0;
             float t = (position - TerraceStarts[panel]) / (height * (1 + overlap));
-            float crop = TopCrop(journeyRegion, panel);
-            float raw = ThemedPath.Lane(journeyRegion, panel, Mathf.Lerp(crop, 1, t));
+            float crop = TopCrop(themedSource, panel);
+            float raw = ThemedPath.Lane(themedSource, panel, Mathf.Lerp(crop, 1, t));
             // Match the edge warp of the art while leaving the center of the panel untouched.
-            float startOffset = ThemedPath.Lane(journeyRegion, panel, crop) - .5f;
-            float endOffset = ThemedPath.Lane(journeyRegion, panel, 1) - .5f;
-            return raw - startOffset * (1 - Mathf.InverseLerp(.05f, .16f, t)) -
+            float startOffset = ThemedPath.Lane(themedSource, panel, crop) - .5f;
+            float endOffset = ThemedPath.Lane(themedSource, panel, 1) - .5f;
+            return raw - startOffset * (1 - Mathf.InverseLerp(.055f, .16f, t)) -
                 endOffset * Mathf.InverseLerp(.84f, .95f, t);
         }
     }
@@ -107,7 +114,7 @@ namespace Mewgic.Map
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class ThemedTerraceImage : RawImage
     {
-        static readonly float[] Rows = { 0, .05f, .16f, .84f, .95f, 1 };
+        static readonly float[] Rows = { 0, .05f, .16f, .84f, .945f, 1 };
         static readonly float[] Columns = { 0, .15f, .85f, 1 };
         public float Entrance = .5f;
         public float Exit = .5f;
@@ -122,7 +129,7 @@ namespace Mewgic.Map
             for (int i = 0; i < Rows.Length; i++)
             {
                 float y = Rows[i];
-                float shift = y <= .05f ? Exit - .5f : y >= .95f ? Entrance - .5f : 0;
+                float shift = y <= .05f ? Exit - .5f : y >= .945f ? Entrance - .5f : 0;
                 Color tint = color;
                 if (y == 1) tint.a = 0;
                 foreach (float x in Columns)

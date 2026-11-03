@@ -11,12 +11,12 @@ namespace Mewgic.Map
   void UpdateProgressTitle(){if(progression==null)return;regionTitle.text=progression.RegionOpen(ActiveRegion)?L.Island(ActiveRegion):L.V("map.region_locked",L.Island(ActiveRegion));}
   void Message(string text){CancelJump();Scroll.StopMovement();informationText.text=text;information.SetActive(true);information.transform.SetAsLastSibling();claimButton.gameObject.SetActive(false);if(chapter.activeSelf){SetJourneyNavigation(infoClose,null,null);infoClose.Select();}else infoClose.navigation=Navigation.defaultNavigation;}
   public void ShowInformation(MapPoint point){if(navigating)return;if(progression==null){Message(L.V("boot.error"));return;}int r=point.regionIndex;if(point.kind==MapPointKind.LevelGroup){OpenChapter(r,point.slotIndex);return;}if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);if(JourneyLockPending(id))return;if(!progression.CanEnter(id)){Message(L.V("map.level_locked",id));return;}EnterLevel(id);return;}selectedChest=r;if(progression.ChestClaimed(r)){Message(L.V("map.chest_taken"));return;}if(!progression.ChestReady(r)){Message(L.V("map.chest_wait",L.Island(r)));return;}Message(L.V("map.chest_ready",progression.Reward(r).amount));claimButton.gameObject.SetActive(true);}
-  public async void EnterLevel(int id){if(navigating||progression==null||JourneyLockPending(id)||!progression.CanEnter(id))return;FinishJourney(false);navigating=true;Message(L.V("map.preparing"));try{await GameplayLevelCatalog.PrepareAsync(id);if(this==null)return;if(!GameplayLevelCatalog.Select(id,ledger))throw new InvalidOperationException();pendingFocus=-1;ledger.SaveMapFocus(id);SceneNavigation.LoadOnce("Gameplay");}catch(Exception){if(this!=null){navigating=false;Message(L.V("error.prepare"));}}}
+  public async void EnterLevel(int id){if(navigating||progression==null||JourneyLockPending(id)||!progression.CanEnter(id))return;CancelJourneyFocus();navigating=true;Message(L.V("map.preparing"));try{await GameplayLevelCatalog.PrepareAsync(id);if(this==null)return;if(!GameplayLevelCatalog.Select(id,ledger))throw new InvalidOperationException();pendingFocus=-1;ledger.SaveMapFocus(id);SceneNavigation.LoadOnce("Gameplay");}catch(Exception){if(this!=null){navigating=false;Message(L.V("error.prepare"));}}}
   void ClaimSelectedChest(){if(selectedChest<0||progression==null)return;bool saved=progression.ClaimChest(selectedChest,out bool granted);RefreshProgress();Message(!saved?L.V("error.save"):granted?L.V("map.chest_saved"):L.V("map.chest_taken"));}
  }
  public sealed class MapNodeBadge : MonoBehaviour
  {
-  JourneyStoneGraphic stone;JourneyStoneRing stoneLight;bool crystalStone;float arrowHeight=66;bool animateBadge=true;Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;MapClaimGraphic claimedMark;bool chest;float clock;bool current;
+  JourneyStoneGraphic stone;JourneyStoneRing stoneLight;float arrowHeight=66;bool animateBadge=true;Image art,halo;TMP_Text number,arrow;Image[] stars;MapLockGraphic locked;MapClaimGraphic claimedMark;bool chest;float clock;bool current;
   public MapLevelStatus Status {get;private set;}public int Stars {get;private set;}
   static RectTransform Rect(Transform p,string name,Vector2 center,Vector2 size){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=center;return r;}
   public void Build(bool isChest,Sprite star,TMP_FontAsset font){chest=isChest;art=transform.Find("Art").GetComponent<Image>();
@@ -29,7 +29,7 @@ namespace Mewgic.Map
   }
   public void Present(int id,MapLevelStatus status,int count){Status=status;Stars=count;current=status==MapLevelStatus.Current;bool closed=status==MapLevelStatus.Locked||status==MapLevelStatus.Unavailable;number.text=id>0?id.ToString():"…";number.rectTransform.anchoredPosition=closed?new Vector2(0,-16):new Vector2(0,1);number.fontSize=closed?23:40;locked.gameObject.SetActive(closed);halo.gameObject.SetActive(current);arrow.gameObject.SetActive(current);art.color=closed?new Color(.48f,.32f,.64f,1):status==MapLevelStatus.Completed?new Color(.40f,1,.50f,1):Color.white;
    for(int i=0;i<3;i++){stars[i].gameObject.SetActive(!closed);stars[i].color=i<count?Color.white:new Color(.25f,.22f,.35f,.75f);} }
-  public void PresentJourney(int id,MapLevelStatus status,int count,bool animate,bool crystal,bool milestone)
+  public void PresentJourney(int id,MapLevelStatus status,int count,bool animate,bool milestone)
   {
    Present(id,status,count);
    animateBadge=animate;
@@ -66,17 +66,22 @@ namespace Mewgic.Map
    locked.rectTransform.anchoredPosition=new Vector2(0,-30);
    foreach(var star in stars)star.gameObject.SetActive(count>0&&!closed);
    stone.rectTransform.localScale=Vector3.one;
-   crystalStone=crystal;
-   stone.Configure(crystal,milestone);
-   arrowHeight=crystal?((RectTransform)transform).rect.height*.49f+12:66;
+
+   stone.Configure(true,milestone);
+   var size=((RectTransform)transform).rect.size;
+   arrowHeight=size.y*.49f+12;
    arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight);
-   stoneLight.gameObject.SetActive(crystal&&(current||milestone&&!closed));
+   stoneLight.gameObject.SetActive(current||milestone&&!closed);
    if(stoneLight.gameObject.activeSelf)stoneLight.canvasRenderer.SetAlpha(current?.92f:.48f);
-   stone.color=crystal?(closed?new Color32(144,123,163,255):
+   stone.color=closed?new Color32(123,108,146,255):
       current||milestone?new Color32(255,214,130,255):status==MapLevelStatus.Completed?
-      new Color32(150,216,200,255):new Color32(211,156,207,255)):current?new Color32(255,208,96,255):
-     closed?new Color32(129,137,155,255):
-     status==MapLevelStatus.Completed?new Color32(139,206,161,255):new Color32(127,201,227,255);
+      new Color32(150,216,200,255):new Color32(211,156,207,255);
+   number.rectTransform.sizeDelta=new Vector2(size.x*.80f,size.y*.45f);
+   number.fontSizeMin=12;
+   number.rectTransform.anchoredPosition=new Vector2(0,size.y*.115f);
+   locked.rectTransform.anchoredPosition=new Vector2(0,-size.y*.27f);
+   for(int i=0;i<stars.Length;i++)
+       stars[i].rectTransform.anchoredPosition=new Vector2((i-1)*22,-size.y*.29f);
    halo.gameObject.SetActive(false);
    arrow.color=new Color32(255,220,80,255);
   }
@@ -89,7 +94,7 @@ namespace Mewgic.Map
   }
   public void PresentGroup(int first,int last,int done,bool isCurrent,bool open){Present(first,isCurrent?MapLevelStatus.Current:done==10?MapLevelStatus.Completed:open?MapLevelStatus.Available:MapLevelStatus.Locked,0);art.sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");art.type=Image.Type.Sliced;art.preserveAspect=false;art.rectTransform.sizeDelta=new Vector2(180,88);number.rectTransform.sizeDelta=new Vector2(158,50);number.text=L.V("map.levels_short");number.fontSizeMin=14;number.fontSizeMax=23;number.rectTransform.anchoredPosition=Vector2.zero;locked.gameObject.SetActive(false);foreach(var star in stars)star.gameObject.SetActive(false);}
   public void PresentChest(bool ready,bool claimed){current=ready;halo.gameObject.SetActive(ready);locked.gameObject.SetActive(!ready&&!claimed);claimedMark.gameObject.SetActive(claimed);number.text="";number.fontSize=34;number.rectTransform.anchoredPosition=new Vector2(0,-30);art.color=claimed?new Color(.65f,.65f,.75f,1):ready?Color.white:new Color(.65f,.56f,.80f,1);foreach(var s in stars)s.gameObject.SetActive(false);}
-  void Update(){if(!current||!animateBadge)return;clock+=Time.unscaledDeltaTime;if(stone!=null){arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight+Mathf.Sin(clock*3)*5);if(crystalStone)stoneLight.canvasRenderer.SetAlpha(.86f+Mathf.Sin(clock*2.3f)*.13f);return;}halo.color=new Color(1,.84f,.28f,.25f+Mathf.Sin(clock*2)*.12f);halo.rectTransform.localScale=Vector3.one*(1+Mathf.Sin(clock*2)*.04f);}
+  void Update(){if(!current||!animateBadge)return;clock+=Time.unscaledDeltaTime;if(stone!=null){arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight+Mathf.Sin(clock*3)*5);stoneLight.canvasRenderer.SetAlpha(.86f+Mathf.Sin(clock*2.3f)*.13f);return;}halo.color=new Color(1,.84f,.28f,.25f+Mathf.Sin(clock*2)*.12f);halo.rectTransform.localScale=Vector3.one*(1+Mathf.Sin(clock*2)*.04f);}
  }
  [RequireComponent(typeof(CanvasRenderer))]public sealed class MapLockGraphic:MaskableGraphic
  {

@@ -28,6 +28,7 @@ Shader "Mewgic/MapWaterLight"
             #pragma multi_compile_local _ UNITY_UI_CLIP_RECT
             #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
             #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW
+            #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW_LITE
             #include "UnityCG.cginc"
             #include "UnityUI.cginc"
             struct Input{float4 vertex:POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;};
@@ -44,13 +45,15 @@ Shader "Mewgic/MapWaterLight"
                 #ifdef MEWGIC_CRYSTAL_FLOW
                 half cyan=smoothstep(.04,.26,min(c.g,c.b)-c.r)*smoothstep(.16,.62,c.g);
                 float phase=i.uv.y*108+i.uv.x*20+_EnvironmentTime*4.2;
+                #ifndef MEWGIC_CRYSTAL_FLOW_LITE
                 float2 drift=float2(sin(phase*.54)*.0016,sin(phase)*.0035);
                 half leaves=smoothstep(.13,.39,max(c.g-c.b,min(c.r,c.b)-c.g));
                 float leafSway=sin(i.uv.y*44+i.uv.x*51+_EnvironmentTime*1.65);
                 fixed3 flow=tex2D(_MainTex,i.uv+drift*cyan+float2(leafSway*.0014,0)*leaves).rgb;
+                c.rgb=lerp(c.rgb,flow,max(cyan*.46,leaves*.37));
+                #endif
                 half stream=smoothstep(.38,.96,sin(phase+sin(i.uv.x*171)*.85));
                 half crystal=smoothstep(.40,.88,c.b)*smoothstep(.08,.3,c.b-c.g);
-                c.rgb=lerp(c.rgb,flow,max(cyan*.46,leaves*.37));
                 c.rgb*=1+window*.035*sin(_EnvironmentTime*2.8+i.uv.x*117+i.uv.y*43);
                 c.rgb+=cyan*stream*half3(.036,.092,.104);
                 c.rgb+=crystal*(.028+.024*sin(_EnvironmentTime*1.7+i.uv.x*32))*half3(.65,.55,1);

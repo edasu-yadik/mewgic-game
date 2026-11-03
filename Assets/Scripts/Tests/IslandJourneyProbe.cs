@@ -106,6 +106,8 @@ namespace Mewgic
         static void Tap(MapPoint point)
         {
             var data = new PointerEventData(EventSystem.current) { button = PointerEventData.InputButton.Left };
+            ExecuteEvents.Execute(point.gameObject, data, ExecuteEvents.pointerDownHandler);
+            ExecuteEvents.Execute(point.gameObject, data, ExecuteEvents.pointerUpHandler);
             ExecuteEvents.Execute(point.gameObject, data, ExecuteEvents.pointerClickHandler);
         }
 

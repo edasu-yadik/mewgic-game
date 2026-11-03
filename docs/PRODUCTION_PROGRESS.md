@@ -282,3 +282,5 @@ PART 15C (4 Kasım 2026) · Kristal Şelaleler’de taş konumu, altın/mor akti
 PART 15D (4 Kasım 2026) · İlk kazanıştan sonra kedi yürüyüşü, rota ışığı, taş açılışı, kamera takibi ve az hareket tercihi eklendi. 46 yolculuk ve 8.962 harita regresyon kontrolü geçti. Rapor ve Game View kareleri ProductionReports/Part15D altında.
 
 PART 15E (4 Kasım 2026) · Mevcut 12 ada kimliğiyle eşleşen temalı bölüm rotaları, 11 yeni dört panelli atlas ve bir defalık ada açılışı tamamlandı. 4.067 tema/ada kontrolü ve 11.382 harita regresyon kontrolü geçti. Tüm ada sınırları ve 601 üretimi doğrulandı. Galeri ProductionReports/Part15E altında.
+
+PART 15F (4 Kasım 2026) · Güncel bölüme doğrudan odak, sürükleme ve taş seçim ayrımı, görsel durum tutarlılığı, mobil su katmanı ve teras geçişi iyileştirmeleri. 4.215 harita, 11.602 regresyon ve 46 yolculuk kontrolü geçti. 12 ada, üç oran ve gerçek 1000 Gameplay görselleri ProductionReports/Part15F altında.
