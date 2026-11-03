@@ -54,6 +54,7 @@ namespace Mewgic.Map
             journeyRoute = route.gameObject.AddComponent<JourneyRouteGraphic>();
             journeyRoute.raycastTarget = false;
             BuildCrystalJourney();
+            BuildThemedJourney();
 
             var cat = Rect(journeyContent, "WizardCatGuide", Vector2.up, Vector2.up);
             catImage = cat.gameObject.AddComponent<JourneyCatImage>();
@@ -91,6 +92,7 @@ namespace Mewgic.Map
                 return;
 
             journeyRegion = region;
+            LoadThemedJourney(region);
             SelectedChapter = region * 5 + group;
             int first = progression.LevelId(region, 0);
             chapterTitle.text = L.V("map.chapter", L.Island(region), first, progression.LevelId(region, 49));
@@ -112,6 +114,7 @@ namespace Mewgic.Map
         {
             FinishJourney(false);
             chapter.SetActive(false);
+            ReleaseThemedJourney();
             var island = views.Find(view => view.region == journeyRegion);
             if (island != null)
                 island.groups[0].GetComponent<Button>().Select();
@@ -136,7 +139,7 @@ namespace Mewgic.Map
             float width = journeyScroll.viewport.rect.width;
             float previousViewportHeight = journeyViewportHeight;
             journeyViewportHeight = journeyScroll.viewport.rect.height;
-            rowHeight = Mathf.Max(width * (HasCrystalArt ? .15f : .193f), 56 / Canvas.scaleFactor);
+            rowHeight = Mathf.Max(width * (HasCrystalArt ? .15f : HasThemedArt ? .12f : .193f), 56 / Canvas.scaleFactor);
             journeyContent.sizeDelta = new Vector2(0, rowHeight * JourneyLevelCount);
             if (keepPosition && oldHeight > 0)
             {
@@ -151,11 +154,11 @@ namespace Mewgic.Map
                 journeyContent.anchoredPosition = Vector2.up * Mathf.Clamp(newTop, 0, hidden);
             }
 
-            journeyRoute.gameObject.SetActive(!HasCrystalArt);
+            journeyRoute.gameObject.SetActive(!HasPaintedJourney);
             for (int i = 0; i < journeyScenery.Count; i++)
             {
                 var art = journeyScenery[i];
-                art.gameObject.SetActive(!HasCrystalArt);
+                art.gameObject.SetActive(!HasPaintedJourney);
                 art.rectTransform.sizeDelta = new Vector2(width * .13f, rowHeight * 5.8f);
                 art.rectTransform.anchoredPosition = new Vector2((i % 2 == 0 ? -.075f : .075f) * width, -(i * 5 + 2.65f) * rowHeight);
             }
@@ -163,6 +166,7 @@ namespace Mewgic.Map
             journeyCat.color = HasCrystalArt ? new Color(1f, .91f, .96f) : Color.white;
             firstBound = -1;
             LayoutCrystalJourney();
+            LayoutThemedJourney();
             if (!journeyRunning)
                 PlaceRestingCat();
             if (keepPosition)
@@ -214,15 +218,15 @@ namespace Mewgic.Map
                     point.slotIndex = slot;
                     var rect = (RectTransform)point.transform;
                     rect.anchoredPosition = new Vector2(width * JourneyLane(slot), -(slot + .5f) * rowHeight);
-                    bool milestone = HasCrystalArt && slot == JourneyLevelCount - 1;
-                    float stoneWidth = HasCrystalArt ? width * (milestone ? .205f : .145f) : 156;
-                    float stoneHeight = HasCrystalArt ? rowHeight * (milestone ? .88f : .72f) : 110;
+                    bool milestone = HasPaintedJourney && slot == JourneyLevelCount - 1;
+                    float stoneWidth = HasPaintedJourney ? width * (milestone ? .205f : .145f) : 156;
+                    float stoneHeight = HasPaintedJourney ? rowHeight * (milestone ? .88f : .72f) : 110;
                     rect.sizeDelta = new Vector2(Mathf.Max(stoneWidth, 48 / Canvas.scaleFactor),
                         Mathf.Max(stoneHeight, 48 / Canvas.scaleFactor));
                     int id = progression.LevelId(journeyRegion, slot);
                     var status = JourneyLockPending(id) ? MapLevelStatus.Locked : progression.Status(id);
                     point.GetComponent<MapNodeBadge>().PresentJourney(id, status, progression.Stars(id),
-                        animateEnvironment && !reducedJourneyMotion, HasCrystalArt, milestone);
+                        animateEnvironment && !reducedJourneyMotion, HasPaintedJourney, milestone);
                 }
 
                 point.gameObject.SetActive(true);

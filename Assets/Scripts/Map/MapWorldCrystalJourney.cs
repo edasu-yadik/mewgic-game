@@ -33,7 +33,7 @@ namespace Mewgic.Map
         bool HasCrystalArt => crystalBackdrop != null && journeyRegion == CrystalRegion;
         float JourneyLane(int slot) => HasCrystalArt
             ? CrystalLanes[slot / LevelsPerTerrace, slot % LevelsPerTerrace]
-            : JourneyRouteGraphic.Lane(slot);
+            : HasThemedArt ? ThemedLane(slot) : JourneyRouteGraphic.Lane(slot);
 
         void BuildCrystalJourney()
         {

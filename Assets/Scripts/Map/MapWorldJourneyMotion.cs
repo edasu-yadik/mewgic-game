@@ -15,6 +15,9 @@ namespace Mewgic.Map
         readonly Graphic[] journeyLights = new Graphic[8];
         RectTransform journeyLightRoot;
         Image journeyVeil;
+        CanvasGroup journeyWelcome;
+        TMP_Text journeyWelcomeTitle;
+        int newlyOpenedRegion = -1;
         TMP_Text motionLabel;
         Button motionButton;
         JourneyCatImage catImage;
@@ -48,6 +51,13 @@ namespace Mewgic.Map
             }
             journeyLightRoot.gameObject.SetActive(false);
             journeyVeil = Art(journeyScroll.viewport, "JourneyIslandVeil", null, Vector2.zero, Vector2.one);
+            var welcome = Panel(chapter.transform, "JourneyIslandWelcome", new Vector2(.10f, .718f), new Vector2(.90f, .838f));
+            welcome.raycastTarget = false;
+            journeyWelcome = welcome.gameObject.AddComponent<CanvasGroup>();
+            journeyWelcome.blocksRaycasts = false;
+            journeyWelcome.interactable = false;
+            journeyWelcomeTitle = Label(welcome.transform, "IslandName", "", 39, new Vector2(.08f, .16f), new Vector2(.92f, .85f));
+            journeyWelcome.gameObject.SetActive(false);
             journeyVeil.gameObject.SetActive(false);
         }
 
@@ -72,8 +82,18 @@ namespace Mewgic.Map
 
         void TryStartJourney()
         {
-            if (progression == null || !ledger.TakeMapJourney(out fromLevel, out toLevel) ||
-                progression.CurrentId != toLevel || !progression.CanEnter(toLevel))
+            if (progression == null)
+                return;
+            if (!ledger.TakeMapJourney(out fromLevel, out toLevel))
+            {
+                // A player may reach the first level via Next or reopen after a completed save.
+                if (newlyOpenedRegion <= 0 || progression.CurrentRegion != newlyOpenedRegion ||
+                    progression.CurrentId != WorldMapRules.FirstLevel(newlyOpenedRegion))
+                    return;
+                toLevel = progression.CurrentId;
+                fromLevel = toLevel - 1;
+            }
+            if (progression.CurrentId != toLevel || !progression.CanEnter(toLevel))
                 return;
 
             fromRegion = WorldMapRules.Island(fromLevel);
@@ -109,6 +129,7 @@ namespace Mewgic.Map
             journeyRunning = false;
             journeyVeil.gameObject.SetActive(false);
             journeyLightRoot.gameObject.SetActive(false);
+            journeyWelcome.gameObject.SetActive(false);
             if (focus && journeyRegion != toRegion)
                 ShowChapter(toRegion, toSlot / 10, toSlot, false);
             if (focus)
@@ -150,6 +171,11 @@ namespace Mewgic.Map
                 {
                     journeyCrossed = true;
                     ShowChapter(toRegion, toSlot / 10, toSlot, false);
+                    if (toRegion == newlyOpenedRegion)
+                    {
+                        journeyWelcomeTitle.text = L.Island(toRegion);
+                        journeyWelcome.gameObject.SetActive(true);
+                    }
                 }
             }
 
@@ -181,6 +207,14 @@ namespace Mewgic.Map
             }
 
             float desired = ScrollForSlot(position);
+            if (journeyWelcome.gameObject.activeSelf)
+            {
+                float appear = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.83f, 1.12f, journeyClock));
+                journeyWelcome.alpha = appear * (1 - Mathf.InverseLerp(1.55f, JourneyDuration, journeyClock));
+                journeyWelcome.transform.localScale = Vector3.one * Mathf.Lerp(.94f, 1, appear);
+                desired = Mathf.Max(desired, rowHeight * .70f *
+                    Mathf.Sin(Mathf.InverseLerp(.72f, JourneyDuration, journeyClock) * Mathf.PI));
+            }
             var content = journeyContent.anchoredPosition;
             content.y = Mathf.Lerp(content.y, desired, 1 - Mathf.Exp(-dt * 8));
             journeyContent.anchoredPosition = content;
@@ -245,6 +279,8 @@ namespace Mewgic.Map
             float t = Mathf.Clamp01(slot - a);
             float start = JourneyLane(a), end = JourneyLane(a + 1);
             float mid = (start + end) * .5f;
+            if (HasThemedArt)
+                return new Vector2(ThemedLane(slot) * journeyScroll.viewport.rect.width, -(slot + .5f) * rowHeight);
             if (HasCrystalArt)
             {
                 if (a >= 40)
