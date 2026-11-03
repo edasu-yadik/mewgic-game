@@ -857,6 +857,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
+  - m_Id: 1048086925639681
+    m_Localized: "Movimento: Sim"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639682
+    m_Localized: "Movimento: Reduzido"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

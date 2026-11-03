@@ -17,6 +17,14 @@ namespace Mewgic.Core
     public sealed partial class ProgressLedger
     {
         ProgressData state;readonly Action<ProgressData> save;
+        int journeyFrom, journeyTo;
+        public bool TakeMapJourney(out int from,out int to)
+        {
+            from=journeyFrom;to=journeyTo;
+            ClearMapJourney();
+            return from>0&&to>from;
+        }
+        public void ClearMapJourney(){journeyFrom=journeyTo=0;}
         public int LastCoinReward {get;private set;}
         public string LastError {get;private set;}public int Revision{get;private set;}
         public ProgressData Snapshot=>state.Copy();
@@ -56,7 +64,11 @@ namespace Mewgic.Core
             bool first=!record.rewardClaimed;record.bestStars=Math.Max(record.bestStars,stars);
             if(first){try{copy.hint=checked(copy.hint+1);}catch(OverflowException){LastError="Ödül sayacı sınırda.";return false;}record.rewardClaimed=true;}
             int coins=coinEligible?CompletionReward.Coins(stars,first):0;try{copy.presentation.coins=checked(copy.presentation.coins+coins);}catch(OverflowException){return false;}if(coinEligible)record.lastCoinReceipt=victoryReceipt;
-            WorldMapRules.Sync(copy);if(!Commit(copy))return false;LastCoinReward=coins;granted=first;return true;
+            bool frontier=first&&WorldMapRules.CurrentLevel(state)==level;
+            WorldMapRules.Sync(copy);if(!Commit(copy))return false;LastCoinReward=coins;granted=first;
+            ClearMapJourney();
+            if(frontier){journeyFrom=level;journeyTo=WorldMapRules.CurrentLevel(copy);}
+            return true;
         }
     }
     public sealed class BoosterActions

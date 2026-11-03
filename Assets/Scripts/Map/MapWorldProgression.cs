@@ -10,8 +10,8 @@ namespace Mewgic.Map
   public void RefreshProgress(){if(ledger==null)return;progression=MapProgressionCatalog.Open(ledger);foreach(var v in views)if(v.region>=0)BindIsland(v,v.region);UpdateProgressTitle();if(chapter.activeSelf){firstBound=-1;BindJourneyWindow();}}
   void UpdateProgressTitle(){if(progression==null)return;regionTitle.text=progression.RegionOpen(ActiveRegion)?L.Island(ActiveRegion):L.V("map.region_locked",L.Island(ActiveRegion));}
   void Message(string text){CancelJump();Scroll.StopMovement();informationText.text=text;information.SetActive(true);information.transform.SetAsLastSibling();claimButton.gameObject.SetActive(false);if(chapter.activeSelf){SetJourneyNavigation(infoClose,null,null);infoClose.Select();}else infoClose.navigation=Navigation.defaultNavigation;}
-  public void ShowInformation(MapPoint point){if(navigating)return;if(progression==null){Message(L.V("boot.error"));return;}int r=point.regionIndex;if(point.kind==MapPointKind.LevelGroup){OpenChapter(r,point.slotIndex);return;}if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);if(!progression.CanEnter(id)){Message(L.V("map.level_locked",id));return;}EnterLevel(id);return;}selectedChest=r;if(progression.ChestClaimed(r)){Message(L.V("map.chest_taken"));return;}if(!progression.ChestReady(r)){Message(L.V("map.chest_wait",L.Island(r)));return;}Message(L.V("map.chest_ready",progression.Reward(r).amount));claimButton.gameObject.SetActive(true);}
-  public async void EnterLevel(int id){if(navigating||progression==null||!progression.CanEnter(id))return;navigating=true;Message(L.V("map.preparing"));try{await GameplayLevelCatalog.PrepareAsync(id);if(this==null)return;if(!GameplayLevelCatalog.Select(id,ledger))throw new InvalidOperationException();pendingFocus=-1;ledger.SaveMapFocus(id);SceneNavigation.LoadOnce("Gameplay");}catch(Exception){if(this!=null){navigating=false;Message(L.V("error.prepare"));}}}
+  public void ShowInformation(MapPoint point){if(navigating)return;if(progression==null){Message(L.V("boot.error"));return;}int r=point.regionIndex;if(point.kind==MapPointKind.LevelGroup){OpenChapter(r,point.slotIndex);return;}if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);if(JourneyLockPending(id))return;if(!progression.CanEnter(id)){Message(L.V("map.level_locked",id));return;}EnterLevel(id);return;}selectedChest=r;if(progression.ChestClaimed(r)){Message(L.V("map.chest_taken"));return;}if(!progression.ChestReady(r)){Message(L.V("map.chest_wait",L.Island(r)));return;}Message(L.V("map.chest_ready",progression.Reward(r).amount));claimButton.gameObject.SetActive(true);}
+  public async void EnterLevel(int id){if(navigating||progression==null||JourneyLockPending(id)||!progression.CanEnter(id))return;FinishJourney(false);navigating=true;Message(L.V("map.preparing"));try{await GameplayLevelCatalog.PrepareAsync(id);if(this==null)return;if(!GameplayLevelCatalog.Select(id,ledger))throw new InvalidOperationException();pendingFocus=-1;ledger.SaveMapFocus(id);SceneNavigation.LoadOnce("Gameplay");}catch(Exception){if(this!=null){navigating=false;Message(L.V("error.prepare"));}}}
   void ClaimSelectedChest(){if(selectedChest<0||progression==null)return;bool saved=progression.ClaimChest(selectedChest,out bool granted);RefreshProgress();Message(!saved?L.V("error.save"):granted?L.V("map.chest_saved"):L.V("map.chest_taken"));}
  }
  public sealed class MapNodeBadge : MonoBehaviour
@@ -65,19 +65,27 @@ namespace Mewgic.Map
    number.rectTransform.anchoredPosition=new Vector2(0,closed?6:10);
    locked.rectTransform.anchoredPosition=new Vector2(0,-30);
    foreach(var star in stars)star.gameObject.SetActive(count>0&&!closed);
+   stone.rectTransform.localScale=Vector3.one;
    crystalStone=crystal;
    stone.Configure(crystal,milestone);
    arrowHeight=crystal?((RectTransform)transform).rect.height*.49f+12:66;
    arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight);
-   stoneLight.gameObject.SetActive(crystal&&(current||milestone));
+   stoneLight.gameObject.SetActive(crystal&&(current||milestone&&!closed));
    if(stoneLight.gameObject.activeSelf)stoneLight.canvasRenderer.SetAlpha(current?.92f:.48f);
-   stone.color=crystal?(current||milestone?new Color32(255,214,130,255):
-      closed?new Color32(144,123,163,255):status==MapLevelStatus.Completed?
+   stone.color=crystal?(closed?new Color32(144,123,163,255):
+      current||milestone?new Color32(255,214,130,255):status==MapLevelStatus.Completed?
       new Color32(150,216,200,255):new Color32(211,156,207,255)):current?new Color32(255,208,96,255):
      closed?new Color32(129,137,155,255):
      status==MapLevelStatus.Completed?new Color32(139,206,161,255):new Color32(127,201,227,255);
    halo.gameObject.SetActive(false);
    arrow.color=new Color32(255,220,80,255);
+  }
+  public void SetJourneyAccent(float amount,bool arrival)
+  {
+   if(stone==null)return;
+   stoneLight.gameObject.SetActive(amount>.01f||current);
+   stoneLight.canvasRenderer.SetAlpha(Mathf.Max(current?.82f:0,amount));
+   stone.rectTransform.localScale=Vector3.one*(1+amount*(arrival?.11f:.025f));
   }
   public void PresentGroup(int first,int last,int done,bool isCurrent,bool open){Present(first,isCurrent?MapLevelStatus.Current:done==10?MapLevelStatus.Completed:open?MapLevelStatus.Available:MapLevelStatus.Locked,0);art.sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");art.type=Image.Type.Sliced;art.preserveAspect=false;art.rectTransform.sizeDelta=new Vector2(180,88);number.rectTransform.sizeDelta=new Vector2(158,50);number.text=L.V("map.levels_short");number.fontSizeMin=14;number.fontSizeMax=23;number.rectTransform.anchoredPosition=Vector2.zero;locked.gameObject.SetActive(false);foreach(var star in stars)star.gameObject.SetActive(false);}
   public void PresentChest(bool ready,bool claimed){current=ready;halo.gameObject.SetActive(ready);locked.gameObject.SetActive(!ready&&!claimed);claimedMark.gameObject.SetActive(claimed);number.text="";number.fontSize=34;number.rectTransform.anchoredPosition=new Vector2(0,-30);art.color=claimed?new Color(.65f,.65f,.75f,1):ready?Color.white:new Color(.65f,.56f,.80f,1);foreach(var s in stars)s.gameObject.SetActive(false);}

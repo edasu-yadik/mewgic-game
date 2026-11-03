@@ -2266,5 +2266,33 @@
       "it": "LIVELLI",
       "pl": "POZIOMY"
     }
+  },
+  {
+    "key": "map.motion_full",
+    "values": {
+      "tr": "Hareket: Açık",
+      "en": "Motion: Full",
+      "de": "Bewegung: An",
+      "fr": "Mouvement : Oui",
+      "es": "Movimiento: Sí",
+      "pt-BR": "Movimento: Sim",
+      "it": "Movimento: Sì",
+      "pl": "Ruch: Pełny"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "map.motion_reduced",
+    "values": {
+      "tr": "Hareket: Az",
+      "en": "Motion: Reduced",
+      "de": "Bewegung: Weniger",
+      "fr": "Mouvement : Réduit",
+      "es": "Movimiento: Reducido",
+      "pt-BR": "Movimento: Reduzido",
+      "it": "Movimento: Ridotto",
+      "pl": "Ruch: Ograniczony"
+    },
+    "review": "draft"
   }
 ]

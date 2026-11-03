@@ -81,15 +81,15 @@ namespace Mewgic.Map
             }
         }
 
-        void LayoutCrystalJourney(float width)
+        void LayoutCrystalJourney()
         {
             if (crystalBackdrop == null)
                 return;
 
             bool crystal = HasCrystalArt;
             crystalBackdrop.gameObject.SetActive(crystal);
-            crystalCatShadow.gameObject.SetActive(crystal && journeyMascot != null);
-            crystalMotes[0].transform.parent.gameObject.SetActive(crystal && animateEnvironment);
+            crystalCatShadow.gameObject.SetActive(journeyMascot != null);
+            crystalMotes[0].transform.parent.gameObject.SetActive(crystal && animateEnvironment && !reducedJourneyMotion);
             if (!crystal)
                 return;
 
@@ -102,16 +102,6 @@ namespace Mewgic.Map
                 rect.anchoredPosition = new Vector2(0, -(i + .5f) * terraceHeight - overlap * .5f);
             }
 
-            float catHeight = width * .172f;
-            var catRect = journeyCat.rectTransform;
-            catRect.pivot = new Vector2(.5f, .035f);
-            catRect.sizeDelta = journeyMascot == null ? Vector2.zero :
-                new Vector2(catHeight * journeyMascot.width / journeyMascot.height, catHeight);
-            catRect.anchoredPosition = new Vector2(width * .827f, -terraceHeight * 4.86f);
-            journeyCat.color = new Color(1f, .91f, .96f);
-            var shadow = crystalCatShadow.rectTransform;
-            shadow.anchoredPosition = catRect.anchoredPosition + new Vector2(0, width * .004f);
-            shadow.sizeDelta = new Vector2(width * .142f, width * .043f);
         }
 
         void AnimateCrystalJourney()
@@ -121,7 +111,8 @@ namespace Mewgic.Map
 
             float time = EnvironmentTime;
             if (crystalWater != null)
-                crystalWater.SetFloat("_EnvironmentTime", time);
+                crystalWater.SetFloat("_EnvironmentTime", reducedJourneyMotion ? time * .25f : time);
+            if (reducedJourneyMotion) return;
             float width = journeyScroll.viewport.rect.width;
             float top = Mathf.Max(0, journeyContent.anchoredPosition.y);
             int first = Mathf.FloorToInt(top / rowHeight);

@@ -29,7 +29,9 @@ namespace Mewgic.Map
             clouds.color = new Color(.57f, .70f, .82f);
 
             var scroll = Rect(overlay, "JourneyScroll", new Vector2(0, .105f), new Vector2(1, .87f));
-            journeyScroll = scroll.gameObject.AddComponent<ScrollRect>();
+            var mapScroll = scroll.gameObject.AddComponent<MapScrollRect>();
+            mapScroll.UserInput = () => FinishJourney(false);
+            journeyScroll = mapScroll;
             journeyScroll.horizontal = false;
             journeyScroll.movementType = ScrollRect.MovementType.Clamped;
             journeyScroll.scrollSensitivity = 70;
@@ -54,7 +56,8 @@ namespace Mewgic.Map
             BuildCrystalJourney();
 
             var cat = Rect(journeyContent, "WizardCatGuide", Vector2.up, Vector2.up);
-            journeyCat = cat.gameObject.AddComponent<RawImage>();
+            catImage = cat.gameObject.AddComponent<JourneyCatImage>();
+            journeyCat = catImage;
             journeyCat.texture = journeyMascot;
             journeyCat.raycastTarget = false;
             journeyCat.enabled = journeyMascot != null;
@@ -63,19 +66,26 @@ namespace Mewgic.Map
             heading.color = new Color32(12, 26, 44, 255);
             chapterTitle = Label(heading.transform, "ChapterTitle", "", 36, new Vector2(.04f, .34f), new Vector2(.96f, .95f));
             Label(heading.transform, "ChapterInstruction", L.V("map.choose"), 24,
-                new Vector2(.05f, .03f), new Vector2(.95f, .35f));
+                new Vector2(.05f, .03f), new Vector2(.70f, .35f));
+            BuildJourneyMotion(heading.rectTransform);
 
             var footer = Art(overlay, "JourneyFooter", null, Vector2.zero, new Vector2(1, .105f));
             footer.color = heading.color;
             journeyBack = Control(footer.transform, "ChapterClose", L.V("map.return"),
                 new Vector2(.07f, .12f), new Vector2(.60f, .88f), CloseJourney);
             journeyFocus = Control(footer.transform, "JourneyFocus", L.V("map.focus"),
-                new Vector2(.63f, .12f), new Vector2(.93f, .88f), () => JumpToJourneySlot(CurrentJourneySlot()));
+                new Vector2(.63f, .12f), new Vector2(.93f, .88f), () => { FinishJourney(false); JumpToJourneySlot(CurrentJourneySlot()); });
             journeyScroll.onValueChanged.AddListener(_ => BindJourneyWindow());
             chapter.SetActive(false);
         }
 
         public void OpenChapter(int region, int group)
+        {
+            FinishJourney(false);
+            ShowChapter(region, group, -1, true);
+        }
+
+        void ShowChapter(int region, int group, int focusSlot, bool saveFocus)
         {
             if (navigating || progression == null || region < 0 || region > (int.MaxValue - 50) / 50 || group < 0 || group > 4)
                 return;
@@ -87,19 +97,20 @@ namespace Mewgic.Map
             Scroll.StopMovement();
             jumping = false;
             pendingFocus = -1;
-            ledger.SaveMapFocus(first);
+            if (saveFocus) ledger.SaveMapFocus(first);
 
             chapter.SetActive(true);
             chapter.transform.SetAsLastSibling();
             UnityEngine.Canvas.ForceUpdateCanvases();
             ResizeJourney(false);
             int current = CurrentJourneySlot();
-            JumpToJourneySlot(current / 10 == group ? current : group * 10);
+            JumpToJourneySlot(focusSlot >= 0 ? focusSlot : current / 10 == group ? current : group * 10);
             journeyBack.Select();
         }
 
         void CloseJourney()
         {
+            FinishJourney(false);
             chapter.SetActive(false);
             var island = views.Find(view => view.region == journeyRegion);
             if (island != null)
@@ -111,9 +122,7 @@ namespace Mewgic.Map
         void JumpToJourneySlot(int slot)
         {
             journeyScroll.StopMovement();
-            float viewportHeight = journeyScroll.viewport.rect.height;
-            journeyContent.anchoredPosition = Vector2.up * Mathf.Clamp((slot + .5f) * rowHeight - viewportHeight * .5f,
-                0, Mathf.Max(0, journeyContent.rect.height - viewportHeight));
+            journeyContent.anchoredPosition = Vector2.up * ScrollForSlot(slot);
             firstBound = -1;
             BindJourneyWindow();
         }
@@ -151,16 +160,11 @@ namespace Mewgic.Map
                 art.rectTransform.anchoredPosition = new Vector2((i % 2 == 0 ? -.075f : .075f) * width, -(i * 5 + 2.65f) * rowHeight);
             }
 
-            journeyCat.color = Color.white;
-            journeyCat.rectTransform.pivot = new Vector2(.5f, .5f);
-            var catSize = Mathf.Min(width * .235f, rowHeight * 1.25f);
-            journeyCat.rectTransform.sizeDelta = journeyMascot == null ? Vector2.zero :
-                new Vector2(catSize * journeyMascot.width / journeyMascot.height, catSize);
-            int catSlot = CurrentJourneySlot();
-            float catX = JourneyRouteGraphic.Lane(catSlot) > .5f ? .24f : .76f;
-            journeyCat.rectTransform.anchoredPosition = new Vector2(width * catX, -(catSlot + .52f) * rowHeight);
+            journeyCat.color = HasCrystalArt ? new Color(1f, .91f, .96f) : Color.white;
             firstBound = -1;
-            LayoutCrystalJourney(width);
+            LayoutCrystalJourney();
+            if (!journeyRunning)
+                PlaceRestingCat();
             if (keepPosition)
                 BindJourneyWindow();
         }
@@ -216,7 +220,9 @@ namespace Mewgic.Map
                     rect.sizeDelta = new Vector2(Mathf.Max(stoneWidth, 48 / Canvas.scaleFactor),
                         Mathf.Max(stoneHeight, 48 / Canvas.scaleFactor));
                     int id = progression.LevelId(journeyRegion, slot);
-                    point.GetComponent<MapNodeBadge>().PresentJourney(id, progression.Status(id), progression.Stars(id), animateEnvironment, HasCrystalArt, milestone);
+                    var status = JourneyLockPending(id) ? MapLevelStatus.Locked : progression.Status(id);
+                    point.GetComponent<MapNodeBadge>().PresentJourney(id, status, progression.Stars(id),
+                        animateEnvironment && !reducedJourneyMotion, HasCrystalArt, milestone);
                 }
 
                 point.gameObject.SetActive(true);
@@ -227,6 +233,10 @@ namespace Mewgic.Map
             int firstVisible = Mathf.Clamp(Mathf.CeilToInt(top / rowHeight - .5f), first, last);
             SetJourneyNavigation(journeyBack, chapterNodes[firstVisible % chapterNodes.Count].GetComponent<Button>(), journeyFocus);
             SetJourneyNavigation(journeyFocus, chapterNodes[firstVisible % chapterNodes.Count].GetComponent<Button>(), journeyBack);
+            var focusNavigation = journeyFocus.navigation;
+            focusNavigation.selectOnRight = motionButton;
+            journeyFocus.navigation = focusNavigation;
+            motionButton.navigation = new Navigation { mode = Navigation.Mode.Explicit, selectOnDown = journeyFocus, selectOnLeft = journeyBack };
         }
 
         void SelectJourneySlot(int slot)

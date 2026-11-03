@@ -663,6 +663,14 @@ MonoBehaviour:
     m_Key: map.levels_short
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639681
+    m_Key: map.motion_full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639682
+    m_Key: map.motion_reduced
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

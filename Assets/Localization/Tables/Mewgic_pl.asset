@@ -862,6 +862,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
+  - m_Id: 1048086925639681
+    m_Localized: "Ruch: Pe\u0142ny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639682
+    m_Localized: "Ruch: Ograniczony"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

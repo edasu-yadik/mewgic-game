@@ -278,3 +278,5 @@ PART14A Git teslimi: 75dce9817e713c1127dc67251cf34073ebae9fc2 origin/recovery/pa
 PART 15B (4 Kasım 2026) · Kristal Şelaleler için beş farklı perspektifli teras, kedi temas gölgesi, 100 kilometre taşı ve hareketli su/ışık eklendi. Bölüm sonundaki ikinci Harita düğmesi gizleniyor. Unity Play Mode'da 7.264 kontrol geçti. Gerçek oyuncu kayıtları korundu. Referans PNG erişilemedi. Rapor ve Game View görüntüleri ProductionReports/Part15B altında.
 
 PART 15C (4 Kasım 2026) · Kristal Şelaleler’de taş konumu, altın/mor aktif halka, rota ışıkları ve teras yol hizası güncellendi. 8.962 Unity Play Mode kontrolü geçti. Rapor ve doğal Game View görüntüleri ProductionReports/Part15C altında.
+
+PART 15D (4 Kasım 2026) · İlk kazanıştan sonra kedi yürüyüşü, rota ışığı, taş açılışı, kamera takibi ve az hareket tercihi eklendi. 46 yolculuk ve 8.962 harita regresyon kontrolü geçti. Rapor ve Game View kareleri ProductionReports/Part15D altında.

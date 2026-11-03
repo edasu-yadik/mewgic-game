@@ -181,7 +181,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
+        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();progress.ClearMapJourney();puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh()
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
