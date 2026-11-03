@@ -5,12 +5,13 @@ namespace Mewgic
 {
     public sealed class GameplayEndScreen : MonoBehaviour
     {
-        RectTransform root;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary;Button next;int awarded;float clock;Func<bool> paused;bool showing;int coinReward;bool firstReward,saveOk;
+        RectTransform root;Image backdrop;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary;Button next;int awarded;float clock;Func<bool> paused;bool showing;int coinReward;bool firstReward,saveOk;
         public GameObject Panel=>root.gameObject;
         public bool IsShowing=>showing;
         public void Mount(RectTransform safe,Action replay,Action advance,Action home,Func<bool> isPaused)
         {
             paused=isPaused;var panel=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");var star=Resources.Load<Sprite>("Gameplay/HUD/HUD_Star_v001");
+            backdrop=GameplayTools.Art(safe,"VictoryBackdrop",null,Vector2.zero,Vector2.one);backdrop.color=new Color(.035f,.022f,.075f,.57f);backdrop.raycastTarget=true;backdrop.gameObject.SetActive(false);
             root=GameplayTools.Art(safe,"Win panel",panel,new Vector2(.08f,.29f),new Vector2(.92f,.745f),true).rectTransform;root.GetComponent<Image>().raycastTarget=true;
             GameplayTools.Label(root,"Success",L.V("gameplay.success"),38,new Vector2(.05f,.82f),new Vector2(.95f,.94f));
             for(int i=0;i<3;i++){stars[i]=GameplayTools.Art(root,"AwardStar"+(i+1),star,new Vector2(.20f+i*.21f,.62f),new Vector2(.38f+i*.21f,.82f));stars[i].preserveAspect=true;}
@@ -26,13 +27,13 @@ namespace Mewgic
         {var im=GameplayTools.Art(root,name,panel,min,max,true);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());GameplayTools.Label(im.transform,"Label",text,27,new Vector2(.05f,.12f),new Vector2(.95f,.88f));return b;}
         public void Show(int level,int moves,int starCount,bool granted,bool saved,bool hasNext,int coins=0)
         {
-            if(showing)return;coinReward=coins;firstReward=granted;saveOk=saved;showing=true;awarded=starCount;clock=0;root.gameObject.SetActive(true);root.SetAsLastSibling();
+            if(showing)return;coinReward=coins;firstReward=granted;saveOk=saved;showing=true;awarded=starCount;clock=0;backdrop.gameObject.SetActive(true);backdrop.transform.SetAsLastSibling();root.gameObject.SetActive(true);root.SetAsLastSibling();
             summary.text=L.V("gameplay.result",level,moves,starCount);
             reward.text=!saved?L.V("error.save"):L.V("reward.coins",coins);
             next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?L.V("gameplay.next"):L.V("gameplay.last");
             Animate();
         }
-        public void Hide(){showing=false;if(root!=null)root.gameObject.SetActive(false);}
+        public void Hide(){showing=false;if(root!=null){root.gameObject.SetActive(false);backdrop.gameObject.SetActive(false);}}
         void Update(){if(showing&&!paused()&&clock<2.4f){clock+=Time.unscaledDeltaTime;Animate();}}
         void Animate()
         {

@@ -56,6 +56,15 @@ namespace Mewgic.Map
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class JourneyStoneGraphic : MaskableGraphic
     {
+        bool sculpted, milestone;
+        public void Configure(bool crystal, bool landmark)
+        {
+            if (sculpted == crystal && milestone == landmark) return;
+            sculpted = crystal;
+            milestone = landmark;
+            SetVerticesDirty();
+        }
+
         static readonly Vector2[] Outline =
         {
             new Vector2(-.48f, -.24f), new Vector2(-.32f, -.43f), new Vector2(.29f, -.45f),
@@ -66,6 +75,17 @@ namespace Mewgic.Map
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
             mesh.Clear();
+            if (sculpted)
+            {
+                var face = milestone ? new Color32(74, 43, 89, 255) : new Color32(58, 40, 76, 255);
+                Facet(mesh, new Vector2(1.05f, 1.03f), new Vector2(0, -10), new Color32(18, 10, 26, 195));
+                Facet(mesh, Vector2.one, new Vector2(0, -6), new Color32(65, 42, 77, 255));
+                Facet(mesh, Vector2.one, Vector2.zero, color);
+                Facet(mesh, new Vector2(.90f, .84f), new Vector2(0, 3), face);
+                Facet(mesh, new Vector2(.79f, .73f), new Vector2(0, 5), new Color32(36, 23, 55, 255));
+                return;
+            }
+
             Facet(mesh, Vector2.one, new Vector2(0, -9), new Color32(13, 18, 29, 255));
             Facet(mesh, Vector2.one, Vector2.zero, color);
             Facet(mesh, new Vector2(.91f, .87f), new Vector2(0, 2), new Color32(56, 57, 67, 255));
@@ -78,7 +98,12 @@ namespace Mewgic.Map
             mesh.AddVert(offset, tint, Vector2.zero);
             var size = Vector2.Scale(rectTransform.rect.size, scale);
             for (int i = 0; i < Outline.Length; i++)
-                mesh.AddVert(Vector2.Scale(Outline[i], size) + offset, tint, Vector2.zero);
+            {
+                Color32 edge = sculpted
+                    ? Color32.Lerp(new Color32(39, 19, 59, tint.a), tint, Outline[i].y + .59f)
+                    : tint;
+                mesh.AddVert(Vector2.Scale(Outline[i], size) + offset, edge, Vector2.zero);
+            }
             for (int i = 0; i < Outline.Length; i++)
                 mesh.AddTriangle(index, index + i + 1, index + (i + 1) % Outline.Length + 1);
         }

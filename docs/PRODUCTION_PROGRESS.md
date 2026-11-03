@@ -274,3 +274,5 @@ PART14A (3 Kasım 2026): Home sabit koleksiyon/hediye girişi kaldırıldı/pasi
 PART14A Git teslimi: 75dce9817e713c1127dc67251cf34073ebae9fc2 origin/recovery/part09-completion üzerinde doğrulandı; master korundu. Teslim kanıtı ayrı belge commit’iyle gönderilir; yeni build yok.
 
 3 Kasım 2026 · Ada rotası LevelMap sahnesine uygulandı. 50 bölüm taşı dikey kaydırma ile gösteriliyor. Unity Play Mode'da 7.142 kontrol geçti ve etkin taş sayısı en fazla 10 oldu. Ayrı QA profiliyle 100 Gameplay geçişi, kilitli 101, 601–650 devamı, üç portre oranı ve oyuncu kayıt bütünlüğü doğrulandı. Rapor ve Unity çıktıları ProductionReports/IslandJourney altında.
+
+PART 15B (4 Kasım 2026) · Kristal Şelaleler için beş farklı perspektifli teras, kedi temas gölgesi, 100 kilometre taşı ve hareketli su/ışık eklendi. Bölüm sonundaki ikinci Harita düğmesi gizleniyor. Unity Play Mode'da 7.264 kontrol geçti. Gerçek oyuncu kayıtları korundu. Referans PNG erişilemedi. Rapor ve Game View görüntüleri ProductionReports/Part15B altında.

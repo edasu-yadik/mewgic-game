@@ -8,6 +8,7 @@ using System.Reflection;
 using Mewgic.Core;
 using Mewgic.Localization;
 using Mewgic.Map;
+using Mewgic.UI;
 using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -21,16 +22,16 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class IslandJourneyProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/IslandJourney/";
+        [SerializeField] string output = "docs/ProductionReports/IslandJourney/";
         readonly Dictionary<string, string> player = new Dictionary<string, string>();
         readonly List<string> errors = new List<string>();
         int checks, peakStones;
         MapWorld map;
 
-        public static void Begin()
+        public static void Begin(string reportDirectory = "docs/ProductionReports/IslandJourney/")
         {
             EditorSceneManager.OpenScene("Assets/Scenes/LevelMap.unity");
-            new GameObject("Island Journey QA").AddComponent<IslandJourneyProbe>();
+            new GameObject("Island Journey QA").AddComponent<IslandJourneyProbe>().output = reportDirectory;
             EditorApplication.isPlaying = true;
         }
 
@@ -54,7 +55,7 @@ namespace Mewgic
             GameplayLevelCatalog.TestArchive = new FileLevelArchive(Path.Combine(Path.GetTempPath(), fixture));
             GameplayLevelCatalog.ResetSelection();
             Application.logMessageReceived += Log;
-            Directory.CreateDirectory(Output);
+            Directory.CreateDirectory(output);
         }
 
         void Log(string message, string stack, LogType type)
@@ -85,7 +86,7 @@ namespace Mewgic
             }
             bool intact = player.All(entry => entry.Value == null ? !PlayerPrefs.HasKey(entry.Key) :
                 PlayerPrefs.GetString(entry.Key) == entry.Value);
-            File.WriteAllText(Output + "UNITY_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(
+            File.WriteAllText(Path.Combine(output, "UNITY_TESTS.json"), Newtonsoft.Json.JsonConvert.SerializeObject(
                 new { success = failure == null && errors.Count == 0 && intact, checks, peakStones, failure, playerSaveIntact = intact, errors },
                 Newtonsoft.Json.Formatting.Indented));
             EditorApplication.isPlaying = false;
@@ -120,6 +121,17 @@ namespace Mewgic
             Tap(island);
             yield return null;
             var scroll = GameObject.Find("JourneyScroll").GetComponent<ScrollRect>();
+            var terraces = GameObject.Find("CrystalFallsTerraces").GetComponentsInChildren<RawImage>();
+            Check(terraces.Length == 5 && terraces.Select(a => a.texture).Distinct().Count() == 5, "Beş ayrı Kristal Şelaleler zemini");
+            Check(GameObject.Find("StoneRoute") == null && GameObject.Find("WizardCatContactShadow") != null, "Boyanmış rota ve kedi temas gölgesi");
+            Check(Stone(49).transform.Find("StoneLight").gameObject.activeInHierarchy, "100. bölüm kilometre taşı ışığı");
+            var water = terraces[4].material;
+            float waterBefore = water.GetFloat("_EnvironmentTime");
+            var marker = Stone(49).transform.Find("CurrentMarker");
+            float markerBefore = marker.localPosition.y;
+            yield return new WaitForSecondsRealtime(.26f);
+            Check(water.IsKeywordEnabled("MEWGIC_CRYSTAL_FLOW") && water.GetFloat("_EnvironmentTime") > waterBefore, "Şelale materyali akıyor");
+            Check(Mathf.Abs(marker.localPosition.y - markerBefore) > .01f, "Aktif bölüm işareti hareket ediyor");
             Check(Stone(49).GetComponent<MapNodeBadge>().Status == MapLevelStatus.Current, "100 güncel olmalı");
             Check(Stone(48).GetComponent<MapNodeBadge>().Stars == map.Progression.Stars(99), "99 yıldız kaydı");
             var seen = new HashSet<int>();
@@ -201,6 +213,19 @@ namespace Mewgic
             while (Time.unscaledTime < limit && SceneManager.GetActiveScene().name != "Gameplay")
                 yield return null;
             Check(SceneManager.GetActiveScene().name == "Gameplay" && GameplayLevelCatalog.SelectedId == 100, "100 gerçek Gameplay geçişi");
+            yield return null;
+            yield return null;
+            FindFirstObjectByType<PawGuide>()?.Close();
+            foreach (var moveStep in GameplayLevelCatalog.Current().Generated.solution)
+            {
+                GameObject.Find("Bottle " + (moveStep.source + 1)).GetComponent<Button>().onClick.Invoke();
+                GameObject.Find("Bottle " + (moveStep.target + 1)).GetComponent<Button>().onClick.Invoke();
+                yield return new WaitForSecondsRealtime(1.05f);
+            }
+            Check(GameObject.Find("ResultHome") != null && GameObject.Find("Home") == null, "Sonuçta tek Harita düğmesi");
+            Check(GameObject.Find("VictoryBackdrop") != null, "Sonuç arka planı karartılır ve tıklamalar kesilir");
+            GameObject.Find("Replay").GetComponent<Button>().onClick.Invoke();
+            Check(GameObject.Find("Home") != null && GameObject.Find("ResultHome") == null, "Tekrar oynatmada oyun kontrolleri geri gelir");
         }
 
         void RenderPortrait(string name, int width, int height, bool inset)
@@ -252,7 +277,7 @@ namespace Mewgic
                 RenderTexture.active = target;
                 image.ReadPixels(new Rect(0, 0, width, height), 0, 0);
                 image.Apply();
-                File.WriteAllBytes(Output + name + ".png", image.EncodeToPNG());
+                File.WriteAllBytes(Path.Combine(output, name + ".png"), image.EncodeToPNG());
             }
             finally
             {

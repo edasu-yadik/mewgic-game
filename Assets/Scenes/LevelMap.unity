@@ -161,6 +161,12 @@ MonoBehaviour:
   waterLightShader: {fileID: 4800000, guid: 4b61e306a2751a04b82be145d4a0c9e4, type: 3}
   animateEnvironment: 1
   journeyMascot: {fileID: 2800000, guid: f7570c262763f0141b1f9b4e374413f3, type: 3}
+  crystalTerraces:
+  - {fileID: 2800000, guid: c0bc6dc7b2a44d5a883524a5fb84719c, type: 3}
+  - {fileID: 2800000, guid: a42886bddb694007b5d8b998d36bae02, type: 3}
+  - {fileID: 2800000, guid: 2223b77b4d174c6fa0de8bbe57cf8cec, type: 3}
+  - {fileID: 2800000, guid: c4af4a056cfa470aab4b080c6596b41b, type: 3}
+  - {fileID: 2800000, guid: 8a234145748a4111897444f2a40b15c5, type: 3}
 --- !u!4 &1162751209
 Transform:
   m_ObjectHideFlags: 0

@@ -49,7 +49,9 @@ namespace Mewgic.Map
             }
 
             var route = Rect(journeyContent, "StoneRoute", Vector2.zero, Vector2.one);
-            route.gameObject.AddComponent<JourneyRouteGraphic>().raycastTarget = false;
+            journeyRoute = route.gameObject.AddComponent<JourneyRouteGraphic>();
+            journeyRoute.raycastTarget = false;
+            BuildCrystalJourney();
 
             var cat = Rect(journeyContent, "WizardCatGuide", Vector2.up, Vector2.up);
             journeyCat = cat.gameObject.AddComponent<RawImage>();
@@ -125,7 +127,7 @@ namespace Mewgic.Map
             float width = journeyScroll.viewport.rect.width;
             float previousViewportHeight = journeyViewportHeight;
             journeyViewportHeight = journeyScroll.viewport.rect.height;
-            rowHeight = Mathf.Max(width * .193f, 56 / Canvas.scaleFactor);
+            rowHeight = Mathf.Max(width * (HasCrystalArt ? .15f : .193f), 56 / Canvas.scaleFactor);
             journeyContent.sizeDelta = new Vector2(0, rowHeight * JourneyLevelCount);
             if (keepPosition && oldHeight > 0)
             {
@@ -140,13 +142,17 @@ namespace Mewgic.Map
                 journeyContent.anchoredPosition = Vector2.up * Mathf.Clamp(newTop, 0, hidden);
             }
 
+            journeyRoute.gameObject.SetActive(!HasCrystalArt);
             for (int i = 0; i < journeyScenery.Count; i++)
             {
                 var art = journeyScenery[i];
+                art.gameObject.SetActive(!HasCrystalArt);
                 art.rectTransform.sizeDelta = new Vector2(width * .13f, rowHeight * 5.8f);
                 art.rectTransform.anchoredPosition = new Vector2((i % 2 == 0 ? -.075f : .075f) * width, -(i * 5 + 2.65f) * rowHeight);
             }
 
+            journeyCat.color = Color.white;
+            journeyCat.rectTransform.pivot = new Vector2(.5f, .5f);
             var catSize = Mathf.Min(width * .235f, rowHeight * 1.25f);
             journeyCat.rectTransform.sizeDelta = journeyMascot == null ? Vector2.zero :
                 new Vector2(catSize * journeyMascot.width / journeyMascot.height, catSize);
@@ -154,6 +160,7 @@ namespace Mewgic.Map
             float catX = JourneyRouteGraphic.Lane(catSlot) > .5f ? .24f : .76f;
             journeyCat.rectTransform.anchoredPosition = new Vector2(width * catX, -(catSlot + .52f) * rowHeight);
             firstBound = -1;
+            LayoutCrystalJourney(width);
             if (keepPosition)
                 BindJourneyWindow();
         }
@@ -202,10 +209,14 @@ namespace Mewgic.Map
                     point.regionIndex = journeyRegion;
                     point.slotIndex = slot;
                     var rect = (RectTransform)point.transform;
-                    rect.anchoredPosition = new Vector2(width * JourneyRouteGraphic.Lane(slot), -(slot + .5f) * rowHeight);
-                    rect.sizeDelta = new Vector2(Mathf.Max(156, 48 / Canvas.scaleFactor), Mathf.Max(110, 48 / Canvas.scaleFactor));
+                    rect.anchoredPosition = new Vector2(width * JourneyLane(slot), -(slot + .5f) * rowHeight);
+                    bool milestone = HasCrystalArt && slot == JourneyLevelCount - 1;
+                    float stoneWidth = HasCrystalArt ? width * (milestone ? .205f : .158f) : 156;
+                    float stoneHeight = HasCrystalArt ? rowHeight * (milestone ? .88f : .72f) : 110;
+                    rect.sizeDelta = new Vector2(Mathf.Max(stoneWidth, 48 / Canvas.scaleFactor),
+                        Mathf.Max(stoneHeight, 48 / Canvas.scaleFactor));
                     int id = progression.LevelId(journeyRegion, slot);
-                    point.GetComponent<MapNodeBadge>().PresentJourney(id, progression.Status(id), progression.Stars(id), animateEnvironment);
+                    point.GetComponent<MapNodeBadge>().PresentJourney(id, progression.Status(id), progression.Stars(id), animateEnvironment, HasCrystalArt, milestone);
                 }
 
                 point.gameObject.SetActive(true);

@@ -209,6 +209,10 @@ namespace Mewgic
                 bool saved=progress.Claim(levelInfo.id,stars,puzzle.Won,out bool granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed);UpdateTools();
                 endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),progress.LastCoinReward);
             }
+            bool showPlayControls = !endScreen.IsShowing;
+            restart.gameObject.SetActive(showPlayControls);
+            home.gameObject.SetActive(showPlayControls);
+            status.gameObject.SetActive(showPlayControls);
         }
         void Select(int target)
         {

@@ -5,6 +5,7 @@ Shader "Mewgic/MapWaterLight"
         [PerRendererData] _MainTex("Sprite",2D)="white"{}
         _Color("Tint",Color)=(1,1,1,1)
         _EnvironmentTime("Environment time",Float)=0
+        _TerraceFeather("Terrace edge feather",Float)=.024
         _StencilComp("Stencil Comparison",Float)=8
         _Stencil("Stencil ID",Float)=0
         _StencilOp("Stencil Operation",Float)=0
@@ -26,11 +27,12 @@ Shader "Mewgic/MapWaterLight"
             #pragma fragment frag
             #pragma multi_compile_local _ UNITY_UI_CLIP_RECT
             #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
+            #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW
             #include "UnityCG.cginc"
             #include "UnityUI.cginc"
             struct Input{float4 vertex:POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;};
             struct Output{float4 vertex:SV_POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;float4 local:TEXCOORD1;};
-            sampler2D _MainTex;fixed4 _Color;float4 _ClipRect;float _EnvironmentTime;
+            sampler2D _MainTex;fixed4 _Color;float4 _ClipRect;float _EnvironmentTime;float _TerraceFeather;
             Output vert(Input v){Output o;o.local=v.vertex;o.vertex=UnityObjectToClipPos(v.vertex);o.uv=v.uv;o.color=v.color*_Color;return o;}
             fixed4 frag(Output i):SV_Target
             {
@@ -39,6 +41,18 @@ Shader "Mewgic/MapWaterLight"
                 half window=saturate((c.r-c.b-.25)*3)*smoothstep(.6,1,c.r);
                 c.rgb+=water*sin(i.uv.y*250+_EnvironmentTime*1.8+sin(i.uv.x*60))*half3(.008,.014,.018);
                 c.rgb*=1+window*sin(_EnvironmentTime*1.1+i.uv.x*31+i.uv.y*17)*.012;
+                #ifdef MEWGIC_CRYSTAL_FLOW
+                half cyan=smoothstep(.04,.26,min(c.g,c.b)-c.r)*smoothstep(.16,.62,c.g);
+                float phase=i.uv.y*108+i.uv.x*20+_EnvironmentTime*4.2;
+                float2 drift=float2(sin(phase*.54)*.0016,sin(phase)*.0035);
+                fixed3 flow=tex2D(_MainTex,i.uv+drift).rgb;
+                half stream=smoothstep(.38,.96,sin(phase+sin(i.uv.x*171)*.85));
+                half crystal=smoothstep(.40,.88,c.b)*smoothstep(.08,.3,c.b-c.g);
+                c.rgb=lerp(c.rgb,flow,cyan*.46);
+                c.rgb+=cyan*stream*half3(.036,.092,.104);
+                c.rgb+=crystal*(.028+.024*sin(_EnvironmentTime*1.7+i.uv.x*32))*half3(.65,.55,1);
+                c.a*=smoothstep(0,_TerraceFeather,1-i.uv.y);
+                #endif
                 c*=i.color;
                 #ifdef UNITY_UI_CLIP_RECT
                 c.a*=UnityGet2DClipping(i.local.xy,_ClipRect);
