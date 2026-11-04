@@ -108,6 +108,7 @@ namespace Mewgic.Map
 
         }
 
+        float nextCrystalMotion;
         void AnimateCrystalJourney()
         {
             if (!HasCrystalArt || !animateEnvironment)
@@ -116,7 +117,8 @@ namespace Mewgic.Map
             float time = EnvironmentTime;
             if (crystalWater != null)
                 crystalWater.SetFloat("_EnvironmentTime", reducedJourneyMotion ? time * .25f : time);
-            if (reducedJourneyMotion) return;
+            if (reducedJourneyMotion || time < nextCrystalMotion) return;
+            nextCrystalMotion=time+1f/30f;
             float width = journeyScroll.viewport.rect.width;
             float top = Mathf.Max(0, journeyContent.anchoredPosition.y);
             int first = Mathf.FloorToInt(top / rowHeight);

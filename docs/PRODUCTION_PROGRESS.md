@@ -292,3 +292,5 @@ PART 16B (4 Kasım 2026) · Dokunmatik döküş koruması, geçersiz hamle geri 
 PART 17 (4 Kasım 2026) · İlk kazanış ve yıldız farkı ekonomisi, atomik günlük sandık, coin ile yardımcı güç alımı ve atlanabilir bölüm sonu ödül akışı. 66 Unity Play Mode kontrolü geçti. Ekonomi tablosu ve üç portre oranındaki Game View görüntüleri ProductionReports/Part17 altında.
 
 PART 18 (4 Kasım 2026) · Özgün müzik ve efektler, ayrı kalıcı geri bildirim tercihleri, hareket azaltma ve çok dilli Game View denetimi. 132 Unity Play Mode kontrolü geçti. Sekiz dilde 42 kare ve ses hakları envanteri ProductionReports/Part18 altında.
+
+PART 19A (4 Kasım 2026) · Unity sahne ve paket taraması, döküş ve harita tahsis iyileştirmeleri, nesilli kayıt kurtarma. 16 Edit Mode, 9 teknik Play Mode ve 66 ekonomi regresyon kontrolü geçti. Editor önce/sonra ölçümleri ProductionReports/Part19A altında.

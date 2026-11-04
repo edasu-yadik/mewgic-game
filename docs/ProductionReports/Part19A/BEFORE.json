@@ -1,0 +1,164 @@
+{
+  "success": true,
+  "unity": "6000.3.27f1",
+  "graphics": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "api": "Direct3D12",
+  "processor": "AMD Ryzen 7 6800H with Radeon Graphics ",
+  "playerSaveIntact": true,
+  "checks": [],
+  "warnings": [],
+  "errors": [],
+  "failure": null,
+  "samples": [
+    {
+      "name": "Home",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.796,
+        "p95": 4.424,
+        "max": 5.84
+      },
+      "mainMs": {
+        "median": 3.801,
+        "p95": 4.361,
+        "max": 5.288
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18892.0,
+        "p95": 1469607.0,
+        "max": 2182282.0
+      },
+      "gpuMs": {
+        "median": 0.283,
+        "p95": 0.292,
+        "max": 0.302
+      },
+      "gpuSamples": 115,
+      "draws": 78,
+      "batches": 78,
+      "usedBytes": 2178830786,
+      "objects": 111
+    },
+    {
+      "name": "World map",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.497,
+        "p95": 4.186,
+        "max": 5.086
+      },
+      "mainMs": {
+        "median": 3.472,
+        "p95": 4.135,
+        "max": 5.083
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 18804.0,
+        "max": 23796.0
+      },
+      "gpuMs": {
+        "median": 0.287,
+        "p95": 0.294,
+        "max": 1.048
+      },
+      "gpuSamples": 114,
+      "draws": 50,
+      "batches": 50,
+      "usedBytes": 2011371029,
+      "objects": 78
+    },
+    {
+      "name": "Crystal Falls",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.682,
+        "p95": 4.273,
+        "max": 4.785
+      },
+      "mainMs": {
+        "median": 3.679,
+        "p95": 4.289,
+        "max": 4.807
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 18876.0,
+        "max": 23796.0
+      },
+      "gpuMs": {
+        "median": 0.309,
+        "p95": 0.325,
+        "max": 0.338
+      },
+      "gpuSamples": 117,
+      "draws": 88,
+      "batches": 88,
+      "usedBytes": 2015879110,
+      "objects": 186
+    },
+    {
+      "name": "Gameplay idle",
+      "frames": 120,
+      "frameMs": {
+        "median": 4.559,
+        "p95": 5.876,
+        "max": 7.086
+      },
+      "mainMs": {
+        "median": 4.518,
+        "p95": 5.734,
+        "max": 6.927
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19094.0,
+        "max": 39213.0
+      },
+      "gpuMs": {
+        "median": 0.287,
+        "p95": 0.324,
+        "max": 0.335
+      },
+      "gpuSamples": 119,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1980874941,
+      "objects": 86
+    },
+    {
+      "name": "Pour",
+      "frames": 32,
+      "frameMs": {
+        "median": 4.025,
+        "p95": 6.319,
+        "max": 8.745
+      },
+      "mainMs": {
+        "median": 3.963,
+        "p95": 4.909,
+        "max": 6.244
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 20884.0,
+        "p95": 27434.0,
+        "max": 29220.0
+      },
+      "gpuMs": {
+        "median": 0.306,
+        "p95": 0.325,
+        "max": 1.085
+      },
+      "gpuSamples": 32,
+      "draws": 48,
+      "batches": 48,
+      "usedBytes": 1980745421,
+      "objects": 86
+    }
+  ]
+}

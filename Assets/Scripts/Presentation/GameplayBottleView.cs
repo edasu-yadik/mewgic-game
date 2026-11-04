@@ -11,7 +11,14 @@ namespace Mewgic
         public Color[] Palette;
         public bool Completed;
         public bool Paused;
-        float visualTime;
+        static readonly Vector2[] BottleShape =
+        {
+            new(.2f,.065f),new(.8f,.065f),new(.875f,.10f),new(.875f,.73f),new(.68f,.84f),
+            new(.68f,.96f),new(.32f,.96f),new(.32f,.84f),new(.125f,.73f),new(.125f,.10f)
+        };
+        readonly List<Vector2> shape=new List<Vector2>(12), clipped=new List<Vector2>(12), polygon=new List<Vector2>(12);
+        public bool Animating;
+        float visualTime, lastMeshTime;
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear(); if(Palette==null)return;
@@ -56,25 +63,26 @@ namespace Mewgic
         {
             Rect r=rectTransform.rect;float angle=rectTransform.eulerAngles.z*Mathf.Deg2Rad;
             Vector2 up=new Vector2(Mathf.Sin(angle),Mathf.Cos(angle));
-            var shape=new List<Vector2>();
-            foreach(var p in new[]{new Vector2(.2f,.065f),new Vector2(.8f,.065f),new Vector2(.875f,.10f),new Vector2(.875f,.73f),new Vector2(.68f,.84f),new Vector2(.68f,.96f),new Vector2(.32f,.96f),new Vector2(.32f,.84f),new Vector2(.125f,.73f),new Vector2(.125f,.10f)})shape.Add(new Vector2(p.x*r.width,p.y*r.height));
-            float capacity=Area(Clip(shape,Vector2.up,.741f*r.height));
+            shape.Clear();
+            foreach(var p in BottleShape)shape.Add(new Vector2(p.x*r.width,p.y*r.height));
+            Clip(shape,Vector2.up,.741f*r.height,clipped);
+            float capacity=Area(clipped);
             float extent=r.width+r.height;
             for(int band=0;band<Layers.Length;band++)
             {
                 float amount=Mathf.Clamp(Volume-band,0,1);if(amount<=0)continue;
                 float bottom=Plane(shape,up,capacity*band/4,extent),top=Plane(shape,up,capacity*(band+amount)/4,extent);
-                var polygon=Clip(Clip(shape,up,top),-up,-bottom);if(polygon.Count<3)continue;
+                Clip(shape,up,top,clipped);Clip(clipped,-up,-bottom,polygon);if(polygon.Count<3)continue;
                 Color c=Palette[Layers[band]%Palette.Length];int start=vh.currentVertCount;
                 foreach(var p in polygon){float highlight=Mathf.Sin(p.x/r.width*Mathf.PI);Color tint=Color.Lerp(c*.65f,Color.Lerp(c,Color.white,.08f),highlight);tint.a=.97f;vh.AddVert(new Vector3(r.xMin+p.x,r.yMin+p.y),tint,Vector2.zero);}
                 for(int n=1;n<polygon.Count-1;n++)vh.AddTriangle(start,start+n,start+n+1);
             }
         }
-        static List<Vector2> Clip(List<Vector2> input,Vector2 normal,float height)
+        static void Clip(List<Vector2> input,Vector2 normal,float height,List<Vector2> output)
         {
-            var output=new List<Vector2>();if(input.Count==0)return output;
+            output.Clear();if(input.Count==0)return;
             Vector2 previous=input[input.Count-1];float before=Vector2.Dot(previous,normal)-height;
-            foreach(var current in input){float after=Vector2.Dot(current,normal)-height;if((before<=0)!=(after<=0))output.Add(Vector2.Lerp(previous,current,before/(before-after)));if(after<=0)output.Add(current);previous=current;before=after;}return output;
+            foreach(var current in input){float after=Vector2.Dot(current,normal)-height;if((before<=0)!=(after<=0))output.Add(Vector2.Lerp(previous,current,before/(before-after)));if(after<=0)output.Add(current);previous=current;before=after;}
         }
         static float Area(List<Vector2> p){float a=0;for(int i=0;i<p.Count;i++){var b=p[(i+1)%p.Count];a+=p[i].x*b.y-b.x*p[i].y;}return Mathf.Abs(a)*.5f;}
         static float AreaBelow(List<Vector2> shape,Vector2 normal,float height)
@@ -90,7 +98,14 @@ namespace Mewgic
         {int i=v.currentVertCount;v.AddVert(P(r,xa,ba),low,Vector2.zero);v.AddVert(P(r,xb,bb),low,Vector2.zero);v.AddVert(P(r,xb,tb),high,Vector2.zero);v.AddVert(P(r,xa,ta),high,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}
         static void Dot(VertexHelper v,Rect r,Vector2 p,float size,Color c,bool ring)
         {const int sides=10;for(int n=0;n<sides;n++){float a=n*Mathf.PI*2/sides,b=(n+1)*Mathf.PI*2/sides;var o=new Vector2(Mathf.Cos(a)*size*1.8f,Mathf.Sin(a)*size);var q=new Vector2(Mathf.Cos(b)*size*1.8f,Mathf.Sin(b)*size);int i=v.currentVertCount;v.AddVert(P(r,p.x+o.x,p.y+o.y),c,Vector2.zero);v.AddVert(P(r,p.x+q.x,p.y+q.y),c,Vector2.zero);v.AddVert(P(r,p.x+q.x*(ring?.65f:0),p.y+q.y*(ring?.65f:0)),c,Vector2.zero);v.AddVert(P(r,p.x+o.x*(ring?.65f:0),p.y+o.y*(ring?.65f:0)),c,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}}
-        void Update(){if(!Paused&&!GameFeel.Reduced){visualTime+=Time.unscaledDeltaTime;if(Layers.Length>0)SetVerticesDirty();}}
+        void Update()
+        {
+            if(Paused||GameFeel.Reduced)return;
+            visualTime+=Time.unscaledDeltaTime;
+            if(Layers.Length==0||(!Animating&&visualTime-lastMeshTime<1f/30f))return;
+            lastMeshTime=visualTime;
+            SetVerticesDirty();
+        }
     }
     public sealed class GameplayBottleView : MonoBehaviour
     {
@@ -117,7 +132,7 @@ namespace Mewgic
         public void Accept()=>Flash(new Color(.55f,1,.83f));
         void Flash(Color tint){feedbackTint=tint;feedbackUntil=Time.unscaledTime+.24f;}
         public void SetPaused(bool value){paused=value;Liquid.Paused=value;}
-        public void SetAnimating(bool value){animating=value;}
+        public void SetAnimating(bool value){animating=Liquid.Animating=value;}
         void Update(){if(shell!=null&&feedbackUntil>0){float left=feedbackUntil-Time.unscaledTime;shell.color=Color.Lerp(Color.white,feedbackTint,Mathf.Clamp01(left/.16f));if(left<=0)feedbackUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=GameFeel.Reduced?(selected?12:0):Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
     }
 }

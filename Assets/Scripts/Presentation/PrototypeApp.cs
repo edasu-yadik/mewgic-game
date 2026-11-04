@@ -25,7 +25,7 @@ namespace Mewgic
         GameplayLevelInfo levelInfo;
         bool paused;
         Coroutine pourRoutine;
-        RectTransform pourStream;
+        RectTransform pourStream; Image pourStreamImage;
         int pouringSource=-1, originalSibling, pointerFrame=-1, pointerBottle=-1;
         float feedbackUntil, pointerTime;
         static bool tutorialReplayPending;
@@ -55,6 +55,11 @@ namespace Mewgic
         public static void RequestTutorialReplay(){if(SceneNavigation.LoadOnce("Gameplay"))tutorialReplayPending=true;}
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void ResetTutorialReplay(){tutorialReplayPending=false;}
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        static void ConfigureFrameRate()
+        {
+            if(Application.isMobilePlatform)Application.targetFrameRate=60;
+        }
         void Start()
         {
             if (SceneManager.GetActiveScene().name == "Boot") { GameplayLevelCatalog.ResumeFromSave(); Mewgic.SceneNavigation.LoadOnce("Home"); return; }
@@ -264,7 +269,7 @@ namespace Mewgic
         void ClearPourStream()
         {
             if(pourStream==null)return;
-            pourStream.gameObject.SetActive(false);Destroy(pourStream.gameObject);pourStream=null;
+            pourStream.gameObject.SetActive(false);
         }
 
         void Select(int target)
@@ -304,9 +309,21 @@ namespace Mewgic
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/.24f){while(paused)yield return null;float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(start,destination,e);a.localRotation=Quaternion.Slerp(rotation,tilt,e);yield return null;}
             while(paused)yield return null;
             a.position=destination;a.localRotation=tilt;GameFeel.Play(GameCue.Pour);
-            var stream=pourStream=Box(board,"Pour stream",Colors[color%Colors.Length],Vector2.zero,Vector2.zero);
-            stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.pivot=new Vector2(.5f,0);
-            var shine=stream.gameObject.AddComponent<Outline>();shine.effectColor=new Color(1,1,1,.5f);shine.effectDistance=new Vector2(1,0);
+            if(pourStream==null)
+            {
+                pourStream=Box(board,"Pour stream",Color.white,Vector2.zero,Vector2.zero);
+                pourStream.anchorMin=pourStream.anchorMax=new Vector2(.5f,.5f);
+                pourStream.pivot=new Vector2(.5f,0);
+                pourStreamImage=pourStream.GetComponent<Image>();
+                pourStreamImage.raycastTarget=false;
+                var shine=pourStream.gameObject.AddComponent<Outline>();
+                shine.effectColor=new Color(1,1,1,.5f);
+                shine.effectDistance=new Vector2(1,0);
+            }
+            var stream=pourStream;
+            pourStreamImage.color=Colors[color%Colors.Length];
+            stream.SetAsLastSibling();
+            stream.gameObject.SetActive(true);
             int sourceCount=sourceView.DisplayedLayers.Length,targetCount=targetView.DisplayedLayers.Length;
             var receiving=new int[targetCount+amount];System.Array.Copy(targetView.DisplayedLayers,receiving,targetCount);for(int i=targetCount;i<receiving.Length;i++)receiving[i]=color;
             targetView.Liquid.Layers=receiving;

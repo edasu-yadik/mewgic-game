@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "results": [
+    "Eski kayıt yükseltmede yıldız, coin ve güç stokunu korudu",
+    "Eski kayıt yıldız farkını doğru işledi",
+    "Eski açık oturum yeni kaydı ezemedi",
+    "Çevrimdışı sandık kaydı",
+    "Kayıt nesli artıyor",
+    "Yarım ayna yazımından sonra güncel coin ve sandık işareti kurtarıldı",
+    "Bozuk ana kayıt aynadan döndü ve bozuk veri saklandı",
+    "Her iki son kopya bozukken önceki geçerli nesil kullanıldı",
+    "Yanlış JSON tipleri boş kayıt olarak kabul edilmedi",
+    "Gelecek sürüm eski yedekle ezilmedi",
+    "Coin üst sınırında ödül ve sandık atomik kaldı",
+    "Üst sınırdan harcama tam sayı hassasiyetini korudu",
+    "int.MaxValue bölüm kimliği üretildi",
+    "Bozuk bölüm dosyası yedekten özgün imzayı korudu",
+    "Yarım bölüm yayımlaması doğrulanmış geçici kopyadan okunuyor",
+    "Yayımlanmış bölüm kopyaları bozuksa yeniden üretim engelleniyor"
+  ]
+}

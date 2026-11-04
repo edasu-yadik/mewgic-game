@@ -20,48 +20,118 @@ namespace Mewgic
         }
         public static ProgressLedger Open(string key,Func<DateTimeOffset> clock=null)
         {
-            string raw=PlayerPrefs.GetString(key,"");
-            ProgressData data;
-            if(!PlayerPrefs.HasKey(key)&&!PlayerPrefs.HasKey(key+".backup"))data=new ProgressData();
-            else
+            string primary=PlayerPrefs.GetString(key,"");
+            string pendingKey=key+".pending", backupKey=key+".backup", previousKey=key+".previous";
+            string pending=PlayerPrefs.GetString(pendingKey,"");
+            var candidates=new[]{primary,pending,PlayerPrefs.GetString(backupKey,""),PlayerPrefs.GetString(previousKey,"")};
+            ProgressData data=null;
+            string head="";
+            bool foundAny=false, primaryValid=false;
+            for(int i=0;i<candidates.Length;i++)
             {
-                try{data=ValidateJson(raw);}
-                catch(Exception primary)
-                {
-                    // Never downgrade a future schema through an older backup.
-                    try{var future=JsonUtility.FromJson<ProgressData>(raw);if(future!=null&&(future.version>1||(future.worldMap!=null&&future.worldMap.version>1)||(future.presentation!=null&&future.presentation.version>1)||(future.daily!=null&&future.daily.version>1)||(future.hub!=null&&future.hub.version>1)))throw new NotSupportedException("Yeni kayıt sürümü; daha güncel uygulama gerekli.");}catch(NotSupportedException){throw;}catch{}
-                    try
-                    {
-                        data=ValidateJson(PlayerPrefs.GetString(key+".backup",""));
-                        PlayerPrefs.SetString(key+".corrupt",raw);
-                        PlayerPrefs.SetString(key,JsonUtility.ToJson(data));PlayerPrefs.Save();
-                        if(key==StorageKey)RecoveryNotice="Bozuk ana kayıt yerine son doğrulanmış yedek yüklendi.";
-                    }
-                    catch(Exception recovery){throw new InvalidOperationException(L.V("error.load"),new AggregateException(primary,recovery));}
-                }
+                string candidate=candidates[i];
+                string slot=i==0?key:i==1?pendingKey:i==2?backupKey:previousKey;
+                if(!PlayerPrefs.HasKey(slot))continue;
+                foundAny=true;
+                var parsed=ReadCandidate(candidate);
+                if(i==0)primaryValid=parsed!=null;
+                if(parsed==null||(data!=null&&parsed.storageRevision<=data.storageRevision))continue;
+                data=parsed;head=candidate;
             }
+
+            if(data==null)
+            {
+                if(foundAny)throw new InvalidOperationException(L.V("error.load"));
+                data=new ProgressData();
+            }
+            else if(primary!=head||PlayerPrefs.HasKey(pendingKey))
+            {
+                if(primaryValid&&primary!=head)PlayerPrefs.SetString(previousKey,primary);
+                else if(!primaryValid&&PlayerPrefs.HasKey(key))PlayerPrefs.SetString(key+".corrupt",primary);
+                Promote(key,pendingKey,backupKey,head);
+                if(key==StorageKey)RecoveryNotice="Doğrulanmış son kayıt kopyasından kurtarıldı.";
+            }
+
+            long revision=data.storageRevision;
+            string expectedPrimary=PlayerPrefs.GetString(key,""), expectedPending=PlayerPrefs.GetString(pendingKey,"");
             return new ProgressLedger(data,copy=>
             {
-                bool existed=PlayerPrefs.HasKey(key);string before=existed?PlayerPrefs.GetString(key):null;
-                bool hadBackup=PlayerPrefs.HasKey(key+".backup");string backup=PlayerPrefs.GetString(key+".backup","");
-                string next=JsonUtility.ToJson(copy);ValidateJson(next);
-                try
+                if(PlayerPrefs.GetString(key,"")!=expectedPrimary||PlayerPrefs.GetString(pendingKey,"")!=expectedPending)
+                    throw new InvalidOperationException("Kayıt başka bir oturumda değişti; yeniden yüklenmeli.");
+
+                copy.storageRevision=checked(revision+1);
+                string next=JsonUtility.ToJson(copy);
+                if(ReadCandidate(next)==null)throw new InvalidOperationException("Kayıt doğrulanamadı.");
+
+                // The flushed journal is the commit point. Recovery may finish promotion after a crash.
+                PlayerPrefs.SetString(pendingKey,next);
+                try{PlayerPrefs.Save();}
+                catch
                 {
-                    // Flush a validated previous state before replacing the primary document.
-                    if(existed){ValidateJson(before);PlayerPrefs.SetString(key+".backup",before);PlayerPrefs.Save();}
-                    PlayerPrefs.SetString(key,next);PlayerPrefs.Save();
-                    // Identical committed copy: recovery keeps reward markers and balances together.
-                    PlayerPrefs.SetString(key+".backup",next);PlayerPrefs.Save();
+                    if(expectedPending.Length==0)PlayerPrefs.DeleteKey(pendingKey);
+                    else PlayerPrefs.SetString(pendingKey,expectedPending);
+                    throw;
                 }
-                catch{if(existed)PlayerPrefs.SetString(key,before);else PlayerPrefs.DeleteKey(key);if(hadBackup)PlayerPrefs.SetString(key+".backup",backup);else PlayerPrefs.DeleteKey(key+".backup");throw;}
+
+                Promote(key,pendingKey,backupKey,next,previousKey,head);
+                revision=copy.storageRevision;head=next;
+                expectedPrimary=PlayerPrefs.GetString(key,"");expectedPending=PlayerPrefs.GetString(pendingKey,"");
             },clock);
         }
-        public static string RecoveryNotice {get;private set;}
-        static ProgressData ValidateJson(string raw)
+
+        static void Promote(string key,string pendingKey,string backupKey,string document,string previousKey=null,string old=null)
         {
-            if(string.IsNullOrWhiteSpace(raw)||!raw.TrimStart().StartsWith("{")||!raw.TrimEnd().EndsWith("}")||!raw.Contains("\"version\""))throw new ArgumentException("Eksik kayıt belgesi");
-            foreach(string field in new[]{"version","undo","hint","extra","shuffle","levels"})if(!raw.Contains("\""+field+"\""))throw new ArgumentException("Eksik temel kayıt alanı: "+field);
-            var data=JsonUtility.FromJson<ProgressData>(raw);return new ProgressLedger(data,_=>{}).Snapshot;
+            try
+            {
+                if(!string.IsNullOrEmpty(old))PlayerPrefs.SetString(previousKey,old);
+                PlayerPrefs.SetString(key,document);
+                PlayerPrefs.SetString(backupKey,document);
+                PlayerPrefs.DeleteKey(pendingKey);
+                PlayerPrefs.Save();
+            }
+            catch(Exception e)
+            {
+                // A failed mirror flush cannot undo a committed journal.
+                try{PlayerPrefs.SetString(pendingKey,document);}catch(PlayerPrefsException){}
+                Debug.LogWarning("Kayıt aynası henüz yazılamadı: "+e.GetType().Name);
+            }
+        }
+
+        public static string RecoveryNotice {get;private set;}
+
+        static ProgressData ReadCandidate(string raw)
+        {
+            if(string.IsNullOrWhiteSpace(raw))return null;
+            try
+            {
+                var json=Newtonsoft.Json.Linq.JObject.Parse(raw,new Newtonsoft.Json.Linq.JsonLoadSettings
+                {DuplicatePropertyNameHandling=Newtonsoft.Json.Linq.DuplicatePropertyNameHandling.Error});
+                CheckVersion(json["version"]);
+                foreach(string field in new[]{"worldMap","presentation","daily","hub"})
+                    if(json[field] is Newtonsoft.Json.Linq.JObject block)CheckVersion(block["version"]);
+                foreach(string field in new[]{"version","undo","hint","extra","shuffle"})
+                    if(!Integer(json[field]))return null;
+                if(json["levels"] is not Newtonsoft.Json.Linq.JArray levels)return null;
+                foreach(var level in levels)
+                    if(!Integer(level["level"])||!Integer(level["bestStars"])||
+                        level["rewardClaimed"]?.Type!=Newtonsoft.Json.Linq.JTokenType.Boolean)return null;
+                if(json["storageRevision"]!=null&&!Integer(json["storageRevision"]))return null;
+                if(json["presentation"] is Newtonsoft.Json.Linq.JObject presentation&&
+                    ((presentation["coins"]!=null&&!Integer(presentation["coins"]))||
+                    (presentation["gems"]!=null&&!Integer(presentation["gems"]))))return null;
+                var data=JsonUtility.FromJson<ProgressData>(raw);
+                if(data==null||data.storageRevision<0)return null;
+                return new ProgressLedger(data,_=>{}).Snapshot;
+            }
+            catch(NotSupportedException){throw;}
+            catch(Exception){return null;}
+        }
+
+        static bool Integer(Newtonsoft.Json.Linq.JToken value)=>value?.Type==Newtonsoft.Json.Linq.JTokenType.Integer;
+        static void CheckVersion(Newtonsoft.Json.Linq.JToken value)
+        {
+            if(Integer(value)&&decimal.TryParse(value.ToString(),out var version)&&version>1)
+                throw new NotSupportedException("Yeni kayıt sürümü; daha güncel uygulama gerekli.");
         }
 
         public static void UseTestProfile(ProgressData data=null,Func<DateTimeOffset> clock=null){current=new ProgressLedger(data??new ProgressData(),_=>{},clock);IsTestProfile=true;LoadError=null;}

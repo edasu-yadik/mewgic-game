@@ -79,10 +79,13 @@ namespace Mewgic
             go.transform.SetParent(parent,false);var image=go.GetComponent<Image>();
             image.sprite=sprite;image.preserveAspect=preserve;image.raycastTarget=false;Stretch(image.rectTransform);return image;
         }
+        Vector2 lastViewport;
         public void Layout()
         {
             if(!Mounted)return;
             var viewport=((RectTransform)transform).rect.size;
+            if(viewport==lastViewport||viewport.x<=0||viewport.y<=0)return;
+            lastViewport=viewport;
             float scale=Mathf.Min(viewport.x/900f,viewport.y/1600f);
             composition.localScale=Vector3.one*scale;
             foregroundRect.anchoredPosition=new Vector2(0,-(viewport.y/scale-1600));

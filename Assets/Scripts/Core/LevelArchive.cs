@@ -13,9 +13,57 @@ namespace Mewgic.Core
         readonly string root;readonly object gate=new object();public FileLevelArchive(string directory){root=Path.GetFullPath(directory);}
         GeneratedLevel Read(string file){if(new FileInfo(file).Length>65536)throw new InvalidDataException("Bölüm belgesi çok büyük.");var level=JsonConvert.DeserializeObject<GeneratedLevel>(File.ReadAllText(file),new JsonSerializerSettings{MaxDepth=16,TypeNameHandling=TypeNameHandling.None});if(level==null)throw new InvalidDataException("Bölüm belgesi boş.");level.Validate();return level;}
         string Name(int id){if(id<3)throw new ArgumentOutOfRangeException(nameof(id));return Path.Combine(root,"level-"+id.ToString(System.Globalization.CultureInfo.InvariantCulture)+".json");}
-        public bool TryRead(int id,out GeneratedLevel level){lock(gate){string file=Name(id);level=null;if(!File.Exists(file)&&!File.Exists(file+".backup"))return false;try{level=Read(file);}catch(Exception primary){try{level=Read(file+".backup");}catch(Exception backup){throw new InvalidDataException("Açılmış bölüm ve yedeği okunamadı; özgün kayıt korundu.",new AggregateException(primary,backup));}}if(level.level!=id)throw new InvalidDataException("Bölüm kimliği uyuşmuyor.");return true;}}
-        public void Write(GeneratedLevel level){level.Validate();lock(gate){if(TryRead(level.level,out var old)){if(!LevelGenerator.Exact(old.Export(),level.Export()))throw new InvalidOperationException("Açılmış bölüm yeniden üretilemez.");return;}Directory.CreateDirectory(root);string path=Name(level.level),temp=path+".tmp";File.WriteAllText(temp,JsonConvert.SerializeObject(level));Read(temp);File.Move(temp,path);File.Copy(path,path+".backup",true);}}
+        public bool TryRead(int id,out GeneratedLevel level)
+        {
+            lock(gate)
+            {
+                string file=Name(id);
+                level=null;
+                bool published=File.Exists(file)||File.Exists(file+".backup");
+                var errors=new List<Exception>();
+                foreach(string candidate in new[]{file,file+".backup",file+".tmp"})
+                {
+                    if(!File.Exists(candidate))continue;
+                    try
+                    {
+                        var entry=Read(candidate);
+                        if(entry.level!=id)throw new InvalidDataException("Bölüm kimliği uyuşmuyor.");
+                        level=entry;
+                        return true;
+                    }
+                    catch(Exception e) when(e is IOException or UnauthorizedAccessException or JsonException or ArgumentException or InvalidOperationException)
+                    {errors.Add(e);}
+                }
+                if(!published||errors.Count==0)return false;
+                throw new InvalidDataException("Açılmış bölüm kopyaları okunamadı; özgün kayıtlar korundu.",new AggregateException(errors));
+            }
+        }
+        public void Write(GeneratedLevel level)
+        {
+            level.Validate();
+            lock(gate)
+            {
+                if(TryRead(level.level,out var old))
+                {
+                    if(!LevelGenerator.Exact(old.Export(),level.Export()))throw new InvalidOperationException("Açılmış bölüm yeniden üretilemez.");
+                    return;
+                }
+                Directory.CreateDirectory(root);
+                string path=Name(level.level),temp=path+".tmp";
+                if(File.Exists(temp))File.Move(temp,temp+".corrupt-"+Guid.NewGuid().ToString("N"));
+                using(var file=new FileStream(temp,FileMode.CreateNew,FileAccess.Write,FileShare.None))
+                {
+                    using(var writer=new StreamWriter(file,System.Text.Encoding.UTF8,1024,true))
+                        writer.Write(JsonConvert.SerializeObject(level));
+                    file.Flush(true);
+                }
+                Read(temp);
+                File.Move(temp,path);
+                File.Copy(path,path+".backup",true);
+            }
+        }
     }
+
     public static class LevelArchiveHistory
     {
         public const int Window=64;

@@ -12,6 +12,7 @@ namespace Mewgic
         [Range(0, 1)] public float opacity = .8f;
         Material instance, previous;
         Image image;
+        float appliedTime=float.NaN, appliedSpeed=float.NaN, appliedBrightness=float.NaN, appliedOpacity=float.NaN;
         static readonly int Clock = Shader.PropertyToID("_EnvironmentTime");
         static readonly int Speed = Shader.PropertyToID("_FlowSpeed");
         static readonly int Brightness = Shader.PropertyToID("_FlowBrightness");
@@ -37,10 +38,16 @@ namespace Mewgic
         public void Apply(float time)
         {
             if (instance == null) return;
-            instance.SetFloat(Clock, time);
-            instance.SetFloat(Speed, Mathf.Max(0, speed));
-            instance.SetFloat(Brightness, Mathf.Clamp(brightness, 0, .1f));
-            instance.SetFloat(Opacity, Mathf.Clamp01(opacity));
+            ApplyValue(Clock,time,ref appliedTime);
+            ApplyValue(Speed,Mathf.Max(0,speed),ref appliedSpeed);
+            ApplyValue(Brightness,Mathf.Clamp(brightness,0,.1f),ref appliedBrightness);
+            ApplyValue(Opacity,Mathf.Clamp01(opacity),ref appliedOpacity);
+        }
+        void ApplyValue(int id,float value,ref float previousValue)
+        {
+            if(previousValue==value)return;
+            previousValue=value;
+            instance.SetFloat(id,value);
         }
         void LateUpdate() { Apply(GameFeel.Reduced?0:Time.unscaledTime); }
         void OnDestroy()

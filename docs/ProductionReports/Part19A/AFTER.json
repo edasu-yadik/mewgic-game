@@ -1,0 +1,444 @@
+{
+  "success": true,
+  "unity": "6000.3.27f1",
+  "graphics": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "api": "Direct3D12",
+  "processor": "AMD Ryzen 7 6800H with Radeon Graphics ",
+  "playerSaveIntact": true,
+  "checks": [
+    "İkinci döküş aynı akış nesnesini kullandı",
+    "Arka plan ve devam döküşü iki kez uygulamadı",
+    "Şişe dokunma alanı 1600",
+    "Şişe dokunma alanı 1950",
+    "Şişe dokunma alanı 2000",
+    "1.000.000 düzeyi dünya haritasında odaklandı",
+    "Son tam 50 bölüm paketi haritada taşmadı",
+    "Döküşte sahneden ayrılma yarım akış veya yeni ödül bırakmadı",
+    "Sahne döngüsünde bir ses yöneticisi"
+  ],
+  "warnings": [],
+  "errors": [],
+  "failure": null,
+  "samples": [
+    {
+      "name": "Home",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.87,
+        "p95": 4.742,
+        "max": 5.986
+      },
+      "mainMs": {
+        "median": 3.88,
+        "p95": 4.598,
+        "max": 5.965
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18892.0,
+        "p95": 18964.0,
+        "max": 23932.0
+      },
+      "gpuMs": {
+        "median": 0.261,
+        "p95": 0.27,
+        "max": 0.272
+      },
+      "gpuSamples": 119,
+      "draws": 80,
+      "batches": 80,
+      "usedBytes": 2158863691,
+      "objects": 111
+    },
+    {
+      "name": "World map",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.986,
+        "p95": 4.906,
+        "max": 5.579
+      },
+      "mainMs": {
+        "median": 3.995,
+        "p95": 4.846,
+        "max": 5.534
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 18876.0,
+        "max": 23796.0
+      },
+      "gpuMs": {
+        "median": 0.261,
+        "p95": 0.267,
+        "max": 0.437
+      },
+      "gpuSamples": 117,
+      "draws": 50,
+      "batches": 50,
+      "usedBytes": 2015747506,
+      "objects": 78
+    },
+    {
+      "name": "Crystal Falls",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.827,
+        "p95": 4.698,
+        "max": 5.122
+      },
+      "mainMs": {
+        "median": 3.84,
+        "p95": 4.664,
+        "max": 5.106
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 18860.0,
+        "max": 23796.0
+      },
+      "gpuMs": {
+        "median": 0.309,
+        "p95": 0.325,
+        "max": 0.327
+      },
+      "gpuSamples": 117,
+      "draws": 88,
+      "batches": 88,
+      "usedBytes": 2019738289,
+      "objects": 186
+    },
+    {
+      "name": "Gameplay idle",
+      "frames": 120,
+      "frameMs": {
+        "median": 3.519,
+        "p95": 6.92,
+        "max": 7.994
+      },
+      "mainMs": {
+        "median": 3.515,
+        "p95": 6.863,
+        "max": 8.129
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 18876.0,
+        "max": 39503.0
+      },
+      "gpuMs": {
+        "median": 0.287,
+        "p95": 0.292,
+        "max": 0.294
+      },
+      "gpuSamples": 116,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1975101482,
+      "objects": 86
+    },
+    {
+      "name": "Pour",
+      "frames": 32,
+      "frameMs": {
+        "median": 3.851,
+        "p95": 5.717,
+        "max": 9.69
+      },
+      "mainMs": {
+        "median": 3.796,
+        "p95": 5.378,
+        "max": 5.65
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 25162.0,
+        "max": 26964.0
+      },
+      "gpuMs": {
+        "median": 0.268,
+        "p95": 0.287,
+        "max": 0.289
+      },
+      "gpuSamples": 32,
+      "draws": 48,
+      "batches": 48,
+      "usedBytes": 1974955082,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 1",
+      "frames": 30,
+      "frameMs": {
+        "median": 3.113,
+        "p95": 4.02,
+        "max": 4.099
+      },
+      "mainMs": {
+        "median": 3.09,
+        "p95": 4.018,
+        "max": 4.071
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.292,
+        "p95": 0.349,
+        "max": 1.147
+      },
+      "gpuSamples": 28,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973598876,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 2",
+      "frames": 30,
+      "frameMs": {
+        "median": 4.036,
+        "p95": 4.66,
+        "max": 5.439
+      },
+      "mainMs": {
+        "median": 4.019,
+        "p95": 4.763,
+        "max": 5.515
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.279,
+        "p95": 0.283,
+        "max": 0.285
+      },
+      "gpuSamples": 28,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973429872,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 3",
+      "frames": 30,
+      "frameMs": {
+        "median": 3.183,
+        "p95": 4.169,
+        "max": 5.044
+      },
+      "mainMs": {
+        "median": 3.206,
+        "p95": 4.118,
+        "max": 5.113
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.296,
+        "p95": 0.306,
+        "max": 1.034
+      },
+      "gpuSamples": 30,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973574288,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 4",
+      "frames": 30,
+      "frameMs": {
+        "median": 3.07,
+        "p95": 3.897,
+        "max": 3.937
+      },
+      "mainMs": {
+        "median": 3.008,
+        "p95": 3.95,
+        "max": 3.995
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.281,
+        "p95": 0.29,
+        "max": 0.3
+      },
+      "gpuSamples": 28,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973650608,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 5",
+      "frames": 30,
+      "frameMs": {
+        "median": 4.422,
+        "p95": 5.627,
+        "max": 6.43
+      },
+      "mainMs": {
+        "median": 4.462,
+        "p95": 5.59,
+        "max": 6.516
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.402,
+        "p95": 0.406,
+        "max": 1.189
+      },
+      "gpuSamples": 30,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973258728,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 6",
+      "frames": 30,
+      "frameMs": {
+        "median": 3.738,
+        "p95": 4.832,
+        "max": 5.012
+      },
+      "mainMs": {
+        "median": 3.707,
+        "p95": 4.353,
+        "max": 4.973
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.282,
+        "p95": 0.288,
+        "max": 0.29
+      },
+      "gpuSamples": 30,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973335272,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 7",
+      "frames": 30,
+      "frameMs": {
+        "median": 4.542,
+        "p95": 5.828,
+        "max": 6.037
+      },
+      "mainMs": {
+        "median": 4.483,
+        "p95": 5.713,
+        "max": 5.965
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.342,
+        "p95": 0.389,
+        "max": 1.329
+      },
+      "gpuSamples": 30,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973176264,
+      "objects": 86
+    },
+    {
+      "name": "Cycle 8",
+      "frames": 30,
+      "frameMs": {
+        "median": 3.989,
+        "p95": 5.769,
+        "max": 5.782
+      },
+      "mainMs": {
+        "median": 3.954,
+        "p95": 5.65,
+        "max": 5.733
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18804.0,
+        "p95": 19478.0,
+        "max": 20196.0
+      },
+      "gpuMs": {
+        "median": 0.349,
+        "p95": 1.295,
+        "max": 1.306
+      },
+      "gpuSamples": 28,
+      "draws": 46,
+      "batches": 46,
+      "usedBytes": 1973636672,
+      "objects": 86
+    },
+    {
+      "name": "Soak Home",
+      "frames": 120,
+      "frameMs": {
+        "median": 4.242,
+        "p95": 5.227,
+        "max": 7.075
+      },
+      "mainMs": {
+        "median": 4.221,
+        "p95": 5.294,
+        "max": 6.812
+      },
+      "renderMs": null,
+      "gcBytes": {
+        "median": 18892.0,
+        "p95": 18964.0,
+        "max": 23884.0
+      },
+      "gpuMs": {
+        "median": 0.307,
+        "p95": 0.316,
+        "max": 0.326
+      },
+      "gpuSamples": 117,
+      "draws": 74,
+      "batches": 74,
+      "usedBytes": 2309278573,
+      "objects": 111
+    }
+  ]
+}
