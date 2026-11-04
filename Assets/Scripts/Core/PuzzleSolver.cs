@@ -13,7 +13,12 @@ namespace Mewgic.Core
         public static PuzzleSolution Solve(int[][] data,int limit=10000)
         {
             if(limit<1)throw new ArgumentOutOfRangeException(nameof(limit));
-            var result=new PuzzleSolution();var first=new Node{Data=new Puzzle(data).Export()};
+            var valid = new Puzzle(data).Export();
+            return PackedPuzzleSearch.TrySolve(valid, limit, out var packed) ? packed : SolveReference(valid, limit);
+        }
+        internal static PuzzleSolution SolveReference(int[][] data, int limit)
+        {
+            var result=new PuzzleSolution();var first=new Node{Data=data};
             var queue=new Queue<Node>();queue.Enqueue(first);var seen=new HashSet<string>{StateKey(first.Data)};
             while(queue.Count>0)
             {

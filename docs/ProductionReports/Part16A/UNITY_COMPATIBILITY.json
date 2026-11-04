@@ -1,0 +1,121 @@
+{
+  "success": true,
+  "legacyArchiveExact": true,
+  "legacyGameplay": {
+    "scene": "Gameplay",
+    "id": 100,
+    "version": 1,
+    "signature": "||AABC|ACCB|BABC",
+    "playerSaveIntact": true
+  },
+  "samples": [
+    {
+      "level": 601,
+      "signature": "||AAAB|ACCC|BBBC",
+      "seed": 3902469737,
+      "requestSeed": 2177243689,
+      "version": 2,
+      "fallback": false,
+      "moves": 4,
+      "board": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0
+        ],
+        [],
+        []
+      ],
+      "exactMatch": true
+    },
+    {
+      "level": 1000,
+      "signature": "||ABAC|BCCB|BDAD|DCDA",
+      "seed": 1575211333,
+      "requestSeed": 3094629176,
+      "version": 2,
+      "fallback": true,
+      "moves": 13,
+      "board": [
+        [
+          2,
+          3,
+          3,
+          2
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          0
+        ],
+        [],
+        []
+      ],
+      "exactMatch": true
+    },
+    {
+      "level": 5000,
+      "signature": "||ABAB|CADB|DCAC|DCDB",
+      "seed": 3507079069,
+      "requestSeed": 3678549464,
+      "version": 2,
+      "fallback": false,
+      "moves": 13,
+      "board": [
+        [
+          2,
+          3,
+          2,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          3,
+          1,
+          2,
+          0
+        ],
+        [],
+        []
+      ],
+      "exactMatch": true
+    }
+  ]
+}
