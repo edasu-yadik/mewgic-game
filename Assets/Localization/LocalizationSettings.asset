@@ -23,7 +23,8 @@ MonoBehaviour:
   m_StringDatabase:
     rid: 1668092879795126335
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 7760819365647745024
   m_ProjectLocaleIdentifier:
     m_Code: en
   m_PreloadBehavior: 1
@@ -204,3 +205,15 @@ MonoBehaviour:
         - default
         - d
         - 
+    - rid: 7760819365647745024
+      type: {class: AppInfo, ns: UnityEngine.Localization.Platform.Android, asm: Unity.Localization}
+      data:
+        m_DisplayName:
+          m_TableReference:
+            m_TableCollectionName: Mewgic
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: app.display_name
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []

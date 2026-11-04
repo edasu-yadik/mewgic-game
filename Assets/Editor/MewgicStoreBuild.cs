@@ -9,6 +9,11 @@ using UnityEditor.Android;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
+using UnityEditor.Localization;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
+using AndroidAppInfo = UnityEngine.Localization.Platform.Android.AppInfo;
 
 public sealed class MewgicStoreBuild : IPreprocessBuildWithReport
 #if UNITY_ANDROID
@@ -25,13 +30,21 @@ public sealed class MewgicStoreBuild : IPreprocessBuildWithReport
     {
         removeInternet = report.summary.platform == BuildTarget.Android &&
             (report.summary.options & BuildOptions.Development) == 0;
+        if (report.summary.platform == BuildTarget.Android) VerifyAndroidAppInfo();
     }
 
 #if UNITY_ANDROID
     public void OnPostGenerateGradleAndroidProject(string path)
     {
+        string launcher = Path.GetFullPath(Path.Combine(path, "..", "launcher", "src", "main"));
+        string strings = Path.Combine(launcher, "res", "values", "strings.xml");
+        var resources = XDocument.Load(strings);
+        var name = resources.Root?.Elements("string").SingleOrDefault(e => (string)e.Attribute("name") == "app_name");
+        if (name == null) throw new BuildFailedException("Android varsayılan uygulama adı kaynağı bulunamadı.");
+        name.Value = "MeWGic";
+        resources.Save(strings);
         if (!removeInternet) return;
-        string manifest = Path.GetFullPath(Path.Combine(path, "..", "launcher", "src", "main", "AndroidManifest.xml"));
+        string manifest = Path.Combine(launcher, "AndroidManifest.xml");
         if (!File.Exists(manifest))
             throw new BuildFailedException("Launcher manifesti bulunamadı. Release izinleri doğrulanamadı.");
         RemoveInternet(manifest);
@@ -57,6 +70,46 @@ public sealed class MewgicStoreBuild : IPreprocessBuildWithReport
 
     public static void ApplyAndroidIcons() => ApplyIcons(NamedBuildTarget.Android);
     public static void ApplyIosIcons() => ApplyIcons(NamedBuildTarget.iOS);
+
+    public static void ApplyAndroidAppInfo()
+    {
+        var settings = LocalizationEditorSettings.ActiveLocalizationSettings;
+        var collection = LocalizationEditorSettings.GetStringTableCollection("Mewgic");
+        if (settings == null || collection == null)
+            throw new InvalidOperationException("Yerelleştirme ayarları ve Mewgic tablosu gerekli.");
+        foreach (var table in collection.StringTables)
+        {
+            table.AddEntry("app.display_name", "MeWGic").IsSmart = false;
+            EditorUtility.SetDirty(table);
+        }
+        var info = settings.GetMetadata().GetMetadata<AndroidAppInfo>();
+        if (info == null)
+        {
+            info = new AndroidAppInfo();
+            settings.GetMetadata().AddMetadata(info);
+        }
+        info.DisplayName = new LocalizedString("Mewgic", "app.display_name");
+        EditorUtility.SetDirty(collection.SharedData);
+        EditorUtility.SetDirty(settings);
+        AssetDatabase.SaveAssets();
+    }
+
+    public static void VerifyAndroidAppInfo()
+    {
+        var settings = LocalizationEditorSettings.ActiveLocalizationSettings;
+        var collection = LocalizationEditorSettings.GetStringTableCollection("Mewgic");
+        var info = settings?.GetMetadata().GetMetadata<AndroidAppInfo>();
+        if (info == null || collection == null ||
+            info.DisplayName.TableReference.TableCollectionName != "Mewgic" ||
+            info.DisplayName.TableEntryReference.Key != "app.display_name")
+            throw new BuildFailedException("Android App Info uygulama adı tablosuna bağlı olmalı.");
+        foreach (var locale in LocalizationEditorSettings.GetLocales())
+        {
+            var table = collection.GetTable(locale.Identifier) as StringTable;
+            if (table?.GetEntry("app.display_name")?.Value != "MeWGic")
+                throw new BuildFailedException("Android uygulama adı eksik: " + locale.Identifier.Code);
+        }
+    }
 
     static void ApplyIcons(NamedBuildTarget target)
     {

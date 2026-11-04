@@ -1,5 +1,20 @@
 [
   {
+    "key": "app.display_name",
+    "plain": true,
+    "values": {
+      "tr": "MeWGic",
+      "en": "MeWGic",
+      "de": "MeWGic",
+      "fr": "MeWGic",
+      "es": "MeWGic",
+      "pt-BR": "MeWGic",
+      "it": "MeWGic",
+      "pl": "MeWGic"
+    },
+    "review": "Marka adı tüm dillerde korunur."
+  },
+  {
     "key": "common.back",
     "values": {
       "tr": "GERİ",
@@ -2269,6 +2284,7 @@
   },
   {
     "key": "map.motion_full",
+    "plain": true,
     "values": {
       "tr": "Hareket: Açık",
       "en": "Motion: Full",
@@ -2283,6 +2299,7 @@
   },
   {
     "key": "map.motion_reduced",
+    "plain": true,
     "values": {
       "tr": "Hareket: Az",
       "en": "Motion: Reduced",
@@ -2297,6 +2314,7 @@
   },
   {
     "key": "settings.tutorial_replay",
+    "plain": true,
     "values": {
       "tr": "Pati Rehberini Tekrar Oynat",
       "en": "Replay Paw Tutorial",
@@ -2311,6 +2329,7 @@
   },
   {
     "key": "gameplay.target_full",
+    "plain": true,
     "values": {
       "tr": "Hedef şişe dolu.",
       "en": "The target bottle is full.",
@@ -2325,6 +2344,7 @@
   },
   {
     "key": "gameplay.target_color",
+    "plain": true,
     "values": {
       "tr": "Boş veya üstü aynı renk olan şişeyi seç.",
       "en": "Choose an empty bottle or a matching top color.",
@@ -2339,6 +2359,7 @@
   },
   {
     "key": "tutorial.tool_undo",
+    "plain": true,
     "values": {
       "tr": "Geri Al son döküşü geri çevirir.",
       "en": "Undo reverses the last pour.",
@@ -2353,6 +2374,7 @@
   },
   {
     "key": "tutorial.tool_hint",
+    "plain": true,
     "values": {
       "tr": "İpucu kaynak ve hedefi işaretler.",
       "en": "Hint marks the source and target.",
@@ -2367,6 +2389,7 @@
   },
   {
     "key": "tutorial.tool_extra",
+    "plain": true,
     "values": {
       "tr": "Ek Şişe boş bir şişe ekler.",
       "en": "Extra Bottle adds an empty bottle.",
@@ -2381,6 +2404,7 @@
   },
   {
     "key": "tutorial.tool_shuffle",
+    "plain": true,
     "values": {
       "tr": "Karıştır şişelerin yerini değiştirir.",
       "en": "Shuffle changes the bottle order.",

@@ -763,6 +763,10 @@ MonoBehaviour:
     m_Key: settings.toggle
     m_Metadata:
       m_Items: []
+  - m_Id: 1646604031721472
+    m_Key: app.display_name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
