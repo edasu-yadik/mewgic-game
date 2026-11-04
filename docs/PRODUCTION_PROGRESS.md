@@ -300,3 +300,5 @@ PART 19B (4 Kasım 2026) · Android 0.8.0 / 10 test APK’sı üretildi ve API 3
 PART 20 (4 Kasım 2026) · Kedi ikonu, 24 mağaza kartı, beş dilde açıklama, gizlilik taslağı ve yayın kontrol listesi. Unity Android ikonları ve Gradle release manifesti doğrulandı. İmzalı dağıtım, cihaz kabulü ve son mağaza beyanları açık. Store Assets ve ProductionReports/Part20 altında.
 
 PART 21 (4 Kasım 2026) · 0.8.0 RC.1 / build 11 dalı, izole Play Mode regresyonu (20), kayıt testleri (16), 10.000 seed denetimi ve yerel Android APK doğrulaması. Unity güvenlik yamasına sabitlenen imzalı iOS IPA 0.8.0 (11) doğrulandı. Android imzalı AAB, fiziksel cihaz kabulü ve mağaza beyanları yayın engeli. Rapor ve cihaz test listesi ProductionReports/Part21 altında.
+
+PART 24 (4 Kasım 2026) · Kişisel Play kaydı Edasu Yadık adıyla ödeme profili adımına ilerletildi. Android sistem adı ve sekiz dil metadata uyarısı giderildi. Yerel release bayraklı APK 0 hata/0 uyarıyla doğrulandı. Yamalı araç zinciri, imzalı AAB, hesap doğrulaması ve fiziksel cihaz testi açık. Rapor ProductionReports/Part24 altında.

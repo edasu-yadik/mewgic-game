@@ -1,0 +1,20 @@
+{
+  "requiredUnity": "6000.3.27f2",
+  "cliBefore": "1.0.0-beta.14",
+  "cliAfterOfficialSelfUpdate": "1.0.0-beta.16",
+  "selfUpdateApprovedByUser": true,
+  "firstInstallError": "os error 123",
+  "latestInstallError": "ELEVATION_CANCELLED",
+  "latestInstallMessage": "The Windows elevation prompt was cancelled or timed out.",
+  "patchedEditorInstalled": false,
+  "patchedAndroidModulesInstalled": false,
+  "moduleLicenseAcceptance": "awaiting user approval",
+  "existingValidatedTools": {
+    "unity": "6000.3.27f1",
+    "jdk": "17.0.18",
+    "ndk": "27.2.12479018 (r27c)",
+    "targetApi": 36
+  },
+  "releaseSigningConfigured": false,
+  "adbConnectedDevices": 0
+}

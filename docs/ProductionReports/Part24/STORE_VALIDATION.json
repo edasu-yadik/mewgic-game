@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "sameIosAndAndroidSourceIcon": true,
+  "adaptiveLayers": [
+    "Mewgic_AdaptiveBackground.png",
+    "Mewgic_AdaptiveForeground.png"
+  ],
+  "storeMetadataLanguages": 5,
+  "phoneScreenshots": 6,
+  "physicalDeviceTested": false
+}

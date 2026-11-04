@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "keys": 188,
+  "locales": [
+    "tr",
+    "en",
+    "de",
+    "fr",
+    "es",
+    "pt-BR",
+    "it",
+    "pl"
+  ],
+  "errors": [],
+  "translationStatus": "Ana dil konuşuru tarafından incelenmemiş ilk taslak"
+}

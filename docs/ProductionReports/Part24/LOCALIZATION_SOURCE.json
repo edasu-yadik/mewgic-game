@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "keys": 188,
+  "languages": [
+    "tr",
+    "en",
+    "de",
+    "fr",
+    "es",
+    "pt-BR",
+    "it",
+    "pl"
+  ],
+  "literalSourceReferences": 201,
+  "errors": [],
+  "validatorNegativeCasesPassed": null,
+  "note": "Smart Strings dilbilgisi, glifler ve canlı yerleşim ayrıca Unity içinde doğrulanır."
+}

@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "editor": "6000.3.27f1",
+  "metadataIdempotent": true,
+  "appName": "MeWGic",
+  "localeResources": [
+    "values-b+de",
+    "values-b+en",
+    "values-b+es",
+    "values-b+fr",
+    "values-b+it",
+    "values-b+pl",
+    "values-b+pt+BR",
+    "values-b+tr"
+  ],
+  "warnings": [],
+  "realDeviceTested": false
+}
