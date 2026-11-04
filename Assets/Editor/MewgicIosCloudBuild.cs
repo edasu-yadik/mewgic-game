@@ -30,8 +30,8 @@ public static class MewgicIosCloudBuild
         if(EditorUserBuildSettings.activeBuildTarget!=BuildTarget.iOS)throw new InvalidOperationException("Bu hook yalnız bulut iOS hedefinde çalışır; Android ayarları değiştirilmedi.");
         var config=JsonUtility.FromJson<Configuration>(File.ReadAllText(ConfigPath));
         if(config==null||config.editorVersion!=Application.unityVersion)throw new InvalidOperationException("Bulut Unity sürümü proje sürümüyle aynı olmalı.");
-        string number=Environment.GetEnvironmentVariable("MEWGIC_IOS_BUILD_NUMBER");
-        if(string.IsNullOrWhiteSpace(number))number=config.candidateBuildNumber;
+        string number=config.candidateBuildNumber;
+        if(string.IsNullOrWhiteSpace(number))number=Environment.GetEnvironmentVariable("MEWGIC_IOS_BUILD_NUMBER");
         if(string.IsNullOrWhiteSpace(number))number=Environment.GetEnvironmentVariable("BUILD_NUMBER");
         number=Validate(config.bundleIdentifier,config.appleTeamId,number,config.registrationVerified);
         if(config.productName!="Mewgic"||!Regex.IsMatch(config.marketingVersion??"",@"^[0-9]+\.[0-9]+\.[0-9]+$"))throw new InvalidOperationException("Mewgic sürüm bilgisi geçersiz.");

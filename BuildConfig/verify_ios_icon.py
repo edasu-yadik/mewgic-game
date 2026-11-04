@@ -52,7 +52,7 @@ if __name__ == "__main__":
     parser.add_argument("--report", required=True)
     args = parser.parse_args()
     config = json.loads(pathlib.Path(__file__).with_name("iOS-TestFlight.json").read_text(encoding="utf-8"))
-    expected = os.environ.get("MEWGIC_IOS_BUILD_NUMBER") or config.get("candidateBuildNumber") or os.environ.get("BUILD_NUMBER")
+    expected = config.get("candidateBuildNumber") or os.environ.get("MEWGIC_IOS_BUILD_NUMBER") or os.environ.get("BUILD_NUMBER")
     if not expected or not expected.isdecimal() or int(expected) < 1:
         parser.error("Pozitif iOS build numarası gerekli")
     result = verify(args.ipa, str(int(expected)))
