@@ -294,3 +294,5 @@ PART 17 (4 Kasım 2026) · İlk kazanış ve yıldız farkı ekonomisi, atomik g
 PART 18 (4 Kasım 2026) · Özgün müzik ve efektler, ayrı kalıcı geri bildirim tercihleri, hareket azaltma ve çok dilli Game View denetimi. 132 Unity Play Mode kontrolü geçti. Sekiz dilde 42 kare ve ses hakları envanteri ProductionReports/Part18 altında.
 
 PART 19A (4 Kasım 2026) · Unity sahne ve paket taraması, döküş ve harita tahsis iyileştirmeleri, nesilli kayıt kurtarma. 16 Edit Mode, 9 teknik Play Mode ve 66 ekonomi regresyon kontrolü geçti. Editor önce/sonra ölçümleri ProductionReports/Part19A altında.
+
+PART 19B (4 Kasım 2026) · Android 0.8.0 / 10 test APK’sı üretildi ve API 36, ARM64, imza ve 16 KB dosya hizalaması doğrulandı. AAB imzalama girişi ve iOS TestFlight ön koşulları belgelendi. Fiziksel cihaz testi yayın engeli. Rapor ve cihaz rehberi ProductionReports/Part19B altında.
