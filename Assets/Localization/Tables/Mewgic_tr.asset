@@ -859,6 +859,34 @@ MonoBehaviour:
     m_Localized: "Hareket: Az"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Pati Rehberini Tekrar Oynat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "Hedef \u015fi\u015fe dolu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Bo\u015f veya \u00fcst\u00fc ayn\u0131 renk olan \u015fi\u015feyi se\u00e7."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Geri Al son d\u00f6k\u00fc\u015f\u00fc geri \u00e7evirir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "\u0130pucu kaynak ve hedefi i\u015faretler."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "Ek \u015ei\u015fe bo\u015f bir \u015fi\u015fe ekler."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Kar\u0131\u015ft\u0131r \u015fi\u015felerin yerini de\u011fi\u015ftirir."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

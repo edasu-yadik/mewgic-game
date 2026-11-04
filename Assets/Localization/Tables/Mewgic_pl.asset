@@ -870,6 +870,34 @@ MonoBehaviour:
     m_Localized: "Ruch: Ograniczony"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Powt\u00f3rz samouczek \u0142apki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "Butelka docelowa jest pe\u0142na."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Wybierz pust\u0105 butelk\u0119 lub ten sam kolor na g\u00f3rze."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Cofnij odwraca ostatnie przelanie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "Wskaz\u00f3wka oznacza \u017ar\u00f3d\u0142o i cel."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "Dodatkowa butelka dodaje pust\u0105 butelk\u0119."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Tasuj zmienia kolejno\u015b\u0107 butelek."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

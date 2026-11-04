@@ -98,6 +98,7 @@ namespace Mewgic
         public GameplayLiquidGraphic Liquid {get;private set;}
         public int[] DisplayedLayers=>Liquid.Layers;
         public float DisplayedVolume=>Liquid.Volume;
+        float rejectedUntil;
         bool selected,animating,paused;int hintRole;Image shell; Outline outline;HintCueGraphic hintCue;
         public Vector3 Mouth=>Rig.TransformPoint(new Vector3(0,Rig.rect.height*.46f,0));
         public void Initialize(Sprite glass,Color[] palette)
@@ -112,8 +113,9 @@ namespace Mewgic
         public void ShowHintSource(){hintRole=1;HintLight();}
         public void ShowHintTarget(){hintRole=2;HintLight();}
         void HintLight(){var tint=hintRole==1?new Color(1,.78f,.25f):new Color(.1f,.85f,1);tint.a=.72f+Mathf.Sin(Time.unscaledTime*2.5f)*.12f;outline.effectColor=tint;outline.effectDistance=new Vector2(2,-2);hintCue.destination=hintRole==2;hintCue.color=tint;hintCue.gameObject.SetActive(true);hintCue.rectTransform.anchoredPosition=new Vector2(0,18+Mathf.Sin(Time.unscaledTime*2.5f)*2);}
+        public void Reject(){rejectedUntil=Time.unscaledTime+.28f;}
         public void SetPaused(bool value){paused=value;Liquid.Paused=value;}
         public void SetAnimating(bool value){animating=value;}
-        void Update(){if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
+        void Update(){if(shell!=null&&rejectedUntil>0){float left=rejectedUntil-Time.unscaledTime;shell.color=Color.Lerp(Color.white,new Color(1,.44f,.51f),Mathf.Clamp01(left/.16f));if(left<=0)rejectedUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
     }
 }

@@ -872,6 +872,34 @@ MonoBehaviour:
     m_Localized: "Movimiento: Reducido"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Repetir el tutorial de la pata"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "La botella de destino est\u00e1 llena."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Elige una botella vac\u00eda o con el mismo color arriba."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Deshacer revierte el \u00faltimo vertido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "La pista marca el origen y el destino."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "La botella extra a\u00f1ade una botella vac\u00eda."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Mezclar cambia el orden de las botellas."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

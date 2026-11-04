@@ -869,6 +869,34 @@ MonoBehaviour:
     m_Localized: "Bewegung: Weniger"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Pfoten-Tutorial wiederholen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "Die Zielflasche ist voll."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "W\u00e4hle eine leere Flasche oder dieselbe obere Farbe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "R\u00fcckg\u00e4ngig kehrt den letzten Guss um."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "Der Tipp markiert Quelle und Ziel."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "Extra-Flasche f\u00fcgt eine leere Flasche hinzu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Mischen \u00e4ndert die Flaschenreihenfolge."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

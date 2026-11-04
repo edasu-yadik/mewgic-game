@@ -16,9 +16,10 @@ namespace Mewgic.UI
         public bool ThoughtVisible=>bubble!=null&&bubble.gameObject.activeSelf&&fade.alpha>.05f;
         public float CursorPress=>cursorArt!=null?cursorArt.Press:0;
         public event Action BoosterHelpRequested;
+        internal Action ReplayFinished;
         public static string HelpText=>L.V("tutorial.help");
         PrototypeApp app;Puzzle model;ProgressLedger ledger;RectTransform safe,cat,hit,bubble,cursor;
-        TMP_Text message,gameplayStatus;CanvasGroup fade,cursorFade;PawCursorGraphic cursorArt;
+        TMP_Text message,gameplayStatus;Button thoughtClose;CanvasGroup fade,cursorFade;PawCursorGraphic cursorArt;
         Mewgic.Characters.WizardCatPresentation actor;Coroutine routine;PawTutorialDefinition feature;
         bool demo,driving,sourceSelected,transferFinished,thoughtClosing,clearDemoStatus,cursorAtTarget;RectTransform cursorTarget;
         int startMoves;float thoughtAt,fadeStart,fadeFrom;
@@ -29,8 +30,15 @@ namespace Mewgic.UI
             var root=(RectTransform)GameObject.Find("TutorialOverlay").transform;root.anchorMin=Vector2.zero;root.anchorMax=Vector2.one;root.offsetMin=root.offsetMax=Vector2.zero;
             hit=Rect(root,"PawCatTouch",Vector2.zero,Vector2.zero);var image=hit.gameObject.AddComponent<Image>();image.color=Color.clear;hit.gameObject.AddComponent<Button>().onClick.AddListener(OpenMenu);
             bubble=Rect(root,"PawThought",new Vector2(.025f,.205f),new Vector2(.645f,.303f));bubble.gameObject.AddComponent<PawThoughtGraphic>().raycastTarget=false;
-            fade=bubble.gameObject.AddComponent<CanvasGroup>();fade.blocksRaycasts=fade.interactable=false;
-            var text=Rect(bubble,"PawMessage",new Vector2(.065f,.10f),new Vector2(.935f,.90f));message=text.gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();MewgicTypographySettings.Prepare(message);message.font=MewgicTypographySettings.Current.body;message.fontSize=23;message.enableAutoSizing=true;message.fontSizeMin=21;message.fontSizeMax=23;message.alignment=TextAlignmentOptions.Center;message.color=new Color32(62,34,56,255);message.raycastTarget=false;
+            fade=bubble.gameObject.AddComponent<CanvasGroup>();fade.blocksRaycasts=fade.interactable=true;
+            var text=Rect(bubble,"PawMessage",new Vector2(.065f,.10f),new Vector2(.83f,.90f));message=text.gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();MewgicTypographySettings.Prepare(message);message.font=MewgicTypographySettings.Current.body;message.fontSize=23;message.enableAutoSizing=true;message.fontSizeMin=16;message.fontSizeMax=23;message.alignment=TextAlignmentOptions.Center;message.color=new Color32(62,34,56,255);message.raycastTarget=false;
+            var close=Rect(bubble,"PawThoughtClose",new Vector2(.835f,.38f),new Vector2(.965f,.93f));
+            var closeHit=close.gameObject.AddComponent<Image>();closeHit.color=Color.clear;
+            thoughtClose=close.gameObject.AddComponent<Button>();thoughtClose.targetGraphic=closeHit;
+            thoughtClose.onClick.AddListener(DismissThought);
+            var closeText=Rect(close,"Label",Vector2.zero,Vector2.one).gameObject.AddComponent<TextMeshProUGUI>();
+            closeText.font=message.font;closeText.text="×";closeText.fontSize=29;closeText.alignment=TextAlignmentOptions.Center;
+            closeText.color=message.color;closeText.raycastTarget=false;
             cursor=Rect(root,"PawCursor",new Vector2(.5f,.5f),new Vector2(.5f,.5f));cursor.sizeDelta=new Vector2(74,84);cursorArt=cursor.gameObject.AddComponent<PawCursorGraphic>();cursorArt.raycastTarget=false;cursorFade=cursor.gameObject.AddComponent<CanvasGroup>();cursorFade.blocksRaycasts=cursorFade.interactable=false;
             bubble.gameObject.SetActive(false);cursor.gameObject.SetActive(false);fade.alpha=0;
             if(level==1&&!ledger.Completed(1)&&!ledger.TutorialCompleted(BasicId))BeginDemo();
@@ -40,13 +48,13 @@ namespace Mewgic.UI
         RectTransform Bottle(int index){var go=GameObject.Find("Bottle "+(index+1));return go!=null?go.GetComponent<GameplayBottleView>().Rig:null;}
         Vector2 Point(RectTransform target){return safe.InverseTransformPoint(target.TransformPoint(target.rect.center));}
         bool TargetsPresent=>Recommended.Source>=0&&Recommended.Target>=0&&Recommended.Source<model.Count&&Recommended.Target<model.Count&&Bottle(Recommended.Source)!=null&&Bottle(Recommended.Target)!=null;
-        bool BeginDemo(){if(demo||app==null)return false;demo=true;clearDemoStatus=true;State=Phase.Delay;routine=StartCoroutine(Demonstrate());return true;}
+        bool BeginDemo(){if(demo||app==null)return false;demo=true;clearDemoStatus=true;State=Phase.Delay;app.UpdateTools();routine=StartCoroutine(Demonstrate());return true;}
         IEnumerator Demonstrate()
         {
             float deadline=Time.unscaledTime+3;while(!Ready&&Time.unscaledTime<deadline)yield return null;
             if(!Ready){Close();yield break;}yield return new WaitForSecondsRealtime(.6f);
             if(!Ready){Close();yield break;}var solved=PuzzleSolver.Solve(model.Export(),3000);
-            if(solved.Status!=SearchStatus.Solved||solved.Moves.Count<2){demo=false;routine=null;ShowThought(HelpText,Phase.Thought);yield break;}
+            if(solved.Status!=SearchStatus.Solved||solved.Moves.Count<2){demo=false;app.UpdateTools();routine=null;ShowThought(HelpText,Phase.Thought);yield break;}
             Recommended=solved.Moves[0];startMoves=model.Moves;sourceSelected=transferFinished=false;
             if(!TargetsPresent){Close();yield break;}
             cursor.gameObject.SetActive(true);cursorFade.alpha=0;cursor.anchoredPosition=Point(cat)+new Vector2(70,80);
@@ -62,7 +70,7 @@ namespace Mewgic.UI
             State=Phase.CatClick;yield return Press(()=>{actor?.TriggerMagic();ShowThought(HelpText,Phase.Thought);});
             float start=Time.unscaledTime;while(demo&&Time.unscaledTime-start<.22f){cursorFade.alpha=1-(Time.unscaledTime-start)/.22f;yield return null;}cursor.gameObject.SetActive(false);
             while(demo&&Time.unscaledTime-thoughtAt<3)yield return null;
-            if(demo){ledger.CompleteTutorial(BasicId);routine=null;Close();}
+            if(demo){routine=null;DismissThought();}
         }
         IEnumerator Travel(RectTransform target,float duration)
         {
@@ -86,20 +94,48 @@ namespace Mewgic.UI
         public void SelectionCleared(){}
         public void MoveFinished(int source,int target){if(demo&&source==Recommended.Source&&target==Recommended.Target&&model.Moves==startMoves+1)transferFinished=true;}
         // Eski çağrılar aynı küçük balona yönlenir; hiçbir menü/buton oluşturulmaz.
-        public void OpenMenu(){if(!demo&&Ready)ShowThought(HelpText,Phase.Thought);}
+        public void OpenMenu(){if(State==Phase.Thought&&ThoughtVisible)DismissThought();else if(!demo&&Ready)ShowThought(HelpText,Phase.Thought);}
         public void ShowHowToPlay(){OpenMenu();}
         public void General(){OpenMenu();}
         public void Continue(){OpenMenu();}
         public void OpenBoosterHelp(){if(!demo&&Ready)BoosterHelpRequested?.Invoke();}
         public void SuspendHelp(){Close();}
         public void ResetGuide(){Close();}
-        public bool HandleBack(){if(!Visible)return false;Close();return true;}
-        public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!Ready||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;ShowThought(string.IsNullOrWhiteSpace(definition.messageKey)?L.V("tutorial.help"):L.V(definition.messageKey),Phase.Feature);return true;}
+        public bool HandleBack(){if(!Visible)return false;if(State==Phase.Thought||State==Phase.Feature)DismissThought();else Close();return true;}
+        public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!Ready||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;ShowThought(string.IsNullOrWhiteSpace(definition.messageKey)?L.V("tutorial.help"):L.V(definition.messageKey),Phase.Feature);if(!string.IsNullOrWhiteSpace(definition.targetName))PointAt(GameObject.Find(definition.targetName)?.GetComponent<RectTransform>());return true;}
         public bool CompleteFeature(string completionKey){if(State!=Phase.Feature||feature==null||completionKey!=feature.completionKey||!ledger.CompleteTutorial(feature.tutorialId))return false;Close();return true;}
-        void ShowThought(string text,Phase phase){State=phase;message.text=text;thoughtAt=Time.unscaledTime;thoughtClosing=false;fadeStart=thoughtAt;fade.alpha=0;bubble.localScale=Vector3.one*.94f;bubble.gameObject.SetActive(true);}
+        public void RestartReplay(){if(ReplayFinished!=null)BeginDemo();}
+
+        public void ShowBoosterTip(BoosterKind kind,RectTransform target)
+        {
+            if(demo||!Ready||target==null)return;
+            string id="paw.tool."+kind+".v1";
+            if(ledger.TutorialCompleted(id)||!ledger.CompleteTutorial(id))return;
+            Close();
+            ShowThought(L.V(kind==BoosterKind.Undo?"tutorial.tool_undo":kind==BoosterKind.Hint?"tutorial.tool_hint":
+                kind==BoosterKind.ExtraBottle?"tutorial.tool_extra":"tutorial.tool_shuffle"),Phase.Feature);
+            PointAt(target);
+        }
+
+        void PointAt(RectTransform target)
+        {
+            if(target==null)return;
+            cursorTarget=target;cursorAtTarget=true;
+            cursor.gameObject.SetActive(true);cursorFade.alpha=1;
+        }
+
+        void DismissThought()
+        {
+            bool completed=demo&&State==Phase.Thought;
+            if(completed)ledger.CompleteTutorial(BasicId);
+            Close();
+            if(completed)ReplayFinished?.Invoke();
+        }
+
+        void ShowThought(string text,Phase phase){State=phase;thoughtClose.interactable=true;message.text=text;thoughtAt=Time.unscaledTime;thoughtClosing=false;fadeStart=thoughtAt;fade.alpha=0;bubble.localScale=Vector3.one*.94f;bubble.gameObject.SetActive(true);}
         public void Close()
         {
-            if(routine!=null){StopCoroutine(routine);routine=null;}demo=driving=false;State=Phase.Closed;feature=null;if(cursor!=null){cursor.gameObject.SetActive(false);cursor.localScale=Vector3.one;cursorArt.Press=0;}
+            if(routine!=null){StopCoroutine(routine);routine=null;}demo=driving=false;if(isActiveAndEnabled&&app!=null)app.UpdateTools();if(thoughtClose!=null)thoughtClose.interactable=false;State=Phase.Closed;feature=null;if(cursor!=null){cursor.gameObject.SetActive(false);cursor.localScale=Vector3.one;cursorArt.Press=0;}
             if(bubble!=null&&bubble.gameObject.activeSelf&&!thoughtClosing){thoughtClosing=true;fadeFrom=fade.alpha;fadeStart=Time.unscaledTime;}
             if(clearDemoStatus&&gameplayStatus!=null){gameplayStatus.text="";clearDemoStatus=false;}
         }
@@ -112,9 +148,10 @@ namespace Mewgic.UI
         {
             if(cat==null){Close();if(gameplayStatus!=null)gameplayStatus.enabled=true;return;}cat.GetWorldCorners(corners);Vector2 min=safe.InverseTransformPoint(corners[0]),max=safe.InverseTransformPoint(corners[2]);hit.anchorMin=hit.anchorMax=new Vector2(.5f,.5f);hit.anchoredPosition=(min+max)*.5f;hit.sizeDelta=max-min;
             if(cursorAtTarget&&cursor.gameObject.activeSelf&&cursorTarget!=null)cursor.anchoredPosition=Point(cursorTarget)+Vector2.down*(7*Mathf.Sin(CursorPress*Mathf.PI));
-            if(Visible&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false))Close();
+            if(Visible&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false))HandleBack();
             if(bubble.gameObject.activeSelf){float t=Mathf.SmoothStep(0,1,(Time.unscaledTime-fadeStart)/.2f);fade.alpha=thoughtClosing?Mathf.Lerp(fadeFrom,0,t):t;bubble.localScale=Vector3.one*Mathf.Lerp(.94f,1,fade.alpha);if(thoughtClosing&&t>=1)bubble.gameObject.SetActive(false);}
-            if(!demo&&(State==Phase.Thought||State==Phase.Feature)&&Time.unscaledTime-thoughtAt>=3)Close();
+            if(!demo&&State==Phase.Feature&&cursor.gameObject.activeSelf){float age=Time.unscaledTime-thoughtAt;cursorArt.Press=Mathf.Repeat(age*1.6f,1);cursor.localScale=Vector3.one*(.88f+.12f*Mathf.Sin(age*7)*Mathf.Sin(age*7));}
+            if(!demo&&(State==Phase.Thought||State==Phase.Feature)&&Time.unscaledTime-thoughtAt>=3)DismissThought();
             if(gameplayStatus!=null)gameplayStatus.enabled=!(demo||ThoughtVisible);
         }
     }

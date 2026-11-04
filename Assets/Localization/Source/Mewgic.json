@@ -2294,5 +2294,103 @@
       "pl": "Ruch: Ograniczony"
     },
     "review": "draft"
+  },
+  {
+    "key": "settings.tutorial_replay",
+    "values": {
+      "tr": "Pati Rehberini Tekrar Oynat",
+      "en": "Replay Paw Tutorial",
+      "de": "Pfoten-Tutorial wiederholen",
+      "fr": "Revoir le tutoriel Patte",
+      "es": "Repetir el tutorial de la pata",
+      "pt-BR": "Rever o tutorial da patinha",
+      "it": "Ripeti il tutorial della zampa",
+      "pl": "Powtórz samouczek łapki"
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.target_full",
+    "values": {
+      "tr": "Hedef şişe dolu.",
+      "en": "The target bottle is full.",
+      "de": "Die Zielflasche ist voll.",
+      "fr": "La bouteille cible est pleine.",
+      "es": "La botella de destino está llena.",
+      "pt-BR": "O frasco de destino está cheio.",
+      "it": "La bottiglia di destinazione è piena.",
+      "pl": "Butelka docelowa jest pełna."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "gameplay.target_color",
+    "values": {
+      "tr": "Boş veya üstü aynı renk olan şişeyi seç.",
+      "en": "Choose an empty bottle or a matching top color.",
+      "de": "Wähle eine leere Flasche oder dieselbe obere Farbe.",
+      "fr": "Choisis une bouteille vide ou la même couleur au sommet.",
+      "es": "Elige una botella vacía o con el mismo color arriba.",
+      "pt-BR": "Escolha um frasco vazio ou com a mesma cor no topo.",
+      "it": "Scegli una bottiglia vuota o con lo stesso colore in cima.",
+      "pl": "Wybierz pustą butelkę lub ten sam kolor na górze."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "tutorial.tool_undo",
+    "values": {
+      "tr": "Geri Al son döküşü geri çevirir.",
+      "en": "Undo reverses the last pour.",
+      "de": "Rückgängig kehrt den letzten Guss um.",
+      "fr": "Annuler inverse le dernier versement.",
+      "es": "Deshacer revierte el último vertido.",
+      "pt-BR": "Desfazer reverte o último despejo.",
+      "it": "Annulla ripristina l’ultimo travaso.",
+      "pl": "Cofnij odwraca ostatnie przelanie."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "tutorial.tool_hint",
+    "values": {
+      "tr": "İpucu kaynak ve hedefi işaretler.",
+      "en": "Hint marks the source and target.",
+      "de": "Der Tipp markiert Quelle und Ziel.",
+      "fr": "L’indice marque la source et la cible.",
+      "es": "La pista marca el origen y el destino.",
+      "pt-BR": "A dica indica a origem e o destino.",
+      "it": "Il suggerimento indica origine e destinazione.",
+      "pl": "Wskazówka oznacza źródło i cel."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "tutorial.tool_extra",
+    "values": {
+      "tr": "Ek Şişe boş bir şişe ekler.",
+      "en": "Extra Bottle adds an empty bottle.",
+      "de": "Extra-Flasche fügt eine leere Flasche hinzu.",
+      "fr": "La bouteille bonus ajoute une bouteille vide.",
+      "es": "La botella extra añade una botella vacía.",
+      "pt-BR": "Frasco extra adiciona um frasco vazio.",
+      "it": "Bottiglia extra aggiunge una bottiglia vuota.",
+      "pl": "Dodatkowa butelka dodaje pustą butelkę."
+    },
+    "review": "draft"
+  },
+  {
+    "key": "tutorial.tool_shuffle",
+    "values": {
+      "tr": "Karıştır şişelerin yerini değiştirir.",
+      "en": "Shuffle changes the bottle order.",
+      "de": "Mischen ändert die Flaschenreihenfolge.",
+      "fr": "Mélanger change l’ordre des bouteilles.",
+      "es": "Mezclar cambia el orden de las botellas.",
+      "pt-BR": "Embaralhar muda a ordem dos frascos.",
+      "it": "Mescola cambia l’ordine delle bottiglie.",
+      "pl": "Tasuj zmienia kolejność butelek."
+    },
+    "review": "draft"
   }
 ]

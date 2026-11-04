@@ -19,13 +19,13 @@ namespace Mewgic
         public static int Columns(int count)=>Columns(count,new Vector2(630,960));
         public static int Columns(int count,Vector2 size)
         {
-            int best=1;float largest=-1;for(int cols=1;cols<=Mathf.Max(1,count);cols++){int rows=Mathf.CeilToInt(count/(float)cols);float h=Mathf.Min(size.y/Mathf.Max(1,rows)-72,size.x/cols*.82f/.42f);if(h>largest+.01f){largest=h;best=cols;}}return best;
+            int best=1;float largest=-1;for(int cols=1;cols<=Mathf.Max(1,count);cols++){int rows=Mathf.CeilToInt(count/(float)cols);float h=Mathf.Min(size.y/Mathf.Max(1,rows)-66,size.x/cols*.86f/.42f);if(h>largest+.01f){largest=h;best=cols;}}return best;
         }
         public static Rect Slot(int index,int count,Vector2 size)
         {
             int cols=Columns(count,size),rows=Mathf.Max(1,Mathf.CeilToInt(count/(float)cols));
             float cw=size.x/cols,ch=size.y/rows;
-            float height=Mathf.Max(1,Mathf.Min(ch-72,cw*.82f/.42f)),width=height*.42f;
+            float height=Mathf.Max(1,Mathf.Min(ch-66,cw*.86f/.42f)),width=height*.42f;
             int row=index/cols,col=index%cols;int inRow=Mathf.Min(cols,count-row*cols);
             float cx=(col+.5f)*cw+(cols-inRow)*cw*.5f;
             float y=size.y-(row+1)*ch+44;
@@ -36,7 +36,7 @@ namespace Mewgic
         public void Mount(RectTransform safeArea,RectTransform bottleBoard)
         {
             safe=safeArea;board=bottleBoard;board.GetComponent<Image>().color=Color.clear;
-            board.anchorMin=new Vector2(.25f,.30f);board.anchorMax=new Vector2(.95f,.90f);board.offsetMin=board.offsetMax=Vector2.zero;
+            board.anchorMin=new Vector2(.21f,.30f);board.anchorMax=new Vector2(.97f,.90f);board.offsetMin=board.offsetMax=Vector2.zero;
             var night=safe.parent.Find("Night");if(night!=null)night.gameObject.SetActive(false);
             background=Rect(safe.parent,"GameplayBackdrop");background.SetAsFirstSibling();var bg=Art(background,"CastleWaterfalls",backdrop);bg.color=new Color(.85f,.88f,1,1);
             var water=WaterfallAnimator.Attach(bg,waterfallShader,waterfallMask,true);
@@ -56,8 +56,8 @@ namespace Mewgic
             var viewport=((RectTransform)safe.parent).rect.size;var bg=background.GetChild(0).GetComponent<RectTransform>();var sr=backdrop.rect.size;float cover=Mathf.Max(viewport.x/sr.x,viewport.y/sr.y);bg.anchorMin=bg.anchorMax=new Vector2(.5f,.5f);bg.sizeDelta=sr*cover;bg.anchoredPosition=Vector2.zero;
             var edgeSize=foreground.rect.size;float edgeCover=Mathf.Max(viewport.x/edgeSize.x,viewport.y/edgeSize.y);edgeDecor.anchorMin=edgeDecor.anchorMax=new Vector2(.5f,.5f);edgeDecor.sizeDelta=edgeSize*edgeCover;edgeDecor.anchoredPosition=Vector2.zero;
             float unit=Mathf.Min(safe.rect.width/900f,safe.rect.height/1600f);
-            cat.anchorMin=cat.anchorMax=new Vector2(.015f,.29f);cat.pivot=new Vector2(.5f,0);cat.localScale=Vector3.one*Mathf.Min(safe.rect.width*.24f/cat.rect.width,300*unit/cat.rect.height);cat.anchoredPosition=new Vector2(cat.rect.width*cat.localScale.x*.5f,0);
-            perch.anchorMin=perch.anchorMax=new Vector2(.135f,.29f);perch.pivot=new Vector2(.5f,.92f);perch.anchoredPosition=Vector2.zero;perch.sizeDelta=new Vector2(safe.rect.width*.27f,65*unit);
+            cat.anchorMin=cat.anchorMax=new Vector2(.015f,.29f);cat.pivot=new Vector2(.5f,0);cat.localScale=Vector3.one*Mathf.Min(safe.rect.width*.18f/cat.rect.width,300*unit/cat.rect.height);cat.anchoredPosition=new Vector2(cat.rect.width*cat.localScale.x*.5f,0);
+            perch.anchorMin=perch.anchorMax=new Vector2(.105f,.29f);perch.pivot=new Vector2(.5f,.92f);perch.anchoredPosition=Vector2.zero;perch.sizeDelta=new Vector2(safe.rect.width*.20f,65*unit);
             if(IsAnimating)return;
             for(int i=0;i<bottles.Length;i++){if(bottles[i]==null)continue;var slot=Slot(i,bottles.Length,board.rect.size);var b=bottles[i];b.anchorMin=slot.min;b.anchorMax=slot.max;b.offsetMin=b.offsetMax=Vector2.zero;}
             int cols=Columns(bottles.Length,board.rect.size),rows=Mathf.Max(1,Mathf.CeilToInt(bottles.Length/(float)cols));

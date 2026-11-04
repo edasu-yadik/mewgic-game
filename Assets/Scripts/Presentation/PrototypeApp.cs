@@ -25,7 +25,13 @@ namespace Mewgic
         GameplayLevelInfo levelInfo;
         bool paused;
         Coroutine pourRoutine;
+        RectTransform pourStream;
+        int pouringSource=-1, originalSibling, pointerFrame=-1, pointerBottle=-1;
+        float feedbackUntil, pointerTime;
+        static bool tutorialReplayPending;
+        bool tutorialReplay;
         public bool IsPaused => paused;
+        internal bool IsTutorialReplay => tutorialReplay;
         [Serializable] public class BottleData { public int[] layers; }
         [Serializable] public class LevelData { public BottleData[] bottles; }
         static readonly Color Night = new Color32(16,22,46,255);
@@ -46,6 +52,9 @@ namespace Mewgic
         Rect previousSafe;
         int previousWidth, previousHeight;
 
+        public static void RequestTutorialReplay(){if(SceneNavigation.LoadOnce("Gameplay"))tutorialReplayPending=true;}
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void ResetTutorialReplay(){tutorialReplayPending=false;}
         void Start()
         {
             if (SceneManager.GetActiveScene().name == "Boot") { GameplayLevelCatalog.ResumeFromSave(); Mewgic.SceneNavigation.LoadOnce("Home"); return; }
@@ -72,12 +81,17 @@ namespace Mewgic
         void Update()
         {
             if(safe != null && (Screen.safeArea != previousSafe || Screen.width != previousWidth || Screen.height != previousHeight)) ApplySafeArea();
+            if(feedbackUntil>0&&Time.unscaledTime>=feedbackUntil){feedbackUntil=0;if(status!=null)status.text="";}
         }
         void OnApplicationPause(bool suspended)
         {
             if(!suspended)return;
+            if(puzzle!=null&&!navigating)
+            {
+                if(busy){CancelPour();Refresh(true);}
+                if(!paused)PauseGame();
+            }
             PlayerPrefs.Save();
-            if(puzzle!=null&&!paused&&!navigating)PauseGame();
         }
         void ApplySafeArea()
         {
@@ -131,30 +145,32 @@ namespace Mewgic
         }
         void Gameplay()
         {
-            var level=GameplayLevelCatalog.Current();levelInfo=level.Info;puzzle=new Puzzle(level.Bottles);
-            originalBottleCount=puzzle.Count;progress=GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount);
+            tutorialReplay=tutorialReplayPending;tutorialReplayPending=false;
+            var level=tutorialReplay?GameplayLevelCatalog.Load(1):GameplayLevelCatalog.Current();levelInfo=level.Info;puzzle=new Puzzle(level.Bottles);
+            originalBottleCount=puzzle.Count;progress=tutorialReplay?new ProgressLedger(new ProgressData(),_=>{}):GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount);
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
             status=Label(safe,"Status","",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
             var tutorialOverlay=new GameObject("TutorialOverlay",typeof(RectTransform)).GetComponent<RectTransform>();
             tutorialOverlay.SetParent(safe,false);tutorialOverlay.anchorMin=new Vector2(.06f,.2f);tutorialOverlay.anchorMax=new Vector2(.94f,.27f);tutorialOverlay.offsetMin=tutorialOverlay.offsetMax=Vector2.zero;
             restart=Button(safe,"Restart",L.V("gameplay.restart"),new Vector2(.09f,.027f),new Vector2(.47f,.065f),Reset);
-            home=Button(safe,"Home",GameplayLevelCatalog.FromMap?L.V("common.map"):L.V("common.home"),new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);});
+            home=Button(safe,"Home",!tutorialReplay&&GameplayLevelCatalog.FromMap?L.V("common.map"):L.V("common.home"),new Vector2(.53f,.027f),new Vector2(.91f,.065f),()=>{if(!busy&&!paused)ReturnFromGameplay();});
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
-            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);},()=>paused);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)ReturnFromGameplay();},()=>paused);
             if(GameplayProgress.LoadError!=null)status.text=L.V("error.load");
             Refresh();
-            pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);GameplayLevelCatalog.Prewarm(levelInfo.id);
+            pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);if(tutorialReplay)pawGuide.ReplayFinished=ReturnFromGameplay;else GameplayLevelCatalog.Prewarm(levelInfo.id);
         }
+        void ReturnFromGameplay()=>Mewgic.SceneNavigation.LoadOnce(tutorialReplay?"Home":GameplayLevelCatalog.ReturnScene);
         void SkinGameplayControl(Button control){control.GetComponent<Image>().sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");control.GetComponent<Image>().type=Image.Type.Sliced;control.GetComponent<Image>().color=Color.white;control.GetComponent<Outline>().enabled=false;}
-        void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused,originalBottleCount);}
+        internal void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused||tutorialReplay||pawGuide?.BlocksGameplayActions==true,originalBottleCount);}
         public void UseBooster(BoosterKind kind)
         {
-            if(busy||paused||puzzle.Won||navigating)return;
+            if(busy||paused||puzzle.Won||navigating||tutorialReplay)return;
             if(pawGuide!=null&&pawGuide.BlocksGameplayActions)return;
-            if(kind==BoosterKind.Hint&&hintTarget>=0){status.text=L.V("booster.hint_active");return;}
+            if(kind==BoosterKind.Hint&&hintTarget>=0){Feedback(L.V("booster.hint_active"));return;}
             bool applied=false;
             switch(kind)
             {
@@ -163,26 +179,27 @@ namespace Mewgic
                 case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");}break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
-            if(!applied)status.text=boosters.Message;else pawGuide?.ResetGuide();Refresh();
+            if(!applied)Feedback(boosters.Message);else{pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
         }
         void NextLevel(){if(busy||paused||!puzzle.Won||navigating||!GameplayLevelCatalog.CanAdvance(levelInfo.id,progress))return;StartCoroutine(AdvancePrepared());}
         IEnumerator EnterPreparedGameplay(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);while(!task.IsCompleted)yield return null;if(task.IsFaulted){var failure=task.Exception;GameObject.Find("Play")?.GetComponent<PremiumPlayButton>()?.AllowRetry();if(GameObject.Find("LevelPreparationNotice")==null)Label(safe,"LevelPreparationNotice",L.V("error.prepare"),24,Gold,new Vector2(.1f,.12f),new Vector2(.9f,.17f));navigating=false;yield break;}Mewgic.SceneNavigation.LoadOnce("Gameplay");}
         IEnumerator AdvancePrepared(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(levelInfo.id+1);while(!task.IsCompleted)yield return null;if(task.IsFaulted){status.text=L.V("error.prepare");navigating=false;yield break;}if(GameplayLevelCatalog.Advance(levelInfo.id,progress))Mewgic.SceneNavigation.LoadOnce("Gameplay");else{status.text=L.V("error.save");navigating=false;}}
-        public void PauseGame(){if(hud==null||paused)return;pawGuide?.SuspendHelp();paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateTools();}
-        public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateTools();}
+        public void PauseGame(){if(hud==null||paused)return;pawGuide?.SuspendHelp();paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateBottleInput();UpdateTools();}
+        public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateBottleInput();UpdateTools();if(!busy&&puzzle.Won)Refresh();if(tutorialReplay&&!busy){Reset();pawGuide?.RestartReplay();}}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
         void CancelPour()
         {
             if(pourRoutine!=null){StopCoroutine(pourRoutine);pourRoutine=null;}
-            var stream=board.Find("Pour stream");if(stream!=null)Destroy(stream.gameObject);
+            ClearPourStream();
+            if(pouringSource>=0){bottleViews[pouringSource].SetSiblingIndex(originalSibling);pouringSource=-1;}
             if(bottleViews!=null)foreach(var b in bottleViews){var view=b.GetComponent<GameplayBottleView>();view.SetAnimating(false);view.Rig.localRotation=Quaternion.identity;view.Rig.anchoredPosition=Vector2.zero;}
             busy=false;if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
         }
-        public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();Reset();}
-        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();Mewgic.SceneNavigation.LoadOnce(GameplayLevelCatalog.ReturnScene);}
+        public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();if(!tutorialReplay)Reset();}
+        public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();ReturnFromGameplay();}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
         void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();progress.ClearMapJourney();puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
-        void Refresh()
+        void Refresh(bool settlePausedVictory=false)
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
             {
@@ -194,38 +211,66 @@ namespace Mewgic
                     int index=i;
                     var b=Box(board,"Bottle "+(i+1),Color.clear,Vector2.zero,Vector2.one);
                     bottleViews[i]=b;
-                    var hit=b.gameObject.AddComponent<Button>();hit.targetGraphic=b.GetComponent<Image>();b.GetComponent<Image>().raycastTarget=true;hit.onClick.AddListener(()=>Select(index));
+                    var hit=b.gameObject.AddComponent<BottleTapButton>();hit.AcceptTap=()=>AcceptBottlePointer(index);hit.targetGraphic=b.GetComponent<Image>();b.GetComponent<Image>().raycastTarget=true;hit.onClick.AddListener(()=>Select(index));
                     var view=b.gameObject.AddComponent<GameplayBottleView>();view.Initialize(glass,Colors);
                 }
             }
             for(int i=0;i<puzzle.Count;i++)bottleViews[i].GetComponent<GameplayBottleView>().Present(puzzle.Bottle(i),selected==i);
             if(hintTarget>=0&&hintTarget<bottleViews.Length){bottleViews[hintTarget].GetComponent<GameplayBottleView>().ShowHintTarget();if(selected>=0)bottleViews[selected].GetComponent<GameplayBottleView>().ShowHintSource();}
             if(gameplayVisual!=null)gameplayVisual.Bind(bottleViews);
-            UpdateHud();
+            UpdateHud();UpdateBottleInput();
             UpdateTools();restart.interactable=!busy&&!paused;home.interactable=!busy&&!paused;
-            if(puzzle.Won&&!busy&&!paused&&!completionHandled)
+            if(puzzle.Won&&!busy&&(!paused||settlePausedVictory)&&!completionHandled)
             {
                 completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
-                bool saved=progress.Claim(levelInfo.id,stars,puzzle.Won,out bool granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed);UpdateTools();
-                endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),progress.LastCoinReward);
+                bool granted=false;bool saved=tutorialReplay||progress.Claim(levelInfo.id,stars,puzzle.Won,out granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed);UpdateTools();
+                endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,!tutorialReplay&&GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),progress.LastCoinReward);
             }
             bool showPlayControls = !endScreen.IsShowing;
             restart.gameObject.SetActive(showPlayControls);
             home.gameObject.SetActive(showPlayControls);
             status.gameObject.SetActive(showPlayControls);
         }
+        bool AcceptBottlePointer(int index)
+        {
+            float now=Time.unscaledTime;
+            if(!GuideCanInteract||pointerFrame==Time.frameCount||(pointerBottle==index&&now-pointerTime<.16f))
+                return false;
+            pointerFrame=Time.frameCount;pointerBottle=index;pointerTime=now;
+            return true;
+        }
+
+        void UpdateBottleInput()
+        {
+            if(bottleViews==null)return;
+            foreach(var bottle in bottleViews)bottle.GetComponent<Button>().interactable=GuideCanInteract;
+        }
+
+        void Feedback(string message)
+        {
+            status.text=message;
+            feedbackUntil=Time.unscaledTime+1.45f;
+        }
+
+        void ClearPourStream()
+        {
+            if(pourStream==null)return;
+            pourStream.gameObject.SetActive(false);Destroy(pourStream.gameObject);pourStream=null;
+        }
+
         void Select(int target)
         {
-            if(busy||paused||puzzle.Won)return;
+            if(busy||paused||puzzle.Won||navigating)return;
             if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
-            hintTarget=-1;
-            if(selected<0){if(puzzle.Bottle(target).Count==0){status.text=L.V("gameplay.empty");return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
+            if(pawGuide!=null&&!pawGuide.DemoRunning&&pawGuide.Visible)pawGuide.Close();
+            hintTarget=-1;feedbackUntil=0;
+            if(selected<0){if(puzzle.Bottle(target).Count==0){Feedback(L.V("gameplay.empty"));return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
             if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
-            if(amount==0){status.text=L.V("gameplay.invalid");Refresh();return;}
-            selected=-1;pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
+            if(amount==0){Refresh();bottleViews[target].GetComponent<GameplayBottleView>().Reject();Feedback(L.V(puzzle.Bottle(target).Count==Puzzle.Capacity?"gameplay.target_full":"gameplay.target_color"));return;}
+            selected=-1;busy=true;UpdateBottleInput();pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)
         {
@@ -235,14 +280,14 @@ namespace Mewgic
             var targetView=bottleViews[target].GetComponent<GameplayBottleView>();
             sourceView.SetAnimating(true);targetView.SetAnimating(true);
             var a=sourceView.Rig;var start=a.position;var returnPosition=bottleViews[source].position;var rotation=a.localRotation;
-            int oldSibling=bottleViews[source].GetSiblingIndex();bottleViews[source].SetAsLastSibling();
+            pouringSource=source;originalSibling=bottleViews[source].GetSiblingIndex();bottleViews[source].SetAsLastSibling();
             float direction=bottleViews[target].position.x>=a.position.x?1:-1;
             var tilt=Quaternion.Euler(0,0,-direction*100);
             var destination=targetView.Mouth-a.parent.TransformVector(tilt*new Vector3(0,a.rect.height*.46f,0))+a.parent.TransformVector(new Vector3(0,36,0));
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/.24f){while(paused)yield return null;float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(start,destination,e);a.localRotation=Quaternion.Slerp(rotation,tilt,e);yield return null;}
             while(paused)yield return null;
             a.position=destination;a.localRotation=tilt;
-            var stream=Box(board,"Pour stream",Colors[color%Colors.Length],Vector2.zero,Vector2.zero);
+            var stream=pourStream=Box(board,"Pour stream",Colors[color%Colors.Length],Vector2.zero,Vector2.zero);
             stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.pivot=new Vector2(.5f,0);
             var shine=stream.gameObject.AddComponent<Outline>();shine.effectColor=new Color(1,1,1,.5f);shine.effectDistance=new Vector2(1,0);
             int sourceCount=sourceView.DisplayedLayers.Length,targetCount=targetView.DisplayedLayers.Length;
@@ -257,14 +302,14 @@ namespace Mewgic
                 yield return null;
             }
             while(paused)yield return null;
-            Destroy(stream.gameObject);
+            ClearPourStream();
             sourceView.Present(puzzle.Bottle(source),false);targetView.Present(puzzle.Bottle(target),false);
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/.22f){while(paused)yield return null;float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(destination,returnPosition,e);a.localRotation=Quaternion.Slerp(tilt,Quaternion.identity,e);yield return null;}
             while(paused)yield return null;
-            a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(oldSibling);
+            a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(originalSibling);pouringSource=-1;
             sourceView.SetAnimating(false);targetView.SetAnimating(false);
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
-            busy=false;pourRoutine=null;status.text=L.V("gameplay.good");Refresh();pawGuide?.MoveFinished(source,target);
+            busy=false;pourRoutine=null;status.text="";Refresh();pawGuide?.MoveFinished(source,target);
         }
     }
 }

@@ -671,6 +671,34 @@ MonoBehaviour:
     m_Key: map.motion_reduced
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Key: settings.tutorial_replay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Key: gameplay.target_full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Key: gameplay.target_color
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Key: tutorial.tool_undo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Key: tutorial.tool_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Key: tutorial.tool_extra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Key: tutorial.tool_shuffle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

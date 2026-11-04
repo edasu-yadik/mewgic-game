@@ -876,6 +876,34 @@ MonoBehaviour:
     m_Localized: "Movimento: Ridotto"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Ripeti il tutorial della zampa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "La bottiglia di destinazione \u00e8 piena."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Scegli una bottiglia vuota o con lo stesso colore in cima."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Annulla ripristina l\u2019ultimo travaso."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "Il suggerimento indica origine e destinazione."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "Bottiglia extra aggiunge una bottiglia vuota."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Mescola cambia l\u2019ordine delle bottiglie."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -875,6 +875,34 @@ MonoBehaviour:
     m_Localized: "Motion: Reduced"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Replay Paw Tutorial"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "The target bottle is full."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Choose an empty bottle or a matching top color."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Undo reverses the last pour."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "Hint marks the source and target."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "Extra Bottle adds an empty bottle."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Shuffle changes the bottle order."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

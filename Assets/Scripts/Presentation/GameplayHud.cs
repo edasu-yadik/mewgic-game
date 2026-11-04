@@ -37,7 +37,7 @@ namespace Mewgic
             TMP_Text(modal.transform,"PauseTitle",L.V("gameplay.paused"),40,new Vector2(.06f,.78f),new Vector2(.94f,.94f));
             Control(modal.transform,"Resume",L.V("gameplay.resume"),new Vector2(.12f,.55f),new Vector2(.88f,.74f),resume);
             Control(modal.transform,"PauseRestart",L.V("gameplay.restart_full"),new Vector2(.12f,.32f),new Vector2(.88f,.51f),restart);
-            Control(modal.transform,"PauseHome",GameplayLevelCatalog.FromMap?L.V("common.map"):L.V("common.home"),new Vector2(.12f,.09f),new Vector2(.88f,.28f),home);
+            Control(modal.transform,"PauseHome",GameplayLevelCatalog.FromMap&&GetComponent<PrototypeApp>()?.IsTutorialReplay!=true?L.V("common.map"):L.V("common.home"),new Vector2(.12f,.09f),new Vector2(.88f,.28f),home);
             overlay.SetActive(false);
         }
         public void Present(GameplayHudState state)

@@ -28,6 +28,7 @@ namespace Mewgic
             }
             return buttons[0];
         }
+        public RectTransform Target(BoosterKind kind)=>(RectTransform)buttons[(int)kind].transform;
         public void Present(Puzzle p,ProgressLedger ledger,bool locked,int baseCount)
         {
             for(int i=0;i<4;i++){var kind=(BoosterKind)i;counts[i].text=ledger.Remaining(kind).ToString();buttons[i].interactable=!locked&&!p.Won&&ledger.Remaining(kind)>0&&(kind!=BoosterKind.Undo||p.CanUndo)&&(kind!=BoosterKind.ExtraBottle||p.Count<baseCount+1);icons[i].color=buttons[i].interactable?Color.white:new Color(.55f,.55f,.6f,.65f);}

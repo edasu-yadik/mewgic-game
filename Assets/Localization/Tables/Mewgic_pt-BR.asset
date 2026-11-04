@@ -865,6 +865,34 @@ MonoBehaviour:
     m_Localized: "Movimento: Reduzido"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Rever o tutorial da patinha"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "O frasco de destino est\u00e1 cheio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Escolha um frasco vazio ou com a mesma cor no topo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Desfazer reverte o \u00faltimo despejo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "A dica indica a origem e o destino."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "Frasco extra adiciona um frasco vazio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "Embaralhar muda a ordem dos frascos."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

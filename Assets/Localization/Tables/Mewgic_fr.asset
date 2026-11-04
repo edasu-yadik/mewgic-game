@@ -860,6 +860,34 @@ MonoBehaviour:
     m_Localized: "Mouvement : R\u00e9duit"
     m_Metadata:
       m_Items: []
+  - m_Id: 1048086925639683
+    m_Localized: "Revoir le tutoriel Patte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639684
+    m_Localized: "La bouteille cible est pleine."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639685
+    m_Localized: "Choisis une bouteille vide ou la m\u00eame couleur au sommet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639686
+    m_Localized: "Annuler inverse le dernier versement."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639687
+    m_Localized: "L\u2019indice marque la source et la cible."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639688
+    m_Localized: "La bouteille bonus ajoute une bouteille vide."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1048086925639689
+    m_Localized: "M\u00e9langer change l\u2019ordre des bouteilles."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
