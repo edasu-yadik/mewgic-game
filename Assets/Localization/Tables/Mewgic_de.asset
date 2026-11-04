@@ -897,6 +897,52 @@ MonoBehaviour:
     m_Localized: "Mischen \u00e4ndert die Flaschenreihenfolge."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "Level +{0}  \xB7  Sterne +{1}\nErster Versuch +{2}  \xB7  Ohne
+      Tipp +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542848
+    m_Localized: "Animation \xFCberspringen"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542849
+    m_Localized: Erneut speichern
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542850
+    m_Localized: "Verst\xE4rker"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} M\xFCnzen"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542852
+    m_Localized: "Guthaben {0} M\xFCnzen"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542853
+    m_Localized: "Du brauchst mehr M\xFCnzen."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542854
+    m_Localized: Gekauft. Vorrat {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1443505006542855
+    m_Localized: "N\xE4chste Truhe in {0} Min."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:
@@ -1067,3 +1113,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

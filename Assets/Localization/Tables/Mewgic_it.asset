@@ -904,6 +904,52 @@ MonoBehaviour:
     m_Localized: "Mescola cambia l\u2019ordine delle bottiglie."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "Livello +{0}  \xB7  Stelle +{1}\nPrimo tentativo +{2}  \xB7  Senza
+      aiuti +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542848
+    m_Localized: Salta animazione
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542849
+    m_Localized: Riprova a salvare
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542850
+    m_Localized: Potenziamenti
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} monete"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542852
+    m_Localized: Saldo {0} monete
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542853
+    m_Localized: "Servono pi\xF9 monete."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542854
+    m_Localized: Acquistato. Disponibili {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 1443505006542855
+    m_Localized: Prossimo forziere tra {0} min
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
   references:
     version: 2
     RefIds:
@@ -1074,3 +1120,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

@@ -893,6 +893,51 @@ MonoBehaviour:
     m_Localized: "Embaralhar muda a ordem dos frascos."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "N\xEDvel +{0}  \xB7  Estrelas +{1}\nPrimeira tentativa +{2}  \xB7  Sem dica +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542848
+    m_Localized: "Pular anima\xE7\xE3o"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542849
+    m_Localized: Tentar salvar novamente
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542850
+    m_Localized: "Refor\xE7os"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} moedas"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542852
+    m_Localized: Saldo {0} moedas
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542853
+    m_Localized: "Voc\xEA precisa de mais moedas."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542854
+    m_Localized: Comprado. Em estoque {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 1443505006542855
+    m_Localized: "Pr\xF3ximo ba\xFA em {0} min"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
   references:
     version: 2
     RefIds:
@@ -1063,3 +1108,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

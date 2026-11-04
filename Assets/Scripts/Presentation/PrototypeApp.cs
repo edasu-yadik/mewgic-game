@@ -21,7 +21,7 @@ namespace Mewgic
         ProgressLedger progress;
         BoosterActions boosters;
         int originalBottleCount,hintTarget=-1;
-        bool completionHandled,navigating;
+        bool completionHandled,navigating,firstAttempt,hintUsed;
         GameplayLevelInfo levelInfo;
         bool paused;
         Coroutine pourRoutine;
@@ -148,6 +148,7 @@ namespace Mewgic
             tutorialReplay=tutorialReplayPending;tutorialReplayPending=false;
             var level=tutorialReplay?GameplayLevelCatalog.Load(1):GameplayLevelCatalog.Current();levelInfo=level.Info;puzzle=new Puzzle(level.Bottles);
             originalBottleCount=puzzle.Count;progress=tutorialReplay?new ProgressLedger(new ProgressData(),_=>{}):GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount);
+            firstAttempt=!tutorialReplay&&progress.BeginFirstAttempt(levelInfo.id);
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
             status=Label(safe,"Status","",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
             var tutorialOverlay=new GameObject("TutorialOverlay",typeof(RectTransform)).GetComponent<RectTransform>();
@@ -158,7 +159,7 @@ namespace Mewgic
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
-            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)ReturnFromGameplay();},()=>paused);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)SceneNavigation.LoadOnce(tutorialReplay?"Home":"LevelMap");},()=>paused,RetryReward);
             if(GameplayProgress.LoadError!=null)status.text=L.V("error.load");
             Refresh();
             pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);if(tutorialReplay)pawGuide.ReplayFinished=ReturnFromGameplay;else GameplayLevelCatalog.Prewarm(levelInfo.id);
@@ -175,7 +176,7 @@ namespace Mewgic
             switch(kind)
             {
                 case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_undo");}break;
-                case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;selected=move.Source;hintTarget=move.Target;status.text="";}break;
+                case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;hintUsed=true;selected=move.Source;hintTarget=move.Target;status.text="";}break;
                 case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");}break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
@@ -198,7 +199,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();if(!tutorialReplay)Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();ReturnFromGameplay();}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();progress.ClearMapJourney();puzzle.Restart();victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
+        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();progress.ClearMapJourney();puzzle.Restart();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh(bool settlePausedVictory=false)
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
@@ -223,14 +224,22 @@ namespace Mewgic
             if(puzzle.Won&&!busy&&(!paused||settlePausedVictory)&&!completionHandled)
             {
                 completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
-                bool granted=false;bool saved=tutorialReplay||progress.Claim(levelInfo.id,stars,puzzle.Won,out granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed);UpdateTools();
-                endScreen.Show(levelInfo.id,puzzle.Moves,stars,granted,saved,!tutorialReplay&&GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),progress.LastCoinReward);
+                bool granted=false;bool saved=tutorialReplay||progress.Claim(levelInfo.id,stars,puzzle.Won,out granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed,firstAttempt,hintUsed);UpdateTools();
+                endScreen.Show(levelInfo.id,puzzle.Moves,stars,saved,saved&&!tutorialReplay&&GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),tutorialReplay?default:progress.LastCompletionReward);
             }
             bool showPlayControls = !endScreen.IsShowing;
             restart.gameObject.SetActive(showPlayControls);
             home.gameObject.SetActive(showPlayControls);
             status.gameObject.SetActive(showPlayControls);
         }
+        void RetryReward()
+        {
+            if(busy||paused||!puzzle.Won)return;
+            completionHandled=false;
+            endScreen.Hide();
+            Refresh();
+        }
+
         bool AcceptBottlePointer(int index)
         {
             float now=Time.unscaledTime;

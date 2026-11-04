@@ -903,6 +903,52 @@ MonoBehaviour:
     m_Localized: "Shuffle changes the bottle order."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "Level +{0}  \xB7  Stars +{1}\nFirst attempt +{2}  \xB7  No hint
+      +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542848
+    m_Localized: Skip animation
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542849
+    m_Localized: Retry saving
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542850
+    m_Localized: Boosters
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} coins"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542852
+    m_Localized: Balance {0} coins
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542853
+    m_Localized: You need more coins.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542854
+    m_Localized: Purchased. In stock {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 1443505006542855
+    m_Localized: Next chest in {0} min
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
   references:
     version: 2
     RefIds:
@@ -1073,3 +1119,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

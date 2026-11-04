@@ -900,6 +900,52 @@ MonoBehaviour:
     m_Localized: "Mezclar cambia el orden de las botellas."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "Nivel +{0}  \xB7  Estrellas +{1}\nPrimer intento +{2}  \xB7  Sin
+      pista +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542848
+    m_Localized: "Saltar animaci\xF3n"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542849
+    m_Localized: Reintentar el guardado
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542850
+    m_Localized: Potenciadores
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} monedas"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542852
+    m_Localized: Saldo {0} monedas
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542853
+    m_Localized: "Necesitas m\xE1s monedas."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542854
+    m_Localized: Comprado. En reserva {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 1443505006542855
+    m_Localized: "Pr\xF3ximo cofre en {0} min"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
   references:
     version: 2
     RefIds:
@@ -1070,3 +1116,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

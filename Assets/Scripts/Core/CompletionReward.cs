@@ -1,1 +1,16 @@
-namespace Mewgic.Core { public static class CompletionReward { public static int Base(bool first)=>first?20:5; public static int StarBonus(int stars,bool first)=>System.Math.Max(1,System.Math.Min(3,stars))*(first?10:2); public static int Coins(int stars,bool first)=>Base(first)+StarBonus(stars,first); } }
+namespace Mewgic.Core
+{
+    public readonly struct CompletionReward
+    {
+        public readonly int Base, Stars, FirstAttempt, NoHint;
+        public int Coins => Base + Stars + FirstAttempt + NoHint;
+
+        public CompletionReward(int previousStars, int stars, bool first, bool firstAttempt, bool hintUsed)
+        {
+            Base = first ? 20 : 0;
+            Stars = System.Math.Max(0, stars - previousStars) * 5;
+            FirstAttempt = first && firstAttempt ? 10 : 0;
+            NoHint = first && !hintUsed ? 5 : 0;
+        }
+    }
+}

@@ -288,3 +288,5 @@ PART 15F (4 Kasım 2026) · Güncel bölüme doğrudan odak, sürükleme ve taş
 PART 16A (4 Kasım 2026) · V2 belirlenimli üretici, paketli BFS, 487 doğrulanmış yedek ve eski bölüm pinlerinin korunması. 10.000 seed ve 4.215 Unity kontrolü geçti. Rapor ProductionReports/Part16A altında.
 
 PART 16B (4 Kasım 2026) · Dokunmatik döküş koruması, geçersiz hamle geri bildirimi, arka plan güvenliği ve Ayarlar’dan tekrar oynatılabilen pati öğreticisi. 259 Unity Play Mode kontrolü geçti. Üç portre oranında Game View kareleri ve test raporu ProductionReports/Part16B altında.
+
+PART 17 (4 Kasım 2026) · İlk kazanış ve yıldız farkı ekonomisi, atomik günlük sandık, coin ile yardımcı güç alımı ve atlanabilir bölüm sonu ödül akışı. 66 Unity Play Mode kontrolü geçti. Ekonomi tablosu ve üç portre oranındaki Game View görüntüleri ProductionReports/Part17 altında.

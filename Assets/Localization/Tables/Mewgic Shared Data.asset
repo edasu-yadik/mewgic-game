@@ -699,6 +699,42 @@ MonoBehaviour:
     m_Key: tutorial.tool_shuffle
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Key: economy.breakdown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542848
+    m_Key: economy.skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542849
+    m_Key: economy.retry_save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542850
+    m_Key: economy.shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542851
+    m_Key: economy.buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542852
+    m_Key: economy.balance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542853
+    m_Key: economy.insufficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542854
+    m_Key: economy.bought
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1443505006542855
+    m_Key: economy.gift_wait
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

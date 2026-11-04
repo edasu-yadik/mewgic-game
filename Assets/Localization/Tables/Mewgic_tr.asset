@@ -887,6 +887,52 @@ MonoBehaviour:
     m_Localized: "Kar\u0131\u015ft\u0131r \u015fi\u015felerin yerini de\u011fi\u015ftirir."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "B\xF6l\xFCm +{0}  \xB7  Y\u0131ld\u0131z +{1}\n\u0130lk deneme
+      +{2}  \xB7  \u0130pucusuz +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542848
+    m_Localized: Animasyonu atla
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542849
+    m_Localized: Kaydetmeyi tekrar dene
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542850
+    m_Localized: "Yard\u0131mc\u0131 g\xFC\xE7ler"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} coin"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542852
+    m_Localized: Bakiye {0} coin
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542853
+    m_Localized: Yeterli coin yok.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542854
+    m_Localized: "Sat\u0131n al\u0131nd\u0131. Stok {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 1443505006542855
+    m_Localized: "Sonraki sand\u0131\u011Fa {0} dk"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
   references:
     version: 2
     RefIds:
@@ -1057,3 +1103,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

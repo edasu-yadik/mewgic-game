@@ -2392,5 +2392,132 @@
       "pl": "Tasuj zmienia kolejność butelek."
     },
     "review": "draft"
+  },
+
+  {
+    "key": "economy.breakdown",
+    "review": "draft",
+    "values": {
+      "tr": "Bölüm +{0}  ·  Yıldız +{1}\nİlk deneme +{2}  ·  İpucusuz +{3}",
+      "en": "Level +{0}  ·  Stars +{1}\nFirst attempt +{2}  ·  No hint +{3}",
+      "de": "Level +{0}  ·  Sterne +{1}\nErster Versuch +{2}  ·  Ohne Tipp +{3}",
+      "fr": "Niveau +{0}  ·  Étoiles +{1}\nPremier essai +{2}  ·  Sans indice +{3}",
+      "es": "Nivel +{0}  ·  Estrellas +{1}\nPrimer intento +{2}  ·  Sin pista +{3}",
+      "pt-BR": "Nível +{0}  ·  Estrelas +{1}\nPrimeira tentativa +{2}  ·  Sem dica +{3}",
+      "it": "Livello +{0}  ·  Stelle +{1}\nPrimo tentativo +{2}  ·  Senza aiuti +{3}",
+      "pl": "Poziom +{0}  ·  Gwiazdy +{1}\nPierwsza próba +{2}  ·  Bez wskazówki +{3}"
+    }
+  },
+  {
+    "key": "economy.skip",
+    "review": "draft",
+    "values": {
+      "tr": "Animasyonu atla",
+      "en": "Skip animation",
+      "de": "Animation überspringen",
+      "fr": "Passer l’animation",
+      "es": "Saltar animación",
+      "pt-BR": "Pular animação",
+      "it": "Salta animazione",
+      "pl": "Pomiń animację"
+    }
+  },
+  {
+    "key": "economy.retry_save",
+    "review": "draft",
+    "values": {
+      "tr": "Kaydetmeyi tekrar dene",
+      "en": "Retry saving",
+      "de": "Erneut speichern",
+      "fr": "Réessayer la sauvegarde",
+      "es": "Reintentar el guardado",
+      "pt-BR": "Tentar salvar novamente",
+      "it": "Riprova a salvare",
+      "pl": "Ponów zapis"
+    }
+  },
+  {
+    "key": "economy.shop",
+    "review": "draft",
+    "values": {
+      "tr": "Yardımcı güçler",
+      "en": "Boosters",
+      "de": "Verstärker",
+      "fr": "Bonus",
+      "es": "Potenciadores",
+      "pt-BR": "Reforços",
+      "it": "Potenziamenti",
+      "pl": "Dopalacze"
+    }
+  },
+  {
+    "key": "economy.buy",
+    "review": "draft",
+    "values": {
+      "tr": "{0} ×1 · {1} coin",
+      "en": "{0} ×1 · {1} coins",
+      "de": "{0} ×1 · {1} Münzen",
+      "fr": "{0} ×1 · {1} pièces",
+      "es": "{0} ×1 · {1} monedas",
+      "pt-BR": "{0} ×1 · {1} moedas",
+      "it": "{0} ×1 · {1} monete",
+      "pl": "{0} ×1 · {1} monet"
+    }
+  },
+  {
+    "key": "economy.balance",
+    "review": "draft",
+    "values": {
+      "tr": "Bakiye {0} coin",
+      "en": "Balance {0} coins",
+      "de": "Guthaben {0} Münzen",
+      "fr": "Solde {0} pièces",
+      "es": "Saldo {0} monedas",
+      "pt-BR": "Saldo {0} moedas",
+      "it": "Saldo {0} monete",
+      "pl": "Saldo {0} monet"
+    }
+  },
+  {
+    "key": "economy.insufficient",
+    "review": "draft",
+    "values": {
+      "tr": "Yeterli coin yok.",
+      "en": "You need more coins.",
+      "de": "Du brauchst mehr Münzen.",
+      "fr": "Il te faut plus de pièces.",
+      "es": "Necesitas más monedas.",
+      "pt-BR": "Você precisa de mais moedas.",
+      "it": "Servono più monete.",
+      "pl": "Potrzebujesz więcej monet."
+    }
+  },
+  {
+    "key": "economy.bought",
+    "review": "draft",
+    "values": {
+      "tr": "Satın alındı. Stok {0}",
+      "en": "Purchased. In stock {0}",
+      "de": "Gekauft. Vorrat {0}",
+      "fr": "Acheté. En stock {0}",
+      "es": "Comprado. En reserva {0}",
+      "pt-BR": "Comprado. Em estoque {0}",
+      "it": "Acquistato. Disponibili {0}",
+      "pl": "Kupiono. Zapas {0}"
+    }
+  },
+  {
+    "key": "economy.gift_wait",
+    "review": "draft",
+    "values": {
+      "tr": "Sonraki sandığa {0} dk",
+      "en": "Next chest in {0} min",
+      "de": "Nächste Truhe in {0} Min.",
+      "fr": "Prochain coffre dans {0} min",
+      "es": "Próximo cofre en {0} min",
+      "pt-BR": "Próximo baú em {0} min",
+      "it": "Prossimo forziere tra {0} min",
+      "pl": "Następna skrzynia za {0} min"
+    }
   }
 ]

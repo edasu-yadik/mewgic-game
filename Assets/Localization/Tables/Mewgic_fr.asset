@@ -888,6 +888,52 @@ MonoBehaviour:
     m_Localized: "M\u00e9langer change l\u2019ordre des bouteilles."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "Niveau +{0}  \xB7  \xC9toiles +{1}\nPremier essai +{2}  \xB7  Sans
+      indice +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542848
+    m_Localized: "Passer l\u2019animation"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542849
+    m_Localized: "R\xE9essayer la sauvegarde"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542850
+    m_Localized: Bonus
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} pi\xE8ces"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542852
+    m_Localized: "Solde {0} pi\xE8ces"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542853
+    m_Localized: "Il te faut plus de pi\xE8ces."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542854
+    m_Localized: "Achet\xE9. En stock {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 1443505006542855
+    m_Localized: Prochain coffre dans {0} min
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
   references:
     version: 2
     RefIds:
@@ -1058,3 +1104,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

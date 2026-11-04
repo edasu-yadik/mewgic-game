@@ -898,6 +898,51 @@ MonoBehaviour:
     m_Localized: "Tasuj zmienia kolejno\u015b\u0107 butelek."
     m_Metadata:
       m_Items: []
+  - m_Id: 1443504847159296
+    m_Localized: "Poziom +{0}  \xB7  Gwiazdy +{1}\nPierwsza pr\xF3ba +{2}  \xB7  Bez wskaz\xF3wki +{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542848
+    m_Localized: "Pomi\u0144 animacj\u0119"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542849
+    m_Localized: "Pon\xF3w zapis"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542850
+    m_Localized: Dopalacze
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542851
+    m_Localized: "{0} \xD71 \xB7 {1} monet"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542852
+    m_Localized: Saldo {0} monet
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542853
+    m_Localized: "Potrzebujesz wi\u0119cej monet."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542854
+    m_Localized: Kupiono. Zapas {0}
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 1443505006542855
+    m_Localized: "Nast\u0119pna skrzynia za {0} min"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
   references:
     version: 2
     RefIds:
@@ -1068,3 +1113,12 @@ MonoBehaviour:
         - id: 1044860339847169
         - id: 1044860339847170
         - id: 1048086925639680
+        - id: 1443504847159296
+        - id: 1443505006542848
+        - id: 1443505006542849
+        - id: 1443505006542850
+        - id: 1443505006542851
+        - id: 1443505006542852
+        - id: 1443505006542853
+        - id: 1443505006542854
+        - id: 1443505006542855

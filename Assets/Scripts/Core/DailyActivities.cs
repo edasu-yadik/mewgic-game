@@ -30,17 +30,22 @@ namespace Mewgic.Core
  }
  public sealed partial class ProgressLedger
  {
-  readonly Func<DateTimeOffset> clock;
+  readonly Func<DateTimeOffset> clock; readonly DateTimeOffset giftClockStart; readonly Func<TimeSpan> giftElapsed;
   public DateTimeOffset LocalNow=>clock();
+  public const int DailyGiftCoins=100, DailyGiftHints=1; public long LastGiftUtc=>state.daily.lastGiftUtc;
   public DailyData DailySnapshot=>state.daily.Copy();
   public bool DailyClockBlocked=>DailyRules.Blocked(state.daily,clock());
   public bool ObserveDaily(){var copy=state.Copy();if(!DailyRules.Sync(copy.daily,clock()))return false;return Commit(copy);}
   public TimeSpan GiftWait {get{var d=state.daily;long remaining=d.lastGiftUtc==0?0:TimeSpan.FromHours(24).Ticks-(clock().UtcTicks-d.lastGiftUtc);return TimeSpan.FromTicks(Math.Max(0,remaining));}}
-  public bool GiftReady=>!DailyClockBlocked&&GiftWait==TimeSpan.Zero;
-  public bool ClaimDailyGift()
+  bool GiftTimeBlocked(DateTimeOffset now)=>DailyRules.Blocked(state.daily,now)||
+   (giftElapsed!=null&&Math.Abs((now-giftClockStart-giftElapsed()).TotalMinutes)>5);
+  public bool GiftClockBlocked=>GiftTimeBlocked(clock());
+  public bool GiftReady=>!GiftClockBlocked&&GiftWait==TimeSpan.Zero;
+  public bool ClaimDailyGift(long? expectedLastGift=null)
   {
-   var now=clock();var copy=state.Copy();if(!DailyRules.Sync(copy.daily,now)||(copy.daily.lastGiftUtc>0&&now.UtcTicks-copy.daily.lastGiftUtc<TimeSpan.FromHours(24).Ticks))return false;
-   try{copy.hint=checked(copy.hint+1);copy.presentation.coins=checked(copy.presentation.coins+100);}catch(OverflowException){return false;}copy.daily.lastGiftDay=copy.daily.day;copy.daily.lastGiftUtc=now.UtcTicks;return Commit(copy);
+   if(expectedLastGift.HasValue&&expectedLastGift.Value!=state.daily.lastGiftUtc)return false;
+   var now=clock();if(GiftTimeBlocked(now))return false;var copy=state.Copy();if(!DailyRules.Sync(copy.daily,now)||(copy.daily.lastGiftUtc>0&&now.UtcTicks-copy.daily.lastGiftUtc<TimeSpan.FromHours(24).Ticks))return false;
+   try{copy.hint=checked(copy.hint+DailyGiftHints);copy.presentation.coins=checked(copy.presentation.coins+DailyGiftCoins);}catch(OverflowException){return false;}copy.daily.lastGiftDay=copy.daily.day;copy.daily.lastGiftUtc=now.UtcTicks;return Commit(copy);
   }
   public bool ClaimDailyTask(DailyTaskKind kind)
   {
