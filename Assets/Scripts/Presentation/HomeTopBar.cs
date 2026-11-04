@@ -12,7 +12,7 @@ namespace Mewgic
         RectTransform root,safe,popup,shop; TMP_Text shopBalance,shopNotice; int lastPurchaseFrame=-1;
         double displayedCoins=-1;
         TMP_Text coinsText,gemsText,energyText,heartText,message;
-        Button soundButton;TMP_Text soundLabel;GameObject languagePicker;Button languageButton,tutorialReplayButton;
+        readonly Button[] feedbackButtons=new Button[4]; readonly TMP_Text[] feedbackLabels=new TMP_Text[4]; static readonly string[] feedbackKeys={"settings.music","settings.effects","settings.vibration","settings.motion"};GameObject languagePicker;Button languageButton,tutorialReplayButton;
         static CultureInfo Turkish=>L.Culture;
         public void Mount(RectTransform safeArea)
         {
@@ -99,15 +99,34 @@ namespace Mewgic
         void OpenSettings()
         {
             Show(L.V("settings.title"));
-            if(soundButton==null){var r=Art(popup.Find("Card"),"SoundToggle",panel,new Vector2(.16f,.625f),new Vector2(.84f,.765f));r.preserveAspect=false;r.raycastTarget=true;soundButton=r.gameObject.AddComponent<Button>();soundButton.targetGraphic=r;soundLabel=Label(r.transform,"Label","",Vector2.zero,Vector2.one,25);soundButton.onClick.AddListener(()=>{var ledger=GameplayProgress.Current;if(ledger.SetSoundEnabled(!ledger.Presentation.soundEnabled)){AudioListener.volume=ledger.Presentation.soundEnabled?1:0;RefreshSound();}else{languagePicker.SetActive(false);message.text=L.V("error.save");}});}
-            if(tutorialReplayButton==null)tutorialReplayButton=SettingButton(popup.Find("Card"),"TutorialReplay",
-                L.V("settings.tutorial_replay"),new Vector2(.16f,.265f),new Vector2(.84f,.415f),PrototypeApp.RequestTutorialReplay);
+            var card=(RectTransform)popup.Find("Card");
+            for(int i=0;i<feedbackButtons.Length;i++)
+            {
+                int index=i;
+                float y=.68f-i*.095f;
+                if(feedbackButtons[i]==null)
+                {
+                    feedbackButtons[i]=SettingButton(card,feedbackKeys[i],"",new Vector2(.14f,y),new Vector2(.86f,y+.08f),()=>ToggleFeedback(index));
+                    feedbackLabels[i]=feedbackButtons[i].transform.Find("Label").GetComponent<TMP_Text>();
+                }
+                feedbackButtons[i].gameObject.SetActive(true);
+            }
+            if(tutorialReplayButton==null)tutorialReplayButton=SettingButton(card,"TutorialReplay",
+                L.V("settings.tutorial_replay"),new Vector2(.14f,.115f),new Vector2(.86f,.20f),PrototypeApp.RequestTutorialReplay);
             tutorialReplayButton.gameObject.SetActive(true);
-            soundButton.gameObject.SetActive(true);if(languageButton==null)BuildLanguage();languageButton.gameObject.SetActive(true);var settingsCard=(RectTransform)popup.Find("Card");var settingsFrame=settingsCard.GetComponent<Image>();settingsFrame.sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");settingsFrame.type=Image.Type.Sliced;settingsCard.anchorMin=new Vector2(.08f,.22f);settingsCard.anchorMax=new Vector2(.92f,.76f);message.rectTransform.anchorMin=new Vector2(.08f,.80f);message.rectTransform.anchorMax=new Vector2(.92f,.94f);var close=(RectTransform)settingsCard.Find("ResourceInfoClose");close.anchorMin=new Vector2(.30f,.06f);close.anchorMax=new Vector2(.70f,.21f);RefreshSound();
+            if(languageButton==null)BuildLanguage();
+            languageButton.gameObject.SetActive(true);
+            var frame=card.GetComponent<Image>();
+            frame.sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");frame.type=Image.Type.Sliced;
+            card.anchorMin=new Vector2(.08f,.16f);card.anchorMax=new Vector2(.92f,.81f);
+            message.rectTransform.anchorMin=new Vector2(.08f,.81f);message.rectTransform.anchorMax=new Vector2(.92f,.96f);
+            var close=(RectTransform)card.Find("ResourceInfoClose");
+            close.anchorMin=new Vector2(.30f,.025f);close.anchorMax=new Vector2(.70f,.10f);
+            RefreshFeedback();
         }
         void BuildLanguage()
         {
-            languageButton=SettingButton(popup.Find("Card"),"LanguageButton",L.V("settings.language"),new Vector2(.16f,.445f),new Vector2(.84f,.585f),()=>{languagePicker.SetActive(true);languagePicker.transform.SetAsLastSibling();});
+            languageButton=SettingButton(popup.Find("Card"),"LanguageButton",L.V("settings.language"),new Vector2(.14f,.215f),new Vector2(.86f,.30f),()=>{languagePicker.SetActive(true);languagePicker.transform.SetAsLastSibling();});
             languagePicker=Rect(popup,"LanguagePicker",Vector2.zero,Vector2.one).gameObject;var dim=languagePicker.AddComponent<Image>();dim.color=new Color(0,0,0,.75f);dim.raycastTarget=true;
             var card=Art(languagePicker.transform,"LanguageCard",Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001"),new Vector2(.06f,.20f),new Vector2(.94f,.80f));card.preserveAspect=false;card.type=Image.Type.Sliced;card.raycastTarget=true;
             Label(card.transform,"Title",L.V("settings.language"),new Vector2(.08f,.85f),new Vector2(.92f,.96f),32);
@@ -115,8 +134,28 @@ namespace Mewgic
             SettingButton(card.transform,"LanguageClose",L.V("common.close"),new Vector2(.23f,.035f),new Vector2(.77f,.15f),()=>languagePicker.SetActive(false));languagePicker.SetActive(false);
         }
         Button SettingButton(Transform p,string name,string value,Vector2 min,Vector2 max,System.Action action){var image=Art(p,name,panel,min,max);image.preserveAspect=false;image.raycastTarget=true;var b=image.gameObject.AddComponent<Button>();b.targetGraphic=image;b.onClick.AddListener(()=>action());Label(image.transform,"Label",value,new Vector2(.04f,.12f),new Vector2(.96f,.88f),25);return b;}
-        void RefreshSound(){soundLabel.text=L.V(GameplayProgress.Current.Presentation.soundEnabled?"settings.sound_on":"settings.sound_off");}
-        public void Show(string text){var card=(RectTransform)popup.Find("Card");var frame=card.GetComponent<Image>();frame.sprite=panel;frame.type=Image.Type.Simple;card.anchorMin=new Vector2(.08f,.43f);card.anchorMax=new Vector2(.92f,.68f);message.rectTransform.anchorMin=new Vector2(.08f,.30f);message.rectTransform.anchorMax=new Vector2(.92f,.90f);var close=(RectTransform)card.Find("ResourceInfoClose");close.anchorMin=new Vector2(.32f,.04f);close.anchorMax=new Vector2(.68f,.28f);if(languagePicker!=null)languagePicker.SetActive(false);if(languageButton!=null)languageButton.gameObject.SetActive(false);if(soundButton!=null)soundButton.gameObject.SetActive(false);if(tutorialReplayButton!=null)tutorialReplayButton.gameObject.SetActive(false);message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
+        void ToggleFeedback(int index)
+        {
+            var ledger=GameplayProgress.Current;
+            var p=ledger.Presentation;
+            if(ledger.SetFeedbackPreferences(index==0?!p.MusicEnabled:p.MusicEnabled,
+                index==1?!p.EffectsEnabled:p.EffectsEnabled,index==2?!p.vibrationEnabled:p.vibrationEnabled,
+                index==3?!p.reduceMotion:p.reduceMotion))
+            {
+                GameFeel.ApplyPreferences();
+                RefreshFeedback();
+                message.text=L.V("settings.title");
+            }
+            else message.text=L.V("error.save");
+        }
+        void RefreshFeedback()
+        {
+            var p=GameplayProgress.Current.Presentation;
+            var enabled=new[]{p.MusicEnabled,p.EffectsEnabled,p.vibrationEnabled,p.reduceMotion};
+            for(int i=0;i<enabled.Length;i++)
+                feedbackLabels[i].text=L.V("settings.toggle",L.V(feedbackKeys[i]),L.V(enabled[i]?"settings.on":"settings.off"));
+        }
+        public void Show(string text){var card=(RectTransform)popup.Find("Card");var frame=card.GetComponent<Image>();frame.sprite=panel;frame.type=Image.Type.Simple;card.anchorMin=new Vector2(.08f,.43f);card.anchorMax=new Vector2(.92f,.68f);message.rectTransform.anchorMin=new Vector2(.08f,.30f);message.rectTransform.anchorMax=new Vector2(.92f,.90f);var close=(RectTransform)card.Find("ResourceInfoClose");close.anchorMin=new Vector2(.32f,.04f);close.anchorMax=new Vector2(.68f,.28f);if(languagePicker!=null)languagePicker.SetActive(false);if(languageButton!=null)languageButton.gameObject.SetActive(false);foreach(var toggle in feedbackButtons)if(toggle!=null)toggle.gameObject.SetActive(false);if(tutorialReplayButton!=null)tutorialReplayButton.gameObject.SetActive(false);message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
         public void Close(){popup.gameObject.SetActive(false);}
         public void Layout(){if(root==null)return;float height=Mathf.Min(safe.rect.width*.082f,safe.rect.height*.06f);root.sizeDelta=new Vector2(0,height);root.anchoredPosition=new Vector2(0,-safe.rect.width*.018f);}
         void LateUpdate(){Layout();Model?.RefreshFromLedger();if(Model!=null&&displayedCoins!=Model.Coins){displayedCoins=System.Math.Abs(displayedCoins-Model.Coins)<1?Model.Coins:displayedCoins+(Model.Coins-displayedCoins)*(1-System.Math.Exp(-Time.unscaledDeltaTime*6));coinsText.text=FormatAmount(displayedCoins>=long.MaxValue?long.MaxValue:System.Math.Max(0,(long)displayedCoins));}}

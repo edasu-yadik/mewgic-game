@@ -290,3 +290,5 @@ PART 16A (4 Kasım 2026) · V2 belirlenimli üretici, paketli BFS, 487 doğrulan
 PART 16B (4 Kasım 2026) · Dokunmatik döküş koruması, geçersiz hamle geri bildirimi, arka plan güvenliği ve Ayarlar’dan tekrar oynatılabilen pati öğreticisi. 259 Unity Play Mode kontrolü geçti. Üç portre oranında Game View kareleri ve test raporu ProductionReports/Part16B altında.
 
 PART 17 (4 Kasım 2026) · İlk kazanış ve yıldız farkı ekonomisi, atomik günlük sandık, coin ile yardımcı güç alımı ve atlanabilir bölüm sonu ödül akışı. 66 Unity Play Mode kontrolü geçti. Ekonomi tablosu ve üç portre oranındaki Game View görüntüleri ProductionReports/Part17 altında.
+
+PART 18 (4 Kasım 2026) · Özgün müzik ve efektler, ayrı kalıcı geri bildirim tercihleri, hareket azaltma ve çok dilli Game View denetimi. 132 Unity Play Mode kontrolü geçti. Sekiz dilde 42 kare ve ses hakları envanteri ProductionReports/Part18 altında.

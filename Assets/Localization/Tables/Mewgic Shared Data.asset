@@ -735,6 +735,34 @@ MonoBehaviour:
     m_Key: economy.gift_wait
     m_Metadata:
       m_Items: []
+  - m_Id: 1445448714125312
+    m_Key: settings.music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445448823177216
+    m_Key: settings.effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445448823177217
+    m_Key: settings.vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445448823177218
+    m_Key: settings.motion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445448823177219
+    m_Key: settings.on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445448823177220
+    m_Key: settings.off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1445448823177221
+    m_Key: settings.toggle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

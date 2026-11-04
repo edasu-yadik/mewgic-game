@@ -2519,5 +2519,104 @@
       "it": "Prossimo forziere tra {0} min",
       "pl": "Następna skrzynia za {0} min"
     }
+  },
+
+  {
+    "key": "settings.music",
+    "review": "draft",
+    "values": {
+      "tr": "Müzik",
+      "en": "Music",
+      "de": "Musik",
+      "fr": "Musique",
+      "es": "Música",
+      "pt-BR": "Música",
+      "it": "Musica",
+      "pl": "Muzyka"
+    }
+  },
+  {
+    "key": "settings.effects",
+    "review": "draft",
+    "values": {
+      "tr": "Ses efektleri",
+      "en": "Sound effects",
+      "de": "Soundeffekte",
+      "fr": "Effets sonores",
+      "es": "Efectos de sonido",
+      "pt-BR": "Efeitos sonoros",
+      "it": "Effetti sonori",
+      "pl": "Efekty dźwiękowe"
+    }
+  },
+  {
+    "key": "settings.vibration",
+    "review": "draft",
+    "values": {
+      "tr": "Titreşim",
+      "en": "Vibration",
+      "de": "Vibration",
+      "fr": "Vibrations",
+      "es": "Vibración",
+      "pt-BR": "Vibração",
+      "it": "Vibrazione",
+      "pl": "Wibracje"
+    }
+  },
+  {
+    "key": "settings.motion",
+    "review": "draft",
+    "values": {
+      "tr": "Hareketi azalt",
+      "en": "Reduce motion",
+      "de": "Bewegung reduzieren",
+      "fr": "Réduire les animations",
+      "es": "Reducir el movimiento",
+      "pt-BR": "Reduzir o movimento",
+      "it": "Riduci movimento",
+      "pl": "Ogranicz animacje"
+    }
+  },
+  {
+    "key": "settings.on",
+    "review": "draft",
+    "values": {
+      "tr": "Açık",
+      "en": "On",
+      "de": "An",
+      "fr": "Activé",
+      "es": "Activado",
+      "pt-BR": "Ativado",
+      "it": "Attivo",
+      "pl": "Włączone"
+    }
+  },
+  {
+    "key": "settings.off",
+    "review": "draft",
+    "values": {
+      "tr": "Kapalı",
+      "en": "Off",
+      "de": "Aus",
+      "fr": "Désactivé",
+      "es": "Desactivado",
+      "pt-BR": "Desativado",
+      "it": "Disattivo",
+      "pl": "Wyłączone"
+    }
+  },
+  {
+    "key": "settings.toggle",
+    "review": "draft",
+    "values": {
+      "tr": "{0} · {1}",
+      "en": "{0} · {1}",
+      "de": "{0} · {1}",
+      "fr": "{0} · {1}",
+      "es": "{0} · {1}",
+      "pt-BR": "{0} · {1}",
+      "it": "{0} · {1}",
+      "pl": "{0} · {1}"
+    }
   }
 ]

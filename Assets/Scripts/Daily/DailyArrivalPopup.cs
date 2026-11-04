@@ -18,7 +18,7 @@ namespace Mewgic.Daily
   Button Control(Transform p,string n,string text,Vector2 a,Vector2 b,UnityEngine.Events.UnityAction action,Sprite sprite){var im=GameplayTools.Art(p,n,sprite,a,b,true);im.raycastTarget=true;var btn=im.gameObject.AddComponent<Button>();btn.targetGraphic=im;btn.onClick.AddListener(action);GameplayTools.Label(p.Find(n),"Label",text,27,new Vector2(.04f,.1f),new Vector2(.96f,.9f));return btn;}
   void Update()
   {
-   if(root!=null&&root.activeSelf&&!opening&&open.gameObject.activeSelf)
+   if(root!=null&&root.activeSelf&&!opening&&open.gameObject.activeSelf&&!GameFeel.Reduced)
     chest.localRotation=Quaternion.Euler(0,0,Mathf.Sin(Time.unscaledTime*2)*2);
   }
   void OnApplicationPause(bool pause){if(!pause&&safeArea!=null&&(root==null||!root.activeSelf))Mount(safeArea);}
@@ -35,18 +35,20 @@ namespace Mewgic.Daily
    opening=true;
    open.interactable=false;
    dismiss.gameObject.SetActive(false);
+   GameFeel.Play(GameCue.Chest);GameFeel.Play(GameCue.Coin);
    OnGranted?.Invoke();
    StartCoroutine(OpenChest());
   }
   IEnumerator OpenChest()
   {
-   for(float t=0;t<1;t+=Time.unscaledDeltaTime)
+   for(float t=GameFeel.Reduced?1:0;t<1;t+=Time.unscaledDeltaTime)
    {
     if(t>.7f)chest.GetComponent<Image>().sprite=openArt;
     chest.localRotation=Quaternion.Euler(0,0,Mathf.Sin(t*35)*5*(1-t));
     chest.localScale=Vector3.one*(1+Mathf.Sin(t*Mathf.PI)*.12f);
     yield return null;
    }
+   chest.GetComponent<Image>().sprite=openArt;
    chest.localRotation=Quaternion.identity;
    chest.localScale=Vector3.one;
    result.text=L.V("reward.daily",ProgressLedger.DailyGiftCoins,ProgressLedger.DailyGiftHints);

@@ -13,7 +13,7 @@ namespace Mewgic
             get
             {
                 if(current!=null)return current;
-                try{current=Open(StorageKey);LoadError=null;}
+                try{current=Open(StorageKey);LoadError=null;if(!current.Presentation.motionPreferenceSet&&PlayerPrefs.GetInt("Mewgic.Map.ReducedMotion",0)==1)current.SetReducedMotion(true);}
                 catch(Exception e){LoadError=e.Message;current=new ProgressLedger(new ProgressData{undo=0,hint=0,extra=0,shuffle=0},_=>throw new InvalidOperationException(L.V("error.load")));}
                 return current;
             }

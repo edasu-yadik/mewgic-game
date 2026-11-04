@@ -58,7 +58,7 @@ namespace Mewgic
         void Start()
         {
             if (SceneManager.GetActiveScene().name == "Boot") { GameplayLevelCatalog.ResumeFromSave(); Mewgic.SceneNavigation.LoadOnce("Home"); return; }
-            AudioListener.volume=GameplayProgress.Current.Presentation.soundEnabled?1:0;
+
             font = MewgicTypographySettings.Current.body;
             var canvasObject = new GameObject("Mewgic Canvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasObject.GetComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -273,18 +273,26 @@ namespace Mewgic
             if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
             if(pawGuide!=null&&!pawGuide.DemoRunning&&pawGuide.Visible)pawGuide.Close();
             hintTarget=-1;feedbackUntil=0;
-            if(selected<0){if(puzzle.Bottle(target).Count==0){Feedback(L.V("gameplay.empty"));return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
+            if(selected<0){if(puzzle.Bottle(target).Count==0){GameFeel.Play(GameCue.Invalid);Feedback(L.V("gameplay.empty"));return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
             if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
-            if(amount==0){Refresh();bottleViews[target].GetComponent<GameplayBottleView>().Reject();Feedback(L.V(puzzle.Bottle(target).Count==Puzzle.Capacity?"gameplay.target_full":"gameplay.target_color"));return;}
+            if(amount==0){GameFeel.Play(GameCue.Invalid);Refresh();bottleViews[target].GetComponent<GameplayBottleView>().Reject();Feedback(L.V(puzzle.Bottle(target).Count==Puzzle.Capacity?"gameplay.target_full":"gameplay.target_color"));return;}
             selected=-1;busy=true;UpdateBottleInput();pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)
         {
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=true;
             busy=true;undo.interactable=restart.interactable=home.interactable=false;status.text="";UpdateHud();UpdateTools();
+            if(GameFeel.Reduced)
+            {
+                GameFeel.Play(GameCue.Pour);
+                yield return new WaitForSecondsRealtime(.12f);
+                while(paused)yield return null;
+                FinishPour(source,target);
+                yield break;
+            }
             var sourceView=bottleViews[source].GetComponent<GameplayBottleView>();
             var targetView=bottleViews[target].GetComponent<GameplayBottleView>();
             sourceView.SetAnimating(true);targetView.SetAnimating(true);
@@ -295,7 +303,7 @@ namespace Mewgic
             var destination=targetView.Mouth-a.parent.TransformVector(tilt*new Vector3(0,a.rect.height*.46f,0))+a.parent.TransformVector(new Vector3(0,36,0));
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/.24f){while(paused)yield return null;float e=Mathf.SmoothStep(0,1,t);a.position=Vector3.Lerp(start,destination,e);a.localRotation=Quaternion.Slerp(rotation,tilt,e);yield return null;}
             while(paused)yield return null;
-            a.position=destination;a.localRotation=tilt;
+            a.position=destination;a.localRotation=tilt;GameFeel.Play(GameCue.Pour);
             var stream=pourStream=Box(board,"Pour stream",Colors[color%Colors.Length],Vector2.zero,Vector2.zero);
             stream.anchorMin=stream.anchorMax=new Vector2(.5f,.5f);stream.pivot=new Vector2(.5f,0);
             var shine=stream.gameObject.AddComponent<Outline>();shine.effectColor=new Color(1,1,1,.5f);shine.effectDistance=new Vector2(1,0);
@@ -317,8 +325,14 @@ namespace Mewgic
             while(paused)yield return null;
             a.localRotation=Quaternion.identity;a.anchoredPosition=Vector2.zero;bottleViews[source].SetSiblingIndex(originalSibling);pouringSource=-1;
             sourceView.SetAnimating(false);targetView.SetAnimating(false);
+            FinishPour(source,target);
+        }
+        void FinishPour(int source,int target)
+        {
             if(gameplayVisual!=null)gameplayVisual.IsAnimating=false;
-            busy=false;pourRoutine=null;status.text="";Refresh();pawGuide?.MoveFinished(source,target);
+            busy=false;pourRoutine=null;status.text="";
+            if(!puzzle.Won)GameFeel.Play(GameCue.Valid);
+            Refresh();bottleViews[target].GetComponent<GameplayBottleView>().Accept();pawGuide?.MoveFinished(source,target);
         }
     }
 }

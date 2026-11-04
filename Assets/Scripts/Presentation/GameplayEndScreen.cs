@@ -29,12 +29,13 @@ namespace Mewgic
         {var im=GameplayTools.Art(root,name,panel,min,max,true);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());GameplayTools.Label(im.transform,"Label",text,27,new Vector2(.05f,.12f),new Vector2(.95f,.88f));return b;}
         public void Show(int level,int moves,int starCount,bool saved,bool hasNext,CompletionReward coins)
         {
-            if(showing)return;payout=coins;saveOk=saved;showing=true;awarded=starCount;clock=0;backdrop.gameObject.SetActive(true);backdrop.transform.SetAsLastSibling();root.gameObject.SetActive(true);root.SetAsLastSibling();
+            if(showing)return;payout=coins;saveOk=saved;showing=true;awarded=starCount;clock=GameFeel.Reduced?2.4f:0;backdrop.gameObject.SetActive(true);backdrop.transform.SetAsLastSibling();root.gameObject.SetActive(true);root.SetAsLastSibling();
             summary.text=L.V("gameplay.result",level,moves,starCount);
             reward.text=saved?"":L.V("error.save");
             breakdown.text=saved?L.V("economy.breakdown",payout.Base,payout.Stars,payout.FirstAttempt,payout.NoHint):"";
             skip.transform.Find("Label").GetComponent<TMP_Text>().text=L.V(saved?"economy.skip":"economy.retry_save");
             next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?L.V("gameplay.next"):L.V("gameplay.last");
+            if(saved){GameFeel.Play(GameCue.Victory);if(payout.Coins>0)GameFeel.Play(GameCue.Coin);}
             Animate();
         }
         public void Hide(){showing=false;if(root!=null){root.gameObject.SetActive(false);backdrop.gameObject.SetActive(false);}}

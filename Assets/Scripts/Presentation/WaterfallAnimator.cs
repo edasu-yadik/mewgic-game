@@ -42,7 +42,7 @@ namespace Mewgic
             instance.SetFloat(Brightness, Mathf.Clamp(brightness, 0, .1f));
             instance.SetFloat(Opacity, Mathf.Clamp01(opacity));
         }
-        void LateUpdate() { Apply(Time.unscaledTime); }
+        void LateUpdate() { Apply(GameFeel.Reduced?0:Time.unscaledTime); }
         void OnDestroy()
         {
             if (image != null && image.material == instance) image.material = previous;

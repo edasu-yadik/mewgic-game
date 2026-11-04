@@ -32,11 +32,12 @@ namespace Mewgic
         void Update()
         {
             if(visual==null)return;
-            bool idle=!held&&!queued&&button.IsInteractable();
+            bool reduced=GameFeel.Reduced;
+            bool idle=!reduced&&!held&&!queued&&button.IsInteractable();
             float target=held?.966f:idle?1+Mathf.Sin(Time.unscaledTime*1.05f)*.006f:1;
             scale=Mathf.MoveTowards(scale,target,Time.unscaledDeltaTime*.5f);visual.localScale=Vector3.one*scale;
             art.sprite=held?pressed:normal;
-            frameLight.color=new Color(1,1,1,held?.025f:.045f+Mathf.Sin(Time.unscaledTime*.8f)*.015f);
+            frameLight.color=new Color(1,1,1,held?.025f:reduced?.045f:.045f+Mathf.Sin(Time.unscaledTime*.8f)*.015f);
             if(sweepMaterial!=null)sweepMaterial.SetFloat(SweepId,idle?Mathf.Repeat(Time.unscaledTime/7f,1)*1.8f-.4f:-1);
         }
         void OnDestroy(){if(sweepMaterial!=null)Destroy(sweepMaterial);}

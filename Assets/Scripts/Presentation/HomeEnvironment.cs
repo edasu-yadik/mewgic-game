@@ -97,7 +97,7 @@ namespace Mewgic
         void LateUpdate()
         {
             if(!Mounted)return;
-            Layout();AnimationTime=Time.unscaledTime;
+            bool reduced=GameFeel.Reduced;AnimationTime=reduced?0:Time.unscaledTime;Layout();
             float t=AnimationTime;
             fogRect.anchoredPosition=new Vector2(Mathf.Sin(t*.065f)*12,fogBaseY+Mathf.Sin(t*.045f)*4);
             fog.color=new Color(1,1,1,.14f+Mathf.Sin(t*.16f)*.015f);
@@ -105,7 +105,7 @@ namespace Mewgic
             {
                 float phase=i*2.39996f;
                 motes[i].anchoredPosition=new Vector2(Mathf.Sin(phase)*410+Mathf.Sin(t*.12f+phase)*9,Mathf.Repeat(i*113+t*(3+i%3),1500)-750);
-                lights[i].color=new Color(1,.76f,.32f,.10f+(Mathf.Sin(t*(.6f+i*.02f)+phase)+1)*.10f);
+                lights[i].color=new Color(1,.76f,.32f,reduced?0:.10f+(Mathf.Sin(t*(.6f+i*.02f)+phase)+1)*.10f);
             }
         }
     }

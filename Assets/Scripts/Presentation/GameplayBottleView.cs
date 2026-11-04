@@ -90,7 +90,7 @@ namespace Mewgic
         {int i=v.currentVertCount;v.AddVert(P(r,xa,ba),low,Vector2.zero);v.AddVert(P(r,xb,bb),low,Vector2.zero);v.AddVert(P(r,xb,tb),high,Vector2.zero);v.AddVert(P(r,xa,ta),high,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}
         static void Dot(VertexHelper v,Rect r,Vector2 p,float size,Color c,bool ring)
         {const int sides=10;for(int n=0;n<sides;n++){float a=n*Mathf.PI*2/sides,b=(n+1)*Mathf.PI*2/sides;var o=new Vector2(Mathf.Cos(a)*size*1.8f,Mathf.Sin(a)*size);var q=new Vector2(Mathf.Cos(b)*size*1.8f,Mathf.Sin(b)*size);int i=v.currentVertCount;v.AddVert(P(r,p.x+o.x,p.y+o.y),c,Vector2.zero);v.AddVert(P(r,p.x+q.x,p.y+q.y),c,Vector2.zero);v.AddVert(P(r,p.x+q.x*(ring?.65f:0),p.y+q.y*(ring?.65f:0)),c,Vector2.zero);v.AddVert(P(r,p.x+o.x*(ring?.65f:0),p.y+o.y*(ring?.65f:0)),c,Vector2.zero);v.AddTriangle(i,i+1,i+2);v.AddTriangle(i,i+2,i+3);}}
-        void Update(){if(!Paused){visualTime+=Time.unscaledDeltaTime;if(Layers.Length>0)SetVerticesDirty();}}
+        void Update(){if(!Paused&&!GameFeel.Reduced){visualTime+=Time.unscaledDeltaTime;if(Layers.Length>0)SetVerticesDirty();}}
     }
     public sealed class GameplayBottleView : MonoBehaviour
     {
@@ -98,7 +98,7 @@ namespace Mewgic
         public GameplayLiquidGraphic Liquid {get;private set;}
         public int[] DisplayedLayers=>Liquid.Layers;
         public float DisplayedVolume=>Liquid.Volume;
-        float rejectedUntil;
+        float feedbackUntil;Color feedbackTint;
         bool selected,animating,paused;int hintRole;Image shell; Outline outline;HintCueGraphic hintCue;
         public Vector3 Mouth=>Rig.TransformPoint(new Vector3(0,Rig.rect.height*.46f,0));
         public void Initialize(Sprite glass,Color[] palette)
@@ -112,10 +112,12 @@ namespace Mewgic
         {hintRole=0;hintCue.gameObject.SetActive(false);outline.effectDistance=new Vector2(1,-1);Liquid.Layers=new int[layers.Count];for(int i=0;i<layers.Count;i++)Liquid.Layers[i]=layers[i];Liquid.Volume=layers.Count;selected=chosen;bool complete=layers.Count==4;for(int i=1;i<layers.Count;i++)complete&=layers[i]==layers[0];Liquid.Completed=complete;outline.effectColor=chosen?new Color(1,.78f,.25f,.85f):complete?new Color(.6f,1,.8f,.4f):Color.clear;Liquid.SetVerticesDirty();}
         public void ShowHintSource(){hintRole=1;HintLight();}
         public void ShowHintTarget(){hintRole=2;HintLight();}
-        void HintLight(){var tint=hintRole==1?new Color(1,.78f,.25f):new Color(.1f,.85f,1);tint.a=.72f+Mathf.Sin(Time.unscaledTime*2.5f)*.12f;outline.effectColor=tint;outline.effectDistance=new Vector2(2,-2);hintCue.destination=hintRole==2;hintCue.color=tint;hintCue.gameObject.SetActive(true);hintCue.rectTransform.anchoredPosition=new Vector2(0,18+Mathf.Sin(Time.unscaledTime*2.5f)*2);}
-        public void Reject(){rejectedUntil=Time.unscaledTime+.28f;}
+        void HintLight(){float wave=GameFeel.Reduced?0:Mathf.Sin(Time.unscaledTime*2.5f);var tint=hintRole==1?new Color(1,.78f,.25f):new Color(.1f,.85f,1);tint.a=.72f+wave*.12f;outline.effectColor=tint;outline.effectDistance=new Vector2(2,-2);hintCue.destination=hintRole==2;hintCue.color=tint;hintCue.gameObject.SetActive(true);hintCue.rectTransform.anchoredPosition=new Vector2(0,18+wave*2);}
+        public void Reject()=>Flash(new Color(1,.44f,.51f));
+        public void Accept()=>Flash(new Color(.55f,1,.83f));
+        void Flash(Color tint){feedbackTint=tint;feedbackUntil=Time.unscaledTime+.24f;}
         public void SetPaused(bool value){paused=value;Liquid.Paused=value;}
         public void SetAnimating(bool value){animating=value;}
-        void Update(){if(shell!=null&&rejectedUntil>0){float left=rejectedUntil-Time.unscaledTime;shell.color=Color.Lerp(Color.white,new Color(1,.44f,.51f),Mathf.Clamp01(left/.16f));if(left<=0)rejectedUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
+        void Update(){if(shell!=null&&feedbackUntil>0){float left=feedbackUntil-Time.unscaledTime;shell.color=Color.Lerp(Color.white,feedbackTint,Mathf.Clamp01(left/.16f));if(left<=0)feedbackUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=GameFeel.Reduced?(selected?12:0):Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
     }
 }

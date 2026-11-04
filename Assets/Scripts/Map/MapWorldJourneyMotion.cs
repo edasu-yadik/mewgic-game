@@ -8,7 +8,6 @@ namespace Mewgic.Map
 {
     public sealed partial class MapWorld
     {
-        const string ReducedMotionKey = "Mewgic.Map.ReducedMotion";
         const float JourneyDuration = 1.8f;
         const float ArrivalTime = 1.17f;
         [SerializeField, Range(0, 8)] int journeyEffectBudget = 8;
@@ -30,7 +29,7 @@ namespace Mewgic.Map
 
         void BuildJourneyMotion(RectTransform heading)
         {
-            reducedJourneyMotion = PlayerPrefs.GetInt(ReducedMotionKey, 0) == 1;
+            reducedJourneyMotion = GameplayProgress.Current.ReducedMotion;
             motionButton = Control(heading, "JourneyMotion", "", new Vector2(.72f, .05f), new Vector2(.97f, .33f), ToggleJourneyMotion);
             motionLabel = motionButton.GetComponentInChildren<TMP_Text>();
             motionLabel.fontSizeMax = 22;
@@ -65,12 +64,8 @@ namespace Mewgic.Map
 
         void ToggleJourneyMotion()
         {
-            reducedJourneyMotion = !reducedJourneyMotion;
-            if (!GameplayProgress.IsTestProfile)
-            {
-                PlayerPrefs.SetInt(ReducedMotionKey, reducedJourneyMotion ? 1 : 0);
-                PlayerPrefs.Save();
-            }
+            if (!ledger.SetReducedMotion(!reducedJourneyMotion)) return;
+            reducedJourneyMotion = GameplayProgress.Current.ReducedMotion;
             UpdateMotionLabel();
             if (journeyRunning)
                 FinishJourney(true);

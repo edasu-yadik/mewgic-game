@@ -943,6 +943,41 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
+  - m_Id: 1445448714125312
+    m_Localized: Musik
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1445448823177216
+    m_Localized: Soundeffekte
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1445448823177217
+    m_Localized: Vibration
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1445448823177218
+    m_Localized: Bewegung reduzieren
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1445448823177219
+    m_Localized: An
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1445448823177220
+    m_Localized: Aus
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 1445448823177221
+    m_Localized: "{0} \xB7 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:
@@ -1122,3 +1157,10 @@ MonoBehaviour:
         - id: 1443505006542853
         - id: 1443505006542854
         - id: 1443505006542855
+        - id: 1445448714125312
+        - id: 1445448823177216
+        - id: 1445448823177217
+        - id: 1445448823177218
+        - id: 1445448823177219
+        - id: 1445448823177220
+        - id: 1445448823177221
