@@ -6,8 +6,18 @@ namespace Mewgic
     public static class GameplayLevelCatalog
     {
         static readonly int[] ids={1,2};
-        public static ILevelArchive TestArchive;static ProgressLedger owner;static ILevelArchive archive;static readonly object worker=new object();static readonly Dictionary<int,Task<VerifiedGameplayLevel>> pending=new Dictionary<int,Task<VerifiedGameplayLevel>>();static GeneratedLevel[] fallbacks;
-        static ILevelArchive Archive {get{var ledger=GameplayProgress.Current;if(!ReferenceEquals(owner,ledger)){owner=ledger;archive=GameplayProgress.IsTestProfile?(TestArchive??new MemoryLevelArchive()):new FileLevelArchive(Path.Combine(Application.persistentDataPath,"GeneratedLevels"));pending.Clear();}return archive;}}
+#if UNITY_EDITOR
+        public static ILevelArchive TestArchive;
+#endif
+        static ProgressLedger owner;static ILevelArchive archive;static readonly object worker=new object();static readonly Dictionary<int,Task<VerifiedGameplayLevel>> pending=new Dictionary<int,Task<VerifiedGameplayLevel>>();static GeneratedLevel[] fallbacks;
+        static ILevelArchive Archive {get{var ledger=GameplayProgress.Current;if(!ReferenceEquals(owner,ledger)){owner=ledger;archive=CreateArchive();pending.Clear();}return archive;}}
+        static ILevelArchive CreateArchive()
+        {
+#if UNITY_EDITOR
+            if(GameplayProgress.IsTestProfile)return TestArchive??new MemoryLevelArchive();
+#endif
+            return new FileLevelArchive(Path.Combine(Application.persistentDataPath,"GeneratedLevels"));
+        }
         static VerifiedGameplayLevel Wrap(GeneratedLevel level){level.Validate();int moves=level.difficulty.optimalMoves;return new VerifiedGameplayLevel{Info=new GameplayLevelInfo{id=level.level,threeStarMoves=moves,twoStarMoves=moves+Math.Max(2,moves/2),goal="Renkleri ayır"},Bottles=level.Export(),OptimalMoves=moves,Generated=level};}
         public static Task<VerifiedGameplayLevel> PrepareAsync(int id)
         {

@@ -11,10 +11,11 @@ public static class MewgicAndroidDeviceBuild
     const string Output = "Builds/Android/Part19B";
     const string Package = "com.mewgic.game";
 
-    public static void TestApk() => Build(false);
-    public static void ReleaseAab() => Build(true);
+    public static void TestApk() => Build(false, true);
+    public static void ReleaseAab() => Build(true, false);
+    public static void RcLocalApk() => Build(false, false);
 
-    static void Build(bool release)
+    static void Build(bool release, bool development)
     {
         if (EditorApplication.isPlaying || EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android ||
             !BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Android, BuildTarget.Android))
@@ -27,8 +28,8 @@ public static class MewgicAndroidDeviceBuild
             throw new InvalidOperationException("Android kimliği, IL2CPP, ARM64 veya minimum API 26 doğrulanamadı.");
 
         string rawCode = Environment.GetEnvironmentVariable("MEWGIC_ANDROID_BUILD_CODE");
-        if (string.IsNullOrEmpty(rawCode) && !release) rawCode = (PlayerSettings.Android.bundleVersionCode + 1).ToString();
-        if (!int.TryParse(rawCode, out int code) || code <= PlayerSettings.Android.bundleVersionCode || code > 2100000000)
+        if (string.IsNullOrEmpty(rawCode) && !release) rawCode = (PlayerSettings.Android.bundleVersionCode + (development ? 1 : 0)).ToString();
+        if (!int.TryParse(rawCode, out int code) || code < PlayerSettings.Android.bundleVersionCode || code > 2100000000)
             throw new InvalidOperationException("Geçerli ve önceki sürümden büyük Android build kodu gerekli.");
 
         string keystore = null, storePassword = null, alias = null, aliasPassword = null;
@@ -48,7 +49,7 @@ public static class MewgicAndroidDeviceBuild
             throw new InvalidOperationException("Üretim sahneleri veya açılış sırası doğrulanamadı.");
 
         Directory.CreateDirectory(Output);
-        string path = $"{Output}/Mewgic-{PlayerSettings.bundleVersion}-{code}-{(release ? "release.aab" : "qa.apk")}";
+        string path = $"{Output}/Mewgic-{PlayerSettings.bundleVersion}-{code}-{(release ? "release.aab" : development ? "qa.apk" : "rc-local.apk")}";
         int oldCode = PlayerSettings.Android.bundleVersionCode;
         var oldTarget = PlayerSettings.Android.targetSdkVersion;
         bool oldBundle = EditorUserBuildSettings.buildAppBundle, oldSplit = PlayerSettings.Android.buildApkPerCpuArchitecture;
@@ -70,13 +71,13 @@ public static class MewgicAndroidDeviceBuild
                 PlayerSettings.Android.keyaliasPass = aliasPassword;
             }
             var options = BuildOptions.DetailedBuildReport;
-            if (!release) options |= BuildOptions.Development;
+            if (development) options |= BuildOptions.Development;
             var summary = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
                 scenes = scenes, locationPathName = path, target = BuildTarget.Android, options = options
             }).summary;
             File.WriteAllText(path + ".summary.txt",
-                $"result={summary.result}\nerrors={summary.totalErrors}\nwarnings={summary.totalWarnings}\nbytes={summary.totalSize}\nseconds={summary.totalTime.TotalSeconds:F1}\n");
+                $"result={summary.result}\nerrors={summary.totalErrors}\nwarnings={summary.totalWarnings}\nbytes={(File.Exists(path) ? new FileInfo(path).Length : 0)}\nseconds={summary.totalTime.TotalSeconds:F1}\n");
             if (summary.result != BuildResult.Succeeded)
                 throw new InvalidOperationException("Android derlemesi başarısız. Unity Console ve özet dosyasını inceleyin.");
         }

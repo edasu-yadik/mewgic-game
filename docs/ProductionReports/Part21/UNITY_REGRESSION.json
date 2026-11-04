@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "checks": [
+    "Boot, dil ve yeni oyuncu başlangıcı",
+    "12 ada, her adada 50 bölüm",
+    "Sandık ödülü animasyondan önce kaydedildi ve tekrar kilitlendi",
+    "Pati tek geçerli döküş yaptı",
+    "Pati tamamlanması diskte",
+    "Çözücü gerçek tahtayı doğruladı",
+    "Kazanış ekranı",
+    "İlk kazanış ve atomik 50 coin",
+    "Harita yıldızı ve sonraki bölüm",
+    "Kedi yolculuğu gerçek ilerlemeden başladı",
+    "İlk bölüm sonrası rota tamamlandı",
+    "İzole kayıt tekrar açılıp yazılabildi",
+    "Güncel nesil yeniden açılışta korundu",
+    "600 doğrulanmış tahtası",
+    "Çözücü gerçek tahtayı doğruladı",
+    "Kazanış ekranı",
+    "600 gerçek döküşlerle kazanıldı",
+    "Yeni ada sınırı ve 601 açıldı",
+    "601 doğrulanmış prosedürel tahta",
+    "Döküş arka plan simülasyonunda tekrar uygulanmadı"
+  ],
+  "errors": [],
+  "warnings": [],
+  "failure": null,
+  "playerSaveIntact": true
+}

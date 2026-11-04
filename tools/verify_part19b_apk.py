@@ -36,6 +36,7 @@ def main():
     parser.add_argument("build_tools", type=Path)
     parser.add_argument("--code", required=True, type=int)
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--rc", action="store_true", help="Require non-development flags and release permissions.")
     args = parser.parse_args()
 
     sdk = args.build_tools
@@ -46,9 +47,13 @@ def main():
     minimum = re.search(r"^(?:minSdkVersion|sdkVersion):'(\d+)'", metadata.stdout, re.M)
     target = re.search(r"^targetSdkVersion:'(\d+)'", metadata.stdout, re.M)
     with ZipFile(args.apk) as archive:
-        libraries = {name: elf_loads(archive.read(name)) for name in archive.namelist()
+        names=archive.namelist()
+        libraries = {name: elf_loads(archive.read(name)) for name in names
                      if name.startswith("lib/") and name.endswith(".so")}
     abi = sorted({name.split("/")[1] for name in libraries})
+    permissions=sorted(re.findall(r"^uses-permission: name='([^']+)'",metadata.stdout,re.M))
+    suspicious=[name for name in names if re.search(r"(?i)(?:^|/)(?:sampleScene|WizardCatAnimationTest|Part21CandidateProbe|Part16BGameplayProbe)(?:[./]|$)",name)]
+    local_catalog=any(name in names for name in ("assets/aa/catalog.bin","assets/aa/catalog.json"))
     report = {
         "file": args.apk.name,
         "bytes": args.apk.stat().st_size,
@@ -60,6 +65,9 @@ def main():
         "targetSdk": int(target[1]) if target else None,
         "abi": abi,
         "debuggable": "application-debuggable" in metadata.stdout,
+        "permissions": permissions,
+        "localAddressablesCatalog": local_catalog,
+        "testPathMatches": suspicious,
         "signatureVerified": signing.returncode == 0,
         "zipAlign16K": alignment.returncode == 0,
         "elfLoadAlign16K": libraries,
@@ -67,7 +75,8 @@ def main():
     report["success"] = (
         metadata.returncode == 0 and report["package"] == "com.mewgic.game"
         and report["versionCode"] == str(args.code) and report["minSdk"] == 26
-        and report["targetSdk"] == 36 and abi == ["arm64-v8a"] and report["debuggable"]
+        and report["targetSdk"] == 36 and abi == ["arm64-v8a"] and report["debuggable"] != args.rc
+        and (not args.rc or (permissions == ["android.permission.VIBRATE"] and local_catalog and not suspicious))
         and report["signatureVerified"] and report["zipAlign16K"] and all(libraries.values())
     )
     output = json.dumps(report, indent=2)

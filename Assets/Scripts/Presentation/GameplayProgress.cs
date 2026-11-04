@@ -7,7 +7,11 @@ namespace Mewgic
         public const string StorageKey="Mewgic.Progress.v1";
         static ProgressLedger current;
         public static string LoadError {get;private set;}
+#if UNITY_EDITOR
         public static bool IsTestProfile {get;private set;}
+#else
+        public static bool IsTestProfile => false;
+#endif
         public static ProgressLedger Current
         {
             get
@@ -134,7 +138,9 @@ namespace Mewgic
                 throw new NotSupportedException("Yeni kayıt sürümü; daha güncel uygulama gerekli.");
         }
 
+#if UNITY_EDITOR
         public static void UseTestProfile(ProgressData data=null,Func<DateTimeOffset> clock=null){current=new ProgressLedger(data??new ProgressData(),_=>{},clock);IsTestProfile=true;LoadError=null;}
         public static void RestorePlayerProfile(){current=null;IsTestProfile=false;LoadError=null;RecoveryNotice=null;}
+#endif
     }
 }

@@ -1,0 +1,30 @@
+{
+  "success": false,
+  "checks": [
+    "Boot, dil ve yeni oyuncu başlangıcı",
+    "12 ada, her adada 50 bölüm",
+    "Sandık ödülü animasyondan önce kaydedildi ve tekrar kilitlendi",
+    "Pati tek geçerli döküş yaptı",
+    "Pati tamamlanması diskte",
+    "Çözücü gerçek tahtayı doğruladı",
+    "Kazanış ekranı",
+    "İlk kazanış ve atomik 50 coin",
+    "Harita yıldızı ve sonraki bölüm",
+    "İlk bölüm sonrası rota tamamlandı",
+    "İzole kayıt tekrar açılıp yazılabildi",
+    "Güncel nesil yeniden açılışta korundu",
+    "600 doğrulanmış tahtası",
+    "Çözücü gerçek tahtayı doğruladı",
+    "Kazanış ekranı",
+    "600 gerçek döküşlerle kazanıldı",
+    "Yeni ada sınırı ve 601 açıldı",
+    "601 doğrulanmış prosedürel tahta",
+    "Döküş arka plan simülasyonunda tekrar uygulanmadı"
+  ],
+  "errors": [
+    "ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.\r\nParameter name: index\nSystem.Collections.Generic.List`1[T].get_Item (System.Int32 index) (at <16ec009baa7541e7b79bc4548f1d744c>:0)\nUnityEditor.Search.SearchDatabase+<EnumerateAll>d__83.MoveNext () (at <ac137bf2a0244eab9de9b4dd18a18d7d>:0)\nSystem.Linq.Enumerable.TryGetFirst[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Boolean& found) (at <3afc7090220843a58d515b3d75f6725a>:0)\nSystem.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) (at <3afc7090220843a58d515b3d75f6725a>:0)\nUnityEditor.Search.SearchDatabase.GetDefaultSearchDatabase () (at <ac137bf2a0244eab9de9b4dd18a18d7d>:0)\nUnityEditor.Search.SearchInit.IndexationOnStartup () (at <ac137bf2a0244eab9de9b4dd18a18d7d>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <6719e354e74c4c6e92f6c272146c0b4b>:0)\n"
+  ],
+  "warnings": [],
+  "failure": null,
+  "playerSaveIntact": true
+}
