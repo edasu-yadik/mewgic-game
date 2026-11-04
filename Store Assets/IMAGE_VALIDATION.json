@@ -1,0 +1,93 @@
+{
+  "AppStore/iPhone-Large": {
+    "count": 6,
+    "size": [
+      1320,
+      2868
+    ]
+  },
+  "AppStore/iPhone-Medium": {
+    "count": 6,
+    "size": [
+      1179,
+      2556
+    ]
+  },
+  "AppStore/iPad-Editorial-Draft": {
+    "count": 6,
+    "size": [
+      2064,
+      2752
+    ]
+  },
+  "GooglePlay/Phone": {
+    "count": 6,
+    "size": [
+      1080,
+      1920
+    ]
+  },
+  "AppStore/AppIcon-1024.png": {
+    "size": [
+      1024,
+      1024
+    ],
+    "bytes": 666095
+  },
+  "GooglePlay/Icon-512.png": {
+    "size": [
+      512,
+      512
+    ],
+    "bytes": 229519
+  },
+  "GooglePlay/Feature-1024x500.jpg": {
+    "size": [
+      1024,
+      500
+    ],
+    "bytes": 324298
+  },
+  "metadata": {
+    "en": {
+      "title": 6,
+      "subtitle": 27,
+      "short": 71,
+      "description": 397,
+      "keywords_utf8": 52,
+      "notes": 69
+    },
+    "tr": {
+      "title": 6,
+      "subtitle": 24,
+      "short": 70,
+      "description": 363,
+      "keywords_utf8": 58,
+      "notes": 73
+    },
+    "de": {
+      "title": 6,
+      "subtitle": 22,
+      "short": 66,
+      "description": 405,
+      "keywords_utf8": 59,
+      "notes": 84
+    },
+    "fr": {
+      "title": 6,
+      "subtitle": 23,
+      "short": 72,
+      "description": 465,
+      "keywords_utf8": 62,
+      "notes": 89
+    },
+    "es": {
+      "title": 6,
+      "subtitle": 26,
+      "short": 65,
+      "description": 429,
+      "keywords_utf8": 63,
+      "notes": 73
+    }
+  }
+}

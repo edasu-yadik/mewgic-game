@@ -42,6 +42,7 @@ public static class MewgicIosCloudBuild
         PlayerSettings.iOS.appleDeveloperTeamID=config.appleTeamId;
         PlayerSettings.iOS.buildNumber=number;
         PlayerSettings.iOS.targetOSVersionString=config.minimumIOSVersion;
+        MewgicStoreBuild.ApplyIosIcons();
         PlayerSettings.defaultInterfaceOrientation=UIOrientation.Portrait;
         EditorUserBuildSettings.development=false;
         EditorUserBuildSettings.allowDebugging=false;
