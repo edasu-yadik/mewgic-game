@@ -5,7 +5,7 @@ Kaynak dalı `release/0.8.0-rc.1`. Planlanan Android versionCode ve iOS build nu
 ## iOS ve TestFlight
 
 1. Unity 6000.3.27f2 iOS Build Support yüklü yetkili Mac veya ayrı Mewgic iOS RC 0.8.0 11 bulut hedefini kullanın. Hedef Xcode 26.5 ile yapılandırıldı. Xcode 26 veya üzeri ve iOS 26 veya üzeri SDK kullanın. Minimum dağıtım hedefi iOS 15. [Apple SDK gereksinimi](https://developer.apple.com/news/upcoming-requirements/?id=04282026a)
-2. RC dalını ve doğru SHA'yı seçin. `MewgicIosCloudBuild.PreExport` kancasını kullanın ve `MEWGIC_IOS_BUILD_NUMBER` değerini güvenli iş ayarından verin. `com.edasuyadik.mewgic` için dağıtım kimliği, profil ve imza ekibi eşleşmesini Xcode arşivinde kontrol edin.
+2. RC dalını ve doğru SHA'yı seçin. `MewgicIosCloudBuild.PreExport` kancasını kullanın ve `BuildConfig/iOS-TestFlight.json` içindeki `candidateBuildNumber` değerini doğrulayın. RC numarası bulut ortam değişkeninin önüne geçer. Artefakt denetimi aynı numarayı zorunlu tutar. `com.edasuyadik.mewgic` için dağıtım kimliği, profil ve imza ekibi eşleşmesini Xcode arşivinde kontrol edin.
 3. Arşivde Release, ikon kataloğu, iPhone/iPad hedefi, Info.plist, entitlements ve PrivacyInfo.xcprivacy içeriğini doğrulayın. Yetkili yükleme ile arşivi TestFlight iç testine gönderin. İşlenme, export compliance ve tester erişimini kontrol edin. Dış test kullanılacaksa gerekli beta incelemesini tamamlayın. [Apple build yükleme](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds/) · [TestFlight](https://developer.apple.com/testflight/)
 4. TestFlight’tan önceki aynı uygulama build’i üzerinden güncelleyin ve bir cihazda temiz kurulum yapın. Test kullanıcıları aşağıdaki kısa listeyi doldursun. Mağaza canlı yayını ayrı kullanıcı onayı gerektiriyor.
 

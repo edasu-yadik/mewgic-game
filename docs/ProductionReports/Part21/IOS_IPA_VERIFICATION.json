@@ -1,0 +1,31 @@
+{
+  "cloudJob": 3,
+  "cloudStatus": "Success",
+  "sourceCommit": "44b5a3fae51f6ec15b89cba26ccb2f898f751391",
+  "unity": "6000.3.27f2",
+  "xcode": "26.5.0",
+  "exportMethod": "app-store",
+  "buildDuration": "00:12:42",
+  "verification": {
+    "success": true,
+    "ipa": "build.ipa",
+    "bytes": 234504299,
+    "sha256": "6cd190811a97c71cf0ba1c06e30471b0b71088f846b79df6c0430f87e9c7a145",
+    "bundleIdentifier": "com.edasuyadik.mewgic",
+    "version": "0.8.0",
+    "build": "11",
+    "iconFiles": [
+      "AppIcon60x60"
+    ],
+    "compiledAppIcon1024": {
+      "name": "AppIcon",
+      "pixelWidth": 1024,
+      "pixelHeight": 1024,
+      "opaque": true
+    },
+    "assetutilVerified": true
+  },
+  "source": "Unity Build Automation, MEWGIC_IPA_ICON_PASS",
+  "testFlightUploaded": false,
+  "deviceTested": false
+}
