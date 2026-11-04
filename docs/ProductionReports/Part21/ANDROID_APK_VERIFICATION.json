@@ -1,0 +1,30 @@
+{
+  "file": "Mewgic-0.8.0-11-rc-local.apk",
+  "bytes": 93445757,
+  "sha256": "813e87619ab3b17ac14c2d3d3f86b2cb4a85d95b3d916cfca066b3596396d4f8",
+  "package": "com.mewgic.game",
+  "versionName": "0.8.0",
+  "versionCode": "11",
+  "minSdk": 26,
+  "targetSdk": 36,
+  "abi": [
+    "arm64-v8a"
+  ],
+  "debuggable": false,
+  "permissions": [
+    "android.permission.VIBRATE"
+  ],
+  "localAddressablesCatalog": true,
+  "testPathMatches": [],
+  "signatureVerified": true,
+  "zipAlign16K": true,
+  "elfLoadAlign16K": {
+    "lib/arm64-v8a/lib_burst_generated.so": true,
+    "lib/arm64-v8a/libc++_shared.so": true,
+    "lib/arm64-v8a/libil2cpp.so": true,
+    "lib/arm64-v8a/libmain.so": true,
+    "lib/arm64-v8a/libswappywrapper.so": true,
+    "lib/arm64-v8a/libunity.so": true
+  },
+  "success": true
+}

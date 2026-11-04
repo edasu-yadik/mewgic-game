@@ -298,3 +298,5 @@ PART 19A (4 Kasım 2026) · Unity sahne ve paket taraması, döküş ve harita t
 PART 19B (4 Kasım 2026) · Android 0.8.0 / 10 test APK’sı üretildi ve API 36, ARM64, imza ve 16 KB dosya hizalaması doğrulandı. AAB imzalama girişi ve iOS TestFlight ön koşulları belgelendi. Fiziksel cihaz testi yayın engeli. Rapor ve cihaz rehberi ProductionReports/Part19B altında.
 
 PART 20 (4 Kasım 2026) · Kedi ikonu, 24 mağaza kartı, beş dilde açıklama, gizlilik taslağı ve yayın kontrol listesi. Unity Android ikonları ve Gradle release manifesti doğrulandı. İmzalı dağıtım, cihaz kabulü ve son mağaza beyanları açık. Store Assets ve ProductionReports/Part20 altında.
+
+PART 21 (4 Kasım 2026) · 0.8.0 RC.1 / build 11 dalı, izole Play Mode regresyonu (20), kayıt testleri (16), 10.000 seed denetimi ve yerel Android APK doğrulaması. Unity güvenlik yamasına sabitlenen iOS bulut işi başlatıldı. İmzalı paketler, fiziksel cihaz kabulü ve mağaza beyanları yayın engeli. Rapor ve cihaz test listesi ProductionReports/Part21 altında.
