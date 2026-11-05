@@ -68,3 +68,7 @@ Yerelde kurulu `6000.3.27f1` ile Editor/Play Mode kullanıldı. Projenin `6000.3
 Referansın köprü/şelale/ışık/mor-altın ruhu yaklaştırıldı; onaylı sanatın köprü kıvrımları ve ana maskotun duruşu referansla birebir aynı değildir. Sonraki uygun iyileştirme: fiziksel düşük/orta seviye Android ve iPhone'da dokunma, Safe Area ve frame-time kabulü; ardından aynı maskot için özel yan yürüyüş sprite pozları.
 
 Önceden var olan TMP fallback, iksir çalışmaları ve diğer kullanıcı dosyaları teslim kapsamı dışındadır. Sahne dosyaları ve onaylı sanat PNG'leri değiştirilmedi.
+
+## Git teslimi
+
+Kod, testler ve görsel kanıtlar `3b9fdc1a07d039cc3070028a5de5c5d966639c23` commit'iyle `origin/release/0.8.0-rc.1` dalına gönderildi. Push sonrasında `git ls-remote` aynı SHA'yı döndürdü. Bu teslim kaydı ayrı belge commit'iyle eklenir. Çalışma alanında önceden bulunan TMP fallback değişikliği ve kapsam dışı izlenmeyen dosyalar commit'e alınmadı. `ProjectSettings`, `Packages` ve sahnelerde bu görevden kalan değişiklik yok.
