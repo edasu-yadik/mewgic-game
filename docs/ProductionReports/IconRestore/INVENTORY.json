@@ -1,0 +1,494 @@
+[
+  {
+    "path": "Assets/Editor/MewgicIosIcon.cs",
+    "bytes": 5839
+  },
+  {
+    "path": "Assets/Editor/MewgicStoreBuild.cs",
+    "bytes": 8012
+  },
+  {
+    "path": "Assets/Scripts/Boot/BootLoadingController.cs",
+    "bytes": 5910
+  },
+  {
+    "path": "Assets/Scripts/Boot/BootLoadingView.cs",
+    "bytes": 6886
+  },
+  {
+    "path": "Assets/Scripts/Boot/BootMagicGraphic.cs",
+    "bytes": 1844
+  },
+  {
+    "path": "Assets/Scripts/Boot/BootProgressGraphic.cs",
+    "bytes": 1838
+  },
+  {
+    "path": "Assets/Scripts/Boot/BootScenarioProbe.cs",
+    "bytes": 8192
+  },
+  {
+    "path": "Assets/Art/AppIcon/Mewgic_AppIcon_1024_v001.png",
+    "bytes": 1920145,
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "sha256": "bcb3f10d1dfbb6d58088b320da1f1780915aa6e154b7aab6e0f95879ae3e0410"
+  },
+  {
+    "path": "Assets/Art/Boot/Mewgic_Startup_Background_v001.png",
+    "bytes": 2471947,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGB",
+    "sha256": "93da7de3ae07eb9e5904db933689630a92fc4d3feab275228d092aa02596f35e"
+  },
+  {
+    "path": "Assets/Art/Store/Mewgic_AdaptiveBackground.png",
+    "bytes": 84086,
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "sha256": "b027ed680bb88d4c439f34d87350d7150c6a9c96a0e1a51ac0b57ed8616986ea"
+  },
+  {
+    "path": "Assets/Art/Store/Mewgic_AdaptiveForeground.png",
+    "bytes": 445759,
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "sha256": "6dc85471a65485b23b411f841a9d10869ed8cb82957e65effba7362d0cff26ca"
+  },
+  {
+    "path": "Assets/Art/Store/Mewgic_Icon1024.png",
+    "bytes": 666095,
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "sha256": "1671f3ee921dc2530cba23953fe6049e09bbb68dfe530f4ef81d0d025605834f"
+  },
+  {
+    "path": "References/Visual/Cover.png",
+    "bytes": 2831528,
+    "size": [
+      1122,
+      1402
+    ],
+    "mode": "RGB",
+    "sha256": "b434ca15e51823e91d8bed056a6bacc331b0135a4caee355ab3346b07196ed72"
+  },
+  {
+    "path": "References/Visual/Events.png",
+    "bytes": 2446121,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGB",
+    "sha256": "0fc5e4ab1748f82c9aff902ef9b8aa59c29b468169ff7f49b929ff85ad1cf801"
+  },
+  {
+    "path": "References/Visual/Gameplay.png",
+    "bytes": 2462815,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGB",
+    "sha256": "8629d28868ca9c1d1cd14ba8df14fd13bd72a87cdee44ba0ff0a1788b728ceef"
+  },
+  {
+    "path": "References/Visual/Home.png",
+    "bytes": 2413580,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGB",
+    "sha256": "3d9af389e5b5449b61a24842a42f8173e53eb413ac54cb1efdb5b44a24725722"
+  },
+  {
+    "path": "References/Visual/LevelMap.png",
+    "bytes": 2860994,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGB",
+    "sha256": "ba13b6c1a0f7d2673fd67bdc11a15e00721e426cd851366d9521fdf41fa9019f"
+  },
+  {
+    "path": "References/Visual/manifest.json",
+    "bytes": 721
+  },
+  {
+    "path": "References/Visual/Approved/00_Master_Cover.png",
+    "bytes": 3833101,
+    "size": [
+      1122,
+      1402
+    ],
+    "mode": "RGBA",
+    "sha256": "69089e2ece1d77176a344f0a24a89a3a12d9d8b0b2c07252a972b76c753a2093"
+  },
+  {
+    "path": "References/Visual/Approved/01_Home.png",
+    "bytes": 3483270,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGBA",
+    "sha256": "c0925afd9f2f606c565715842ecdf777b4adf2d8ef8a5d48735c9700e34d1f6f"
+  },
+  {
+    "path": "References/Visual/Approved/02_Gameplay.png",
+    "bytes": 3576903,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGBA",
+    "sha256": "c7fc828569ef4db31335beadc4cef866fc86a7b6350ec34a427c30352021f79e"
+  },
+  {
+    "path": "References/Visual/Approved/03_Map.png",
+    "bytes": 3836983,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGBA",
+    "sha256": "118dbe29f5e6772d4cb98cd3050eff9ae080f789570189930374cd15d10865da"
+  },
+  {
+    "path": "References/Visual/Approved/04_Events.png",
+    "bytes": 3510532,
+    "size": [
+      941,
+      1672
+    ],
+    "mode": "RGBA",
+    "sha256": "12aebccbde91df8e1139c18b8b8cd9a9a4dbeb91948376fdf53158d44f8036b7"
+  },
+  {
+    "path": "References/Visual/Approved/manifest.json",
+    "bytes": 1342
+  },
+  {
+    "path": "References/Visual/Supporting/03A_EnvironmentDepth.png",
+    "bytes": 977347,
+    "size": [
+      726,
+      935
+    ],
+    "mode": "RGBA",
+    "sha256": "ee6108d67da8b2624882f65c84787fc162ff011713b102c7d25951e9b2f8f9af"
+  },
+  {
+    "path": "References/ProductionSources/MageCat/v001/MageCat_InitialCandidate.png",
+    "bytes": 2263145,
+    "size": [
+      1122,
+      1402
+    ],
+    "mode": "RGBA",
+    "sha256": "1dea0b0052830a55fafd6f71ed4208683c4133d1cdf9588edebe479803ba808a"
+  },
+  {
+    "path": "References/ProductionSources/MageCat/v001/manifest.json",
+    "bytes": 707
+  },
+  {
+    "path": "Store Assets/IMAGE_VALIDATION.json",
+    "bytes": 1544
+  },
+  {
+    "path": "Store Assets/AppStore/AppIcon-1024.png",
+    "bytes": 1920145,
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "sha256": "bcb3f10d1dfbb6d58088b320da1f1780915aa6e154b7aab6e0f95879ae3e0410"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Feature-1024x500.jpg",
+    "bytes": 324298,
+    "size": [
+      1024,
+      500
+    ],
+    "mode": "RGB",
+    "sha256": "0db9f429b7bac97b48355ad877307f7e06c108927f1f203b9d273c3aa5866850"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Icon-512.png",
+    "bytes": 229519,
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "sha256": "84f9fc2439bfa1d59012d07da063ce13dbbe2aa4502014560ea2b4304c27d5e6"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Phone/01_Puzzles.jpg",
+    "bytes": 574585,
+    "size": [
+      1080,
+      1920
+    ],
+    "mode": "RGB",
+    "sha256": "9227afb0f4fda43a66e968865d0057eab3cf8cec7cf722312eb5670f5b7e23b1"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Phone/02_Mascot.jpg",
+    "bytes": 703718,
+    "size": [
+      1080,
+      1920
+    ],
+    "mode": "RGB",
+    "sha256": "1a35c3adc837b9bd6676deb6c17b593c2e0545b18b54782866aec2d82c0b4ddf"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Phone/03_World.jpg",
+    "bytes": 547284,
+    "size": [
+      1080,
+      1920
+    ],
+    "mode": "RGB",
+    "sha256": "aab10e5e19373b63e6f06e720848e012a5b30a668bdb2d61eb88f24d3cc03315"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Phone/04_Progress.jpg",
+    "bytes": 529713,
+    "size": [
+      1080,
+      1920
+    ],
+    "mode": "RGB",
+    "sha256": "768f8da4ffe3f789fc773925ca30ca5726173216d7343df0a3679d6d4281f877"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Phone/05_Rewards.jpg",
+    "bytes": 449725,
+    "size": [
+      1080,
+      1920
+    ],
+    "mode": "RGB",
+    "sha256": "471c69d87ac7ec85a360037b58b6c443f24a0278a27ac2f78cb8f1c797e71590"
+  },
+  {
+    "path": "Store Assets/GooglePlay/Phone/06_Islands.jpg",
+    "bytes": 1056467,
+    "size": [
+      1080,
+      1920
+    ],
+    "mode": "RGB",
+    "sha256": "68ce29cc38c07ec72c8624f85a90ab72f8a24f5299bd99b82418e2598a0f88aa"
+  },
+  {
+    "path": "Store Assets/AppStore/iPad-Editorial-Draft/01_Puzzles.jpg",
+    "bytes": 1037635,
+    "size": [
+      2064,
+      2752
+    ],
+    "mode": "RGB",
+    "sha256": "b24d93e6ef0ca7d17f0549bb3cfeffef95e73c207772f26cebac4c8b152d719a"
+  },
+  {
+    "path": "Store Assets/AppStore/iPad-Editorial-Draft/02_Mascot.jpg",
+    "bytes": 1274188,
+    "size": [
+      2064,
+      2752
+    ],
+    "mode": "RGB",
+    "sha256": "622b8498af3ee9fe1c87991725f9391ae2dad02c15601e4595e686b01a51f813"
+  },
+  {
+    "path": "Store Assets/AppStore/iPad-Editorial-Draft/03_World.jpg",
+    "bytes": 1017574,
+    "size": [
+      2064,
+      2752
+    ],
+    "mode": "RGB",
+    "sha256": "e47a2c324afad8dbb26df1a0266038222b5dadd2eae8a77d4783bc6459fc0a19"
+  },
+  {
+    "path": "Store Assets/AppStore/iPad-Editorial-Draft/04_Progress.jpg",
+    "bytes": 951117,
+    "size": [
+      2064,
+      2752
+    ],
+    "mode": "RGB",
+    "sha256": "9990442300228753c6f26be4f884a31941bb09f4f938f52972e1b94ffe3c4c79"
+  },
+  {
+    "path": "Store Assets/AppStore/iPad-Editorial-Draft/05_Rewards.jpg",
+    "bytes": 825008,
+    "size": [
+      2064,
+      2752
+    ],
+    "mode": "RGB",
+    "sha256": "34aa461b90af7e750eb37de9a9bc67f5bd9167f6724ca8a23955b2c81bcebd62"
+  },
+  {
+    "path": "Store Assets/AppStore/iPad-Editorial-Draft/06_Islands.jpg",
+    "bytes": 2105119,
+    "size": [
+      2064,
+      2752
+    ],
+    "mode": "RGB",
+    "sha256": "c56a3dc6e5fcdcb5153b2e5f27c82bef3844ec5936a9042b770ff678dd8dda3d"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Large/01_Puzzles.jpg",
+    "bytes": 995217,
+    "size": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "sha256": "cd706d2f6361059c171410221cc2eedbdf29a64ceebc1bd3c5e3ee5100ac8829"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Large/02_Mascot.jpg",
+    "bytes": 1226529,
+    "size": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "sha256": "65644b1c4e667eec8eaf2874708061f234d028471c0b064e4ac2250835b2063f"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Large/03_World.jpg",
+    "bytes": 967460,
+    "size": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "sha256": "b33c9a92c4ff4dbf55240aaef905479b63f7ce954451e23327d733a75d2a53ac"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Large/04_Progress.jpg",
+    "bytes": 897547,
+    "size": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "sha256": "19039b7652e86922abd7592e18b32e0535c99f05da41ac9c224cf04b3d9af67f"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Large/05_Rewards.jpg",
+    "bytes": 763724,
+    "size": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "sha256": "8b038436727c28f915142d008acd53ae1accda6de96fd9b612e92e5f56cf135c"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Large/06_Islands.jpg",
+    "bytes": 1727021,
+    "size": [
+      1320,
+      2868
+    ],
+    "mode": "RGB",
+    "sha256": "371125864585b4b9f884604ac4ff609e0c7da7439de81f972f719470b47b5c0f"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Medium/01_Puzzles.jpg",
+    "bytes": 842412,
+    "size": [
+      1179,
+      2556
+    ],
+    "mode": "RGB",
+    "sha256": "a10553dee8caeebc3bb3ca2e4404bcdd5af2e4d4c51b03614f052269438c22ac"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Medium/02_Mascot.jpg",
+    "bytes": 1042449,
+    "size": [
+      1179,
+      2556
+    ],
+    "mode": "RGB",
+    "sha256": "4526aa79038770e8b81d712133edebee84d84fdae364f740f65e01c7e99fe543"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Medium/03_World.jpg",
+    "bytes": 821120,
+    "size": [
+      1179,
+      2556
+    ],
+    "mode": "RGB",
+    "sha256": "fc852653633994c37b1700c6a0b41f0c24368bd86b3ba8fb551d5590b1805b26"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Medium/04_Progress.jpg",
+    "bytes": 763527,
+    "size": [
+      1179,
+      2556
+    ],
+    "mode": "RGB",
+    "sha256": "8970dd0bd5165cf4e23a0979157014e669fab1eea8ae6930ee5d2d9a8d55b2b2"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Medium/05_Rewards.jpg",
+    "bytes": 647069,
+    "size": [
+      1179,
+      2556
+    ],
+    "mode": "RGB",
+    "sha256": "052e57a8273d9d07623099a105f6f8e47a9eaaa46461ec543b896820240973ca"
+  },
+  {
+    "path": "Store Assets/AppStore/iPhone-Medium/06_Islands.jpg",
+    "bytes": 1453165,
+    "size": [
+      1179,
+      2556
+    ],
+    "mode": "RGB",
+    "sha256": "e456ac2a5483abc650b94da657d1eefee1d198688fc17cfb4e6055b052c39a54"
+  },
+  {
+    "path": "BuildConfig/verify-ios-icon.sh",
+    "bytes": 387
+  },
+  {
+    "path": "BuildConfig/verify_ios_icon.py",
+    "bytes": 3564
+  }
+]

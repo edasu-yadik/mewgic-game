@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "changedExistingFiles": [
+    "Assets/Editor/MewgicStoreBuild.cs",
+    "ProjectSettings/ProjectSettings.asset",
+    "Store Assets/IMAGE_VALIDATION.json",
+    "Store Assets/AppStore/AppIcon-1024.png",
+    "tools/prepare_part20_assets.py"
+  ],
+  "missingExistingFiles": [],
+  "outsideScopeChanged": [],
+  "iosSlotsInSource": 19,
+  "onlyPlayerSettingsChange": "iPhone icon group",
+  "runtimeScenesPackagesAndroidUnchanged": true,
+  "initialUserFilesPreserved": true
+}

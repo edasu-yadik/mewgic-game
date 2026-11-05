@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "historicalCommit": "f434f8d",
+  "historicalIconSha256": "bcb3f10d1dfbb6d58088b320da1f1780915aa6e154b7aab6e0f95879ae3e0410",
+  "xcodeMarketingPixelsEqual": true,
+  "xcodeMarketingMode": "RGB",
+  "xcodeMarketingSize": [
+    1024,
+    1024
+  ],
+  "iosGeneratorUsesHistoricalBytes": true,
+  "androidGeneratedBytesUnchanged": {
+    "Mewgic_Icon1024.png": true,
+    "Mewgic_AdaptiveForeground.png": true,
+    "Mewgic_AdaptiveBackground.png": true
+  },
+  "googlePlayIconUnchanged": true,
+  "wrongGeneratorSourceRejected": true
+}

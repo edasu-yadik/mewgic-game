@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "unity": "6000.3.26f1",
+  "scope": "Yalıtılmış ikon projesi; ana oyunun yeni build'i değil",
+  "checks": [
+    "İkon ataması tekrarlanabilir; ürün/sürüm/build korunuyor.",
+    "19 iOS yuvası gerçek Unity API ile dolu.",
+    "Doğru tarihsel katalog kabul edildi.",
+    "Eksik dosya reddedildi.",
+    "Yalnız dark appearance reddedildi.",
+    "Tek pikseli farklı 1024 RGB ikon reddedildi.",
+    "Gerçek iOS Xcode export ve marketing ikonunda piksel eşitliği geçti."
+  ],
+  "iosSlots": 19,
+  "buildWarnings": 0
+}

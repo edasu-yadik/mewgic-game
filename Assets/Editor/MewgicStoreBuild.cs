@@ -69,7 +69,7 @@ public sealed class MewgicStoreBuild : IPreprocessBuildWithReport
     }
 
     public static void ApplyAndroidIcons() => ApplyIcons(NamedBuildTarget.Android);
-    public static void ApplyIosIcons() => ApplyIcons(NamedBuildTarget.iOS);
+    public static void ApplyIosIcons() => MewgicIosIcon.Configure();
 
     public static void ApplyAndroidAppInfo()
     {

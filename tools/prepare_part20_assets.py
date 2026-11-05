@@ -3,6 +3,8 @@ from pathlib import Path
 import json
 import re
 import math
+import hashlib
+import shutil
 from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +16,8 @@ CAT = ART / "Characters/WizardCat/MageCat_NoWand_v001.png"
 LOGO = ART / "UI/Logo/Mewgic_Logo_Main.png"
 TITLE = ART / "Typography/MewgicTitle.ttf"
 BODY = ART / "Typography/MewgicBody.ttf"
+IOS_ICON = ART / "AppIcon/Mewgic_AppIcon_1024_v001.png"
+IOS_ICON_SHA256 = "bcb3f10d1dfbb6d58088b320da1f1780915aa6e154b7aab6e0f95879ae3e0410"
 
 CARDS = [
     ("01_Puzzles", "Pour, sort, solve", "Colorful liquid puzzles", "Part18/en/Gameplay.jpg"),
@@ -59,6 +63,9 @@ def place_art(canvas, path, box):
 
 
 def icon():
+    # iOS uses the original verified Build 2 artwork, never the Android composition.
+    if hashlib.sha256(IOS_ICON.read_bytes()).hexdigest() != IOS_ICON_SHA256:
+        raise ValueError("Tarihsel iOS ikon kaynağı değişmiş; mağaza üretimi durduruldu.")
     folder = ART / "Store"
     folder.mkdir(parents=True, exist_ok=True)
     bg = space((1024,1024))
@@ -82,7 +89,7 @@ def icon():
     full.save(folder / "Mewgic_Icon1024.png", optimize=True)
     (OUT/"AppStore").mkdir(parents=True,exist_ok=True)
     (OUT/"GooglePlay").mkdir(parents=True,exist_ok=True)
-    full.save(OUT/"AppStore/AppIcon-1024.png", optimize=True)
+    shutil.copyfile(IOS_ICON, OUT/"AppStore/AppIcon-1024.png")
     full.resize((512,512),RESAMPLE).convert("RGBA").save(OUT/"GooglePlay/Icon-512.png",optimize=True)
 
 
