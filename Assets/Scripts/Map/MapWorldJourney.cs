@@ -65,15 +65,15 @@ namespace Mewgic.Map
             journeyCat.raycastTarget = false;
             journeyCat.enabled = journeyMascot != null;
 
-            var heading = Art(overlay, "JourneyHeading", null, new Vector2(0, .87f), Vector2.one);
-            heading.color = new Color32(23, 20, 40, 255);
+            var heading = Panel(overlay, "JourneyHeading", new Vector2(0, .87f), Vector2.one);
+            heading.color = new Color32(238, 215, 255, 255);
             Art(heading.transform, "GoldEdge", null, Vector2.zero, new Vector2(1, .013f)).color = new Color32(159, 115, 58, 255);
             chapterTitle = Label(heading.transform, "ChapterTitle", "", 36, new Vector2(.04f, .34f), new Vector2(.96f, .95f));
             Label(heading.transform, "ChapterInstruction", L.V("map.choose"), 24,
                 new Vector2(.05f, .03f), new Vector2(.70f, .35f));
             BuildJourneyMotion(heading.rectTransform);
 
-            var footer = Art(overlay, "JourneyFooter", null, Vector2.zero, new Vector2(1, .105f));
+            var footer = Panel(overlay, "JourneyFooter", Vector2.zero, new Vector2(1, .105f));
             footer.color = heading.color;
             journeyBack = Control(footer.transform, "ChapterClose", L.V("map.return"),
                 new Vector2(.07f, .12f), new Vector2(.60f, .88f), CloseJourney);
@@ -184,7 +184,10 @@ namespace Mewgic.Map
             float width = journeyScroll.viewport.rect.width;
             float previousViewportHeight = journeyViewportHeight;
             journeyViewportHeight = journeyScroll.viewport.rect.height;
-            rowHeight = Mathf.Max(width * (HasCrystalArt ? .15f : HasThemedArt ? .12f : .193f), 56 / Canvas.scaleFactor);
+            // Keep one ten-level crystal terrace readable as a complete composition on short phones.
+            float preferredRow = HasCrystalArt ? Mathf.Min(width * .15f, journeyViewportHeight / 10f) :
+                width * (HasThemedArt ? .12f : .193f);
+            rowHeight = Mathf.Max(preferredRow, 56 / Canvas.scaleFactor);
             journeyContent.sizeDelta = new Vector2(0, rowHeight * JourneyLevelCount);
             if (keepPosition && oldHeight > 0)
             {
@@ -224,6 +227,9 @@ namespace Mewgic.Map
                 return;
 
             float top = Mathf.Max(0, journeyContent.anchoredPosition.y);
+            int visibleGroup = Mathf.Clamp(Mathf.FloorToInt((top + journeyScroll.viewport.rect.height * .5f) / rowHeight) / 10, 0, 4);
+            int groupFirst = progression.LevelId(journeyRegion, visibleGroup * 10);
+            chapterTitle.text = L.V("map.chapter", L.Island(journeyRegion), groupFirst, groupFirst + 9);
             int first = Mathf.Clamp(Mathf.FloorToInt(top / rowHeight) - 1, 0, 49);
             int last = Mathf.Clamp(Mathf.CeilToInt((top + journeyScroll.viewport.rect.height) / rowHeight), first, 49);
             if (first == firstBound && last == lastBound)

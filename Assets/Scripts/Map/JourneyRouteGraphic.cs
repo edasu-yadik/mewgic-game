@@ -65,24 +65,33 @@ namespace Mewgic.Map
             SetVerticesDirty();
         }
 
-        internal static readonly Vector2[] Outline =
+        internal static readonly Vector2[] Outline = Dome();
+        static Vector2[] Dome()
         {
-            new Vector2(-.48f, -.24f), new Vector2(-.32f, -.43f), new Vector2(.29f, -.45f),
-            new Vector2(.49f, -.23f), new Vector2(.47f, .24f), new Vector2(.31f, .43f),
-            new Vector2(-.29f, .45f), new Vector2(-.47f, .26f)
-        };
+            var points = new Vector2[27];
+            points[0] = new Vector2(-.49f, -.31f);
+            points[1] = new Vector2(-.37f, -.43f);
+            points[2] = new Vector2(.37f, -.43f);
+            points[3] = new Vector2(.49f, -.31f);
+            for (int i = 0; i < 23; i++)
+            {
+                float angle = i * Mathf.PI / 22;
+                points[i + 4] = new Vector2(Mathf.Cos(angle) * .49f, -.20f + Mathf.Sin(angle) * .69f);
+            }
+            return points;
+        }
 
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
             mesh.Clear();
             if (sculpted)
             {
-                var face = milestone ? new Color32(74, 43, 89, 255) : new Color32(58, 40, 76, 255);
+                var face = milestone ? new Color32(115, 36, 155, 255) : new Color32(88, 65, 98, 255);
                 Facet(mesh, new Vector2(1.05f, 1.03f), new Vector2(0, -10), new Color32(18, 10, 26, 195));
-                Facet(mesh, Vector2.one, new Vector2(0, -6), new Color32(65, 42, 77, 255));
+                Facet(mesh, Vector2.one, new Vector2(0, -6), new Color32(96, 60, 32, 255));
                 Facet(mesh, Vector2.one, Vector2.zero, color);
-                Facet(mesh, new Vector2(.90f, .84f), new Vector2(0, 3), face);
-                Facet(mesh, new Vector2(.79f, .73f), new Vector2(0, 5), new Color32(36, 23, 55, 255));
+                Facet(mesh, new Vector2(.90f, .85f), new Vector2(0, 2), face);
+                Facet(mesh, new Vector2(.83f, .78f), new Vector2(0, 4), milestone ? new Color32(94, 24, 137, 255) : new Color32(69, 49, 78, 255));
                 return;
             }
 
@@ -95,12 +104,12 @@ namespace Mewgic.Map
         void Facet(VertexHelper mesh, Vector2 scale, Vector2 offset, Color32 tint)
         {
             int index = mesh.currentVertCount;
-            mesh.AddVert(offset, tint, Vector2.zero);
+            mesh.AddVert(offset, sculpted ? Color32.Lerp(tint, new Color32(255, 232, 192, tint.a), .12f) : tint, Vector2.zero);
             var size = Vector2.Scale(rectTransform.rect.size, scale);
             for (int i = 0; i < Outline.Length; i++)
             {
                 Color32 edge = sculpted
-                    ? Color32.Lerp(new Color32(39, 19, 59, tint.a), tint, Outline[i].y + .59f)
+                    ? Color32.Lerp(new Color32(39, 19, 59, tint.a), tint, Mathf.Clamp01(Outline[i].y + .59f))
                     : tint;
                 mesh.AddVert(Vector2.Scale(Outline[i], size) + offset, edge, Vector2.zero);
             }

@@ -5,7 +5,8 @@ namespace Mewgic.Core
  {
   public int version=1;public bool migrated;public int highestUnlockedIsland,lastCelebratedIsland,lastFocusedLevel=1;
   public List<string> legacyChestEntitlements=new List<string>();
-  public WorldMapData Copy()=>new WorldMapData{version=version,migrated=migrated,highestUnlockedIsland=highestUnlockedIsland,lastCelebratedIsland=lastCelebratedIsland,lastFocusedLevel=lastFocusedLevel,legacyChestEntitlements=new List<string>(legacyChestEntitlements??new List<string>())};
+  public MapJourneyData journey=new MapJourneyData();
+  public WorldMapData Copy()=>new WorldMapData{journey=(journey??new MapJourneyData()).Copy(),version=version,migrated=migrated,highestUnlockedIsland=highestUnlockedIsland,lastCelebratedIsland=lastCelebratedIsland,lastFocusedLevel=lastFocusedLevel,legacyChestEntitlements=new List<string>(legacyChestEntitlements??new List<string>())};
   public void Validate(){if(version!=1||highestUnlockedIsland<0||lastCelebratedIsland<0||lastFocusedLevel<1||legacyChestEntitlements==null||legacyChestEntitlements.Any(string.IsNullOrWhiteSpace)||legacyChestEntitlements.Distinct().Count()!=legacyChestEntitlements.Count)throw new ArgumentException("Geçersiz dünya haritası kaydı");}
  }
  public static class WorldMapRules
@@ -20,6 +21,7 @@ namespace Mewgic.Core
    if(data.worldMap==null)data.worldMap=new WorldMapData();data.worldMap.Validate();
    if(!data.worldMap.migrated){int[][] legacy={new[]{1,2},new[]{3,4,5},new[]{6,7,8},new[]{9,10,11}};string[] keys={"village","crystal","moon","castle"};var done=new HashSet<int>(data.levels.Where(x=>x.rewardClaimed).Select(x=>x.level));for(int r=0;r<4;r++)if(legacy.Take(r+1).SelectMany(x=>x).All(done.Contains)&&!data.worldMap.legacyChestEntitlements.Contains("map."+keys[r]+".v1"))data.worldMap.legacyChestEntitlements.Add("map."+keys[r]+".v1");data.worldMap.migrated=true;}
    Sync(data);
+   MapJourneyRules.Initialize(data);
   }
   public static void Sync(ProgressData data){data.worldMap.highestUnlockedIsland=Math.Max(data.worldMap.highestUnlockedIsland,Island(CurrentLevel(data)));}
   // Only newly generated entries use the gentler island introduction. Existing immutable pins win.

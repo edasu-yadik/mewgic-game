@@ -141,7 +141,7 @@ namespace Mewgic
             }
             Check(GameplayProgress.Current.Completed(id) && GameObject.Find("ResultHome") != null, id + " gerçek kazanış ve kayıt");
             var ledger = GameplayProgress.Current;
-            var pending = (int)typeof(ProgressLedger).GetField("journeyTo", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(ledger);
+            var pending = ledger.MapJourney.pendingTo;
             checks.Add("Kazanış sonrası bekleyen hedef " + pending);
             Tap("ResultHome");
             yield return Ready("LevelMap", () => Map != null && Map.Mounted && L.Ready);
@@ -194,7 +194,7 @@ namespace Mewgic
             Check(Vector2.Distance(catStart, Cat.anchoredPosition) > 8 && Scroll.content.anchoredPosition.y > cameraStart,
                 "Kedi hareket ediyor ve kamera yumuşak takip ediyor");
             yield return Shot("Walk_91_92");
-            yield return new WaitForSecondsRealtime(1.5f);
+            yield return new WaitForSecondsRealtime(1.9f);
             Check(!Map.JourneyRunning && Stone(41).GetComponent<MapNodeBadge>().Status == MapLevelStatus.Current, "92 açılışı tamamlandı");
             var data = new PointerEventData(EventSystem.current) { position = RectTransformUtility.WorldToScreenPoint(null, Stone(41).transform.position) };
             var hits = new List<RaycastResult>();
@@ -226,8 +226,8 @@ namespace Mewgic
             SceneManager.LoadScene("LevelMap");
             yield return null;
             yield return Ready("LevelMap", () => Map != null && Map.Mounted && L.Ready);
-            Check(!Map.JourneyRunning && Map.Progression.CurrentId == 101 && Map.ActiveRegion == 2 && GameplayProgress.Current.Presentation.coins == coins,
-                "Animasyon sırasında sahne kapanışı ve disk profili yeniden açma ilerlemeyi/ödülü korur");
+            Check(Map.JourneyRunning && Map.JourneyTarget == 101 && Map.Progression.CurrentId == 101 && Map.ActiveRegion == 2 && GameplayProgress.Current.Presentation.coins == coins,
+                "Animasyon sırasında sahne kapanışı ve disk profili yeniden açma bekleyen sunumu/ödülü korur");
 
             foreach (int boundary in new[] { 50, 600 })
             {
@@ -237,7 +237,7 @@ namespace Mewgic
             yield return null;
                 yield return Ready("LevelMap", () => Map != null && Map.Mounted && L.Ready);
                 Check(Map.JourneyTarget == boundary + 1, boundary + " sınır sunumu");
-                yield return new WaitForSecondsRealtime(2);
+                yield return new WaitForSecondsRealtime(2.6f);
                 Check(Map.Progression.CurrentId == boundary + 1 && Map.PackStart == (boundary == 600 ? 12 : 0) &&
                     Stone(0).regionIndex == boundary / 50, boundary + " hedef ada ve paket");
             }

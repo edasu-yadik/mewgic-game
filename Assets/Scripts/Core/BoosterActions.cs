@@ -17,14 +17,6 @@ namespace Mewgic.Core
     public sealed partial class ProgressLedger
     {
         ProgressData state;readonly Action<ProgressData> save;
-        int journeyFrom, journeyTo;
-        public bool TakeMapJourney(out int from,out int to)
-        {
-            from=journeyFrom;to=journeyTo;
-            ClearMapJourney();
-            return from>0&&to>from;
-        }
-        public void ClearMapJourney(){journeyFrom=journeyTo=0;}
         public CompletionReward LastCompletionReward {get;private set;} public int LastCoinReward=>LastCompletionReward.Coins;
         public string LastError {get;private set;}public int Revision{get;private set;}
         public ProgressData Snapshot=>state.Copy();
@@ -90,9 +82,9 @@ namespace Mewgic.Core
             if(!string.IsNullOrWhiteSpace(victoryReceipt)&&victoryReceipt.Length<=80)record.lastCoinReceipt=victoryReceipt;
             copy.attemptedLevels.Remove(level);
             bool frontier=first&&WorldMapRules.CurrentLevel(state)==level;
-            WorldMapRules.Sync(copy);if(!Commit(copy))return false;LastCompletionReward=reward;granted=first;
-            ClearMapJourney();
-            if(frontier){journeyFrom=level;journeyTo=WorldMapRules.CurrentLevel(copy);}
+            WorldMapRules.Sync(copy);
+            if(frontier)MapJourneyRules.Queue(copy,level);
+            if(!Commit(copy))return false;LastCompletionReward=reward;granted=first;
             return true;
         }
     }

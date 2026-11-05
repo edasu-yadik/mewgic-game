@@ -32,7 +32,7 @@ namespace Mewgic
         public static bool FromMap {get;private set;}
         public static string ReturnScene=>FromMap?"LevelMap":"Home";
         public static void ResetSelection(){SelectedId=1;FromMap=false;}
-        public static bool Select(int id,ProgressLedger ledger){if(ledger==null||!CanEnter(id,ledger))return false;try{Load(id);}catch{return false;}if(!ledger.SetCurrentLevel(id))return false;ledger.ClearMapJourney();SelectedId=id;FromMap=true;return true;}
+        public static bool Select(int id,ProgressLedger ledger){if(ledger==null||!CanEnter(id,ledger))return false;try{Load(id);}catch{return false;}if(!ledger.SetCurrentLevel(id))return false;SelectedId=id;FromMap=true;return true;}
         public static VerifiedGameplayLevel Load(int id)
         {
             if(id>=3){if(Archive.TryRead(id,out var saved))return Wrap(saved);throw new InvalidOperationException("Bölüm henüz hazırlanmadı.");}
@@ -52,6 +52,6 @@ namespace Mewgic
         public static VerifiedGameplayLevel Current()=>Load(SelectedId);
         public static bool CanAdvance(int current,ProgressLedger ledger)=>current>=1&&current<int.MaxValue&&ledger.Completed(current);
         public static bool Advance(int current,ProgressLedger ledger)
-        {if(!CanAdvance(current,ledger))return false;int next=current+1;try{Load(next);}catch{return false;}if(!ledger.SetCurrentLevel(next))return false;ledger.ClearMapJourney();SelectedId=next;return true;}
+        {if(!CanAdvance(current,ledger))return false;int next=current+1;try{Load(next);}catch{return false;}if(!ledger.SetCurrentLevel(next))return false;SelectedId=next;return true;}
     }
 }

@@ -64,7 +64,7 @@ namespace Mewgic.Map
    bool closed=status==MapLevelStatus.Locked||status==MapLevelStatus.Unavailable;
    number.rectTransform.anchoredPosition=new Vector2(0,closed?6:10);
    locked.rectTransform.anchoredPosition=new Vector2(0,-30);
-   foreach(var star in stars)star.gameObject.SetActive(count>0&&!closed);
+   foreach(var star in stars)star.gameObject.SetActive(!closed);
    stone.rectTransform.localScale=Vector3.one;
 
    stone.Configure(true,milestone);
@@ -75,7 +75,7 @@ namespace Mewgic.Map
    if(stoneLight.gameObject.activeSelf)stoneLight.canvasRenderer.SetAlpha(current?.92f:.48f);
    stone.color=closed?new Color32(123,108,146,255):
       current||milestone?new Color32(255,214,130,255):status==MapLevelStatus.Completed?
-      new Color32(150,216,200,255):new Color32(211,156,207,255);
+      new Color32(226,193,137,255):new Color32(230,190,144,255);
    number.rectTransform.sizeDelta=new Vector2(size.x*.80f,size.y*.45f);
    number.fontSizeMin=12;
    number.rectTransform.anchoredPosition=new Vector2(0,size.y*.115f);

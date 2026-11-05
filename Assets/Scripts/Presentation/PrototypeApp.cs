@@ -204,7 +204,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();if(!tutorialReplay)Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();ReturnFromGameplay();}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();progress.ClearMapJourney();puzzle.Restart();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
+        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();puzzle.Restart();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh(bool settlePausedVictory=false)
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
