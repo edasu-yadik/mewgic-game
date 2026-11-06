@@ -76,3 +76,7 @@ Sahne veya prefab dosyası değiştirilmedi; mevcut runtime UI kurulumu kullanı
 5. Bir şişeyi dört aynı renkle doldurun; kısa altın kutlamayı, tekrar sunumda yeniden başlamamasını ve Pause davranışını kontrol edin. 24 saat bekleme gerektiren uç durumlar QA'daki kontrollü saatle sınanır; gerçek oyuncu kaydını/sistem saatini değiştirmeyin.
 
 Sonraki öneri: aynı akışın düşük/orta sınıf Android ve iPhone üzerinde dokunma, sayaç okunurluğu ve frame-time kabulü.
+
+## Git teslimi
+
+Doğrulanan uygulama, testler ve görseller `45b02d1773a2c4c4cbd06dca21b783e2e7759b4a` commit'iyle `origin/release/0.8.0-rc.1` dalına gönderildi. Uzak dal SHA'sı `git ls-remote` ile aynı olarak doğrulandı. Bu teslim kaydı ayrı belge commit'iyle eklenir. Önceden var olan TMP fallback değişikliği ve görev dışındaki izlenmeyen dosyalar commit edilmedi. Proje sürümü, sahneler, prefablar ve paketlerde görevden kalan değişiklik yok.

@@ -310,3 +310,5 @@ PART 24 (4 Kasım 2026) · Kişisel Play kaydı Edasu Yadık adıyla ödeme prof
 Harita Git teslimi: 3b9fdc1a07d039cc3070028a5de5c5d966639c23 origin/release/0.8.0-rc.1 dalinda uzak SHA ile dogrulandi. Teslim kaydi ayri belge commitine eklendi.
 
 6 Kasım 2026 · Öğretici ve görev iyileştirmeleri: 1–4 bölümlerde 3 saniye bekleme sonrası oyuncu kontrolünü engellemeyen pati; tek renk tamamlanmasında bağımsız kısa altın kutlama; oyun kedisinde yaklaşık %13 güvenli büyüme. Ana sayfada premium görev parşömeni, ikon/yazı/sayaç için tek tıklama alanı ve kalıcı UTC 24 saatlik görev döngüsü eklendi. 16 yeni model/save + 53 günlük regresyon + 74 Unity Play Mode kontrolü geçti; üç portre oranı, gerçek döküş, çevrimdışı süre ve oyuncu kayıtlarının korunması doğrulandı. Console/derleme 0 hata 0 uyarı. .27f1 ile test edildi, proje .27f2 korundu. Sahne/prefab ve önceki sanat değişmedi; cihaz testi/yeni build yok. Rapor, istem ve görseller ProductionReports/GameplayPolish altında.
+
+Öğretici/görev Git teslimi: 45b02d1773a2c4c4cbd06dca21b783e2e7759b4a origin/release/0.8.0-rc.1 üzerinde uzak SHA ile doğrulandı. Teslim kaydı ayrı belge commit'iyle eklendi.
