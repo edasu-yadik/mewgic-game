@@ -11,6 +11,7 @@ namespace Mewgic
         [Min(0)] public float waterfallSpeed=.012f;
         [Range(0,.1f)] public float waterfallBrightness=.028f;
         [Range(0,1)] public float waterfallOpacity=.65f;
+        [Range(1,1.3f)] public float mascotSize = 1.15f;
         public bool IsAnimating {get;set;}
         RectTransform safe,board,background,world,cat,perch,edgeDecor;
         RectTransform[] bottles=new RectTransform[0];
@@ -56,8 +57,8 @@ namespace Mewgic
             var viewport=((RectTransform)safe.parent).rect.size;var bg=background.GetChild(0).GetComponent<RectTransform>();var sr=backdrop.rect.size;float cover=Mathf.Max(viewport.x/sr.x,viewport.y/sr.y);bg.anchorMin=bg.anchorMax=new Vector2(.5f,.5f);bg.sizeDelta=sr*cover;bg.anchoredPosition=Vector2.zero;
             var edgeSize=foreground.rect.size;float edgeCover=Mathf.Max(viewport.x/edgeSize.x,viewport.y/edgeSize.y);edgeDecor.anchorMin=edgeDecor.anchorMax=new Vector2(.5f,.5f);edgeDecor.sizeDelta=edgeSize*edgeCover;edgeDecor.anchoredPosition=Vector2.zero;
             float unit=Mathf.Min(safe.rect.width/900f,safe.rect.height/1600f);
-            cat.anchorMin=cat.anchorMax=new Vector2(.015f,.29f);cat.pivot=new Vector2(.5f,0);cat.localScale=Vector3.one*Mathf.Min(safe.rect.width*.18f/cat.rect.width,300*unit/cat.rect.height);cat.anchoredPosition=new Vector2(cat.rect.width*cat.localScale.x*.5f,0);
-            perch.anchorMin=perch.anchorMax=new Vector2(.105f,.29f);perch.pivot=new Vector2(.5f,.92f);perch.anchoredPosition=Vector2.zero;perch.sizeDelta=new Vector2(safe.rect.width*.20f,65*unit);
+            cat.anchorMin=cat.anchorMax=new Vector2(0,.29f);cat.pivot=new Vector2(.5f,0);cat.localScale=Vector3.one*Mathf.Min(Mathf.Min(safe.rect.width*.18f*mascotSize,safe.rect.width*(board.anchorMin.x-.006f))/cat.rect.width,300*unit*mascotSize/cat.rect.height);cat.anchoredPosition=new Vector2(cat.rect.width*cat.localScale.x*.5f,0);
+            perch.anchorMin=perch.anchorMax=new Vector2(.105f,.29f);perch.pivot=new Vector2(.5f,.92f);perch.anchoredPosition=Vector2.zero;perch.sizeDelta=new Vector2(safe.rect.width*.225f,65*unit);
             if(IsAnimating)return;
             for(int i=0;i<bottles.Length;i++){if(bottles[i]==null)continue;var slot=Slot(i,bottles.Length,board.rect.size);var b=bottles[i];b.anchorMin=slot.min;b.anchorMax=slot.max;b.offsetMin=b.offsetMax=Vector2.zero;}
             int cols=Columns(bottles.Length,board.rect.size),rows=Mathf.Max(1,Mathf.CeilToInt(bottles.Length/(float)cols));

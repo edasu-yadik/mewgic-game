@@ -114,6 +114,8 @@ namespace Mewgic
         public int[] DisplayedLayers=>Liquid.Layers;
         public float DisplayedVolume=>Liquid.Volume;
         float feedbackUntil;Color feedbackTint;
+        bool hasPresented, wasComplete;
+        public BottleCompletionGraphic Completion {get;private set;}
         bool selected,animating,paused;int hintRole;Image shell; Outline outline;HintCueGraphic hintCue;
         public Vector3 Mouth=>Rig.TransformPoint(new Vector3(0,Rig.rect.height*.46f,0));
         public void Initialize(Sprite glass,Color[] palette)
@@ -121,17 +123,20 @@ namespace Mewgic
             Rig=new GameObject("BottleVisual",typeof(RectTransform)).GetComponent<RectTransform>();Rig.SetParent(transform,false);Rig.anchorMin=Vector2.zero;Rig.anchorMax=Vector2.one;Rig.offsetMin=Rig.offsetMax=Vector2.zero;
             var fluid=new GameObject("DynamicLiquids",typeof(RectTransform),typeof(CanvasRenderer),typeof(GameplayLiquidGraphic));fluid.transform.SetParent(Rig,false);var fr=(RectTransform)fluid.transform;fr.anchorMin=Vector2.zero;fr.anchorMax=Vector2.one;fr.offsetMin=fr.offsetMax=Vector2.zero;Liquid=fluid.GetComponent<GameplayLiquidGraphic>();Liquid.raycastTarget=false;Liquid.Palette=palette;
             var glassGo=new GameObject("GlassShell",typeof(RectTransform),typeof(Image));glassGo.transform.SetParent(Rig,false);var gr=(RectTransform)glassGo.transform;gr.anchorMin=Vector2.zero;gr.anchorMax=Vector2.one;gr.offsetMin=gr.offsetMax=Vector2.zero;shell=glassGo.GetComponent<Image>();shell.sprite=glass;shell.raycastTarget=false;outline=glassGo.AddComponent<Outline>();outline.effectDistance=new Vector2(1,-1);
+            var completion=new GameObject("BottleCompletion",typeof(RectTransform),typeof(CanvasRenderer),typeof(BottleCompletionGraphic));
+            completion.transform.SetParent(Rig,false);var er=(RectTransform)completion.transform;er.anchorMin=Vector2.zero;er.anchorMax=Vector2.one;er.offsetMin=er.offsetMax=Vector2.zero;
+            Completion=completion.GetComponent<BottleCompletionGraphic>();Completion.raycastTarget=false;Completion.Stop();
             var cue=new GameObject("HintCue",typeof(RectTransform),typeof(CanvasRenderer),typeof(HintCueGraphic));cue.transform.SetParent(Rig,false);var cr=(RectTransform)cue.transform;cr.anchorMin=cr.anchorMax=new Vector2(.5f,1);cr.anchoredPosition=new Vector2(0,18);cr.sizeDelta=new Vector2(28,28);hintCue=cue.GetComponent<HintCueGraphic>();hintCue.raycastTarget=false;cue.SetActive(false);
         }
         public void Present(IReadOnlyList<int> layers,bool chosen)
-        {hintRole=0;hintCue.gameObject.SetActive(false);outline.effectDistance=new Vector2(1,-1);Liquid.Layers=new int[layers.Count];for(int i=0;i<layers.Count;i++)Liquid.Layers[i]=layers[i];Liquid.Volume=layers.Count;selected=chosen;bool complete=layers.Count==4;for(int i=1;i<layers.Count;i++)complete&=layers[i]==layers[0];Liquid.Completed=complete;outline.effectColor=chosen?new Color(1,.78f,.25f,.85f):complete?new Color(.6f,1,.8f,.4f):Color.clear;Liquid.SetVerticesDirty();}
+        {hintRole=0;hintCue.gameObject.SetActive(false);outline.effectDistance=new Vector2(1,-1);Liquid.Layers=new int[layers.Count];for(int i=0;i<layers.Count;i++)Liquid.Layers[i]=layers[i];Liquid.Volume=layers.Count;selected=chosen;bool complete=layers.Count==4;for(int i=1;i<layers.Count;i++)complete&=layers[i]==layers[0];Liquid.Completed=complete;if(hasPresented&&!wasComplete&&complete)Completion.Play();else if(!complete)Completion.Stop();wasComplete=complete;hasPresented=true;outline.effectColor=chosen?new Color(1,.78f,.25f,.85f):complete?new Color(.6f,1,.8f,.4f):Color.clear;Liquid.SetVerticesDirty();}
         public void ShowHintSource(){hintRole=1;HintLight();}
         public void ShowHintTarget(){hintRole=2;HintLight();}
         void HintLight(){float wave=GameFeel.Reduced?0:Mathf.Sin(Time.unscaledTime*2.5f);var tint=hintRole==1?new Color(1,.78f,.25f):new Color(.1f,.85f,1);tint.a=.72f+wave*.12f;outline.effectColor=tint;outline.effectDistance=new Vector2(2,-2);hintCue.destination=hintRole==2;hintCue.color=tint;hintCue.gameObject.SetActive(true);hintCue.rectTransform.anchoredPosition=new Vector2(0,18+wave*2);}
         public void Reject()=>Flash(new Color(1,.44f,.51f));
         public void Accept()=>Flash(new Color(.55f,1,.83f));
         void Flash(Color tint){feedbackTint=tint;feedbackUntil=Time.unscaledTime+.24f;}
-        public void SetPaused(bool value){paused=value;Liquid.Paused=value;}
+        public void SetPaused(bool value){paused=value;Liquid.Paused=value;Completion.SetPaused(value);}
         public void SetAnimating(bool value){animating=Liquid.Animating=value;}
         void Update(){if(shell!=null&&feedbackUntil>0){float left=feedbackUntil-Time.unscaledTime;shell.color=Color.Lerp(Color.white,feedbackTint,Mathf.Clamp01(left/.16f));if(left<=0)feedbackUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=GameFeel.Reduced?(selected?12:0):Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
     }

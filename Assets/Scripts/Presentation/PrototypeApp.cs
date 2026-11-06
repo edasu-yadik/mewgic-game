@@ -276,7 +276,7 @@ namespace Mewgic
         {
             if(busy||paused||puzzle.Won||navigating)return;
             if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
-            if(pawGuide!=null&&!pawGuide.DemoRunning&&pawGuide.Visible)pawGuide.Close();
+            pawGuide?.PlayerInteracted(target);
             hintTarget=-1;feedbackUntil=0;
             if(selected<0){if(puzzle.Bottle(target).Count==0){GameFeel.Play(GameCue.Invalid);Feedback(L.V("gameplay.empty"));return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
             if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}

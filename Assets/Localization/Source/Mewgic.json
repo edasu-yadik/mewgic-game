@@ -1263,14 +1263,14 @@
   {
     "key": "daily.reset",
     "values": {
-      "tr": "Yenilenme: yerel gece yarısı • {0:d}",
-      "en": "Resets at local midnight • {0:d}",
-      "de": "Neustart um Mitternacht vor Ort • {0:d}",
-      "fr": "Réinitialisation à minuit local • {0:d}",
-      "es": "Se reinicia a medianoche local • {0:d}",
-      "pt-BR": "Reinicia à meia-noite local • {0:d}",
-      "it": "Si rinnova a mezzanotte locale • {0:d}",
-      "pl": "Reset o lokalnej północy • {0:d}"
+      "tr": "Yenilenmesine {0}",
+      "en": "Refreshes in {0}",
+      "de": "Erneuerung in {0}",
+      "fr": "Renouvellement dans {0}",
+      "es": "Se renueva en {0}",
+      "pt-BR": "Renova em {0}",
+      "it": "Si rinnova tra {0}",
+      "pl": "Odnowienie za {0}"
     },
     "review": "draft"
   },

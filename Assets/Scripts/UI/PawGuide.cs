@@ -2,7 +2,7 @@ using L=Mewgic.Localization.L;
 using System;using System.Collections;using UnityEngine;using UnityEngine.UI;using UnityEngine.InputSystem;using TMPro;using Mewgic.Core;
 namespace Mewgic.UI
 {
-    public sealed class PawGuide:MonoBehaviour
+    public sealed partial class PawGuide:MonoBehaviour
     {
         public const string BasicId="paw.basic.v1";
         public const string BoosterId="paw.boosters.v1",BoosterOfferId="paw.boosters.offer.v1";
@@ -41,7 +41,7 @@ namespace Mewgic.UI
             closeText.color=message.color;closeText.raycastTarget=false;
             cursor=Rect(root,"PawCursor",new Vector2(.5f,.5f),new Vector2(.5f,.5f));cursor.sizeDelta=new Vector2(74,84);cursorArt=cursor.gameObject.AddComponent<PawCursorGraphic>();cursorArt.raycastTarget=false;cursorFade=cursor.gameObject.AddComponent<CanvasGroup>();cursorFade.blocksRaycasts=cursorFade.interactable=false;
             bubble.gameObject.SetActive(false);cursor.gameObject.SetActive(false);fade.alpha=0;
-            if(level==1&&!ledger.Completed(1)&&!ledger.TutorialCompleted(BasicId))BeginDemo();
+            if(app.IsTutorialReplay)BeginDemo();else ConfigureOnboarding(level);
         }
         static RectTransform Rect(Transform p,string n,Vector2 a,Vector2 b){var r=new GameObject(n,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=a;r.anchorMax=b;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         bool Ready=>cat!=null&&app!=null&&app.GuideCanInteract&&safe!=null&&safe.rect.width>0&&GameObject.Find("Bottle 1")!=null;
@@ -90,9 +90,9 @@ namespace Mewgic.UI
             try{GameObject.Find("Bottle "+(index+1)).GetComponent<Button>().onClick.Invoke();}finally{driving=false;}
         }
         public bool AllowsBottleTap(int index)=>!isActiveAndEnabled||!demo||(driving&&((State==Phase.SourceClick&&index==Recommended.Source)||(State==Phase.TargetClick&&index==Recommended.Target)));
-        public void Selected(int index){if(driving&&State==Phase.SourceClick&&index==Recommended.Source)sourceSelected=true;}
-        public void SelectionCleared(){}
-        public void MoveFinished(int source,int target){if(demo&&source==Recommended.Source&&target==Recommended.Target&&model.Moves==startMoves+1)transferFinished=true;}
+        public void Selected(int index){if(driving&&State==Phase.SourceClick&&index==Recommended.Source)sourceSelected=true;else onboardingSelected=index;}
+        public void SelectionCleared(){onboardingSelected=-1;}
+        public void MoveFinished(int source,int target){if(demo&&source==Recommended.Source&&target==Recommended.Target&&model.Moves==startMoves+1)transferFinished=true;else CompleteOnboardingMove();}
         // Eski çağrılar aynı küçük balona yönlenir; hiçbir menü/buton oluşturulmaz.
         public void OpenMenu(){if(State==Phase.Thought&&ThoughtVisible)DismissThought();else if(!demo&&Ready)ShowThought(HelpText,Phase.Thought);}
         public void ShowHowToPlay(){OpenMenu();}
@@ -100,7 +100,7 @@ namespace Mewgic.UI
         public void Continue(){OpenMenu();}
         public void OpenBoosterHelp(){if(!demo&&Ready)BoosterHelpRequested?.Invoke();}
         public void SuspendHelp(){Close();}
-        public void ResetGuide(){Close();}
+        public void ResetGuide(){onboardingSelected=-1;lastOnboardingInput=Time.unscaledTime;Close();}
         public bool HandleBack(){if(!Visible)return false;if(State==Phase.Thought||State==Phase.Feature)DismissThought();else Close();return true;}
         public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!Ready||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;ShowThought(string.IsNullOrWhiteSpace(definition.messageKey)?L.V("tutorial.help"):L.V(definition.messageKey),Phase.Feature);if(!string.IsNullOrWhiteSpace(definition.targetName))PointAt(GameObject.Find(definition.targetName)?.GetComponent<RectTransform>());return true;}
         public bool CompleteFeature(string completionKey){if(State!=Phase.Feature||feature==null||completionKey!=feature.completionKey||!ledger.CompleteTutorial(feature.tutorialId))return false;Close();return true;}
@@ -135,6 +135,7 @@ namespace Mewgic.UI
         void ShowThought(string text,Phase phase){State=phase;thoughtClose.interactable=true;message.text=text;thoughtAt=Time.unscaledTime;thoughtClosing=false;fadeStart=thoughtAt;fade.alpha=0;bubble.localScale=Vector3.one*.94f;bubble.gameObject.SetActive(true);}
         public void Close()
         {
+            StopOnboardingVisual();
             if(routine!=null){StopCoroutine(routine);routine=null;}demo=driving=false;if(isActiveAndEnabled&&app!=null)app.UpdateTools();if(thoughtClose!=null)thoughtClose.interactable=false;State=Phase.Closed;feature=null;if(cursor!=null){cursor.gameObject.SetActive(false);cursor.localScale=Vector3.one;cursorArt.Press=0;}
             if(bubble!=null&&bubble.gameObject.activeSelf&&!thoughtClosing){thoughtClosing=true;fadeFrom=fade.alpha;fadeStart=Time.unscaledTime;}
             if(clearDemoStatus&&gameplayStatus!=null){gameplayStatus.text="";clearDemoStatus=false;}
@@ -146,6 +147,7 @@ namespace Mewgic.UI
         void OnDisable(){Close();if(bubble!=null)bubble.gameObject.SetActive(false);if(gameplayStatus!=null)gameplayStatus.enabled=true;}
         void LateUpdate()
         {
+            TickOnboarding();
             if(cat==null){Close();if(gameplayStatus!=null)gameplayStatus.enabled=true;return;}cat.GetWorldCorners(corners);Vector2 min=safe.InverseTransformPoint(corners[0]),max=safe.InverseTransformPoint(corners[2]);hit.anchorMin=hit.anchorMax=new Vector2(.5f,.5f);hit.anchoredPosition=(min+max)*.5f;hit.sizeDelta=max-min;
             if(cursorAtTarget&&cursor.gameObject.activeSelf&&cursorTarget!=null)cursor.anchoredPosition=Point(cursorTarget)+Vector2.down*(7*Mathf.Sin(CursorPress*Mathf.PI));
             if(Visible&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false))HandleBack();

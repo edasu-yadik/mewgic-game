@@ -479,7 +479,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126366
   - m_Id: 3185934387
-    m_Localized: "Neustart um Mitternacht vor Ort \u2022 {0:d}"
+    m_Localized: "Erneuerung in {0}"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366

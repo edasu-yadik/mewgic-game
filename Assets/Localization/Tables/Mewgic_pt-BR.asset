@@ -480,7 +480,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126372
   - m_Id: 3185934387
-    m_Localized: "Reinicia \xE0 meia-noite local \u2022 {0:d}"
+    m_Localized: "Renova em {0}"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372

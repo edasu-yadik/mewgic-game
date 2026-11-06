@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126368
   - m_Id: 3185934387
-    m_Localized: "Yenilenme: yerel gece yar\u0131s\u0131 \u2022 {0:d}"
+    m_Localized: "Yenilenmesine {0}"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368

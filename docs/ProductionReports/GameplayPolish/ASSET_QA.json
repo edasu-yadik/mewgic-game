@@ -1,0 +1,27 @@
+{
+  "file": "Assets/Resources/Daily/QuestIcon_v001.png",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "alphaExtrema": [
+    0,
+    255
+  ],
+  "alphaBounds": [
+    0,
+    41,
+    1240,
+    1254
+  ],
+  "cornerAlpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "sha256": "8827bbfac833ab6d1776cbff864a8a5e89588461f08f0f2b07b5c47d8ed4d25b",
+  "importMaxSize": 512,
+  "method": "Yerlesik image_gen; alpha korunarak projeye kopyalandi"
+}

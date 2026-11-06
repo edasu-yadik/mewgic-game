@@ -478,7 +478,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126369
   - m_Id: 3185934387
-    m_Localized: "Si rinnova a mezzanotte locale \u2022 {0:d}"
+    m_Localized: "Si rinnova tra {0}"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369

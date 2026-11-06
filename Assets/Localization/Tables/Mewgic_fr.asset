@@ -476,7 +476,7 @@ MonoBehaviour:
       m_Items:
       - rid: 1668092879795126365
   - m_Id: 3185934387
-    m_Localized: "R\xE9initialisation \xE0 minuit local \u2022 {0:d}"
+    m_Localized: "Renouvellement dans {0}"
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
