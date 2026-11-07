@@ -51,3 +51,7 @@ Başlangıç dalı `release/0.8.0-rc.1`, başlangıç commit'i `09ba118`. Yerel 
 ## Doğrulama kapsamı
 
 Sahneler, oyun arayüzü ve çalışma zamanı kareleri Editor'de doğrulandı. Su hareketi görsel renk örneklerinden ve shader saatinden denetlendi. Kale, ağaç ve kayalıklar teras çizimiyle birlikte hareket eder. Kenar sisi ve kontroller ekran konumunu korur. Başlık ve alt kontroller oyunun çalışan Unity arayüzüdür. Portre oranları Unity Game View profilleridir. Fiziksel cihazda dokunma, pil/GPU profili ve dağıtım build'i denenmedi. Kapatıp açma kontrolleri ayrı PlayerPrefs anahtarları ve sahne yeniden yüklemesi kullanır. İşletim sistemi sürecini sonlandırıp başlatma senaryosu bu turda uygulanmadı. Kristal dışındaki dünyalar aynı sanat varlıklarını kullanıyor.
+
+## Git teslimi
+
+Uygulama commit'i `2d782fa02155995c65d22fab75b2fd71b9cf3325` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.
