@@ -29,6 +29,7 @@ Shader "Mewgic/ClockworkIslandLayers"
    #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
    #include "UnityCG.cginc"
    #include "UnityUI.cginc"
+   #include "MapMetalPrecision.cginc"
    struct Input{float4 vertex:POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;};
    struct Output{float4 vertex:SV_POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;float4 local:TEXCOORD1;};
    sampler2D _MainTex;fixed4 _Color;float4 _ClipRect;float _EnvironmentTime,_LayerMode;

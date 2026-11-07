@@ -1,0 +1,26 @@
+{
+  "unity": "6000.3.27f2",
+  "platform": "iOS",
+  "platformProfile": true,
+  "version": "0.8.0",
+  "build": "12",
+  "bundle": "com.edasuyadik.mewgic",
+  "team": "VKW7GYV7B9",
+  "minimum": "15.0",
+  "sdk": "DeviceSDK",
+  "backend": "IL2CPP",
+  "architectureSetting": 1,
+  "xcodeConfiguration": "Release",
+  "development": false,
+  "allowDebugging": false,
+  "connectProfiler": false,
+  "automaticSigning": false,
+  "iconSlots": 19,
+  "iconSha": "bcb3f10d1dfbb6d58088b320da1f1780915aa6e154b7aab6e0f95879ae3e0410",
+  "scenes": [
+    "Assets/Scenes/Boot.unity",
+    "Assets/Scenes/Home.unity",
+    "Assets/Scenes/Gameplay.unity",
+    "Assets/Scenes/LevelMap.unity"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "project": "C:/Dev/Mewgic/Builds/iOS/Build12/Unity-iPhone.xcodeproj",
+  "plist": "Info.plist",
+  "version": "0.8.0",
+  "build": "12",
+  "bundleIdentifier": "com.edasuyadik.mewgic",
+  "target": "iphoneos",
+  "architecture": "arm64",
+  "minimumIOS": "15.0",
+  "team": "VKW7GYV7B9",
+  "files": 3215,
+  "bytes": 1523314625,
+  "privacyManifests": [
+    "UnityFramework/PrivacyInfo.xcprivacy"
+  ],
+  "addressablesCatalogs": [
+    "Data/Raw/aa/catalog.bin",
+    "Data/Raw/aa/catalog.hash"
+  ],
+  "metadata": [
+    "Data/Managed/Metadata/global-metadata.dat"
+  ],
+  "marketingIcon": "Unity-iPhone/Images.xcassets/AppIcon.appiconset/Icon-Store-1024.png",
+  "marketingRGBEqual": true,
+  "sourceIconSha256": "bcb3f10d1dfbb6d58088b320da1f1780915aa6e154b7aab6e0f95879ae3e0410",
+  "xcodeIconSha256": "38e28d8976f1b87e20ae53a3064fdc3e205c17485589d30b6b8cc412159270e5",
+  "packedAssets": {
+    "crystal plate": "Assets/Art/Environment/Map/CrystalJourney/Crystal_Reference_91_100.png",
+    "cat rest/wake atlas": "Assets/Art/Environment/Map/CrystalJourney/CrystalCat_RestWake.png",
+    "cat walk atlas": "Assets/Art/Environment/Map/JourneyFoundation/MapCat_Poses.png",
+    "map shader": "Assets/Shaders/MapWaterLight.shader",
+    "daily icon": "Assets/Resources/Daily/QuestIcon_v001.png",
+    "crystal theme": "Assets/Resources/Map/JourneyThemes/crystal.asset"
+  },
+  "il2cppSymbols": {
+    "bottle effects": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp.cpp",
+    "gameplay layout": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp.cpp",
+    "puzzle onboarding": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__2.cpp",
+    "map cat pose": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__3.cpp",
+    "map cat rest": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__3.cpp",
+    "crystal waterfalls": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__3.cpp",
+    "map paws": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__3.cpp",
+    "map saved unlock": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__3.cpp",
+    "daily timer": "Il2CppOutputProject/Source/il2cppOutput/Assembly-CSharp__4.cpp"
+  },
+  "symlinks": [],
+  "macHostIL2CPPTools": [
+    "Il2CppOutputProject/IL2CPP/build/deploy_arm64/il2cpp",
+    "Il2CppOutputProject/IL2CPP/build/deploy_arm64/il2cpp-compile",
+    "Il2CppOutputProject/IL2CPP/build/deploy_x86_64/il2cpp",
+    "Il2CppOutputProject/IL2CPP/build/deploy_x86_64/il2cpp-compile"
+  ],
+  "absoluteXcodeFileReferences": false,
+  "privacyManifestKeys": [
+    "NSPrivacyAccessedAPITypes"
+  ]
+}

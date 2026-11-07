@@ -1,0 +1,49 @@
+{
+  "target": "iOS",
+  "scene": "Assets/Scenes/LevelMap.unity",
+  "dirty": false,
+  "shaders": [
+    {
+      "name": "MapWaterLight",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    },
+    {
+      "name": "AuroraIslandLayers",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    },
+    {
+      "name": "ClockworkIslandLayers",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    },
+    {
+      "name": "CoralIslandLayers",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    },
+    {
+      "name": "FrostIslandLayers",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    },
+    {
+      "name": "LibraryIslandLayers",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    },
+    {
+      "name": "StarlightIslandLayers",
+      "found": true,
+      "hasError": false,
+      "messages": []
+    }
+  ]
+}
