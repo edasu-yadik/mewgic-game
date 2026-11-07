@@ -18,15 +18,29 @@ namespace Mewgic.Map
     {
         public Action UserInput;
         internal int GestureVersion { get; private set; }
+        internal bool Dragging { get; private set; }
 
         public override void OnBeginDrag(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
+                Dragging = true;
                 GestureVersion++;
                 UserInput?.Invoke();
             }
             base.OnBeginDrag(eventData);
+        }
+
+        public override void OnEndDrag(PointerEventData eventData)
+        {
+            base.OnEndDrag(eventData);
+            if (eventData.button == PointerEventData.InputButton.Left) Dragging = false;
+        }
+
+        protected override void OnDisable()
+        {
+            Dragging = false;
+            base.OnDisable();
         }
 
         public override void OnScroll(PointerEventData eventData)

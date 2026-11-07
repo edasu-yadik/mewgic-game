@@ -318,3 +318,5 @@ Harita Git teslimi: 3b9fdc1a07d039cc3070028a5de5c5d966639c23 origin/release/0.8.
 7 Kasım 2026 · Dünya haritası ortak altyapısı. Sabit çevre katmanları, hafif parallax, kaydırılan boyalı taş köprü ve ayrı düğüm cepleri. Kristal Şelaleler pilotunda akış shader'ı, asasız maskotta zemin temaslı yürüyüş ve altın pati izleri. 87 Play Mode kontrolü, üç portre oranı ve 12 dünya sınırı geçti. Console ve C# derlemesi temiz. Dünya bazlı görsel onaylar ve fiziksel cihaz testi açık. Kanıtlar ProductionReports/MapJourneyFoundation altında.
 
 Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120de795536dd1c` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.
+
+7 Kasım 2026 · Kristal Şelaleler 91–100, ekli referans kadrajına göre düzenlendi. Sağ üst saray ve sağ yamaç ağacı, dört kemer, sürekli akan çoklu şelale, boyanmış yol üzerindeki etkileşimli taşlar, 100'de altın taç ve alt solda asasız maskot. Kaydırma bırakılınca onlu teras hizalanıyor. 98 Unity Play Mode kontrolü, üç portre oranı ve dört su bölgesinde kare farkı doğrulandı. Rapor ProductionReports/CrystalFallsReference altında. Fiziksel cihaz testi açık.

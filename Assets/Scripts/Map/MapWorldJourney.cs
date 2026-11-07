@@ -16,6 +16,8 @@ namespace Mewgic.Map
         RectTransform journeyContent;
         RawImage journeyCat;
         Button journeyBack, journeyFocus;
+        RectTransform journeyHeading, journeyFooter;
+        GameObject journeyInstruction, crystalBrand;
         int journeyRegion, firstBound = -1, lastBound = -1;
         float rowHeight, journeyViewportHeight, focusVelocity;
         int journeyFocusSlot = -1;
@@ -56,11 +58,9 @@ namespace Mewgic.Map
             var route = Rect(journeyContent, "StoneRoute", Vector2.zero, Vector2.one);
             journeyRoute = route.gameObject.AddComponent<JourneyRouteGraphic>();
             journeyRoute.raycastTarget = false;
+            BuildCrystalJourney();
             if (useLegacyJourneyArt)
-            {
-                BuildCrystalJourney();
                 BuildThemedJourney();
-            }
             else
             {
                 BuildJourneyCatShadow();
@@ -77,14 +77,23 @@ namespace Mewgic.Map
 
             var heading = Panel(overlay, "JourneyHeading", new Vector2(0, .87f), Vector2.one);
             heading.color = new Color32(238, 215, 255, 255);
+            journeyHeading = heading.rectTransform;
+            var brand = Panel(overlay, "CrystalBrand", new Vector2(.339f, .917f), new Vector2(.659f, .987f));
+            brand.color = new Color32(224, 203, 241, 245);
+            crystalBrand = brand.gameObject;
+            Label(brand.transform, "ChapterTitle", "MEWGIC", 33, new Vector2(.08f, .43f), new Vector2(.92f, .98f));
+            Label(brand.transform, "WorldTitle", L.V("home.nav.map"), 22,
+                new Vector2(.09f, .06f), new Vector2(.91f, .45f));
+            crystalBrand.SetActive(false);
             Art(heading.transform, "GoldEdge", null, Vector2.zero, new Vector2(1, .013f)).color = new Color32(159, 115, 58, 255);
             chapterTitle = Label(heading.transform, "ChapterTitle", "", 36, new Vector2(.04f, .34f), new Vector2(.96f, .95f));
-            Label(heading.transform, "ChapterInstruction", L.V("map.choose"), 24,
-                new Vector2(.05f, .03f), new Vector2(.70f, .35f));
+            journeyInstruction = Label(heading.transform, "ChapterInstruction", L.V("map.choose"), 24,
+                new Vector2(.05f, .03f), new Vector2(.70f, .35f)).gameObject;
             BuildJourneyMotion(heading.rectTransform);
 
             var footer = Panel(overlay, "JourneyFooter", Vector2.zero, new Vector2(1, .105f));
             footer.color = heading.color;
+            journeyFooter = footer.rectTransform;
             journeyBack = Control(footer.transform, "ChapterClose", L.V("map.return"),
                 new Vector2(.07f, .12f), new Vector2(.60f, .88f), CloseJourney);
             journeyFocus = Control(footer.transform, "JourneyFocus", L.V("map.focus"),
@@ -105,6 +114,7 @@ namespace Mewgic.Map
                 return;
 
             journeyFocusSlot = -1;
+            crystalSettleAt = 0;
             journeyRegion = region;
             if (useLegacyJourneyArt) LoadThemedJourney(region);
             SelectedChapter = region * 5 + group;
@@ -117,6 +127,7 @@ namespace Mewgic.Map
 
             chapter.SetActive(true);
             chapter.transform.SetAsLastSibling();
+            LayoutCrystalFrame();
             UnityEngine.Canvas.ForceUpdateCanvases();
             ResizeJourney(false);
             BindJourneyTheme(region);
@@ -139,11 +150,13 @@ namespace Mewgic.Map
         {
             journeyFocusSlot = -1;
             FinishJourney(false);
+            if (HasCrystalComposition) crystalSettleAt = Time.unscaledTime + .24f;
         }
 
         void FocusJourneyCurrent()
         {
             CancelJourneyFocus();
+            crystalSettleAt = 0;
             if (journeyRegion != progression.CurrentRegion)
             {
                 FocusCurrent();
@@ -163,6 +176,7 @@ namespace Mewgic.Map
 
         void AnimateJourneyFocus()
         {
+            SettleCrystalPage();
             if (journeyFocusSlot < 0)
                 return;
             var position = journeyContent.anchoredPosition;
@@ -196,9 +210,9 @@ namespace Mewgic.Map
             float previousViewportHeight = journeyViewportHeight;
             journeyViewportHeight = journeyScroll.viewport.rect.height;
             // Keep one ten-level crystal terrace readable as a complete composition on short phones.
-            float preferredRow = !useLegacyJourneyArt ? width * .17f : HasCrystalArt ? Mathf.Min(width * .15f, journeyViewportHeight / 10f) :
+            float preferredRow = HasCrystalComposition ? journeyViewportHeight / 10f : !useLegacyJourneyArt ? width * .17f : HasCrystalArt ? Mathf.Min(width * .15f, journeyViewportHeight / 10f) :
                 width * (HasThemedArt ? .12f : .193f);
-            rowHeight = Mathf.Max(preferredRow, 56 / Canvas.scaleFactor);
+            rowHeight = HasCrystalComposition ? preferredRow : Mathf.Max(preferredRow, 56 / Canvas.scaleFactor);
             journeyContent.sizeDelta = new Vector2(0, rowHeight * JourneyLevelCount);
             if (keepPosition && oldHeight > 0)
             {
@@ -280,17 +294,21 @@ namespace Mewgic.Map
                     point.regionIndex = journeyRegion;
                     point.slotIndex = slot;
                     var rect = (RectTransform)point.transform;
-                    float lane = useLegacyJourneyArt ? JourneyLane(slot) : JourneyRouteGraphic.NodeLane(slot);
-                    rect.anchoredPosition = new Vector2(width * lane, -(slot + .5f) * rowHeight);
+                    rect.anchoredPosition = JourneyNodePosition(slot);
                     bool milestone = slot == JourneyLevelCount - 1;
                     float stoneWidth = !useLegacyJourneyArt ? width * (milestone ? .16f : .135f) : HasPaintedJourney ? width * (milestone ? .205f : .145f) : 156;
                     float stoneHeight = !useLegacyJourneyArt ? rowHeight * .57f : HasPaintedJourney ? rowHeight * (milestone ? .88f : .72f) : 110;
+                    if (HasCrystalComposition)
+                    {
+                        stoneWidth = width * (milestone ? .177f : .146f);
+                        stoneHeight = rowHeight * (milestone ? .64f : .57f);
+                    }
                     rect.sizeDelta = new Vector2(Mathf.Max(stoneWidth, 48 / Canvas.scaleFactor),
                         Mathf.Max(stoneHeight, 48 / Canvas.scaleFactor));
                     int id = progression.LevelId(journeyRegion, slot);
                     var status = JourneyLockPending(id) ? MapLevelStatus.Locked : progression.Status(id);
                     point.GetComponent<MapNodeBadge>().PresentJourney(id, status, progression.Stars(id),
-                        animateEnvironment && !reducedJourneyMotion, milestone);
+                        animateEnvironment && !reducedJourneyMotion, milestone, HasCrystalComposition);
                 }
 
                 point.gameObject.SetActive(true);
@@ -317,7 +335,12 @@ namespace Mewgic.Map
 
             float top = journeyContent.anchoredPosition.y;
             float viewportHeight = journeyScroll.viewport.rect.height;
-            if (slot * rowHeight < top || (slot + 1) * rowHeight > top + viewportHeight)
+            bool outside = HasCrystalComposition
+                ? slot < firstBound || slot > lastBound ||
+                    -JourneyNodePosition(slot).y < top + rowHeight * .4f ||
+                    -JourneyNodePosition(slot).y > top + viewportHeight - rowHeight * .4f
+                : slot * rowHeight < top || (slot + 1) * rowHeight > top + viewportHeight;
+            if (outside)
                 JumpToJourneySlot(slot);
             chapterNodes[slot % chapterNodes.Count].GetComponent<Button>().Select();
         }

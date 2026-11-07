@@ -14,6 +14,9 @@ public static class MapFlowValidation
     [MenuItem("Mewgic/Map Flow/Run Journey Foundation QA")]
     public static void RunFoundation() => MapFlowProbe.Begin("docs/ProductionReports/MapJourneyFoundation");
 
+    [MenuItem("Mewgic/Map Flow/Run Crystal Falls QA")]
+    public static void RunCrystal() => MapFlowProbe.Begin("docs/ProductionReports/CrystalFallsReference");
+
     [MenuItem("Mewgic/Map Flow/Validate Save Model")]
     public static void Models()
     {

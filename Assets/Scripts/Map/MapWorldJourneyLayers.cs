@@ -75,7 +75,9 @@ namespace Mewgic.Map
         {
             if (useLegacyJourneyArt) return;
             journeyTheme = Resources.Load<MapJourneyTheme>("Map/JourneyThemes/" + progression.Region(region).key);
-            journeyBackplate.texture = journeyTheme != null ? journeyTheme.background : null;
+            journeyBackplate.transform.parent.gameObject.SetActive(!HasCrystalComposition);
+            journeyForeground.transform.parent.gameObject.SetActive(!HasCrystalComposition);
+            journeyBackplate.texture = journeyTheme != null && !HasCrystalComposition ? journeyTheme.background : null;
             journeyBackplate.enabled = journeyBackplate.texture != null;
             journeyForeground.sprite = journeyTheme != null ? journeyTheme.foreground : null;
             journeyForeground.enabled = journeyForeground.sprite != null;
@@ -88,7 +90,7 @@ namespace Mewgic.Map
 
         void UpdateJourneyDepth()
         {
-            if (useLegacyJourneyArt || journeyBackplate == null) return;
+            if (useLegacyJourneyArt || HasCrystalComposition || journeyBackplate == null) return;
             bool motion = animateEnvironment && !reducedJourneyMotion;
             float offset = motion ? 2 * (1 - journeyScroll.verticalNormalizedPosition) - 1 : 0;
             // A bounded offset keeps the composition anchored even across all 50 levels.

@@ -131,11 +131,12 @@ namespace Mewgic
             var cat = GameObject.Find("WizardCatGuide").GetComponent<RectTransform>();
             var catView = cat.GetComponent<JourneyCatImage>();
             var contact = GameObject.Find("JourneyCatContact").GetComponent<RectTransform>();
-            var backplate = GameObject.Find("JourneyBackplate").GetComponent<RawImage>();
+            var backplate = GameObject.Find("CrystalTerrace_5").GetComponent<RawImage>();
             var water = backplate.material;
             float waterClock = water.GetFloat("_EnvironmentTime");
-            Check(backplate.texture.name == "Crystal_Backplate_Pilot" && water.IsKeywordEnabled("MEWGIC_JOURNEY_PLATE") &&
-                water.GetFloat("_JourneyWater") > 0 && !ShaderUtil.ShaderHasError(water.shader), "Kristal pilotu ve akış shader'ı etkin");
+            Check(backplate.texture.name == "Crystal_Reference_91_100" &&
+                water.IsKeywordEnabled("MEWGIC_CRYSTAL_REFERENCE") && !ShaderUtil.ShaderHasError(water.shader),
+                "Kristal referans görseli ve katmanlı şelale shader'ı etkin");
             Vector2 before = cat.anchoredPosition;
             yield return new WaitForSecondsRealtime(.72f);
             Check(Vector2.Distance(before, cat.anchoredPosition) > 5, "Maskot rota boyunca ilerliyor");
@@ -157,17 +158,25 @@ namespace Mewgic
             Check(catView.PoseIndex == 0 && Vector2.Distance(cat.anchoredPosition, contact.anchoredPosition) < .01f,
                 "Maskot yerde oturma pozuna dönüyor");
             var scroll = viewport.GetComponent<ScrollRect>();
-            var closeArt = GameObject.Find("JourneyNearCrystals").GetComponent<RectTransform>();
-            Check(!backplate.transform.IsChildOf(scroll.content) && !closeArt.IsChildOf(scroll.content), "Dış çevre ve ön plan kaydırılan yolun dışında");
-            var backBefore = backplate.rectTransform.anchoredPosition;
-            var frontBefore = closeArt.anchoredPosition;
+            Check(backplate.transform.IsChildOf(scroll.content) && GameObject.Find("StoneRoute") == null &&
+                Node(91).transform.position.x < Node(92).transform.position.x &&
+                Node(93).transform.position.x < Node(94).transform.position.x &&
+                Node(97).transform.position.x < Node(98).transform.position.x, "Kristal taşları, çizilmiş köprüler ve maskot aynı sayfada");
             var routeBefore = scroll.content.anchoredPosition;
-            scroll.verticalNormalizedPosition = .80f;
+            scroll.verticalNormalizedPosition = .38f;
             yield return null; yield return null;
             Check(Vector2.Distance(scroll.content.anchoredPosition, routeBefore) > 500 &&
-                Vector2.Distance(backplate.rectTransform.anchoredPosition, backBefore) <= 14.01f &&
-                Vector2.Distance(closeArt.anchoredPosition, frontBefore) <= 36.01f, "Yol kayarken yakın ve uzak katmanların parallax farkı sınırlı");
-            yield return Shot("06-Scroll-Anchored");
+                GameObject.Find("CrystalBrand") != null, "Kristal rotası kayarken başlık viewport üzerinde sabit");
+            ((MapScrollRect)scroll).UserInput.Invoke();
+            yield return new WaitForSecondsRealtime(1f);
+            Check(Mathf.Abs(scroll.content.anchoredPosition.y / viewport.rect.height - 2) < .01f,
+                "Kaydırma bırakılınca en yakın teras kadraja yerleşir");
+            var headingBounds = new Vector3[4];
+            GameObject.Find("JourneyHeading").GetComponent<RectTransform>().GetWorldCorners(headingBounds);
+            Check(Node(71).transform.position.y < headingBounds[0].y &&
+                Node(80).transform.position.y > GameObject.Find("ChapterClose").transform.position.y,
+                "Önceki terasın ilk ve son taşı sabit kontrollerin arasında");
+            yield return Shot("06-Scroll-Settled");
             Reopen(); yield return Reload();
             Check(!Map.JourneyRunning && Node(92).Status == MapLevelStatus.Current, "İkinci giriş: running=" + Map.JourneyRunning + " status=" + Node(92).Status + " current=" + Map.Progression.CurrentId + " pending=" + Ledger.MapJourney.Pending);
             Ledger.Claim(91, 3, true, out _); yield return Reload();
@@ -190,7 +199,28 @@ namespace Mewgic
             GameObject.Find("TapToSkipJourney").GetComponent<Button>().onClick.Invoke();
             Check(!Map.JourneyRunning && Node(100).Status == MapLevelStatus.Current && Ledger.MapJourney.lastShownLevel == 100,
                 "Ekrana dokunma atlar, hedefe odaklar ve bir kez kaydeder");
+            var endCat = GameObject.Find("WizardCatGuide").GetComponent<JourneyCatImage>();
+            Check(endCat.PoseIndex == 0 && endCat.transform.position.x < Node(100).transform.position.x,
+                "100 açıldığında asasız maskot alt sol kaya üzerinde oturur");
             yield return Shot("03-Crystal-100");
+            yield return new WaitForSecondsRealtime(.4f);
+            yield return Shot("08-Water-Later");
+            Bind(Data(98)); Ledger.Claim(99, 3, true, out _); yield return Reload();
+            yield return new WaitForSecondsRealtime(1.1f);
+            Check(GameObject.Find("GoldenPawTrail").GetComponent<JourneyPawTrail>().canvasRenderer.GetMesh().vertexCount > 0,
+                "99 → 100 alt kıvrımında pati izleri çiziliyor");
+            yield return Shot("07-Walk-99-100");
+            yield return new WaitForSecondsRealtime(1.4f);
+            Check(Node(100).Status == MapLevelStatus.Current && Ledger.MapJourney.lastShownLevel == 100,
+                "99 → 100 yürüyüşü tamamlandığında hedef yalnızca bir kez kaydedilir");
+
+            Bind(Data(89)); Ledger.Claim(90, 3, true, out _); yield return Reload();
+            Check(Map.JourneyTarget == 91, "90 → 91 önceki terastan başlar");
+            yield return new WaitForSecondsRealtime(2.4f);
+            var crystalScroll = GameObject.Find("JourneyScroll").GetComponent<ScrollRect>();
+            Check(Node(91).Status == MapLevelStatus.Current && !Map.JourneyRunning &&
+                Mathf.Abs(crystalScroll.content.anchoredPosition.y / crystalScroll.viewport.rect.height - 4) < .01f,
+                "90 → 91 sonunda referans terası tam kadraja gelir");
 
             foreach (int boundary in Enumerable.Range(1, 12).Select(index => index * 50))
             {
@@ -204,7 +234,12 @@ namespace Mewgic
                 var targetViewport = GameObject.Find("JourneyScroll").GetComponent<RectTransform>();
                 Check(targetViewport.InverseTransformPoint(catBounds[1]).y <= targetViewport.rect.yMax + 1,
                     (boundary + 1) + " ilk bölümünde kedinin şapkası görünür");
-                if (boundary == 100 || boundary == 600) yield return Shot("05-Island-" + (boundary + 1));
+                if (boundary == 100 || boundary == 600)
+                {
+                    Check(GameObject.Find("CrystalBrand") == null && GameObject.Find("StoneRoute") != null &&
+                        GameObject.Find("JourneyNearCrystals") != null, "Kristal dışındaki dünya ortak katman ve kontrol düzenini koruyor");
+                    yield return Shot("05-Island-" + (boundary + 1));
+                }
             }
             Bind(Data(98)); Ledger.Claim(99, 2, true, out _); Ledger.Claim(100, 3, true, out _); Reopen(); yield return Reload();
             Check(Map.JourneyTarget == 101 && Ledger.MapJourney.pendingFrom == 99, "Ardışık Next kazanışları tek kısa yolculukta birleşiyor");

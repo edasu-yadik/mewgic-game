@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: crystal
   m_EditorClassIdentifier: Assembly-CSharp::Mewgic.Map.MapJourneyTheme
   background: {fileID: 2800000, guid: ab7f0267acc140d498855b112c1ac2f8, type: 3}
+  referenceTerrace: {fileID: 2800000, guid: c76bf9e27382448796cbd2c71ad8c750, type: 3}
   foreground: {fileID: 0}
   flowingWater: 1
   paving: {r: 0.69803923, g: 0.5411765, b: 0.627451, a: 1}

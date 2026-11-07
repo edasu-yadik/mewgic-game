@@ -7,6 +7,7 @@ namespace Mewgic.Map
     {
         public Texture2D background;
         public Sprite foreground;
+        public Texture2D referenceTerrace;
         public Texture2D pavingTexture;
         public bool flowingWater;
         public Color paving = new Color32(178, 138, 160, 255);

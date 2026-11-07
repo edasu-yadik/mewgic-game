@@ -1,0 +1,60 @@
+{
+  "success": true,
+  "frames": [
+    "03-Crystal-100.png",
+    "08-Water-Later.png"
+  ],
+  "delay_seconds": 0.4,
+  "regions": {
+    "sag_ust_selale": {
+      "bounds_px": [
+        801,
+        288,
+        837,
+        352
+      ],
+      "mean_abs_rgb": 4.413,
+      "share_channels_changed_8_plus": 0.1442
+    },
+    "sol_yamac_selalesi": {
+      "bounds_px": [
+        32,
+        584,
+        81,
+        715
+      ],
+      "mean_abs_rgb": 7.733,
+      "share_channels_changed_8_plus": 0.2474
+    },
+    "kemer_alti_selale": {
+      "bounds_px": [
+        405,
+        651,
+        468,
+        702
+      ],
+      "mean_abs_rgb": 17.075,
+      "share_channels_changed_8_plus": 0.5185
+    },
+    "sag_alt_selale": {
+      "bounds_px": [
+        878,
+        1307,
+        896,
+        1371
+      ],
+      "mean_abs_rgb": 12.103,
+      "share_channels_changed_8_plus": 0.489
+    },
+    "tas_yol_kontrol": {
+      "bounds_px": [
+        405,
+        379,
+        459,
+        400
+      ],
+      "mean_abs_rgb": 0.185,
+      "share_channels_changed_8_plus": 0.0
+    }
+  }
+}

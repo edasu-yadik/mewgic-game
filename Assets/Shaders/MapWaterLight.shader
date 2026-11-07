@@ -30,7 +30,7 @@ Shader "Mewgic/MapWaterLight"
             #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
             #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW
             #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW_LITE
-            #pragma multi_compile_local _ MEWGIC_JOURNEY_PLATE MEWGIC_JOURNEY_CAT MEWGIC_JOURNEY_STONE
+            #pragma multi_compile_local _ MEWGIC_JOURNEY_PLATE MEWGIC_JOURNEY_CAT MEWGIC_JOURNEY_STONE MEWGIC_CRYSTAL_REFERENCE
             #include "UnityCG.cginc"
             #include "UnityUI.cginc"
             struct Input{float4 vertex:POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;};
@@ -47,7 +47,18 @@ Shader "Mewgic/MapWaterLight"
                 half window=saturate((c.r-c.b-.25)*3)*smoothstep(.6,1,c.r);
                 c.rgb+=water*sin(i.uv.y*250+_EnvironmentTime*1.8+sin(i.uv.x*60))*half3(.008,.014,.018);
                 c.rgb*=1+window*sin(_EnvironmentTime*1.1+i.uv.x*31+i.uv.y*17)*.012;
-                #ifdef MEWGIC_JOURNEY_PLATE
+                #ifdef MEWGIC_CRYSTAL_REFERENCE
+                half cascade=smoothstep(.035,.24,min(c.g,c.b)-c.r)*smoothstep(.22,.63,c.g);
+                float basin=(1-smoothstep(.086,.134,i.uv.y))*smoothstep(.52,.68,i.uv.x);
+                float fallPhase=i.uv.y*175+_EnvironmentTime*11.5+sin(i.uv.x*112)*1.7;
+                float poolPhase=i.uv.x*107+i.uv.y*74-_EnvironmentTime*5.2;
+                float flowPhase=lerp(fallPhase,poolPhase,basin);
+                float2 waterOffset=lerp(float2(.0009*sin(fallPhase*.51),.006*sin(fallPhase*.57)),
+                    float2(.004*sin(poolPhase),.0011*sin(poolPhase*.61)),basin);
+                fixed3 current=tex2D(_MainTex,i.uv+waterOffset*cascade).rgb;
+                half flash=smoothstep(.10,.93,sin(flowPhase)*.64+sin(flowPhase*.53)*.36);
+                c.rgb=lerp(c.rgb,current,cascade*.68)+cascade*(flash-.21)*half3(.14,.22,.25);
+                #elif defined(MEWGIC_JOURNEY_PLATE)
                 half plateCyan=smoothstep(.08,.31,min(c.g,c.b)-c.r)*smoothstep(.29,.69,c.g)*_JourneyWater;
                 float pool=1-smoothstep(.105,.20,i.uv.y);
                 float vertical=i.uv.y*192+i.uv.x*18+_EnvironmentTime*8.4;

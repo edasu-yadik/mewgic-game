@@ -234,6 +234,15 @@ namespace Mewgic.Map
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class JourneyStoneRing : MaskableGraphic
     {
+        bool crystalGold;
+
+        public void SetCrystalGold(bool value)
+        {
+            if (crystalGold == value) return;
+            crystalGold = value;
+            SetVerticesDirty();
+        }
+
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
             mesh.Clear();
@@ -243,9 +252,11 @@ namespace Mewgic.Map
             {
                 Vector2 edge = Vector2.Scale(outline[i], size);
                 mesh.AddVert(edge * .85f, new Color32(148, 67, 240, 0), Vector2.zero);
-                mesh.AddVert(edge * .98f, new Color32(255, 216, 117, 245), Vector2.zero);
-                mesh.AddVert(edge * 1.035f, new Color32(190, 98, 247, 168), Vector2.zero);
-                mesh.AddVert(edge * 1.115f, new Color32(175, 76, 242, 0), Vector2.zero);
+                mesh.AddVert(edge * .98f, crystalGold ? new Color32(255, 242, 158, 255) : new Color32(255, 216, 117, 245), Vector2.zero);
+                mesh.AddVert(edge * (crystalGold ? 1.10f : 1.035f),
+                    crystalGold ? new Color32(255, 168, 49, 210) : new Color32(190, 98, 247, 168), Vector2.zero);
+                mesh.AddVert(edge * (crystalGold ? 1.36f : 1.115f),
+                    crystalGold ? new Color32(255, 190, 85, 0) : new Color32(175, 76, 242, 0), Vector2.zero);
             }
 
             for (int i = 0; i < outline.Length; i++)
@@ -258,6 +269,25 @@ namespace Mewgic.Map
                     mesh.AddTriangle(next + band, start + band + 1, next + band + 1);
                 }
             }
+
+            if (crystalGold)
+            {
+                CrestDiamond(mesh, new Vector2(0, size.y * .57f), new Vector2(11, 18));
+                CrestDiamond(mesh, new Vector2(-16, size.y * .51f), new Vector2(6, 9));
+                CrestDiamond(mesh, new Vector2(16, size.y * .51f), new Vector2(6, 9));
+            }
+        }
+
+        static void CrestDiamond(VertexHelper mesh, Vector2 center, Vector2 radius)
+        {
+            int index = mesh.currentVertCount;
+            mesh.AddVert(center, new Color32(255, 246, 185, 255), Vector2.zero);
+            mesh.AddVert(center + Vector2.up * radius.y, new Color32(255, 227, 140, 255), Vector2.zero);
+            mesh.AddVert(center + Vector2.right * radius.x, new Color32(255, 174, 51, 240), Vector2.zero);
+            mesh.AddVert(center - Vector2.up * radius.y, new Color32(210, 107, 32, 240), Vector2.zero);
+            mesh.AddVert(center - Vector2.right * radius.x, new Color32(255, 196, 76, 240), Vector2.zero);
+            for (int i = 0; i < 4; i++)
+                mesh.AddTriangle(index, index + 1 + i, index + 1 + (i + 1) % 4);
         }
     }
 }

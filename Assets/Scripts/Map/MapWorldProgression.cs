@@ -29,7 +29,7 @@ namespace Mewgic.Map
   }
   public void Present(int id,MapLevelStatus status,int count){Status=status;Stars=count;current=status==MapLevelStatus.Current;bool closed=status==MapLevelStatus.Locked||status==MapLevelStatus.Unavailable;number.text=id>0?id.ToString():"…";number.rectTransform.anchoredPosition=closed?new Vector2(0,-16):new Vector2(0,1);number.fontSize=closed?23:40;locked.gameObject.SetActive(closed);halo.gameObject.SetActive(current);arrow.gameObject.SetActive(current);art.color=closed?new Color(.48f,.32f,.64f,1):status==MapLevelStatus.Completed?new Color(.40f,1,.50f,1):Color.white;
    for(int i=0;i<3;i++){stars[i].gameObject.SetActive(!closed);stars[i].color=i<count?Color.white:new Color(.25f,.22f,.35f,.75f);} }
-  public void PresentJourney(int id,MapLevelStatus status,int count,bool animate,bool milestone)
+  public void PresentJourney(int id,MapLevelStatus status,int count,bool animate,bool milestone,bool crystal=false)
   {
    Present(id,status,count);
    animateBadge=animate;
@@ -71,6 +71,8 @@ namespace Mewgic.Map
    var size=((RectTransform)transform).rect.size;
    arrowHeight=size.y*.49f+12;
    arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight);
+   stoneLight.SetCrystalGold(crystal && milestone && !closed);
+   if (crystal && milestone) arrow.gameObject.SetActive(false);
    stoneLight.gameObject.SetActive(current||milestone&&!closed);
    if(stoneLight.gameObject.activeSelf)stoneLight.canvasRenderer.SetAlpha(current?.92f:.48f);
    stone.color=closed?new Color32(123,108,146,255):

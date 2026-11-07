@@ -124,7 +124,7 @@ namespace Mewgic.Map
             journeySkip.transform.SetAsLastSibling();
             journeyArrived = false;
             bool simple = reducedJourneyMotion || !animateEnvironment;
-            journeyCrossed = simple || (fromRegion == toRegion && Mathf.Abs(toSlot - fromSlot) <= 3);
+            journeyCrossed = simple || !JourneyCuts;
             int region = simple ? toRegion : fromRegion;
             int slot = simple ? toSlot : fromSlot;
             FocusRegion(toRegion, false);
@@ -139,6 +139,9 @@ namespace Mewgic.Map
             pawTrail.gameObject.SetActive(!simple);
             pawTrail.Clear();
         }
+
+        bool JourneyCuts => fromRegion != toRegion || Mathf.Abs(toSlot - fromSlot) > 3 ||
+            (crystalReference != null && fromRegion == CrystalRegion && fromSlot / 10 != toSlot / 10);
 
         bool JourneyLockPending(int level) => journeyRunning && !journeyArrived && level > fromLevel && level <= toLevel;
 
@@ -193,7 +196,7 @@ namespace Mewgic.Map
             }
 
             bool crossing = fromRegion != toRegion;
-            bool cut = crossing || Mathf.Abs(toSlot - fromSlot) > 3;
+            bool cut = JourneyCuts;
             if (cut)
             {
                 float veil = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(ArrivalTime * .28f, ArrivalTime * .48f, journeyClock)) *
@@ -223,6 +226,7 @@ namespace Mewgic.Map
                 if (journeyCrossed)
                 {
                     start = Mathf.Max(-.45f, end - .85f);
+                    if (HasCrystalComposition) start = Mathf.Max(toSlot / 10 * 10, start);
                     walk = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(CrossingTime, ArrivalTime, journeyClock));
                 }
                 else
@@ -233,11 +237,13 @@ namespace Mewgic.Map
             }
 
             float position = Mathf.Lerp(start, end, walk);
+            if (!journeyArrived && !cut && HasCrystalComposition && toSlot == 49 && position >= 49)
+                RevealJourney();
             Vector2 feet = RoutePosition(position);
             Vector2 tangent = RoutePosition(position + .02f) - RoutePosition(position - .02f);
             if (Mathf.Abs(tangent.x) > .25f) catFacing = tangent.x > 0 ? 1 : -1;
-            bool walking = !journeyArrived && journeyClock > WalkStart;
-            float stride = Mathf.Abs(position - start) * 7;
+            bool walking = journeyClock < ArrivalTime && journeyClock > WalkStart;
+            float stride = Mathf.Abs(position - start) * (HasCrystalComposition ? 9 : 7);
             PoseCat(feet, walking, stride);
 
             float desired = ScrollForSlot(position);
@@ -297,13 +303,15 @@ namespace Mewgic.Map
                 Vector2 side = Vector2.Perpendicular(tangent.normalized);
                 float alpha = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(t, t + .07f, progress)) * (1 - arrival);
                 pawTrail.Set(i, point + side * (i % 2 == 0 ? 7 : -7), tangent,
-                    journeyScroll.viewport.rect.width * .021f, alpha);
+                    journeyScroll.viewport.rect.width * (HasCrystalComposition ? .026f : .021f), alpha);
             }
             pawTrail.Render(count);
         }
 
-        float ScrollForSlot(float slot) => Mathf.Clamp((slot + .5f) * rowHeight - journeyScroll.viewport.rect.height * .5f,
-            0, Mathf.Max(0, journeyContent.rect.height - journeyScroll.viewport.rect.height));
+        float ScrollForSlot(float slot) => HasCrystalComposition
+            ? Mathf.Clamp(Mathf.Floor((slot + .01f) / 10), 0, 4) * rowHeight * 10
+            : Mathf.Clamp((slot + .5f) * rowHeight - journeyScroll.viewport.rect.height * .5f,
+                0, Mathf.Max(0, journeyContent.rect.height - journeyScroll.viewport.rect.height));
 
         bool InJourneyView(float y)
         {
@@ -322,8 +330,7 @@ namespace Mewgic.Map
                 if (journeyArrived)
                 {
                     float angle = i * (Mathf.PI * 2 / activeJourneyLights) + arrival * 3.8f;
-                    Vector2 center = RoutePosition(toSlot);
-                    if (!useLegacyJourneyArt) center.x = journeyScroll.viewport.rect.width * JourneyRouteGraphic.NodeLane(toSlot);
+                    Vector2 center = JourneyNodePosition(toSlot);
                     float radius = journeyScroll.viewport.rect.width * (toLevel == 100 ? .103f : .085f);
                     light.rectTransform.anchoredPosition = center + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle) * .68f) * radius;
                     light.canvasRenderer.SetAlpha(InJourneyView(center.y) ? Mathf.Sin(arrival * Mathf.PI) * .84f : 0);
@@ -341,6 +348,7 @@ namespace Mewgic.Map
 
         Vector2 RoutePosition(float slot)
         {
+            if (HasCrystalComposition) return CrystalRoutePosition(slot);
             if (!useLegacyJourneyArt)
                 return new Vector2(JourneyRouteGraphic.FoundationLane(slot) * journeyScroll.viewport.rect.width, -(slot + .5f) * rowHeight);
             int a = Mathf.Clamp(Mathf.FloorToInt(slot), 0, JourneyLevelCount - 2);
@@ -363,7 +371,8 @@ namespace Mewgic.Map
         static readonly float[] CrystalFinalBends = { .58f, .72f, .42f, .22f, .40f, .43f, .69f, .62f, .43f };
 
         // The first node sits against the upper scroll limit. Leave room for the cat's hat.
-        float RestSlot(int slot) => !useLegacyJourneyArt && slot == 0 ? .70f : slot + .22f;
+        float RestSlot(int slot) => HasCrystalComposition && slot == 49 ? 49.85f :
+            !useLegacyJourneyArt && slot == 0 ? .70f : slot + .22f;
         Vector2 CatRest(int slot) => RoutePosition(RestSlot(slot));
 
         void PlaceRestingCat()
@@ -383,6 +392,8 @@ namespace Mewgic.Map
             journeyCat.enabled = true;
             float width = journeyScroll.viewport.rect.width;
             float height = Mathf.Min(width * .205f, rowHeight * 1.15f);
+            if (HasCrystalComposition && feet.y < -40 * rowHeight)
+                height = Mathf.Lerp(width * .16f, width * .276f, Mathf.InverseLerp(.25f, .85f, (-feet.y / rowHeight - 40) / 10));
             int pose = walking ? 1 + Mathf.FloorToInt(stride) % 2 : 0;
             float aspect = catImage.ShowPose(journeyCatPoses != null, pose);
             var rect = journeyCat.rectTransform;
