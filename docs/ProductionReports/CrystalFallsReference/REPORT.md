@@ -30,3 +30,7 @@ Unity 6000.3.27f2 üzerinde 98 Play Mode kontrolü geçti. 90 → 91 ve 99 → 1
 - 0,4 saniye arayla alınan aynı kadrajda sağ üst, sol yamaç, kemer altı ve sağ alt şelaleleri değişirken taş yol örneği sabit kaldı. [İkinci su karesi](08-Water-Later.png), [piksel karşılaştırması](WATER_CHECK.json).
 - [Play Mode sonucu](UNITY_TESTS.json), [Console](CONSOLE.json), [görsel üretim istemi](PROMPT.md).
 - Menü ve düğümler mevcut Unity arayüzü üzerinden çalışır. Bu yüzden referanstaki etiket ve süsler yerine oyunun işlevsel kontrolleri görünür. Fiziksel cihaz testi yapılmadı.
+
+## Git teslimi
+
+Uygulama commit'i `c1022f323b831c5b8f1a6eb8547ccd5658d9ba91` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.
