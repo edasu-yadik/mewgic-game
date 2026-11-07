@@ -44,6 +44,7 @@ namespace Mewgic
         TMP_Text status;
         Mewgic.UI.PawGuide pawGuide;
         public bool GuideCanInteract=>!busy&&!paused&&!navigating&&puzzle!=null&&!puzzle.Won;
+        internal int GuideSelectedBottle => selected;
         Button undo, restart, home;
         RectTransform[] bottleViews;
         string victoryReceipt=Guid.NewGuid().ToString("N");
@@ -276,10 +277,10 @@ namespace Mewgic
         {
             if(busy||paused||puzzle.Won||navigating)return;
             if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
-            pawGuide?.PlayerInteracted(target);
+            pawGuide?.PlayerInteracted();
             hintTarget=-1;feedbackUntil=0;
             if(selected<0){if(puzzle.Bottle(target).Count==0){GameFeel.Play(GameCue.Invalid);Feedback(L.V("gameplay.empty"));return;}selected=target;status.text="";Refresh();pawGuide?.Selected(target);return;}
-            if(selected==target){selected=-1;status.text="";Refresh();pawGuide?.SelectionCleared();return;}
+            if(selected==target){selected=-1;status.text="";Refresh();return;}
             int source=selected;
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);

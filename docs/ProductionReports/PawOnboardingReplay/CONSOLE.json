@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "command": "command",
+  "data": {
+    "command": "console status",
+    "parameters": {},
+    "result": {
+      "entries": [],
+      "cursor": 0,
+      "session": "8e3754cd68974b73a80c0deb3e5a19fc",
+      "returned": 0,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 0,
+        "warn": 0,
+        "log": 0
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-11-07T06:28:32.8396883Z",
+        "ageMs": 43,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 0,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

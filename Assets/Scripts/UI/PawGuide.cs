@@ -90,9 +90,8 @@ namespace Mewgic.UI
             try{GameObject.Find("Bottle "+(index+1)).GetComponent<Button>().onClick.Invoke();}finally{driving=false;}
         }
         public bool AllowsBottleTap(int index)=>!isActiveAndEnabled||!demo||(driving&&((State==Phase.SourceClick&&index==Recommended.Source)||(State==Phase.TargetClick&&index==Recommended.Target)));
-        public void Selected(int index){if(driving&&State==Phase.SourceClick&&index==Recommended.Source)sourceSelected=true;else onboardingSelected=index;}
-        public void SelectionCleared(){onboardingSelected=-1;}
-        public void MoveFinished(int source,int target){if(demo&&source==Recommended.Source&&target==Recommended.Target&&model.Moves==startMoves+1)transferFinished=true;else CompleteOnboardingMove();}
+        public void Selected(int index){if(driving&&State==Phase.SourceClick&&index==Recommended.Source)sourceSelected=true;}
+        public void MoveFinished(int source,int target){if(demo&&source==Recommended.Source&&target==Recommended.Target&&model.Moves==startMoves+1)transferFinished=true;else OnboardingMoveFinished();}
         // Eski çağrılar aynı küçük balona yönlenir; hiçbir menü/buton oluşturulmaz.
         public void OpenMenu(){if(State==Phase.Thought&&ThoughtVisible)DismissThought();else if(!demo&&Ready)ShowThought(HelpText,Phase.Thought);}
         public void ShowHowToPlay(){OpenMenu();}
@@ -100,7 +99,7 @@ namespace Mewgic.UI
         public void Continue(){OpenMenu();}
         public void OpenBoosterHelp(){if(!demo&&Ready)BoosterHelpRequested?.Invoke();}
         public void SuspendHelp(){Close();}
-        public void ResetGuide(){onboardingSelected=-1;lastOnboardingInput=Time.unscaledTime;Close();}
+        public void ResetGuide(){lastOnboardingInput=Time.unscaledTime;Close();}
         public bool HandleBack(){if(!Visible)return false;if(State==Phase.Thought||State==Phase.Feature)DismissThought();else Close();return true;}
         public bool TryStartFeature(PawTutorialDefinition definition,bool conditionMet){if(definition==null||string.IsNullOrWhiteSpace(definition.tutorialId)||!conditionMet||Visible||!Ready||ledger.TutorialCompleted(definition.tutorialId))return false;feature=definition;ShowThought(string.IsNullOrWhiteSpace(definition.messageKey)?L.V("tutorial.help"):L.V(definition.messageKey),Phase.Feature);if(!string.IsNullOrWhiteSpace(definition.targetName))PointAt(GameObject.Find(definition.targetName)?.GetComponent<RectTransform>());return true;}
         public bool CompleteFeature(string completionKey){if(State!=Phase.Feature||feature==null||completionKey!=feature.completionKey||!ledger.CompleteTutorial(feature.tutorialId))return false;Close();return true;}

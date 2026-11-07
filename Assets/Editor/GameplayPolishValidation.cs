@@ -15,6 +15,9 @@ public static class GameplayPolishValidation
     [MenuItem("Mewgic/Gameplay Polish/Run Isolated Play Mode QA")]
     public static void Run() => GameplayPolishProbe.Begin();
 
+    [MenuItem("Mewgic/Gameplay Polish/Run Paw Replay QA")]
+    public static void PawReplay() => GameplayPolishProbe.Begin(onboardingOnly: true);
+
     public static void UpdateCountdownTranslations()
     {
         var row = Part12CLocalization.Source().Single(item => item.key == "daily.reset");

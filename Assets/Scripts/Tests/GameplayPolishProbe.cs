@@ -22,6 +22,9 @@ namespace Mewgic
     public sealed class GameplayPolishProbe : MonoBehaviour
     {
         const string Output = "docs/ProductionReports/GameplayPolish";
+        const string OnboardingOutput = "docs/ProductionReports/PawOnboardingReplay";
+        [SerializeField] bool onboardingOnly;
+        string OutputFolder => onboardingOnly ? OnboardingOutput : Output;
         static GameplayPolishProbe active;
         readonly List<string> checks = new List<string>(), errors = new List<string>();
         DateTimeOffset now = new DateTimeOffset(2026, 11, 6, 12, 0, 0, TimeSpan.FromHours(2));
@@ -31,7 +34,7 @@ namespace Mewgic
         Puzzle Model => (Puzzle)typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(App);
         ProgressLedger Ledger => GameplayProgress.Current;
         void Check(bool okay, string message) { if (!okay) throw new Exception(message); checks.Add(message); }
-        public static void Begin()
+        public static void Begin(bool onboardingOnly = false)
         {
             if (EditorApplication.isPlaying) throw new Exception("Önce Play Mode durdurulmalı");
             var player = new Dictionary<string, string>();
@@ -39,7 +42,7 @@ namespace Mewgic
             { string key = GameplayProgress.StorageKey + suffix; player[key] = PlayerPrefs.HasKey(key) ? PlayerPrefs.GetString(key) : null; }
             SessionState.SetString("GameplayPolish.PlayerBefore", Newtonsoft.Json.JsonConvert.SerializeObject(player));
             EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
-            new GameObject("Gameplay Polish - isolated QA").AddComponent<GameplayPolishProbe>();
+            new GameObject("Gameplay Polish - isolated QA").AddComponent<GameplayPolishProbe>().onboardingOnly = onboardingOnly;
             Size(1600); EditorApplication.isPlaying = true;
         }
         static void Size(int height)
@@ -51,7 +54,7 @@ namespace Mewgic
         {
             if (active != null) { Destroy(gameObject); return; }
             active = this; DontDestroyOnLoad(gameObject); Application.runInBackground = true;
-            Directory.CreateDirectory(Output); Application.logMessageReceived += Log;
+            Directory.CreateDirectory(OutputFolder); Application.logMessageReceived += Log;
             Bind(0);
         }
         void Bind(int completed, ProgressData data = null)
@@ -63,8 +66,12 @@ namespace Mewgic
                 data.daily.lastGiftUtc = data.daily.highestUtc = data.daily.taskCycleUtc = now.UtcTicks;
                 data.daily.day = data.daily.highestDay = data.daily.lastGiftDay = DailyRules.Day(now);
             }
-            disk = data.Copy(); GameplayProgress.UseTestProfile();
-            var ledger = new ProgressLedger(disk, value => disk = value.Copy(), () => now);
+            disk = data.Copy();
+            Attach(new ProgressLedger(disk, value => disk = value.Copy(), () => now));
+        }
+        void Attach(ProgressLedger ledger)
+        {
+            GameplayProgress.UseTestProfile();
             typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic).SetValue(null, ledger);
             GameplayLevelCatalog.ResetSelection();
         }
@@ -84,7 +91,7 @@ namespace Mewgic
             var original = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(SessionState.GetString("GameplayPolish.PlayerBefore", "{}"));
             bool playerIntact = original.All(pair => pair.Value == null ? !PlayerPrefs.HasKey(pair.Key) : PlayerPrefs.GetString(pair.Key) == pair.Value);
             if (!playerIntact) errors.Add("Oyuncu kayıt anahtarları değişti"); else checks.Add("Oyuncunun ana/pending/backup/previous kayıtları byte düzeyinde korundu");
-            File.WriteAllText(Output + "/UNITY_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(new { success = failure == null && errors.Count == 0, count = checks.Count, checks, errors, failure, editor = Application.unityVersion }, Newtonsoft.Json.Formatting.Indented));
+            File.WriteAllText(OutputFolder + "/UNITY_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(new { success = failure == null && errors.Count == 0, count = checks.Count, checks, errors, failure, editor = Application.unityVersion }, Newtonsoft.Json.Formatting.Indented));
             EditorApplication.isPlaying = false;
         }
         IEnumerator Ready(string scene)
@@ -97,7 +104,12 @@ namespace Mewgic
         }
         IEnumerator LoadLevel(int id, int completed)
         {
-            Bind(completed); var task = GameplayLevelCatalog.PrepareAsync(id);
+            Bind(completed);
+            yield return EnterLevel(id);
+        }
+        IEnumerator EnterLevel(int id)
+        {
+            var task = GameplayLevelCatalog.PrepareAsync(id);
             while (!task.IsCompleted) yield return null;
             Check(!task.IsFaulted && GameplayLevelCatalog.Select(id, Ledger), id + " bölümü hazırlandı");
             SceneManager.LoadScene("Gameplay"); yield return null; yield return Ready("Gameplay");
@@ -115,17 +127,69 @@ namespace Mewgic
             var old = RenderTexture.active; var image = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
             ScreenCapture.CaptureScreenshotIntoRenderTexture(render); Graphics.Blit(render, flip, new Vector2(1, -1), Vector2.up);
             RenderTexture.active = flip; image.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0); image.Apply();
-            File.WriteAllBytes(Output + "/" + name + ".png", image.EncodeToPNG()); RenderTexture.active = old;
+            File.WriteAllBytes(OutputFolder + "/" + name + ".png", image.EncodeToPNG()); RenderTexture.active = old;
             RenderTexture.ReleaseTemporary(render); RenderTexture.ReleaseTemporary(flip); Destroy(image);
         }
+        IEnumerator WaitForPaw()
+        {
+            float until = Time.unscaledTime + 8;
+            while (!Guide.OnboardingVisible && Time.unscaledTime < until) yield return null;
+        }
+
+        bool IsSolvableMove()
+        {
+            var board = new Puzzle(Model.Export());
+            var move = Guide.Recommended;
+            return board.Pour(move.Source, move.Target) > 0 && PuzzleSolver.Solve(board.Export()).Status == SearchStatus.Solved;
+        }
+
+        IEnumerator ReopenCompletedProfile()
+        {
+            Bind(4);
+            var profile = Ledger.Snapshot;
+            profile.completedTutorials.Add(PawGuide.BasicId);
+            for (int id = 1; id <= 4; id++) profile.completedTutorials.Add($"paw.level.{id}.v1");
+
+            string key = "Mewgic.Tests.PawOnboardingReplay." + Guid.NewGuid().ToString("N");
+            try
+            {
+                PlayerPrefs.SetString(key, JsonUtility.ToJson(profile));
+                PlayerPrefs.Save();
+                GameplayProgress.RestorePlayerProfile();
+                Attach(GameplayProgress.Open(key, () => now));
+
+                for (int id = 1; id <= 4; id++)
+                {
+                    yield return EnterLevel(id);
+                    string beforeHint = JsonUtility.ToJson(Ledger.Snapshot);
+                    Check(!Guide.OnboardingVisible && Ledger.Completed(id) && Ledger.BestStars(id) == 3 &&
+                        Ledger.TutorialCompleted($"paw.level.{id}.v1"), id + " yeniden açılan kayıtta tamamlanma ve eski öğretici işareti var");
+                    yield return WaitForPaw();
+                    Check(Guide.OnboardingVisible && IsSolvableMove() && Model.Moves == 0 &&
+                        JsonUtility.ToJson(Ledger.Snapshot) == beforeHint, id + " tamamlanmış bölümde pati tekrar açılıyor ve kayıt değişmiyor");
+                }
+
+                App.UseBooster(BoosterKind.Hint);
+                int selected = App.GuideSelectedBottle;
+                Check(selected >= 0 && !Guide.OnboardingVisible, "İpucu güçlendiricisi seçim yapıp önceki patiyi kapatıyor");
+                yield return WaitForPaw();
+                Check(Guide.OnboardingVisible && Guide.State == PawGuide.Phase.Target && Guide.Recommended.Source == selected &&
+                    IsSolvableMove(), "Güçlendiriciyle seçilen şişe için pati yalnız geçerli hedefi gösteriyor");
+            }
+            finally
+            {
+                foreach (string suffix in new[] { "", ".pending", ".backup", ".previous", ".corrupt" }) PlayerPrefs.DeleteKey(key + suffix);
+                PlayerPrefs.Save();
+            }
+        }
+
         IEnumerator Run()
         {
             yield return Ready("Gameplay");
             for (int id = 1; id <= 4; id++)
             {
                 if (id > 1) yield return LoadLevel(id, id - 1);
-                float until = Time.unscaledTime + 8;
-                while (!Guide.OnboardingVisible && Time.unscaledTime < until) yield return null;
+                yield return WaitForPaw();
                 Check(Guide.OnboardingVisible && !Guide.DemoRunning && !Guide.BlocksGameplayActions && Model.Moves == 0,
                     id + " bölümde bekleyen oyuncuya kontrolü kilitlemeyen pati gösteriliyor");
                 yield return new WaitForSecondsRealtime(.85f);
@@ -143,14 +207,27 @@ namespace Mewgic
                         "Seçili kaynakla beklenince yalnız doğru hedef gösteriliyor");
                     yield return Shot("02-Paw-Target");
                 }
+                string beforeMove = JsonUtility.ToJson(Ledger.Snapshot);
                 Tap("Bottle " + (move.Target + 1)); yield return new WaitForSecondsRealtime(1.15f);
-                Check(Model.Moves == 1 && Ledger.TutorialCompleted(PawGuide.OnboardingId(id)) && !Guide.OnboardingVisible,
-                    id + " başarılı ilk hamle öğreticiyi bitirip kaydediyor");
-                yield return new WaitForSecondsRealtime(3.15f);
-                Check(!Guide.OnboardingVisible, id + " aynı bölümde gereksiz öğretici tekrarı yok");
+                Check(Model.Moves == 1 && !Guide.OnboardingVisible && JsonUtility.ToJson(Ledger.Snapshot) == beforeMove,
+                    id + " başarılı hamlede pati çekiliyor ve kayıt yazılmıyor");
+                yield return WaitForPaw();
+                var oldMove = new Puzzle(Model.Export());
+                Check(Guide.OnboardingVisible && IsSolvableMove() &&
+                    (oldMove.Pour(move.Source, move.Target) > 0 || Guide.Recommended.Source != move.Source || Guide.Recommended.Target != move.Target),
+                    id + " tekrar beklemede güncel ve çözülebilir hamle gösteriliyor");
+                if (id == 1)
+                {
+                    yield return EnterLevel(id);
+                    Check(!Guide.OnboardingVisible && Model.Moves == 0, "Aynı oturumda tekrar giriş patinin beklemesini sıfırlıyor");
+                    yield return WaitForPaw();
+                    Check(Guide.OnboardingVisible && IsSolvableMove(), "Aynı oturumda tekrar girişte pati yeniden gösteriliyor");
+                }
             }
+            yield return ReopenCompletedProfile();
             yield return LoadLevel(5, 4); yield return new WaitForSecondsRealtime(3.4f);
             Check(!Guide.OnboardingVisible && !Guide.DemoRunning && Model.Moves == 0, "5. bölümde yoğun öğretici yok");
+            if (onboardingOnly) yield break;
             foreach (int height in new[] { 1600, 1950, 2000 })
             {
                 Size(height); yield return null; yield return null; FindFirstObjectByType<GameplayPresentation>().Layout(); Canvas.ForceUpdateCanvases();

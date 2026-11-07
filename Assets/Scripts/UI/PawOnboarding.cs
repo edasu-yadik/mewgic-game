@@ -9,36 +9,28 @@ namespace Mewgic.UI
         [SerializeField, Range(1.5f, 6)] float onboardingIdleDelay = 3;
         [SerializeField, Range(.4f, 1.2f)] float onboardingTravelTime = .72f;
         [SerializeField, Range(.6f, 2)] float onboardingRepeatPause = 1.1f;
-        int onboardingLevel, onboardingSelected = -1;
         bool onboardingEnabled, onboardingRunning;
         float lastOnboardingInput;
         Coroutine onboardingRoutine;
         public bool OnboardingVisible => onboardingRunning;
-        public static string OnboardingId(int level) => "paw.level." + level + ".v1";
 
         void ConfigureOnboarding(int level)
         {
-            onboardingLevel = level;
-            onboardingEnabled = level >= 1 && level <= 4 && !ledger.Completed(level) &&
-                !ledger.TutorialCompleted(OnboardingId(level)) && !(level == 1 && ledger.TutorialCompleted(BasicId));
+            onboardingEnabled = level >= 1 && level <= 4;
             lastOnboardingInput = Time.unscaledTime;
         }
 
-        public void PlayerInteracted(int index)
+        internal void PlayerInteracted()
         {
             if (demo) return;
             lastOnboardingInput = Time.unscaledTime;
             if (Visible || onboardingRunning) Close();
         }
 
-        void CompleteOnboardingMove()
+        void OnboardingMoveFinished()
         {
-            onboardingSelected = -1;
             if (!onboardingEnabled) return;
-            onboardingEnabled = false;
-            Close();
-            ledger.CompleteTutorial(OnboardingId(onboardingLevel));
-            if (onboardingLevel == 1) ledger.CompleteTutorial(BasicId);
+            PlayerInteracted();
         }
 
         void TickOnboarding()
@@ -59,22 +51,27 @@ namespace Mewgic.UI
 
         bool RecommendOnboarding()
         {
-            var solution = PuzzleSolver.Solve(model.Export(), 3000);
-            if (solution.Status != SearchStatus.Solved || solution.Moves.Count == 0) return false;
-            Recommended = solution.Moves[0];
-            if (onboardingSelected >= 0 && Recommended.Source != onboardingSelected)
+            var board = model.Export();
+            var solution = PuzzleSolver.Solve(board);
+            int selected = app.GuideSelectedBottle;
+            if (solution.Status == SearchStatus.Solved && solution.Moves.Count > 0 &&
+                (selected < 0 || solution.Moves[0].Source == selected))
             {
-                for (int target = 0; target < model.Count; target++)
-                {
-                    var probe = new Puzzle(model.Export());
-                    if (probe.Pour(onboardingSelected, target) <= 0) continue;
-                    if (PuzzleSolver.Solve(probe.Export(), 3000).Status != SearchStatus.Solved) continue;
-                    Recommended = new PuzzleMove(onboardingSelected, target);
-                    return TargetsPresent;
-                }
-                return false;
+                Recommended = solution.Moves[0];
+                return TargetsPresent;
             }
-            return TargetsPresent;
+            if (selected < 0) return false;
+
+            // Seçili kaynak için çözüm yolunda kalan bir hedef bul.
+            for (int target = 0; target < board.Length; target++)
+            {
+                var probe = new Puzzle(board);
+                if (probe.Pour(selected, target) <= 0) continue;
+                if (PuzzleSolver.Solve(probe.Export()).Status != SearchStatus.Solved) continue;
+                Recommended = new PuzzleMove(selected, target);
+                return TargetsPresent;
+            }
+            return false;
         }
 
         IEnumerator ShowOnboarding()
@@ -85,7 +82,7 @@ namespace Mewgic.UI
             cursor.anchoredPosition = Point(cat) + new Vector2(35, 55);
             while (onboardingRunning && Ready)
             {
-                if (onboardingSelected < 0)
+                if (app.GuideSelectedBottle < 0)
                 {
                     State = Phase.Source;
                     yield return HintTravel(Bottle(Recommended.Source));
@@ -96,7 +93,8 @@ namespace Mewgic.UI
                 yield return HintPress();
                 yield return new WaitForSecondsRealtime(onboardingRepeatPause);
             }
-            StopOnboardingVisual();
+            onboardingRoutine = null;
+            Close();
         }
 
         IEnumerator HintTravel(RectTransform target)
