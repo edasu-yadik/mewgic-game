@@ -25,3 +25,5 @@ Süre, pati görseli ve kaynak ile hedef arasındaki hareketler mevcut ayarları
 Unity 6000.3.27f2 üzerinde **58 Play Mode kontrolü** geçti. İlk dört bölümde ilk giriş ve döküş sonrası yardım, aynı oturumda yeniden giriş, eski öğretici işaretleri taşıyan tamamlanmış 1–4. bölümler, İpucu güçlendiricisinin seçtiği kaynak ve 5. bölümün kapsamı doğrulandı. Yeniden açılış, ayrı bir PlayerPrefs profili diske yazılıp `GameplayProgress.Open` ile yeniden okunarak ve `Gameplay` sahnesi yeniden yüklenerek sınandı. Fiziksel cihazda uygulama sürecini sonlandırma testi yapılmadı.
 
 Derleme ve Console sıfır hata, sıfır uyarı verdi. İzole test, oyuncunun ana kaydı ve yedek kayıt anahtarlarını byte düzeyinde karşılaştırdı. `UNITY_TESTS.json`, `CONSOLE.json` ve iki Unity Game View karesi bu klasörde yer alıyor.
+
+Uygulama ve testler `d0637e76e7b339b6342bd5ed4cfc5ebdd0b35830` commit'iyle `origin/release/0.8.0-rc.1` dalına gönderildi. Uzak dal SHA'sı doğrulandı.
