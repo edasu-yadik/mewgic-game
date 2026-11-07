@@ -43,6 +43,7 @@ namespace Mewgic
             {
                 float a = i * Mathf.PI * 2 / count + (GameFeel.Reduced ? 0 : t * .48f);
                 Vector2 p = center + Vector2.Scale(new Vector2(Mathf.Cos(a), Mathf.Sin(a)), radius) * (1.05f + t * .14f);
+                if (!GameFeel.Reduced) p.y += r.height * t * (.13f + (i % 3) * .045f);
                 float size = r.width * (i % 3 == 0 ? .15f : .075f) * Mathf.Sin(Mathf.Clamp01(t * 1.6f + i % 3 * .1f) * Mathf.PI);
                 Star(mesh, p, size, new Color(1, .90f, .57f, alpha));
             }

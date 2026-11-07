@@ -11,7 +11,7 @@ namespace Mewgic
         [Min(0)] public float waterfallSpeed=.012f;
         [Range(0,.1f)] public float waterfallBrightness=.028f;
         [Range(0,1)] public float waterfallOpacity=.65f;
-        [Range(1,1.3f)] public float mascotSize = 1.15f;
+        [Range(1,1.3f)] public float mascotSize = 1.13f;
         public bool IsAnimating {get;set;}
         RectTransform safe,board,background,world,cat,perch,edgeDecor;
         RectTransform[] bottles=new RectTransform[0];

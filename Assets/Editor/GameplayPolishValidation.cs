@@ -44,20 +44,23 @@ public static class GameplayPolishValidation
         importer.SaveAndReimport();
     }
 
-    public static void LegacyModels()
+    public static void LegacyModels(string folder = Output)
     {
         var field = typeof(DailyActivitiesTests).GetField("checks", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
         var checks = (List<string>)field.GetValue(null);
         checks.Clear();
         DailyActivitiesTests.Models();
-        File.WriteAllText(Output + "/DAILY_REGRESSION.json", Newtonsoft.Json.JsonConvert.SerializeObject(
+        Directory.CreateDirectory(folder);
+        File.WriteAllText(folder + "/DAILY_REGRESSION.json", Newtonsoft.Json.JsonConvert.SerializeObject(
             new { success = true, count = checks.Count, checks }, Newtonsoft.Json.Formatting.Indented));
     }
 
     [MenuItem("Mewgic/Gameplay Polish/Validate Daily Save Rules")]
-    public static void Models()
+    public static void Models() => Models(Output);
+
+    public static void Models(string folder)
     {
-        Directory.CreateDirectory(Output);
+        Directory.CreateDirectory(folder);
         var checks = new List<string>();
         void Check(bool okay, string message) { if (!okay) throw new Exception(message); checks.Add(message); }
         var now = new DateTimeOffset(2026, 11, 6, 23, 59, 0, TimeSpan.FromHours(2));
@@ -116,6 +119,6 @@ public static class GameplayPolishValidation
             PlayerPrefs.Save();
         }
         GameplayBoosterTests.ModelTests(); checks.Add("Mevcut puzzle/booster model regresyonu geçti");
-        File.WriteAllText(Output + "/MODEL_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(new { success = true, count = checks.Count, checks }, Newtonsoft.Json.Formatting.Indented));
+        File.WriteAllText(folder + "/MODEL_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(new { success = true, count = checks.Count, checks }, Newtonsoft.Json.Formatting.Indented));
     }
 }

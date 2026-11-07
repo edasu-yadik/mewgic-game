@@ -320,3 +320,5 @@ Harita Git teslimi: 3b9fdc1a07d039cc3070028a5de5c5d966639c23 origin/release/0.8.
 Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120de795536dd1c` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.
 
 7 Kasım 2026 · Kristal Şelaleler 91–100, ekli referans kadrajına göre düzenlendi. Sağ üst saray ve sağ yamaç ağacı, dört kemer, sürekli akan çoklu şelale, boyanmış yol üzerindeki etkileşimli taşlar, 100'de altın taç ve alt solda asasız maskot. Kaydırma bırakılınca onlu teras hizalanıyor. 98 Unity Play Mode kontrolü, üç portre oranı ve dört su bölgesinde kare farkı doğrulandı. Rapor ProductionReports/CrystalFallsReference altında. Fiziksel cihaz testi açık.
+
+7 Kasım 2026 · Kapsamlı Unity denetimi. Kristal maskotu kıvrılarak dinleniyor, uyanıp ayağa kalkıyor ve iz bırakarak yürüyor. Sabit kenar sisi, şişe kutlamasında yükselen parçacıklar, üç portre oranında tam %13 oyun maskotu büyümesi. 107 harita ve 114 oynanış Play Mode, 149 kayıt/regresyon, 268 sahne/prefab/varlık bağlantısı kontrolü geçti. Kullanıcı kayıtları korundu. Console ve derleme temiz. Game View ve GIF ProductionReports/ComprehensiveAudit altında.

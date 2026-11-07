@@ -24,7 +24,8 @@ namespace Mewgic
         const string Output = "docs/ProductionReports/GameplayPolish";
         const string OnboardingOutput = "docs/ProductionReports/PawOnboardingReplay";
         [SerializeField] bool onboardingOnly;
-        string OutputFolder => onboardingOnly ? OnboardingOutput : Output;
+        [SerializeField] string outputOverride;
+        string OutputFolder => !string.IsNullOrEmpty(outputOverride) ? outputOverride : onboardingOnly ? OnboardingOutput : Output;
         static GameplayPolishProbe active;
         readonly List<string> checks = new List<string>(), errors = new List<string>();
         DateTimeOffset now = new DateTimeOffset(2026, 11, 6, 12, 0, 0, TimeSpan.FromHours(2));
@@ -34,7 +35,7 @@ namespace Mewgic
         Puzzle Model => (Puzzle)typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(App);
         ProgressLedger Ledger => GameplayProgress.Current;
         void Check(bool okay, string message) { if (!okay) throw new Exception(message); checks.Add(message); }
-        public static void Begin(bool onboardingOnly = false)
+        public static void Begin(bool onboardingOnly = false, string output = null)
         {
             if (EditorApplication.isPlaying) throw new Exception("Önce Play Mode durdurulmalı");
             var player = new Dictionary<string, string>();
@@ -42,13 +43,24 @@ namespace Mewgic
             { string key = GameplayProgress.StorageKey + suffix; player[key] = PlayerPrefs.HasKey(key) ? PlayerPrefs.GetString(key) : null; }
             SessionState.SetString("GameplayPolish.PlayerBefore", Newtonsoft.Json.JsonConvert.SerializeObject(player));
             EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
-            new GameObject("Gameplay Polish - isolated QA").AddComponent<GameplayPolishProbe>().onboardingOnly = onboardingOnly;
+            var probe = new GameObject("Gameplay Polish - isolated QA").AddComponent<GameplayPolishProbe>();
+            probe.onboardingOnly = onboardingOnly;
+            probe.outputOverride = output;
             Size(1600); EditorApplication.isPlaying = true;
         }
         static void Size(int height)
         {
             var view = EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")); view.Show(); view.maximized = true; view.Focus();
             Type.GetType("Part12BEditor, Assembly-CSharp-Editor").GetMethod("Size").Invoke(null, new object[] { height });
+        }
+        IEnumerator Resize(int height)
+        {
+            Size(height);
+            float until = Time.unscaledTime + 4;
+            while ((Screen.width != 900 || Screen.height != height) && Time.unscaledTime < until) yield return null;
+            yield return null;
+            Canvas.ForceUpdateCanvases();
+            Check(Screen.width == 900 && Screen.height == height, $"Game View 900 × {height}");
         }
         void Awake()
         {
@@ -97,10 +109,15 @@ namespace Mewgic
         IEnumerator Ready(string scene)
         {
             float until = Time.unscaledTime + 30;
-            while ((SceneManager.GetActiveScene().name != scene || !Mewgic.Localization.L.Ready ||
-                (scene == "Gameplay" ? Guide == null : FindFirstObjectByType<DailyActivitiesPanel>() == null)) && Time.unscaledTime < until) yield return null;
+            bool ReadyNow() => SceneManager.GetActiveScene().name == scene && Mewgic.Localization.L.Ready && (scene switch
+            {
+                "Gameplay" => Guide != null,
+                "LevelMap" => FindFirstObjectByType<Mewgic.Map.MapWorld>()?.Mounted == true,
+                _ => FindFirstObjectByType<DailyActivitiesPanel>() != null
+            });
+            while (!ReadyNow() && Time.unscaledTime < until) yield return null;
             yield return null; Canvas.ForceUpdateCanvases();
-            Check(SceneManager.GetActiveScene().name == scene && Mewgic.Localization.L.Ready, scene + " hazır");
+            Check(ReadyNow(), scene + " hazır");
         }
         IEnumerator LoadLevel(int id, int completed)
         {
@@ -189,7 +206,9 @@ namespace Mewgic
             for (int id = 1; id <= 4; id++)
             {
                 if (id > 1) yield return LoadLevel(id, id - 1);
+                float idleStarted = Time.unscaledTime;
                 yield return WaitForPaw();
+                if (id == 1) Check(Time.unscaledTime - idleStarted is >= 2.4f and <= 3.6f, "Pati yaklaşık üç saniye bekliyor");
                 Check(Guide.OnboardingVisible && !Guide.DemoRunning && !Guide.BlocksGameplayActions && Model.Moves == 0,
                     id + " bölümde bekleyen oyuncuya kontrolü kilitlemeyen pati gösteriliyor");
                 yield return new WaitForSecondsRealtime(.85f);
@@ -225,13 +244,40 @@ namespace Mewgic
                 }
             }
             yield return ReopenCompletedProfile();
+            yield return LoadLevel(1, 0);
+            var firstSolution = PuzzleSolver.Solve(Model.Export());
+            Check(firstSolution.Status == SearchStatus.Solved, "İlk bölümün gerçek şişe dizilimi çözülebilir");
+            foreach (var step in firstSolution.Moves)
+            {
+                Tap("Bottle " + (step.Source + 1));
+                Tap("Bottle " + (step.Target + 1));
+                yield return new WaitForSecondsRealtime(1.1f);
+            }
+            int wonStars = Ledger.BestStars(1);
+            Check(Model.Won && Ledger.Completed(1) && wonStars > 0 && GameObject.Find("ResultHome") != null,
+                "1. bölüm gerçek tıklama ve döküşlerle kazanıldı");
+            Tap("ResultHome"); yield return Ready("LevelMap");
+            var map = FindFirstObjectByType<Mewgic.Map.MapWorld>();
+            map.SkipJourney();
+            map.OpenChapter(0, 0);
+            map.Points.First(point => point.kind == Mewgic.Map.MapPointKind.LevelSlot && point.regionIndex == 0 &&
+                point.slotIndex == 0 && point.gameObject.activeInHierarchy).GetComponent<Button>().onClick.Invoke();
+            yield return Ready("Gameplay");
+            yield return WaitForPaw();
+            Check(Guide.OnboardingVisible && IsSolvableMove() && Ledger.BestStars(1) == wonStars,
+                "Gerçek kazanıştan sonra haritadan aynı bölümü açınca pati ve yıldızlar korunur");
             yield return LoadLevel(5, 4); yield return new WaitForSecondsRealtime(3.4f);
             Check(!Guide.OnboardingVisible && !Guide.DemoRunning && Model.Moves == 0, "5. bölümde yoğun öğretici yok");
             if (onboardingOnly) yield break;
             foreach (int height in new[] { 1600, 1950, 2000 })
             {
-                Size(height); yield return null; yield return null; FindFirstObjectByType<GameplayPresentation>().Layout(); Canvas.ForceUpdateCanvases();
+                yield return Resize(height);
+                FindFirstObjectByType<GameplayPresentation>().Layout(); Canvas.ForceUpdateCanvases();
                 var cat = GameObject.Find("GameplayWizardCat").GetComponent<RectTransform>(); var safe = GameObject.Find("Safe area").GetComponent<RectTransform>();
+                float unit = Mathf.Min(safe.rect.width / 900, safe.rect.height / 1600);
+                float previous = Mathf.Min(safe.rect.width * .18f / cat.rect.width, 300 * unit / cat.rect.height);
+                float growth = cat.localScale.x / previous - 1;
+                Check(growth is >= .10f and <= .16f, $"{height} maskot büyümesi {growth:P1} (hedef yaklaşık %13)");
                 var corners = new Vector3[4]; cat.GetWorldCorners(corners);
                 Check(corners.All(point => safe.rect.Contains(safe.InverseTransformPoint(point))), height + " büyütülmüş maskot Safe Area içinde");
                 var catRect = Rect.MinMaxRect(safe.InverseTransformPoint(corners[0]).x, safe.InverseTransformPoint(corners[0]).y,
@@ -282,7 +328,7 @@ namespace Mewgic
                 "Gerçek şişe tıklaması ve döküş bitişi tek renk kutlamasını tetikliyor");
             yield return Shot("07-Real-Pour-Completion");
 
-            Bind(4); disk.daily.progress = new[] { 2, 1, 3, 0 }; Bind(4, disk);
+            Bind(4); disk.daily.progress = new[] { 2, 2, 3, 0 }; Bind(4, disk);
             SceneManager.LoadScene("Home"); yield return null; yield return Ready("Home");
             var daily = FindFirstObjectByType<DailyActivitiesPanel>();
             var icon = GameObject.Find("QuestIcon").GetComponent<RectTransform>(); var mission = GameObject.Find("MissionsButton");
@@ -290,18 +336,32 @@ namespace Mewgic
             ExecuteEvents.Execute(mission, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
             Check(daily.IsOpen && !daily.GiftVisible, "Doğrudan ikona tıklama görev panelini açıyor");
             string before = GameObject.Find("DailyReset").GetComponent<TMP_Text>().text;
+            string homeBefore = mission.transform.Find("HomeQuestCountdown").GetComponent<TMP_Text>().text;
             now = now.AddSeconds(1); yield return new WaitForSecondsRealtime(1.15f);
             Check(GameObject.Find("DailyReset").GetComponent<TMP_Text>().text != before, "Popup sayacı saniye saniye canlı güncelleniyor");
+            Check(mission.transform.Find("HomeQuestCountdown").GetComponent<TMP_Text>().text != homeBefore,
+                "Ana sayfa sayacı da aynı anda güncelleniyor");
             foreach (int height in new[] { 1600, 1950, 2000 })
             {
                 Size(height); yield return null; yield return null; daily.Layout(); Canvas.ForceUpdateCanvases();
                 yield return Shot("05-Quests-" + height);
                 Check(!GameObject.Find("DailyReset").GetComponent<TMP_Text>().isTextOverflowing, height + " sayaç okunur ve taşmıyor");
             }
+            int hintsBefore = Ledger.Remaining(BoosterKind.Hint);
+            Tap("DailyAction_1"); Tap("DailyAction_1");
+            Check(Ledger.DailySnapshot.claimed[1] && Ledger.Remaining(BoosterKind.Hint) == hintsBefore + 1 &&
+                !GameObject.Find("DailyAction_1").GetComponent<Button>().interactable,
+                "Görev panelinde iki ödül tıklaması yalnız bir ödül verir");
+            yield return Shot("08-Daily-Claimed");
             daily.Close(); Size(1600); yield return null; yield return null; yield return new WaitForSecondsRealtime(.25f); yield return Shot("06-Home-Quest-Icon");
             hits = Hits(mission.transform.Find("Label").GetComponent<RectTransform>());
             Check(hits.Count > 0 && hits[0].gameObject == mission, "Görev yazısı ve ikon aynı doğal tıklama alanında: " + string.Join(",", hits.Select(hit => hit.gameObject.name)));
             var saved = JsonUtility.FromJson<ProgressData>(JsonUtility.ToJson(disk));
+            var waitBeforeReload = Ledger.DailyTaskWait;
+            Bind(4, saved); SceneManager.LoadScene("Home"); yield return null; yield return Ready("Home");
+            Check(Ledger.DailyTaskWait == waitBeforeReload && Ledger.DailySnapshot.claimed[1] &&
+                Ledger.Remaining(BoosterKind.Hint) == hintsBefore + 1,
+                "Ana sayfa yeniden açılınca 24 saatlik sayaç ve ödül kaydı korunur");
             now = now.AddHours(25); Bind(4, saved); SceneManager.LoadScene("Home"); yield return null; yield return Ready("Home");
             Check(Ledger.DailySnapshot.progress.All(x => x == 0) && Ledger.DailyTaskWait.TotalHours > 22,
                 "Oyun kapalıyken geçen 25 saatten sonra görevler yenileniyor ve sayaç doğru kalıyor");

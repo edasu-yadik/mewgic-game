@@ -18,7 +18,9 @@ public static class MapFlowValidation
     public static void RunCrystal() => MapFlowProbe.Begin("docs/ProductionReports/CrystalFallsReference");
 
     [MenuItem("Mewgic/Map Flow/Validate Save Model")]
-    public static void Models()
+    public static void Models() => Models("docs/ProductionReports/MapFlow");
+
+    public static void Models(string folder)
     {
         var checks = new List<string>();
         void Check(bool okay, string message) { if (!okay) throw new Exception(message); checks.Add(message); }
@@ -74,8 +76,8 @@ public static class MapFlowValidation
         }
         GameplayBoosterTests.ModelTests();
         checks.Add("Mevcut puzzle/booster model regresyonu geçti");
-        Directory.CreateDirectory("docs/ProductionReports/MapFlow");
-        File.WriteAllText("docs/ProductionReports/MapFlow/MODEL_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(
+        Directory.CreateDirectory(folder);
+        File.WriteAllText(folder + "/MODEL_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(
             new { success = true, count = checks.Count, checks }, Newtonsoft.Json.Formatting.Indented));
     }
 }

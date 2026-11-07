@@ -15,7 +15,8 @@ namespace Mewgic.Map
         JourneySoftDisc crystalCatShadow;
         Graphic journeyRoute;
         Material crystalWater, crystalReferenceWater;
-        Texture2D crystalReference;
+        Texture2D crystalReference, crystalCatRestAtlas;
+        RectTransform crystalAtmosphere;
         float crystalSettleAt;
         bool crystalLite;
 
@@ -35,6 +36,7 @@ namespace Mewgic.Map
 
         bool HasCrystalArt => crystalBackdrop != null && journeyRegion == CrystalRegion;
         bool HasCrystalComposition => HasCrystalArt && crystalReference != null;
+        bool HasCrystalRest => HasCrystalComposition && crystalCatRestAtlas != null;
 
         // Coordinates in the reference plate, with the origin at the upper left.
         // The first point of each segment is at the foot of its numbered stone.
@@ -120,6 +122,7 @@ namespace Mewgic.Map
             SetJourneyFrame(journeySkip.transform as RectTransform, journeyScroll.viewport.anchorMin, journeyScroll.viewport.anchorMax);
             journeyInstruction.SetActive(!crystal);
             crystalBrand.SetActive(crystal);
+            if (crystalAtmosphere != null) crystalAtmosphere.gameObject.SetActive(crystal);
         }
 
         static void SetJourneyFrame(RectTransform rect, Vector2 min, Vector2 max)
@@ -162,6 +165,8 @@ namespace Mewgic.Map
                 var theme = Resources.Load<MapJourneyTheme>("Map/JourneyThemes/crystal");
                 crystalReference = theme != null ? theme.referenceTerrace : null;
                 if (crystalReference == null) return;
+                crystalCatRestAtlas = theme.mascotRestAtlas;
+                BuildCrystalAtmosphere();
             }
 
             if (waterLightShader != null)
@@ -218,6 +223,23 @@ namespace Mewgic.Map
                 graphic.color = i % 2 == 0 ? new Color(1f, .77f, .39f) : new Color(.53f, .96f, 1f);
                 crystalMotes[i] = graphic;
             }
+        }
+
+        void BuildCrystalAtmosphere()
+        {
+            crystalAtmosphere = Rect(journeyScroll.viewport, "CrystalAnchoredAtmosphere", Vector2.zero, Vector2.one);
+            crystalAtmosphere.gameObject.SetActive(false);
+            AddCrystalHaze("LeftMist", new Vector2(.00f, .37f), new Vector2(.30f, .30f), new Color(.44f, .70f, 1, .17f));
+            AddCrystalHaze("RightMist", new Vector2(1, .57f), new Vector2(.29f, .30f), new Color(.65f, .46f, 1, .14f));
+            AddCrystalHaze("NearMist", new Vector2(.86f, .063f), new Vector2(.58f, .21f), new Color(.33f, .76f, 1, .12f));
+        }
+
+        void AddCrystalHaze(string name, Vector2 center, Vector2 size, Color color)
+        {
+            var rect = Rect(crystalAtmosphere, name, center - size * .5f, center + size * .5f);
+            var mist = rect.gameObject.AddComponent<JourneySoftDisc>();
+            mist.color = color;
+            mist.raycastTarget = false;
         }
 
         void LayoutCrystalJourney()
