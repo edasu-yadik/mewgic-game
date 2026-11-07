@@ -32,3 +32,7 @@
 3. `Unity-iPhone` şemasını ve **Any iOS Device (arm64)** hedefini seç. Archive yapılandırması **Release** iken **Product → Archive** çalıştır. Organizer'da arşivi doğrula, ardından TestFlight dağıtımını veya IPA export'unu tamamla. [Apple build yükleme adımları](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds)
 
 Xcode arşivi, IPA, Apple hesabındaki işlemler ve fiziksel cihaz doğrulaması Mac tesliminden sonraki adımlardır.
+
+## Git teslimi
+
+Hazırlık commit'i `91f23bd4164bf8815449c08f3f8220865b461856` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.
