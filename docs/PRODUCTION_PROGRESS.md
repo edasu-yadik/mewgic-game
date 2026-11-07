@@ -316,3 +316,5 @@ Harita Git teslimi: 3b9fdc1a07d039cc3070028a5de5c5d966639c23 origin/release/0.8.
 7 Kasım 2026 · Pati yardımı 1–4. bölümlere her girişte ve döküşten sonraki beklemede yeniden çalışıyor. Eski öğretici işaretleri gösterimi engellemiyor. Güncel bulmaca ve gerçek şişe seçimi kullanılıyor. Unity 6000.3.27f2 üzerinde 58 Play Mode kontrolü geçti. Kayıt yeniden açılışı, oyuncu kayıt bütünlüğü ve 5. bölümün kapsam dışında kalması doğrulandı. Derleme ve Console sıfır hata, sıfır uyarı. Kanıtlar ProductionReports/PawOnboardingReplay altında.
 
 7 Kasım 2026 · Dünya haritası ortak altyapısı. Sabit çevre katmanları, hafif parallax, kaydırılan boyalı taş köprü ve ayrı düğüm cepleri. Kristal Şelaleler pilotunda akış shader'ı, asasız maskotta zemin temaslı yürüyüş ve altın pati izleri. 87 Play Mode kontrolü, üç portre oranı ve 12 dünya sınırı geçti. Console ve C# derlemesi temiz. Dünya bazlı görsel onaylar ve fiziksel cihaz testi açık. Kanıtlar ProductionReports/MapJourneyFoundation altında.
+
+Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120de795536dd1c` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.

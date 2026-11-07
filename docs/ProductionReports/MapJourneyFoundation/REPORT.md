@@ -35,3 +35,7 @@ Unity 6000.3.27f2 üzerinde 87 Play Mode kontrolü geçti. 12 dünya sınırı, 
 - [9:16](04-Portrait-1600.png), [9:19.5](04-Portrait-1950.png), [9:20](04-Portrait-2000.png).
 - [Play Mode sonucu](UNITY_TESTS.json), [Unity Console özeti](CONSOLE.json), [görsel üretim girdileri](PROMPTS.md).
 - Fiziksel cihaz ve dağıtım build'i bu turda denenmedi.
+
+## Git teslimi
+
+Uygulama commit'i `f784e54706d14e4d16939a751120de795536dd1c` uzak `origin/release/0.8.0-rc.1` dalında SHA eşleşmesiyle doğrulandı.
