@@ -1,0 +1,2795 @@
+fileFormatVersion: 2
+guid: 8fd7be42a5e8a6c4fa09fe8aa1189709
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1788575458537333718
+    second: MapCat_Poses_0
+  - first:
+      213: 615786321646705874
+    second: MapCat_Poses_1
+  - first:
+      213: -1636517406592721023
+    second: MapCat_Poses_2
+  - first:
+      213: 8798990110779153971
+    second: MapCat_Poses_3
+  - first:
+      213: 9052603146675830134
+    second: MapCat_Poses_4
+  - first:
+      213: -7131034550364061854
+    second: MapCat_Poses_5
+  - first:
+      213: -8923883545176085004
+    second: MapCat_Poses_6
+  - first:
+      213: -6740788606616127447
+    second: MapCat_Poses_7
+  - first:
+      213: 2319300419447434430
+    second: MapCat_Poses_8
+  - first:
+      213: 1294774866351343237
+    second: MapCat_Poses_9
+  - first:
+      213: 214999224322043455
+    second: MapCat_Poses_10
+  - first:
+      213: 6676171995326862969
+    second: MapCat_Poses_11
+  - first:
+      213: 1184462059879157476
+    second: MapCat_Poses_12
+  - first:
+      213: 2256968269913199047
+    second: MapCat_Poses_13
+  - first:
+      213: 5999324842918336903
+    second: MapCat_Poses_14
+  - first:
+      213: -8512602756157553467
+    second: MapCat_Poses_15
+  - first:
+      213: -8872916729187051220
+    second: MapCat_Poses_16
+  - first:
+      213: 769589517816595004
+    second: MapCat_Poses_17
+  - first:
+      213: 6361770349226196074
+    second: MapCat_Poses_18
+  - first:
+      213: 7505917409070800248
+    second: MapCat_Poses_19
+  - first:
+      213: -1715822894474564706
+    second: MapCat_Poses_20
+  - first:
+      213: -1087578824601076605
+    second: MapCat_Poses_21
+  - first:
+      213: -51736805234328549
+    second: MapCat_Poses_22
+  - first:
+      213: -2139175622773339775
+    second: MapCat_Poses_23
+  - first:
+      213: -4858110339846184418
+    second: MapCat_Poses_24
+  - first:
+      213: 3525819506062122220
+    second: MapCat_Poses_25
+  - first:
+      213: -5961563343144058296
+    second: MapCat_Poses_26
+  - first:
+      213: -5225892376114257801
+    second: MapCat_Poses_27
+  - first:
+      213: -8794884426126492165
+    second: MapCat_Poses_28
+  - first:
+      213: -7968032222019042173
+    second: MapCat_Poses_29
+  - first:
+      213: -4567546239775659767
+    second: MapCat_Poses_30
+  - first:
+      213: -4369241462437641966
+    second: MapCat_Poses_31
+  - first:
+      213: -7384787866606756232
+    second: MapCat_Poses_32
+  - first:
+      213: 4840321178930218865
+    second: MapCat_Poses_33
+  - first:
+      213: -4402436634006044827
+    second: MapCat_Poses_34
+  - first:
+      213: -5646044636423087665
+    second: MapCat_Poses_35
+  - first:
+      213: -3633281933904609394
+    second: MapCat_Poses_36
+  - first:
+      213: -6430217168123196490
+    second: MapCat_Poses_37
+  - first:
+      213: 7679500202656916487
+    second: MapCat_Poses_38
+  - first:
+      213: 3138024993863697497
+    second: MapCat_Poses_39
+  - first:
+      213: -4025006401264606608
+    second: MapCat_Poses_40
+  - first:
+      213: -2160232624339558725
+    second: MapCat_Poses_41
+  - first:
+      213: 2609817101576602121
+    second: MapCat_Poses_42
+  - first:
+      213: 5706436725560595254
+    second: MapCat_Poses_43
+  - first:
+      213: 6113980838370045823
+    second: MapCat_Poses_44
+  - first:
+      213: 1423388799261950648
+    second: MapCat_Poses_45
+  - first:
+      213: -8744230431056383335
+    second: MapCat_Poses_46
+  - first:
+      213: 5142783389278683967
+    second: MapCat_Poses_47
+  - first:
+      213: -4837450277820311677
+    second: MapCat_Poses_48
+  - first:
+      213: -374179833926386472
+    second: MapCat_Poses_49
+  - first:
+      213: 5417580810733321313
+    second: MapCat_Poses_50
+  - first:
+      213: -4512202954757254502
+    second: MapCat_Poses_51
+  - first:
+      213: -8367700860229384960
+    second: MapCat_Poses_52
+  - first:
+      213: -3928555122874438436
+    second: MapCat_Poses_53
+  - first:
+      213: -870434699171545057
+    second: MapCat_Poses_54
+  - first:
+      213: -3840659383135172979
+    second: MapCat_Poses_55
+  - first:
+      213: -9022598756122651990
+    second: MapCat_Poses_56
+  - first:
+      213: 5009367294298810714
+    second: MapCat_Poses_57
+  - first:
+      213: 6904994900589038237
+    second: MapCat_Poses_58
+  - first:
+      213: 8182782201568484700
+    second: MapCat_Poses_59
+  - first:
+      213: 8572467264355409871
+    second: MapCat_Poses_60
+  - first:
+      213: 3172720841237304719
+    second: MapCat_Poses_61
+  - first:
+      213: 8708090035745535642
+    second: MapCat_Poses_62
+  - first:
+      213: -7405300600531727246
+    second: MapCat_Poses_63
+  - first:
+      213: 7516144402312624488
+    second: MapCat_Poses_64
+  - first:
+      213: 8511068942656126714
+    second: MapCat_Poses_65
+  - first:
+      213: -7155247108654323623
+    second: MapCat_Poses_66
+  - first:
+      213: 1955099008880684284
+    second: MapCat_Poses_67
+  - first:
+      213: 143722032717540705
+    second: MapCat_Poses_68
+  - first:
+      213: -147813339216288888
+    second: MapCat_Poses_69
+  - first:
+      213: -6965728382838901909
+    second: MapCat_Poses_70
+  - first:
+      213: 5964506199266803692
+    second: MapCat_Poses_71
+  - first:
+      213: -4216413011166363214
+    second: MapCat_Poses_72
+  - first:
+      213: 1362956665242916326
+    second: MapCat_Poses_73
+  - first:
+      213: -920938264550337885
+    second: MapCat_Poses_74
+  - first:
+      213: 5386936121083684205
+    second: MapCat_Poses_75
+  - first:
+      213: -6725508305357746513
+    second: MapCat_Poses_76
+  - first:
+      213: -8272668891975022290
+    second: MapCat_Poses_77
+  - first:
+      213: -8917248721070059207
+    second: MapCat_Poses_78
+  - first:
+      213: -5255470524309451280
+    second: MapCat_Poses_79
+  - first:
+      213: -5669901557344704825
+    second: MapCat_Poses_80
+  - first:
+      213: -1557272697343030051
+    second: MapCat_Poses_81
+  - first:
+      213: -1316283510189594338
+    second: MapCat_Poses_82
+  - first:
+      213: -6627084937484636016
+    second: MapCat_Poses_83
+  - first:
+      213: 7826899347942037632
+    second: MapCat_Poses_84
+  - first:
+      213: -5562708824060072334
+    second: MapCat_Poses_85
+  - first:
+      213: 9145657876378700344
+    second: MapCat_Poses_86
+  - first:
+      213: 1497433084940150884
+    second: MapCat_Poses_87
+  - first:
+      213: -2190515950126256716
+    second: MapCat_Poses_88
+  - first:
+      213: 7025148902602766779
+    second: MapCat_Poses_89
+  - first:
+      213: 5374154863266787323
+    second: MapCat_Poses_90
+  - first:
+      213: -1764737854247497158
+    second: MapCat_Poses_91
+  - first:
+      213: -5127809997857267007
+    second: MapCat_Poses_92
+  - first:
+      213: -934109864017456496
+    second: MapCat_Poses_93
+  - first:
+      213: -8953745353941674479
+    second: MapCat_Poses_94
+  - first:
+      213: -1343283524336130313
+    second: MapCat_Poses_95
+  - first:
+      213: -8942469919477872322
+    second: MapCat_Poses_96
+  - first:
+      213: -8841640139480598381
+    second: MapCat_Poses_97
+  - first:
+      213: -6162165369878372358
+    second: MapCat_Poses_98
+  - first:
+      213: -7871685517705301770
+    second: MapCat_Poses_99
+  - first:
+      213: 8635570511173346713
+    second: MapCat_Poses_100
+  - first:
+      213: 839561234361364223
+    second: MapCat_Poses_101
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MapCat_Poses_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 911
+        width: 65
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3691c37eb42d810800000000000000
+      internalID: 1788575458537333718
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 945
+        width: 21
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dcdb4f9566bb8800800000000000000
+      internalID: 615786321646705874
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 951
+        width: 41
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f1c4fd61ce949e0800000000000000
+      internalID: -1636517406592721023
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 929
+        width: 53
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e9a2ff2ea4c1a70800000000000000
+      internalID: 8798990110779153971
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 977
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d3232699e41ad70800000000000000
+      internalID: 9052603146675830134
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_5
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 927
+        width: 49
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26f3388bbd9790d90800000000000000
+      internalID: -7131034550364061854
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_6
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 903
+        width: 61
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fd63d8423ff72480800000000000000
+      internalID: -8923883545176085004
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_7
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 899
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92835acf978e372a0800000000000000
+      internalID: -6740788606616127447
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_8
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 903
+        width: 69
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc249c717fcf2020800000000000000
+      internalID: 2319300419447434430
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_9
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 957
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586c9f481e6f7f110800000000000000
+      internalID: 1294774866351343237
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_10
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 959
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e23b8c7a4dbf200800000000000000
+      internalID: 214999224322043455
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_11
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 961
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9765ed0de0786ac50800000000000000
+      internalID: 6676171995326862969
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_12
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 903
+        width: 29
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee4609c7fd007010800000000000000
+      internalID: 1184462059879157476
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_13
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 965
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1118dfeac525f10800000000000000
+      internalID: 2256968269913199047
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_14
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 996
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 789d25aa822e14350800000000000000
+      internalID: 5999324842918336903
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_15
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 973
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c4c73d15e82dd980800000000000000
+      internalID: -8512602756157553467
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_16
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 927
+        width: 99
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c295f2bde311dd480800000000000000
+      internalID: -8872916729187051220
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_17
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 903
+        width: 149
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c328258c6912eaa00800000000000000
+      internalID: 769589517816595004
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_18
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 927
+        width: 37
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c7d303d6c894850800000000000000
+      internalID: 6361770349226196074
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_19
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 959
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87dd5119d106a2860800000000000000
+      internalID: 7505917409070800248
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_20
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 903
+        width: 93
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b6c551b2c2038e0800000000000000
+      internalID: -1715822894474564706
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_21
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 957
+        width: 49
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38c7a6e32d428e0f0800000000000000
+      internalID: -1087578824601076605
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_22
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 959
+        width: 67
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1cb13656a1384ff0800000000000000
+      internalID: -51736805234328549
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_23
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 943
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1898b6cda1f1052e0800000000000000
+      internalID: -2139175622773339775
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_24
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 959
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12e0d1a266849cb0800000000000000
+      internalID: -4858110339846184418
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_25
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 929
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cecd9f0092a3ee030800000000000000
+      internalID: 3525819506062122220
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_26
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 903
+        width: 123
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84288e1a9b5444da0800000000000000
+      internalID: -5961563343144058296
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1536
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770a9476296e977b0800000000000000
+      internalID: -5225892376114257801
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_28
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 879
+        width: 79
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd7d14363b42f580800000000000000
+      internalID: -8794884426126492165
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_29
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 927
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38440b719ecdb6190800000000000000
+      internalID: -7968032222019042173
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_30
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 913
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 909200315e0dc90c0800000000000000
+      internalID: -4567546239775659767
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_31
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 887
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2110f750a065d53c0800000000000000
+      internalID: -4369241462437641966
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_32
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 841
+        width: 35
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e1a45cf86f38990800000000000000
+      internalID: -7384787866606756232
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_33
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 879
+        width: 37
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1778fe497764c2340800000000000000
+      internalID: 4840321178930218865
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_34
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 911
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f37ebd43767e2c0800000000000000
+      internalID: -4402436634006044827
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_35
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 917
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc99004315835a1b0800000000000000
+      internalID: -5646044636423087665
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_36
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 903
+        width: 47
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f75c0c45df39dc0800000000000000
+      internalID: -3633281933904609394
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_37
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 911
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb0669ed8743c6a0800000000000000
+      internalID: -6430217168123196490
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_38
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 903
+        width: 63
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 704e7ef1fb0139a60800000000000000
+      internalID: 7679500202656916487
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_39
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 893
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9540b8f1b118c8b20800000000000000
+      internalID: 3138024993863697497
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_40
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 903
+        width: 49
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07223f1e00e4428c0800000000000000
+      internalID: -4025006401264606608
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_41
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 907
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbed702afdf4502e0800000000000000
+      internalID: -2160232624339558725
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_42
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 881
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 902863493dee73420800000000000000
+      internalID: 2609817101576602121
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_43
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 855
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6335848c7f5513f40800000000000000
+      internalID: 5706436725560595254
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_44
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 865
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f6792ed2939d450800000000000000
+      internalID: 6113980838370045823
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_45
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 873
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2474d4294e0c310800000000000000
+      internalID: 1423388799261950648
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_46
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 875
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99239ba70c046a680800000000000000
+      internalID: -8744230431056383335
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_47
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 169
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f334cb2be36de5740800000000000000
+      internalID: 5142783389278683967
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_48
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 183
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387d7eb2a9ceddcb0800000000000000
+      internalID: -4837450277820311677
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_49
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 175
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcf3bc6c65aecaf0800000000000000
+      internalID: -374179833926386472
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_50
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 162
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c7bb53b0d1f2b40800000000000000
+      internalID: 5417580810733321313
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_51
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 181
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a92d93fb15f6161c0800000000000000
+      internalID: -4512202954757254502
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_52
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 149
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0050c4fc664ffdb80800000000000000
+      internalID: -8367700860229384960
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_53
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 157
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc278c1ee7fa79c0800000000000000
+      internalID: -3928555122874438436
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_54
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 179
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10c4bbb0489be3f0800000000000000
+      internalID: -870434699171545057
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_55
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 177
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8605f4c3ac33bac0800000000000000
+      internalID: -3840659383135172979
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_56
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 141
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa29d6e2c3a49c280800000000000000
+      internalID: -9022598756122651990
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_57
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 167
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59e32e6309d48540800000000000000
+      internalID: 5009367294298810714
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_58
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 183
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a4e71274873df50800000000000000
+      internalID: 6904994900589038237
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_59
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 169
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5dd0eede051f8170800000000000000
+      internalID: 8182782201568484700
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_60
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 161
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcf919cde8587f670800000000000000
+      internalID: 8572467264355409871
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_61
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 165
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f859d699bc4c70c20800000000000000
+      internalID: 3172720841237304719
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_62
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 167
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a963bb400c959d870800000000000000
+      internalID: 8708090035745535642
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_63
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 165
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27cc15ab6561b3990800000000000000
+      internalID: -7405300600531727246
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_64
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 161
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 869726cf285be4860800000000000000
+      internalID: 7516144402312624488
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_65
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 155
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afeb0e91c146d1670800000000000000
+      internalID: 8511068942656126714
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_66
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 155
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958a4803aa473bc90800000000000000
+      internalID: -7155247108654323623
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_67
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 163
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfc2d05a038e12b10800000000000000
+      internalID: 1955099008880684284
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_68
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 159
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16da6826d6a9ef100800000000000000
+      internalID: 143722032717540705
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_69
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 159
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883e2f61d8cd2fdf0800000000000000
+      internalID: -147813339216288888
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_70
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 151
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63f70b11f2c45f90800000000000000
+      internalID: -6965728382838901909
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_71
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 151
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cefb9e379ce26c250800000000000000
+      internalID: 5964506199266803692
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_72
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 143
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b10813b4ba4c75c0800000000000000
+      internalID: -4216413011166363214
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_73
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 157
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e51e04add13ae210800000000000000
+      internalID: 1362956665242916326
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_74
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 146
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a29969178b2833f0800000000000000
+      internalID: -920938264550337885
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_75
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 149
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65e9e46cdd32ca40800000000000000
+      internalID: 5386936121083684205
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_76
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 99
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae463d54d13aa2a0800000000000000
+      internalID: -6725508305357746513
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_77
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 133
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2987652973913d80800000000000000
+      internalID: -8272668891975022290
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_78
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 125
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93110d6a8819f3480800000000000000
+      internalID: -8917248721070059207
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_79
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 119
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdcffe1761d017b0800000000000000
+      internalID: -5255470524309451280
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_80
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 139
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6e803f2967051b0800000000000000
+      internalID: -5669901557344704825
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_81
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 137
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc44788bb4736ae0800000000000000
+      internalID: -1557272697343030051
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_82
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 145
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e19e1771f1f9bbde0800000000000000
+      internalID: -1316283510189594338
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_83
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 111
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 090f2e47c5dd704a0800000000000000
+      internalID: -6627084937484636016
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_84
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 117
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08852defc7bbe9c60800000000000000
+      internalID: 7826899347942037632
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_85
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 113
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ee7f80cc94dc2b0800000000000000
+      internalID: -5562708824060072334
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_86
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 117
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a4ecef167ebee70800000000000000
+      internalID: 9145657876378700344
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_87
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 127
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46866cef473f7c410800000000000000
+      internalID: 1497433084940150884
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_88
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 119
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bda5e56959b991e0800000000000000
+      internalID: -2190515950126256716
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_89
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 113
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb9fcd1c4b75e7160800000000000000
+      internalID: 7025148902602766779
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_90
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 105
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff64f8ef55d49a40800000000000000
+      internalID: 5374154863266787323
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_91
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 97
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3294e385446287e0800000000000000
+      internalID: -1764737854247497158
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_92
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 97
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c2650aa9fb56d8b0800000000000000
+      internalID: -5127809997857267007
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_93
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 99
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0921d0e17006903f0800000000000000
+      internalID: -934109864017456496
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_94
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 87
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11690012a08edb380800000000000000
+      internalID: -8953745353941674479
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_95
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 73
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f66f4b60c2bb5de0800000000000000
+      internalID: -1343283524336130313
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_96
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 79
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39c7eaccf6f5e380800000000000000
+      internalID: -8942469919477872322
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_97
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 85
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3987c6e532f2c4580800000000000000
+      internalID: -8841640139480598381
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_98
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 62
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff9f21ae379b7aa0800000000000000
+      internalID: -6162165369878372358
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_99
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 69
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0b6954ab722c290800000000000000
+      internalID: -7871685517705301770
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_100
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 63
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995635f60a5b7d770800000000000000
+      internalID: 8635570511173346713
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapCat_Poses_101
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 17
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe2c459e78b6ab00800000000000000
+      internalID: 839561234361364223
+      vertices: []
+      indices:
+      edges: []
+      weights: []
+    outline: []
+    customData:
+    physicsShape: []
+    bones: []
+    spriteID:
+    internalID: 0
+    vertices: []
+    indices:
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MapCat_Poses_0: 1788575458537333718
+      MapCat_Poses_1: 615786321646705874
+      MapCat_Poses_10: 214999224322043455
+      MapCat_Poses_100: 8635570511173346713
+      MapCat_Poses_101: 839561234361364223
+      MapCat_Poses_11: 6676171995326862969
+      MapCat_Poses_12: 1184462059879157476
+      MapCat_Poses_13: 2256968269913199047
+      MapCat_Poses_14: 5999324842918336903
+      MapCat_Poses_15: -8512602756157553467
+      MapCat_Poses_16: -8872916729187051220
+      MapCat_Poses_17: 769589517816595004
+      MapCat_Poses_18: 6361770349226196074
+      MapCat_Poses_19: 7505917409070800248
+      MapCat_Poses_2: -1636517406592721023
+      MapCat_Poses_20: -1715822894474564706
+      MapCat_Poses_21: -1087578824601076605
+      MapCat_Poses_22: -51736805234328549
+      MapCat_Poses_23: -2139175622773339775
+      MapCat_Poses_24: -4858110339846184418
+      MapCat_Poses_25: 3525819506062122220
+      MapCat_Poses_26: -5961563343144058296
+      MapCat_Poses_27: -5225892376114257801
+      MapCat_Poses_28: -8794884426126492165
+      MapCat_Poses_29: -7968032222019042173
+      MapCat_Poses_3: 8798990110779153971
+      MapCat_Poses_30: -4567546239775659767
+      MapCat_Poses_31: -4369241462437641966
+      MapCat_Poses_32: -7384787866606756232
+      MapCat_Poses_33: 4840321178930218865
+      MapCat_Poses_34: -4402436634006044827
+      MapCat_Poses_35: -5646044636423087665
+      MapCat_Poses_36: -3633281933904609394
+      MapCat_Poses_37: -6430217168123196490
+      MapCat_Poses_38: 7679500202656916487
+      MapCat_Poses_39: 3138024993863697497
+      MapCat_Poses_4: 9052603146675830134
+      MapCat_Poses_40: -4025006401264606608
+      MapCat_Poses_41: -2160232624339558725
+      MapCat_Poses_42: 2609817101576602121
+      MapCat_Poses_43: 5706436725560595254
+      MapCat_Poses_44: 6113980838370045823
+      MapCat_Poses_45: 1423388799261950648
+      MapCat_Poses_46: -8744230431056383335
+      MapCat_Poses_47: 5142783389278683967
+      MapCat_Poses_48: -4837450277820311677
+      MapCat_Poses_49: -374179833926386472
+      MapCat_Poses_5: -7131034550364061854
+      MapCat_Poses_50: 5417580810733321313
+      MapCat_Poses_51: -4512202954757254502
+      MapCat_Poses_52: -8367700860229384960
+      MapCat_Poses_53: -3928555122874438436
+      MapCat_Poses_54: -870434699171545057
+      MapCat_Poses_55: -3840659383135172979
+      MapCat_Poses_56: -9022598756122651990
+      MapCat_Poses_57: 5009367294298810714
+      MapCat_Poses_58: 6904994900589038237
+      MapCat_Poses_59: 8182782201568484700
+      MapCat_Poses_6: -8923883545176085004
+      MapCat_Poses_60: 8572467264355409871
+      MapCat_Poses_61: 3172720841237304719
+      MapCat_Poses_62: 8708090035745535642
+      MapCat_Poses_63: -7405300600531727246
+      MapCat_Poses_64: 7516144402312624488
+      MapCat_Poses_65: 8511068942656126714
+      MapCat_Poses_66: -7155247108654323623
+      MapCat_Poses_67: 1955099008880684284
+      MapCat_Poses_68: 143722032717540705
+      MapCat_Poses_69: -147813339216288888
+      MapCat_Poses_7: -6740788606616127447
+      MapCat_Poses_70: -6965728382838901909
+      MapCat_Poses_71: 5964506199266803692
+      MapCat_Poses_72: -4216413011166363214
+      MapCat_Poses_73: 1362956665242916326
+      MapCat_Poses_74: -920938264550337885
+      MapCat_Poses_75: 5386936121083684205
+      MapCat_Poses_76: -6725508305357746513
+      MapCat_Poses_77: -8272668891975022290
+      MapCat_Poses_78: -8917248721070059207
+      MapCat_Poses_79: -5255470524309451280
+      MapCat_Poses_8: 2319300419447434430
+      MapCat_Poses_80: -5669901557344704825
+      MapCat_Poses_81: -1557272697343030051
+      MapCat_Poses_82: -1316283510189594338
+      MapCat_Poses_83: -6627084937484636016
+      MapCat_Poses_84: 7826899347942037632
+      MapCat_Poses_85: -5562708824060072334
+      MapCat_Poses_86: 9145657876378700344
+      MapCat_Poses_87: 1497433084940150884
+      MapCat_Poses_88: -2190515950126256716
+      MapCat_Poses_89: 7025148902602766779
+      MapCat_Poses_9: 1294774866351343237
+      MapCat_Poses_90: 5374154863266787323
+      MapCat_Poses_91: -1764737854247497158
+      MapCat_Poses_92: -5127809997857267007
+      MapCat_Poses_93: -934109864017456496
+      MapCat_Poses_94: -8953745353941674479
+      MapCat_Poses_95: -1343283524336130313
+      MapCat_Poses_96: -8942469919477872322
+      MapCat_Poses_97: -8841640139480598381
+      MapCat_Poses_98: -6162165369878372358
+      MapCat_Poses_99: -7871685517705301770
+  mipmapLimitGroupName:
+  pSDRemoveMatte: 0
+  userData:
+  assetBundleName:
+  assetBundleVariant:

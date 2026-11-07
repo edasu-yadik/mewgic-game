@@ -11,6 +11,9 @@ public static class MapFlowValidation
     [MenuItem("Mewgic/Map Flow/Run Isolated Play Mode QA")]
     public static void Run() => MapFlowProbe.Begin();
 
+    [MenuItem("Mewgic/Map Flow/Run Journey Foundation QA")]
+    public static void RunFoundation() => MapFlowProbe.Begin("docs/ProductionReports/MapJourneyFoundation");
+
     [MenuItem("Mewgic/Map Flow/Validate Save Model")]
     public static void Models()
     {

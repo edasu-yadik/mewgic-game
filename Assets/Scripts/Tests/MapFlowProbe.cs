@@ -18,7 +18,7 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class MapFlowProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/MapFlow";
+        [SerializeField] string output = "docs/ProductionReports/MapFlow";
         readonly List<string> checks = new List<string>(), errors = new List<string>();
         static MapFlowProbe active;
         ProgressData disk;
@@ -35,11 +35,11 @@ namespace Mewgic
             for (int i = 1; i <= completed; i++) data.levels.Add(new LevelRecord { level = i, bestStars = i % 3 + 1, rewardClaimed = true });
             return data;
         }
-        public static void Begin()
+        public static void Begin(string folder = "docs/ProductionReports/MapFlow")
         {
             Require(!EditorApplication.isPlaying, "Önce Play Mode durdurulmalı");
             EditorSceneManager.OpenScene("Assets/Scenes/LevelMap.unity");
-            new GameObject("Map Flow QA - isolated").AddComponent<MapFlowProbe>();
+            new GameObject("Map Flow QA - isolated").AddComponent<MapFlowProbe>().output = folder;
             typeof(Editor).Assembly.GetType("UnityEditor.GameView");
             Part12BEditorSize(1600);
             EditorApplication.isPlaying = true;
@@ -51,7 +51,7 @@ namespace Mewgic
             active = this;
             DontDestroyOnLoad(gameObject);
             Application.runInBackground = true;
-            Directory.CreateDirectory(Output);
+            Directory.CreateDirectory(output);
             Application.logMessageReceived += Log;
             Bind(Data(90));
             Ledger.Claim(91, 3, true, out _);
@@ -91,7 +91,7 @@ namespace Mewgic
                 if (item is IEnumerator child && !(item is CustomYieldInstruction)) stack.Push(child);
                 else yield return item;
             }
-            File.WriteAllText(Output + "/UNITY_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
+            File.WriteAllText(output + "/UNITY_TESTS.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
             { success = failure == null && errors.Count == 0, count = checks.Count, checks, errors, failure, editor = Application.unityVersion }, Newtonsoft.Json.Formatting.Indented));
             EditorApplication.isPlaying = false;
         }
@@ -119,7 +119,7 @@ namespace Mewgic
             Graphics.Blit(render, flipped, new Vector2(1, -1), Vector2.up);
             RenderTexture.active = flipped;
             texture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0); texture.Apply();
-            File.WriteAllBytes(Output + "/" + name + ".png", texture.EncodeToPNG());
+            File.WriteAllBytes(output + "/" + name + ".png", texture.EncodeToPNG());
             RenderTexture.active = previous;
             RenderTexture.ReleaseTemporary(render); RenderTexture.ReleaseTemporary(flipped); Destroy(texture);
         }
@@ -129,9 +129,19 @@ namespace Mewgic
             Check(Map.JourneyTarget == 92 && Ledger.MapJourney.Pending, "Kayıt yeniden açılınca 91→92 bekliyor ve başlıyor");
             Check(Node(92).Status == MapLevelStatus.Locked, "Hedef varışa kadar görsel kilitli");
             var cat = GameObject.Find("WizardCatGuide").GetComponent<RectTransform>();
+            var catView = cat.GetComponent<JourneyCatImage>();
+            var contact = GameObject.Find("JourneyCatContact").GetComponent<RectTransform>();
+            var backplate = GameObject.Find("JourneyBackplate").GetComponent<RawImage>();
+            var water = backplate.material;
+            float waterClock = water.GetFloat("_EnvironmentTime");
+            Check(backplate.texture.name == "Crystal_Backplate_Pilot" && water.IsKeywordEnabled("MEWGIC_JOURNEY_PLATE") &&
+                water.GetFloat("_JourneyWater") > 0 && !ShaderUtil.ShaderHasError(water.shader), "Kristal pilotu ve akış shader'ı etkin");
             Vector2 before = cat.anchoredPosition;
             yield return new WaitForSecondsRealtime(.72f);
             Check(Vector2.Distance(before, cat.anchoredPosition) > 5, "Maskot rota boyunca ilerliyor");
+            Check(catView.PoseIndex > 0 && catView.texture.name == "MapCat_Poses" &&
+                Vector2.Distance(cat.anchoredPosition, contact.anchoredPosition) < .01f, "Asasız yürüyüş pozu ve temas gölgesi zemine bağlı");
+            Check(water.GetFloat("_EnvironmentTime") > waterClock, "Şelale saati kaydırmadan bağımsız ilerliyor");
             var paw = GameObject.Find("GoldenPawTrail").GetComponent<JourneyPawTrail>();
             Check(paw.canvasRenderer.GetMesh() != null && paw.canvasRenderer.GetMesh().vertexCount > 0, "Altın pati mesh'i kademeli oluşuyor");
             var viewport = GameObject.Find("JourneyScroll").GetComponent<RectTransform>();
@@ -144,6 +154,20 @@ namespace Mewgic
             yield return new WaitForSecondsRealtime(.8f);
             Check(!Map.JourneyRunning && !Ledger.MapJourney.Pending && Ledger.MapJourney.displayedLevel == 92 && Ledger.MapJourney.lastShownLevel == 92,
                 "Tamamlanınca gösterilen konum ve already-shown atomik kaydediliyor");
+            Check(catView.PoseIndex == 0 && Vector2.Distance(cat.anchoredPosition, contact.anchoredPosition) < .01f,
+                "Maskot yerde oturma pozuna dönüyor");
+            var scroll = viewport.GetComponent<ScrollRect>();
+            var closeArt = GameObject.Find("JourneyNearCrystals").GetComponent<RectTransform>();
+            Check(!backplate.transform.IsChildOf(scroll.content) && !closeArt.IsChildOf(scroll.content), "Dış çevre ve ön plan kaydırılan yolun dışında");
+            var backBefore = backplate.rectTransform.anchoredPosition;
+            var frontBefore = closeArt.anchoredPosition;
+            var routeBefore = scroll.content.anchoredPosition;
+            scroll.verticalNormalizedPosition = .80f;
+            yield return null; yield return null;
+            Check(Vector2.Distance(scroll.content.anchoredPosition, routeBefore) > 500 &&
+                Vector2.Distance(backplate.rectTransform.anchoredPosition, backBefore) <= 14.01f &&
+                Vector2.Distance(closeArt.anchoredPosition, frontBefore) <= 36.01f, "Yol kayarken yakın ve uzak katmanların parallax farkı sınırlı");
+            yield return Shot("06-Scroll-Anchored");
             Reopen(); yield return Reload();
             Check(!Map.JourneyRunning && Node(92).Status == MapLevelStatus.Current, "İkinci giriş: running=" + Map.JourneyRunning + " status=" + Node(92).Status + " current=" + Map.Progression.CurrentId + " pending=" + Ledger.MapJourney.Pending);
             Ledger.Claim(91, 3, true, out _); yield return Reload();
@@ -175,6 +199,11 @@ namespace Mewgic
                 yield return new WaitForSecondsRealtime(2.5f);
                 Check(!Map.JourneyRunning && Node(boundary + 1).Status == MapLevelStatus.Current && Ledger.MapJourney.displayedLevel == boundary + 1,
                     boundary + " sınırında doğru ada, kedi ve açılış");
+                var catBounds = new Vector3[4];
+                GameObject.Find("WizardCatGuide").GetComponent<RectTransform>().GetWorldCorners(catBounds);
+                var targetViewport = GameObject.Find("JourneyScroll").GetComponent<RectTransform>();
+                Check(targetViewport.InverseTransformPoint(catBounds[1]).y <= targetViewport.rect.yMax + 1,
+                    (boundary + 1) + " ilk bölümünde kedinin şapkası görünür");
                 if (boundary == 100 || boundary == 600) yield return Shot("05-Island-" + (boundary + 1));
             }
             Bind(Data(98)); Ledger.Claim(99, 2, true, out _); Ledger.Claim(100, 3, true, out _); Reopen(); yield return Reload();

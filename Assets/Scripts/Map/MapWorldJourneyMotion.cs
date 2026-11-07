@@ -31,7 +31,8 @@ namespace Mewgic.Map
         JourneyCatImage catImage;
         bool reducedJourneyMotion, journeyRunning, journeyArrived, journeyCrossed;
         int fromLevel, toLevel, fromRegion, toRegion, fromSlot, toSlot, activeJourneyLights;
-        float journeyClock, catPoseClock;
+        float journeyClock;
+        int catFacing = 1;
 
         public bool JourneyRunning => journeyRunning;
         public int JourneyTarget => journeyRunning ? toLevel : 0;
@@ -59,6 +60,7 @@ namespace Mewgic.Map
             }
             pawTrail = Rect(journeyContent, "GoldenPawTrail", Vector2.zero, Vector2.one).gameObject.AddComponent<JourneyPawTrail>();
             pawTrail.raycastTarget = false;
+            pawTrail.transform.SetSiblingIndex(journeyCat.transform.GetSiblingIndex());
             pawTrail.gameObject.SetActive(false);
             var skip = Art(chapter.transform, "TapToSkipJourney", null, new Vector2(0, .105f), new Vector2(1, .87f));
             skip.color = Color.clear;
@@ -113,7 +115,7 @@ namespace Mewgic.Map
             toSlot = (toLevel - 1) % JourneyLevelCount;
             journeySaveFailed = false;
             journeyClock = 0;
-            catPoseClock = 0;
+            catFacing = 1;
             journeyRunning = true;
             CancelJourneyCameraOnly();
             journeyScroll.StopMovement();
@@ -122,7 +124,7 @@ namespace Mewgic.Map
             journeySkip.transform.SetAsLastSibling();
             journeyArrived = false;
             bool simple = reducedJourneyMotion || !animateEnvironment;
-            journeyCrossed = simple || fromRegion == toRegion;
+            journeyCrossed = simple || (fromRegion == toRegion && Mathf.Abs(toSlot - fromSlot) <= 3);
             int region = simple ? toRegion : fromRegion;
             int slot = simple ? toSlot : fromSlot;
             FocusRegion(toRegion, false);
@@ -130,10 +132,10 @@ namespace Mewgic.Map
             if (simple)
             {
                 RevealJourney();
-                PoseCat(CatRest(toSlot), 1, 0, 0);
+                PoseCat(CatRest(toSlot), false, 0);
             }
             else
-                PoseCat(CatRest(fromSlot), 1, 0, 0);
+                PoseCat(CatRest(fromSlot), false, 0);
             pawTrail.gameObject.SetActive(!simple);
             pawTrail.Clear();
         }
@@ -191,7 +193,8 @@ namespace Mewgic.Map
             }
 
             bool crossing = fromRegion != toRegion;
-            if (crossing)
+            bool cut = crossing || Mathf.Abs(toSlot - fromSlot) > 3;
+            if (cut)
             {
                 float veil = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(ArrivalTime * .28f, ArrivalTime * .48f, journeyClock)) *
                     (1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(ArrivalTime * .51f, ArrivalTime * .73f, journeyClock)));
@@ -201,7 +204,7 @@ namespace Mewgic.Map
                 {
                     journeyCrossed = true;
                     ShowChapter(toRegion, toSlot / 10, toSlot, false);
-                    if (toRegion == newlyOpenedRegion)
+                    if (crossing && toRegion == newlyOpenedRegion)
                     {
                         journeyWelcomeTitle.text = L.Island(toRegion);
                         journeyWelcome.gameObject.SetActive(true);
@@ -212,29 +215,30 @@ namespace Mewgic.Map
             if (!journeyArrived && journeyClock >= ArrivalTime)
                 RevealJourney();
 
+            float start = RestSlot(fromSlot);
+            float end = RestSlot(toSlot);
             float walk = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(WalkStart, ArrivalTime, journeyClock));
-            float position = Mathf.Lerp(fromSlot, toSlot, walk);
-            if (crossing)
-                position = journeyCrossed
-                    ? toSlot - .43f * (1 - Mathf.InverseLerp(CrossingTime, ArrivalTime, journeyClock))
-                    : fromSlot + .43f * Mathf.InverseLerp(WalkStart, CrossingTime, journeyClock);
-
-            Vector2 feet = RoutePosition(position);
-            if (walk < .25f && !crossing)
-                feet = Vector2.Lerp(CatRest(fromSlot), feet, walk * 4);
-            if (journeyArrived)
-                feet = Vector2.Lerp(feet, CatRest(toSlot), Mathf.SmoothStep(0, 1, Mathf.InverseLerp(ArrivalTime, JourneyDuration - .24f, journeyClock)));
-
-            float hop = journeyArrived ? Mathf.Sin(Mathf.Clamp01((journeyClock - ArrivalTime) / .36f) * Mathf.PI) * 18 : 0;
-            float gait = walk < 1 && journeyClock > WalkStart ? Mathf.Sin(journeyClock * 35) : 0;
-            float size = .92f + Mathf.Clamp01((position + .5f) / JourneyLevelCount) * .11f;
-            PoseCat(feet, size, Mathf.Abs(gait) * 6 + hop, gait);
-            catPoseClock -= dt;
-            if (catPoseClock <= 0)
+            if (cut)
             {
-                catPoseClock = 1f / 24;
-                if (InJourneyView(feet.y)) catImage.SetPose(gait);
+                if (journeyCrossed)
+                {
+                    start = Mathf.Max(-.45f, end - .85f);
+                    walk = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(CrossingTime, ArrivalTime, journeyClock));
+                }
+                else
+                {
+                    end = Mathf.Min(49.45f, start + .60f);
+                    walk = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(WalkStart, CrossingTime, journeyClock));
+                }
             }
+
+            float position = Mathf.Lerp(start, end, walk);
+            Vector2 feet = RoutePosition(position);
+            Vector2 tangent = RoutePosition(position + .02f) - RoutePosition(position - .02f);
+            if (Mathf.Abs(tangent.x) > .25f) catFacing = tangent.x > 0 ? 1 : -1;
+            bool walking = !journeyArrived && journeyClock > WalkStart;
+            float stride = Mathf.Abs(position - start) * 7;
+            PoseCat(feet, walking, stride);
 
             float desired = ScrollForSlot(position);
             if (journeyWelcome.gameObject.activeSelf)
@@ -242,8 +246,6 @@ namespace Mewgic.Map
                 float appear = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(ArrivalTime * .58f, ArrivalTime * .78f, journeyClock));
                 journeyWelcome.alpha = appear * (1 - Mathf.InverseLerp(ArrivalTime, JourneyDuration, journeyClock));
                 journeyWelcome.transform.localScale = Vector3.one * Mathf.Lerp(.94f, 1, appear);
-                desired = Mathf.Max(desired, rowHeight * .70f *
-                    Mathf.Sin(Mathf.InverseLerp(CrossingTime, JourneyDuration, journeyClock) * Mathf.PI));
             }
             var content = journeyContent.anchoredPosition;
             content.y = Mathf.Lerp(content.y, desired, 1 - Mathf.Exp(-dt * 8));
@@ -262,7 +264,7 @@ namespace Mewgic.Map
                         : journeyArrived ? Mathf.Sin(arrival * Mathf.PI) : 0, target);
             }
             DrawJourneyLights(position, crossing, arrival);
-            UpdatePawTrail(walk, crossing, arrival);
+            UpdatePawTrail(start, end, walk, arrival);
 
             if (journeyClock >= JourneyDuration)
                 FinishJourney(true);
@@ -279,17 +281,14 @@ namespace Mewgic.Map
             Vector2 feet = CatRest(slot);
             if (!InJourneyView(feet.y)) return;
             float breath = Mathf.Sin(Time.unscaledTime * 2.1f);
-            PoseCat(feet, 1, breath * 1.1f, 0);
+            PoseCat(feet, false, 0);
             journeyCat.rectTransform.localScale = new Vector3(1 - breath * .006f, 1 + breath * .009f, 1);
         }
 
-        void UpdatePawTrail(float walk, bool crossing, float arrival)
+        void UpdatePawTrail(float start, float end, float progress, float arrival)
         {
-            int count = activeJourneyLights == 0 ? 4 : activeJourneyLights + 4;
-            float start = crossing ? (journeyCrossed ? -.38f : fromSlot) : fromSlot;
-            float end = crossing ? (journeyCrossed ? toSlot : fromSlot + .38f) : toSlot;
-            float progress = crossing ? journeyCrossed ? Mathf.InverseLerp(CrossingTime, ArrivalTime, journeyClock) :
-                Mathf.InverseLerp(WalkStart, CrossingTime, journeyClock) : walk;
+            int budget = activeJourneyLights == 0 ? 4 : activeJourneyLights + 4;
+            int count = Mathf.Clamp(Mathf.CeilToInt(Mathf.Abs(end - start) * 7), 3, budget);
             for (int i = 0; i < count; i++)
             {
                 float t = (i + 1f) / (count + 1);
@@ -324,6 +323,7 @@ namespace Mewgic.Map
                 {
                     float angle = i * (Mathf.PI * 2 / activeJourneyLights) + arrival * 3.8f;
                     Vector2 center = RoutePosition(toSlot);
+                    if (!useLegacyJourneyArt) center.x = journeyScroll.viewport.rect.width * JourneyRouteGraphic.NodeLane(toSlot);
                     float radius = journeyScroll.viewport.rect.width * (toLevel == 100 ? .103f : .085f);
                     light.rectTransform.anchoredPosition = center + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle) * .68f) * radius;
                     light.canvasRenderer.SetAlpha(InJourneyView(center.y) ? Mathf.Sin(arrival * Mathf.PI) * .84f : 0);
@@ -341,6 +341,8 @@ namespace Mewgic.Map
 
         Vector2 RoutePosition(float slot)
         {
+            if (!useLegacyJourneyArt)
+                return new Vector2(JourneyRouteGraphic.FoundationLane(slot) * journeyScroll.viewport.rect.width, -(slot + .5f) * rowHeight);
             int a = Mathf.Clamp(Mathf.FloorToInt(slot), 0, JourneyLevelCount - 2);
             float t = Mathf.Clamp01(slot - a);
             float start = JourneyLane(a), end = JourneyLane(a + 1);
@@ -360,86 +362,60 @@ namespace Mewgic.Map
 
         static readonly float[] CrystalFinalBends = { .58f, .72f, .42f, .22f, .40f, .43f, .69f, .62f, .43f };
 
-        Vector2 CatRest(int slot)
-        {
-            var pos = RoutePosition(slot + .31f);
-            float width = journeyScroll.viewport.rect.width;
-            if (HasCrystalArt && slot == JourneyLevelCount - 1)
-                return new Vector2(width * .19f, -rowHeight * 49.82f);
-            pos.x += width * (JourneyLane(slot) < .52f ? .092f : -.092f);
-            return pos;
-        }
+        // The first node sits against the upper scroll limit. Leave room for the cat's hat.
+        float RestSlot(int slot) => !useLegacyJourneyArt && slot == 0 ? .70f : slot + .22f;
+        Vector2 CatRest(int slot) => RoutePosition(RestSlot(slot));
 
         void PlaceRestingCat()
         {
-            if (journeyCat == null || journeyMascot == null)
-                return;
+            if (journeyCat == null || journeyCat.texture == null) return;
             int displayed = ledger.MapJourney.displayedLevel;
-            journeyCat.enabled = journeyMascot != null && WorldMapRules.Island(displayed) == journeyRegion;
-            if (crystalCatShadow != null) crystalCatShadow.gameObject.SetActive(journeyCat.enabled);
-            if (WorldMapRules.Island(displayed) != journeyRegion) return;
-            int slot = (displayed - 1) % JourneyLevelCount;
-            PoseCat(CatRest(slot), 1, 0, 0);
-            catImage.SetPose(0);
+            journeyCat.enabled = WorldMapRules.Island(displayed) == journeyRegion;
+            var shadow = journeyCatShadow != null ? journeyCatShadow : crystalCatShadow;
+            if (shadow != null) shadow.gameObject.SetActive(journeyCat.enabled);
+            if (!journeyCat.enabled) return;
+            PoseCat(CatRest((displayed - 1) % JourneyLevelCount), false, 0);
         }
 
-        void PoseCat(Vector2 feet, float size, float lift, float gait)
+        void PoseCat(Vector2 feet, bool walking, float stride)
         {
-            if (journeyMascot == null)
-                return;
+            if (journeyCat.texture == null) return;
             journeyCat.enabled = true;
             float width = journeyScroll.viewport.rect.width;
-            float height = width * .16f * size;
-            var r = journeyCat.rectTransform;
-            r.pivot = new Vector2(.5f, .12f);
-            r.sizeDelta = new Vector2(height * journeyMascot.width / journeyMascot.height, height);
-            r.anchoredPosition = feet + Vector2.up * lift;
-            r.localScale = new Vector3(1 + Mathf.Abs(gait) * .025f, 1 - Mathf.Abs(gait) * .023f, 1);
-            r.localRotation = Quaternion.Euler(0, 0, gait * 2.6f);
-            if (crystalCatShadow != null)
-            {
-                crystalCatShadow.gameObject.SetActive(true);
-                crystalCatShadow.rectTransform.anchoredPosition = feet;
-                crystalCatShadow.rectTransform.sizeDelta = new Vector2(width * .115f, width * .034f) * size;
-            }
+            float height = Mathf.Min(width * .205f, rowHeight * 1.15f);
+            int pose = walking ? 1 + Mathf.FloorToInt(stride) % 2 : 0;
+            float aspect = catImage.ShowPose(journeyCatPoses != null, pose);
+            var rect = journeyCat.rectTransform;
+            rect.pivot = new Vector2(.5f, journeyCatPoses != null ? .012f : .12f);
+            rect.sizeDelta = new Vector2(height * aspect, height);
+            rect.anchoredPosition = feet;
+            rect.localScale = new Vector3(walking ? catFacing : 1, 1, 1);
+            var shadow = journeyCatShadow != null ? journeyCatShadow : crystalCatShadow;
+            if (shadow == null) return;
+            shadow.gameObject.SetActive(true);
+            shadow.rectTransform.anchoredPosition = feet;
+            shadow.rectTransform.sizeDelta = new Vector2(width * .116f, width * .036f);
         }
     }
 
-    // A small grid deforms the original texture, keeping the approved character and its markings.
     public sealed class JourneyCatImage : RawImage
     {
-        const int Columns = 10, Rows = 10;
-        float gait;
-
-        public void SetPose(float step)
+        // Three padded UV crops share a single atlas and the same paw baseline.
+        static readonly Rect[] Poses =
         {
-            if (Mathf.Abs(gait - step) < .01f)
-                return;
-            gait = step;
-            SetVerticesDirty();
-        }
+            new Rect(32f / 1536, 244f / 1024, 424f / 1536, 548f / 1024),
+            new Rect(513f / 1536, 244f / 1024, 484f / 1536, 548f / 1024),
+            new Rect(1025f / 1536, 244f / 1024, 484f / 1536, 548f / 1024)
+        };
 
-        protected override void OnPopulateMesh(VertexHelper mesh)
+        public int PoseIndex { get; private set; }
+
+        internal float ShowPose(bool atlas, int pose)
         {
-            mesh.Clear();
-            var rect = GetPixelAdjustedRect();
-            for (int y = 0; y <= Rows; y++)
-                for (int x = 0; x <= Columns; x++)
-                {
-                    float u = x / (float)Columns, v = y / (float)Rows;
-                    float tail = Mathf.Clamp01(1 - Mathf.Abs(u - .19f) / .20f) *
-                        Mathf.Clamp01(1 - Mathf.Abs(v - .24f) / .18f);
-                    float paws = Mathf.Clamp01(1 - Mathf.Abs(v - .16f) / .17f) *
-                        Mathf.Clamp01(1 - Mathf.Abs(u - .58f) / .32f);
-                    var p = new Vector2(Mathf.Lerp(rect.xMin, rect.xMax, u), Mathf.Lerp(rect.yMin, rect.yMax, v));
-                    p += new Vector2(tail * gait * 9, tail * gait * 6 + paws * Mathf.Max(0, u < .58f ? gait : -gait) * 8);
-                    mesh.AddVert(p, color, new Vector2(u, v));
-                    if (x == 0 || y == 0)
-                        continue;
-                    int i = mesh.currentVertCount - 1;
-                    mesh.AddTriangle(i - Columns - 2, i - 1, i);
-                    mesh.AddTriangle(i - Columns - 2, i, i - Columns - 1);
-                }
+            PoseIndex = atlas ? pose : 0;
+            var crop = atlas ? Poses[pose] : new Rect(0, 0, 1, 1);
+            if (uvRect != crop) uvRect = crop;
+            return texture.width * crop.width / (texture.height * crop.height);
         }
     }
 }

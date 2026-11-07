@@ -6,13 +6,40 @@ namespace Mewgic.Map
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class JourneyRouteGraphic : MaskableGraphic
     {
+        bool foundation;
+        Color paving, wall, gold;
+        Texture2D pavingTexture;
+        public override Texture mainTexture => pavingTexture != null ? pavingTexture : base.mainTexture;
         internal static float Lane(int slot) => Lane((float)slot);
         static float Lane(float slot) => .50f + .245f * Mathf.Sin(slot * .82f - 1.05f);
+        internal static float FoundationLane(float slot) => .5f + .195f * Mathf.Sin(slot * .63f - .75f);
+        internal static float NodeLane(int slot)
+        {
+            float lane = FoundationLane(slot);
+            return lane + (lane < .5f ? -.175f : .175f);
+        }
+
+        internal void UseTheme(MapJourneyTheme theme, Texture2D commonPaving)
+        {
+            foundation = true;
+            pavingTexture = theme != null && theme.pavingTexture != null ? theme.pavingTexture : commonPaving;
+            SetMaterialDirty();
+            paving = theme != null ? theme.paving : new Color32(178, 138, 160, 255);
+            wall = theme != null ? theme.stoneWall : new Color32(55, 40, 84, 255);
+            gold = theme != null ? theme.gold : new Color32(236, 183, 116, 255);
+            SetVerticesDirty();
+        }
 
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
             mesh.Clear();
             Rect bounds = rectTransform.rect;
+            if (bounds.width <= 0 || bounds.height <= 0) return;
+            if (foundation)
+            {
+                DrawFoundation(mesh, bounds);
+                return;
+            }
             float row = bounds.height / 50;
             float width = Mathf.Min(bounds.width * .044f, row * .26f);
             for (int step = 0; step < 400; step++)
@@ -41,13 +68,100 @@ namespace Mewgic.Map
             }
         }
 
+        void DrawFoundation(VertexHelper mesh, Rect bounds)
+        {
+            float row = bounds.height / 50;
+            float half = bounds.width * .080f;
+            float depth = bounds.width * .019f;
+            Vector2 Point(float slot) => new Vector2(bounds.xMin + FoundationLane(slot) * bounds.width, bounds.yMax - (slot + .5f) * row);
+            Vector2 Edge(float slot) => Vector2.Perpendicular((Point(slot + .015f) - Point(slot - .015f)).normalized) * half;
+            var shadow = new Color32(27, 17, 50, 230);
+            var stoneTint = Color.Lerp(Color.white, paving, .34f);
+            for (int slot = 0; slot < 50; slot++)
+            {
+                var center = Point(slot);
+                var bank = new Vector2(bounds.xMin + NodeLane(slot) * bounds.width, center.y);
+                var pad = new Vector2(bounds.width * .083f, row * .34f);
+                Strip(mesh, center + Vector2.down * depth, bank + Vector2.down * depth, Vector2.up * row * .145f, shadow);
+                Strip(mesh, center, bank, Vector2.up * row * .155f, wall);
+                Strip(mesh, center + Vector2.up * 2, bank + Vector2.up * 2, Vector2.up * row * .127f, paving);
+                Disc(mesh, bank + Vector2.down * depth, pad, shadow, false);
+                Disc(mesh, bank + Vector2.down * (depth * .58f), pad, wall, false);
+                Disc(mesh, bank, pad, gold, false);
+                Disc(mesh, bank, pad * .95f, stoneTint, true);
+            }
+
+            float distance = 0;
+            float tileLength = half * 2.6f;
+            for (int step = 0; step < 400; step++)
+            {
+                float a = step / 8f - .5f, b = a + .125f;
+                Vector2 start = Point(a), end = Point(b), left = Edge(a), right = Edge(b);
+                var drop = Vector2.down * depth;
+                Quad(mesh, start - left + drop, end - right + drop, end + right + drop, start + left + drop, shadow);
+                Quad(mesh, start - left, end - right, end - right + drop, start - left + drop, wall);
+                Quad(mesh, start + left, end + right, end + right + drop, start + left + drop, wall);
+                Quad(mesh, start - left, end - right, end + right, start + left, Color.Lerp(wall, paving, .60f));
+                float v0 = distance / tileLength;
+                distance += Vector2.Distance(start, end);
+                float v1 = distance / tileLength;
+                Surface(mesh, start - left * .95f, end - right * .95f, end + right * .95f,
+                    start + left * .95f, stoneTint, v0, v1);
+                Quad(mesh, start - left, end - right, end - right * .96f, start - left * .96f, gold);
+                Quad(mesh, start + left, end + right, end + right * .96f, start + left * .96f, gold);
+                if (step % 8 == 2 || step % 8 == 6)
+                {
+                    Vector2 edge = start + (step % 8 == 2 ? left : -left);
+                    float size = bounds.width * .011f;
+                    Quad(mesh, edge + Vector2.left * size, edge + Vector2.down * size, edge + Vector2.right * size, edge + Vector2.up * size, wall);
+                    Quad(mesh, edge + Vector2.left * size * .7f, edge + Vector2.down * size * .55f,
+                        edge + Vector2.right * size * .7f, edge + Vector2.up * size * .94f, gold);
+                }
+            }
+        }
+
+        static readonly Vector2 Solid = new Vector2(-2, 0);
+
+        static void Disc(VertexHelper mesh, Vector2 center, Vector2 radius, Color tint, bool textured)
+        {
+            const int edges = 20;
+            int start = mesh.currentVertCount;
+            mesh.AddVert(center, tint, textured ? new Vector2(.5f, .5f) : Solid);
+            for (int i = 0; i < edges; i++)
+            {
+                float angle = i * Mathf.PI * 2 / edges;
+                var point = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                mesh.AddVert(center + Vector2.Scale(radius, point), tint,
+                    textured ? new Vector2(.5f, .5f) + point * .46f : Solid);
+                mesh.AddTriangle(start, start + i + 1, start + (i + 1) % edges + 1);
+            }
+        }
+
+        static void Quad(VertexHelper mesh, Vector2 a, Vector2 b, Vector2 c, Vector2 d, Color color) =>
+            AddQuad(mesh, a, b, c, d, color, Solid, Solid, Solid, Solid);
+
+        static void Surface(VertexHelper mesh, Vector2 a, Vector2 b, Vector2 c, Vector2 d, Color color, float v0, float v1) =>
+            AddQuad(mesh, a, b, c, d, color, new Vector2(.04f, v0), new Vector2(.04f, v1), new Vector2(.96f, v1), new Vector2(.96f, v0));
+
+        static void AddQuad(VertexHelper mesh, Vector2 a, Vector2 b, Vector2 c, Vector2 d, Color color,
+            Vector2 uvA, Vector2 uvB, Vector2 uvC, Vector2 uvD)
+        {
+            int index = mesh.currentVertCount;
+            mesh.AddVert(a, color, uvA);
+            mesh.AddVert(b, color, uvB);
+            mesh.AddVert(c, color, uvC);
+            mesh.AddVert(d, color, uvD);
+            mesh.AddTriangle(index, index + 1, index + 2);
+            mesh.AddTriangle(index, index + 2, index + 3);
+        }
+
         static void Strip(VertexHelper mesh, Vector2 start, Vector2 end, Vector2 normal, Color32 color)
         {
             int index = mesh.currentVertCount;
-            mesh.AddVert(start - normal, color, Vector2.zero);
-            mesh.AddVert(end - normal, color, Vector2.zero);
-            mesh.AddVert(end + normal, color, Vector2.zero);
-            mesh.AddVert(start + normal, color, Vector2.zero);
+            mesh.AddVert(start - normal, color, Solid);
+            mesh.AddVert(end - normal, color, Solid);
+            mesh.AddVert(end + normal, color, Solid);
+            mesh.AddVert(start + normal, color, Solid);
             mesh.AddTriangle(index, index + 1, index + 2);
             mesh.AddTriangle(index, index + 2, index + 3);
         }

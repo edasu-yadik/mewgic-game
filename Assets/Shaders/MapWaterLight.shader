@@ -6,6 +6,7 @@ Shader "Mewgic/MapWaterLight"
         _Color("Tint",Color)=(1,1,1,1)
         _EnvironmentTime("Environment time",Float)=0
         _TerraceFeather("Terrace edge feather",Float)=.024
+        _JourneyWater("Journey water amount",Float)=0
         _StencilComp("Stencil Comparison",Float)=8
         _Stencil("Stencil ID",Float)=0
         _StencilOp("Stencil Operation",Float)=0
@@ -29,20 +30,34 @@ Shader "Mewgic/MapWaterLight"
             #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
             #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW
             #pragma multi_compile_local _ MEWGIC_CRYSTAL_FLOW_LITE
+            #pragma multi_compile_local _ MEWGIC_JOURNEY_PLATE MEWGIC_JOURNEY_CAT MEWGIC_JOURNEY_STONE
             #include "UnityCG.cginc"
             #include "UnityUI.cginc"
             struct Input{float4 vertex:POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;};
             struct Output{float4 vertex:SV_POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;float4 local:TEXCOORD1;};
-            sampler2D _MainTex;fixed4 _Color;float4 _ClipRect;float _EnvironmentTime;float _TerraceFeather;
+            sampler2D _MainTex;fixed4 _Color;float4 _ClipRect;float _EnvironmentTime;float _TerraceFeather;float _JourneyWater;
             Output vert(Input v){Output o;o.local=v.vertex;o.vertex=UnityObjectToClipPos(v.vertex);o.uv=v.uv;o.color=v.color*_Color;return o;}
             fixed4 frag(Output i):SV_Target
             {
                 fixed4 c=tex2D(_MainTex,i.uv);
+                #ifdef MEWGIC_JOURNEY_STONE
+                c=lerp(fixed4(1,1,1,1),c,step(0,i.uv.x));
+                #else
                 half water=saturate((min(c.g,c.b)-c.r-.12)*4)*smoothstep(.4,.8,c.b);
                 half window=saturate((c.r-c.b-.25)*3)*smoothstep(.6,1,c.r);
                 c.rgb+=water*sin(i.uv.y*250+_EnvironmentTime*1.8+sin(i.uv.x*60))*half3(.008,.014,.018);
                 c.rgb*=1+window*sin(_EnvironmentTime*1.1+i.uv.x*31+i.uv.y*17)*.012;
-                #ifdef MEWGIC_CRYSTAL_FLOW
+                #ifdef MEWGIC_JOURNEY_PLATE
+                half plateCyan=smoothstep(.08,.31,min(c.g,c.b)-c.r)*smoothstep(.29,.69,c.g)*_JourneyWater;
+                float pool=1-smoothstep(.105,.20,i.uv.y);
+                float vertical=i.uv.y*192+i.uv.x*18+_EnvironmentTime*8.4;
+                float horizontal=i.uv.x*125+i.uv.y*106-_EnvironmentTime*3.5;
+                float phase=lerp(vertical,horizontal,pool);
+                float2 drift=lerp(float2(.0008*sin(vertical*.6),.0025*sin(vertical)),float2(.004*sin(horizontal),.0008*sin(horizontal*.4)),pool);
+                fixed3 shifted=tex2D(_MainTex,i.uv+drift*plateCyan).rgb;
+                half ripple=smoothstep(.42,.95,sin(phase+sin(i.uv.x*230)*.68));
+                c.rgb=lerp(c.rgb,shifted,plateCyan*.55)+plateCyan*ripple*half3(.035,.084,.10);
+                #elif defined(MEWGIC_CRYSTAL_FLOW)
                 half cyan=smoothstep(.04,.26,min(c.g,c.b)-c.r)*smoothstep(.16,.62,c.g);
                 float phase=i.uv.y*108+i.uv.x*20+_EnvironmentTime*4.2;
                 #ifndef MEWGIC_CRYSTAL_FLOW_LITE
@@ -58,6 +73,10 @@ Shader "Mewgic/MapWaterLight"
                 c.rgb+=cyan*stream*half3(.036,.092,.104);
                 c.rgb+=crystal*(.028+.024*sin(_EnvironmentTime*1.7+i.uv.x*32))*half3(.65,.55,1);
                 c.a*=smoothstep(0,_TerraceFeather,1-i.uv.y);
+                #endif
+                #ifdef MEWGIC_JOURNEY_CAT
+                c.a=smoothstep(.075,.87,c.a);
+                #endif
                 #endif
                 c*=i.color;
                 #ifdef UNITY_UI_CLIP_RECT
