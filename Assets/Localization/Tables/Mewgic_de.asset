@@ -1030,6 +1030,199 @@ MonoBehaviour:
     m_Localized: Wiederholen
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: Zauberladen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: Booster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: "Katzenkost\xFCme"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: Flaschendesigns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: Zaubereffekte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: Spezialpakete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: "Spezialpakete sind noch nicht verf\xFCgbar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: '{0} Gold'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897728
+    m_Localized: Meine Artikel ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897729
+    m_Localized: Im Besitz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: Anlegen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: Angelegt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: Aussehen angelegt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Bestand: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897734
+    m_Localized: "Spiele Level und sammle Belohnungen f\xFCr Gold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: "Lege Kosmetik an. Nutze Booster im R\xE4tsel."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Kaufen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Kaufen \xB7 {0} Gold"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897738
+    m_Localized: Abbrechen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: "Kauf best\xE4tigen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} Gold"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897741
+    m_Localized: "Artikel zu Meine Artikel hinzugef\xFCgt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: Nicht genug Gold.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: Booster-Vorrat ist voll.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: "Angebot aktualisiert. W\xE4hle den Artikel erneut."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: "Macht den letzten g\xFCltigen Zug r\xFCckg\xE4ngig."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: "F\xFCgt pro R\xE4tsel eine leere Flasche hinzu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: "Zeigt einen g\xFCltigen Zug zur L\xF6sung."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: "Ordnet l\xF6sbare Flaschen neu. Farben bleiben gleich."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: "\xC4ndert die Farbe von Hut und Umhang."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: "T\xF6nt das Glas. Trankfarben bleiben gleich."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: "F\xE4rbt Zauber- und Flaschenfunken."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: Klassischer Zauberer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: Kristallzauberer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: Goldzauberer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: Nachtstern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: Klassisches Glas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Kristallglas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: Goldglas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: Goldfunkeln
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: Rosenfunkeln
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: Kristallfunkeln
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} Gold"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897763
+    m_Localized: "Gewinne 3 Level\n+{0} Mischen \xB7 {1} Gold\nSternabzeichen und
+      Rosenfunkeln"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} Gold\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:
@@ -1218,3 +1411,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

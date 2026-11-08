@@ -9,7 +9,7 @@ namespace Mewgic
     {
         public Sprite panel,coin,gem,heart,plus,settings;
         public HomeResourceModel Model {get;private set;}
-        RectTransform root,safe,popup,shop; TMP_Text shopBalance,shopNotice; int lastPurchaseFrame=-1;
+        RectTransform root,safe,popup;
         double displayedCoins=-1;
         TMP_Text coinsText,gemsText,energyText,heartText,message;
         readonly Button[] feedbackButtons=new Button[4]; readonly TMP_Text[] feedbackLabels=new TMP_Text[4]; static readonly string[] feedbackKeys={"settings.music","settings.effects","settings.vibration","settings.motion"};GameObject languagePicker;Button languageButton,tutorialReplayButton;
@@ -60,41 +60,7 @@ namespace Mewgic
             message=Label(card.transform,"Message","",new Vector2(.08f,.30f),new Vector2(.92f,.90f),26);
             var close=Art(card.transform,"ResourceInfoClose",panel,new Vector2(.32f,.04f),new Vector2(.68f,.28f));close.preserveAspect=false;close.raycastTarget=true;var button=close.gameObject.AddComponent<PremiumButton>();button.targetGraphic=close;button.onClick.AddListener(Close);Label(close.transform,"Label",L.V("common.close"),Vector2.zero,Vector2.one,22);popup.gameObject.SetActive(false);
         }
-        void OpenShop()
-        {
-            if(shop==null)
-            {
-                shop=Rect(safe,"BoosterShop",Vector2.zero,Vector2.one);
-                var dim=shop.gameObject.AddComponent<Image>();dim.color=new Color(0,0,.08f,.82f);
-                var card=Art(shop,"BoosterShopCard",Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001"),new Vector2(.075f,.24f),new Vector2(.925f,.77f));
-                card.preserveAspect=false;card.type=Image.Type.Sliced;
-                Label(card.transform,"Title",L.V("economy.shop"),new Vector2(.07f,.87f),new Vector2(.93f,.98f),34);
-                shopBalance=Label(card.transform,"Balance","",new Vector2(.07f,.77f),new Vector2(.93f,.87f),26);
-                var kinds=new[]{BoosterKind.Hint,BoosterKind.Undo,BoosterKind.ExtraBottle,BoosterKind.Shuffle};
-                var keys=new[]{"booster.hint","booster.undo","booster.extra","booster.shuffle"};
-                for(int i=0;i<kinds.Length;i++)
-                {
-                    var kind=kinds[i];float y=.64f-i*.12f;
-                    SettingButton(card.transform,"Buy"+kind,L.V("economy.buy",L.V(keys[i]),ProgressLedger.BoosterPrice(kind)),
-                        new Vector2(.11f,y),new Vector2(.89f,y+.10f),()=>Purchase(kind));
-                }
-                shopNotice=Label(card.transform,"PurchaseNotice","",new Vector2(.07f,.125f),new Vector2(.93f,.26f),22);
-                SettingButton(card.transform,"ShopClose",L.V("common.close"),new Vector2(.28f,.03f),new Vector2(.72f,.12f),()=>shop.gameObject.SetActive(false));
-            }
-            shopBalance.text=L.V("economy.balance",FormatAmount(GameplayProgress.Current.Presentation.coins));
-            shopNotice.text="";
-            shop.gameObject.SetActive(true);
-            shop.SetAsLastSibling();
-        }
-        void Purchase(BoosterKind kind)
-        {
-            if(lastPurchaseFrame==Time.frameCount)return;
-            lastPurchaseFrame=Time.frameCount;
-            var ledger=GameplayProgress.Current;
-            if(ledger.Presentation.coins<ProgressLedger.BoosterPrice(kind)){shopNotice.text=L.V("economy.insufficient");return;}
-            shopNotice.text=ledger.BuyBooster(kind)?L.V("economy.bought",ledger.Remaining(kind)):L.V("error.save");
-            shopBalance.text=L.V("economy.balance",FormatAmount(ledger.Presentation.coins));
-        }
+        void OpenShop() => FindFirstObjectByType<MagicShopPanel>()?.Open();
 
         void OpenSettings()
         {

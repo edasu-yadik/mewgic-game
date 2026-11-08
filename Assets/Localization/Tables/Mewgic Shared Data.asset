@@ -811,6 +811,190 @@ MonoBehaviour:
     m_Key: victory.replay
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Key: shop.nav
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Key: shop.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Key: shop.boosters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Key: shop.cats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Key: shop.bottles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Key: shop.effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Key: shop.packs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Key: shop.packs_unavailable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Key: shop.gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897728
+    m_Key: shop.owned_tab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897729
+    m_Key: shop.owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Key: shop.equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Key: shop.equipped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Key: shop.equipped_note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Key: shop.stock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897734
+    m_Key: shop.note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Key: shop.owned_note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Key: shop.buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Key: shop.buy_for
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897738
+    m_Key: shop.cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Key: shop.confirm_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Key: shop.confirm_line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897741
+    m_Key: shop.purchased
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Key: shop.insufficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Key: shop.stock_full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Key: shop.offer_changed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Key: shop.use_undo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Key: shop.use_extra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Key: shop.use_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Key: shop.use_shuffle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Key: shop.use_cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Key: shop.use_bottle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Key: shop.use_effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Key: shop.item.classiccat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Key: shop.item.crystalcat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Key: shop.item.goldcat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Key: shop.item.nightcat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Key: shop.item.classicbottle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Key: shop.item.crystalbottle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Key: shop.item.goldbottle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Key: shop.item.classiceffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Key: shop.item.roseeffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Key: shop.item.crystaleffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Key: shop.task_payout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897763
+    m_Key: shop.week_payout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897764
+    m_Key: shop.season_payout
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

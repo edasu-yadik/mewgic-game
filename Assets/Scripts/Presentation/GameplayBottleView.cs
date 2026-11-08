@@ -113,7 +113,7 @@ namespace Mewgic
         public GameplayLiquidGraphic Liquid {get;private set;}
         public int[] DisplayedLayers=>Liquid.Layers;
         public float DisplayedVolume=>Liquid.Volume;
-        float feedbackUntil;Color feedbackTint;
+        float feedbackUntil;Color feedbackTint,skinTint=Color.white;
         bool hasPresented, wasComplete;
         public BottleCompletionGraphic Completion {get;private set;}
         bool selected,animating,paused;int hintRole;Image shell; Outline outline;HintCueGraphic hintCue;
@@ -122,7 +122,7 @@ namespace Mewgic
         {
             Rig=new GameObject("BottleVisual",typeof(RectTransform)).GetComponent<RectTransform>();Rig.SetParent(transform,false);Rig.anchorMin=Vector2.zero;Rig.anchorMax=Vector2.one;Rig.offsetMin=Rig.offsetMax=Vector2.zero;
             var fluid=new GameObject("DynamicLiquids",typeof(RectTransform),typeof(CanvasRenderer),typeof(GameplayLiquidGraphic));fluid.transform.SetParent(Rig,false);var fr=(RectTransform)fluid.transform;fr.anchorMin=Vector2.zero;fr.anchorMax=Vector2.one;fr.offsetMin=fr.offsetMax=Vector2.zero;Liquid=fluid.GetComponent<GameplayLiquidGraphic>();Liquid.raycastTarget=false;Liquid.Palette=palette;
-            var glassGo=new GameObject("GlassShell",typeof(RectTransform),typeof(Image));glassGo.transform.SetParent(Rig,false);var gr=(RectTransform)glassGo.transform;gr.anchorMin=Vector2.zero;gr.anchorMax=Vector2.one;gr.offsetMin=gr.offsetMax=Vector2.zero;shell=glassGo.GetComponent<Image>();shell.sprite=glass;shell.raycastTarget=false;outline=glassGo.AddComponent<Outline>();outline.effectDistance=new Vector2(1,-1);
+            var glassGo=new GameObject("GlassShell",typeof(RectTransform),typeof(Image));glassGo.transform.SetParent(Rig,false);var gr=(RectTransform)glassGo.transform;gr.anchorMin=Vector2.zero;gr.anchorMax=Vector2.one;gr.offsetMin=gr.offsetMax=Vector2.zero;shell=glassGo.GetComponent<Image>();shell.sprite=glass;skinTint=ShopCosmetics.BottleTint(GameplayProgress.Current.Equipped(Mewgic.Core.ShopCategory.Bottles));shell.color=skinTint;shell.raycastTarget=false;outline=glassGo.AddComponent<Outline>();outline.effectDistance=new Vector2(1,-1);
             var completion=new GameObject("BottleCompletion",typeof(RectTransform),typeof(CanvasRenderer),typeof(BottleCompletionGraphic));
             completion.transform.SetParent(Rig,false);var er=(RectTransform)completion.transform;er.anchorMin=Vector2.zero;er.anchorMax=Vector2.one;er.offsetMin=er.offsetMax=Vector2.zero;
             Completion=completion.GetComponent<BottleCompletionGraphic>();Completion.raycastTarget=false;Completion.Stop();
@@ -138,6 +138,6 @@ namespace Mewgic
         void Flash(Color tint){feedbackTint=tint;feedbackUntil=Time.unscaledTime+.24f;}
         public void SetPaused(bool value){paused=value;Liquid.Paused=value;Completion.SetPaused(value);}
         public void SetAnimating(bool value){animating=Liquid.Animating=value;}
-        void Update(){if(shell!=null&&feedbackUntil>0){float left=feedbackUntil-Time.unscaledTime;shell.color=Color.Lerp(Color.white,feedbackTint,Mathf.Clamp01(left/.16f));if(left<=0)feedbackUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=GameFeel.Reduced?(selected?12:0):Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
+        void Update(){if(shell!=null&&feedbackUntil>0){float left=feedbackUntil-Time.unscaledTime;shell.color=Color.Lerp(skinTint,feedbackTint,Mathf.Clamp01(left/.16f));if(left<=0)feedbackUntil=0;}if(!paused&&hintRole>0)HintLight();if(!animating&&!paused&&Rig!=null){var p=Rig.anchoredPosition;p.y=GameFeel.Reduced?(selected?12:0):Mathf.Lerp(p.y,selected?12:0,1-Mathf.Exp(-Time.unscaledDeltaTime*15));p.x=0;Rig.anchoredPosition=p;}}
     }
 }

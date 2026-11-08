@@ -1031,6 +1031,198 @@ MonoBehaviour:
     m_Localized: Repetir
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Tienda
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: "Tienda m\xE1gica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: Potenciadores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: Trajes del gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: "Dise\xF1os de botellas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: "Efectos m\xE1gicos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: Packs especiales
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: "Los packs especiales a\xFAn no est\xE1n disponibles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: '{0} de oro'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897728
+    m_Localized: Mis objetos ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897729
+    m_Localized: Adquirido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: Equipar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: Equipado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: Apariencia equipada.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Unidades: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897734
+    m_Localized: Juega y recoge premios para ganar oro.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: Equipa aspectos. Usa potenciadores en las partidas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Comprar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Comprar \xB7 {0} oro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897738
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: Confirma la compra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} de oro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897741
+    m_Localized: "Objeto a\xF1adido a Mis objetos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: No tienes suficiente oro.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: Inventario de potenciadores lleno.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: Oferta actualizada. Selecciona el objeto de nuevo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: "Deshace el \xFAltimo vertido v\xE1lido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: "A\xF1ade una botella vac\xEDa por puzle."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: "Muestra un vertido v\xE1lido hacia la soluci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: Reordena botellas sin cambiar sus colores.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: Cambia el color del sombrero y la capa.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: "Ti\xF1e el vidrio. Los colores de las pociones no cambian."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: "Colorea las chispas m\xE1gicas y de finalizaci\xF3n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: "Mago cl\xE1sico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: Mago de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: Mago dorado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: Estrella nocturna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: "Vidrio cl\xE1sico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Vidrio de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: Vidrio dorado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: Brillo dorado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: Brillo rosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: Brillo de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} oro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897763
+    m_Localized: "Gana 3 niveles\n+{0} Mezclar \xB7 {1} oro\nInsignia y Brillo rosa"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} oro\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
   references:
     version: 2
     RefIds:
@@ -1219,3 +1411,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

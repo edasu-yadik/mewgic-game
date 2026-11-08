@@ -1028,6 +1028,199 @@ MonoBehaviour:
     m_Localized: Zagraj ponownie
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Sklep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: Magiczny sklep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: Dopalacze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: Stroje kota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: Wzory butelek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: Efekty magiczne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: Pakiety specjalne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: "Pakiety specjalne nie s\u0105 jeszcze dost\u0119pne."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: "{0} z\u0142ota"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897728
+    m_Localized: Moje przedmioty ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897729
+    m_Localized: Posiadane
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: "Za\u0142\xF3\u017C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: "Za\u0142o\u017Cono"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: "Za\u0142o\u017Cono wygl\u0105d."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Zapas: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897734
+    m_Localized: "Graj i odbieraj nagrody, aby zdoby\u0107 z\u0142oto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: "Za\u0142\xF3\u017C wygl\u0105d. U\u017Cywaj dopalaczy w zagadkach."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Kup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Kup \xB7 {0} z\u0142ota"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897738
+    m_Localized: Anuluj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: "Potwierd\u017A zakup"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} z\u0142ota"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897741
+    m_Localized: "Dodano do Moich przedmiot\xF3w."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: "Za ma\u0142o z\u0142ota."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: "Zapas dopalaczy jest pe\u0142ny."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: "Oferta od\u015Bwie\u017Cona. Wybierz przedmiot ponownie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: "Cofa ostatnie prawid\u0142owe przelanie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: "Dodaje jedn\u0105 pust\u0105 butelk\u0119 na zagadk\u0119."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: "Pokazuje prawid\u0142owe przelanie do rozwi\u0105zania."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: "Zmienia kolejno\u015B\u0107 butelek, zachowuj\u0105c kolory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: Zmienia kolor kapelusza i peleryny.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: "Barwi szk\u0142o. Kolory mikstur pozostaj\u0105 takie same."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: "Barwi iskry magii i uko\u0144czenia butelki."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: Klasyczny czarodziej
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: "Kryszta\u0142owy czarodziej"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: "Z\u0142oty czarodziej"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: Nocna gwiazda
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: "Klasyczne szk\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: "Kryszta\u0142owe szk\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: "Z\u0142ote szk\u0142o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: "Z\u0142oty blask"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: "R\xF3\u017Cowy blask"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: "Kryszta\u0142owy blask"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} z\u0142ota"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897763
+    m_Localized: "Wygraj 3 poziomy\n+{0} Tasowanie \xB7 {1} z\u0142ota\nOdznaka i
+      R\xF3\u017Cowy blask"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} z\u0142ota\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
   references:
     version: 2
     RefIds:
@@ -1216,3 +1409,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

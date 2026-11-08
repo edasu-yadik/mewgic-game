@@ -2805,5 +2805,687 @@
       "it": "Rigioca",
       "pl": "Zagraj ponownie"
     }
+  },
+  {
+    "key": "shop.nav",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Mağaza",
+      "en": "Shop",
+      "de": "Shop",
+      "fr": "Boutique",
+      "es": "Tienda",
+      "pt-BR": "Loja",
+      "it": "Negozio",
+      "pl": "Sklep"
+    }
+  },
+  {
+    "key": "shop.title",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyülü Mağaza",
+      "en": "Magic Shop",
+      "de": "Zauberladen",
+      "fr": "Boutique magique",
+      "es": "Tienda mágica",
+      "pt-BR": "Loja mágica",
+      "it": "Negozio magico",
+      "pl": "Magiczny sklep"
+    }
+  },
+  {
+    "key": "shop.boosters",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Güçlendiriciler",
+      "en": "Boosters",
+      "de": "Booster",
+      "fr": "Bonus",
+      "es": "Potenciadores",
+      "pt-BR": "Reforços",
+      "it": "Potenziamenti",
+      "pl": "Dopalacze"
+    }
+  },
+  {
+    "key": "shop.cats",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kedi Kostümleri",
+      "en": "Cat Costumes",
+      "de": "Katzenkostüme",
+      "fr": "Costumes du chat",
+      "es": "Trajes del gato",
+      "pt-BR": "Trajes do gato",
+      "it": "Costumi del gatto",
+      "pl": "Stroje kota"
+    }
+  },
+  {
+    "key": "shop.bottles",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Şişe Tasarımları",
+      "en": "Bottle Designs",
+      "de": "Flaschendesigns",
+      "fr": "Styles de flacons",
+      "es": "Diseños de botellas",
+      "pt-BR": "Estilos de frascos",
+      "it": "Stili delle bottiglie",
+      "pl": "Wzory butelek"
+    }
+  },
+  {
+    "key": "shop.effects",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyülü Efektler",
+      "en": "Magic Effects",
+      "de": "Zaubereffekte",
+      "fr": "Effets magiques",
+      "es": "Efectos mágicos",
+      "pt-BR": "Efeitos mágicos",
+      "it": "Effetti magici",
+      "pl": "Efekty magiczne"
+    }
+  },
+  {
+    "key": "shop.packs",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Özel Paketler",
+      "en": "Special Packs",
+      "de": "Spezialpakete",
+      "fr": "Packs spéciaux",
+      "es": "Packs especiales",
+      "pt-BR": "Pacotes especiais",
+      "it": "Pacchetti speciali",
+      "pl": "Pakiety specjalne"
+    }
+  },
+  {
+    "key": "shop.packs_unavailable",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Özel paketler henüz satışta değil.",
+      "en": "Special packs are not available yet.",
+      "de": "Spezialpakete sind noch nicht verfügbar.",
+      "fr": "Les packs spéciaux ne sont pas encore disponibles.",
+      "es": "Los packs especiales aún no están disponibles.",
+      "pt-BR": "Os pacotes especiais ainda não estão disponíveis.",
+      "it": "I pacchetti speciali non sono ancora disponibili.",
+      "pl": "Pakiety specjalne nie są jeszcze dostępne."
+    }
+  },
+  {
+    "key": "shop.gold",
+    "review": "draft",
+    "values": {
+      "tr": "{0} Altın",
+      "en": "{0} Gold",
+      "de": "{0} Gold",
+      "fr": "{0} or",
+      "es": "{0} de oro",
+      "pt-BR": "{0} de ouro",
+      "it": "{0} oro",
+      "pl": "{0} złota"
+    }
+  },
+  {
+    "key": "shop.owned_tab",
+    "review": "draft",
+    "values": {
+      "tr": "Sahip Olduklarım ({0})",
+      "en": "My Items ({0})",
+      "de": "Meine Artikel ({0})",
+      "fr": "Mes objets ({0})",
+      "es": "Mis objetos ({0})",
+      "pt-BR": "Meus itens ({0})",
+      "it": "I miei oggetti ({0})",
+      "pl": "Moje przedmioty ({0})"
+    }
+  },
+  {
+    "key": "shop.owned",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Sahip olundu",
+      "en": "Owned",
+      "de": "Im Besitz",
+      "fr": "Possédé",
+      "es": "Adquirido",
+      "pt-BR": "Adquirido",
+      "it": "Acquistato",
+      "pl": "Posiadane"
+    }
+  },
+  {
+    "key": "shop.equip",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kuşan",
+      "en": "Equip",
+      "de": "Anlegen",
+      "fr": "Équiper",
+      "es": "Equipar",
+      "pt-BR": "Equipar",
+      "it": "Equipaggia",
+      "pl": "Załóż"
+    }
+  },
+  {
+    "key": "shop.equipped",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kuşanıldı",
+      "en": "Equipped",
+      "de": "Angelegt",
+      "fr": "Équipé",
+      "es": "Equipado",
+      "pt-BR": "Equipado",
+      "it": "Equipaggiato",
+      "pl": "Założono"
+    }
+  },
+  {
+    "key": "shop.equipped_note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Görünüm kuşanıldı.",
+      "en": "Appearance equipped.",
+      "de": "Aussehen angelegt.",
+      "fr": "Style équipé.",
+      "es": "Apariencia equipada.",
+      "pt-BR": "Visual equipado.",
+      "it": "Aspetto equipaggiato.",
+      "pl": "Założono wygląd."
+    }
+  },
+  {
+    "key": "shop.stock",
+    "review": "draft",
+    "values": {
+      "tr": "Stok: {0}",
+      "en": "Stock: {0}",
+      "de": "Bestand: {0}",
+      "fr": "Stock : {0}",
+      "es": "Unidades: {0}",
+      "pt-BR": "Estoque: {0}",
+      "it": "Scorta: {0}",
+      "pl": "Zapas: {0}"
+    }
+  },
+  {
+    "key": "shop.note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Altın kazanmak için bölümleri oyna ve ödülleri topla.",
+      "en": "Play levels and collect rewards to earn gold.",
+      "de": "Spiele Level und sammle Belohnungen für Gold.",
+      "fr": "Joue et récupère des récompenses pour gagner de l’or.",
+      "es": "Juega y recoge premios para ganar oro.",
+      "pt-BR": "Jogue e recolha recompensas para ganhar ouro.",
+      "it": "Gioca e riscuoti ricompense per guadagnare oro.",
+      "pl": "Graj i odbieraj nagrody, aby zdobyć złoto."
+    }
+  },
+  {
+    "key": "shop.owned_note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kozmetiklerini kuşan. Güçlendiricileri bulmacada kullan.",
+      "en": "Equip cosmetics. Use boosters in puzzles.",
+      "de": "Lege Kosmetik an. Nutze Booster im Rätsel.",
+      "fr": "Équipe tes styles. Utilise les bonus en jeu.",
+      "es": "Equipa aspectos. Usa potenciadores en las partidas.",
+      "pt-BR": "Equipe visuais. Use reforços nos quebra-cabeças.",
+      "it": "Equipaggia gli stili. Usa i potenziamenti nei livelli.",
+      "pl": "Załóż wygląd. Używaj dopalaczy w zagadkach."
+    }
+  },
+  {
+    "key": "shop.buy",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Satın Al",
+      "en": "Buy",
+      "de": "Kaufen",
+      "fr": "Acheter",
+      "es": "Comprar",
+      "pt-BR": "Comprar",
+      "it": "Compra",
+      "pl": "Kup"
+    }
+  },
+  {
+    "key": "shop.buy_for",
+    "review": "draft",
+    "values": {
+      "tr": "Al · {0} Altın",
+      "en": "Buy · {0} Gold",
+      "de": "Kaufen · {0} Gold",
+      "fr": "Acheter · {0} or",
+      "es": "Comprar · {0} oro",
+      "pt-BR": "Comprar · {0} ouro",
+      "it": "Compra · {0} oro",
+      "pl": "Kup · {0} złota"
+    }
+  },
+  {
+    "key": "shop.cancel",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Vazgeç",
+      "en": "Cancel",
+      "de": "Abbrechen",
+      "fr": "Annuler",
+      "es": "Cancelar",
+      "pt-BR": "Cancelar",
+      "it": "Annulla",
+      "pl": "Anuluj"
+    }
+  },
+  {
+    "key": "shop.confirm_title",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Satın Almayı Onayla",
+      "en": "Confirm Purchase",
+      "de": "Kauf bestätigen",
+      "fr": "Confirmer l’achat",
+      "es": "Confirma la compra",
+      "pt-BR": "Confirme a compra",
+      "it": "Conferma l’acquisto",
+      "pl": "Potwierdź zakup"
+    }
+  },
+  {
+    "key": "shop.confirm_line",
+    "review": "draft",
+    "values": {
+      "tr": "{0} ×{1}\n{2} Altın",
+      "en": "{0} ×{1}\n{2} Gold",
+      "de": "{0} ×{1}\n{2} Gold",
+      "fr": "{0} ×{1}\n{2} or",
+      "es": "{0} ×{1}\n{2} de oro",
+      "pt-BR": "{0} ×{1}\n{2} de ouro",
+      "it": "{0} ×{1}\n{2} oro",
+      "pl": "{0} ×{1}\n{2} złota"
+    }
+  },
+  {
+    "key": "shop.purchased",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ürün Sahip Olduklarım’a eklendi.",
+      "en": "Item added to My Items.",
+      "de": "Artikel zu Meine Artikel hinzugefügt.",
+      "fr": "Objet ajouté à Mes objets.",
+      "es": "Objeto añadido a Mis objetos.",
+      "pt-BR": "Item adicionado a Meus itens.",
+      "it": "Oggetto aggiunto a I miei oggetti.",
+      "pl": "Dodano do Moich przedmiotów."
+    }
+  },
+  {
+    "key": "shop.insufficient",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yeterli altının yok.",
+      "en": "Not enough gold.",
+      "de": "Nicht genug Gold.",
+      "fr": "Pas assez d’or.",
+      "es": "No tienes suficiente oro.",
+      "pt-BR": "Ouro insuficiente.",
+      "it": "Oro insufficiente.",
+      "pl": "Za mało złota."
+    }
+  },
+  {
+    "key": "shop.stock_full",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Güçlendirici stoğu dolu.",
+      "en": "Booster stock is full.",
+      "de": "Booster-Vorrat ist voll.",
+      "fr": "Stock de bonus plein.",
+      "es": "Inventario de potenciadores lleno.",
+      "pt-BR": "Estoque de reforços cheio.",
+      "it": "Scorta di potenziamenti piena.",
+      "pl": "Zapas dopalaczy jest pełny."
+    }
+  },
+  {
+    "key": "shop.offer_changed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Teklif yenilendi. Ürünü tekrar seç.",
+      "en": "Offer refreshed. Select the item again.",
+      "de": "Angebot aktualisiert. Wähle den Artikel erneut.",
+      "fr": "Offre actualisée. Sélectionne l’objet de nouveau.",
+      "es": "Oferta actualizada. Selecciona el objeto de nuevo.",
+      "pt-BR": "Oferta atualizada. Selecione o item novamente.",
+      "it": "Offerta aggiornata. Seleziona di nuovo l’oggetto.",
+      "pl": "Oferta odświeżona. Wybierz przedmiot ponownie."
+    }
+  },
+  {
+    "key": "shop.use_undo",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Geçerli son döküşü geri alır.",
+      "en": "Undoes the last valid pour.",
+      "de": "Macht den letzten gültigen Zug rückgängig.",
+      "fr": "Annule le dernier versement valide.",
+      "es": "Deshace el último vertido válido.",
+      "pt-BR": "Desfaz o último despejo válido.",
+      "it": "Annulla l’ultimo versamento valido.",
+      "pl": "Cofa ostatnie prawidłowe przelanie."
+    }
+  },
+  {
+    "key": "shop.use_extra",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bulmacaya en fazla bir boş şişe ekler.",
+      "en": "Adds one empty bottle per puzzle.",
+      "de": "Fügt pro Rätsel eine leere Flasche hinzu.",
+      "fr": "Ajoute au plus un flacon vide par niveau.",
+      "es": "Añade una botella vacía por puzle.",
+      "pt-BR": "Adiciona um frasco vazio por fase.",
+      "it": "Aggiunge una bottiglia vuota per livello.",
+      "pl": "Dodaje jedną pustą butelkę na zagadkę."
+    }
+  },
+  {
+    "key": "shop.use_hint",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çözüme götüren geçerli bir döküşü gösterir.",
+      "en": "Shows a valid pour toward the solution.",
+      "de": "Zeigt einen gültigen Zug zur Lösung.",
+      "fr": "Montre un versement qui mène à la solution.",
+      "es": "Muestra un vertido válido hacia la solución.",
+      "pt-BR": "Mostra um despejo válido rumo à solução.",
+      "it": "Mostra un versamento valido verso la soluzione.",
+      "pl": "Pokazuje prawidłowe przelanie do rozwiązania."
+    }
+  },
+  {
+    "key": "shop.use_shuffle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Renkleri korur, çözülebilir şişelerin sırasını değiştirir.",
+      "en": "Reorders solvable bottles while keeping their colors.",
+      "de": "Ordnet lösbare Flaschen neu. Farben bleiben gleich.",
+      "fr": "Réordonne les flacons sans changer les couleurs.",
+      "es": "Reordena botellas sin cambiar sus colores.",
+      "pt-BR": "Reordena frascos sem alterar as cores.",
+      "it": "Riordina le bottiglie senza cambiare i colori.",
+      "pl": "Zmienia kolejność butelek, zachowując kolory."
+    }
+  },
+  {
+    "key": "shop.use_cat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kedinin şapka ve pelerin rengini değiştirir.",
+      "en": "Changes the cat’s hat and cape color.",
+      "de": "Ändert die Farbe von Hut und Umhang.",
+      "fr": "Change la couleur du chapeau et de la cape.",
+      "es": "Cambia el color del sombrero y la capa.",
+      "pt-BR": "Muda a cor do chapéu e da capa.",
+      "it": "Cambia il colore di cappello e mantello.",
+      "pl": "Zmienia kolor kapelusza i peleryny."
+    }
+  },
+  {
+    "key": "shop.use_bottle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Şişe camını renklendirir. İksir renkleri aynı kalır.",
+      "en": "Tints the glass. Potion colors stay the same.",
+      "de": "Tönt das Glas. Trankfarben bleiben gleich.",
+      "fr": "Teinte le verre. Les couleurs des potions restent identiques.",
+      "es": "Tiñe el vidrio. Los colores de las pociones no cambian.",
+      "pt-BR": "Tinge o vidro. As cores das poções não mudam.",
+      "it": "Colora il vetro. I colori delle pozioni restano uguali.",
+      "pl": "Barwi szkło. Kolory mikstur pozostają takie same."
+    }
+  },
+  {
+    "key": "shop.use_effect",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyü ve şişe tamamlama parıltılarını renklendirir.",
+      "en": "Colors magic and completed-bottle sparkles.",
+      "de": "Färbt Zauber- und Flaschenfunken.",
+      "fr": "Colore les étincelles de magie et de réussite.",
+      "es": "Colorea las chispas mágicas y de finalización.",
+      "pt-BR": "Colore as faíscas mágicas e de conclusão.",
+      "it": "Colora le scintille magiche e di completamento.",
+      "pl": "Barwi iskry magii i ukończenia butelki."
+    }
+  },
+  {
+    "key": "shop.item.classiccat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klasik Büyücü",
+      "en": "Classic Wizard",
+      "de": "Klassischer Zauberer",
+      "fr": "Mage classique",
+      "es": "Mago clásico",
+      "pt-BR": "Mago clássico",
+      "it": "Mago classico",
+      "pl": "Klasyczny czarodziej"
+    }
+  },
+  {
+    "key": "shop.item.crystalcat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal Büyücü",
+      "en": "Crystal Wizard",
+      "de": "Kristallzauberer",
+      "fr": "Mage de cristal",
+      "es": "Mago de cristal",
+      "pt-BR": "Mago de cristal",
+      "it": "Mago di cristallo",
+      "pl": "Kryształowy czarodziej"
+    }
+  },
+  {
+    "key": "shop.item.goldcat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Altın Büyücü",
+      "en": "Golden Wizard",
+      "de": "Goldzauberer",
+      "fr": "Mage doré",
+      "es": "Mago dorado",
+      "pt-BR": "Mago dourado",
+      "it": "Mago dorato",
+      "pl": "Złoty czarodziej"
+    }
+  },
+  {
+    "key": "shop.item.nightcat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Gece Yıldızı",
+      "en": "Night Star",
+      "de": "Nachtstern",
+      "fr": "Étoile de nuit",
+      "es": "Estrella nocturna",
+      "pt-BR": "Estrela noturna",
+      "it": "Stella notturna",
+      "pl": "Nocna gwiazda"
+    }
+  },
+  {
+    "key": "shop.item.classicbottle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klasik Cam",
+      "en": "Classic Glass",
+      "de": "Klassisches Glas",
+      "fr": "Verre classique",
+      "es": "Vidrio clásico",
+      "pt-BR": "Vidro clássico",
+      "it": "Vetro classico",
+      "pl": "Klasyczne szkło"
+    }
+  },
+  {
+    "key": "shop.item.crystalbottle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal Cam",
+      "en": "Crystal Glass",
+      "de": "Kristallglas",
+      "fr": "Verre de cristal",
+      "es": "Vidrio de cristal",
+      "pt-BR": "Vidro de cristal",
+      "it": "Vetro di cristallo",
+      "pl": "Kryształowe szkło"
+    }
+  },
+  {
+    "key": "shop.item.goldbottle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Altın Cam",
+      "en": "Golden Glass",
+      "de": "Goldglas",
+      "fr": "Verre doré",
+      "es": "Vidrio dorado",
+      "pt-BR": "Vidro dourado",
+      "it": "Vetro dorato",
+      "pl": "Złote szkło"
+    }
+  },
+  {
+    "key": "shop.item.classiceffect",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Altın Parıltı",
+      "en": "Golden Sparkle",
+      "de": "Goldfunkeln",
+      "fr": "Éclat doré",
+      "es": "Brillo dorado",
+      "pt-BR": "Brilho dourado",
+      "it": "Scintilla dorata",
+      "pl": "Złoty blask"
+    }
+  },
+  {
+    "key": "shop.item.roseeffect",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Gül Parıltısı",
+      "en": "Rose Sparkle",
+      "de": "Rosenfunkeln",
+      "fr": "Éclat rose",
+      "es": "Brillo rosa",
+      "pt-BR": "Brilho rosa",
+      "it": "Scintilla rosa",
+      "pl": "Różowy blask"
+    }
+  },
+  {
+    "key": "shop.item.crystaleffect",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal Parıltısı",
+      "en": "Crystal Sparkle",
+      "de": "Kristallfunkeln",
+      "fr": "Éclat cristal",
+      "es": "Brillo de cristal",
+      "pt-BR": "Brilho de cristal",
+      "it": "Scintilla di cristallo",
+      "pl": "Kryształowy blask"
+    }
+  },
+  {
+    "key": "shop.task_payout",
+    "review": "draft",
+    "values": {
+      "tr": "+{0} · {1} Altın",
+      "en": "+{0} · {1} Gold",
+      "de": "+{0} · {1} Gold",
+      "fr": "+{0} · {1} or",
+      "es": "+{0} · {1} oro",
+      "pt-BR": "+{0} · {1} ouro",
+      "it": "+{0} · {1} oro",
+      "pl": "+{0} · {1} złota"
+    }
+  },
+  {
+    "key": "shop.week_payout",
+    "review": "draft",
+    "values": {
+      "tr": "3 bölüm kazan\n+{0} Karıştır · {1} Altın\nYıldız rozeti ve Gül Parıltısı",
+      "en": "Win 3 levels\n+{0} Shuffle · {1} Gold\nStar Badge and Rose Sparkle",
+      "de": "Gewinne 3 Level\n+{0} Mischen · {1} Gold\nSternabzeichen und Rosenfunkeln",
+      "fr": "Gagne 3 niveaux\n+{0} Mélanger · {1} or\nBadge étoile et Éclat rose",
+      "es": "Gana 3 niveles\n+{0} Mezclar · {1} oro\nInsignia y Brillo rosa",
+      "pt-BR": "Vença 3 fases\n+{0} Embaralhar · {1} ouro\nEmblema e Brilho rosa",
+      "it": "Vinci 3 livelli\n+{0} Mescola · {1} oro\nDistintivo e Scintilla rosa",
+      "pl": "Wygraj 3 poziomy\n+{0} Tasowanie · {1} złota\nOdznaka i Różowy blask"
+    }
+  },
+  {
+    "key": "shop.season_payout",
+    "review": "draft",
+    "values": {
+      "tr": "+{0} {1} · {2} Altın\n{3}",
+      "en": "+{0} {1} · {2} Gold\n{3}",
+      "de": "+{0} {1} · {2} Gold\n{3}",
+      "fr": "+{0} {1} · {2} or\n{3}",
+      "es": "+{0} {1} · {2} oro\n{3}",
+      "pt-BR": "+{0} {1} · {2} ouro\n{3}",
+      "it": "+{0} {1} · {2} oro\n{3}",
+      "pl": "+{0} {1} · {2} złota\n{3}"
+    }
   }
 ]

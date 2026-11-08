@@ -5,7 +5,7 @@ namespace Mewgic.Core
 {
     public sealed partial class ProgressLedger
     {
-        public const int RewardedVictoryTotal = 100;
+        public static int RewardedVictoryTotal => EconomyConfig.Current.rewardedTotal;
 
         public bool CanBoostVictory(int level, string receipt) =>
             FindBoostableVictory(state, level, receipt) != null;

@@ -1023,6 +1023,199 @@ MonoBehaviour:
     m_Localized: Jogar de novo
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Loja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: "Loja m\xE1gica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: "Refor\xE7os"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: Trajes do gato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: Estilos de frascos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: "Efeitos m\xE1gicos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: Pacotes especiais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: "Os pacotes especiais ainda n\xE3o est\xE3o dispon\xEDveis."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: '{0} de ouro'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897728
+    m_Localized: Meus itens ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897729
+    m_Localized: Adquirido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: Equipar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: Equipado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: Visual equipado.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Estoque: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897734
+    m_Localized: Jogue e recolha recompensas para ganhar ouro.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: "Equipe visuais. Use refor\xE7os nos quebra-cabe\xE7as."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Comprar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Comprar \xB7 {0} ouro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897738
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: Confirme a compra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} de ouro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897741
+    m_Localized: Item adicionado a Meus itens.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: Ouro insuficiente.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: "Estoque de refor\xE7os cheio."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: Oferta atualizada. Selecione o item novamente.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: "Desfaz o \xFAltimo despejo v\xE1lido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: Adiciona um frasco vazio por fase.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: "Mostra um despejo v\xE1lido rumo \xE0 solu\xE7\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: Reordena frascos sem alterar as cores.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: "Muda a cor do chap\xE9u e da capa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: "Tinge o vidro. As cores das po\xE7\xF5es n\xE3o mudam."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: "Colore as fa\xEDscas m\xE1gicas e de conclus\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: "Mago cl\xE1ssico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: Mago de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: Mago dourado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: Estrela noturna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: "Vidro cl\xE1ssico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Vidro de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: Vidro dourado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: Brilho dourado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: Brilho rosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: Brilho de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} ouro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897763
+    m_Localized: "Ven\xE7a 3 fases\n+{0} Embaralhar \xB7 {1} ouro\nEmblema e Brilho
+      rosa"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} ouro\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
   references:
     version: 2
     RefIds:
@@ -1211,3 +1404,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

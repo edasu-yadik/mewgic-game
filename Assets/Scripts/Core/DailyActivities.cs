@@ -38,7 +38,7 @@ namespace Mewgic.Core
  {
   readonly Func<DateTimeOffset> clock; readonly DateTimeOffset giftClockStart; readonly Func<TimeSpan> giftElapsed;
   public DateTimeOffset LocalNow=>clock();
-  public const int DailyGiftCoins=100, DailyGiftHints=1; public long LastGiftUtc=>state.daily.lastGiftUtc;
+  public static int DailyGiftCoins=>EconomyConfig.Current.dailyGiftGold; public static int DailyGiftHints=>EconomyConfig.Current.dailyGiftHints; public long LastGiftUtc=>state.daily.lastGiftUtc;
   public DailyData DailySnapshot=>state.daily.Copy();
   public TimeSpan DailyTaskWait=>DailyRules.TaskWait(state.daily,clock());
   public bool DailyClockBlocked=>DailyRules.Blocked(state.daily,clock());
@@ -57,7 +57,7 @@ namespace Mewgic.Core
   public bool ClaimDailyTask(DailyTaskKind kind)
   {
    if(!Enum.IsDefined(typeof(DailyTaskKind),kind))return false;var copy=state.Copy();if(!DailyRules.Sync(copy.daily,clock()))return false;int i=(int)kind;if(copy.daily.claimed[i]||copy.daily.progress[i]<DailyRules.Target(kind))return false;
-   var reward=DailyRules.Reward(kind);try{Set(copy,reward,checked(Get(copy,reward)+1));}catch(OverflowException){return false;}copy.daily.claimed[i]=true;return Commit(copy);
+   var reward=DailyRules.Reward(kind);try{Set(copy,reward,checked(Get(copy,reward)+EconomyConfig.Current.dailyTaskBooster));copy.presentation.coins=checked(copy.presentation.coins+EconomyConfig.Current.DailyGold(kind));}catch(OverflowException){return false;}copy.daily.claimed[i]=true;return Commit(copy);
   }
  }
 }

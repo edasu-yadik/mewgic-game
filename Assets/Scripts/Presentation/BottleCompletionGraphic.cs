@@ -1,3 +1,4 @@
+using Mewgic.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,19 @@ namespace Mewgic
         [SerializeField, Range(.6f, 1.5f)] float duration = 1.05f;
         float age;
         bool paused;
+        Color tint = Color.white;
         public bool Playing { get; private set; }
         public int PlayCount { get; private set; }
-        public void Play() { age = 0; PlayCount++; Playing = true; enabled = true; SetVerticesDirty(); }
+        public void Play()
+        {
+            var effect = GameplayProgress.Current.Equipped(ShopCategory.Effects);
+            tint = effect == ShopItem.ClassicEffect ? Color.white : ShopCosmetics.EffectTint(effect);
+            age = 0;
+            PlayCount++;
+            Playing = true;
+            enabled = true;
+            SetVerticesDirty();
+        }
         public void Stop() { Playing = false; enabled = false; }
         public void SetPaused(bool value) => paused = value;
         void Update()
@@ -32,12 +43,12 @@ namespace Mewgic
             Vector2 center = new Vector2(r.center.x, r.yMin + r.height * .43f);
             Vector2 radius = new Vector2(r.width * .58f, r.height * .43f);
             float expand = GameFeel.Reduced ? 1 : 1 + t * .16f;
-            Ring(mesh, center, radius * (expand + .06f), r.width * .12f, new Color(1, .66f, .13f, alpha * .26f));
-            Ring(mesh, center, radius * expand, r.width * .045f, new Color(1, .73f, .23f, alpha * .60f));
-            Ring(mesh, center, radius * expand, r.width * .018f, new Color(1, .95f, .68f, alpha));
+            Ring(mesh, center, radius * (expand + .06f), r.width * .12f, Tint(.66f,.13f,alpha * .26f));
+            Ring(mesh, center, radius * expand, r.width * .045f, Tint(.73f,.23f,alpha * .60f));
+            Ring(mesh, center, radius * expand, r.width * .018f, Tint(.95f,.68f,alpha));
             var baseCenter = new Vector2(r.center.x, r.yMin + r.height * .08f);
             Ring(mesh, baseCenter, new Vector2(r.width * .62f, r.height * .055f) * expand,
-                r.width * .018f, new Color(1, .77f, .26f, alpha * .9f));
+                r.width * .018f, Tint(.77f,.26f,alpha * .9f));
             int count = GameFeel.Reduced ? 4 : 12;
             for (int i = 0; i < count; i++)
             {
@@ -45,9 +56,10 @@ namespace Mewgic
                 Vector2 p = center + Vector2.Scale(new Vector2(Mathf.Cos(a), Mathf.Sin(a)), radius) * (1.05f + t * .14f);
                 if (!GameFeel.Reduced) p.y += r.height * t * (.13f + (i % 3) * .045f);
                 float size = r.width * (i % 3 == 0 ? .15f : .075f) * Mathf.Sin(Mathf.Clamp01(t * 1.6f + i % 3 * .1f) * Mathf.PI);
-                Star(mesh, p, size, new Color(1, .90f, .57f, alpha));
+                Star(mesh, p, size, Tint(.90f,.57f,alpha));
             }
         }
+        Color Tint(float green,float blue,float alpha) => new Color(tint.r, green*tint.g, Mathf.Lerp(blue,tint.b,.75f*(1-tint.r)+.50f*(1-tint.g)), alpha);
         static void Ring(VertexHelper mesh, Vector2 center, Vector2 radius, float width, Color color)
         {
             int first = mesh.currentVertCount;

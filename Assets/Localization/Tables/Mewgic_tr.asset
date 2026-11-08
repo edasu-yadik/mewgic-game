@@ -1018,6 +1018,204 @@ MonoBehaviour:
     m_Localized: Tekrar Oyna
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: "Ma\u011Faza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: "B\xFCy\xFCl\xFC Ma\u011Faza"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: "G\xFC\xE7lendiriciler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: "Kedi Kost\xFCmleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: "\u015Ei\u015Fe Tasar\u0131mlar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: "B\xFCy\xFCl\xFC Efektler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: "\xD6zel Paketler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: "\xD6zel paketler hen\xFCz sat\u0131\u015Fta de\u011Fil."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: "{0} Alt\u0131n"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897728
+    m_Localized: "Sahip Olduklar\u0131m ({0})"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897729
+    m_Localized: Sahip olundu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: "Ku\u015Fan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: "Ku\u015Fan\u0131ld\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: "G\xF6r\xFCn\xFCm ku\u015Fan\u0131ld\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Stok: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897734
+    m_Localized: "Alt\u0131n kazanmak i\xE7in b\xF6l\xFCmleri oyna ve \xF6d\xFClleri
+      topla."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: "Kozmetiklerini ku\u015Fan. G\xFC\xE7lendiricileri bulmacada kullan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: "Sat\u0131n Al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Al \xB7 {0} Alt\u0131n"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897738
+    m_Localized: "Vazge\xE7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: "Sat\u0131n Almay\u0131 Onayla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} Alt\u0131n"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897741
+    m_Localized: "\xDCr\xFCn Sahip Olduklar\u0131m\u2019a eklendi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: "Yeterli alt\u0131n\u0131n yok."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: "G\xFC\xE7lendirici sto\u011Fu dolu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: "Teklif yenilendi. \xDCr\xFCn\xFC tekrar se\xE7."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: "Ge\xE7erli son d\xF6k\xFC\u015F\xFC geri al\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: "Bulmacaya en fazla bir bo\u015F \u015Fi\u015Fe ekler."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: "\xC7\xF6z\xFCme g\xF6t\xFCren ge\xE7erli bir d\xF6k\xFC\u015F\xFC
+      g\xF6sterir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: "Renkleri korur, \xE7\xF6z\xFClebilir \u015Fi\u015Felerin s\u0131ras\u0131n\u0131
+      de\u011Fi\u015Ftirir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: "Kedinin \u015Fapka ve pelerin rengini de\u011Fi\u015Ftirir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: "\u015Ei\u015Fe cam\u0131n\u0131 renklendirir. \u0130ksir renkleri
+      ayn\u0131 kal\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: "B\xFCy\xFC ve \u015Fi\u015Fe tamamlama par\u0131lt\u0131lar\u0131n\u0131
+      renklendirir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: "Klasik B\xFCy\xFCc\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: "Kristal B\xFCy\xFCc\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: "Alt\u0131n B\xFCy\xFCc\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: "Gece Y\u0131ld\u0131z\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: Klasik Cam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Kristal Cam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: "Alt\u0131n Cam"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: "Alt\u0131n Par\u0131lt\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: "G\xFCl Par\u0131lt\u0131s\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: "Kristal Par\u0131lt\u0131s\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} Alt\u0131n"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897763
+    m_Localized: "3 b\xF6l\xFCm kazan\n+{0} Kar\u0131\u015Ft\u0131r \xB7 {1} Alt\u0131n\nY\u0131ld\u0131z
+      rozeti ve G\xFCl Par\u0131lt\u0131s\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} Alt\u0131n\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
   references:
     version: 2
     RefIds:
@@ -1206,3 +1404,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

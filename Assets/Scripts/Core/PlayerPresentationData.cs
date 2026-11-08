@@ -4,7 +4,7 @@ namespace Mewgic.Core
     [Serializable] public sealed class PlayerPresentationData
     {
         public int version=1,currentLevel=1,energy=5;
-        public long coins,gems;
+        public long coins=EconomyConfig.Current.initialGold,gems;
         public bool soundEnabled=true;public string manualLocale;
         public bool audioPreferencesSet,musicEnabled,effectsEnabled,vibrationEnabled,reduceMotion,motionPreferenceSet;
         public bool MusicEnabled=>audioPreferencesSet?musicEnabled:soundEnabled;

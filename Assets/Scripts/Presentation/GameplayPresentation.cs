@@ -45,7 +45,7 @@ namespace Mewgic
             world=Rect(safe,"GameplayWorld");world.SetAsFirstSibling();Rect(world,"StoneShelves");
             edgeDecor=Art(background,"ForegroundEdges",foreground).rectTransform;
             perch=Art(world,"CatStonePerch",shelf).rectTransform;
-            cat=Instantiate(wizardCatPrefab,world,false).GetComponent<RectTransform>();cat.name="GameplayWizardCat";
+            cat=Instantiate(wizardCatPrefab,world,false).GetComponent<RectTransform>();cat.name="GameplayWizardCat";cat.GetComponent<Characters.WizardCatPresentation>()?.BindPlayerCosmetics();
             foreach(var graphic in cat.GetComponentsInChildren<Graphic>(true))graphic.raycastTarget=false;
             Layout();
         }

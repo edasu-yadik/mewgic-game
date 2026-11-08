@@ -1036,6 +1036,198 @@ MonoBehaviour:
     m_Localized: Replay
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: Magic Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: Boosters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: Cat Costumes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: Bottle Designs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: Magic Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: Special Packs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: Special packs are not available yet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: '{0} Gold'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897728
+    m_Localized: My Items ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897729
+    m_Localized: Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: Equipped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: Appearance equipped.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Stock: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897734
+    m_Localized: Play levels and collect rewards to earn gold.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: Equip cosmetics. Use boosters in puzzles.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Buy \xB7 {0} Gold"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897738
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: Confirm Purchase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} Gold"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897741
+    m_Localized: Item added to My Items.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: Not enough gold.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: Booster stock is full.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: Offer refreshed. Select the item again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: Undoes the last valid pour.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: Adds one empty bottle per puzzle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: Shows a valid pour toward the solution.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: Reorders solvable bottles while keeping their colors.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: "Changes the cat\u2019s hat and cape color."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: Tints the glass. Potion colors stay the same.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: Colors magic and completed-bottle sparkles.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: Classic Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: Crystal Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: Golden Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: Night Star
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: Classic Glass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Crystal Glass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: Golden Glass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: Golden Sparkle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: Rose Sparkle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: Crystal Sparkle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} Gold"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897763
+    m_Localized: "Win 3 levels\n+{0} Shuffle \xB7 {1} Gold\nStar Badge and Rose Sparkle"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} Gold\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
   references:
     version: 2
     RefIds:
@@ -1224,3 +1416,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

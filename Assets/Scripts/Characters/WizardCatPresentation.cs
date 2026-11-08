@@ -1,3 +1,4 @@
+using Mewgic.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,32 @@ namespace Mewgic.Characters
         public CanvasGroup blinkOverlay;
         public bool automaticBlink=true;
         float nextBlinkTime;
+        Image costumeBody;
+        int cosmeticRevision = -1;
+        ShopItem costume, effect;
+        bool playerCosmetics;
+
+        public void BindPlayerCosmetics()
+        {
+            foreach (var image in GetComponentsInChildren<Image>(true))
+                if (image.name == "Body") { costumeBody = image; break; }
+            playerCosmetics = true;
+            RefreshCosmetics();
+        }
+
+        void RefreshCosmetics()
+        {
+            var ledger = GameplayProgress.Current;
+            if (cosmeticRevision == ledger.Revision) return;
+            cosmeticRevision = ledger.Revision;
+            var next = ledger.Equipped(ShopCategory.Cats);
+            if (next != costume && costumeBody != null)
+            {
+                costume = next;
+                costumeBody.material = ShopCosmetics.CostumeMaterial(next);
+            }
+            effect = ledger.Equipped(ShopCategory.Effects);
+        }
         [Range(4,24)] public int sparkBudget=18;
         RectTransform[] sparks;
         WizardSparkGraphic[] graphics;
@@ -59,6 +86,7 @@ namespace Mewgic.Characters
         }
         void Update()
         {
+            if(playerCosmetics)RefreshCosmetics();
             if(automaticBlink && CanBlink && Time.unscaledTime>=nextBlinkTime){TriggerBlink();nextBlinkTime=Time.unscaledTime+Random.Range(4.5f,7f);}
             if(magicTime<0)return;
             magicTime+=Time.unscaledDeltaTime;ActiveSparks=0;
@@ -73,7 +101,7 @@ namespace Mewgic.Characters
                 sparks[i].anchoredPosition=burstOrigin+spawnOffsets[i]+velocities[i]*t+new Vector2(0,-24*t*t);
                 sparks[i].localRotation=Quaternion.Euler(0,0,i*27+t*70);
                 float alpha=Mathf.Sin(Mathf.Clamp01(t/.85f)*Mathf.PI);
-                graphics[i].color=new Color(1,.76f,.22f,alpha);
+                var tint=ShopCosmetics.EffectTint(effect);tint.a=alpha;graphics[i].color=tint;
                 sparks[i].localScale=Vector3.one*(.45f+.55f*alpha);
             }
             if(magicTime>=MagicDuration){magicTime=-1;ActiveSparks=0;foreach(var s in sparks)s.gameObject.SetActive(false);}

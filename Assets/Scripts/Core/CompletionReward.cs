@@ -7,10 +7,11 @@ namespace Mewgic.Core
 
         public CompletionReward(int previousStars, int stars, bool first, bool firstAttempt, bool hintUsed)
         {
-            Base = first ? 20 : 0;
-            Stars = System.Math.Max(0, stars - previousStars) * 5;
-            FirstAttempt = first && firstAttempt ? 10 : 0;
-            NoHint = first && !hintUsed ? 5 : 0;
+            var config = EconomyConfig.Current;
+            Base = first ? config.levelBase : 0;
+            Stars = System.Math.Max(0, stars - previousStars) * config.perNewStar;
+            FirstAttempt = first && firstAttempt ? config.firstAttempt : 0;
+            NoHint = first && !hintUsed ? config.withoutHint : 0;
         }
     }
 }

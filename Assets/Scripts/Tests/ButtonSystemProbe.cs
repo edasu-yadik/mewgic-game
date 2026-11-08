@@ -296,7 +296,7 @@ namespace Mewgic
                 int hints = ledger.Remaining(BoosterKind.Hint);
                 Click("BuyHint");
                 yield return null;
-                Click("BuyHint");
+                Click("ShopConfirm", true);
                 Check(ledger.Presentation.coins == coins - ProgressLedger.BoosterPrice(BoosterKind.Hint) &&
                     ledger.Remaining(BoosterKind.Hint) == hints + 1, "Çift dokunuşta tek satın alma");
             }
@@ -351,9 +351,9 @@ namespace Mewgic
                 Click("ResourceInfoClose");
                 yield return null;
                 Click("NavInventory");
-                yield return Until(() => Find("ResourceInfoClose") != null, "Envanter düğmesinin mevcut bilgi akışı");
+                yield return Until(() => Find("ShopClose") != null, "Eski Envanter girişi mağazayı açtı");
                 yield return null;
-                Click("ResourceInfoClose");
+                Click("ShopClose");
                 yield return null;
             }
             Click("NavMap");

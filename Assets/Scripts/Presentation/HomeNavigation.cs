@@ -27,7 +27,7 @@ namespace Mewgic
                 var image=g.GetComponent<Image>();image.sprite=i==0?activeTile:tile;image.raycastTarget=true;
                 var button=g.GetComponent<Button>();button.targetGraphic=image;button.onClick.AddListener(()=>Navigate(destination));
                 var icon=new GameObject("Icon",typeof(RectTransform),typeof(Image));icon.transform.SetParent(g.transform,false);var ir=(RectTransform)icon.transform;ir.anchorMin=new Vector2(.08f,.23f);ir.anchorMax=new Vector2(.92f,.97f);ir.offsetMin=ir.offsetMax=Vector2.zero;var art=icon.GetComponent<Image>();art.sprite=sprites[i];art.preserveAspect=true;art.raycastTarget=false;
-                var label=new GameObject("Label",typeof(RectTransform),typeof(Mewgic.Localization.LocalizedTMP));label.transform.SetParent(g.transform,false);var lr=(RectTransform)label.transform;lr.anchorMin=new Vector2(.035f,.025f);lr.anchorMax=new Vector2(.965f,.255f);lr.offsetMin=lr.offsetMax=Vector2.zero;var text=label.GetComponent<TMP_Text>();text.font=MewgicTypographySettings.Current.body;text.fontStyle=FontStyles.Bold;text.fontSize=25;text.color=Color.white;text.text=L.V(new[]{"common.home","home.nav.map","home.nav.events","home.nav.team","home.nav.inventory"}[i]);text.alignment=TextAlignmentOptions.Midline;text.raycastTarget=false;text.enableAutoSizing=true;text.fontSizeMin=14;text.fontSizeMax=25;MewgicTypographySettings.Prepare(text);
+                var label=new GameObject("Label",typeof(RectTransform),typeof(Mewgic.Localization.LocalizedTMP));label.transform.SetParent(g.transform,false);var lr=(RectTransform)label.transform;lr.anchorMin=new Vector2(.035f,.025f);lr.anchorMax=new Vector2(.965f,.255f);lr.offsetMin=lr.offsetMax=Vector2.zero;var text=label.GetComponent<TMP_Text>();text.font=MewgicTypographySettings.Current.body;text.fontStyle=FontStyles.Bold;text.fontSize=25;text.color=Color.white;text.text=L.V(new[]{"common.home","home.nav.map","home.nav.events","home.nav.team","shop.nav"}[i]);text.alignment=TextAlignmentOptions.Midline;text.raycastTarget=false;text.enableAutoSizing=true;text.fontSizeMin=14;text.fontSizeMax=25;MewgicTypographySettings.Prepare(text);
             }
             Layout();
         }
@@ -35,6 +35,7 @@ namespace Mewgic
         {
             if(navigating)return;
             if(destination==HomeDestination.Events){var hub=UnityEngine.Object.FindFirstObjectByType<Mewgic.Rewards.RewardHubPanel>();if(hub!=null){hub.Open(0);return;}}
+            if(destination==HomeDestination.Inventory){FindFirstObjectByType<MagicShopPanel>()?.Open();return;}
             if(destination==HomeDestination.Home){information.Close();return;}
             if(destination==HomeDestination.Map&&(mapSceneReady||Mewgic.Map.MapProgressionCatalog.Ready)&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=true;Mewgic.SceneNavigation.LoadOnce(mapScene);return;}
             string message=destination==HomeDestination.Map?L.V("boot.error"):destination==HomeDestination.Events?L.V("boot.error"):destination==HomeDestination.Team?L.V("home.team_info"):L.V("home.inventory_info");

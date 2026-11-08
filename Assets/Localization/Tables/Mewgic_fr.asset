@@ -1019,6 +1019,199 @@ MonoBehaviour:
     m_Localized: Rejouer
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Boutique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: Boutique magique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: Bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: Costumes du chat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: Styles de flacons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: Effets magiques
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: "Packs sp\xE9ciaux"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: "Les packs sp\xE9ciaux ne sont pas encore disponibles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: '{0} or'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897728
+    m_Localized: Mes objets ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897729
+    m_Localized: "Poss\xE9d\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: "\xC9quiper"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: "\xC9quip\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: "Style \xE9quip\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Stock : {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897734
+    m_Localized: "Joue et r\xE9cup\xE8re des r\xE9compenses pour gagner de l\u2019or."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: "\xC9quipe tes styles. Utilise les bonus en jeu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Acheter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Acheter \xB7 {0} or"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897738
+    m_Localized: Annuler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: "Confirmer l\u2019achat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} or"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897741
+    m_Localized: "Objet ajout\xE9 \xE0 Mes objets."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: "Pas assez d\u2019or."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: Stock de bonus plein.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: "Offre actualis\xE9e. S\xE9lectionne l\u2019objet de nouveau."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: Annule le dernier versement valide.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: Ajoute au plus un flacon vide par niveau.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: "Montre un versement qui m\xE8ne \xE0 la solution."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: "R\xE9ordonne les flacons sans changer les couleurs."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: Change la couleur du chapeau et de la cape.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: Teinte le verre. Les couleurs des potions restent identiques.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: "Colore les \xE9tincelles de magie et de r\xE9ussite."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: Mage classique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: Mage de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: "Mage dor\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: "\xC9toile de nuit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: Verre classique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Verre de cristal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: "Verre dor\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: "\xC9clat dor\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: "\xC9clat rose"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: "\xC9clat cristal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} or"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897763
+    m_Localized: "Gagne 3 niveaux\n+{0} M\xE9langer \xB7 {1} or\nBadge \xE9toile
+      et \xC9clat rose"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} or\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
   references:
     version: 2
     RefIds:
@@ -1207,3 +1400,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

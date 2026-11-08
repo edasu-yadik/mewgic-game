@@ -27,6 +27,7 @@ namespace Mewgic
             safe.name = "UI";
             safe.SetSiblingIndex(4);
             character.gameObject.SetActive(true);
+            cat?.BindPlayerCosmetics();
             nextMagic = Time.unscaledTime + 3.25f;
         }
 

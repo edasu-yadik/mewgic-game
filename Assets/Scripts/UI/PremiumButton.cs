@@ -28,7 +28,7 @@ namespace Mewgic.UI
 
         protected virtual bool PreserveArtwork => false;
         protected virtual bool ArtworkLocked => false;
-        bool PreviewOnly => name is "NavTeam" or "NavInventory";
+        bool PreviewOnly => name == "NavTeam";
         bool Locked => !IsInteractable() || PreviewOnly || ArtworkLocked;
 
         public void SetRole(ButtonRole style)
@@ -171,7 +171,7 @@ namespace Mewgic.UI
                 "Restart" or "PauseRestart" or "TutorialReplay" => ButtonGlyph.Replay,
                 "JourneyFocus" or "FocusCurrent" => ButtonGlyph.Focus,
                 "NextIsland" => ButtonGlyph.Forward,
-                "MapHome" or "ChapterClose" or "PreviousIsland" or "Home" or "DailyClose" or "RewardHubClose" or "PauseHome" => ButtonGlyph.Back,
+                "MapHome" or "ChapterClose" or "PreviousIsland" or "Home" or "DailyClose" or "RewardHubClose" or "PauseHome" or "ShopClose" => ButtonGlyph.Back,
                 _ => ButtonGlyph.None
             };
         }

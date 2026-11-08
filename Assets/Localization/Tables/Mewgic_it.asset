@@ -1037,6 +1037,199 @@ MonoBehaviour:
     m_Localized: Rigioca
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300099485696
+    m_Localized: Negozio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703424
+    m_Localized: Negozio magico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703425
+    m_Localized: Potenziamenti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703426
+    m_Localized: Costumi del gatto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703427
+    m_Localized: Stili delle bottiglie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703428
+    m_Localized: Effetti magici
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703429
+    m_Localized: Pacchetti speciali
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703430
+    m_Localized: I pacchetti speciali non sono ancora disponibili.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300233703431
+    m_Localized: '{0} oro'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897728
+    m_Localized: I miei oggetti ({0})
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897729
+    m_Localized: Acquistato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897730
+    m_Localized: Equipaggia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897731
+    m_Localized: Equipaggiato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897732
+    m_Localized: Aspetto equipaggiato.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897733
+    m_Localized: 'Scorta: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897734
+    m_Localized: Gioca e riscuoti ricompense per guadagnare oro.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897735
+    m_Localized: Equipaggia gli stili. Usa i potenziamenti nei livelli.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897736
+    m_Localized: Compra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897737
+    m_Localized: "Compra \xB7 {0} oro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897738
+    m_Localized: Annulla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897739
+    m_Localized: "Conferma l\u2019acquisto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897740
+    m_Localized: "{0} \xD7{1}\n{2} oro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897741
+    m_Localized: Oggetto aggiunto a I miei oggetti.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897742
+    m_Localized: Oro insufficiente.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897743
+    m_Localized: Scorta di potenziamenti piena.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897744
+    m_Localized: "Offerta aggiornata. Seleziona di nuovo l\u2019oggetto."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897745
+    m_Localized: "Annulla l\u2019ultimo versamento valido."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897746
+    m_Localized: Aggiunge una bottiglia vuota per livello.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897747
+    m_Localized: Mostra un versamento valido verso la soluzione.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897748
+    m_Localized: Riordina le bottiglie senza cambiare i colori.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897749
+    m_Localized: Cambia il colore di cappello e mantello.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897750
+    m_Localized: Colora il vetro. I colori delle pozioni restano uguali.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897751
+    m_Localized: Colora le scintille magiche e di completamento.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897752
+    m_Localized: Mago classico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897753
+    m_Localized: Mago di cristallo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897754
+    m_Localized: Mago dorato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897755
+    m_Localized: Stella notturna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897756
+    m_Localized: Vetro classico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897757
+    m_Localized: Vetro di cristallo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897758
+    m_Localized: Vetro dorato
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897759
+    m_Localized: Scintilla dorata
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897760
+    m_Localized: Scintilla rosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897761
+    m_Localized: Scintilla di cristallo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897762
+    m_Localized: "+{0} \xB7 {1} oro"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897763
+    m_Localized: "Vinci 3 livelli\n+{0} Mescola \xB7 {1} oro\nDistintivo e Scintilla
+      rosa"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897764
+    m_Localized: "+{0} {1} \xB7 {2} oro\n{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
   references:
     version: 2
     RefIds:
@@ -1225,3 +1418,11 @@ MonoBehaviour:
         - id: 1445448823177221
         - id: 2913532687777792
         - id: 2913532691972097
+        - id: 2924300233703431
+        - id: 2924300237897728
+        - id: 2924300237897733
+        - id: 2924300237897737
+        - id: 2924300237897740
+        - id: 2924300237897762
+        - id: 2924300237897763
+        - id: 2924300237897764

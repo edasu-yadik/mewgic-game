@@ -111,7 +111,7 @@ namespace Mewgic
                 var json=Newtonsoft.Json.Linq.JObject.Parse(raw,new Newtonsoft.Json.Linq.JsonLoadSettings
                 {DuplicatePropertyNameHandling=Newtonsoft.Json.Linq.DuplicatePropertyNameHandling.Error});
                 CheckVersion(json["version"]);
-                foreach(string field in new[]{"worldMap","presentation","daily","hub"})
+                foreach(string field in new[]{"worldMap","presentation","daily","hub","shop"})
                     if(json[field] is Newtonsoft.Json.Linq.JObject block)CheckVersion(block["version"]);
                 foreach(string field in new[]{"version","undo","hint","extra","shuffle"})
                     if(!Integer(json[field]))return null;
@@ -123,12 +123,24 @@ namespace Mewgic
                 if(json["presentation"] is Newtonsoft.Json.Linq.JObject presentation&&
                     ((presentation["coins"]!=null&&!Integer(presentation["coins"]))||
                     (presentation["gems"]!=null&&!Integer(presentation["gems"]))))return null;
+                if(json["shop"]!=null && (json["shop"] is not Newtonsoft.Json.Linq.JObject shop ||
+                    !Integer(shop["version"]) || !Integer(shop["purchaseRevision"]) ||
+                    !long.TryParse(shop["purchaseRevision"].ToString(), out _) ||
+                    !IntegerList(shop["owned"]) || !IntegerList(shop["equipped"])))return null;
                 var data=JsonUtility.FromJson<ProgressData>(raw);
                 if(data==null||data.storageRevision<0)return null;
                 return new ProgressLedger(data,_=>{}).Snapshot;
             }
             catch(NotSupportedException){throw;}
             catch(Exception){return null;}
+        }
+
+        static bool IntegerList(Newtonsoft.Json.Linq.JToken value)
+        {
+            if(value is not Newtonsoft.Json.Linq.JArray array)return false;
+            foreach(var entry in array)
+                if(!Integer(entry)||!int.TryParse(entry.ToString(),out int id)||!ShopCatalog.Known((ShopItem)id))return false;
+            return true;
         }
 
         static bool Integer(Newtonsoft.Json.Linq.JToken value)=>value?.Type==Newtonsoft.Json.Linq.JTokenType.Integer;

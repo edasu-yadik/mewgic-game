@@ -161,9 +161,11 @@ namespace Mewgic
             Tap("ArrivalContinue");
             yield return null;
             Tap("CoinsPlus");yield return null;
-            Tap("BuyHint");yield return null;
-            Tap("BuyExtraBottle");yield return null;
-            Tap("BuyHint");yield return null;
+            yield return Buy("BuyHint");
+            yield return Buy("BuyExtraBottle");
+            yield return Buy("BuyHint");
+            Tap("ShopCancel");
+            yield return null;
             Check(Ledger.Presentation.coins==0&&Ledger.Remaining(BoosterKind.Hint)==5&&Ledger.Remaining(BoosterKind.ExtraBottle)==2,"Mağaza satın alma ve yetersiz bakiye, negatif coin yok");
             yield return new WaitForSecondsRealtime(1.1f);
             yield return Shot("Yardimci_Gucler",1600);
@@ -220,6 +222,14 @@ namespace Mewgic
             var hit=new List<RaycastResult>();
             EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=RectTransformUtility.WorldToScreenPoint(null,rect.TransformPoint(rect.rect.center))},hit);
             return hit.Count>0?hit[0].gameObject:null;
+        }
+
+        IEnumerator Buy(string item)
+        {
+            Tap(item);
+            yield return null;
+            Tap("ShopConfirm");
+            yield return null;
         }
 
         void Tap(string name)
