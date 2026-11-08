@@ -988,6 +988,54 @@ MonoBehaviour:
     m_Localized: MeWGic
     m_Metadata:
       m_Items: []
+  - m_Id: 2913532528394240
+    m_Localized: 'Level
+
+      Complete!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532687777792
+    m_Localized: <color=#FFE06A>{0} Gold</color> Earned
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2913532691972096
+    m_Localized: Watch Ad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972097
+    m_Localized: Earn <color=#FFE06A>{0} Gold</color> Total
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
+  - m_Id: 2913532691972098
+    m_Localized: Ad unavailable right now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972099
+    m_Localized: Finish the ad to earn the reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972100
+    m_Localized: Reward Claimed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972101
+    m_Localized: Back to Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914333728538624
+    m_Localized: First clear only
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113835528192
+    m_Localized: Next Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113957163008
+    m_Localized: Replay
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1174,3 +1222,5 @@ MonoBehaviour:
         - id: 1445448823177219
         - id: 1445448823177220
         - id: 1445448823177221
+        - id: 2913532687777792
+        - id: 2913532691972097

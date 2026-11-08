@@ -972,6 +972,52 @@ MonoBehaviour:
     m_Localized: MeWGic
     m_Metadata:
       m_Items: []
+  - m_Id: 2913532528394240
+    m_Localized: "B\xF6l\xFCm\nTamamland\u0131!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532687777792
+    m_Localized: "<color=#FFE06A>{0} Alt\u0131n</color> Kazand\u0131n"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2913532691972096
+    m_Localized: "Reklam \u0130zle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972097
+    m_Localized: "Toplam <color=#FFE06A>{0} Alt\u0131n</color> Kazan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2913532691972098
+    m_Localized: "Reklam \u015Fu anda haz\u0131r de\u011Fil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972099
+    m_Localized: "\xD6d\xFCl i\xE7in reklam\u0131 tamamla"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972100
+    m_Localized: "\xD6d\xFCl Al\u0131nd\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972101
+    m_Localized: "Haritaya D\xF6n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914333728538624
+    m_Localized: "\u0130lk kazan\u0131\u015Fa \xF6zel"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113835528192
+    m_Localized: "Sonraki B\xF6l\xFCm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113957163008
+    m_Localized: Tekrar Oyna
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1158,3 +1204,5 @@ MonoBehaviour:
         - id: 1445448823177219
         - id: 1445448823177220
         - id: 1445448823177221
+        - id: 2913532687777792
+        - id: 2913532691972097

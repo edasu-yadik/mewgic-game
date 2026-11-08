@@ -989,6 +989,54 @@ MonoBehaviour:
     m_Localized: MeWGic
     m_Metadata:
       m_Items: []
+  - m_Id: 2913532528394240
+    m_Localized: 'Livello
+
+      Completato!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532687777792
+    m_Localized: Hai vinto <color=#FFE06A>{0} oro</color>
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2913532691972096
+    m_Localized: Guarda un annuncio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972097
+    m_Localized: Ottieni <color=#FFE06A>{0} oro</color> in totale
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2913532691972098
+    m_Localized: Annuncio non disponibile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972099
+    m_Localized: "Completa l\u2019annuncio per il premio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972100
+    m_Localized: Premio ricevuto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972101
+    m_Localized: Torna alla mappa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914333728538624
+    m_Localized: Solo alla prima vittoria
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113835528192
+    m_Localized: Livello successivo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113957163008
+    m_Localized: Rigioca
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1175,3 +1223,5 @@ MonoBehaviour:
         - id: 1445448823177219
         - id: 1445448823177220
         - id: 1445448823177221
+        - id: 2913532687777792
+        - id: 2913532691972097

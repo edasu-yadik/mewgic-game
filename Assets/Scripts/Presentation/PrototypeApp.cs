@@ -92,7 +92,7 @@ namespace Mewgic
         void OnApplicationPause(bool suspended)
         {
             if(!suspended)return;
-            if(puzzle!=null&&!navigating)
+            if(puzzle!=null&&!navigating&&endScreen?.IsWatchingAd!=true)
             {
                 if(busy){CancelPour();Refresh(true);}
                 if(!paused)PauseGame();
@@ -272,7 +272,7 @@ namespace Mewgic
             {
                 completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
                 bool granted=false;bool saved=tutorialReplay||progress.Claim(levelInfo.id,stars,puzzle.Won,out granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed,firstAttempt,hintUsed);UpdateTools();
-                endScreen.Show(levelInfo.id,puzzle.Moves,stars,saved,saved&&!tutorialReplay&&GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),tutorialReplay?default:progress.LastCompletionReward);
+                endScreen.Show(levelInfo.id,stars,saved,saved&&!tutorialReplay&&GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),tutorialReplay?default:progress.LastCompletionReward,tutorialReplay?null:progress,victoryReceipt);
             }
             bool showPlayControls = !endScreen.IsShowing;
             restart.gameObject.SetActive(showPlayControls);

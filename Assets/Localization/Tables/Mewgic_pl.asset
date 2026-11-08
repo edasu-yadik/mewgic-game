@@ -982,6 +982,52 @@ MonoBehaviour:
     m_Localized: MeWGic
     m_Metadata:
       m_Items: []
+  - m_Id: 2913532528394240
+    m_Localized: "Poziom\nUko\u0144czony!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532687777792
+    m_Localized: "Zdobywasz <color=#FFE06A>{0} z\u0142ota</color>"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2913532691972096
+    m_Localized: "Obejrzyj reklam\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972097
+    m_Localized: "Zdob\u0105d\u017A \u0142\u0105cznie <color=#FFE06A>{0} z\u0142ota</color>"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2913532691972098
+    m_Localized: "Reklama chwilowo niedost\u0119pna"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972099
+    m_Localized: "Doko\u0144cz reklam\u0119, aby odebra\u0107 nagrod\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972100
+    m_Localized: Nagroda odebrana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972101
+    m_Localized: "Wr\xF3\u0107 na map\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914333728538624
+    m_Localized: "Tylko za pierwsz\u0105 wygran\u0105"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113835528192
+    m_Localized: "Nast\u0119pny poziom"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113957163008
+    m_Localized: Zagraj ponownie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1168,3 +1214,5 @@ MonoBehaviour:
         - id: 1445448823177219
         - id: 1445448823177220
         - id: 1445448823177221
+        - id: 2913532687777792
+        - id: 2913532691972097

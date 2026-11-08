@@ -982,6 +982,54 @@ MonoBehaviour:
     m_Localized: MeWGic
     m_Metadata:
       m_Items: []
+  - m_Id: 2913532528394240
+    m_Localized: 'Level
+
+      Geschafft!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532687777792
+    m_Localized: <color=#FFE06A>{0} Gold</color> verdient
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2913532691972096
+    m_Localized: Werbung ansehen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972097
+    m_Localized: Insgesamt <color=#FFE06A>{0} Gold</color>
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 2913532691972098
+    m_Localized: "Werbung gerade nicht verf\xFCgbar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972099
+    m_Localized: Schau die Werbung bis zum Ende
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972100
+    m_Localized: Belohnung erhalten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972101
+    m_Localized: Zur Karte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914333728538624
+    m_Localized: Nur beim ersten Abschluss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113835528192
+    m_Localized: "N\xE4chstes Level"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113957163008
+    m_Localized: Wiederholen
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1168,3 +1216,5 @@ MonoBehaviour:
         - id: 1445448823177219
         - id: 1445448823177220
         - id: 1445448823177221
+        - id: 2913532687777792
+        - id: 2913532691972097

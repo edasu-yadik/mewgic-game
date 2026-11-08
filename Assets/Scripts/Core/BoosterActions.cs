@@ -3,7 +3,7 @@ using System;using System.Collections.Generic;using System.Linq;
 namespace Mewgic.Core
 {
     public enum BoosterKind{Undo,Hint,ExtraBottle,Shuffle}
-    [Serializable] public sealed class LevelRecord{public int level;public int bestStars;public bool rewardClaimed;public string lastCoinReceipt;}
+    [Serializable] public sealed class LevelRecord{public int level;public int bestStars;public bool rewardClaimed;public string lastCoinReceipt,rewardedVictoryReceipt;public int rewardedVictoryBase;}
     [Serializable] public sealed class ProgressData
     {
         public DailyData daily=new DailyData();public RewardHubData hub=new RewardHubData();
@@ -12,7 +12,7 @@ namespace Mewgic.Core
         public List<int> attemptedLevels=new List<int>(); public List<string> completedTutorials=new List<string>();
         public int version=1;public long storageRevision;public int undo=3,hint=3,extra=1,shuffle=1;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt}).ToList()};
+        public ProgressData Copy()=>new ProgressData{worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
     }
     public sealed partial class ProgressLedger
     {
@@ -80,6 +80,11 @@ namespace Mewgic.Core
             if(first){try{copy.hint=checked(copy.hint+1);}catch(OverflowException){LastError="Ödül sayacı sınırda.";return false;}record.rewardClaimed=true;}
             try{copy.presentation.coins=checked(copy.presentation.coins+reward.Coins);}catch(OverflowException){return false;}
             if(!string.IsNullOrWhiteSpace(victoryReceipt)&&victoryReceipt.Length<=80)record.lastCoinReceipt=victoryReceipt;
+            if(first && !string.IsNullOrWhiteSpace(victoryReceipt) && victoryReceipt.Length<=80)
+            {
+                record.rewardedVictoryReceipt=victoryReceipt;
+                record.rewardedVictoryBase=reward.Coins;
+            }
             copy.attemptedLevels.Remove(level);
             bool frontier=first&&WorldMapRules.CurrentLevel(state)==level;
             WorldMapRules.Sync(copy);

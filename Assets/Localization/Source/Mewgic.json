@@ -2642,5 +2642,168 @@
       "it": "{0} · {1}",
       "pl": "{0} · {1}"
     }
+  },
+  {
+    "key": "victory.title",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bölüm\nTamamlandı!",
+      "en": "Level\nComplete!",
+      "de": "Level\nGeschafft!",
+      "fr": "Niveau\nTerminé !",
+      "es": "¡Nivel\nCompletado!",
+      "pt-BR": "Fase\nConcluída!",
+      "it": "Livello\nCompletato!",
+      "pl": "Poziom\nUkończony!"
+    }
+  },
+  {
+    "key": "victory.coins",
+    "review": "draft",
+    "values": {
+      "tr": "<color=#FFE06A>{0} Altın</color> Kazandın",
+      "en": "<color=#FFE06A>{0} Gold</color> Earned",
+      "de": "<color=#FFE06A>{0} Gold</color> verdient",
+      "fr": "<color=#FFE06A>{0} pièces</color> gagnées",
+      "es": "Ganaste <color=#FFE06A>{0} de oro</color>",
+      "pt-BR": "Você ganhou <color=#FFE06A>{0} de ouro</color>",
+      "it": "Hai vinto <color=#FFE06A>{0} oro</color>",
+      "pl": "Zdobywasz <color=#FFE06A>{0} złota</color>"
+    }
+  },
+  {
+    "key": "victory.ad",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Reklam İzle",
+      "en": "Watch Ad",
+      "de": "Werbung ansehen",
+      "fr": "Voir une pub",
+      "es": "Ver anuncio",
+      "pt-BR": "Ver anúncio",
+      "it": "Guarda un annuncio",
+      "pl": "Obejrzyj reklamę"
+    }
+  },
+  {
+    "key": "victory.ad_total",
+    "review": "draft",
+    "values": {
+      "tr": "Toplam <color=#FFE06A>{0} Altın</color> Kazan",
+      "en": "Earn <color=#FFE06A>{0} Gold</color> Total",
+      "de": "Insgesamt <color=#FFE06A>{0} Gold</color>",
+      "fr": "Gagne <color=#FFE06A>{0} pièces</color> au total",
+      "es": "Gana <color=#FFE06A>{0} de oro</color> en total",
+      "pt-BR": "Ganhe <color=#FFE06A>{0} de ouro</color> no total",
+      "it": "Ottieni <color=#FFE06A>{0} oro</color> in totale",
+      "pl": "Zdobądź łącznie <color=#FFE06A>{0} złota</color>"
+    }
+  },
+  {
+    "key": "victory.ad_unavailable",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Reklam şu anda hazır değil",
+      "en": "Ad unavailable right now",
+      "de": "Werbung gerade nicht verfügbar",
+      "fr": "Pub indisponible pour le moment",
+      "es": "Anuncio no disponible",
+      "pt-BR": "Anúncio indisponível no momento",
+      "it": "Annuncio non disponibile",
+      "pl": "Reklama chwilowo niedostępna"
+    }
+  },
+  {
+    "key": "victory.ad_closed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ödül için reklamı tamamla",
+      "en": "Finish the ad to earn the reward",
+      "de": "Schau die Werbung bis zum Ende",
+      "fr": "Termine la pub pour gagner la récompense",
+      "es": "Termina el anuncio para ganar el premio",
+      "pt-BR": "Termine o anúncio para ganhar a recompensa",
+      "it": "Completa l’annuncio per il premio",
+      "pl": "Dokończ reklamę, aby odebrać nagrodę"
+    }
+  },
+  {
+    "key": "victory.ad_claimed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ödül Alındı",
+      "en": "Reward Claimed",
+      "de": "Belohnung erhalten",
+      "fr": "Récompense reçue",
+      "es": "Premio recibido",
+      "pt-BR": "Recompensa recebida",
+      "it": "Premio ricevuto",
+      "pl": "Nagroda odebrana"
+    }
+  },
+  {
+    "key": "victory.map",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Haritaya Dön",
+      "en": "Back to Map",
+      "de": "Zur Karte",
+      "fr": "Retour à la carte",
+      "es": "Volver al mapa",
+      "pt-BR": "Voltar ao mapa",
+      "it": "Torna alla mappa",
+      "pl": "Wróć na mapę"
+    }
+  },
+  {
+    "key": "victory.ad_first",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "İlk kazanışa özel",
+      "en": "First clear only",
+      "de": "Nur beim ersten Abschluss",
+      "fr": "Première victoire uniquement",
+      "es": "Solo en la primera victoria",
+      "pt-BR": "Só na primeira vitória",
+      "it": "Solo alla prima vittoria",
+      "pl": "Tylko za pierwszą wygraną"
+    }
+  },
+  {
+    "key": "victory.next",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Sonraki Bölüm",
+      "en": "Next Level",
+      "de": "Nächstes Level",
+      "fr": "Niveau suivant",
+      "es": "Siguiente nivel",
+      "pt-BR": "Próxima fase",
+      "it": "Livello successivo",
+      "pl": "Następny poziom"
+    }
+  },
+  {
+    "key": "victory.replay",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Tekrar Oyna",
+      "en": "Replay",
+      "de": "Wiederholen",
+      "fr": "Rejouer",
+      "es": "Repetir",
+      "pt-BR": "Jogar de novo",
+      "it": "Rigioca",
+      "pl": "Zagraj ponownie"
+    }
   }
 ]

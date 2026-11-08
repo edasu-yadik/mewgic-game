@@ -767,6 +767,50 @@ MonoBehaviour:
     m_Key: app.display_name
     m_Metadata:
       m_Items: []
+  - m_Id: 2913532528394240
+    m_Key: victory.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532687777792
+    m_Key: victory.coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972096
+    m_Key: victory.ad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972097
+    m_Key: victory.ad_total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972098
+    m_Key: victory.ad_unavailable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972099
+    m_Key: victory.ad_closed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972100
+    m_Key: victory.ad_claimed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2913532691972101
+    m_Key: victory.map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2914333728538624
+    m_Key: victory.ad_first
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113835528192
+    m_Key: victory.next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2915113957163008
+    m_Key: victory.replay
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
