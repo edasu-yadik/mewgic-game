@@ -22,7 +22,7 @@ namespace Mewgic.Map
         Image Panel(Transform p,string name,Vector2 min,Vector2 max)
         {var im=Art(p,name,panel,min,max);im.type=Image.Type.Sliced;return im;}
         Button Control(Transform p,string name,string text,Vector2 min,Vector2 max,Action action)
-        {var im=Panel(p,name,min,max);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());Label(im.transform,"Label",text,24,new Vector2(.07f,.1f),new Vector2(.93f,.9f));return b;}
+        {var im=Panel(p,name,min,max);im.raycastTarget=true;var b=im.gameObject.AddComponent<PremiumButton>();b.targetGraphic=im;b.onClick.AddListener(()=>action());Label(im.transform,"Label",text,24,new Vector2(.07f,.1f),new Vector2(.93f,.9f));return b;}
 
   void Start()=>Mount();
   public void Mount()

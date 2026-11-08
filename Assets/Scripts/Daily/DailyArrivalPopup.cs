@@ -1,3 +1,4 @@
+using Mewgic.UI;
 using System.Collections;using Mewgic.Core;using UnityEngine;using UnityEngine.UI;using TMPro;using L=Mewgic.Localization.L;
 namespace Mewgic.Daily
 {
@@ -15,7 +16,7 @@ namespace Mewgic.Daily
    open=Control(card.transform,"ArrivalOpen",L.V("reward.open"),new Vector2(.18f,.07f),new Vector2(.82f,.20f),()=>OpenReward(receipt),panel);
    close=Control(card.transform,"ArrivalContinue",L.V("common.ok"),new Vector2(.18f,.07f),new Vector2(.82f,.20f),()=>root.SetActive(false),panel);close.gameObject.SetActive(false);dismiss=Control(card.transform,"ArrivalDismiss",L.V("common.close"),new Vector2(.73f,.01f),new Vector2(.97f,.07f),()=>root.SetActive(false),panel);root.transform.SetAsLastSibling();
   }
-  Button Control(Transform p,string n,string text,Vector2 a,Vector2 b,UnityEngine.Events.UnityAction action,Sprite sprite){var im=GameplayTools.Art(p,n,sprite,a,b,true);im.raycastTarget=true;var btn=im.gameObject.AddComponent<Button>();btn.targetGraphic=im;btn.onClick.AddListener(action);GameplayTools.Label(p.Find(n),"Label",text,27,new Vector2(.04f,.1f),new Vector2(.96f,.9f));return btn;}
+  Button Control(Transform p,string n,string text,Vector2 a,Vector2 b,UnityEngine.Events.UnityAction action,Sprite sprite){var im=GameplayTools.Art(p,n,sprite,a,b,true);im.raycastTarget=true;var btn=im.gameObject.AddComponent<PremiumButton>();btn.targetGraphic=im;btn.onClick.AddListener(action);GameplayTools.Label(p.Find(n),"Label",text,27,new Vector2(.04f,.1f),new Vector2(.96f,.9f));return btn;}
   void Update()
   {
    if(root!=null&&root.activeSelf&&!opening&&open.gameObject.activeSelf&&!GameFeel.Reduced)

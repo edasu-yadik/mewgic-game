@@ -126,7 +126,7 @@ namespace Mewgic
         {
             var rt=Box(parent,name,Purple,min,max); var image=rt.GetComponent<Image>(); image.raycastTarget=true;
             var outline=rt.gameObject.AddComponent<Outline>(); outline.effectColor=Gold; outline.effectDistance=new Vector2(2,-2);
-            var b=rt.gameObject.AddComponent<Button>(); b.targetGraphic=image; b.onClick.AddListener(action);
+            var b=rt.gameObject.AddComponent<PremiumButton>(); b.targetGraphic=image; b.onClick.AddListener(action);
             Label(rt,"Label",text,32,Gold,new Vector2(.04f,.08f),new Vector2(.96f,.92f)); return b;
         }
         void Home()

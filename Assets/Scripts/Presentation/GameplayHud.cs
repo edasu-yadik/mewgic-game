@@ -18,7 +18,7 @@ namespace Mewgic
         TMP_Text TMP_Text(Transform parent,string name,string value,int size,Vector2 min,Vector2 max)
         {var t=Rect(parent,name,min,max).gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();t.font=font;t.text=value;t.fontSize=size;t.enableAutoSizing=true;t.fontSizeMin=17;t.fontSizeMax=size;t.alignment=TextAlignmentOptions.Midline;t.color=new Color32(255,248,224,255);t.raycastTarget=false;MewgicTypographySettings.Prepare(t);return t;}
         Button Control(Transform parent,string name,string value,Vector2 min,Vector2 max,Action action)
-        {var im=Art(parent,name,panel,min,max,true);im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>action());TMP_Text(im.transform,"Label",value,32,new Vector2(.08f,.12f),new Vector2(.92f,.88f));return b;}
+        {var im=Art(parent,name,panel,min,max,true);im.raycastTarget=true;var b=im.gameObject.AddComponent<PremiumButton>();b.targetGraphic=im;b.onClick.AddListener(()=>action());TMP_Text(im.transform,"Label",value,32,new Vector2(.08f,.12f),new Vector2(.92f,.88f));return b;}
         static Sprite Load(string name)=>Resources.Load<Sprite>("Gameplay/HUD/HUD_"+name+"_v001");
         public void Mount(RectTransform safeArea,Action pause,Action onResume,Action onRestart,Action onHome)
         {
@@ -29,7 +29,7 @@ namespace Mewgic
             level=TMP_Text(l.transform,"LevelValue","",30,new Vector2(.07f,.12f),new Vector2(.93f,.88f));level.font=MewgicTypographySettings.Current.heading;
             var m=Art(root,"MovesPanel",panel,new Vector2(.60f,.15f),new Vector2(.845f,.90f),true);
             moves=TMP_Text(m.transform,"Moves","",28,new Vector2(.07f,.12f),new Vector2(.93f,.88f));
-            var p=Art(root,"Pause",pauseArt,new Vector2(.875f,.15f),new Vector2(.975f,.90f));p.preserveAspect=true;p.raycastTarget=true;var pb=p.gameObject.AddComponent<Button>();pb.targetGraphic=p;pb.onClick.AddListener(()=>pause());
+            var p=Art(root,"Pause",pauseArt,new Vector2(.875f,.15f),new Vector2(.975f,.90f));p.preserveAspect=true;p.raycastTarget=true;var pb=p.gameObject.AddComponent<PremiumButton>();pb.targetGraphic=p;pb.onClick.AddListener(()=>pause());
             specialGoal=Art(safe,"SpecialGoal",panel,new Vector2(.18f,.86f),new Vector2(.82f,.91f),true);goal=TMP_Text(specialGoal.transform,"SpecialGoalValue","",22,new Vector2(.06f,.1f),new Vector2(.94f,.9f));specialGoal.gameObject.SetActive(false);Layout();
             var cover=Rect(safe.parent,"GameplayPauseOverlay",Vector2.zero,Vector2.one);overlay=cover.gameObject;var dim=overlay.AddComponent<Image>();dim.color=new Color(.025f,.018f,.065f,.84f);dim.raycastTarget=true;
             var pauseSafe=Rect(cover,"PauseSafeArea",safe.anchorMin,safe.anchorMax);

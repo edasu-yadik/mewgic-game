@@ -1,4 +1,6 @@
 using System;
+using Mewgic.Core;
+using Mewgic.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -52,8 +54,13 @@ namespace Mewgic.Map
     }
 
     // A virtualized button may represent a different level when a finger is released.
-    public sealed class MapPointButton : Button
+    public sealed class MapPointButton : PremiumButton
     {
+        MapNodeBadge badge;
+        protected override bool PreserveArtwork => true;
+        protected override bool ArtworkLocked => Point != null && Point.kind == MapPointKind.LevelSlot &&
+            (badge ??= GetComponent<MapNodeBadge>())?.Status is MapLevelStatus.Locked or MapLevelStatus.Unavailable;
+
         internal MapPoint Point;
         internal MapScrollRect Scroller;
         bool armed;

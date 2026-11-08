@@ -41,7 +41,7 @@ namespace Mewgic
             percentage=Label(Safe,"Loading Percentage","0%",22,new Vector2(.4f,.145f),new Vector2(.6f,.176f));
             Message=Label(Safe,"Loading Message",L.V("boot.preparing"),26,new Vector2(.055f,.055f),new Vector2(.945f,.105f));
             var retryRect=Rect(Safe,"Retry Loading",new Vector2(.28f,.185f),new Vector2(.72f,.235f));var retryGraphic=retryRect.gameObject.AddComponent<BootProgressGraphic>();retryGraphic.Value=1;
-            RetryButton=retryRect.gameObject.AddComponent<Button>();RetryButton.targetGraphic=retryGraphic;RetryButton.onClick.AddListener(()=>retry());
+            RetryButton=retryRect.gameObject.AddComponent<PremiumButton>();RetryButton.targetGraphic=retryGraphic;RetryButton.onClick.AddListener(()=>retry());
             Label(retryRect,"Retry Label",L.V("boot.retry"),23,Vector2.zero,Vector2.one);RetryButton.gameObject.SetActive(false);
             input=new GameObject("Opening EventSystem",typeof(EventSystem),typeof(InputSystemUIInputModule));input.transform.SetParent(transform,false);input.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
             foreach(var graphic in root.GetComponentsInChildren<Graphic>(true))graphic.raycastTarget=graphic.gameObject==retryRect.gameObject;

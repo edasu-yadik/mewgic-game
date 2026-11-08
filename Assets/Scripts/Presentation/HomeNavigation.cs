@@ -23,7 +23,7 @@ namespace Mewgic
             for(int i=0;i<5;i++)
             {
                 var destination=(HomeDestination)i;
-                var g=new GameObject("Nav"+destination,typeof(RectTransform),typeof(Image),typeof(Button));g.transform.SetParent(root,false);var r=(RectTransform)g.transform;r.anchorMin=new Vector2(i*.2f+.003f,0);r.anchorMax=new Vector2((i+1)*.2f-.003f,1);r.offsetMin=r.offsetMax=Vector2.zero;
+                var g=new GameObject("Nav"+destination,typeof(RectTransform),typeof(Image),typeof(PremiumButton));g.transform.SetParent(root,false);var r=(RectTransform)g.transform;r.anchorMin=new Vector2(i*.2f+.003f,0);r.anchorMax=new Vector2((i+1)*.2f-.003f,1);r.offsetMin=r.offsetMax=Vector2.zero;
                 var image=g.GetComponent<Image>();image.sprite=i==0?activeTile:tile;image.raycastTarget=true;
                 var button=g.GetComponent<Button>();button.targetGraphic=image;button.onClick.AddListener(()=>Navigate(destination));
                 var icon=new GameObject("Icon",typeof(RectTransform),typeof(Image));icon.transform.SetParent(g.transform,false);var ir=(RectTransform)icon.transform;ir.anchorMin=new Vector2(.08f,.23f);ir.anchorMax=new Vector2(.92f,.97f);ir.offsetMin=ir.offsetMax=Vector2.zero;var art=icon.GetComponent<Image>();art.sprite=sprites[i];art.preserveAspect=true;art.raycastTarget=false;

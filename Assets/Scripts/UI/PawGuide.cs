@@ -28,13 +28,13 @@ namespace Mewgic.UI
         {
             app=host;safe=area;model=puzzle;ledger=progress;cat=GameObject.Find("GameplayWizardCat")?.GetComponent<RectTransform>();actor=cat!=null?cat.GetComponent<Mewgic.Characters.WizardCatPresentation>():null;gameplayStatus=GameObject.Find("Status")?.GetComponent<TMP_Text>();
             var root=(RectTransform)GameObject.Find("TutorialOverlay").transform;root.anchorMin=Vector2.zero;root.anchorMax=Vector2.one;root.offsetMin=root.offsetMax=Vector2.zero;
-            hit=Rect(root,"PawCatTouch",Vector2.zero,Vector2.zero);var image=hit.gameObject.AddComponent<Image>();image.color=Color.clear;hit.gameObject.AddComponent<Button>().onClick.AddListener(OpenMenu);
+            hit=Rect(root,"PawCatTouch",Vector2.zero,Vector2.zero);var image=hit.gameObject.AddComponent<Image>();image.color=Color.clear;hit.gameObject.AddComponent<PremiumButton>().onClick.AddListener(OpenMenu);
             bubble=Rect(root,"PawThought",new Vector2(.025f,.205f),new Vector2(.645f,.303f));bubble.gameObject.AddComponent<PawThoughtGraphic>().raycastTarget=false;
             fade=bubble.gameObject.AddComponent<CanvasGroup>();fade.blocksRaycasts=fade.interactable=true;
             var text=Rect(bubble,"PawMessage",new Vector2(.065f,.10f),new Vector2(.83f,.90f));message=text.gameObject.AddComponent<Mewgic.Localization.LocalizedTMP>();MewgicTypographySettings.Prepare(message);message.font=MewgicTypographySettings.Current.body;message.fontSize=23;message.enableAutoSizing=true;message.fontSizeMin=16;message.fontSizeMax=23;message.alignment=TextAlignmentOptions.Center;message.color=new Color32(62,34,56,255);message.raycastTarget=false;
             var close=Rect(bubble,"PawThoughtClose",new Vector2(.835f,.38f),new Vector2(.965f,.93f));
             var closeHit=close.gameObject.AddComponent<Image>();closeHit.color=Color.clear;
-            thoughtClose=close.gameObject.AddComponent<Button>();thoughtClose.targetGraphic=closeHit;
+            thoughtClose=close.gameObject.AddComponent<PremiumButton>();thoughtClose.targetGraphic=closeHit;
             thoughtClose.onClick.AddListener(DismissThought);
             var closeText=Rect(close,"Label",Vector2.zero,Vector2.one).gameObject.AddComponent<TextMeshProUGUI>();
             closeText.font=message.font;closeText.text="×";closeText.fontSize=29;closeText.alignment=TextAlignmentOptions.Center;

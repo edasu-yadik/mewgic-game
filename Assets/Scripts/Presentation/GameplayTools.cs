@@ -21,7 +21,7 @@ namespace Mewgic
             var tile=Resources.Load<Sprite>("Gameplay/Tools/Tool_Tile_v001");
             for(int i=0;i<4;i++)
             {
-                int index=i;var im=Art(root,names[i],tile,new Vector2(i*.25f+.007f,0),new Vector2((i+1)*.25f-.007f,1));im.preserveAspect=true;im.raycastTarget=true;var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.onClick.AddListener(()=>use((BoosterKind)index));buttons[i]=b;
+                int index=i;var im=Art(root,names[i],tile,new Vector2(i*.25f+.007f,0),new Vector2((i+1)*.25f-.007f,1));im.preserveAspect=true;im.raycastTarget=true;var b=im.gameObject.AddComponent<PremiumButton>();b.targetGraphic=im;b.onClick.AddListener(()=>use((BoosterKind)index));buttons[i]=b;
                 var icon=Art(im.transform,"Icon",Resources.Load<Sprite>("Gameplay/Tools/Tool_"+iconNames[i]+"_v001"),new Vector2(.16f,.28f),new Vector2(.84f,.89f));icon.preserveAspect=true;icons[i]=icon;
                 Label(im.transform,"Label",labels[i],26,new Vector2(.04f,.12f),new Vector2(.96f,.29f));
                 var badge=Rect(im.transform,"CounterBadge",new Vector2(.72f,.77f),new Vector2(.99f,1.02f));badge.gameObject.AddComponent<CanvasRenderer>();var graphic=badge.gameObject.AddComponent<BoosterBadge>();graphic.raycastTarget=false;counts[i]=Label(badge,"Charges","",28,Vector2.zero,Vector2.one);

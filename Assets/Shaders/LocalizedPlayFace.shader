@@ -17,9 +17,14 @@ Shader "Mewgic/LocalizedPlayFace"
    fixed4 frag(vary i):SV_Target
    {
     fixed4 original=tex2D(_MainTex,i.uv);
-    // Keep the approved gold frame intact. Extend its own blank green face under the new TMP caption.
+    // Keep the approved gold frame intact. Keep the authored highlights and map the emerald face to amethyst.
     float mask=smoothstep(.212,.235,i.uv.x)*(1-smoothstep(.815,.842,i.uv.x))*smoothstep(.255,.285,i.uv.y)*(1-smoothstep(.63,.66,i.uv.y));
-    fixed4 blank=tex2D(_MainTex,float2(.20,i.uv.y));return lerp(original,blank,mask)*i.color;
+        fixed4 blank=tex2D(_MainTex,float2(.20,i.uv.y));
+    fixed4 face=lerp(original,blank,mask);
+    float emerald=smoothstep(.025,.17,face.g-max(face.r,face.b));
+    float3 amethyst=lerp(float3(.105,.013,.24),float3(.70,.16,.92),pow(saturate(face.g),1.48));
+    face.rgb=lerp(face.rgb,amethyst,emerald);
+    return face*i.color;
    }
    ENDCG
   }
