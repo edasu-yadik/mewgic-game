@@ -1223,6 +1223,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
+  - m_Id: 2924300237897765
+    m_Localized: "Werbung wird geladen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897766
+    m_Localized: "Keine Internetverbindung"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897767
+    m_Localized: "Werbung l\u00e4uft"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897768
+    m_Localized: "Werbedatenschutz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897769
+    m_Localized: "Belohnung wird gepr\u00fcft"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897770
+    m_Localized: "Belohnung nicht best\u00e4tigt"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

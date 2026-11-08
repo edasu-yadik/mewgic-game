@@ -3487,5 +3487,95 @@
       "it": "+{0} {1} · {2} oro\n{3}",
       "pl": "+{0} {1} · {2} złota\n{3}"
     }
+  },
+  {
+    "key": "victory.ad_loading",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Reklam yükleniyor",
+      "en": "Loading ad",
+      "de": "Werbung wird geladen",
+      "fr": "Chargement de la pub",
+      "es": "Cargando anuncio",
+      "pt-BR": "Carregando anúncio",
+      "it": "Caricamento annuncio",
+      "pl": "Ładowanie reklamy"
+    }
+  },
+  {
+    "key": "victory.ad_offline",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "İnternet bağlantısı yok",
+      "en": "No internet connection",
+      "de": "Keine Internetverbindung",
+      "fr": "Pas de connexion Internet",
+      "es": "Sin conexión a Internet",
+      "pt-BR": "Sem conexão com a internet",
+      "it": "Connessione assente",
+      "pl": "Brak połączenia z internetem"
+    }
+  },
+  {
+    "key": "victory.ad_playing",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Reklam oynatılıyor",
+      "en": "Ad playing",
+      "de": "Werbung läuft",
+      "fr": "Publicité en cours",
+      "es": "Reproduciendo anuncio",
+      "pt-BR": "Reproduzindo anúncio",
+      "it": "Annuncio in riproduzione",
+      "pl": "Odtwarzanie reklamy"
+    }
+  },
+  {
+    "key": "settings.ad_privacy",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Reklam Gizliliği",
+      "en": "Ad Privacy",
+      "de": "Werbedatenschutz",
+      "fr": "Confidentialité pub",
+      "es": "Privacidad de anuncios",
+      "pt-BR": "Privacidade de anúncios",
+      "it": "Privacy annunci",
+      "pl": "Prywatność reklam"
+    }
+  },
+  {
+    "key": "victory.ad_verifying",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ödül doğrulanıyor",
+      "en": "Verifying reward",
+      "de": "Belohnung wird geprüft",
+      "fr": "Vérification de la récompense",
+      "es": "Verificando premio",
+      "pt-BR": "Validando a recompensa",
+      "it": "Verifica ricompensa",
+      "pl": "Weryfikacja nagrody"
+    }
+  },
+  {
+    "key": "victory.ad_unverified",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ödül doğrulanamadı",
+      "en": "Reward could not be verified",
+      "de": "Belohnung nicht bestätigt",
+      "fr": "Récompense non vérifiée",
+      "es": "No se pudo verificar el premio",
+      "pt-BR": "Recompensa não validada",
+      "it": "Ricompensa non verificata",
+      "pl": "Nie udało się potwierdzić nagrody"
+    }
   }
 ]

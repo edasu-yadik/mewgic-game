@@ -1,0 +1,20 @@
+{
+  "result": "Succeeded",
+  "platform": "Android",
+  "buildTimeMs": 493714,
+  "totalWarnings": 1,
+  "totalErrors": 0,
+  "profile": "Development",
+  "outputPath": "Builds\\QA\\RewardedAds-Android.apk",
+  "sizeBytes": 123310697,
+  "applicationId": "com.mewgic.game",
+  "admobTestAppId": "ca-app-pub-3940256099942544~3347511713",
+  "gradleDependencies": [
+    "play-services-ads:25.5.0",
+    "user-messaging-platform:4.0.0"
+  ],
+  "targetSdk": 36,
+  "abi": "arm64-v8a",
+  "debuggable": true,
+  "devicePlaybackTested": false
+}

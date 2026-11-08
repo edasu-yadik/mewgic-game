@@ -22,7 +22,7 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class VictoryReferenceProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/VictoryReference/";
+        const string Output = "docs/ProductionReports/RewardedAds/";
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo Profile = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
         static readonly FieldInfo PuzzleField = typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -33,6 +33,9 @@ namespace Mewgic
         Dictionary<string, string> original;
         ProgressLedger Ledger => GameplayProgress.Current;
         Puzzle Board => (Puzzle)PuzzleField.GetValue(FindFirstObjectByType<PrototypeApp>());
+
+        [MenuItem("Mewgic/QA/Run Rewarded Ads")]
+        static void RunRewardedAds() => Begin();
 
         [MenuItem("Mewgic/QA/Run Victory Reference")]
         public static void Begin()
@@ -257,8 +260,17 @@ namespace Mewgic
         sealed class Ad : IRewardedVictoryAd
         {
             public TaskCompletionSource<RewardedVictoryAdResult> Pending = new();
+            public RewardedVictoryAdState State { get; set; } = RewardedVictoryAdState.Ready;
+            public bool Verifying;
+            public bool IsPresenting => !Verifying && !Pending.Task.IsCompleted;
+            public string Receipt;
             public int Calls;
-            public Task<RewardedVictoryAdResult> ShowAsync() { Calls++; return Pending.Task; }
+            public Task<RewardedVictoryAdResult> ShowAsync(string receipt)
+            {
+                Calls++;
+                Receipt = receipt;
+                return Pending.Task;
+            }
         }
 
         void RewardModel()
@@ -291,6 +303,17 @@ namespace Mewgic
         {
             Directory.CreateDirectory(Output);
             RewardModel();
+            var config = RewardedAdSettings.Load();
+            Check(config.UnitId(false, false) == null && config.UnitId(true, false) == null,
+                "Üretim kapalıyken iki platformda da reklam birimi yok");
+            var incomplete = new RewardedAdSettings { productionEnabled = true, verificationBaseUrl = "http://example.test" };
+            Check(incomplete.VerificationEndpoint == null && incomplete.UnitId(false, false) == null,
+                "Üretim HTTPS doğrulaması ve kimlikleri yokken reklam başlatmaz");
+            Check(config.UnitId(false, true) == "ca-app-pub-3940256099942544/5224354917" &&
+                config.UnitId(true, true) == "ca-app-pub-3940256099942544/1712485313",
+                "Geliştirme yalnız resmi Android ve iOS test birimlerini seçiyor");
+            var provider = new Ad();
+            RewardedVictoryAds.Provider = provider;
             yield return Ready();
             yield return Win(6, 1);
             yield return Reveal(1);
@@ -342,28 +365,110 @@ namespace Mewgic
 
             long baseCoins = Ledger.Presentation.coins;
             Check(baseCoins == 50, "Gerçek ilk kazanış 50 altın kaydetti");
-            Click("WatchRewardedAd", true);
-            Check(Ledger.Presentation.coins == baseCoins && Label("RewardBreakdown") == L.Resolve(L.V("victory.ad_unavailable")),
-                "Sağlayıcı yokken mesaj gösterildi ve altın verilmedi");
-            var provider = new Ad();
+            var next = GameObject.Find("NextLevel").GetComponent<Button>();
+            RewardedVictoryAds.Provider = null;
+            yield return null;
+            Check(!Watch.IsInteractable() && next.IsInteractable() &&
+                Label("WatchTotal") == L.Resolve(L.V("victory.ad_unavailable")),
+                "Sağlayıcı yokken durum panelde ve Sonraki Bölüm kullanılabilir");
             RewardedVictoryAds.Provider = provider;
+            provider.State = RewardedVictoryAdState.Loading;
+            yield return null;
+            Check(!Watch.IsInteractable() && next.IsInteractable() &&
+                Label("WatchTotal") == L.Resolve(L.V("victory.ad_loading")),
+                "Yüklenirken reklam kapalı ve ilerleme açık");
+            provider.State = RewardedVictoryAdState.Unavailable;
+            yield return null;
+            Check(!Watch.IsInteractable() && next.IsInteractable() &&
+                Label("WatchTotal") == L.Resolve(L.V("victory.ad_unavailable")) && Ledger.Presentation.coins == baseCoins,
+                "Yükleme hatası normal ödülü ve ilerlemeyi koruyor");
+            yield return Capture("05-AdUnavailable");
+            provider.State = RewardedVictoryAdState.Offline;
+            yield return null;
+            Check(!Watch.IsInteractable() && next.IsInteractable() &&
+                Label("WatchTotal") == L.Resolve(L.V("victory.ad_offline")) && Ledger.Presentation.coins == baseCoins,
+                "Bağlantı kesilince durum panelde, altın ve ilerleme korunuyor");
+            yield return Capture("06-AdOffline");
+            provider.State = RewardedVictoryAdState.Ready;
+            yield return Until(() => Watch.IsInteractable(), "Bağlantı geri gelince reklam kullanılabilir");
             Click("WatchRewardedAd", true);
-            Check(provider.Calls == 1 && !Watch.IsInteractable() &&
-                !GameObject.Find("NextLevel").GetComponent<Button>().IsInteractable(), "Reklam sırasında yeniden tıklama ve navigasyon kilitli");
+            Check(provider.Calls == 1 && !Watch.IsInteractable() && !next.IsInteractable() &&
+                !string.IsNullOrEmpty(provider.Receipt) && Ledger.Presentation.coins == baseCoins,
+                "Reklam açıldığında ödül yok ve ikinci dokunuş engelli");
             provider.Pending.SetResult(RewardedVictoryAdResult.Closed);
             yield return Until(() => Watch.IsInteractable(), "Erken kapanan reklam sonrası tekrar denenebilir");
-            Check(Ledger.Presentation.coins == baseCoins, "Erken kapanan reklam altın vermedi");
+            Check(next.IsInteractable() && Ledger.Presentation.coins == baseCoins &&
+                Label("RewardBreakdown") == L.Resolve(L.V("victory.ad_closed")),
+                "Erken kapanıştan sonra normal ödül ve ilerleme korunuyor");
+
             provider.Pending = new TaskCompletionSource<RewardedVictoryAdResult>();
             Click("WatchRewardedAd", true);
-            provider.Pending.SetResult(RewardedVictoryAdResult.Rewarded);
+            provider.State = RewardedVictoryAdState.Offline;
+            provider.Pending.SetResult(RewardedVictoryAdResult.Offline);
+            yield return Until(() => next.IsInteractable(), "Oynatma sırasında bağlantı hatası ilerlemeyi açtı");
+            Check(!Watch.IsInteractable() && Ledger.Presentation.coins == baseCoins,
+                "Oynatma bağlantı hatasında reklam ödülü yazılmadı");
+
+            provider.Pending = new TaskCompletionSource<RewardedVictoryAdResult>();
+            provider.State = RewardedVictoryAdState.Ready;
+            yield return Until(() => Watch.IsInteractable(), "Reklam yeniden hazır");
+            Click("WatchRewardedAd", true);
+            provider.Verifying = true;
+            yield return Until(() => next.IsInteractable(), "Sunucu yanıtı beklenirken Sonraki Bölüm açık");
+            Check(!Watch.IsInteractable() && Label("WatchTotal") == L.Resolve(L.V("victory.ad_verifying")) &&
+                Ledger.Presentation.coins == baseCoins, "Sunucu onayından önce altın verilmiyor");
+            provider.Pending.SetResult(RewardedVictoryAdResult.Unverified);
+            yield return Until(() => Watch.IsInteractable(), "Doğrulama başarısızsa tekrar denenebilir");
+            Check(Ledger.Presentation.coins == baseCoins &&
+                Label("RewardBreakdown") == L.Resolve(L.V("victory.ad_unverified")),
+                "Doğrulanmayan ödül eklenmedi");
+
+            provider.Verifying = false;
+            provider.Pending = new TaskCompletionSource<RewardedVictoryAdResult>();
+            Click("WatchRewardedAd", true);
+            Check(provider.Pending.TrySetResult(RewardedVictoryAdResult.Rewarded) &&
+                !provider.Pending.TrySetResult(RewardedVictoryAdResult.Rewarded),
+                "Yinelenen tamamlama aynı oynatma görevini ikinci kez bitiremez");
             yield return Until(() => Ledger.Presentation.coins == 100, "Onaylı reklam farkı ekledi ve toplam 100 oldu");
             var disk = GameplayProgress.Open(key);
             var record = disk.Snapshot.levels.Single(x => x.level == 1);
-            Check(!Watch.IsInteractable() && provider.Calls == 2 && disk.Presentation.coins == 100 &&
+            Check(!Watch.IsInteractable() && provider.Calls == 4 && disk.Presentation.coins == 100 &&
                 !disk.TryBoostVictory(1, record.lastCoinReceipt, out _), "Ödül kalıcı ve aynı reklam yeniden ödenmiyor");
-            yield return Capture("05-AdRewardClaimed");
+            yield return Capture("07-AdRewardClaimed");
             Click("NextLevel", true);
             yield return Ready(2);
+
+            Seed();
+            SceneManager.LoadScene("Gameplay");
+            yield return null;
+            yield return Ready();
+            provider.State = RewardedVictoryAdState.Offline;
+            yield return Win(3, 3);
+            yield return Reveal(3);
+            Check(!Watch.IsInteractable() && Ledger.Presentation.coins == baseCoins,
+                "Reklam izlemeden kazanılan altın temel akışta kaydedildi");
+            Click("NextLevel", true);
+            yield return Ready(2);
+            Check(provider.Calls == 4 && Ledger.Presentation.coins == baseCoins &&
+                Ledger.Snapshot.levels.Any(record => record.level == 1 && record.rewardClaimed), "Çevrimdışıyken reklam açmadan gerçek 1 → 2 geçişi tamamlandı");
+
+            Seed();
+            SceneManager.LoadScene("Gameplay");
+            yield return null;
+            yield return Ready();
+            provider.State = RewardedVictoryAdState.Ready;
+            provider.Pending = new TaskCompletionSource<RewardedVictoryAdResult>();
+            yield return Win(3, 3);
+            yield return Reveal(3);
+            Click("WatchRewardedAd", true);
+            provider.Verifying = true;
+            yield return Until(() => GameObject.Find("NextLevel").GetComponent<Button>().IsInteractable(),
+                "Sunucu yanıtı beklerken gerçek bölüm geçişi yapılabilir");
+            Click("NextLevel", true);
+            yield return Ready(2);
+            provider.Pending.SetResult(RewardedVictoryAdResult.Rewarded);
+            yield return Until(() => GameplayProgress.Open(key).Presentation.coins == 100,
+                "Sonraki bölüm açıldıktan sonra doğrulanan ödül eski makbuza bir kez yazıldı");
         }
     }
 }

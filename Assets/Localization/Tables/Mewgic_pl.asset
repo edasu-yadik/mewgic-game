@@ -1221,6 +1221,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
+  - m_Id: 2924300237897765
+    m_Localized: "\u0141adowanie reklamy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897766
+    m_Localized: "Brak po\u0142\u0105czenia z internetem"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897767
+    m_Localized: "Odtwarzanie reklamy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897768
+    m_Localized: "Prywatno\u015b\u0107 reklam"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897769
+    m_Localized: "Weryfikacja nagrody"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897770
+    m_Localized: "Nie uda\u0142o si\u0119 potwierdzi\u0107 nagrody"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

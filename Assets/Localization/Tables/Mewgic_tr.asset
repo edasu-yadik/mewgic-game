@@ -1216,6 +1216,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
+  - m_Id: 2924300237897765
+    m_Localized: "Reklam y\u00fckleniyor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897766
+    m_Localized: "\u0130nternet ba\u011flant\u0131s\u0131 yok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897767
+    m_Localized: "Reklam oynat\u0131l\u0131yor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897768
+    m_Localized: "Reklam Gizlili\u011fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897769
+    m_Localized: "\u00d6d\u00fcl do\u011frulan\u0131yor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897770
+    m_Localized: "\u00d6d\u00fcl do\u011frulanamad\u0131"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

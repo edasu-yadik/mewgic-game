@@ -1216,6 +1216,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
+  - m_Id: 2924300237897765
+    m_Localized: "Carregando an\u00fancio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897766
+    m_Localized: "Sem conex\u00e3o com a internet"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897767
+    m_Localized: "Reproduzindo an\u00fancio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897768
+    m_Localized: "Privacidade de an\u00fancios"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897769
+    m_Localized: "Validando a recompensa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897770
+    m_Localized: "Recompensa n\u00e3o validada"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

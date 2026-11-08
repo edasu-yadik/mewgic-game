@@ -1,0 +1,11 @@
+PASS Valid Google-style percent-decoded signature
+PASS Tampered query
+PASS Rebound receipt
+PASS Unknown ad unit
+PASS Stale callback
+PASS Unexpected trailing parameters
+PASS Encoded delimiter cannot alias a signed field
+PASS Concurrent duplicate callback persisted exactly once
+PASS HTTP unknown proof returns 404
+PASS HTTP malformed callback returns 400
+PASS HTTP forged signature with a current Google key returns 400; no proof written

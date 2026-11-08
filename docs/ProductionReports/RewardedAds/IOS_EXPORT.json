@@ -1,0 +1,16 @@
+{
+  "result": "Succeeded",
+  "platform": "iOS",
+  "buildTimeMs": 117962,
+  "totalWarnings": 3,
+  "totalErrors": 0,
+  "profile": "Development",
+  "xcodeProject": true,
+  "admobTestAppId": "ca-app-pub-3940256099942544~1458002511",
+  "cocoapods": [
+    "Google-Mobile-Ads-SDK ~> 13.11",
+    "GoogleUserMessagingPlatform 3.1.0"
+  ],
+  "nativeFramework": true,
+  "devicePlaybackTested": false
+}

@@ -1228,6 +1228,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
+  - m_Id: 2924300237897765
+    m_Localized: "Loading ad"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897766
+    m_Localized: "No internet connection"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897767
+    m_Localized: "Ad playing"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897768
+    m_Localized: "Ad Privacy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897769
+    m_Localized: "Verifying reward"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897770
+    m_Localized: "Reward could not be verified"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

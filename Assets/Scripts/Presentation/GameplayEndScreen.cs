@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Threading.Tasks;
 using Mewgic.Core;
 using Mewgic.UI;
 using TMPro;
@@ -33,11 +31,14 @@ namespace Mewgic
         string receipt, message;
         int level, awarded, coins, sounded, displayedCoins;
         float clock;
+        RewardedVictoryAdState? lastAdState;
+        IRewardedVictoryAd activeAd;
+        bool lastPresenting;
         bool showing, saveOk, canAdvance, preparing, verifiedAd, boosted, starsSettled;
 
         public GameObject Panel => root.gameObject;
         public bool IsShowing => showing;
-        public bool IsWatchingAd { get; private set; }
+        public bool IsWatchingAd => activeAd?.IsPresenting == true;
 
         public void Mount(RectTransform safe, Action replayLevel, Action advance, Action returnToMap,
             Func<bool> isPaused, Action retrySave)
@@ -86,6 +87,9 @@ namespace Mewgic
             reward.richText = true;
 
             watch = Control("WatchRewardedAd", WatchAd, 154, 932, 788, 1100);
+            var watchColors = watch.colors;
+            watchColors.disabledColor = Color.white;
+            watch.colors = watchColors;
             adTitle = Caption("WatchTitle", "", 49, 318, 950, 641, 1014);
             adTotal = Caption("WatchTotal", "", 31, 317, 1015, 647, 1064);
             adTotal.richText = true;
@@ -214,8 +218,8 @@ namespace Mewgic
             Layout();
 
             nextLabel.text = L.V(hasNext ? "victory.next" : "gameplay.last");
-            adTitle.text = L.V("victory.ad");
-            adTotal.text = CanWatch ? L.V("victory.ad_total", ProgressLedger.RewardedVictoryTotal) : L.V("victory.ad_first");
+            activeAd = null;
+            lastAdState = null;
             skipLabel.text = L.V(saved ? "economy.skip" : "economy.retry_save");
             SetTransition(false, saved ? null : L.V("error.save"));
             if (saved) GameFeel.Play(GameCue.Victory);
@@ -229,50 +233,89 @@ namespace Mewgic
             preparing = loading;
             message = status;
             notice.text = status ?? "";
-            next.interactable = canAdvance && !preparing && !IsWatchingAd;
-            replay.interactable = map.interactable = !preparing && !IsWatchingAd;
-            watch.interactable = CanWatch && !preparing && !IsWatchingAd;
+            RefreshAdPanel(true);
             UpdateSkip();
+        }
+
+        void RefreshAdPanel(bool force = false)
+        {
+            var state = RewardedVictoryAds.Provider?.State ?? RewardedVictoryAdState.Unavailable;
+            bool presenting = IsWatchingAd;
+            if (!force && lastAdState == state && lastPresenting == presenting) return;
+            lastAdState = state;
+            lastPresenting = presenting;
+            next.interactable = canAdvance && !preparing && !presenting;
+            replay.interactable = map.interactable = !preparing && !presenting;
+            watch.interactable = CanWatch && !preparing && activeAd == null &&
+                (verifiedAd || state == RewardedVictoryAdState.Ready);
+            adTitle.text = L.V(boosted ? "victory.ad_claimed" : verifiedAd ? "economy.retry_save" : "victory.ad");
+            adTotal.text = boosted ? L.V("victory.coins", coins) :
+                activeAd != null ? L.V(presenting ? "victory.ad_playing" : "victory.ad_verifying") :
+                !CanWatch ? L.V("victory.ad_first") :
+                verifiedAd || state == RewardedVictoryAdState.Ready
+                    ? L.V("victory.ad_total", ProgressLedger.RewardedVictoryTotal)
+                    : L.V(state switch
+                    {
+                        RewardedVictoryAdState.Loading => "victory.ad_loading",
+                        RewardedVictoryAdState.Offline => "victory.ad_offline",
+                        _ => "victory.ad_unavailable"
+                    });
         }
 
         void WatchAd()
         {
-            if (!CanWatch || preparing || IsWatchingAd) return;
+            if (!watch.interactable) return;
             if (verifiedAd)
             {
                 ApplyAdReward();
                 return;
             }
-            StartCoroutine(Watch());
+            var provider = RewardedVictoryAds.Provider;
+            if (provider != null) Watch(provider);
         }
 
-        IEnumerator Watch()
+        async void Watch(IRewardedVictoryAd provider)
         {
-            IsWatchingAd = true;
-            SetTransition(false, L.V("map.preparing"));
-            Task<RewardedVictoryAdResult> task = null;
-            try { task = RewardedVictoryAds.Provider?.ShowAsync(); }
-            catch (Exception) { /* The provider could not start playback. */ }
-            while (task != null && !task.IsCompleted) yield return null;
-            if (task != null) _ = task.Exception;
-            IsWatchingAd = false;
-            if (task?.IsCompletedSuccessfully == true && task.Result == RewardedVictoryAdResult.Rewarded)
+            activeAd = provider;
+            var progress = ledger;
+            int completedLevel = level;
+            string token = receipt;
+            var result = RewardedVictoryAdResult.Unavailable;
+            try
+            {
+                var task = provider.ShowAsync(token);
+                SetTransition(false);
+                result = await task;
+            }
+            catch (Exception) { /* Playback or verification failed. */ }
+
+            if (this == null || !showing || receipt != token)
+            {
+                if (result == RewardedVictoryAdResult.Rewarded)
+                    progress.TryBoostVictory(completedLevel, token, out _);
+                return;
+            }
+
+            activeAd = null;
+            if (result == RewardedVictoryAdResult.Rewarded)
             {
                 verifiedAd = true;
                 ApplyAdReward();
+                return;
             }
-            else
+            SetTransition(false, L.V(result switch
             {
-                bool closed = task?.IsCompletedSuccessfully == true && task.Result == RewardedVictoryAdResult.Closed;
-                SetTransition(false, L.V(closed ? "victory.ad_closed" : "victory.ad_unavailable"));
-            }
+                RewardedVictoryAdResult.Closed => "victory.ad_closed",
+                RewardedVictoryAdResult.Offline => "victory.ad_offline",
+                RewardedVictoryAdResult.Unverified => "victory.ad_unverified",
+                _ => "victory.ad_unavailable"
+            }));
         }
 
         void ApplyAdReward()
         {
             if (!ledger.TryBoostVictory(level, receipt, out _))
             {
-                adTitle.text = L.V("economy.retry_save");
                 SetTransition(false, L.V("error.save"));
                 return;
             }
@@ -280,8 +323,6 @@ namespace Mewgic
             clock = Mathf.Max(clock, RevealEnd);
             sounded = awarded;
             coins = ProgressLedger.RewardedVictoryTotal;
-            adTitle.text = L.V("victory.ad_claimed");
-            adTotal.text = L.V("victory.coins", coins);
             SetTransition(false);
             GameFeel.Play(GameCue.Coin);
             Animate();
@@ -297,6 +338,8 @@ namespace Mewgic
         {
             if (!showing) return;
             Layout();
+            RefreshAdPanel();
+            UpdateSkip();
             if (paused() || GameFeel.Reduced) return;
             clock += Time.unscaledDeltaTime;
             Animate();
@@ -368,7 +411,7 @@ namespace Mewgic
 
             float phase = Mathf.Repeat(reveal - RevealEnd, 3.9f);
             float scan = Mathf.Clamp01(phase / 1.2f);
-            bool active = !reduced && watch.interactable && reveal > RevealEnd;
+            bool active = !reduced && CanWatch && reveal > RevealEnd;
             Position(sweep.rectTransform, new Vector2(Mathf.Lerp(171, 772, scan), 939));
             sweep.CanvasAlpha(active ? Mathf.Sin(scan * Mathf.PI) * .7f : 0);
             coinGlint.CanvasAlpha(active ? Mathf.Sin(Mathf.PI * Mathf.Clamp01((phase - .78f) / .66f)) * .65f : 0);

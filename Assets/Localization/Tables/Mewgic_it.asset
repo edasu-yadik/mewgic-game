@@ -1230,6 +1230,30 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
+  - m_Id: 2924300237897765
+    m_Localized: "Caricamento annuncio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897766
+    m_Localized: "Connessione assente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897767
+    m_Localized: "Annuncio in riproduzione"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897768
+    m_Localized: "Privacy annunci"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897769
+    m_Localized: "Verifica ricompensa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897770
+    m_Localized: "Ricompensa non verificata"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

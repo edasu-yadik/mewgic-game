@@ -12,7 +12,7 @@ namespace Mewgic
         RectTransform root,safe,popup;
         double displayedCoins=-1;
         TMP_Text coinsText,gemsText,energyText,heartText,message;
-        readonly Button[] feedbackButtons=new Button[4]; readonly TMP_Text[] feedbackLabels=new TMP_Text[4]; static readonly string[] feedbackKeys={"settings.music","settings.effects","settings.vibration","settings.motion"};GameObject languagePicker;Button languageButton,tutorialReplayButton;
+        readonly Button[] feedbackButtons=new Button[4]; readonly TMP_Text[] feedbackLabels=new TMP_Text[4]; static readonly string[] feedbackKeys={"settings.music","settings.effects","settings.vibration","settings.motion"};GameObject languagePicker;Button languageButton,tutorialReplayButton,privacyButton;
         static CultureInfo Turkish=>L.Culture;
         public void Mount(RectTransform safeArea)
         {
@@ -80,6 +80,13 @@ namespace Mewgic
             if(tutorialReplayButton==null)tutorialReplayButton=SettingButton(card,"TutorialReplay",
                 L.V("settings.tutorial_replay"),new Vector2(.14f,.115f),new Vector2(.86f,.20f),PrototypeApp.RequestTutorialReplay);
             tutorialReplayButton.gameObject.SetActive(true);
+            bool showPrivacy = RewardedVictoryAds.NeedsPrivacyOptions?.Invoke() == true;
+            var tutorialRect = (RectTransform)tutorialReplayButton.transform;
+            tutorialRect.anchorMax = new Vector2(showPrivacy ? .49f : .86f, .20f);
+            if(showPrivacy && privacyButton==null)
+                privacyButton=SettingButton(card,"AdPrivacyOptions",L.V("settings.ad_privacy"),
+                    new Vector2(.51f,.115f),new Vector2(.86f,.20f),()=>RewardedVictoryAds.OpenPrivacyOptions?.Invoke());
+            if(privacyButton!=null)privacyButton.gameObject.SetActive(showPrivacy);
             if(languageButton==null)BuildLanguage();
             languageButton.gameObject.SetActive(true);
             var frame=card.GetComponent<Image>();
@@ -121,7 +128,7 @@ namespace Mewgic
             for(int i=0;i<enabled.Length;i++)
                 feedbackLabels[i].text=L.V("settings.toggle",L.V(feedbackKeys[i]),L.V(enabled[i]?"settings.on":"settings.off"));
         }
-        public void Show(string text){var card=(RectTransform)popup.Find("Card");var frame=card.GetComponent<Image>();frame.sprite=panel;frame.type=Image.Type.Simple;card.anchorMin=new Vector2(.08f,.43f);card.anchorMax=new Vector2(.92f,.68f);message.rectTransform.anchorMin=new Vector2(.08f,.30f);message.rectTransform.anchorMax=new Vector2(.92f,.90f);var close=(RectTransform)card.Find("ResourceInfoClose");close.anchorMin=new Vector2(.32f,.04f);close.anchorMax=new Vector2(.68f,.28f);if(languagePicker!=null)languagePicker.SetActive(false);if(languageButton!=null)languageButton.gameObject.SetActive(false);foreach(var toggle in feedbackButtons)if(toggle!=null)toggle.gameObject.SetActive(false);if(tutorialReplayButton!=null)tutorialReplayButton.gameObject.SetActive(false);message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
+        public void Show(string text){var card=(RectTransform)popup.Find("Card");var frame=card.GetComponent<Image>();frame.sprite=panel;frame.type=Image.Type.Simple;card.anchorMin=new Vector2(.08f,.43f);card.anchorMax=new Vector2(.92f,.68f);message.rectTransform.anchorMin=new Vector2(.08f,.30f);message.rectTransform.anchorMax=new Vector2(.92f,.90f);var close=(RectTransform)card.Find("ResourceInfoClose");close.anchorMin=new Vector2(.32f,.04f);close.anchorMax=new Vector2(.68f,.28f);if(languagePicker!=null)languagePicker.SetActive(false);if(languageButton!=null)languageButton.gameObject.SetActive(false);foreach(var toggle in feedbackButtons)if(toggle!=null)toggle.gameObject.SetActive(false);if(tutorialReplayButton!=null)tutorialReplayButton.gameObject.SetActive(false);if(privacyButton!=null)privacyButton.gameObject.SetActive(false);message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
         public void Close(){popup.gameObject.SetActive(false);}
         public void Layout(){if(root==null)return;float height=Mathf.Min(safe.rect.width*.082f,safe.rect.height*.06f);root.sizeDelta=new Vector2(0,height);root.anchoredPosition=new Vector2(0,-safe.rect.width*.018f);}
         void LateUpdate(){Layout();Model?.RefreshFromLedger();if(Model!=null&&displayedCoins!=Model.Coins){displayedCoins=System.Math.Abs(displayedCoins-Model.Coins)<1?Model.Coins:displayedCoins+(Model.Coins-displayedCoins)*(1-System.Math.Exp(-Time.unscaledDeltaTime*6));coinsText.text=FormatAmount(displayedCoins>=long.MaxValue?long.MaxValue:System.Math.Max(0,(long)displayedCoins));}}
