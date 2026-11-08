@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "command": "command",
+  "data": {
+    "command": "editor invoke_menu",
+    "parameters": {
+      "path": "Mewgic/QA/Run League"
+    },
+    "result": {
+      "success": true,
+      "path": "Mewgic/QA/Run League",
+      "items": null,
+      "message": "Executed menu item 'Mewgic/QA/Run League'"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
+83 Play Mode kontrolü. C:\Dev\Mewgic\docs\ProductionReports\League\PLAY_MODE.json

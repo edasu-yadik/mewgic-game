@@ -1,0 +1,23 @@
+PASS League requires an authenticated real account
+PASS Empty leaderboard has no synthetic participants
+PASS Season has exactly 28 server UTC days
+PASS Tutorial three-star formula ignores arbitrary client points and awards shared tie rank
+PASS Invalid proof leaves league score unchanged
+PASS Concurrent season submissions apply each verified level and weekend bonus once
+PASS Difficulty, stars, weekend and season milestone produce expected score and nearby ranks
+PASS Clan ranking aggregates real members without moving past points
+PASS Active season cannot pay rewards
+PASS Exact boundary closes once and creates a fresh season
+PASS Top tied group is promoted together, bronze bottom stays bronze
+PASS Frozen standings include payout and new division
+PASS Clan earns its season emblem
+PASS Old level replay cannot farm new season
+PASS Concurrent reward transfer binds to one wallet and one receipt
+PASS Same wallet can recover delivery using identical receipt
+PASS A shared device wallet cannot receive a second account's reward
+PASS Silver top promotes, middle stays and bottom demotes
+PASS Demotion pays completed tier reward
+PASS Server restart preserves division, history and reward binding
+PASS Reward identity is scoped to the authenticated account
+PASS Solo play earns points and tier thresholds are configurable
+PASS Season closure uses configured gold and exclusive cosmetic

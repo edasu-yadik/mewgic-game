@@ -1963,6 +1963,34 @@ MonoBehaviour:
     m_Localized: "Lig B\u00fcy\u00fcc\u00fcs\u00fc kost\u00fcm\u00fc"
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897944
+    m_Localized: "Hesap"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897945
+    m_Localized: "Hesap Y\u00f6netimi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897946
+    m_Localized: "\u00c7evrimi\u00e7i hesab\u0131 silmek klan \u00fcyeli\u011fini, lig ve etkinlik kay\u0131tlar\u0131n\u0131 kald\u0131r\u0131r. Cihazdaki oyun kayd\u0131 korunur."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897947
+    m_Localized: "Verimi Kopyala"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897948
+    m_Localized: "Hesap verisi panoya kopyaland\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897949
+    m_Localized: "Hesab\u0131 Kal\u0131c\u0131 Sil"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897950
+    m_Localized: "\u00c7evrimi\u00e7i hesab\u0131n silindi."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

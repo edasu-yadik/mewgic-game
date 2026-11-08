@@ -3,6 +3,12 @@ using Microsoft.AspNetCore.HttpOverrides;
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
 
+if (args is ["backup", var source, var destination])
+{
+    ClanStore.Backup(source,destination);
+    return;
+}
+
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 24 * 1024);
 builder.Logging.AddFilter("Microsoft.AspNetCore.Hosting.Diagnostics", LogLevel.Warning);
@@ -35,6 +41,7 @@ builder.Services.AddRateLimiter(rate =>
     rate.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(context =>
         RateLimitPartition.GetFixedWindowLimiter(context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
             _ => new FixedWindowRateLimiterOptions { PermitLimit = 240, Window = TimeSpan.FromMinutes(1) }));
+    rate.AddConcurrencyLimiter("proof", o => { o.PermitLimit = 4; o.QueueLimit = 0; });
     rate.AddPolicy("credentials", context =>
         RateLimitPartition.GetFixedWindowLimiter(context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
             _ => new FixedWindowRateLimiterOptions { PermitLimit = 20, Window = TimeSpan.FromMinutes(1) }));
@@ -67,8 +74,19 @@ app.Use(async (context, next) =>
 app.UseRateLimiter();
 var api = app.MapGroup("/v1");
 app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+app.MapGet("/account/delete", (HttpContext context) =>
+{
+    context.Response.Headers.ContentSecurityPolicy = "default-src 'none'; script-src 'self'; connect-src 'self'; " +
+        "form-action 'none'; base-uri 'none'; frame-ancestors 'none'";
+    context.Response.Headers["Referrer-Policy"] = "no-referrer";
+    return Results.File(Path.Combine(AppContext.BaseDirectory,"Account","delete.html"),"text/html; charset=utf-8");
+});
+app.MapGet("/account/delete.js", () => Results.File(
+    Path.Combine(AppContext.BaseDirectory,"Account","delete.js"),"application/javascript; charset=utf-8"));
 api.MapPost("/register", (Credentials input, ClanStore store) => store.Register(input)).RequireRateLimiting("credentials");
 api.MapPost("/login", (Credentials input, ClanStore store) => store.Login(input)).RequireRateLimiting("credentials");
+api.MapPost("/session/refresh", (RefreshInput input, ClanStore store) => store.Refresh(input.RefreshToken)).RequireRateLimiting("credentials");
+api.MapPost("/session/revoke", (RefreshInput input, ClanStore store) => store.Revoke(input.RefreshToken)).RequireRateLimiting("credentials");
 var clans = api.MapGroup("").AddEndpointFilter(async (call, next) =>
 {
     var context = call.HttpContext;
@@ -80,6 +98,10 @@ var clans = api.MapGroup("").AddEndpointFilter(async (call, next) =>
 });
 clans.MapPost("/logout", (HttpContext c, ClanStore s) => s.Logout(c.Request.Headers.Authorization.ToString()[7..]));
 clans.MapGet("/me", (HttpContext c, ClanStore s) => s.Me(Player(c)));
+clans.MapGet("/account/progress", (HttpContext c, ClanStore s, int? after) => s.VerifiedProgress(Player(c),after ?? 0));
+clans.MapGet("/account/export", (HttpContext c, ClanStore s) => s.ExportAccount(Player(c)));
+clans.MapPost("/account/delete", (HttpContext c, ClanStore s, DeleteAccountInput input) => s.DeleteAccount(Player(c),input.Password))
+    .RequireRateLimiting("credentials");
 clans.MapGet("/clans", (HttpContext c, ClanStore s, string? q) => s.Search(q));
 clans.MapPost("/clans", (HttpContext c, ClanStore s, ClanInput input) => s.Create(Player(c), input));
 clans.MapGet("/clans/{id}", (HttpContext c, ClanStore s, string id) => s.View(Player(c), id));
@@ -100,7 +122,7 @@ clans.MapPost("/wins", (HttpContext c, ClanStore s, ClanPuzzles puzzles, WinInpu
     if (s.HasWin(player, input.Level)) return new WinResult(0, true);
     var proof = puzzles.Validate(input);
     return s.RecordWin(player, input.Level, input.ClanId, proof);
-});
+}).RequireRateLimiting("proof");
 
 api.MapGet("/event-calendar", (ClanStore s, int? page) => s.EventsView(null,page ?? 0));
 clans.MapGet("/events", (HttpContext c, ClanStore s, int? page) => s.EventsView(Player(c),page ?? 0));

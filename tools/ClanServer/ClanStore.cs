@@ -25,27 +25,7 @@ sealed partial class ClanStore
         dummyHash = passwords.HashPassword("", Token());
         using var db = Open();
         db.Run("PRAGMA journal_mode=WAL");
-        db.Run("""
-            CREATE TABLE IF NOT EXISTS players(id TEXT PRIMARY KEY, handle TEXT NOT NULL UNIQUE, password TEXT NOT NULL);
-            CREATE TABLE IF NOT EXISTS sessions(hash TEXT PRIMARY KEY, player TEXT NOT NULL REFERENCES players(id), expires INTEGER NOT NULL);
-            CREATE INDEX IF NOT EXISTS session_expiry ON sessions(expires);
-            CREATE TABLE IF NOT EXISTS clans(id TEXT PRIMARY KEY, name TEXT NOT NULL, normalized TEXT NOT NULL UNIQUE,
-              description TEXT NOT NULL, announcement TEXT NOT NULL, emblem INTEGER NOT NULL, open INTEGER NOT NULL, minimum INTEGER NOT NULL);
-            CREATE TABLE IF NOT EXISTS members(player TEXT PRIMARY KEY REFERENCES players(id), clan TEXT NOT NULL REFERENCES clans(id),
-              role INTEGER NOT NULL CHECK(role BETWEEN 0 AND 2), joined INTEGER NOT NULL);
-            CREATE INDEX IF NOT EXISTS clan_roster ON members(clan);
-            CREATE UNIQUE INDEX IF NOT EXISTS one_leader ON members(clan) WHERE role=2;
-            CREATE TABLE IF NOT EXISTS requests(clan TEXT NOT NULL REFERENCES clans(id) ON DELETE CASCADE,
-              player TEXT NOT NULL REFERENCES players(id), invite INTEGER NOT NULL CHECK(invite IN(0,1)), PRIMARY KEY(clan,player,invite));
-            CREATE INDEX IF NOT EXISTS requests_by_player ON requests(player);
-            CREATE TABLE IF NOT EXISTS wins(player TEXT NOT NULL REFERENCES players(id), level INTEGER NOT NULL,
-              clan TEXT REFERENCES clans(id) ON DELETE SET NULL, day TEXT NOT NULL, week TEXT NOT NULL,
-              base INTEGER NOT NULL, daily INTEGER NOT NULL, event INTEGER NOT NULL, PRIMARY KEY(player,level));
-            CREATE INDEX IF NOT EXISTS clan_wins ON wins(clan,week);
-            CREATE INDEX IF NOT EXISTS player_win_day ON wins(player,day);
-            """);
-        CreateLeagueSchema(db);
-        CreateEventSchema(db);
+        Migrate();
     }
 
     public Session Register(Credentials input)
@@ -76,18 +56,15 @@ sealed partial class ClanStore
         return Write(tx => Issue(tx, player.Item1));
     }
 
-    Session Issue(ClanDb db, string player)
+    static Session Issue(ClanDb db,string player)
     {
-        string token = Token();
         long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        db.Run("DELETE FROM sessions WHERE expires<=$now", ("$now",now));
-        db.Run("INSERT INTO sessions VALUES($hash,$p,$expire)", ("$hash",Hash(token)), ("$p",player), ("$expire",now + 86400));
-        return new(token);
+        return Issue(db,player,now,now+30*86400);
     }
 
     public string Authenticate(string token)
     {
-        if (token.Length != 64 || !token.All(char.IsAsciiHexDigit)) throw ClanError.Unauthorized();
+        if (!ValidToken(token)) throw ClanError.Unauthorized();
         using var db = Open();
         return db.Value<string>("SELECT player FROM sessions WHERE hash=$h AND expires>$t", ("$h",Hash(token)),
             ("$t",DateTimeOffset.UtcNow.ToUnixTimeSeconds())) ?? throw ClanError.Unauthorized();
@@ -95,7 +72,7 @@ sealed partial class ClanStore
 
     public ActionResult Logout(string token) => Write(db =>
     {
-        db.Run("DELETE FROM sessions WHERE hash=$h", ("$h",Hash(token)));
+        db.Run("DELETE FROM session_refresh WHERE access_hash=$h; DELETE FROM sessions WHERE hash=$h", ("$h",Hash(token)));
         return new ActionResult("logout");
     });
 
@@ -224,6 +201,12 @@ sealed partial class ClanStore
     public ActionResult Leave(string player, string id) => Write(db =>
     {
         int role = RequireRole(db,player,id,Member);
+        RemoveMember(db,player,id,role);
+        return new ActionResult("left");
+    });
+
+    static void RemoveMember(ClanDb db,string player,string id,int role)
+    {
         db.Run("DELETE FROM members WHERE player=$p AND clan=$c", ("$p",player), ("$c",id));
         if (role == Leader)
         {
@@ -231,8 +214,7 @@ sealed partial class ClanStore
             if (next == null) db.Run("DELETE FROM clans WHERE id=$c", ("$c",id));
             else db.Run("UPDATE members SET role=2 WHERE player=$p", ("$p",next));
         }
-        return new ActionResult("left");
-    });
+    }
 
     public ActionResult Manage(string officer, string id, string target, string action) => Write(db =>
     {

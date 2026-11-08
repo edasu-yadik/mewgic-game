@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeWGic · Çevrimiçi hesap silme</title>
+  <script src="/account/delete.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>MeWGic çevrimiçi hesabını sil</h1>
+    <p>Bu işlem çevrimiçi hesabını, üyeliğini, kişisel lig ve etkinlik kayıtlarını siler. Telefonundaki yerel oyun kaydını değiştirmez.</p>
+    <form id="deletion" method="post" action="/account/delete">
+      <p><label>MeWGic kullanıcı adı <input name="handle" autocomplete="username" required maxlength="20"></label></p>
+      <p><label>Parola <input name="password" type="password" autocomplete="current-password" required maxlength="128"></label></p>
+      <p><label><input name="confirmed" type="checkbox" required> Hesabın kalıcı olarak silinmesini istiyorum.</label></p>
+      <button type="submit">Hesabı sil</button>
+    </form>
+    <p id="result" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

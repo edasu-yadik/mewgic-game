@@ -19,6 +19,7 @@ namespace Mewgic.Clans
 
         RectTransform safe, root, body, content;
         TMP_Text notice, accountLabel;
+        PremiumButton accountButton;
         Sprite frame, crest, cat;
         LeaguePanel league;
         ClanAccount account;
@@ -63,7 +64,10 @@ namespace Mewgic.Clans
                 .79f,.25f,.974f,.76f);
             body = Rect(root,"ClanBody",.035f,.103f,.965f,.873f);
             var footer = Panel(root,"ClanFooter",.025f,.012f,.975f,.087f);
-            notice = Label(footer,"ClanNotice","",23,.035f,.12f,.965f,.89f);
+            notice = Label(footer,"ClanNotice","",23,.035f,.12f,.72f,.89f);
+            accountButton = Button(footer,"ClanAccountSettings",V("account_settings"),ButtonRole.Secondary,
+                () => { if (!busy) { page="account"; Render(); } },.735f,.14f,.971f,.86f);
+            accountButton.gameObject.SetActive(false);
         }
 
         async Task Refresh()
@@ -111,7 +115,9 @@ namespace Mewgic.Clans
             if (this == null || !IsOpen) return;
             foreach (Transform child in body) { child.gameObject.SetActive(false); Destroy(child.gameObject); }
             accountLabel.text = account == null ? V("subtitle") : V("profile",account.handle,account.wins);
+            accountButton.gameObject.SetActive(account != null);
             if (account == null) { RenderLogin(); return; }
+            if (page == "account") { RenderAccount(); return; }
 
             Tab("ClanHall", "hall", .00f,.193f, Refresh);
             Tab("ClanBrowse", "browse", .202f,.395f, Browse);
@@ -381,6 +387,36 @@ namespace Mewgic.Clans
                     open=open,minimumWins=wins,emblem=emblem });
                 await Refresh();
             }),.53f,.042f,.94f,.143f);
+        }
+
+        void RenderAccount()
+        {
+            var card = Panel(body,"ClanAccountManagement",.035f,.15f,.965f,.94f);
+            Label(card,"Title",V("account_manage"),36,.07f,.79f,.93f,.94f);
+            Label(card,"Description",V("account_note"),24,.08f,.61f,.92f,.78f).textWrappingMode = TextWrappingModes.Normal;
+            Button(card,"ClanExportAccount",V("account_export"),ButtonRole.Secondary,() => Run(async () =>
+            {
+                GUIUtility.systemCopyBuffer = await ClanClient.ExportAccount();
+                feedback = V("account_exported");
+            }),.10f,.47f,.90f,.57f);
+            var password = Input(card,"ClanDeletionPassword",V("password"),"",128,.10f,.34f,.90f,.44f,
+                TMP_InputField.ContentType.Password);
+            Button(card,"ClanDeleteAccount",V("account_delete"),ButtonRole.Secondary,() =>
+            {
+                if (busy) return;
+                string secret = password.text;
+                password.SetTextWithoutNotify("");
+                Run(async () =>
+                {
+                    await ClanClient.DeleteAccount(secret);
+                    account = null;
+                    detail = null;
+                    page = "hall";
+                    feedback = V("account_deleted");
+                    Render();
+                });
+            },.10f,.22f,.90f,.32f);
+            Button(card,"ClanCancelAccount",L.V("common.back"),ButtonRole.Secondary,() => Run(Refresh),.10f,.07f,.90f,.17f);
         }
 
         void RenderLogin()

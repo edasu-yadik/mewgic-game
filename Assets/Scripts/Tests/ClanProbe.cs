@@ -99,6 +99,11 @@ namespace Mewgic
 
         IEnumerator Start()
         {
+            var gameView = EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView"));
+            gameView.Show();
+            gameView.maximized = true;
+            gameView.Focus();
+            Size(1600);
             Directory.CreateDirectory(Output);
             string failure = null;
             var stack = new Stack<IEnumerator>();
@@ -150,7 +155,7 @@ namespace Mewgic
             var hits = new List<RaycastResult>();
             EventSystem.current.RaycastAll(point,hits);
             var receiver = hits.Count == 0 ? null : ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
-            Check(receiver == button.gameObject,name + " gerçek raycast" + (hits.Count == 0 ? " · isabet yok" : " → " + hits[0].gameObject.name));
+            Check(receiver == button.gameObject,name + " gerçek raycast" + (hits.Count == 0 ? $" · isabet yok ({point.position} / {Screen.width}×{Screen.height})" : " → " + hits[0].gameObject.name));
             ExecuteEvents.Execute(receiver,point,ExecuteEvents.pointerClickHandler);
         }
 
@@ -225,7 +230,7 @@ namespace Mewgic
             yield return Await(getLeader,"Liderin kalıcı üyeliği okundu");
             string clanId = getLeader.Result.clanId;
             Check(!string.IsNullOrWhiteSpace(clanId),"Klan sunucu kimliği atadı");
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.35f);
             Click("ClanLogout");
             yield return Sign(true,member,password);
             Click("ClanBrowse");
@@ -237,11 +242,11 @@ namespace Mewgic
             yield return Shot("03-Search-9x16");
             Click("ClanOpen_" + clanId);
             yield return Until(() => Find("ClanJoin") != null,"Klan ayrıntısı sunucudan açıldı");
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.35f);
             Click("ClanJoin");
             yield return Until(() => Find("ClanJoin")?.GetComponent<Button>().IsInteractable() == false &&
                 Text("ClanNotice") == L.Resolve(L.V("clan.request_sent")),"İkinci hesabın katılım isteği kaydedildi");
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.35f);
             Click("ClanLogout");
             yield return Sign(false,leader,password);
             var view = ClanClient.View(clanId);
@@ -257,11 +262,11 @@ namespace Mewgic
             yield return null;
             Click("ClanApprove_" + request.id);
             yield return Until(() => Find("ClanMember_" + request.id) != null,"Lider gerçek istek düğmesiyle üyeyi aldı");
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.35f);
             Click("ClanLogout");
             yield return Sign(false,member,password);
             yield return Until(() => Find("ClanBanner") != null,"Üye kendi klan salonunu gördü");
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.35f);
             Click("ClanClose");
             yield return null;
             Click("Play");
@@ -336,6 +341,57 @@ namespace Mewgic
             ClanClient.TestEndpoint(address);
             Click("ClanHall");
             yield return Until(() => Text("ClanNotice") == "" && Find("ClanBanner") != null,"Ağ geri gelince salon yenilendi");
+            ClanClient.TestExpireAccess();
+            var renewed = ClanClient.Me();
+            yield return Await(renewed,"Unity süresi geçen erişimi yeniledi");
+            Check(renewed.Result.wins == 3 && renewed.Result.clanId == clanId,"Yenilemede aynı hesap ve puan korundu");
+            string proofKey = "Mewgic.QA.ClanOutbox."+Guid.NewGuid().ToString("N");
+            var prepared = GameplayLevelCatalog.PrepareAsync(4);
+            yield return Await(prepared,"Çevrimdışı sıra için dördüncü bölüm hazır");
+            var proof = PuzzleSolver.Solve(prepared.Result.Bottles).Moves.SelectMany(m => new[] { m.Source,m.Target }).ToArray();
+            ClanClient.TestOutbox(proofKey);
+            try
+            {
+                ClanClient.TestEndpoint("http://127.0.0.1:1");
+                ClanClient.Submit(4,proof);
+                yield return Await(ClanClient.Flush(),"Kesintide gönderim tamamlanamadı");
+                Check(ClanClient.Pending == 1 && PlayerPrefs.HasKey(proofKey),"Bekleyen kanıt kalıcı kuyruğa yazıldı");
+                var exit = ClanClient.SignOut();
+                yield return Until(() => exit.IsCompleted,"Kesintide oturum belleği temizlendi");
+                _ = exit.Exception;
+                Check(!ClanClient.SignedIn && ClanClient.Pending == 0 && PlayerPrefs.HasKey(proofKey),"Oturum kapanınca kalıcı kanıt korundu");
+                ClanClient.TestEndpoint(address);
+                yield return Await(ClanClient.SignIn(false,member,password),"Aynı hesap yeniden giriş yaptı");
+                Check(ClanClient.Pending == 1,"Bekleyen kanıt cihaz kaydından geri okundu");
+                yield return Await(ClanClient.Flush(),"Yeniden bağlanınca kanıt teslim edildi");
+                var updated = ClanClient.Me();
+                yield return Await(updated,"Geri yüklenen kanıtın sunucu puanı okundu");
+                Check(updated.Result.wins == 4 && ClanClient.Pending == 0 && !PlayerPrefs.HasKey(proofKey),
+                    "Sunucu bir kazanış yazdı ve gönderilen kanıt kuyruktan çıkarıldı");
+            }
+            finally
+            {
+                ClanClient.TestEndpoint(address);
+                ClanClient.TestOutbox(null);
+                PlayerPrefs.DeleteKey(proofKey);
+                PlayerPrefs.Save();
+            }
+            yield return new WaitForSecondsRealtime(.25f);
+            Click("ClanAccountSettings");
+            yield return Shot("07-Account-9x20");
+            string clipboard = GUIUtility.systemCopyBuffer;
+            try
+            {
+                Click("ClanExportAccount");
+                yield return Until(() => Text("ClanNotice") == L.Resolve(L.V("clan.account_exported")),"Hesap verisi gerçek API'den kopyalandı");
+                Check(GUIUtility.systemCopyBuffer.Contains(member) && !GUIUtility.systemCopyBuffer.Contains(password),"Dışa aktarım oyuncuyu içerir ve parola içermez");
+            }
+            finally { GUIUtility.systemCopyBuffer = clipboard; }
+            string saveBeforeDeletion = JsonUtility.ToJson(GameplayProgress.Current.Snapshot);
+            Enter("ClanDeletionPassword",password);
+            Click("ClanDeleteAccount");
+            yield return Until(() => Find("ClanSignIn") != null && !ClanClient.SignedIn,"Hesap silme oturumu kapattı");
+            Check(JsonUtility.ToJson(GameplayProgress.Current.Snapshot) == saveBeforeDeletion,"Silme cihazdaki ilerlemeyi değiştirmedi");
         }
     }
 }

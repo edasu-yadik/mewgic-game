@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 namespace Mewgic.Clans
 {
     [Serializable] internal sealed class ClanConnection { public string baseUrl; }
-    [Serializable] internal sealed class ClanSession { public string token; }
+    [Serializable] internal sealed class ClanSession { public string token, refreshToken, playerId; public int expiresIn; }
     [Serializable] internal sealed class ClanFailure { public string error; }
     [Serializable] internal sealed class ClanCredentials { public string handle, password; }
     [Serializable] internal sealed class ClanInvite { public string handle; }
@@ -102,20 +102,29 @@ namespace Mewgic.Clans
         {
             var session = await Send<ClanSession>("POST", register ? "/register" : "/login",
                 new ClanCredentials { handle = handle, password = password }, false);
-            if (string.IsNullOrEmpty(session.token)) throw new ClanClientException("server");
             Forget();
-            token = session.token;
+            SetSession(session);
+            sessionIdentity = new object();
+            RestoreOutbox(session.playerId);
         }
 
         public static async Task SignOut()
         {
-            try { await Send<ClanAction>("POST", "/logout"); }
+            try
+            {
+                if (refreshing != null && !refreshing.IsCompleted) await refreshing;
+                if (refreshToken != null)
+                    await SendRequest<ClanAction>("POST","/session/revoke",new ClanRefresh { refreshToken=refreshToken },null);
+            }
             finally { Forget(); }
         }
 
         static void Forget()
         {
-            token = clanId = null;
+            token = refreshToken = clanId = outboxKey = null;
+            sessionIdentity = null;
+            refreshing = null;
+            flushing = null;
             queue.Clear();
         }
 
@@ -135,7 +144,7 @@ namespace Mewgic.Clans
         public static void Submit(int level, int[] moves)
         {
             if (!SignedIn || queue.Count >= 32) return;
-            queue.TryAdd(level, new ClanWin { level = level, moves = moves, clanId = clanId });
+            if (queue.TryAdd(level, new ClanWin { level = level, moves = moves, clanId = clanId })) SaveOutbox();
             _ = Flush();
         }
 
@@ -150,25 +159,45 @@ namespace Mewgic.Clans
             while (SignedIn && queue.Count > 0)
             {
                 var pending = new List<ClanWin>(queue.Values)[0];
-                string owner = token;
+                object owner = sessionIdentity;
                 try { await Send<ClanAction>("POST", "/wins", pending); }
                 catch (ClanClientException error)
                 {
                     if (error.Code is not ("proof" or "level" or "membership_changed")) return;
                 }
                 catch (Exception) { return; }
-                if (token != owner) return;
+                if (sessionIdentity != owner) return;
                 queue.Remove(pending.level);
+                SaveOutbox();
             }
         }
 
         static async Task<T> Send<T>(string method, string path, object data = null, bool authenticate = true) where T : class
         {
+            if (!authenticate) return await SendRequest<T>(method,path,data,null);
+            object owner = sessionIdentity;
+            if (owner == null) throw new ClanClientException("unauthorized");
+            if (DateTimeOffset.UtcNow.AddSeconds(30) >= expiresAt)
+                await RefreshSession(owner);
+            if (sessionIdentity != owner) throw new ClanClientException("unauthorized");
+            string used = token;
+            T result;
+            try { result = await SendRequest<T>(method,path,data,used); }
+            catch (ClanClientException error) when (error.Code == "unauthorized" && sessionIdentity == owner)
+            {
+                if (used == token) await RefreshSession(owner);
+                if (sessionIdentity != owner) throw new ClanClientException("unauthorized");
+                result = await SendRequest<T>(method,path,data,token);
+            }
+            if (sessionIdentity != owner) throw new ClanClientException("unauthorized");
+            return result;
+        }
+
+        static async Task<T> SendRequest<T>(string method,string path,object data,string access) where T : class
+        {
             if (string.IsNullOrEmpty(BaseUrl)) throw new ClanClientException("not_configured");
             if (Application.internetReachability == NetworkReachability.NotReachable && !BaseUrl.StartsWith("http://127.0.0.1:", StringComparison.Ordinal))
                 throw new ClanClientException("offline");
-            if (authenticate && !SignedIn) throw new ClanClientException("unauthorized");
-            string owner = token;
             using var request = new UnityWebRequest(BaseUrl + "/v1" + path, method);
             request.timeout = 6;
             request.redirectLimit = 0;
@@ -178,11 +207,10 @@ namespace Mewgic.Clans
                 request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonUtility.ToJson(data)));
                 request.SetRequestHeader("Content-Type", "application/json");
             }
-            if (authenticate) request.SetRequestHeader("Authorization", "Bearer " + owner);
+            if (access != null) request.SetRequestHeader("Authorization", "Bearer " + access);
             try { await request.SendWebRequest(); }
             catch (Exception) when (request.result == UnityWebRequest.Result.ConnectionError)
             { throw new ClanClientException("offline"); }
-            if (request.responseCode == 401 && authenticate && owner == token) Forget();
             if (request.result == UnityWebRequest.Result.ConnectionError) throw new ClanClientException("offline");
             string response = request.downloadHandler.text;
             try

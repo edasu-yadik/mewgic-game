@@ -1977,6 +1977,34 @@ MonoBehaviour:
     m_Localized: "League Wizard Outfit"
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897944
+    m_Localized: "Account"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897945
+    m_Localized: "Account Management"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897946
+    m_Localized: "Deleting the online account removes clan membership, league and event records. The local game save is kept."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897947
+    m_Localized: "Copy My Data"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897948
+    m_Localized: "Account data copied to the clipboard."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897949
+    m_Localized: "Permanently Delete Account"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897950
+    m_Localized: "Your online account was deleted."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

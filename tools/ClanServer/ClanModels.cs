@@ -19,7 +19,15 @@ sealed class ClanOptions
 }
 
 sealed record Credentials(string? Handle, string? Password);
-sealed record Session(string Token);
+sealed record Session(string Token,string RefreshToken,string PlayerId,int ExpiresIn);
+sealed record RefreshInput(string? RefreshToken);
+sealed record DeleteAccountInput(string? Password);
+sealed record AccountProgress(string PlayerId,int[] Levels,int Next);
+sealed record AccountWin(int Level,string Day);
+sealed record AccountLeague(int Season,long Points,int Rank);
+sealed record AccountEvent(string Event,long Points);
+sealed record AccountExport(string PlayerId,string Handle,string? ClanId,AccountWin[] Wins,
+    AccountLeague[] League,AccountEvent[] Events,string[] EventReceipts);
 sealed record ClanInput(string? Name, string? Description, string? Announcement, int Emblem, bool Open, int MinimumWins);
 sealed record InviteInput(string? Handle);
 sealed record WinInput(int Level, int[]? Moves, string? ClanId);

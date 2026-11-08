@@ -1711,6 +1711,34 @@ MonoBehaviour:
     m_Key: events.league_cat
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897944
+    m_Key: clan.account_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897945
+    m_Key: clan.account_manage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897946
+    m_Key: clan.account_note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897947
+    m_Key: clan.account_export
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897948
+    m_Key: clan.account_exported
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897949
+    m_Key: clan.account_delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897950
+    m_Key: clan.account_deleted
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

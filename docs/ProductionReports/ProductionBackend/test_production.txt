@@ -1,0 +1,28 @@
+PASS Cleartext external requests are rejected behind loopback proxy
+PASS Web account deletion route applies a restrictive CSP
+PASS Web account deletion script is shipped with API
+PASS Independent device session uses short-lived access
+PASS Account export requires authentication
+PASS Refresh token cannot access application APIs
+PASS Independent device reads the same clan roster and committed contribution
+PASS Independent device reads the same clan ranking
+PASS Independent device reads the same clan roster and committed contribution
+PASS Independent device reads the same clan ranking
+PASS Second device sees the same authenticated verified progress
+PASS Progress cursor excludes earlier levels
+PASS Invalid progress cursor rejected
+PASS Two device sessions return the same reward receipt
+PASS Another local wallet cannot duplicate payout
+PASS Export contains only the authenticated player's records
+PASS Concurrent refresh rotates once and rejects reuse
+PASS Rotation keeps account identity and revokes old access
+PASS Logout revokes access and renewal together
+PASS Online backup is consistent with WAL writes
+PASS Backup preserves migrated schema and idempotency receipts
+PASS Backup refuses to overwrite an existing recovery copy
+PASS Account deletion requires password confirmation
+PASS Deletion revokes access
+PASS Deletion transfers clan leadership atomically
+PASS Personal rows and claims are erased without orphaned references
+PASS An existing unversioned database migrates without losing account or win
+PASS Restored backup starts a real API and retains player identity

@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS players(id TEXT PRIMARY KEY, handle TEXT NOT NULL UNIQUE, password TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS sessions(hash TEXT PRIMARY KEY, player TEXT NOT NULL REFERENCES players(id), expires INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS session_expiry ON sessions(expires);
+CREATE TABLE IF NOT EXISTS clans(id TEXT PRIMARY KEY, name TEXT NOT NULL, normalized TEXT NOT NULL UNIQUE,
+  description TEXT NOT NULL, announcement TEXT NOT NULL, emblem INTEGER NOT NULL, open INTEGER NOT NULL, minimum INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS members(player TEXT PRIMARY KEY REFERENCES players(id), clan TEXT NOT NULL REFERENCES clans(id),
+  role INTEGER NOT NULL CHECK(role BETWEEN 0 AND 2), joined INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS clan_roster ON members(clan);
+CREATE UNIQUE INDEX IF NOT EXISTS one_leader ON members(clan) WHERE role=2;
+CREATE TABLE IF NOT EXISTS requests(clan TEXT NOT NULL REFERENCES clans(id) ON DELETE CASCADE,
+  player TEXT NOT NULL REFERENCES players(id), invite INTEGER NOT NULL CHECK(invite IN(0,1)), PRIMARY KEY(clan,player,invite));
+CREATE INDEX IF NOT EXISTS requests_by_player ON requests(player);
+CREATE TABLE IF NOT EXISTS wins(player TEXT NOT NULL REFERENCES players(id), level INTEGER NOT NULL,
+  clan TEXT REFERENCES clans(id) ON DELETE SET NULL, day TEXT NOT NULL, week TEXT NOT NULL,
+  base INTEGER NOT NULL, daily INTEGER NOT NULL, event INTEGER NOT NULL, PRIMARY KEY(player,level));
+CREATE INDEX IF NOT EXISTS clan_wins ON wins(clan,week);
+CREATE INDEX IF NOT EXISTS player_win_day ON wins(player,day);

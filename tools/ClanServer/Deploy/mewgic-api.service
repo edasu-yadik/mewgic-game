@@ -1,0 +1,26 @@
+[Unit]
+Description=MeWGic API
+After=network.target
+
+[Service]
+Type=simple
+User=mewgic
+Group=mewgic
+WorkingDirectory=/opt/mewgic/current
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://127.0.0.1:18740
+Environment=Database=/var/lib/mewgic/game.db
+Environment=Events__ConfigPath=/etc/mewgic/Events.json
+ExecStart=/usr/bin/dotnet /opt/mewgic/current/ClanServer.dll
+Restart=on-failure
+RestartSec=5
+StateDirectory=mewgic
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

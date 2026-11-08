@@ -6141,5 +6141,110 @@
       "it": "League Wizard Outfit",
       "pl": "League Wizard Outfit"
     }
+  },
+  {
+    "key": "clan.account_settings",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Hesap",
+      "en": "Account",
+      "de": "Account",
+      "fr": "Account",
+      "es": "Account",
+      "pt-BR": "Account",
+      "it": "Account",
+      "pl": "Account"
+    }
+  },
+  {
+    "key": "clan.account_manage",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Hesap Yönetimi",
+      "en": "Account Management",
+      "de": "Account Management",
+      "fr": "Account Management",
+      "es": "Account Management",
+      "pt-BR": "Account Management",
+      "it": "Account Management",
+      "pl": "Account Management"
+    }
+  },
+  {
+    "key": "clan.account_note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çevrimiçi hesabı silmek klan üyeliğini, lig ve etkinlik kayıtlarını kaldırır. Cihazdaki oyun kaydı korunur.",
+      "en": "Deleting the online account removes clan membership, league and event records. The local game save is kept.",
+      "de": "Deleting the online account removes clan membership, league and event records. The local game save is kept.",
+      "fr": "Deleting the online account removes clan membership, league and event records. The local game save is kept.",
+      "es": "Deleting the online account removes clan membership, league and event records. The local game save is kept.",
+      "pt-BR": "Deleting the online account removes clan membership, league and event records. The local game save is kept.",
+      "it": "Deleting the online account removes clan membership, league and event records. The local game save is kept.",
+      "pl": "Deleting the online account removes clan membership, league and event records. The local game save is kept."
+    }
+  },
+  {
+    "key": "clan.account_export",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Verimi Kopyala",
+      "en": "Copy My Data",
+      "de": "Copy My Data",
+      "fr": "Copy My Data",
+      "es": "Copy My Data",
+      "pt-BR": "Copy My Data",
+      "it": "Copy My Data",
+      "pl": "Copy My Data"
+    }
+  },
+  {
+    "key": "clan.account_exported",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Hesap verisi panoya kopyalandı.",
+      "en": "Account data copied to the clipboard.",
+      "de": "Account data copied to the clipboard.",
+      "fr": "Account data copied to the clipboard.",
+      "es": "Account data copied to the clipboard.",
+      "pt-BR": "Account data copied to the clipboard.",
+      "it": "Account data copied to the clipboard.",
+      "pl": "Account data copied to the clipboard."
+    }
+  },
+  {
+    "key": "clan.account_delete",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Hesabı Kalıcı Sil",
+      "en": "Permanently Delete Account",
+      "de": "Permanently Delete Account",
+      "fr": "Permanently Delete Account",
+      "es": "Permanently Delete Account",
+      "pt-BR": "Permanently Delete Account",
+      "it": "Permanently Delete Account",
+      "pl": "Permanently Delete Account"
+    }
+  },
+  {
+    "key": "clan.account_deleted",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çevrimiçi hesabın silindi.",
+      "en": "Your online account was deleted.",
+      "de": "Your online account was deleted.",
+      "fr": "Your online account was deleted.",
+      "es": "Your online account was deleted.",
+      "pt-BR": "Your online account was deleted.",
+      "it": "Your online account was deleted.",
+      "pl": "Your online account was deleted."
+    }
   }
 ]

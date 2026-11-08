@@ -35,20 +35,20 @@ namespace Mewgic.Clans
     {
         public static async Task<EventBoard> Events(int page = 0)
         {
-            string owner = token;
+            object owner = sessionIdentity;
             await Flush();
             var board = await Send<EventBoard>("GET", (owner == null ? "/event-calendar" : "/events")+"?page="+page,
                 authenticate:owner != null);
-            if (owner != token) throw new ClanClientException("unauthorized");
+            if (owner != sessionIdentity) throw new ClanClientException("unauthorized");
             return board;
         }
 
         public static async Task<EventGrant> ClaimEvent(string id,int tier,string wallet)
         {
-            string owner = token;
+            object owner = sessionIdentity;
             var grant = await Send<EventGrant>("POST","/events/"+Uri.EscapeDataString(id)+"/claim",
                 new EventClaim { milestone=tier,walletId=wallet });
-            if (owner != token) throw new ClanClientException("unauthorized");
+            if (owner != sessionIdentity) throw new ClanClientException("unauthorized");
             return grant;
         }
     }
