@@ -26,6 +26,7 @@ namespace Mewgic.Clans
         public bool open;
         public int emblem, minimumWins, members, capacity, weeklyGoal;
         public long points, level, weeklyPoints;
+        public int leagueEmblem = -1;
     }
     [Serializable] internal sealed class ClanPlayer { public string id, handle; public int role; public long points; }
     [Serializable] internal sealed class ClanDetail
@@ -50,7 +51,7 @@ namespace Mewgic.Clans
         public ClanClientException(string code) : base(code) => Code = code;
     }
 
-    internal static class ClanClient
+    internal static partial class ClanClient
     {
         static string token, baseUrl, clanId;
         static readonly Dictionary<int, ClanWin> queue = new();

@@ -180,7 +180,7 @@ namespace Mewgic
                 var group = ShopCatalog.Category(item);
                 bool has = ledger.Owns(item);
                 if (has) owned++;
-                row.Root.gameObject.SetActive(ownedOnly ? has : group == category);
+                row.Root.gameObject.SetActive(ownedOnly ? has : !ShopCatalog.RewardOnly(item) && group == category);
                 if (!row.Root.gameObject.activeSelf) continue;
                 bool booster = group == ShopCategory.Boosters;
                 bool equipped = !booster && ledger.Equipped(group) == item;

@@ -28,6 +28,7 @@ namespace Mewgic
             material.SetColor(Costume, item switch
             {
                 ShopItem.CrystalCat => new Color(.08f, .78f, 1),
+                ShopItem.LeagueCat => new Color(1,.25f,.57f),
                 ShopItem.GoldCat => new Color(1, .63f, .12f),
                 _ => new Color(.27f, .32f, .88f)
             });

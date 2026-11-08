@@ -34,7 +34,7 @@ namespace Mewgic.Core
             foreach (int amount in grants)
                 if (amount < 0 || amount > 1_000_000) throw new ArgumentException("Ekonomi ödülü geçersiz.");
             foreach (var product in ShopCatalog.Products)
-                if (!ShopCatalog.Included(product) && (Price(product) <= 0 || Price(product) > 1_000_000))
+                if (!ShopCatalog.Included(product) && !ShopCatalog.RewardOnly(product) && (Price(product) <= 0 || Price(product) > 1_000_000))
                     throw new ArgumentException("Mağaza fiyatı geçersiz.");
             if (boosterQuantity < 1 || boosterQuantity > 100 || rewardedTotal < 1 || rewardedTotal > 1_000_000 ||
                 rewardedTotal < levelBase + 3 * perNewStar + firstAttempt + withoutHint)

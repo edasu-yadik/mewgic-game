@@ -4887,5 +4887,598 @@
       "it": "The clan operation could not be completed. Try again.",
       "pl": "The clan operation could not be completed. Try again."
     }
+  },
+  {
+    "key": "league.tab",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Lig",
+      "en": "League",
+      "de": "League",
+      "fr": "League",
+      "es": "League",
+      "pt-BR": "League",
+      "it": "League",
+      "pl": "League"
+    }
+  },
+  {
+    "key": "league.title",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyücü Arenası",
+      "en": "Wizard Arena",
+      "de": "Wizard Arena",
+      "fr": "Wizard Arena",
+      "es": "Wizard Arena",
+      "pt-BR": "Wizard Arena",
+      "it": "Wizard Arena",
+      "pl": "Wizard Arena"
+    }
+  },
+  {
+    "key": "league.tier_0",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bronz Pati",
+      "en": "Bronze Paw",
+      "de": "Bronze Paw",
+      "fr": "Bronze Paw",
+      "es": "Bronze Paw",
+      "pt-BR": "Bronze Paw",
+      "it": "Bronze Paw",
+      "pl": "Bronze Paw"
+    }
+  },
+  {
+    "key": "league.tier_1",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Gümüş Pati",
+      "en": "Silver Paw",
+      "de": "Silver Paw",
+      "fr": "Silver Paw",
+      "es": "Silver Paw",
+      "pt-BR": "Silver Paw",
+      "it": "Silver Paw",
+      "pl": "Silver Paw"
+    }
+  },
+  {
+    "key": "league.tier_2",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Altın Pati",
+      "en": "Gold Paw",
+      "de": "Gold Paw",
+      "fr": "Gold Paw",
+      "es": "Gold Paw",
+      "pt-BR": "Gold Paw",
+      "it": "Gold Paw",
+      "pl": "Gold Paw"
+    }
+  },
+  {
+    "key": "league.tier_3",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal Pati",
+      "en": "Crystal Paw",
+      "de": "Crystal Paw",
+      "fr": "Crystal Paw",
+      "es": "Crystal Paw",
+      "pt-BR": "Crystal Paw",
+      "it": "Crystal Paw",
+      "pl": "Crystal Paw"
+    }
+  },
+  {
+    "key": "league.tier_4",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Elmas Pati",
+      "en": "Diamond Paw",
+      "de": "Diamond Paw",
+      "fr": "Diamond Paw",
+      "es": "Diamond Paw",
+      "pt-BR": "Diamond Paw",
+      "it": "Diamond Paw",
+      "pl": "Diamond Paw"
+    }
+  },
+  {
+    "key": "league.tier_5",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Efsanevi Büyücü",
+      "en": "Legendary Wizard",
+      "de": "Legendary Wizard",
+      "fr": "Legendary Wizard",
+      "es": "Legendary Wizard",
+      "pt-BR": "Legendary Wizard",
+      "it": "Legendary Wizard",
+      "pl": "Legendary Wizard"
+    }
+  },
+  {
+    "key": "league.players",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Oyuncular",
+      "en": "Players",
+      "de": "Players",
+      "fr": "Players",
+      "es": "Players",
+      "pt-BR": "Players",
+      "it": "Players",
+      "pl": "Players"
+    }
+  },
+  {
+    "key": "league.clans",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klanlar",
+      "en": "Clans",
+      "de": "Clans",
+      "fr": "Clans",
+      "es": "Clans",
+      "pt-BR": "Clans",
+      "it": "Clans",
+      "pl": "Clans"
+    }
+  },
+  {
+    "key": "league.history",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Geçmiş",
+      "en": "History",
+      "de": "History",
+      "fr": "History",
+      "es": "History",
+      "pt-BR": "History",
+      "it": "History",
+      "pl": "History"
+    }
+  },
+  {
+    "key": "league.refresh",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yenile",
+      "en": "Refresh",
+      "de": "Refresh",
+      "fr": "Refresh",
+      "es": "Refresh",
+      "pt-BR": "Refresh",
+      "it": "Refresh",
+      "pl": "Refresh"
+    }
+  },
+  {
+    "key": "league.loading",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Arena sunucusuna bağlanılıyor…",
+      "en": "Connecting to the arena…",
+      "de": "Connecting to the arena…",
+      "fr": "Connecting to the arena…",
+      "es": "Connecting to the arena…",
+      "pt-BR": "Connecting to the arena…",
+      "it": "Connecting to the arena…",
+      "pl": "Connecting to the arena…"
+    }
+  },
+  {
+    "key": "league.no_history",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Henüz tamamlanan sezon yok.",
+      "en": "No finished seasons yet.",
+      "de": "No finished seasons yet.",
+      "fr": "No finished seasons yet.",
+      "es": "No finished seasons yet.",
+      "pt-BR": "No finished seasons yet.",
+      "it": "No finished seasons yet.",
+      "pl": "No finished seasons yet."
+    }
+  },
+  {
+    "key": "league.archive_note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Arşiv · Sezon sıralaması kesinleşti.",
+      "en": "Archive · Season standings are final.",
+      "de": "Archive · Season standings are final.",
+      "fr": "Archive · Season standings are final.",
+      "es": "Archive · Season standings are final.",
+      "pt-BR": "Archive · Season standings are final.",
+      "it": "Archive · Season standings are final.",
+      "pl": "Archive · Season standings are final."
+    }
+  },
+  {
+    "key": "league.clock_note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Süre ve lig puanı sunucudan alınır.",
+      "en": "Time and league points come from the server.",
+      "de": "Time and league points come from the server.",
+      "fr": "Time and league points come from the server.",
+      "es": "Time and league points come from the server.",
+      "pt-BR": "Time and league points come from the server.",
+      "it": "Time and league points come from the server.",
+      "pl": "Time and league points come from the server."
+    }
+  },
+  {
+    "key": "league.other_wallet",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu ödül başka bir oyun kaydına bağlanmış.",
+      "en": "This reward belongs to a different game save.",
+      "de": "This reward belongs to a different game save.",
+      "fr": "This reward belongs to a different game save.",
+      "es": "This reward belongs to a different game save.",
+      "pt-BR": "This reward belongs to a different game save.",
+      "it": "This reward belongs to a different game save.",
+      "pl": "This reward belongs to a different game save."
+    }
+  },
+  {
+    "key": "league.error",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Lig bilgisi alınamadı. Yenilemeyi dene.",
+      "en": "League data unavailable. Try refreshing.",
+      "de": "League data unavailable. Try refreshing.",
+      "fr": "League data unavailable. Try refreshing.",
+      "es": "League data unavailable. Try refreshing.",
+      "pt-BR": "League data unavailable. Try refreshing.",
+      "it": "League data unavailable. Try refreshing.",
+      "pl": "League data unavailable. Try refreshing."
+    }
+  },
+  {
+    "key": "league.season",
+    "review": "draft",
+    "values": {
+      "tr": "Sezon {0} · {1}",
+      "en": "Season {0} · {1}",
+      "de": "Season {0} · {1}",
+      "fr": "Season {0} · {1}",
+      "es": "Season {0} · {1}",
+      "pt-BR": "Season {0} · {1}",
+      "it": "Season {0} · {1}",
+      "pl": "Season {0} · {1}"
+    }
+  },
+  {
+    "key": "league.your_clan",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klanının sırası",
+      "en": "Your clan’s rank",
+      "de": "Your clan’s rank",
+      "fr": "Your clan’s rank",
+      "es": "Your clan’s rank",
+      "pt-BR": "Your clan’s rank",
+      "it": "Your clan’s rank",
+      "pl": "Your clan’s rank"
+    }
+  },
+  {
+    "key": "league.your_rank",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kendi sıran",
+      "en": "Your rank",
+      "de": "Your rank",
+      "fr": "Your rank",
+      "es": "Your rank",
+      "pt-BR": "Your rank",
+      "it": "Your rank",
+      "pl": "Your rank"
+    }
+  },
+  {
+    "key": "league.goal",
+    "review": "draft",
+    "values": {
+      "tr": "Sezon kazanış hedefi · {0}/{1}",
+      "en": "Season win goal · {0}/{1}",
+      "de": "Season win goal · {0}/{1}",
+      "fr": "Season win goal · {0}/{1}",
+      "es": "Season win goal · {0}/{1}",
+      "pt-BR": "Season win goal · {0}/{1}",
+      "it": "Season win goal · {0}/{1}",
+      "pl": "Season win goal · {0}/{1}"
+    }
+  },
+  {
+    "key": "league.unranked",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu sezonda henüz doğrulanmış lig katkısı yok.",
+      "en": "No verified league contribution this season yet.",
+      "de": "No verified league contribution this season yet.",
+      "fr": "No verified league contribution this season yet.",
+      "es": "No verified league contribution this season yet.",
+      "pt-BR": "No verified league contribution this season yet.",
+      "it": "No verified league contribution this season yet.",
+      "pl": "No verified league contribution this season yet."
+    }
+  },
+  {
+    "key": "league.nearby",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yakın sıralar",
+      "en": "Nearby ranks",
+      "de": "Nearby ranks",
+      "fr": "Nearby ranks",
+      "es": "Nearby ranks",
+      "pt-BR": "Nearby ranks",
+      "it": "Nearby ranks",
+      "pl": "Nearby ranks"
+    }
+  },
+  {
+    "key": "league.leaders",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Liderlik tablosu",
+      "en": "Leaderboard",
+      "de": "Leaderboard",
+      "fr": "Leaderboard",
+      "es": "Leaderboard",
+      "pt-BR": "Leaderboard",
+      "it": "Leaderboard",
+      "pl": "Leaderboard"
+    }
+  },
+  {
+    "key": "league.no_entries",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Henüz sıralamaya giren yok.",
+      "en": "No ranked entries yet.",
+      "de": "No ranked entries yet.",
+      "fr": "No ranked entries yet.",
+      "es": "No ranked entries yet.",
+      "pt-BR": "No ranked entries yet.",
+      "it": "No ranked entries yet.",
+      "pl": "No ranked entries yet."
+    }
+  },
+  {
+    "key": "league.previous",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Daha Eski",
+      "en": "Older",
+      "de": "Older",
+      "fr": "Older",
+      "es": "Older",
+      "pt-BR": "Older",
+      "it": "Older",
+      "pl": "Older"
+    }
+  },
+  {
+    "key": "league.active",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Aktif Sezon",
+      "en": "Active Season",
+      "de": "Active Season",
+      "fr": "Active Season",
+      "es": "Active Season",
+      "pt-BR": "Active Season",
+      "it": "Active Season",
+      "pl": "Active Season"
+    }
+  },
+  {
+    "key": "league.newer",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Daha Yeni",
+      "en": "Newer",
+      "de": "Newer",
+      "fr": "Newer",
+      "es": "Newer",
+      "pt-BR": "Newer",
+      "it": "Newer",
+      "pl": "Newer"
+    }
+  },
+  {
+    "key": "league.reward_title",
+    "review": "draft",
+    "values": {
+      "tr": "Sezon ödülü · #{0}",
+      "en": "Season reward · #{0}",
+      "de": "Season reward · #{0}",
+      "fr": "Season reward · #{0}",
+      "es": "Season reward · #{0}",
+      "pt-BR": "Season reward · #{0}",
+      "it": "Season reward · #{0}",
+      "pl": "Season reward · #{0}"
+    }
+  },
+  {
+    "key": "league.reward_amount",
+    "review": "draft",
+    "values": {
+      "tr": "{0} altın · Yeni lig: {1}",
+      "en": "{0} gold · New league: {1}",
+      "de": "{0} gold · New league: {1}",
+      "fr": "{0} gold · New league: {1}",
+      "es": "{0} gold · New league: {1}",
+      "pt-BR": "{0} gold · New league: {1}",
+      "it": "{0} gold · New league: {1}",
+      "pl": "{0} gold · New league: {1}"
+    }
+  },
+  {
+    "key": "league.claimed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Aktarıldı",
+      "en": "Transferred",
+      "de": "Transferred",
+      "fr": "Transferred",
+      "es": "Transferred",
+      "pt-BR": "Transferred",
+      "it": "Transferred",
+      "pl": "Transferred"
+    }
+  },
+  {
+    "key": "league.retry_claim",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Aktarımı Tekrar Dene",
+      "en": "Retry Transfer",
+      "de": "Retry Transfer",
+      "fr": "Retry Transfer",
+      "es": "Retry Transfer",
+      "pt-BR": "Retry Transfer",
+      "it": "Retry Transfer",
+      "pl": "Retry Transfer"
+    }
+  },
+  {
+    "key": "league.claim",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ödülü Aktar",
+      "en": "Transfer Reward",
+      "de": "Transfer Reward",
+      "fr": "Transfer Reward",
+      "es": "Transfer Reward",
+      "pt-BR": "Transfer Reward",
+      "it": "Transfer Reward",
+      "pl": "Transfer Reward"
+    }
+  },
+  {
+    "key": "league.reward_done",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Sezon ödülü oyun kaydına eklendi.",
+      "en": "Season reward added to your game save.",
+      "de": "Season reward added to your game save.",
+      "fr": "Season reward added to your game save.",
+      "es": "Season reward added to your game save.",
+      "pt-BR": "Season reward added to your game save.",
+      "it": "Season reward added to your game save.",
+      "pl": "Season reward added to your game save."
+    }
+  },
+  {
+    "key": "league.rank",
+    "review": "draft",
+    "values": {
+      "tr": "#{0}",
+      "en": "#{0}",
+      "de": "#{0}",
+      "fr": "#{0}",
+      "es": "#{0}",
+      "pt-BR": "#{0}",
+      "it": "#{0}",
+      "pl": "#{0}"
+    }
+  },
+  {
+    "key": "league.points",
+    "review": "draft",
+    "values": {
+      "tr": "{0} LP",
+      "en": "{0} LP",
+      "de": "{0} LP",
+      "fr": "{0} LP",
+      "es": "{0} LP",
+      "pt-BR": "{0} LP",
+      "it": "{0} LP",
+      "pl": "{0} LP"
+    }
+  },
+  {
+    "key": "league.closed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Sezon tamamlandı",
+      "en": "Season complete",
+      "de": "Season complete",
+      "fr": "Season complete",
+      "es": "Season complete",
+      "pt-BR": "Season complete",
+      "it": "Season complete",
+      "pl": "Season complete"
+    }
+  },
+  {
+    "key": "league.countdown",
+    "review": "draft",
+    "values": {
+      "tr": "Bitişe {0} gün · {1}:{2}:{3}",
+      "en": "Ends in {0} days · {1}:{2}:{3}",
+      "de": "Ends in {0} days · {1}:{2}:{3}",
+      "fr": "Ends in {0} days · {1}:{2}:{3}",
+      "es": "Ends in {0} days · {1}:{2}:{3}",
+      "pt-BR": "Ends in {0} days · {1}:{2}:{3}",
+      "it": "Ends in {0} days · {1}:{2}:{3}",
+      "pl": "Ends in {0} days · {1}:{2}:{3}"
+    }
+  },
+  {
+    "key": "shop.item.leaguecat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Arena Büyücüsü",
+      "en": "Arena Wizard",
+      "de": "Arena Wizard",
+      "fr": "Arena Wizard",
+      "es": "Arena Wizard",
+      "pt-BR": "Arena Wizard",
+      "it": "Arena Wizard",
+      "pl": "Arena Wizard"
+    }
   }
 ]

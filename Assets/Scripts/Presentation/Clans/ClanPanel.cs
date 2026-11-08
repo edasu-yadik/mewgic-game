@@ -20,6 +20,7 @@ namespace Mewgic.Clans
         RectTransform safe, root, body, content;
         TMP_Text notice, accountLabel;
         Sprite frame, crest, cat;
+        LeaguePanel league;
         ClanAccount account;
         ClanDetail detail;
         ClanList search;
@@ -112,15 +113,22 @@ namespace Mewgic.Clans
             accountLabel.text = account == null ? V("subtitle") : V("profile",account.handle,account.wins);
             if (account == null) { RenderLogin(); return; }
 
-            Tab("ClanHall", "hall", .00f,.245f, Refresh);
-            Tab("ClanBrowse", "browse", .253f,.498f, Browse);
-            Tab("ClanInvites", "invitations", .506f,.751f, async () =>
+            Tab("ClanHall", "hall", .00f,.193f, Refresh);
+            Tab("ClanBrowse", "browse", .202f,.395f, Browse);
+            Tab("ClanInvites", "invitations", .404f,.597f, async () =>
             {
                 account = await ClanClient.Me();
                 page = "invitations";
                 Render();
             });
-            Tab("ClanLogout", "logout", .759f,1f, async () =>
+            Button(body,"ClanLeague",L.V("league.tab"),ButtonRole.Navigation,() =>
+            {
+                if (busy) return;
+                if (league == null) league = gameObject.AddComponent<LeaguePanel>();
+                root.gameObject.SetActive(false);
+                league.Open(safe,() => root.gameObject.SetActive(true));
+            },.606f,.92f,.799f,1f);
+            Tab("ClanLogout", "logout", .808f,1f, async () =>
             {
                 try { await ClanClient.SignOut(); }
                 finally { if (this != null) { account = null; Render(); } }
@@ -199,6 +207,7 @@ namespace Mewgic.Clans
             var c = d.clan;
             var banner = Row("ClanBanner",344);
             Badge(banner,c.emblem,.044f,.53f,.25f,.94f);
+            if (c.leagueEmblem >= 0) LeagueBadge.Add(banner,"ClanSeasonEmblem",c.leagueEmblem,.181f,.48f,.265f,.67f);
             Label(banner,"ClanName",c.name,44,.28f,.73f,.95f,.96f,TextAlignmentOptions.MidlineLeft);
             Label(banner,"ClanStats",V("stats",c.members,c.capacity,c.level,c.points),27,.28f,.57f,.96f,.73f,TextAlignmentOptions.MidlineLeft);
             Label(banner,"ClanRequirement",V(c.open ? "open_rule" : "closed_rule",c.minimumWins),22,.28f,.45f,.96f,.57f,TextAlignmentOptions.MidlineLeft);
@@ -451,7 +460,7 @@ namespace Mewgic.Clans
             _ => "error_server"
         });
 
-        static RectTransform Rect(Transform p,string name,float x,float y,float w,float h) =>
+        internal static RectTransform Rect(Transform p,string name,float x,float y,float w,float h) =>
             GameplayTools.Rect(p,name,new Vector2(x,y),new Vector2(w,h));
         RectTransform Panel(Transform p,string name,float x,float y,float w,float h) =>
             GameplayTools.Art(p,name,frame,new Vector2(x,y),new Vector2(w,h),true).rectTransform;
@@ -463,7 +472,7 @@ namespace Mewgic.Clans
             return image;
         }
 
-        static TMP_Text Label(Transform p,string name,string value,int size,float x,float y,float w,float h,
+        internal static TMP_Text Label(Transform p,string name,string value,int size,float x,float y,float w,float h,
             TextAlignmentOptions alignment = TextAlignmentOptions.Center)
         {
             var t = GameplayTools.Label(p,name,value,size,new Vector2(x,y),new Vector2(w,h));
@@ -474,7 +483,7 @@ namespace Mewgic.Clans
             return t;
         }
 
-        static PremiumButton Button(Transform p,string name,string text,ButtonRole role,Action action,float x,float y,float w,float h)
+        internal static PremiumButton Button(Transform p,string name,string text,ButtonRole role,Action action,float x,float y,float w,float h)
         {
             var face = Rect(p,name,x,y,w,h).gameObject.AddComponent<Image>();
             face.color = Violet;

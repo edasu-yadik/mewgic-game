@@ -1609,6 +1609,173 @@ MonoBehaviour:
     m_Localized: "The clan operation could not be completed. Try again."
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897859
+    m_Localized: "League"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897860
+    m_Localized: "Wizard Arena"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897861
+    m_Localized: "Bronze Paw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897862
+    m_Localized: "Silver Paw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897863
+    m_Localized: "Gold Paw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897864
+    m_Localized: "Crystal Paw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897865
+    m_Localized: "Diamond Paw"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897866
+    m_Localized: "Legendary Wizard"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897867
+    m_Localized: "Players"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897868
+    m_Localized: "Clans"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897869
+    m_Localized: "History"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897870
+    m_Localized: "Refresh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897871
+    m_Localized: "Connecting to the arena\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897872
+    m_Localized: "No finished seasons yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897873
+    m_Localized: "Archive \u00b7 Season standings are final."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897874
+    m_Localized: "Time and league points come from the server."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897875
+    m_Localized: "This reward belongs to a different game save."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897876
+    m_Localized: "League data unavailable. Try refreshing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897877
+    m_Localized: "Season {0} \u00b7 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897878
+    m_Localized: "Your clan\u2019s rank"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897879
+    m_Localized: "Your rank"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897880
+    m_Localized: "Season win goal \u00b7 {0}/{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897881
+    m_Localized: "No verified league contribution this season yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897882
+    m_Localized: "Nearby ranks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897883
+    m_Localized: "Leaderboard"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897884
+    m_Localized: "No ranked entries yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897885
+    m_Localized: "Older"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897886
+    m_Localized: "Active Season"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897887
+    m_Localized: "Newer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897888
+    m_Localized: "Season reward \u00b7 #{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897889
+    m_Localized: "{0} gold \u00b7 New league: {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897890
+    m_Localized: "Transferred"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897891
+    m_Localized: "Retry Transfer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897892
+    m_Localized: "Transfer Reward"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897893
+    m_Localized: "Season reward added to your game save."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897894
+    m_Localized: "#{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897895
+    m_Localized: "{0} LP"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897896
+    m_Localized: "Season complete"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897897
+    m_Localized: "Ends in {0} days \u00b7 {1}:{2}:{3}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126367
+  - m_Id: 2924300237897898
+    m_Localized: "Arena Wizard"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1815,3 +1982,10 @@ MonoBehaviour:
         - id: 2924300237897811
         - id: 2924300237897812
         - id: 2924300237897818
+        - id: 2924300237897877
+        - id: 2924300237897880
+        - id: 2924300237897888
+        - id: 2924300237897889
+        - id: 2924300237897894
+        - id: 2924300237897895
+        - id: 2924300237897897

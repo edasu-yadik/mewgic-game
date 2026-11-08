@@ -1371,6 +1371,166 @@ MonoBehaviour:
     m_Key: clan.error_server
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897859
+    m_Key: league.tab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897860
+    m_Key: league.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897861
+    m_Key: league.tier_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897862
+    m_Key: league.tier_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897863
+    m_Key: league.tier_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897864
+    m_Key: league.tier_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897865
+    m_Key: league.tier_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897866
+    m_Key: league.tier_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897867
+    m_Key: league.players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897868
+    m_Key: league.clans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897869
+    m_Key: league.history
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897870
+    m_Key: league.refresh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897871
+    m_Key: league.loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897872
+    m_Key: league.no_history
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897873
+    m_Key: league.archive_note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897874
+    m_Key: league.clock_note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897875
+    m_Key: league.other_wallet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897876
+    m_Key: league.error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897877
+    m_Key: league.season
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897878
+    m_Key: league.your_clan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897879
+    m_Key: league.your_rank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897880
+    m_Key: league.goal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897881
+    m_Key: league.unranked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897882
+    m_Key: league.nearby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897883
+    m_Key: league.leaders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897884
+    m_Key: league.no_entries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897885
+    m_Key: league.previous
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897886
+    m_Key: league.active
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897887
+    m_Key: league.newer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897888
+    m_Key: league.reward_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897889
+    m_Key: league.reward_amount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897890
+    m_Key: league.claimed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897891
+    m_Key: league.retry_claim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897892
+    m_Key: league.claim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897893
+    m_Key: league.reward_done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897894
+    m_Key: league.rank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897895
+    m_Key: league.points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897896
+    m_Key: league.closed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897897
+    m_Key: league.countdown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897898
+    m_Key: shop.item.leaguecat
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

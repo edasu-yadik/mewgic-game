@@ -8,7 +8,7 @@ namespace Mewgic.Core
     public enum ShopItem
     {
         Undo = 1, ExtraBottle = 2, Hint = 3, Shuffle = 4,
-        ClassicCat = 10, CrystalCat = 11, GoldCat = 12, NightCat = 13,
+        ClassicCat = 10, CrystalCat = 11, GoldCat = 12, NightCat = 13, LeagueCat = 14,
         ClassicBottle = 20, CrystalBottle = 21, GoldBottle = 22,
         ClassicEffect = 30, RoseEffect = 31, CrystalEffect = 32
     }
@@ -19,19 +19,20 @@ namespace Mewgic.Core
         public static IReadOnlyList<ShopItem> Products { get; } = Array.AsReadOnly(new[]
         {
             ShopItem.Undo, ShopItem.ExtraBottle, ShopItem.Hint, ShopItem.Shuffle,
-            ShopItem.ClassicCat, ShopItem.CrystalCat, ShopItem.GoldCat, ShopItem.NightCat,
+            ShopItem.ClassicCat, ShopItem.CrystalCat, ShopItem.GoldCat, ShopItem.NightCat, ShopItem.LeagueCat,
             ShopItem.ClassicBottle, ShopItem.CrystalBottle, ShopItem.GoldBottle,
             ShopItem.ClassicEffect, ShopItem.RoseEffect, ShopItem.CrystalEffect
         });
 
         public static bool Known(ShopItem item) => Products.Contains(item);
+        public static bool RewardOnly(ShopItem item) => item == ShopItem.LeagueCat;
         public static bool Included(ShopItem item) =>
             item is ShopItem.ClassicCat or ShopItem.ClassicBottle or ShopItem.ClassicEffect;
 
         public static ShopCategory Category(ShopItem item) => item switch
         {
             ShopItem.Undo or ShopItem.ExtraBottle or ShopItem.Hint or ShopItem.Shuffle => ShopCategory.Boosters,
-            ShopItem.ClassicCat or ShopItem.CrystalCat or ShopItem.GoldCat or ShopItem.NightCat => ShopCategory.Cats,
+            ShopItem.ClassicCat or ShopItem.CrystalCat or ShopItem.GoldCat or ShopItem.NightCat or ShopItem.LeagueCat => ShopCategory.Cats,
             ShopItem.ClassicBottle or ShopItem.CrystalBottle or ShopItem.GoldBottle => ShopCategory.Bottles,
             ShopItem.ClassicEffect or ShopItem.RoseEffect or ShopItem.CrystalEffect => ShopCategory.Effects,
             _ => throw new ArgumentOutOfRangeException(nameof(item))
@@ -119,7 +120,7 @@ namespace Mewgic.Core
 
         public ShopPurchaseResult Purchase(ShopItem item, int quotedPrice, long request)
         {
-            if (request <= 0 || !ShopCatalog.Known(item) || ShopCatalog.Included(item)) return ShopPurchaseResult.Invalid;
+            if (request <= 0 || !ShopCatalog.Known(item) || ShopCatalog.Included(item) || ShopCatalog.RewardOnly(item)) return ShopPurchaseResult.Invalid;
             if (request != NextShopPurchase) return ShopPurchaseResult.Duplicate;
             int price = EconomyConfig.Current.Price(item);
             if (price <= 0 || price != quotedPrice) return ShopPurchaseResult.PriceChanged;

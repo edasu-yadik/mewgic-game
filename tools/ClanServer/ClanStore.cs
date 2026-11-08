@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.Sqlite;
 
-sealed class ClanStore
+sealed partial class ClanStore
 {
     const int Member = 0, Deputy = 1, Leader = 2;
     readonly string connectionString;
@@ -13,9 +13,11 @@ sealed class ClanStore
     readonly PasswordHasher<string> passwords = new();
     readonly string dummyHash;
 
-    public ClanStore(string path, ClanOptions settings)
+    public ClanStore(string path, ClanOptions settings, LeagueOptions league, TimeProvider leagueClock)
     {
         this.settings = settings;
+        this.league = league;
+        this.leagueClock = leagueClock;
         var file = Path.GetFullPath(path);
         Directory.CreateDirectory(Path.GetDirectoryName(file)!);
         connectionString = new SqliteConnectionStringBuilder { DataSource = file, ForeignKeys = true, DefaultTimeout = 10 }.ToString();
@@ -41,6 +43,7 @@ sealed class ClanStore
             CREATE INDEX IF NOT EXISTS clan_wins ON wins(clan,week);
             CREATE INDEX IF NOT EXISTS player_win_day ON wins(player,day);
             """);
+        CreateLeagueSchema(db);
     }
 
     public Session Register(Credentials input)
@@ -257,7 +260,7 @@ sealed class ClanStore
         return HasWin(db,player,level);
     }
 
-    public WinResult RecordWin(string player, int level, string? expectedClan) => Write(db =>
+    public WinResult RecordWin(string player, int level, string? expectedClan, VerifiedWin proof) => Write(db =>
     {
         if (HasWin(db,player,level)) return new WinResult(0,true);
         var now = Clock();
@@ -274,6 +277,7 @@ sealed class ClanStore
         db.Run("INSERT INTO wins VALUES($p,$l,$c,$day,$week,$base,$daily,$event)",
             ("$p",player), ("$l",level), ("$c",clan), ("$day",now.Day), ("$week",now.Week),
             ("$base",points), ("$daily",daily), ("$event",weekend));
+        AddLeagueWin(db,player,clan,proof);
         return new WinResult(points+daily+weekend,false);
     });
 
@@ -281,13 +285,14 @@ sealed class ClanStore
         SELECT c.id,c.name,c.description,c.emblem,c.open,c.minimum,
         (SELECT COUNT(*) FROM members m WHERE m.clan=c.id),
         COALESCE((SELECT SUM(base+daily+event) FROM wins w WHERE w.clan=c.id),0) AS points,
-        COALESCE((SELECT SUM(base+daily+event) FROM wins w WHERE w.clan=c.id AND w.week=$week),0)
+        COALESCE((SELECT SUM(base+daily+event) FROM wins w WHERE w.clan=c.id AND w.week=$week),0),
+        COALESCE((SELECT tier FROM league_clan_emblems e WHERE e.clan=c.id),-1)
         FROM clans c
         """ + "\n" + tail, r =>
         {
             long points = r.GetInt64(7);
             return new ClanCard(r.GetString(0),r.GetString(1),r.GetString(2),r.GetInt32(3),r.GetBoolean(4),r.GetInt32(5),
-                r.GetInt32(6),settings.Capacity,points,points/settings.PointsPerLevel+1,r.GetInt64(8),settings.WeeklyGoal);
+                r.GetInt32(6),settings.Capacity,points,points/settings.PointsPerLevel+1,r.GetInt64(8),settings.WeeklyGoal,r.GetInt32(9));
         }, args.Append(("$week",(object?)week)).ToArray());
 
     static PlayerCard PlayerRow(SqliteDataReader r) => new(r.GetString(0),r.GetString(1),r.GetInt32(2),r.GetInt64(3));
@@ -397,10 +402,10 @@ sealed class ClanDb : IDisposable
         foreach (var (key,value) in parameters) command.Parameters.AddWithValue(key,value ?? DBNull.Value);
         return command;
     }
-    public void Run(string query, params (string,object?)[] parameters)
+    public int Run(string query, params (string,object?)[] parameters)
     {
         using var command = Command(query,parameters);
-        command.ExecuteNonQuery();
+        return command.ExecuteNonQuery();
     }
     public T? Value<T>(string query, params (string,object?)[] parameters)
     {

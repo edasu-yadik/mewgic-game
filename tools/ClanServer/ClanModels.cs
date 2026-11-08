@@ -27,7 +27,7 @@ sealed record WinResult(int Points, bool Duplicate);
 sealed record ActionResult(string State);
 sealed record PlayerCard(string Id, string Handle, int Role, long Points);
 sealed record ClanCard(string Id, string Name, string Description, int Emblem, bool Open, int MinimumWins,
-    int Members, int Capacity, long Points, long Level, long WeeklyPoints, int WeeklyGoal);
+    int Members, int Capacity, long Points, long Level, long WeeklyPoints, int WeeklyGoal, int LeagueEmblem);
 sealed record ClanDetail(ClanCard Clan, string Announcement, int Role, PlayerCard[] Members,
     PlayerCard[] Requests, bool Requested, bool Invited, bool FirstWin, bool HundredPoints, bool WeeklyAchievement,
     string Week, bool WeekendEvent);
@@ -49,7 +49,8 @@ sealed class ClanError(int status, string code) : Exception(code)
 sealed class ClanPuzzles
 {
     readonly GeneratedLevel[] fallbacks;
-    readonly int[][][] levels;
+    sealed record PuzzleSpec(int[][] Bottles,int ThreeStars,int TwoStars,int Difficulty);
+    readonly PuzzleSpec[] levels;
     readonly int maxLevel;
     readonly Microsoft.Extensions.Caching.Memory.MemoryCache cache = new(new Microsoft.Extensions.Caching.Memory.MemoryCacheOptions { SizeLimit = 100 });
     readonly SemaphoreSlim generators = new(2);
@@ -57,33 +58,40 @@ sealed class ClanPuzzles
     {
         this.maxLevel = maxLevel;
         string Load(string name) => File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Levels", name + ".json"));
-        levels = new[] { "Level01", "Level02" }.Select(name =>
-            Newtonsoft.Json.Linq.JObject.Parse(Load(name))["bottles"]!.Select(b => b["layers"]!.ToObject<int[]>()!).ToArray()).ToArray();
+        levels = new[] { "Level01", "Level02" }.Select((name,index) =>
+        {
+            var json = Newtonsoft.Json.Linq.JObject.Parse(Load(name));
+            return new PuzzleSpec(json["bottles"]!.Select(b => b["layers"]!.ToObject<int[]>()!).ToArray(),
+                json.Value<int>("threeStarMoves"),json.Value<int>("twoStarMoves"),index);
+        }).ToArray();
         fallbacks = Newtonsoft.Json.JsonConvert.DeserializeObject<GeneratedLevel[]>(Load("GeneratedFallbacksV2"))!;
         foreach (var fallback in fallbacks) fallback.Validate();
     }
 
-    public void Validate(WinInput proof)
+    public VerifiedWin Validate(WinInput proof)
     {
         if (proof.Level < 1 || proof.Level > maxLevel || proof.Moves is not { Length: >= 2 and <= 1024 } moves ||
             moves.Length % 2 != 0 || moves.Any(m => m < 0 || m > 64))
             throw ClanError.Invalid("proof");
-        var puzzle = new Puzzle(Layout(proof.Level));
+        var layout = Layout(proof.Level);
+        var puzzle = new Puzzle(layout.Bottles);
         for (int i = 0; i < moves.Length; i += 2)
             if (puzzle.Won || puzzle.Pour(moves[i], moves[i + 1]) == 0) throw ClanError.Invalid("proof");
         if (!puzzle.Won) throw ClanError.Invalid("proof");
+        return new VerifiedWin(layout.Difficulty, puzzle.Moves <= layout.ThreeStars ? 3 : puzzle.Moves <= layout.TwoStars ? 2 : 1);
     }
 
-    int[][] Layout(int level)
+    PuzzleSpec Layout(int level)
     {
         if (level <= levels.Length) return levels[level - 1];
-        if (cache.TryGetValue(level, out var stored)) return (int[][])stored!;
+        if (cache.TryGetValue(level, out var stored)) return (PuzzleSpec)stored!;
         if (!generators.Wait(0)) throw new ClanError(503, "retry");
         try
         {
             var result = LevelGenerator.Resolve(WorldMapRules.Request(level), null, fallbacks);
             if (result.level == null) throw ClanError.Invalid("level");
-            var layout = result.level.Export();
+            int moves = result.level.difficulty.optimalMoves;
+            var layout = new PuzzleSpec(result.level.Export(),moves,moves+Math.Max(2,moves/2),(int)result.level.difficulty.measured);
             using (var entry = cache.CreateEntry(level)) { entry.Value = layout; entry.Size = 1; }
             return layout;
         }

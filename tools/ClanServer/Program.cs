@@ -9,7 +9,23 @@ builder.Logging.AddFilter("Microsoft.AspNetCore.Hosting.Diagnostics", LogLevel.W
 var options = builder.Configuration.GetSection("Clans").Get<ClanOptions>() ?? new();
 options.Validate();
 string path = builder.Configuration["Database"] ?? throw new InvalidOperationException("Database is required.");
-builder.Services.AddSingleton(new ClanStore(path, options));
+var leagueConfig = builder.Configuration.GetSection("League");
+var league = leagueConfig.Get<LeagueOptions>() ?? new();
+if (leagueConfig.GetSection("Tiers").Exists())
+    league.Tiers = leagueConfig.GetSection("Tiers").Get<LeagueTier[]>()!;
+league.Validate();
+TimeProvider leagueClock = TimeProvider.System;
+if (builder.Configuration["LeagueQaClockFile"] is string qaClock)
+{
+    string? url = builder.Configuration["urls"];
+    if (!builder.Environment.IsDevelopment() || url == null || url.Contains(';') ||
+        !Uri.TryCreate(url,UriKind.Absolute,out var address) || address.Host != "127.0.0.1" ||
+        builder.Configuration.GetSection("Kestrel:Endpoints").GetChildren().Any())
+        throw new InvalidOperationException("League QA clock requires a Development loopback server.");
+    leagueClock = new LeagueQaClock(qaClock);
+}
+builder.Services.AddSingleton(new ClanStore(path, options, league, leagueClock));
+builder.Services.AddHostedService<LeagueSeasonWorker>();
 builder.Services.AddSingleton(new ClanPuzzles(options.MaxLevel));
 builder.Services.AddRateLimiter(rate =>
 {
@@ -80,9 +96,14 @@ clans.MapPost("/wins", (HttpContext c, ClanStore s, ClanPuzzles puzzles, WinInpu
     string player = Player(c);
     if (input.Level < 1 || input.Level > options.MaxLevel) throw ClanError.Invalid("level");
     if (s.HasWin(player, input.Level)) return new WinResult(0, true);
-    puzzles.Validate(input);
-    return s.RecordWin(player, input.Level, input.ClanId);
+    var proof = puzzles.Validate(input);
+    return s.RecordWin(player, input.Level, input.ClanId, proof);
 });
+
+clans.MapGet("/league", (HttpContext c, ClanStore s, string? scope, int? season) =>
+    s.LeagueView(Player(c),scope,season));
+clans.MapPost("/league/{season:int}/claim", (HttpContext c, ClanStore s, int season, LeagueClaimInput input) =>
+    s.ClaimLeagueReward(Player(c),season,input.WalletId));
 
 app.Run();
 static string Player(HttpContext context) => (string)context.Items["player"]!;

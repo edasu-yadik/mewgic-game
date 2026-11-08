@@ -1,5 +1,5 @@
 using L=Mewgic.Localization.L;
-using System;using Mewgic.Core;using UnityEngine;
+using System;using System.Linq;using Mewgic.Core;using UnityEngine;
 namespace Mewgic
 {
     public static class GameplayProgress
@@ -111,7 +111,7 @@ namespace Mewgic
                 var json=Newtonsoft.Json.Linq.JObject.Parse(raw,new Newtonsoft.Json.Linq.JsonLoadSettings
                 {DuplicatePropertyNameHandling=Newtonsoft.Json.Linq.DuplicatePropertyNameHandling.Error});
                 CheckVersion(json["version"]);
-                foreach(string field in new[]{"worldMap","presentation","daily","hub","shop"})
+                foreach(string field in new[]{"worldMap","presentation","daily","hub","shop","leagueWallet"})
                     if(json[field] is Newtonsoft.Json.Linq.JObject block)CheckVersion(block["version"]);
                 foreach(string field in new[]{"version","undo","hint","extra","shuffle"})
                     if(!Integer(json[field]))return null;
@@ -127,6 +127,9 @@ namespace Mewgic
                     !Integer(shop["version"]) || !Integer(shop["purchaseRevision"]) ||
                     !long.TryParse(shop["purchaseRevision"].ToString(), out _) ||
                     !IntegerList(shop["owned"]) || !IntegerList(shop["equipped"])))return null;
+                if(json["leagueWallet"]!=null && (json["leagueWallet"] is not Newtonsoft.Json.Linq.JObject wallet ||
+                    !Integer(wallet["version"]) || (wallet["walletId"]!=null && wallet["walletId"].Type is not (Newtonsoft.Json.Linq.JTokenType.String or Newtonsoft.Json.Linq.JTokenType.Null)) || wallet["receipts"] is not Newtonsoft.Json.Linq.JArray receipts ||
+                    receipts.Any(value=>value.Type!=Newtonsoft.Json.Linq.JTokenType.String)))return null;
                 var data=JsonUtility.FromJson<ProgressData>(raw);
                 if(data==null||data.storageRevision<0)return null;
                 return new ProgressLedger(data,_=>{}).Snapshot;
