@@ -1774,6 +1774,200 @@ MonoBehaviour:
     m_Localized: "Arena Wizard"
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897899
+    m_Localized: "Magical Events"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897900
+    m_Localized: "Calendar \u00b7 Points \u00b7 Rewards"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897901
+    m_Localized: "Upcoming"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897902
+    m_Localized: "Active"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897903
+    m_Localized: "Completed"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897904
+    m_Localized: "Classic Rewards"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897905
+    m_Localized: "Sign In"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897906
+    m_Localized: "Refresh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897907
+    m_Localized: "Timers use the server clock."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897908
+    m_Localized: "Sign in to earn points and claim rewards."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897909
+    m_Localized: "Loading events\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897910
+    m_Localized: "The online event service is not configured."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897911
+    m_Localized: "Connect to see the online calendar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897912
+    m_Localized: "No events in this tab yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897913
+    m_Localized: "This reward belongs to another wallet or account."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897914
+    m_Localized: "The event request failed. Try again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897915
+    m_Localized: "Details"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897916
+    m_Localized: "{0} at {1} points"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897917
+    m_Localized: "{0} event points"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897918
+    m_Localized: "Clan {0} \u00b7 You {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897919
+    m_Localized: "{0} points \u00b7 Top {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897920
+    m_Localized: "Your rank #{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897921
+    m_Localized: "Event Rankings"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897922
+    m_Localized: "Odds"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897923
+    m_Localized: "Claim Reward"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897924
+    m_Localized: "Claimed"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897925
+    m_Localized: "Locked"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897926
+    m_Localized: "You earned \u00b7 {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897927
+    m_Localized: "{0} \u00b7 {1}%"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897928
+    m_Localized: "{0}d {1}h"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897929
+    m_Localized: "Starts in {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897930
+    m_Localized: "Ends in {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897931
+    m_Localized: "Event ended"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897932
+    m_Localized: "Normal Chest"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897933
+    m_Localized: "Magic Chest"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897934
+    m_Localized: "Crystal Chest"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897935
+    m_Localized: "Legendary Chest"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897936
+    m_Localized: "{0} Color Hints"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897937
+    m_Localized: "{0} Undos"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897938
+    m_Localized: "{0} Extra Bottles"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897939
+    m_Localized: "{0} Shuffles"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
+  - m_Id: 2924300237897940
+    m_Localized: "Rose Effect"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897941
+    m_Localized: "Crystal Effect"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897942
+    m_Localized: "Crystal Wizard Outfit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897943
+    m_Localized: "League Wizard Outfit"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1987,3 +2181,17 @@ MonoBehaviour:
         - id: 2924300237897894
         - id: 2924300237897895
         - id: 2924300237897897
+        - id: 2924300237897916
+        - id: 2924300237897917
+        - id: 2924300237897918
+        - id: 2924300237897919
+        - id: 2924300237897920
+        - id: 2924300237897926
+        - id: 2924300237897927
+        - id: 2924300237897928
+        - id: 2924300237897929
+        - id: 2924300237897930
+        - id: 2924300237897936
+        - id: 2924300237897937
+        - id: 2924300237897938
+        - id: 2924300237897939

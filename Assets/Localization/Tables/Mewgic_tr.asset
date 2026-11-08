@@ -1769,6 +1769,200 @@ MonoBehaviour:
     m_Localized: "Arena B\u00fcy\u00fcc\u00fcs\u00fc"
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897899
+    m_Localized: "B\u00fcy\u00fcl\u00fc Etkinlikler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897900
+    m_Localized: "Takvim \u00b7 Puanlar \u00b7 \u00d6d\u00fcller"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897901
+    m_Localized: "Yakla\u015fan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897902
+    m_Localized: "Aktif"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897903
+    m_Localized: "Tamamlanan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897904
+    m_Localized: "Klasik \u00d6d\u00fcller"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897905
+    m_Localized: "Giri\u015f Yap"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897906
+    m_Localized: "Yenile"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897907
+    m_Localized: "S\u00fcreler sunucu saatine g\u00f6re g\u00f6sterilir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897908
+    m_Localized: "\u0130lerlemek ve \u00f6d\u00fcl almak i\u00e7in giri\u015f yap."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897909
+    m_Localized: "Etkinlikler y\u00fckleniyor\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897910
+    m_Localized: "\u00c7evrimi\u00e7i etkinlik hizmeti yap\u0131land\u0131r\u0131lmam\u0131\u015f."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897911
+    m_Localized: "\u00c7evrimi\u00e7i takvim sunucuya ba\u011flan\u0131nca g\u00f6r\u00fcn\u00fcr."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897912
+    m_Localized: "Bu sekmede \u015fu anda etkinlik yok."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897913
+    m_Localized: "Bu \u00f6d\u00fcl ba\u015fka bir c\u00fczdana veya hesaba ba\u011fl\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897914
+    m_Localized: "Etkinlik iste\u011fi tamamlanamad\u0131. Tekrar dene."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897915
+    m_Localized: "Ayr\u0131nt\u0131lar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897916
+    m_Localized: "{0} \u00b7 {1} puanda"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897917
+    m_Localized: "{0} etkinlik puan\u0131"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897918
+    m_Localized: "Klan {0} \u00b7 Katk\u0131n {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897919
+    m_Localized: "{0} puan \u00b7 \u0130lk {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897920
+    m_Localized: "S\u0131ran #{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897921
+    m_Localized: "Etkinlik S\u0131ralamas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897922
+    m_Localized: "Olas\u0131l\u0131klar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897923
+    m_Localized: "\u00d6d\u00fcl\u00fc Al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897924
+    m_Localized: "Al\u0131nd\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897925
+    m_Localized: "Kilitli"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897926
+    m_Localized: "Kazand\u0131n \u00b7 {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897927
+    m_Localized: "{0} \u00b7 %{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897928
+    m_Localized: "{0}g {1}sa"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897929
+    m_Localized: "Ba\u015flang\u0131ca {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897930
+    m_Localized: "Kalan {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897931
+    m_Localized: "Etkinlik sona erdi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897932
+    m_Localized: "Normal Sand\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897933
+    m_Localized: "B\u00fcy\u00fcl\u00fc Sand\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897934
+    m_Localized: "Kristal Sand\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897935
+    m_Localized: "Efsanevi Sand\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897936
+    m_Localized: "{0} Renk \u0130pucu"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897937
+    m_Localized: "{0} Geri Al"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897938
+    m_Localized: "{0} Ekstra \u015ei\u015fe"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897939
+    m_Localized: "{0} Kar\u0131\u015ft\u0131rma"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897940
+    m_Localized: "G\u00fcl efekti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897941
+    m_Localized: "Kristal efekti"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897942
+    m_Localized: "Kristal B\u00fcy\u00fcc\u00fc kost\u00fcm\u00fc"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897943
+    m_Localized: "Lig B\u00fcy\u00fcc\u00fcs\u00fc kost\u00fcm\u00fc"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1982,3 +2176,17 @@ MonoBehaviour:
         - id: 2924300237897894
         - id: 2924300237897895
         - id: 2924300237897897
+        - id: 2924300237897916
+        - id: 2924300237897917
+        - id: 2924300237897918
+        - id: 2924300237897919
+        - id: 2924300237897920
+        - id: 2924300237897926
+        - id: 2924300237897927
+        - id: 2924300237897928
+        - id: 2924300237897929
+        - id: 2924300237897930
+        - id: 2924300237897936
+        - id: 2924300237897937
+        - id: 2924300237897938
+        - id: 2924300237897939

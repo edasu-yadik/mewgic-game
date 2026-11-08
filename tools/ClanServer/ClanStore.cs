@@ -13,11 +13,12 @@ sealed partial class ClanStore
     readonly PasswordHasher<string> passwords = new();
     readonly string dummyHash;
 
-    public ClanStore(string path, ClanOptions settings, LeagueOptions league, TimeProvider leagueClock)
+    public ClanStore(string path, ClanOptions settings, LeagueOptions league, TimeProvider leagueClock, EventConfig eventConfig)
     {
         this.settings = settings;
         this.league = league;
         this.leagueClock = leagueClock;
+        this.eventConfig = eventConfig;
         var file = Path.GetFullPath(path);
         Directory.CreateDirectory(Path.GetDirectoryName(file)!);
         connectionString = new SqliteConnectionStringBuilder { DataSource = file, ForeignKeys = true, DefaultTimeout = 10 }.ToString();
@@ -44,6 +45,7 @@ sealed partial class ClanStore
             CREATE INDEX IF NOT EXISTS player_win_day ON wins(player,day);
             """);
         CreateLeagueSchema(db);
+        CreateEventSchema(db);
     }
 
     public Session Register(Credentials input)
@@ -278,6 +280,7 @@ sealed partial class ClanStore
             ("$p",player), ("$l",level), ("$c",clan), ("$day",now.Day), ("$week",now.Week),
             ("$base",points), ("$daily",daily), ("$event",weekend));
         AddLeagueWin(db,player,clan,proof);
+        AddEventWin(db,player,clan,level,proof);
         return new WinResult(points+daily+weekend,false);
     });
 

@@ -5480,5 +5480,666 @@
       "it": "Arena Wizard",
       "pl": "Arena Wizard"
     }
+  },
+  {
+    "key": "events.title",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyülü Etkinlikler",
+      "en": "Magical Events",
+      "de": "Magical Events",
+      "fr": "Magical Events",
+      "es": "Magical Events",
+      "pt-BR": "Magical Events",
+      "it": "Magical Events",
+      "pl": "Magical Events"
+    }
+  },
+  {
+    "key": "events.subtitle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Takvim · Puanlar · Ödüller",
+      "en": "Calendar · Points · Rewards",
+      "de": "Calendar · Points · Rewards",
+      "fr": "Calendar · Points · Rewards",
+      "es": "Calendar · Points · Rewards",
+      "pt-BR": "Calendar · Points · Rewards",
+      "it": "Calendar · Points · Rewards",
+      "pl": "Calendar · Points · Rewards"
+    }
+  },
+  {
+    "key": "events.upcoming",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yaklaşan",
+      "en": "Upcoming",
+      "de": "Upcoming",
+      "fr": "Upcoming",
+      "es": "Upcoming",
+      "pt-BR": "Upcoming",
+      "it": "Upcoming",
+      "pl": "Upcoming"
+    }
+  },
+  {
+    "key": "events.active",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Aktif",
+      "en": "Active",
+      "de": "Active",
+      "fr": "Active",
+      "es": "Active",
+      "pt-BR": "Active",
+      "it": "Active",
+      "pl": "Active"
+    }
+  },
+  {
+    "key": "events.completed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Tamamlanan",
+      "en": "Completed",
+      "de": "Completed",
+      "fr": "Completed",
+      "es": "Completed",
+      "pt-BR": "Completed",
+      "it": "Completed",
+      "pl": "Completed"
+    }
+  },
+  {
+    "key": "events.legacy",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klasik Ödüller",
+      "en": "Classic Rewards",
+      "de": "Classic Rewards",
+      "fr": "Classic Rewards",
+      "es": "Classic Rewards",
+      "pt-BR": "Classic Rewards",
+      "it": "Classic Rewards",
+      "pl": "Classic Rewards"
+    }
+  },
+  {
+    "key": "events.sign_in",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Giriş Yap",
+      "en": "Sign In",
+      "de": "Sign In",
+      "fr": "Sign In",
+      "es": "Sign In",
+      "pt-BR": "Sign In",
+      "it": "Sign In",
+      "pl": "Sign In"
+    }
+  },
+  {
+    "key": "events.refresh",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yenile",
+      "en": "Refresh",
+      "de": "Refresh",
+      "fr": "Refresh",
+      "es": "Refresh",
+      "pt-BR": "Refresh",
+      "it": "Refresh",
+      "pl": "Refresh"
+    }
+  },
+  {
+    "key": "events.clock",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Süreler sunucu saatine göre gösterilir.",
+      "en": "Timers use the server clock.",
+      "de": "Timers use the server clock.",
+      "fr": "Timers use the server clock.",
+      "es": "Timers use the server clock.",
+      "pt-BR": "Timers use the server clock.",
+      "it": "Timers use the server clock.",
+      "pl": "Timers use the server clock."
+    }
+  },
+  {
+    "key": "events.sign_in_note",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "İlerlemek ve ödül almak için giriş yap.",
+      "en": "Sign in to earn points and claim rewards.",
+      "de": "Sign in to earn points and claim rewards.",
+      "fr": "Sign in to earn points and claim rewards.",
+      "es": "Sign in to earn points and claim rewards.",
+      "pt-BR": "Sign in to earn points and claim rewards.",
+      "it": "Sign in to earn points and claim rewards.",
+      "pl": "Sign in to earn points and claim rewards."
+    }
+  },
+  {
+    "key": "events.loading",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Etkinlikler yükleniyor…",
+      "en": "Loading events…",
+      "de": "Loading events…",
+      "fr": "Loading events…",
+      "es": "Loading events…",
+      "pt-BR": "Loading events…",
+      "it": "Loading events…",
+      "pl": "Loading events…"
+    }
+  },
+  {
+    "key": "events.unavailable",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çevrimiçi etkinlik hizmeti yapılandırılmamış.",
+      "en": "The online event service is not configured.",
+      "de": "The online event service is not configured.",
+      "fr": "The online event service is not configured.",
+      "es": "The online event service is not configured.",
+      "pt-BR": "The online event service is not configured.",
+      "it": "The online event service is not configured.",
+      "pl": "The online event service is not configured."
+    }
+  },
+  {
+    "key": "events.connection",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çevrimiçi takvim sunucuya bağlanınca görünür.",
+      "en": "Connect to see the online calendar.",
+      "de": "Connect to see the online calendar.",
+      "fr": "Connect to see the online calendar.",
+      "es": "Connect to see the online calendar.",
+      "pt-BR": "Connect to see the online calendar.",
+      "it": "Connect to see the online calendar.",
+      "pl": "Connect to see the online calendar."
+    }
+  },
+  {
+    "key": "events.empty",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu sekmede şu anda etkinlik yok.",
+      "en": "No events in this tab yet.",
+      "de": "No events in this tab yet.",
+      "fr": "No events in this tab yet.",
+      "es": "No events in this tab yet.",
+      "pt-BR": "No events in this tab yet.",
+      "it": "No events in this tab yet.",
+      "pl": "No events in this tab yet."
+    }
+  },
+  {
+    "key": "events.wallet",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu ödül başka bir cüzdana veya hesaba bağlı.",
+      "en": "This reward belongs to another wallet or account.",
+      "de": "This reward belongs to another wallet or account.",
+      "fr": "This reward belongs to another wallet or account.",
+      "es": "This reward belongs to another wallet or account.",
+      "pt-BR": "This reward belongs to another wallet or account.",
+      "it": "This reward belongs to another wallet or account.",
+      "pl": "This reward belongs to another wallet or account."
+    }
+  },
+  {
+    "key": "events.error",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Etkinlik isteği tamamlanamadı. Tekrar dene.",
+      "en": "The event request failed. Try again.",
+      "de": "The event request failed. Try again.",
+      "fr": "The event request failed. Try again.",
+      "es": "The event request failed. Try again.",
+      "pt-BR": "The event request failed. Try again.",
+      "it": "The event request failed. Try again.",
+      "pl": "The event request failed. Try again."
+    }
+  },
+  {
+    "key": "events.details",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ayrıntılar",
+      "en": "Details",
+      "de": "Details",
+      "fr": "Details",
+      "es": "Details",
+      "pt-BR": "Details",
+      "it": "Details",
+      "pl": "Details"
+    }
+  },
+  {
+    "key": "events.preview",
+    "review": "draft",
+    "values": {
+      "tr": "{0} · {1} puanda",
+      "en": "{0} at {1} points",
+      "de": "{0} at {1} points",
+      "fr": "{0} at {1} points",
+      "es": "{0} at {1} points",
+      "pt-BR": "{0} at {1} points",
+      "it": "{0} at {1} points",
+      "pl": "{0} at {1} points"
+    }
+  },
+  {
+    "key": "events.score",
+    "review": "draft",
+    "values": {
+      "tr": "{0} etkinlik puanı",
+      "en": "{0} event points",
+      "de": "{0} event points",
+      "fr": "{0} event points",
+      "es": "{0} event points",
+      "pt-BR": "{0} event points",
+      "it": "{0} event points",
+      "pl": "{0} event points"
+    }
+  },
+  {
+    "key": "events.team_score",
+    "review": "draft",
+    "values": {
+      "tr": "Klan {0} · Katkın {1}",
+      "en": "Clan {0} · You {1}",
+      "de": "Clan {0} · You {1}",
+      "fr": "Clan {0} · You {1}",
+      "es": "Clan {0} · You {1}",
+      "pt-BR": "Clan {0} · You {1}",
+      "it": "Clan {0} · You {1}",
+      "pl": "Clan {0} · You {1}"
+    }
+  },
+  {
+    "key": "events.rank_goal",
+    "review": "draft",
+    "values": {
+      "tr": "{0} puan · İlk {1}",
+      "en": "{0} points · Top {1}",
+      "de": "{0} points · Top {1}",
+      "fr": "{0} points · Top {1}",
+      "es": "{0} points · Top {1}",
+      "pt-BR": "{0} points · Top {1}",
+      "it": "{0} points · Top {1}",
+      "pl": "{0} points · Top {1}"
+    }
+  },
+  {
+    "key": "events.rank",
+    "review": "draft",
+    "values": {
+      "tr": "Sıran #{0}",
+      "en": "Your rank #{0}",
+      "de": "Your rank #{0}",
+      "fr": "Your rank #{0}",
+      "es": "Your rank #{0}",
+      "pt-BR": "Your rank #{0}",
+      "it": "Your rank #{0}",
+      "pl": "Your rank #{0}"
+    }
+  },
+  {
+    "key": "events.ranking",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Etkinlik Sıralaması",
+      "en": "Event Rankings",
+      "de": "Event Rankings",
+      "fr": "Event Rankings",
+      "es": "Event Rankings",
+      "pt-BR": "Event Rankings",
+      "it": "Event Rankings",
+      "pl": "Event Rankings"
+    }
+  },
+  {
+    "key": "events.odds",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Olasılıklar",
+      "en": "Odds",
+      "de": "Odds",
+      "fr": "Odds",
+      "es": "Odds",
+      "pt-BR": "Odds",
+      "it": "Odds",
+      "pl": "Odds"
+    }
+  },
+  {
+    "key": "events.claim",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ödülü Al",
+      "en": "Claim Reward",
+      "de": "Claim Reward",
+      "fr": "Claim Reward",
+      "es": "Claim Reward",
+      "pt-BR": "Claim Reward",
+      "it": "Claim Reward",
+      "pl": "Claim Reward"
+    }
+  },
+  {
+    "key": "events.claimed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Alındı",
+      "en": "Claimed",
+      "de": "Claimed",
+      "fr": "Claimed",
+      "es": "Claimed",
+      "pt-BR": "Claimed",
+      "it": "Claimed",
+      "pl": "Claimed"
+    }
+  },
+  {
+    "key": "events.locked",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kilitli",
+      "en": "Locked",
+      "de": "Locked",
+      "fr": "Locked",
+      "es": "Locked",
+      "pt-BR": "Locked",
+      "it": "Locked",
+      "pl": "Locked"
+    }
+  },
+  {
+    "key": "events.received",
+    "review": "draft",
+    "values": {
+      "tr": "Kazandın · {0}",
+      "en": "You earned · {0}",
+      "de": "You earned · {0}",
+      "fr": "You earned · {0}",
+      "es": "You earned · {0}",
+      "pt-BR": "You earned · {0}",
+      "it": "You earned · {0}",
+      "pl": "You earned · {0}"
+    }
+  },
+  {
+    "key": "events.drop",
+    "review": "draft",
+    "values": {
+      "tr": "{0} · %{1}",
+      "en": "{0} · {1}%",
+      "de": "{0} · {1}%",
+      "fr": "{0} · {1}%",
+      "es": "{0} · {1}%",
+      "pt-BR": "{0} · {1}%",
+      "it": "{0} · {1}%",
+      "pl": "{0} · {1}%"
+    }
+  },
+  {
+    "key": "events.days",
+    "review": "draft",
+    "values": {
+      "tr": "{0}g {1}sa",
+      "en": "{0}d {1}h",
+      "de": "{0}d {1}h",
+      "fr": "{0}d {1}h",
+      "es": "{0}d {1}h",
+      "pt-BR": "{0}d {1}h",
+      "it": "{0}d {1}h",
+      "pl": "{0}d {1}h"
+    }
+  },
+  {
+    "key": "events.starts",
+    "review": "draft",
+    "values": {
+      "tr": "Başlangıca {0}",
+      "en": "Starts in {0}",
+      "de": "Starts in {0}",
+      "fr": "Starts in {0}",
+      "es": "Starts in {0}",
+      "pt-BR": "Starts in {0}",
+      "it": "Starts in {0}",
+      "pl": "Starts in {0}"
+    }
+  },
+  {
+    "key": "events.remaining",
+    "review": "draft",
+    "values": {
+      "tr": "Kalan {0}",
+      "en": "Ends in {0}",
+      "de": "Ends in {0}",
+      "fr": "Ends in {0}",
+      "es": "Ends in {0}",
+      "pt-BR": "Ends in {0}",
+      "it": "Ends in {0}",
+      "pl": "Ends in {0}"
+    }
+  },
+  {
+    "key": "events.ended",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Etkinlik sona erdi",
+      "en": "Event ended",
+      "de": "Event ended",
+      "fr": "Event ended",
+      "es": "Event ended",
+      "pt-BR": "Event ended",
+      "it": "Event ended",
+      "pl": "Event ended"
+    }
+  },
+  {
+    "key": "events.chest_normal",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Normal Sandık",
+      "en": "Normal Chest",
+      "de": "Normal Chest",
+      "fr": "Normal Chest",
+      "es": "Normal Chest",
+      "pt-BR": "Normal Chest",
+      "it": "Normal Chest",
+      "pl": "Normal Chest"
+    }
+  },
+  {
+    "key": "events.chest_magic",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyülü Sandık",
+      "en": "Magic Chest",
+      "de": "Magic Chest",
+      "fr": "Magic Chest",
+      "es": "Magic Chest",
+      "pt-BR": "Magic Chest",
+      "it": "Magic Chest",
+      "pl": "Magic Chest"
+    }
+  },
+  {
+    "key": "events.chest_crystal",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal Sandık",
+      "en": "Crystal Chest",
+      "de": "Crystal Chest",
+      "fr": "Crystal Chest",
+      "es": "Crystal Chest",
+      "pt-BR": "Crystal Chest",
+      "it": "Crystal Chest",
+      "pl": "Crystal Chest"
+    }
+  },
+  {
+    "key": "events.chest_legendary",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Efsanevi Sandık",
+      "en": "Legendary Chest",
+      "de": "Legendary Chest",
+      "fr": "Legendary Chest",
+      "es": "Legendary Chest",
+      "pt-BR": "Legendary Chest",
+      "it": "Legendary Chest",
+      "pl": "Legendary Chest"
+    }
+  },
+  {
+    "key": "events.booster_hint",
+    "review": "draft",
+    "values": {
+      "tr": "{0} Renk İpucu",
+      "en": "{0} Color Hints",
+      "de": "{0} Color Hints",
+      "fr": "{0} Color Hints",
+      "es": "{0} Color Hints",
+      "pt-BR": "{0} Color Hints",
+      "it": "{0} Color Hints",
+      "pl": "{0} Color Hints"
+    }
+  },
+  {
+    "key": "events.booster_undo",
+    "review": "draft",
+    "values": {
+      "tr": "{0} Geri Al",
+      "en": "{0} Undos",
+      "de": "{0} Undos",
+      "fr": "{0} Undos",
+      "es": "{0} Undos",
+      "pt-BR": "{0} Undos",
+      "it": "{0} Undos",
+      "pl": "{0} Undos"
+    }
+  },
+  {
+    "key": "events.booster_extra",
+    "review": "draft",
+    "values": {
+      "tr": "{0} Ekstra Şişe",
+      "en": "{0} Extra Bottles",
+      "de": "{0} Extra Bottles",
+      "fr": "{0} Extra Bottles",
+      "es": "{0} Extra Bottles",
+      "pt-BR": "{0} Extra Bottles",
+      "it": "{0} Extra Bottles",
+      "pl": "{0} Extra Bottles"
+    }
+  },
+  {
+    "key": "events.booster_shuffle",
+    "review": "draft",
+    "values": {
+      "tr": "{0} Karıştırma",
+      "en": "{0} Shuffles",
+      "de": "{0} Shuffles",
+      "fr": "{0} Shuffles",
+      "es": "{0} Shuffles",
+      "pt-BR": "{0} Shuffles",
+      "it": "{0} Shuffles",
+      "pl": "{0} Shuffles"
+    }
+  },
+  {
+    "key": "events.rose_effect",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Gül efekti",
+      "en": "Rose Effect",
+      "de": "Rose Effect",
+      "fr": "Rose Effect",
+      "es": "Rose Effect",
+      "pt-BR": "Rose Effect",
+      "it": "Rose Effect",
+      "pl": "Rose Effect"
+    }
+  },
+  {
+    "key": "events.crystal_effect",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal efekti",
+      "en": "Crystal Effect",
+      "de": "Crystal Effect",
+      "fr": "Crystal Effect",
+      "es": "Crystal Effect",
+      "pt-BR": "Crystal Effect",
+      "it": "Crystal Effect",
+      "pl": "Crystal Effect"
+    }
+  },
+  {
+    "key": "events.crystal_cat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal Büyücü kostümü",
+      "en": "Crystal Wizard Outfit",
+      "de": "Crystal Wizard Outfit",
+      "fr": "Crystal Wizard Outfit",
+      "es": "Crystal Wizard Outfit",
+      "pt-BR": "Crystal Wizard Outfit",
+      "it": "Crystal Wizard Outfit",
+      "pl": "Crystal Wizard Outfit"
+    }
+  },
+  {
+    "key": "events.league_cat",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Lig Büyücüsü kostümü",
+      "en": "League Wizard Outfit",
+      "de": "League Wizard Outfit",
+      "fr": "League Wizard Outfit",
+      "es": "League Wizard Outfit",
+      "pt-BR": "League Wizard Outfit",
+      "it": "League Wizard Outfit",
+      "pl": "League Wizard Outfit"
+    }
   }
 ]

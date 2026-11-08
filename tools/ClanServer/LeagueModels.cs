@@ -61,6 +61,8 @@ sealed class LeagueSeasonWorker(ClanStore store, ILogger<LeagueSeasonWorker> log
         {
             try { store.RollLeague(); }
             catch (Exception error) { log.LogError(error, "League rollover failed."); }
+            try { store.RollEvents(); }
+            catch (Exception error) { log.LogError(error, "Event rollover failed."); }
         }
         while (await timer.WaitForNextTickAsync(stoppingToken));
     }

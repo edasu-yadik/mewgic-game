@@ -34,7 +34,7 @@ namespace Mewgic
         public void Navigate(HomeDestination destination)
         {
             if(navigating)return;
-            if(destination==HomeDestination.Events){var hub=UnityEngine.Object.FindFirstObjectByType<Mewgic.Rewards.RewardHubPanel>();if(hub!=null){hub.Open(0);return;}}
+            if(destination==HomeDestination.Events){FindFirstObjectByType<Mewgic.Rewards.MagicalEventsPanel>()?.Open();return;}
             if(destination==HomeDestination.Inventory){FindFirstObjectByType<MagicShopPanel>()?.Open();return;}
             if(destination==HomeDestination.Team){FindFirstObjectByType<Clans.ClanPanel>()?.Open();return;}
             if(destination==HomeDestination.Home){information.Close();return;}

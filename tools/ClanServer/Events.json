@@ -1,0 +1,579 @@
+{
+  "maxActive": 4,
+  "events": [
+    {
+      "id": "daily_spell",
+      "titleTr": "Günlük Büyü Görevleri",
+      "titleEn": "Daily Magic Quests",
+      "infoTr": "Her gün yeni bölümler tamamla ve yıldız kazan.",
+      "infoEn": "Complete new levels and earn stars each day.",
+      "icon": 0,
+      "mode": "solo",
+      "lane": 0,
+      "repeatDays": 1,
+      "offsetMinutes": 0,
+      "durationMinutes": 1440,
+      "ladder": "standard",
+      "rules": [
+        {
+          "metric": "win",
+          "weight": 40
+        },
+        {
+          "metric": "stars",
+          "weight": 20
+        }
+      ]
+    },
+    {
+      "id": "weekly_stars",
+      "titleTr": "Haftalık Yıldız Avı",
+      "titleEn": "Weekly Star Hunt",
+      "infoTr": "Yeni bölümlerde kazandığın her yıldız puan getirir.",
+      "infoEn": "Every star on a new level earns points.",
+      "icon": 1,
+      "mode": "solo",
+      "lane": 1,
+      "repeatDays": 7,
+      "offsetMinutes": 0,
+      "durationMinutes": 10080,
+      "ladder": "standard",
+      "rules": [
+        {
+          "metric": "stars",
+          "weight": 35
+        }
+      ]
+    },
+    {
+      "id": "golden_race",
+      "titleTr": "Altın Pati Yarışı",
+      "titleEn": "Golden Paw Race",
+      "infoTr": "Zor bölümler daha çok puan verir. İlk üç sıra kapanışta ek ödül açar.",
+      "infoEn": "Harder levels score more. The top three unlock an extra prize at closing.",
+      "icon": 2,
+      "mode": "race",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 0,
+      "durationMinutes": 1440,
+      "ladder": "ranked",
+      "rules": [
+        {
+          "metric": "difficulty",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "crystal_collection",
+      "titleTr": "Kristal Koleksiyonu",
+      "titleEn": "Crystal Collection",
+      "infoTr": "Yeni bölümlerde zorluğa göre etkinlik kristalleri topla.",
+      "infoEn": "Collect event crystals from new levels based on difficulty.",
+      "icon": 3,
+      "mode": "solo",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 1440,
+      "durationMinutes": 1440,
+      "ladder": "crystal",
+      "rules": [
+        {
+          "metric": "crystal",
+          "weight": 80
+        }
+      ]
+    },
+    {
+      "id": "cat_treasure",
+      "titleTr": "Kedi Hazinesi",
+      "titleEn": "Cat Treasure",
+      "infoTr": "Yeni bölümler tamamlayarak sandık kademelerini aç.",
+      "infoEn": "Complete new levels to unlock treasure chests.",
+      "icon": 4,
+      "mode": "solo",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 2880,
+      "durationMinutes": 1440,
+      "ladder": "treasure",
+      "rules": [
+        {
+          "metric": "win",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "magic_marathon",
+      "titleTr": "Büyülü Maraton",
+      "titleEn": "Magic Marathon",
+      "infoTr": "Sıradaki yeni bölümleri tamamla. En uzun ardışık bölüm serin puanlanır.",
+      "infoEn": "Complete consecutive new level numbers. Your longest streak counts.",
+      "icon": 5,
+      "mode": "solo",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 4320,
+      "durationMinutes": 1440,
+      "ladder": "standard",
+      "rules": [
+        {
+          "metric": "chain",
+          "weight": 100
+        }
+      ]
+    },
+    {
+      "id": "perfect_magic",
+      "titleTr": "Kusursuz Büyü",
+      "titleEn": "Perfect Magic",
+      "infoTr": "Yalnızca üç yıldızla tamamlanan yeni bölümler puan getirir.",
+      "infoEn": "Only three-star clears of new levels earn points.",
+      "icon": 6,
+      "mode": "solo",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 5760,
+      "durationMinutes": 1440,
+      "ladder": "standard",
+      "rules": [
+        {
+          "metric": "win",
+          "weight": 125,
+          "minStars": 3
+        }
+      ]
+    },
+    {
+      "id": "weekend_festival",
+      "titleTr": "Hafta Sonu Şenliği",
+      "titleEn": "Weekend Celebration",
+      "infoTr": "Cumartesi ve pazar günü yeni bölüm ve yıldız bonusları kazan.",
+      "infoEn": "Earn new-level and star bonuses on Saturday and Sunday.",
+      "icon": 7,
+      "mode": "solo",
+      "lane": 2,
+      "repeatDays": 7,
+      "offsetMinutes": 7200,
+      "durationMinutes": 2880,
+      "ladder": "treasure",
+      "rules": [
+        {
+          "metric": "win",
+          "weight": 80
+        },
+        {
+          "metric": "stars",
+          "weight": 25
+        }
+      ]
+    },
+    {
+      "id": "clan_star_race",
+      "titleTr": "Klan Yıldız Yarışı",
+      "titleEn": "Clan Star Race",
+      "infoTr": "Klanının ortak yıldız hedefine katkıda bulun.",
+      "infoEn": "Contribute stars to your clan's shared goal.",
+      "icon": 8,
+      "mode": "clan",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 10080,
+      "durationMinutes": 2880,
+      "ladder": "standard",
+      "rules": [
+        {
+          "metric": "stars",
+          "weight": 45
+        }
+      ]
+    },
+    {
+      "id": "clan_crystal_cup",
+      "titleTr": "Klan Kristal Kupası",
+      "titleEn": "Clan Crystal Cup",
+      "infoTr": "Klanınla kristal topla. İlk üç klanın katkı yapan üyeleri ek ödül alır.",
+      "infoEn": "Collect crystals with your clan. Contributors in the top three clans unlock an extra prize.",
+      "icon": 9,
+      "mode": "cup",
+      "lane": 3,
+      "repeatDays": 56,
+      "offsetMinutes": 40320,
+      "durationMinutes": 40320,
+      "ladder": "ranked",
+      "rules": [
+        {
+          "metric": "crystal",
+          "weight": 85
+        }
+      ]
+    },
+    {
+      "id": "island_festival",
+      "titleTr": "Büyülü Ada Festivali",
+      "titleEn": "Magic Island Festival",
+      "infoTr": "1, 3, 5 ve sonraki tek numaralı adalardaki yeni bölümleri tamamla.",
+      "infoEn": "Complete new levels on islands 1, 3, 5 and other odd-numbered islands.",
+      "icon": 10,
+      "mode": "solo",
+      "lane": 2,
+      "repeatDays": 14,
+      "offsetMinutes": 12960,
+      "durationMinutes": 2880,
+      "ladder": "crystal",
+      "rules": [
+        {
+          "metric": "win",
+          "weight": 100,
+          "islandModulo": 2
+        }
+      ]
+    },
+    {
+      "id": "legendary_paw",
+      "titleTr": "Efsanevi Pati Sezonu",
+      "titleEn": "Legendary Paw Season",
+      "infoTr": "Sezon boyunca yeni bölümler ve yıldızlarla kozmetik ödüllere ilerle.",
+      "infoEn": "Earn seasonal cosmetics with new levels and stars.",
+      "icon": 11,
+      "mode": "solo",
+      "lane": 3,
+      "repeatDays": 56,
+      "offsetMinutes": 0,
+      "durationMinutes": 40320,
+      "ladder": "season",
+      "rules": [
+        {
+          "metric": "win",
+          "weight": 60
+        },
+        {
+          "metric": "stars",
+          "weight": 20
+        }
+      ]
+    }
+  ],
+  "ladders": {
+    "standard": [
+      {
+        "points": 100,
+        "prize": {
+          "gold": 50,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 250,
+        "prize": {
+          "gold": 0,
+          "booster": "hint",
+          "count": 2,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 500,
+        "chest": "normal",
+        "maxRank": 0
+      },
+      {
+        "points": 1000,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "rose_effect"
+        },
+        "chest": ""
+      },
+      {
+        "points": 2000,
+        "chest": "legendary",
+        "maxRank": 0
+      }
+    ],
+    "ranked": [
+      {
+        "points": 100,
+        "prize": {
+          "gold": 50,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 250,
+        "prize": {
+          "gold": 0,
+          "booster": "hint",
+          "count": 2,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 500,
+        "chest": "normal",
+        "maxRank": 0
+      },
+      {
+        "points": 1000,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "rose_effect"
+        },
+        "chest": ""
+      },
+      {
+        "points": 2000,
+        "chest": "legendary",
+        "maxRank": 3
+      }
+    ],
+    "treasure": [
+      {
+        "points": 100,
+        "chest": "normal",
+        "maxRank": 0
+      },
+      {
+        "points": 250,
+        "chest": "magic",
+        "maxRank": 0
+      },
+      {
+        "points": 500,
+        "chest": "crystal",
+        "maxRank": 0
+      },
+      {
+        "points": 1000,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "rose_effect"
+        },
+        "chest": ""
+      },
+      {
+        "points": 2000,
+        "chest": "legendary",
+        "maxRank": 0
+      }
+    ],
+    "crystal": [
+      {
+        "points": 100,
+        "prize": {
+          "gold": 50,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 250,
+        "prize": {
+          "gold": 0,
+          "booster": "hint",
+          "count": 2,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 500,
+        "chest": "crystal",
+        "maxRank": 0
+      },
+      {
+        "points": 1000,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "rose_effect"
+        },
+        "chest": ""
+      },
+      {
+        "points": 2000,
+        "chest": "legendary",
+        "maxRank": 0
+      }
+    ],
+    "season": [
+      {
+        "points": 100,
+        "prize": {
+          "gold": 50,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 250,
+        "prize": {
+          "gold": 0,
+          "booster": "hint",
+          "count": 2,
+          "cosmetic": ""
+        },
+        "chest": ""
+      },
+      {
+        "points": 500,
+        "chest": "magic",
+        "maxRank": 0
+      },
+      {
+        "points": 1000,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "crystal_cat"
+        },
+        "chest": ""
+      },
+      {
+        "points": 2000,
+        "chest": "legendary",
+        "maxRank": 0
+      }
+    ]
+  },
+  "chests": {
+    "normal": [
+      {
+        "weight": 70,
+        "prize": {
+          "gold": 50,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 25,
+        "prize": {
+          "gold": 0,
+          "booster": "hint",
+          "count": 2,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 5,
+        "prize": {
+          "gold": 100,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        }
+      }
+    ],
+    "magic": [
+      {
+        "weight": 55,
+        "prize": {
+          "gold": 100,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 35,
+        "prize": {
+          "gold": 0,
+          "booster": "undo",
+          "count": 3,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 10,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "rose_effect"
+        }
+      }
+    ],
+    "crystal": [
+      {
+        "weight": 50,
+        "prize": {
+          "gold": 150,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 35,
+        "prize": {
+          "gold": 0,
+          "booster": "extra",
+          "count": 2,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 15,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "crystal_effect"
+        }
+      }
+    ],
+    "legendary": [
+      {
+        "weight": 55,
+        "prize": {
+          "gold": 350,
+          "booster": "",
+          "count": 0,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 30,
+        "prize": {
+          "gold": 0,
+          "booster": "shuffle",
+          "count": 5,
+          "cosmetic": ""
+        }
+      },
+      {
+        "weight": 15,
+        "prize": {
+          "gold": 0,
+          "booster": "",
+          "count": 0,
+          "cosmetic": "league_cat"
+        }
+      }
+    ]
+  }
+}

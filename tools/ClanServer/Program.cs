@@ -24,7 +24,9 @@ if (builder.Configuration["LeagueQaClockFile"] is string qaClock)
         throw new InvalidOperationException("League QA clock requires a Development loopback server.");
     leagueClock = new LeagueQaClock(qaClock);
 }
-builder.Services.AddSingleton(new ClanStore(path, options, league, leagueClock));
+var events = EventConfig.Load(builder.Configuration["Events:ConfigPath"] ?? Path.Combine(AppContext.BaseDirectory,"Events.json"),
+    builder.Configuration.GetValue<int?>("Events:MaxActive"));
+builder.Services.AddSingleton(new ClanStore(path, options, league, leagueClock, events));
 builder.Services.AddHostedService<LeagueSeasonWorker>();
 builder.Services.AddSingleton(new ClanPuzzles(options.MaxLevel));
 builder.Services.AddRateLimiter(rate =>
@@ -99,6 +101,11 @@ clans.MapPost("/wins", (HttpContext c, ClanStore s, ClanPuzzles puzzles, WinInpu
     var proof = puzzles.Validate(input);
     return s.RecordWin(player, input.Level, input.ClanId, proof);
 });
+
+api.MapGet("/event-calendar", (ClanStore s, int? page) => s.EventsView(null,page ?? 0));
+clans.MapGet("/events", (HttpContext c, ClanStore s, int? page) => s.EventsView(Player(c),page ?? 0));
+clans.MapPost("/events/{id}/claim", (HttpContext c, ClanStore s, string id, EventClaimInput input) =>
+    s.ClaimEvent(Player(c),id,input));
 
 clans.MapGet("/league", (HttpContext c, ClanStore s, string? scope, int? season) =>
     s.LeagueView(Player(c),scope,season));

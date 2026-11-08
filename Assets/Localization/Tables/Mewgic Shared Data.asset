@@ -1531,6 +1531,186 @@ MonoBehaviour:
     m_Key: shop.item.leaguecat
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897899
+    m_Key: events.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897900
+    m_Key: events.subtitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897901
+    m_Key: events.upcoming
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897902
+    m_Key: events.active
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897903
+    m_Key: events.completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897904
+    m_Key: events.legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897905
+    m_Key: events.sign_in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897906
+    m_Key: events.refresh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897907
+    m_Key: events.clock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897908
+    m_Key: events.sign_in_note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897909
+    m_Key: events.loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897910
+    m_Key: events.unavailable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897911
+    m_Key: events.connection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897912
+    m_Key: events.empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897913
+    m_Key: events.wallet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897914
+    m_Key: events.error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897915
+    m_Key: events.details
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897916
+    m_Key: events.preview
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897917
+    m_Key: events.score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897918
+    m_Key: events.team_score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897919
+    m_Key: events.rank_goal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897920
+    m_Key: events.rank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897921
+    m_Key: events.ranking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897922
+    m_Key: events.odds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897923
+    m_Key: events.claim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897924
+    m_Key: events.claimed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897925
+    m_Key: events.locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897926
+    m_Key: events.received
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897927
+    m_Key: events.drop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897928
+    m_Key: events.days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897929
+    m_Key: events.starts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897930
+    m_Key: events.remaining
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897931
+    m_Key: events.ended
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897932
+    m_Key: events.chest_normal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897933
+    m_Key: events.chest_magic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897934
+    m_Key: events.chest_crystal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897935
+    m_Key: events.chest_legendary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897936
+    m_Key: events.booster_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897937
+    m_Key: events.booster_undo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897938
+    m_Key: events.booster_extra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897939
+    m_Key: events.booster_shuffle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897940
+    m_Key: events.rose_effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897941
+    m_Key: events.crystal_effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897942
+    m_Key: events.crystal_cat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897943
+    m_Key: events.league_cat
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

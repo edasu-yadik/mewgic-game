@@ -114,7 +114,7 @@ namespace Mewgic
   {
    var before=GameplayProgress.Current.Snapshot;Tap("MapHome");yield return Ready("Home");
    Tap("MissionsButton");yield return null;var daily=FindFirstObjectByType<Mewgic.Daily.DailyActivitiesPanel>();Check(daily!=null&&daily.IsOpen&&!daily.GiftVisible,"Gerçek günlük görevler paneli açılır");Capture("Daily_Missions",900,1600);Tap("DailyClose");
-   Tap("NavEvents");yield return null;var hub=FindFirstObjectByType<Mewgic.Rewards.RewardHubPanel>();Check(hub!=null&&hub.IsOpen,"Gerçek etkinlik merkezi açılır");Capture("Events_Hub",900,1600);Tap("RewardHubClose");
+   Tap("NavEvents");Tap("EventLegacy");yield return null;var hub=FindFirstObjectByType<Mewgic.Rewards.RewardHubPanel>();Check(hub!=null&&hub.IsOpen,"Gerçek etkinlik merkezi açılır");Capture("Events_Hub",900,1600);Tap("RewardHubClose");
    var after=GameplayProgress.Current.Snapshot;Check(before.daily.progress.SequenceEqual(after.daily.progress)&&before.daily.claimed.SequenceEqual(after.daily.claimed)&&before.daily.wins.SequenceEqual(after.daily.wins),"Görev sayaç/makbuzları harita→Home gezinmesinde aynı");Check(before.hub.weekWins==after.hub.weekWins&&before.hub.seasonWins==after.hub.seasonWins&&before.hub.weekReceipts.SequenceEqual(after.hub.weekReceipts),"Haftalık/sezon görevi ilerlemesi korunur");
    Tap("NavMap");yield return Ready("LevelMap");yield return Starlight();Check(Map.Progression.ChestClaimed(9)&&Map.Progression.Stars(500)>0,"Home/görev/etkinlik→Starlight dönüşünde yıldız/sandık korunur");
   }

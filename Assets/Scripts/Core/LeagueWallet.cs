@@ -27,6 +27,7 @@ namespace Mewgic.Core
         {
             if (string.IsNullOrEmpty(id) || id.Length > 55) return false;
             string[] parts = id.Split('-');
+            if (parts.Length == 2 && parts[0] == "event") return IsId(parts[1]);
             return parts.Length == 3 && parts[0] == "league" && int.TryParse(parts[1],out int season) && season > 0 && IsId(parts[2]);
         }
     }
@@ -48,15 +49,7 @@ namespace Mewgic.Core
             if (string.IsNullOrEmpty(wallet) || state.leagueWallet.walletId != wallet ||
                 !LeagueWalletData.IsReceipt(receipt) || gold < 0 || gold > 100000) return false;
             if (HasLeagueReward(receipt)) return true;
-            ShopItem item = cosmetic switch
-            {
-                "rose_effect" => ShopItem.RoseEffect,
-                "crystal_effect" => ShopItem.CrystalEffect,
-                "crystal_cat" => ShopItem.CrystalCat,
-                "league_cat" => ShopItem.LeagueCat,
-                "" => 0,
-                _ => (ShopItem)(-1)
-            };
+            ShopItem item = RewardCosmetic(cosmetic);
             if ((int)item < 0 || state.presentation.coins > long.MaxValue - gold) return false;
             var copy = state.Copy();
             copy.presentation.coins += gold;
@@ -64,5 +57,15 @@ namespace Mewgic.Core
             copy.leagueWallet.receipts.Add(receipt);
             return Commit(copy);
         }
+
+        static ShopItem RewardCosmetic(string cosmetic) => cosmetic switch
+        {
+            "rose_effect" => ShopItem.RoseEffect,
+            "crystal_effect" => ShopItem.CrystalEffect,
+            "crystal_cat" => ShopItem.CrystalCat,
+            "league_cat" => ShopItem.LeagueCat,
+            "" => 0,
+            _ => (ShopItem)(-1)
+        };
     }
 }

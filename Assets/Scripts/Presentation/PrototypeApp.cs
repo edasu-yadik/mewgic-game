@@ -143,6 +143,7 @@ namespace Mewgic
             gameObject.AddComponent<Clans.ClanPanel>().Mount(safe, homeCharacter?.GetComponent<HomeNavigation>()?.team);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
             gameObject.AddComponent<Mewgic.Rewards.RewardHubPanel>().Mount(safe);
+            gameObject.AddComponent<Mewgic.Rewards.MagicalEventsPanel>().Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyArrivalPopup>().Mount(safe);
         }
         public static Puzzle LoadLevel()
