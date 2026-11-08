@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "count": 16,
+  "checks": [
+    "İlk gözlemde 24 saat başlıyor",
+    "Gece yarısı görevleri sıfırlamıyor",
+    "Canlı bekleme UTC süre farkından hesaplanıyor",
+    "Kayıt yeniden yüklenince sayaç ve ilerleme korunuyor",
+    "24 saatten bir saniye önce yenileme yok",
+    "24 saatte ilerleme, ödül işaretleri ve makbuzlar birlikte yenileniyor",
+    "Yeni döngü oyun ilerlemesini değiştirmiyor",
+    "Uzun çevrimdışı sürede tek güncel döngüye geçiliyor",
+    "Saat geri alınması yenileme veya ödül üretmiyor",
+    "Eski kayıttaki kazanılmış ilerleme ve alınmış ödüller korunuyor",
+    "Görev ödülü bir kez veriliyor",
+    "Yenileme save hatası eski döngüyü atomik koruyor",
+    "Gerçek PlayerPrefs/journal döngüyü kaydediyor",
+    "Gerçek kapat-aç 17 saat kalanı koruyor",
+    "Oyuncunun ana kaydı değişmedi",
+    "Mevcut puzzle/booster model regresyonu geçti"
+  ]
+}

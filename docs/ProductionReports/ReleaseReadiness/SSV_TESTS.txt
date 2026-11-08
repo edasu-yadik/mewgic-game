@@ -1,0 +1,8 @@
+PASS Valid Google-style percent-decoded signature
+PASS Tampered query
+PASS Rebound receipt
+PASS Unknown ad unit
+PASS Stale callback
+PASS Unexpected trailing parameters
+PASS Encoded delimiter cannot alias a signed field
+PASS Concurrent duplicate callback persisted exactly once

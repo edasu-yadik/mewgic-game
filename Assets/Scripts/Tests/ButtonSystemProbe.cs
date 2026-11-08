@@ -326,6 +326,8 @@ namespace Mewgic
             Click("DailyClose");
             yield return null;
             Click("NavEvents");
+            yield return null;
+            Canvas.ForceUpdateCanvases();
             Click("EventLegacy");
             yield return Shot("06-Events");
             yield return Ratios("RewardHubClose", "RewardTab_0", "RewardTab_1", "RewardTab_2", "RewardTab_3", "HubOpenDaily");

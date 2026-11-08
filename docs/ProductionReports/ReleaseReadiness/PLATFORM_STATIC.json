@@ -1,0 +1,25 @@
+{
+  "unity": "6000.3.27f2",
+  "androidModule": true,
+  "iosModule": true,
+  "editorPlatform": "Win32NT",
+  "xcodeAvailable": false,
+  "mobileBuildExecuted": false,
+  "productionOnlineConfigured": false,
+  "productionAdsEnabled": false,
+  "playerSettingsLines": [
+    "visionOSBundleVersion: 1.0",
+    "tvOSBundleVersion: 1.0",
+    "bundleVersion: 0.8.0",
+    "AndroidMinSdkVersion: 26",
+    "AndroidTargetSdkVersion: 36",
+    "iOSTargetOSVersionString: 15.0",
+    "AndroidTargetArchitectures: 2"
+  ],
+  "scenes": [
+    "path: Assets/Scenes/Boot.unity",
+    "path: Assets/Scenes/Home.unity",
+    "path: Assets/Scenes/Gameplay.unity",
+    "path: Assets/Scenes/LevelMap.unity"
+  ]
+}

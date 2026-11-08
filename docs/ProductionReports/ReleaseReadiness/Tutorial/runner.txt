@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command",
+  "data": {
+    "command": "editor invoke_menu",
+    "parameters": {
+      "path": "Mewgic/Gameplay Polish/Run Paw Replay QA"
+    },
+    "result": {
+      "success": true,
+      "path": "Mewgic/Gameplay Polish/Run Paw Replay QA",
+      "items": null,
+      "message": "Executed menu item 'Mewgic/Gameplay Polish/Run Paw Replay QA'"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

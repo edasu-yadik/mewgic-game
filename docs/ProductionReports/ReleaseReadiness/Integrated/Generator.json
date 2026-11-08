@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "count": 1024,
+  "adjacentRepeats": 0,
+  "uniqueLayouts": 972,
+  "fallbackCount": 131,
+  "determinismChecks": 39,
+  "editor": "6000.3.27f2",
+  "resolveP95Ms": 10.8428,
+  "resolveMaxMs": 45.1345
+}

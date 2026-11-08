@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "command": "command",
+  "data": {
+    "command": "test run",
+    "parameters": {
+      "mode": "EditMode"
+    },
+    "result": {
+      "Summary": {
+        "Total": 1,
+        "Passed": 1,
+        "Failed": 0,
+        "Skipped": 0,
+        "Inconclusive": 0
+      },
+      "Results": [
+        {
+          "FullName": "AddressableAssets.DocExampleCode.TestStub.RequiredTest",
+          "Status": "Passed",
+          "Duration": 0.0000827,
+          "Message": null,
+          "StackTrace": null
+        }
+      ],
+      "Duration": 0.25,
+      "StatusPath": null,
+      "Mode": "EditMode",
+      "FilterApplied": null,
+      "success": true,
+      "result": null
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

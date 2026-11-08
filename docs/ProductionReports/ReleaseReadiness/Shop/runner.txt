@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command",
+  "data": {
+    "command": "editor invoke_menu",
+    "parameters": {
+      "path": "Mewgic/QA/Run Magic Shop"
+    },
+    "result": {
+      "success": true,
+      "path": "Mewgic/QA/Run Magic Shop",
+      "items": null,
+      "message": "Executed menu item 'Mewgic/QA/Run Magic Shop'"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

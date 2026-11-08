@@ -1,0 +1,37 @@
+PASS All 12 definitions visible in live calendar
+PASS Default max four active
+PASS Private board requires authentication
+PASS Zero progress cannot claim
+PASS Invalid puzzle proof and arbitrary points are rejected
+PASS Verified wins feed each metric
+PASS Event and league points remain separate
+PASS Replay adds no points
+PASS Countdown comes from UTC server clock
+PASS Weighted chest preview is the actual saved pool
+PASS Concurrent chest claims return one receipt and roll
+PASS Chest grant belongs to its advertised pool
+PASS Duplicate payout to another wallet is blocked
+PASS Another account cannot take player reward
+PASS Wallet is bound to its account
+PASS Daily rollover starts a new zero-progress instance
+PASS Old event is archived
+PASS Unclaimed earned prize remains claimable after close
+PASS Rotation activates Crystal Collection
+PASS Treasure activates with magic chest
+PASS Marathon scores longest consecutive level sequence
+PASS Three-star proof advances Perfect Magic
+PASS Weekend win and star bonuses apply
+PASS Clan goal combines two real account contributions
+PASS Joining a clan does not grant its earned rewards
+PASS Island theme checks the actual level's world
+PASS New season opens cup with real clan ranking
+PASS Ranked reward remains locked during competition
+PASS Previous season progress persists through rollover
+PASS Receipt and original random roll survive server restart
+PASS Clock rollback cannot reopen expired competitions
+PASS Server configuration can cap active events at two
+PASS Top ranked eligible scorer waits for closing
+PASS Archived race excludes out-of-rank scorers
+PASS Archived rank pays configured top place
+PASS Configuration changes preserve old reward snapshots
+PASS Archive rejects invalid page numbers

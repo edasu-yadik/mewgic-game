@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command",
+  "data": {
+    "command": "editor invoke_menu",
+    "parameters": {
+      "path": "Mewgic/Comprehensive Audit/Validate Bindings and Save Rules"
+    },
+    "result": {
+      "success": true,
+      "path": "Mewgic/Comprehensive Audit/Validate Bindings and Save Rules",
+      "items": null,
+      "message": "Executed menu item 'Mewgic/Comprehensive Audit/Validate Bindings and Save Rules'"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Dev\\Mewgic"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
