@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>annotations</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.14" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <Compile Include="../../Assets/Scripts/Core/Puzzle.cs;../../Assets/Scripts/Core/PuzzleSolver.cs;../../Assets/Scripts/Core/PackedPuzzleSearch.cs;../../Assets/Scripts/Core/LevelGeneration.cs;../../Assets/Scripts/Core/LevelArchive.cs;../../Assets/Scripts/Core/WorldMapGenerationRules.cs" LinkBase="GameRules" />
+    <Content Include="../../Assets/Resources/Levels/Level01.json;../../Assets/Resources/Levels/Level02.json;../../Assets/Resources/Levels/GeneratedFallbacksV2.json" Link="Levels/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

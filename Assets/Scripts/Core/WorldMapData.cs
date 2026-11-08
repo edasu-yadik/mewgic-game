@@ -9,9 +9,9 @@ namespace Mewgic.Core
   public WorldMapData Copy()=>new WorldMapData{journey=(journey??new MapJourneyData()).Copy(),version=version,migrated=migrated,highestUnlockedIsland=highestUnlockedIsland,lastCelebratedIsland=lastCelebratedIsland,lastFocusedLevel=lastFocusedLevel,legacyChestEntitlements=new List<string>(legacyChestEntitlements??new List<string>())};
   public void Validate(){if(version!=1||highestUnlockedIsland<0||lastCelebratedIsland<0||lastFocusedLevel<1||legacyChestEntitlements==null||legacyChestEntitlements.Any(string.IsNullOrWhiteSpace)||legacyChestEntitlements.Distinct().Count()!=legacyChestEntitlements.Count)throw new ArgumentException("Geçersiz dünya haritası kaydı");}
  }
- public static class WorldMapRules
+ public static partial class WorldMapRules
  {
-  public const int LevelsPerIsland=50,IslandsPerPack=12;
+  public const int IslandsPerPack=12;
   public static int Island(int level){if(level<1)throw new ArgumentOutOfRangeException(nameof(level));return (level-1)/LevelsPerIsland;}
   public static int FirstLevel(int island){if(island<0||island>(int.MaxValue-LevelsPerIsland)/LevelsPerIsland)throw new ArgumentOutOfRangeException(nameof(island));return checked(island*LevelsPerIsland+1);}
   public static int CurrentLevel(ProgressData data){var completed=new HashSet<int>(data.levels.Where(x=>x.rewardClaimed).Select(x=>x.level));int id=1;while(id<int.MaxValue&&completed.Contains(id))id++;return id;}
@@ -24,8 +24,6 @@ namespace Mewgic.Core
    MapJourneyRules.Initialize(data);
   }
   public static void Sync(ProgressData data){data.worldMap.highestUnlockedIsland=Math.Max(data.worldMap.highestUnlockedIsland,Island(CurrentLevel(data)));}
-  // Only newly generated entries use the gentler island introduction. Existing immutable pins win.
-  public static GeneratorRequest Request(int level){var request=GeneratorRequest.ForLevel(level);int offset=(level-1)%LevelsPerIsland;if(level>50&&offset<3){request.target=offset==0?LevelDifficulty.Easy:LevelDifficulty.Normal;request.colors=3;}return request;}
  }
  public sealed partial class ProgressLedger
  {

@@ -346,9 +346,9 @@ namespace Mewgic
             if (!before)
             {
                 Click("NavTeam");
-                yield return Until(() => Find("ResourceInfoClose") != null, "Klan düğmesinin mevcut bilgi akışı");
+                yield return Until(() => Find("ClanClose") != null, "Klan düğmesi klan salonunu açtı");
                 yield return null;
-                Click("ResourceInfoClose");
+                Click("ClanClose");
                 yield return null;
                 Click("NavInventory");
                 yield return Until(() => Find("ShopClose") != null, "Eski Envanter girişi mağazayı açtı");

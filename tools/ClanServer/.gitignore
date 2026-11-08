@@ -1,0 +1,4 @@
+bin/
+!ClanServer.csproj
+*.db*
+__pycache__/

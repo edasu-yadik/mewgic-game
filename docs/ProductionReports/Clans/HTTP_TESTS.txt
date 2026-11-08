@@ -1,0 +1,29 @@
+PASS Anonymous API access denied
+PASS Wrong password denied
+PASS Leader assigned and configured capacity returned
+PASS Search is case-insensitive
+PASS Approval clan creates request
+PASS Pending requests hidden from outsiders
+PASS Outsider cannot approve request
+PASS Leader appoints deputy
+PASS Deputy cannot edit clan settings
+PASS Real invite visible to recipient
+PASS Invite accepted and announcement visible
+PASS Deputy cannot kick leader
+PASS Member cannot kick deputy
+PASS Unsolved or illegal move proof rejected
+PASS Proof cannot credit another clan
+PASS Concurrent valid solves credit three accounts exactly once
+PASS Second new level on same day gives base points only
+PASS Weekly pool and achievements derived from committed wins
+PASS Deputy can remove ordinary member
+PASS Concurrent joins cannot overfill last slot
+PASS Leader departure promotes deputy atomically
+PASS Replay cannot create points after leaving
+PASS Server enforces joining prerequisites
+PASS Last leader leaving closes the empty clan
+PASS New login creates a distinct opaque session
+PASS Logout revokes bearer session
+PASS Real network interruption observed
+PASS Membership, succession and score persist across process restart
+PASS Replay still rejected after server restart

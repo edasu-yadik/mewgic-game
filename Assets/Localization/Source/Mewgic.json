@@ -3577,5 +3577,1315 @@
       "it": "Ricompensa non verificata",
       "pl": "Nie udało się potwierdzić nagrody"
     }
+  },
+  {
+    "key": "clan.nav",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan",
+      "en": "Clan",
+      "de": "Clan",
+      "fr": "Clan",
+      "es": "Clan",
+      "pt-BR": "Clan",
+      "it": "Clan",
+      "pl": "Clan"
+    }
+  },
+  {
+    "key": "clan.title",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyülü Klanlar",
+      "en": "Magic Clans",
+      "de": "Magic Clans",
+      "fr": "Magic Clans",
+      "es": "Magic Clans",
+      "pt-BR": "Magic Clans",
+      "it": "Magic Clans",
+      "pl": "Magic Clans"
+    }
+  },
+  {
+    "key": "clan.subtitle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kedilerin büyülü buluşma salonu",
+      "en": "The cats’ enchanted meeting hall",
+      "de": "The cats’ enchanted meeting hall",
+      "fr": "The cats’ enchanted meeting hall",
+      "es": "The cats’ enchanted meeting hall",
+      "pt-BR": "The cats’ enchanted meeting hall",
+      "it": "The cats’ enchanted meeting hall",
+      "pl": "The cats’ enchanted meeting hall"
+    }
+  },
+  {
+    "key": "clan.profile",
+    "review": "draft",
+    "values": {
+      "tr": "{0} · {1} doğrulanmış kazanış",
+      "en": "{0} · {1} verified wins",
+      "de": "{0} · {1} verified wins",
+      "fr": "{0} · {1} verified wins",
+      "es": "{0} · {1} verified wins",
+      "pt-BR": "{0} · {1} verified wins",
+      "it": "{0} · {1} verified wins",
+      "pl": "{0} · {1} verified wins"
+    }
+  },
+  {
+    "key": "clan.loading",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan sunucusuna bağlanılıyor…",
+      "en": "Connecting to the clan server…",
+      "de": "Connecting to the clan server…",
+      "fr": "Connecting to the clan server…",
+      "es": "Connecting to the clan server…",
+      "pt-BR": "Connecting to the clan server…",
+      "it": "Connecting to the clan server…",
+      "pl": "Connecting to the clan server…"
+    }
+  },
+  {
+    "key": "clan.pending",
+    "review": "draft",
+    "values": {
+      "tr": "Bekleyen bölüm katkısı: {0}",
+      "en": "Pending level contributions: {0}",
+      "de": "Pending level contributions: {0}",
+      "fr": "Pending level contributions: {0}",
+      "es": "Pending level contributions: {0}",
+      "pt-BR": "Pending level contributions: {0}",
+      "it": "Pending level contributions: {0}",
+      "pl": "Pending level contributions: {0}"
+    }
+  },
+  {
+    "key": "clan.hall",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Salonu",
+      "en": "Clan Hall",
+      "de": "Clan Hall",
+      "fr": "Clan Hall",
+      "es": "Clan Hall",
+      "pt-BR": "Clan Hall",
+      "it": "Clan Hall",
+      "pl": "Clan Hall"
+    }
+  },
+  {
+    "key": "clan.browse",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Ara",
+      "en": "Find Clans",
+      "de": "Find Clans",
+      "fr": "Find Clans",
+      "es": "Find Clans",
+      "pt-BR": "Find Clans",
+      "it": "Find Clans",
+      "pl": "Find Clans"
+    }
+  },
+  {
+    "key": "clan.invitations",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Davetler",
+      "en": "Invites",
+      "de": "Invites",
+      "fr": "Invites",
+      "es": "Invites",
+      "pt-BR": "Invites",
+      "it": "Invites",
+      "pl": "Invites"
+    }
+  },
+  {
+    "key": "clan.logout",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çıkış Yap",
+      "en": "Sign Out",
+      "de": "Sign Out",
+      "fr": "Sign Out",
+      "es": "Sign Out",
+      "pt-BR": "Sign Out",
+      "it": "Sign Out",
+      "pl": "Sign Out"
+    }
+  },
+  {
+    "key": "clan.no_invites",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Henüz klan davetin yok.",
+      "en": "You have no clan invites yet.",
+      "de": "You have no clan invites yet.",
+      "fr": "You have no clan invites yet.",
+      "es": "You have no clan invites yet.",
+      "pt-BR": "You have no clan invites yet.",
+      "it": "You have no clan invites yet.",
+      "pl": "You have no clan invites yet."
+    }
+  },
+  {
+    "key": "clan.welcome",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Büyülü Klan Salonu",
+      "en": "Enchanted Clan Hall",
+      "de": "Enchanted Clan Hall",
+      "fr": "Enchanted Clan Hall",
+      "es": "Enchanted Clan Hall",
+      "pt-BR": "Enchanted Clan Hall",
+      "it": "Enchanted Clan Hall",
+      "pl": "Enchanted Clan Hall"
+    }
+  },
+  {
+    "key": "clan.intro",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bir klan kur ya da kedilere katıl. Birlikte bölüm kazan, haftalık hedefi doldur.",
+      "en": "Start a clan or join the cats. Win levels together to reach the weekly goal.",
+      "de": "Start a clan or join the cats. Win levels together to reach the weekly goal.",
+      "fr": "Start a clan or join the cats. Win levels together to reach the weekly goal.",
+      "es": "Start a clan or join the cats. Win levels together to reach the weekly goal.",
+      "pt-BR": "Start a clan or join the cats. Win levels together to reach the weekly goal.",
+      "it": "Start a clan or join the cats. Win levels together to reach the weekly goal.",
+      "pl": "Start a clan or join the cats. Win levels together to reach the weekly goal."
+    }
+  },
+  {
+    "key": "clan.create",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Kur",
+      "en": "Create Clan",
+      "de": "Create Clan",
+      "fr": "Create Clan",
+      "es": "Create Clan",
+      "pt-BR": "Create Clan",
+      "it": "Create Clan",
+      "pl": "Create Clan"
+    }
+  },
+  {
+    "key": "clan.rules",
+    "review": "draft",
+    "values": {
+      "tr": "Yeni doğrulanmış bölüm: +{0}. Günün ilk klan kazanışı: +{1}. Hafta sonu etkinliği: +{2}. Ek Şişe ve Karıştır kullanılan turlar klan puanı getirmez.",
+      "en": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded.",
+      "de": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded.",
+      "fr": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded.",
+      "es": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded.",
+      "pt-BR": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded.",
+      "it": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded.",
+      "pl": "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded."
+    }
+  },
+  {
+    "key": "clan.search_hint",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan adını yaz",
+      "en": "Enter a clan name",
+      "de": "Enter a clan name",
+      "fr": "Enter a clan name",
+      "es": "Enter a clan name",
+      "pt-BR": "Enter a clan name",
+      "it": "Enter a clan name",
+      "pl": "Enter a clan name"
+    }
+  },
+  {
+    "key": "clan.search",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Ara",
+      "en": "Search",
+      "de": "Search",
+      "fr": "Search",
+      "es": "Search",
+      "pt-BR": "Search",
+      "it": "Search",
+      "pl": "Search"
+    }
+  },
+  {
+    "key": "clan.no_results",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Aramana uygun klan bulunamadı.",
+      "en": "No clans matched your search.",
+      "de": "No clans matched your search.",
+      "fr": "No clans matched your search.",
+      "es": "No clans matched your search.",
+      "pt-BR": "No clans matched your search.",
+      "it": "No clans matched your search.",
+      "pl": "No clans matched your search."
+    }
+  },
+  {
+    "key": "clan.stats",
+    "review": "draft",
+    "values": {
+      "tr": "{0}/{1} üye · Sv. {2} · {3} puan",
+      "en": "{0}/{1} members · Lv. {2} · {3} pts",
+      "de": "{0}/{1} members · Lv. {2} · {3} pts",
+      "fr": "{0}/{1} members · Lv. {2} · {3} pts",
+      "es": "{0}/{1} members · Lv. {2} · {3} pts",
+      "pt-BR": "{0}/{1} members · Lv. {2} · {3} pts",
+      "it": "{0}/{1} members · Lv. {2} · {3} pts",
+      "pl": "{0}/{1} members · Lv. {2} · {3} pts"
+    }
+  },
+  {
+    "key": "clan.view",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "İncele",
+      "en": "View",
+      "de": "View",
+      "fr": "View",
+      "es": "View",
+      "pt-BR": "View",
+      "it": "View",
+      "pl": "View"
+    }
+  },
+  {
+    "key": "clan.open_rule",
+    "review": "draft",
+    "values": {
+      "tr": "Açık · En az {0} doğrulanmış kazanış",
+      "en": "Open · {0} verified wins required",
+      "de": "Open · {0} verified wins required",
+      "fr": "Open · {0} verified wins required",
+      "es": "Open · {0} verified wins required",
+      "pt-BR": "Open · {0} verified wins required",
+      "it": "Open · {0} verified wins required",
+      "pl": "Open · {0} verified wins required"
+    }
+  },
+  {
+    "key": "clan.closed_rule",
+    "review": "draft",
+    "values": {
+      "tr": "Onaylı · En az {0} doğrulanmış kazanış",
+      "en": "Approval · {0} verified wins required",
+      "de": "Approval · {0} verified wins required",
+      "fr": "Approval · {0} verified wins required",
+      "es": "Approval · {0} verified wins required",
+      "pt-BR": "Approval · {0} verified wins required",
+      "it": "Approval · {0} verified wins required",
+      "pl": "Approval · {0} verified wins required"
+    }
+  },
+  {
+    "key": "clan.no_description",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan açıklaması henüz yazılmadı.",
+      "en": "This clan has no description yet.",
+      "de": "This clan has no description yet.",
+      "fr": "This clan has no description yet.",
+      "es": "This clan has no description yet.",
+      "pt-BR": "This clan has no description yet.",
+      "it": "This clan has no description yet.",
+      "pl": "This clan has no description yet."
+    }
+  },
+  {
+    "key": "clan.weekly",
+    "review": "draft",
+    "values": {
+      "tr": "Haftalık hedef · {0}/{1} puan",
+      "en": "Weekly goal · {0}/{1} pts",
+      "de": "Weekly goal · {0}/{1} pts",
+      "fr": "Weekly goal · {0}/{1} pts",
+      "es": "Weekly goal · {0}/{1} pts",
+      "pt-BR": "Weekly goal · {0}/{1} pts",
+      "it": "Weekly goal · {0}/{1} pts",
+      "pl": "Weekly goal · {0}/{1} pts"
+    }
+  },
+  {
+    "key": "clan.accept",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kabul Et",
+      "en": "Accept",
+      "de": "Accept",
+      "fr": "Accept",
+      "es": "Accept",
+      "pt-BR": "Accept",
+      "it": "Accept",
+      "pl": "Accept"
+    }
+  },
+  {
+    "key": "clan.decline",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Reddet",
+      "en": "Decline",
+      "de": "Decline",
+      "fr": "Decline",
+      "es": "Decline",
+      "pt-BR": "Decline",
+      "it": "Decline",
+      "pl": "Decline"
+    }
+  },
+  {
+    "key": "clan.requested",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "İstek Gönderildi",
+      "en": "Request Sent",
+      "de": "Request Sent",
+      "fr": "Request Sent",
+      "es": "Request Sent",
+      "pt-BR": "Request Sent",
+      "it": "Request Sent",
+      "pl": "Request Sent"
+    }
+  },
+  {
+    "key": "clan.join",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klana Katıl",
+      "en": "Join Clan",
+      "de": "Join Clan",
+      "fr": "Join Clan",
+      "es": "Join Clan",
+      "pt-BR": "Join Clan",
+      "it": "Join Clan",
+      "pl": "Join Clan"
+    }
+  },
+  {
+    "key": "clan.request",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Katılım İsteği",
+      "en": "Request to Join",
+      "de": "Request to Join",
+      "fr": "Request to Join",
+      "es": "Request to Join",
+      "pt-BR": "Request to Join",
+      "it": "Request to Join",
+      "pl": "Request to Join"
+    }
+  },
+  {
+    "key": "clan.request_sent",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Katılım isteğin klan yöneticilerine ulaştı.",
+      "en": "Clan officers received your request.",
+      "de": "Clan officers received your request.",
+      "fr": "Clan officers received your request.",
+      "es": "Clan officers received your request.",
+      "pt-BR": "Clan officers received your request.",
+      "it": "Clan officers received your request.",
+      "pl": "Clan officers received your request."
+    }
+  },
+  {
+    "key": "clan.invite_sent",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Davet oyuncuya ulaştı.",
+      "en": "Invite sent to the player.",
+      "de": "Invite sent to the player.",
+      "fr": "Invite sent to the player.",
+      "es": "Invite sent to the player.",
+      "pt-BR": "Invite sent to the player.",
+      "it": "Invite sent to the player.",
+      "pl": "Invite sent to the player."
+    }
+  },
+  {
+    "key": "clan.edit",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Ayarları",
+      "en": "Clan Settings",
+      "de": "Clan Settings",
+      "fr": "Clan Settings",
+      "es": "Clan Settings",
+      "pt-BR": "Clan Settings",
+      "it": "Clan Settings",
+      "pl": "Clan Settings"
+    }
+  },
+  {
+    "key": "clan.leave",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klandan Ayrıl",
+      "en": "Leave Clan",
+      "de": "Leave Clan",
+      "fr": "Leave Clan",
+      "es": "Leave Clan",
+      "pt-BR": "Leave Clan",
+      "it": "Leave Clan",
+      "pl": "Leave Clan"
+    }
+  },
+  {
+    "key": "clan.other_membership",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bir klana zaten üyesin.",
+      "en": "You are already in a clan.",
+      "de": "You are already in a clan.",
+      "fr": "You are already in a clan.",
+      "es": "You are already in a clan.",
+      "pt-BR": "You are already in a clan.",
+      "it": "You are already in a clan.",
+      "pl": "You are already in a clan."
+    }
+  },
+  {
+    "key": "clan.announcements",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Duyurusu",
+      "en": "Clan Announcement",
+      "de": "Clan Announcement",
+      "fr": "Clan Announcement",
+      "es": "Clan Announcement",
+      "pt-BR": "Clan Announcement",
+      "it": "Clan Announcement",
+      "pl": "Clan Announcement"
+    }
+  },
+  {
+    "key": "clan.no_announcement",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Henüz duyuru yok.",
+      "en": "No announcement yet.",
+      "de": "No announcement yet.",
+      "fr": "No announcement yet.",
+      "es": "No announcement yet.",
+      "pt-BR": "No announcement yet.",
+      "it": "No announcement yet.",
+      "pl": "No announcement yet."
+    }
+  },
+  {
+    "key": "clan.achievements",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Başarıları",
+      "en": "Clan Achievements",
+      "de": "Clan Achievements",
+      "fr": "Clan Achievements",
+      "es": "Clan Achievements",
+      "pt-BR": "Clan Achievements",
+      "it": "Clan Achievements",
+      "pl": "Clan Achievements"
+    }
+  },
+  {
+    "key": "clan.first_win",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "İlk Büyü",
+      "en": "First Spell",
+      "de": "First Spell",
+      "fr": "First Spell",
+      "es": "First Spell",
+      "pt-BR": "First Spell",
+      "it": "First Spell",
+      "pl": "First Spell"
+    }
+  },
+  {
+    "key": "clan.hundred",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "100 Puan",
+      "en": "100 Points",
+      "de": "100 Points",
+      "fr": "100 Points",
+      "es": "100 Points",
+      "pt-BR": "100 Points",
+      "it": "100 Points",
+      "pl": "100 Points"
+    }
+  },
+  {
+    "key": "clan.weekly_badge",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Haftalık Hedef",
+      "en": "Weekly Goal",
+      "de": "Weekly Goal",
+      "fr": "Weekly Goal",
+      "es": "Weekly Goal",
+      "pt-BR": "Weekly Goal",
+      "it": "Weekly Goal",
+      "pl": "Weekly Goal"
+    }
+  },
+  {
+    "key": "clan.event_active",
+    "review": "draft",
+    "values": {
+      "tr": "Hafta sonu büyüsü açık · İlk etkinlik katkısı +{0}",
+      "en": "Weekend magic is live · First event contribution +{0}",
+      "de": "Weekend magic is live · First event contribution +{0}",
+      "fr": "Weekend magic is live · First event contribution +{0}",
+      "es": "Weekend magic is live · First event contribution +{0}",
+      "pt-BR": "Weekend magic is live · First event contribution +{0}",
+      "it": "Weekend magic is live · First event contribution +{0}",
+      "pl": "Weekend magic is live · First event contribution +{0}"
+    }
+  },
+  {
+    "key": "clan.event_wait",
+    "review": "draft",
+    "values": {
+      "tr": "Hafta sonu büyüsü · Cumartesi ve pazar +{0}",
+      "en": "Weekend magic · Saturday and Sunday +{0}",
+      "de": "Weekend magic · Saturday and Sunday +{0}",
+      "fr": "Weekend magic · Saturday and Sunday +{0}",
+      "es": "Weekend magic · Saturday and Sunday +{0}",
+      "pt-BR": "Weekend magic · Saturday and Sunday +{0}",
+      "it": "Weekend magic · Saturday and Sunday +{0}",
+      "pl": "Weekend magic · Saturday and Sunday +{0}"
+    }
+  },
+  {
+    "key": "clan.requests",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Katılım İstekleri",
+      "en": "Join Requests",
+      "de": "Join Requests",
+      "fr": "Join Requests",
+      "es": "Join Requests",
+      "pt-BR": "Join Requests",
+      "it": "Join Requests",
+      "pl": "Join Requests"
+    }
+  },
+  {
+    "key": "clan.no_requests",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bekleyen istek yok.",
+      "en": "No pending requests.",
+      "de": "No pending requests.",
+      "fr": "No pending requests.",
+      "es": "No pending requests.",
+      "pt-BR": "No pending requests.",
+      "it": "No pending requests.",
+      "pl": "No pending requests."
+    }
+  },
+  {
+    "key": "clan.members",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan Üyeleri",
+      "en": "Clan Members",
+      "de": "Clan Members",
+      "fr": "Clan Members",
+      "es": "Clan Members",
+      "pt-BR": "Clan Members",
+      "it": "Clan Members",
+      "pl": "Clan Members"
+    }
+  },
+  {
+    "key": "clan.handle",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Oyuncu adı",
+      "en": "Player handle",
+      "de": "Player handle",
+      "fr": "Player handle",
+      "es": "Player handle",
+      "pt-BR": "Player handle",
+      "it": "Player handle",
+      "pl": "Player handle"
+    }
+  },
+  {
+    "key": "clan.invite",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Davet Et",
+      "en": "Invite",
+      "de": "Invite",
+      "fr": "Invite",
+      "es": "Invite",
+      "pt-BR": "Invite",
+      "it": "Invite",
+      "pl": "Invite"
+    }
+  },
+  {
+    "key": "clan.member_stat",
+    "review": "draft",
+    "values": {
+      "tr": "{0} · {1} puan",
+      "en": "{0} · {1} pts",
+      "de": "{0} · {1} pts",
+      "fr": "{0} · {1} pts",
+      "es": "{0} · {1} pts",
+      "pt-BR": "{0} · {1} pts",
+      "it": "{0} · {1} pts",
+      "pl": "{0} · {1} pts"
+    }
+  },
+  {
+    "key": "clan.role_0",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Üye",
+      "en": "Member",
+      "de": "Member",
+      "fr": "Member",
+      "es": "Member",
+      "pt-BR": "Member",
+      "it": "Member",
+      "pl": "Member"
+    }
+  },
+  {
+    "key": "clan.role_1",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yardımcı Lider",
+      "en": "Deputy Leader",
+      "de": "Deputy Leader",
+      "fr": "Deputy Leader",
+      "es": "Deputy Leader",
+      "pt-BR": "Deputy Leader",
+      "it": "Deputy Leader",
+      "pl": "Deputy Leader"
+    }
+  },
+  {
+    "key": "clan.role_2",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Lider",
+      "en": "Leader",
+      "de": "Leader",
+      "fr": "Leader",
+      "es": "Leader",
+      "pt-BR": "Leader",
+      "it": "Leader",
+      "pl": "Leader"
+    }
+  },
+  {
+    "key": "clan.demote",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Üyeye Çevir",
+      "en": "Demote",
+      "de": "Demote",
+      "fr": "Demote",
+      "es": "Demote",
+      "pt-BR": "Demote",
+      "it": "Demote",
+      "pl": "Demote"
+    }
+  },
+  {
+    "key": "clan.promote",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yardımcı Ata",
+      "en": "Promote",
+      "de": "Promote",
+      "fr": "Promote",
+      "es": "Promote",
+      "pt-BR": "Promote",
+      "it": "Promote",
+      "pl": "Promote"
+    }
+  },
+  {
+    "key": "clan.kick",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çıkar",
+      "en": "Remove",
+      "de": "Remove",
+      "fr": "Remove",
+      "es": "Remove",
+      "pt-BR": "Remove",
+      "it": "Remove",
+      "pl": "Remove"
+    }
+  },
+  {
+    "key": "clan.leave_confirm",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klandan ayrılmak istiyor musun?",
+      "en": "Leave this clan?",
+      "de": "Leave this clan?",
+      "fr": "Leave this clan?",
+      "es": "Leave this clan?",
+      "pt-BR": "Leave this clan?",
+      "it": "Leave this clan?",
+      "pl": "Leave this clan?"
+    }
+  },
+  {
+    "key": "clan.name",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan adı",
+      "en": "Clan name",
+      "de": "Clan name",
+      "fr": "Clan name",
+      "es": "Clan name",
+      "pt-BR": "Clan name",
+      "it": "Clan name",
+      "pl": "Clan name"
+    }
+  },
+  {
+    "key": "clan.description",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan açıklaması",
+      "en": "Clan description",
+      "de": "Clan description",
+      "fr": "Clan description",
+      "es": "Clan description",
+      "pt-BR": "Clan description",
+      "it": "Clan description",
+      "pl": "Clan description"
+    }
+  },
+  {
+    "key": "clan.announcement_input",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Üyelere duyuru",
+      "en": "Announcement",
+      "de": "Announcement",
+      "fr": "Announcement",
+      "es": "Announcement",
+      "pt-BR": "Announcement",
+      "it": "Announcement",
+      "pl": "Announcement"
+    }
+  },
+  {
+    "key": "clan.open",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Açık katılım",
+      "en": "Open membership",
+      "de": "Open membership",
+      "fr": "Open membership",
+      "es": "Open membership",
+      "pt-BR": "Open membership",
+      "it": "Open membership",
+      "pl": "Open membership"
+    }
+  },
+  {
+    "key": "clan.closed",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Onaylı katılım",
+      "en": "Approval required",
+      "de": "Approval required",
+      "fr": "Approval required",
+      "es": "Approval required",
+      "pt-BR": "Approval required",
+      "it": "Approval required",
+      "pl": "Approval required"
+    }
+  },
+  {
+    "key": "clan.minimum",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "En az doğrulanmış kazanış",
+      "en": "Minimum verified wins",
+      "de": "Minimum verified wins",
+      "fr": "Minimum verified wins",
+      "es": "Minimum verified wins",
+      "pt-BR": "Minimum verified wins",
+      "it": "Minimum verified wins",
+      "pl": "Minimum verified wins"
+    }
+  },
+  {
+    "key": "clan.preview_emblems",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Amblem önizlemeleri",
+      "en": "Emblem previews",
+      "de": "Emblem previews",
+      "fr": "Emblem previews",
+      "es": "Emblem previews",
+      "pt-BR": "Emblem previews",
+      "it": "Emblem previews",
+      "pl": "Emblem previews"
+    }
+  },
+  {
+    "key": "clan.emblem_0",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Altın",
+      "en": "Gold",
+      "de": "Gold",
+      "fr": "Gold",
+      "es": "Gold",
+      "pt-BR": "Gold",
+      "it": "Gold",
+      "pl": "Gold"
+    }
+  },
+  {
+    "key": "clan.emblem_1",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kristal",
+      "en": "Crystal",
+      "de": "Crystal",
+      "fr": "Crystal",
+      "es": "Crystal",
+      "pt-BR": "Crystal",
+      "it": "Crystal",
+      "pl": "Crystal"
+    }
+  },
+  {
+    "key": "clan.emblem_2",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Pembe",
+      "en": "Rose",
+      "de": "Rose",
+      "fr": "Rose",
+      "es": "Rose",
+      "pt-BR": "Rose",
+      "it": "Rose",
+      "pl": "Rose"
+    }
+  },
+  {
+    "key": "clan.save",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Kaydet",
+      "en": "Save",
+      "de": "Save",
+      "fr": "Save",
+      "es": "Save",
+      "pt-BR": "Save",
+      "it": "Save",
+      "pl": "Save"
+    }
+  },
+  {
+    "key": "clan.login_hint",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan hesabınla giriş yap ya da yeni bir hesap aç.",
+      "en": "Sign in with your clan account or create one.",
+      "de": "Sign in with your clan account or create one.",
+      "fr": "Sign in with your clan account or create one.",
+      "es": "Sign in with your clan account or create one.",
+      "pt-BR": "Sign in with your clan account or create one.",
+      "it": "Sign in with your clan account or create one.",
+      "pl": "Sign in with your clan account or create one."
+    }
+  },
+  {
+    "key": "clan.password",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Parola",
+      "en": "Password",
+      "de": "Password",
+      "fr": "Password",
+      "es": "Password",
+      "pt-BR": "Password",
+      "it": "Password",
+      "pl": "Password"
+    }
+  },
+  {
+    "key": "clan.login",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Giriş Yap",
+      "en": "Sign In",
+      "de": "Sign In",
+      "fr": "Sign In",
+      "es": "Sign In",
+      "pt-BR": "Sign In",
+      "it": "Sign In",
+      "pl": "Sign In"
+    }
+  },
+  {
+    "key": "clan.register",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Hesap Aç",
+      "en": "Create Account",
+      "de": "Create Account",
+      "fr": "Create Account",
+      "es": "Create Account",
+      "pt-BR": "Create Account",
+      "it": "Create Account",
+      "pl": "Create Account"
+    }
+  },
+  {
+    "key": "clan.password_rule",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Oyuncu adı: 3–20 küçük Latin harfi, sayı veya alt çizgi. Parola: en az 10 karakter.",
+      "en": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters.",
+      "de": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters.",
+      "fr": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters.",
+      "es": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters.",
+      "pt-BR": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters.",
+      "it": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters.",
+      "pl": "Handle: 3–20 Latin letters, digits or underscores. Password: at least 10 characters."
+    }
+  },
+  {
+    "key": "clan.error_offline",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan sunucusuna ulaşılamıyor. Bağlantı gelince tekrar dene.",
+      "en": "Cannot reach the clan server. Try again when connected.",
+      "de": "Cannot reach the clan server. Try again when connected.",
+      "fr": "Cannot reach the clan server. Try again when connected.",
+      "es": "Cannot reach the clan server. Try again when connected.",
+      "pt-BR": "Cannot reach the clan server. Try again when connected.",
+      "it": "Cannot reach the clan server. Try again when connected.",
+      "pl": "Cannot reach the clan server. Try again when connected."
+    }
+  },
+  {
+    "key": "clan.error_not_configured",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çevrimiçi klan sunucusu henüz yapılandırılmadı.",
+      "en": "The online clan server is not configured yet.",
+      "de": "The online clan server is not configured yet.",
+      "fr": "The online clan server is not configured yet.",
+      "es": "The online clan server is not configured yet.",
+      "pt-BR": "The online clan server is not configured yet.",
+      "it": "The online clan server is not configured yet.",
+      "pl": "The online clan server is not configured yet."
+    }
+  },
+  {
+    "key": "clan.error_unauthorized",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Giriş bilgilerini kontrol et ya da yeniden giriş yap.",
+      "en": "Check your credentials or sign in again.",
+      "de": "Check your credentials or sign in again.",
+      "fr": "Check your credentials or sign in again.",
+      "es": "Check your credentials or sign in again.",
+      "pt-BR": "Check your credentials or sign in again.",
+      "it": "Check your credentials or sign in again.",
+      "pl": "Check your credentials or sign in again."
+    }
+  },
+  {
+    "key": "clan.error_forbidden",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu işlem için yetkin yok.",
+      "en": "You do not have permission for that action.",
+      "de": "You do not have permission for that action.",
+      "fr": "You do not have permission for that action.",
+      "es": "You do not have permission for that action.",
+      "pt-BR": "You do not have permission for that action.",
+      "it": "You do not have permission for that action.",
+      "pl": "You do not have permission for that action."
+    }
+  },
+  {
+    "key": "clan.error_credentials",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Oyuncu adını ve parola uzunluğunu kontrol et.",
+      "en": "Check your handle and password length.",
+      "de": "Check your handle and password length.",
+      "fr": "Check your handle and password length.",
+      "es": "Check your handle and password length.",
+      "pt-BR": "Check your handle and password length.",
+      "it": "Check your handle and password length.",
+      "pl": "Check your handle and password length."
+    }
+  },
+  {
+    "key": "clan.error_handle_taken",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu oyuncu adı kullanılıyor.",
+      "en": "This handle is already taken.",
+      "de": "This handle is already taken.",
+      "fr": "This handle is already taken.",
+      "es": "This handle is already taken.",
+      "pt-BR": "This handle is already taken.",
+      "it": "This handle is already taken.",
+      "pl": "This handle is already taken."
+    }
+  },
+  {
+    "key": "clan.error_name_taken",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bu klan adı kullanılıyor.",
+      "en": "This clan name is already taken.",
+      "de": "This clan name is already taken.",
+      "fr": "This clan name is already taken.",
+      "es": "This clan name is already taken.",
+      "pt-BR": "This clan name is already taken.",
+      "it": "This clan name is already taken.",
+      "pl": "This clan name is already taken."
+    }
+  },
+  {
+    "key": "clan.error_full",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan kapasitesi dolu.",
+      "en": "This clan is full.",
+      "de": "This clan is full.",
+      "fr": "This clan is full.",
+      "es": "This clan is full.",
+      "pt-BR": "This clan is full.",
+      "it": "This clan is full.",
+      "pl": "This clan is full."
+    }
+  },
+  {
+    "key": "clan.error_requirements",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Katılım için daha fazla doğrulanmış kazanış gerekiyor.",
+      "en": "More verified wins are required.",
+      "de": "More verified wins are required.",
+      "fr": "More verified wins are required.",
+      "es": "More verified wins are required.",
+      "pt-BR": "More verified wins are required.",
+      "it": "More verified wins are required.",
+      "pl": "More verified wins are required."
+    }
+  },
+  {
+    "key": "clan.error_already_member",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Önce mevcut klanından ayrıl.",
+      "en": "Leave your current clan first.",
+      "de": "Leave your current clan first.",
+      "fr": "Leave your current clan first.",
+      "es": "Leave your current clan first.",
+      "pt-BR": "Leave your current clan first.",
+      "it": "Leave your current clan first.",
+      "pl": "Leave your current clan first."
+    }
+  },
+  {
+    "key": "clan.error_not_found",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan, oyuncu ya da bekleyen istek bulunamadı.",
+      "en": "Clan, player, or pending request not found.",
+      "de": "Clan, player, or pending request not found.",
+      "fr": "Clan, player, or pending request not found.",
+      "es": "Clan, player, or pending request not found.",
+      "pt-BR": "Clan, player, or pending request not found.",
+      "it": "Clan, player, or pending request not found.",
+      "pl": "Clan, player, or pending request not found."
+    }
+  },
+  {
+    "key": "clan.error_settings",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan ayarlarını kontrol et.",
+      "en": "Check the clan settings.",
+      "de": "Check the clan settings.",
+      "fr": "Check the clan settings.",
+      "es": "Check the clan settings.",
+      "pt-BR": "Check the clan settings.",
+      "it": "Check the clan settings.",
+      "pl": "Check the clan settings."
+    }
+  },
+  {
+    "key": "clan.error_text",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Metin uzunluğunu ve karakterleri kontrol et.",
+      "en": "Check the text length and characters.",
+      "de": "Check the text length and characters.",
+      "fr": "Check the text length and characters.",
+      "es": "Check the text length and characters.",
+      "pt-BR": "Check the text length and characters.",
+      "it": "Check the text length and characters.",
+      "pl": "Check the text length and characters."
+    }
+  },
+  {
+    "key": "clan.error_request_limit",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bekleyen istek veya davet sınırına ulaşıldı.",
+      "en": "The pending request or invitation limit was reached.",
+      "de": "The pending request or invitation limit was reached.",
+      "fr": "The pending request or invitation limit was reached.",
+      "es": "The pending request or invitation limit was reached.",
+      "pt-BR": "The pending request or invitation limit was reached.",
+      "it": "The pending request or invitation limit was reached.",
+      "pl": "The pending request or invitation limit was reached."
+    }
+  },
+  {
+    "key": "clan.error_rate_limit",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Çok fazla istek gönderildi. Biraz sonra yeniden dene.",
+      "en": "Too many requests. Try again shortly.",
+      "de": "Too many requests. Try again shortly.",
+      "fr": "Too many requests. Try again shortly.",
+      "es": "Too many requests. Try again shortly.",
+      "pt-BR": "Too many requests. Try again shortly.",
+      "it": "Too many requests. Try again shortly.",
+      "pl": "Too many requests. Try again shortly."
+    }
+  },
+  {
+    "key": "clan.error_retry",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Sunucu meşgul. Biraz sonra yeniden dene.",
+      "en": "The server is busy. Try again shortly.",
+      "de": "The server is busy. Try again shortly.",
+      "fr": "The server is busy. Try again shortly.",
+      "es": "The server is busy. Try again shortly.",
+      "pt-BR": "The server is busy. Try again shortly.",
+      "it": "The server is busy. Try again shortly.",
+      "pl": "The server is busy. Try again shortly."
+    }
+  },
+  {
+    "key": "clan.error_server",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Klan işlemi tamamlanamadı. Tekrar dene.",
+      "en": "The clan operation could not be completed. Try again.",
+      "de": "The clan operation could not be completed. Try again.",
+      "fr": "The clan operation could not be completed. Try again.",
+      "es": "The clan operation could not be completed. Try again.",
+      "pt-BR": "The clan operation could not be completed. Try again.",
+      "it": "The clan operation could not be completed. Try again.",
+      "pl": "The clan operation could not be completed. Try again."
+    }
   }
 ]

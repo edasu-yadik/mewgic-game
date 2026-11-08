@@ -1240,6 +1240,368 @@ MonoBehaviour:
     m_Localized: "\u00d6d\u00fcl do\u011frulanamad\u0131"
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897771
+    m_Localized: "Klan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897772
+    m_Localized: "B\u00fcy\u00fcl\u00fc Klanlar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897773
+    m_Localized: "Kedilerin b\u00fcy\u00fcl\u00fc bulu\u015fma salonu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897774
+    m_Localized: "{0} \u00b7 {1} do\u011frulanm\u0131\u015f kazan\u0131\u015f"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897775
+    m_Localized: "Klan sunucusuna ba\u011flan\u0131l\u0131yor\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897776
+    m_Localized: "Bekleyen b\u00f6l\u00fcm katk\u0131s\u0131: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897777
+    m_Localized: "Klan Salonu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897778
+    m_Localized: "Klan Ara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897779
+    m_Localized: "Davetler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897780
+    m_Localized: "\u00c7\u0131k\u0131\u015f Yap"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897781
+    m_Localized: "Hen\u00fcz klan davetin yok."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897782
+    m_Localized: "B\u00fcy\u00fcl\u00fc Klan Salonu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897783
+    m_Localized: "Bir klan kur ya da kedilere kat\u0131l. Birlikte b\u00f6l\u00fcm kazan, haftal\u0131k hedefi doldur."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897784
+    m_Localized: "Klan Kur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897785
+    m_Localized: "Yeni do\u011frulanm\u0131\u015f b\u00f6l\u00fcm: +{0}. G\u00fcn\u00fcn ilk klan kazan\u0131\u015f\u0131: +{1}. Hafta sonu etkinli\u011fi: +{2}. Ek \u015ei\u015fe ve Kar\u0131\u015ft\u0131r kullan\u0131lan turlar klan puan\u0131 getirmez."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897786
+    m_Localized: "Klan ad\u0131n\u0131 yaz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897787
+    m_Localized: "Ara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897788
+    m_Localized: "Aramana uygun klan bulunamad\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897789
+    m_Localized: "{0}/{1} \u00fcye \u00b7 Sv. {2} \u00b7 {3} puan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897790
+    m_Localized: "\u0130ncele"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897791
+    m_Localized: "A\u00e7\u0131k \u00b7 En az {0} do\u011frulanm\u0131\u015f kazan\u0131\u015f"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897792
+    m_Localized: "Onayl\u0131 \u00b7 En az {0} do\u011frulanm\u0131\u015f kazan\u0131\u015f"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897793
+    m_Localized: "Klan a\u00e7\u0131klamas\u0131 hen\u00fcz yaz\u0131lmad\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897794
+    m_Localized: "Haftal\u0131k hedef \u00b7 {0}/{1} puan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897795
+    m_Localized: "Kabul Et"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897796
+    m_Localized: "Reddet"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897797
+    m_Localized: "\u0130stek G\u00f6nderildi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897798
+    m_Localized: "Klana Kat\u0131l"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897799
+    m_Localized: "Kat\u0131l\u0131m \u0130ste\u011fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897800
+    m_Localized: "Kat\u0131l\u0131m iste\u011fin klan y\u00f6neticilerine ula\u015ft\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897801
+    m_Localized: "Davet oyuncuya ula\u015ft\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897802
+    m_Localized: "Klan Ayarlar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897803
+    m_Localized: "Klandan Ayr\u0131l"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897804
+    m_Localized: "Bir klana zaten \u00fcyesin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897805
+    m_Localized: "Klan Duyurusu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897806
+    m_Localized: "Hen\u00fcz duyuru yok."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897807
+    m_Localized: "Klan Ba\u015far\u0131lar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897808
+    m_Localized: "\u0130lk B\u00fcy\u00fc"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897809
+    m_Localized: "100 Puan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897810
+    m_Localized: "Haftal\u0131k Hedef"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897811
+    m_Localized: "Hafta sonu b\u00fcy\u00fcs\u00fc a\u00e7\u0131k \u00b7 \u0130lk etkinlik katk\u0131s\u0131 +{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897812
+    m_Localized: "Hafta sonu b\u00fcy\u00fcs\u00fc \u00b7 Cumartesi ve pazar +{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897813
+    m_Localized: "Kat\u0131l\u0131m \u0130stekleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897814
+    m_Localized: "Bekleyen istek yok."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897815
+    m_Localized: "Klan \u00dcyeleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897816
+    m_Localized: "Oyuncu ad\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897817
+    m_Localized: "Davet Et"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897818
+    m_Localized: "{0} \u00b7 {1} puan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
+  - m_Id: 2924300237897819
+    m_Localized: "\u00dcye"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897820
+    m_Localized: "Yard\u0131mc\u0131 Lider"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897821
+    m_Localized: "Lider"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897822
+    m_Localized: "\u00dcyeye \u00c7evir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897823
+    m_Localized: "Yard\u0131mc\u0131 Ata"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897824
+    m_Localized: "\u00c7\u0131kar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897825
+    m_Localized: "Klandan ayr\u0131lmak istiyor musun?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897826
+    m_Localized: "Klan ad\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897827
+    m_Localized: "Klan a\u00e7\u0131klamas\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897828
+    m_Localized: "\u00dcyelere duyuru"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897829
+    m_Localized: "A\u00e7\u0131k kat\u0131l\u0131m"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897830
+    m_Localized: "Onayl\u0131 kat\u0131l\u0131m"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897831
+    m_Localized: "En az do\u011frulanm\u0131\u015f kazan\u0131\u015f"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897832
+    m_Localized: "Amblem \u00f6nizlemeleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897833
+    m_Localized: "Alt\u0131n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897834
+    m_Localized: "Kristal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897835
+    m_Localized: "Pembe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897836
+    m_Localized: "Kaydet"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897837
+    m_Localized: "Klan hesab\u0131nla giri\u015f yap ya da yeni bir hesap a\u00e7."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897838
+    m_Localized: "Parola"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897839
+    m_Localized: "Giri\u015f Yap"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897840
+    m_Localized: "Hesap A\u00e7"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897841
+    m_Localized: "Oyuncu ad\u0131: 3\u201320 k\u00fc\u00e7\u00fck Latin harfi, say\u0131 veya alt \u00e7izgi. Parola: en az 10 karakter."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897842
+    m_Localized: "Klan sunucusuna ula\u015f\u0131lam\u0131yor. Ba\u011flant\u0131 gelince tekrar dene."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897843
+    m_Localized: "\u00c7evrimi\u00e7i klan sunucusu hen\u00fcz yap\u0131land\u0131r\u0131lmad\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897844
+    m_Localized: "Giri\u015f bilgilerini kontrol et ya da yeniden giri\u015f yap."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897845
+    m_Localized: "Bu i\u015flem i\u00e7in yetkin yok."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897846
+    m_Localized: "Oyuncu ad\u0131n\u0131 ve parola uzunlu\u011funu kontrol et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897847
+    m_Localized: "Bu oyuncu ad\u0131 kullan\u0131l\u0131yor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897848
+    m_Localized: "Bu klan ad\u0131 kullan\u0131l\u0131yor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897849
+    m_Localized: "Klan kapasitesi dolu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897850
+    m_Localized: "Kat\u0131l\u0131m i\u00e7in daha fazla do\u011frulanm\u0131\u015f kazan\u0131\u015f gerekiyor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897851
+    m_Localized: "\u00d6nce mevcut klan\u0131ndan ayr\u0131l."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897852
+    m_Localized: "Klan, oyuncu ya da bekleyen istek bulunamad\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897853
+    m_Localized: "Klan ayarlar\u0131n\u0131 kontrol et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897854
+    m_Localized: "Metin uzunlu\u011funu ve karakterleri kontrol et."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897855
+    m_Localized: "Bekleyen istek veya davet s\u0131n\u0131r\u0131na ula\u015f\u0131ld\u0131."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897856
+    m_Localized: "\u00c7ok fazla istek g\u00f6nderildi. Biraz sonra yeniden dene."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897857
+    m_Localized: "Sunucu me\u015fgul. Biraz sonra yeniden dene."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897858
+    m_Localized: "Klan i\u015flemi tamamlanamad\u0131. Tekrar dene."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1436,3 +1798,13 @@ MonoBehaviour:
         - id: 2924300237897762
         - id: 2924300237897763
         - id: 2924300237897764
+        - id: 2924300237897774
+        - id: 2924300237897776
+        - id: 2924300237897785
+        - id: 2924300237897789
+        - id: 2924300237897791
+        - id: 2924300237897792
+        - id: 2924300237897794
+        - id: 2924300237897811
+        - id: 2924300237897812
+        - id: 2924300237897818

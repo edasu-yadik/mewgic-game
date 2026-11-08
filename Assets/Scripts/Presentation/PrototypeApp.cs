@@ -20,6 +20,7 @@ namespace Mewgic
         GameplayEndScreen endScreen;
         ProgressLedger progress;
         BoosterActions boosters;
+        readonly Clans.ClanWinTrace clanTrace = new();
         int originalBottleCount,hintTarget=-1;
         bool completionHandled,navigating,firstAttempt,hintUsed;
         GameplayLevelInfo levelInfo;
@@ -139,6 +140,7 @@ namespace Mewgic
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
             gameObject.AddComponent<MagicShopPanel>().Mount(safe,homeCharacter?.GetComponent<HomeTopBar>()?.coin);
+            gameObject.AddComponent<Clans.ClanPanel>().Mount(safe, homeCharacter?.GetComponent<HomeNavigation>()?.team);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
             gameObject.AddComponent<Mewgic.Rewards.RewardHubPanel>().Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyArrivalPopup>().Mount(safe);
@@ -187,7 +189,7 @@ namespace Mewgic
                 case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");}break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
-            if(!applied)Feedback(boosters.Message);else{pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
+            if(!applied)Feedback(boosters.Message);else{clanTrace.Booster(kind);pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
         }
         void NextLevel()
         {
@@ -247,7 +249,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();if(!tutorialReplay)Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();ReturnFromGameplay();}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused||navigating)return;pawGuide?.ResetGuide();puzzle.Restart();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
+        void Reset(){if(busy||paused||navigating)return;pawGuide?.ResetGuide();puzzle.Restart();clanTrace.Reset();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh(bool settlePausedVictory=false)
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
@@ -273,6 +275,7 @@ namespace Mewgic
             {
                 completionHandled=true;int stars=new GameplayHudState(levelInfo,puzzle).AwardedStars;
                 bool granted=false;bool saved=tutorialReplay||progress.Claim(levelInfo.id,stars,puzzle.Won,out granted,victoryReceipt,new GameplayHudState(levelInfo,puzzle).Completed,firstAttempt,hintUsed);UpdateTools();
+                if(saved&&!tutorialReplay)clanTrace.Submit(levelInfo.id);
                 endScreen.Show(levelInfo.id,stars,saved,saved&&!tutorialReplay&&GameplayLevelCatalog.CanAdvance(levelInfo.id,progress),tutorialReplay?default:progress.LastCompletionReward,tutorialReplay?null:progress,victoryReceipt);
             }
             bool showPlayControls = !endScreen.IsShowing;
@@ -327,6 +330,7 @@ namespace Mewgic
             int color=puzzle.Bottle(source)[puzzle.Bottle(source).Count-1];
             int amount=puzzle.Pour(source,target);
             if(amount==0){GameFeel.Play(GameCue.Invalid);Refresh();bottleViews[target].GetComponent<GameplayBottleView>().Reject();Feedback(L.V(puzzle.Bottle(target).Count==Puzzle.Capacity?"gameplay.target_full":"gameplay.target_color"));return;}
+            clanTrace.Pour(source,target);
             selected=-1;busy=true;UpdateBottleInput();pourRoutine=StartCoroutine(AnimatePour(source,target,color,amount));
         }
         IEnumerator AnimatePour(int source,int target,int color,int amount)

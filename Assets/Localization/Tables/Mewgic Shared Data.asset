@@ -1019,6 +1019,358 @@ MonoBehaviour:
     m_Key: victory.ad_unverified
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897771
+    m_Key: clan.nav
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897772
+    m_Key: clan.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897773
+    m_Key: clan.subtitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897774
+    m_Key: clan.profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897775
+    m_Key: clan.loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897776
+    m_Key: clan.pending
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897777
+    m_Key: clan.hall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897778
+    m_Key: clan.browse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897779
+    m_Key: clan.invitations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897780
+    m_Key: clan.logout
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897781
+    m_Key: clan.no_invites
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897782
+    m_Key: clan.welcome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897783
+    m_Key: clan.intro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897784
+    m_Key: clan.create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897785
+    m_Key: clan.rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897786
+    m_Key: clan.search_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897787
+    m_Key: clan.search
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897788
+    m_Key: clan.no_results
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897789
+    m_Key: clan.stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897790
+    m_Key: clan.view
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897791
+    m_Key: clan.open_rule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897792
+    m_Key: clan.closed_rule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897793
+    m_Key: clan.no_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897794
+    m_Key: clan.weekly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897795
+    m_Key: clan.accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897796
+    m_Key: clan.decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897797
+    m_Key: clan.requested
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897798
+    m_Key: clan.join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897799
+    m_Key: clan.request
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897800
+    m_Key: clan.request_sent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897801
+    m_Key: clan.invite_sent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897802
+    m_Key: clan.edit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897803
+    m_Key: clan.leave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897804
+    m_Key: clan.other_membership
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897805
+    m_Key: clan.announcements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897806
+    m_Key: clan.no_announcement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897807
+    m_Key: clan.achievements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897808
+    m_Key: clan.first_win
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897809
+    m_Key: clan.hundred
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897810
+    m_Key: clan.weekly_badge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897811
+    m_Key: clan.event_active
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897812
+    m_Key: clan.event_wait
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897813
+    m_Key: clan.requests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897814
+    m_Key: clan.no_requests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897815
+    m_Key: clan.members
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897816
+    m_Key: clan.handle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897817
+    m_Key: clan.invite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897818
+    m_Key: clan.member_stat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897819
+    m_Key: clan.role_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897820
+    m_Key: clan.role_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897821
+    m_Key: clan.role_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897822
+    m_Key: clan.demote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897823
+    m_Key: clan.promote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897824
+    m_Key: clan.kick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897825
+    m_Key: clan.leave_confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897826
+    m_Key: clan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897827
+    m_Key: clan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897828
+    m_Key: clan.announcement_input
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897829
+    m_Key: clan.open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897830
+    m_Key: clan.closed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897831
+    m_Key: clan.minimum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897832
+    m_Key: clan.preview_emblems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897833
+    m_Key: clan.emblem_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897834
+    m_Key: clan.emblem_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897835
+    m_Key: clan.emblem_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897836
+    m_Key: clan.save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897837
+    m_Key: clan.login_hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897838
+    m_Key: clan.password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897839
+    m_Key: clan.login
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897840
+    m_Key: clan.register
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897841
+    m_Key: clan.password_rule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897842
+    m_Key: clan.error_offline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897843
+    m_Key: clan.error_not_configured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897844
+    m_Key: clan.error_unauthorized
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897845
+    m_Key: clan.error_forbidden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897846
+    m_Key: clan.error_credentials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897847
+    m_Key: clan.error_handle_taken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897848
+    m_Key: clan.error_name_taken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897849
+    m_Key: clan.error_full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897850
+    m_Key: clan.error_requirements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897851
+    m_Key: clan.error_already_member
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897852
+    m_Key: clan.error_not_found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897853
+    m_Key: clan.error_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897854
+    m_Key: clan.error_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897855
+    m_Key: clan.error_request_limit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897856
+    m_Key: clan.error_rate_limit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897857
+    m_Key: clan.error_retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897858
+    m_Key: clan.error_server
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

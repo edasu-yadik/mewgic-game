@@ -1254,6 +1254,368 @@ MonoBehaviour:
     m_Localized: "Ricompensa non verificata"
     m_Metadata:
       m_Items: []
+  - m_Id: 2924300237897771
+    m_Localized: "Clan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897772
+    m_Localized: "Magic Clans"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897773
+    m_Localized: "The cats\u2019 enchanted meeting hall"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897774
+    m_Localized: "{0} \u00b7 {1} verified wins"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897775
+    m_Localized: "Connecting to the clan server\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897776
+    m_Localized: "Pending level contributions: {0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897777
+    m_Localized: "Clan Hall"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897778
+    m_Localized: "Find Clans"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897779
+    m_Localized: "Invites"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897780
+    m_Localized: "Sign Out"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897781
+    m_Localized: "You have no clan invites yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897782
+    m_Localized: "Enchanted Clan Hall"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897783
+    m_Localized: "Start a clan or join the cats. Win levels together to reach the weekly goal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897784
+    m_Localized: "Create Clan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897785
+    m_Localized: "New verified level: +{0}. First clan win of the day: +{1}. Weekend event: +{2}. Extra Bottle and Shuffle runs are excluded."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897786
+    m_Localized: "Enter a clan name"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897787
+    m_Localized: "Search"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897788
+    m_Localized: "No clans matched your search."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897789
+    m_Localized: "{0}/{1} members \u00b7 Lv. {2} \u00b7 {3} pts"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897790
+    m_Localized: "View"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897791
+    m_Localized: "Open \u00b7 {0} verified wins required"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897792
+    m_Localized: "Approval \u00b7 {0} verified wins required"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897793
+    m_Localized: "This clan has no description yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897794
+    m_Localized: "Weekly goal \u00b7 {0}/{1} pts"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897795
+    m_Localized: "Accept"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897796
+    m_Localized: "Decline"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897797
+    m_Localized: "Request Sent"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897798
+    m_Localized: "Join Clan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897799
+    m_Localized: "Request to Join"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897800
+    m_Localized: "Clan officers received your request."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897801
+    m_Localized: "Invite sent to the player."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897802
+    m_Localized: "Clan Settings"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897803
+    m_Localized: "Leave Clan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897804
+    m_Localized: "You are already in a clan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897805
+    m_Localized: "Clan Announcement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897806
+    m_Localized: "No announcement yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897807
+    m_Localized: "Clan Achievements"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897808
+    m_Localized: "First Spell"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897809
+    m_Localized: "100 Points"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897810
+    m_Localized: "Weekly Goal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897811
+    m_Localized: "Weekend magic is live \u00b7 First event contribution +{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897812
+    m_Localized: "Weekend magic \u00b7 Saturday and Sunday +{0}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897813
+    m_Localized: "Join Requests"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897814
+    m_Localized: "No pending requests."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897815
+    m_Localized: "Clan Members"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897816
+    m_Localized: "Player handle"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897817
+    m_Localized: "Invite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897818
+    m_Localized: "{0} \u00b7 {1} pts"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
+  - m_Id: 2924300237897819
+    m_Localized: "Member"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897820
+    m_Localized: "Deputy Leader"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897821
+    m_Localized: "Leader"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897822
+    m_Localized: "Demote"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897823
+    m_Localized: "Promote"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897824
+    m_Localized: "Remove"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897825
+    m_Localized: "Leave this clan?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897826
+    m_Localized: "Clan name"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897827
+    m_Localized: "Clan description"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897828
+    m_Localized: "Announcement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897829
+    m_Localized: "Open membership"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897830
+    m_Localized: "Approval required"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897831
+    m_Localized: "Minimum verified wins"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897832
+    m_Localized: "Emblem previews"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897833
+    m_Localized: "Gold"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897834
+    m_Localized: "Crystal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897835
+    m_Localized: "Rose"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897836
+    m_Localized: "Save"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897837
+    m_Localized: "Sign in with your clan account or create one."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897838
+    m_Localized: "Password"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897839
+    m_Localized: "Sign In"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897840
+    m_Localized: "Create Account"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897841
+    m_Localized: "Handle: 3\u201320 Latin letters, digits or underscores. Password: at least 10 characters."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897842
+    m_Localized: "Cannot reach the clan server. Try again when connected."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897843
+    m_Localized: "The online clan server is not configured yet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897844
+    m_Localized: "Check your credentials or sign in again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897845
+    m_Localized: "You do not have permission for that action."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897846
+    m_Localized: "Check your handle and password length."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897847
+    m_Localized: "This handle is already taken."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897848
+    m_Localized: "This clan name is already taken."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897849
+    m_Localized: "This clan is full."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897850
+    m_Localized: "More verified wins are required."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897851
+    m_Localized: "Leave your current clan first."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897852
+    m_Localized: "Clan, player, or pending request not found."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897853
+    m_Localized: "Check the clan settings."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897854
+    m_Localized: "Check the text length and characters."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897855
+    m_Localized: "The pending request or invitation limit was reached."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897856
+    m_Localized: "Too many requests. Try again shortly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897857
+    m_Localized: "The server is busy. Try again shortly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2924300237897858
+    m_Localized: "The clan operation could not be completed. Try again."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -1450,3 +1812,13 @@ MonoBehaviour:
         - id: 2924300237897762
         - id: 2924300237897763
         - id: 2924300237897764
+        - id: 2924300237897774
+        - id: 2924300237897776
+        - id: 2924300237897785
+        - id: 2924300237897789
+        - id: 2924300237897791
+        - id: 2924300237897792
+        - id: 2924300237897794
+        - id: 2924300237897811
+        - id: 2924300237897812
+        - id: 2924300237897818

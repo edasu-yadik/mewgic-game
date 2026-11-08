@@ -28,8 +28,7 @@ namespace Mewgic.UI
 
         protected virtual bool PreserveArtwork => false;
         protected virtual bool ArtworkLocked => false;
-        bool PreviewOnly => name == "NavTeam";
-        bool Locked => !IsInteractable() || PreviewOnly || ArtworkLocked;
+        bool Locked => !IsInteractable() || ArtworkLocked;
 
         public void SetRole(ButtonRole style)
         {
@@ -110,7 +109,7 @@ namespace Mewgic.UI
             transition = Transition.None;
             if (targetGraphic != null) targetGraphic.canvasRenderer.SetAlpha(0);
 
-            if (role == ButtonRole.Reward || name.StartsWith("DailyAction_", StringComparison.Ordinal) || PreviewOnly)
+            if (role == ButtonRole.Reward || name.StartsWith("DailyAction_", StringComparison.Ordinal))
             {
                 lockMark = GameplayTools.Rect(transform, "PremiumLock", Vector2.zero, Vector2.one);
                 var badge = lockMark.gameObject.AddComponent<Map.MapLockGraphic>();
