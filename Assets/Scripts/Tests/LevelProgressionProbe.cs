@@ -1,0 +1,363 @@
+#if UNITY_EDITOR
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using Mewgic.Core;
+using Mewgic.Localization;
+using Mewgic.Map;
+using Mewgic.UI;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+namespace Mewgic
+{
+    [DefaultExecutionOrder(-20000)]
+    public sealed class LevelProgressionProbe : MonoBehaviour
+    {
+        const string Output = "docs/ProductionReports/LevelProgression/";
+        static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
+        static readonly FieldInfo LedgerField = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
+        static readonly FieldInfo PuzzleField = typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic);
+        static LevelProgressionProbe active;
+        readonly List<object> checks = new(), boards = new();
+        readonly List<string> errors = new(); readonly List<object> transitions = new();
+        Dictionary<string, string> original;
+        string key, archiveRoot;
+        bool passed = true, previousRunInBackground;
+        ProgressLedger Ledger => GameplayProgress.Current;
+        GameplayHud Hud => FindFirstObjectByType<GameplayHud>();
+        Puzzle Board => (Puzzle)PuzzleField.GetValue(FindFirstObjectByType<PrototypeApp>());
+
+        [MenuItem("Mewgic/QA/Run Level Progression")]
+        public static void Begin()
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+                if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Açık sahnede kaydedilmemiş değişiklik var.");
+            EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
+            new GameObject("Isolated level progression QA").AddComponent<LevelProgressionProbe>();
+            Type.GetType("Part12BEditor, Assembly-CSharp-Editor")?.GetMethod("Size")?.Invoke(null, new object[] { 1600 });
+            EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
+            EditorApplication.isPlaying = true;
+        }
+
+        static Dictionary<string, string> PlayerSave() => Suffixes.ToDictionary(
+            suffix => suffix, suffix => PlayerPrefs.HasKey(GameplayProgress.StorageKey + suffix)
+                ? PlayerPrefs.GetString(GameplayProgress.StorageKey + suffix) : null);
+
+        void Awake()
+        {
+            if(active!=null){Destroy(gameObject);return;}
+            active=this;
+            DontDestroyOnLoad(gameObject);
+            previousRunInBackground = Application.runInBackground;
+            Application.runInBackground = true;
+            original = PlayerSave();
+            archiveRoot = Path.GetFullPath("Library/LevelProgressionQA/" + Guid.NewGuid().ToString("N"));
+            Application.logMessageReceived += Log;
+            Seed(0);
+        }
+
+        void Log(string message, string stack, LogType kind)
+        {
+            if (kind == LogType.Error || kind == LogType.Exception || kind == LogType.Assert) errors.Add(message);
+        }
+
+        void Seed(int completed)
+        {
+            ClearJournal();
+            key = "Mewgic.Tests.LevelProgression." + Guid.NewGuid().ToString("N");
+            var data = MapFlowProbe.Data(completed);
+            data.presentation.currentLevel = completed + 1;
+            data.presentation.reduceMotion = true;
+            data.presentation.motionPreferenceSet = true;
+            PlayerPrefs.SetString(key, JsonUtility.ToJson(data));
+            PlayerPrefs.Save();
+            Reopen();
+        }
+
+        void Reopen()
+        {
+            GameplayProgress.RestorePlayerProfile();
+            GameplayProgress.UseTestProfile();
+            LedgerField.SetValue(null, GameplayProgress.Open(key));
+            GameplayLevelCatalog.TestArchive = new FileLevelArchive(archiveRoot);
+            GameplayLevelCatalog.ResetSelection();
+            GameplayLevelCatalog.ResumeFromSave();
+        }
+
+        void ClearJournal()
+        {
+            if (key == null) return;
+            foreach (string suffix in Suffixes) PlayerPrefs.DeleteKey(key + suffix);
+            PlayerPrefs.Save();
+        }
+
+        void Check(bool ok, string message, bool required = true)
+        {
+            checks.Add(new { ok, message });
+            passed &= ok;
+            if (!ok && required) throw new InvalidOperationException(message);
+        }
+
+        IEnumerator Start()
+        {
+            string failure = null;
+            var stack = new Stack<IEnumerator>();
+            stack.Push(Run());
+            while (stack.Count > 0)
+            {
+                bool more = false; object item = null;
+                try { more = stack.Peek().MoveNext(); if (more) item = stack.Peek().Current; }
+                catch (Exception e) { failure = e.ToString(); break; }
+                if (!more) { stack.Pop(); continue; }
+                if (item is IEnumerator nested && item is not CustomYieldInstruction) stack.Push(nested);
+                else yield return item;
+            }
+            var after = PlayerSave();
+            bool intact = original.All(pair => after[pair.Key] == pair.Value);
+            Directory.CreateDirectory(Output);
+            File.WriteAllText(Output + "PLAY_MODE.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
+            {
+                success = passed && failure == null && intact && errors.Count == 0,
+                editor = Application.unityVersion, checks, boards, transitions, errors, failure, playerSaveIntact = intact
+            }, Newtonsoft.Json.Formatting.Indented));
+            EditorApplication.isPlaying = false;
+        }
+
+        void OnDestroy()
+        {
+            if(active!=this)return;
+            active=null;
+            Application.runInBackground = previousRunInBackground;
+            Application.logMessageReceived -= Log;
+            ClearJournal();
+            GameplayProgress.RestorePlayerProfile();
+            GameplayLevelCatalog.TestArchive = null;
+            GameplayLevelCatalog.ResetSelection();
+        }
+
+        IEnumerator Until(Func<bool> ready, string message)
+        {
+            float deadline = Time.realtimeSinceStartup + 15;
+            while (!ready() && Time.realtimeSinceStartup < deadline) yield return null;
+            Check(ready(), message);
+        }
+
+        IEnumerator Ready(int id)
+        {
+            yield return Until(() => L.Ready && Hud != null && Hud.State.Level == id &&
+                SceneManager.GetActiveScene().name == "Gameplay", $"Gameplay ve HUD: {id}");
+            FindFirstObjectByType<PawGuide>()?.Close();
+            Check(GameplayLevelCatalog.SelectedId == id && Board.Moves == 0 && !Board.Won, $"Bölüm {id} temiz başladı");
+        }
+
+        void Click(string name, bool raycast = false)
+        {
+            var button = GameObject.Find(name)?.GetComponent<Button>();
+            Check(button != null && button.IsInteractable(), $"{name} etkileşimli");
+            if (!raycast) { button.onClick.Invoke(); return; }
+            Canvas.ForceUpdateCanvases();
+            var rect = (RectTransform)button.transform;
+            var pointer = new PointerEventData(EventSystem.current)
+            {
+                button = PointerEventData.InputButton.Left,
+                position = RectTransformUtility.WorldToScreenPoint(null, rect.TransformPoint(rect.rect.center))
+            };
+            var hits = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointer, hits);
+            var hit = hits.Count == 0 ? null : ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
+            Check(hit == button.gameObject, $"UI raycast {name}: {(hits.Count == 0 ? "boş" : hits[0].gameObject.name)}");
+            ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerClickHandler);
+        }
+
+        IEnumerator Win(int id, int expectedCoins)
+        {
+            var solution = PuzzleSolver.Solve(Board.Export());
+            Check(solution.Status == SearchStatus.Solved && solution.Moves.Count > 0, $"{id} çözülebilir");
+            long coins = Ledger.Presentation.coins; int hints = Ledger.Remaining(BoosterKind.Hint);
+            foreach (var move in solution.Moves)
+            {
+                int count = Board.Moves;
+                Click($"Bottle {move.Source + 1}");
+                yield return null;
+                Click($"Bottle {move.Target + 1}");
+                yield return Until(() => Board.Moves == count + 1 && (Board.Won || FindFirstObjectByType<PrototypeApp>().GuideCanInteract), $"{id}: döküş {count + 1}");
+            }
+            yield return Until(() => GameObject.Find("NextLevel") != null, $"{id}: yıldızlı sonuç ekranı");
+            yield return null;
+            Check(Board.Won && Hud.State.AwardedStars == 3 && Ledger.BestStars(id) == 3, $"{id}: üç yıldız hesaplandı ve kaydedildi");
+            Check(Ledger.Presentation.coins - coins == expectedCoins && Ledger.LastCoinReward == expectedCoins &&
+                Ledger.Remaining(BoosterKind.Hint) - hints == (expectedCoins > 0 ? 1 : 0), $"{id}: ödül {expectedCoins} coin");
+        }
+
+        IEnumerator Chain(int start, int end)
+        {
+            string previous = null;
+            for (int id = start; id <= end; id++)
+            {
+                yield return Ready(id);
+                var layout = Board.Export();
+                string signature = LevelSignatures.Canonical(layout);
+                var solution = PuzzleSolver.Solve(layout);
+                Check(signature != previous && solution.Status == SearchStatus.Solved, $"{id}: farklı ve çözülebilir tahta");
+                var level = GameplayLevelCatalog.Load(id);
+                if (level.Generated != null)
+                {
+                    var pool = Newtonsoft.Json.JsonConvert.DeserializeObject<GeneratedLevel[]>(Resources.Load<TextAsset>("Levels/GeneratedFallbacksV2").text);
+                    var rebuilt = LevelGenerator.Resolve(WorldMapRules.Request(id), null, pool).level;
+                    Check(rebuilt != null && LevelGenerator.Exact(layout, rebuilt.Export()), $"{id}: arşivsiz yeniden üretim birebir aynı");
+                }
+                boards.Add(new { id, signature, moves = solution.Moves.Count, difficulty = level.Generated?.difficulty.measured.ToString() ?? "Hazır" });
+                previous = signature;
+                if (id == end) break;
+                yield return Win(id, 50);
+                Check(Ledger.CurrentCompletedLevel == id && Ledger.CurrentUnlockedLevel == id + 1, $"{id}: tamamlanan ve açık bölüm ayrıldı");
+                if (id == 1)
+                {
+                    var reopened = GameplayProgress.Open(key);
+                    Check(reopened.Presentation.currentLevel == 2, $"Sonraki tıklanmadan kazanış diskte: devam={reopened.Presentation.currentLevel}", false);
+                }
+                Click("NextLevel", true);
+                ObserveTransition(id);
+                // A second click before the scene activates must not skip a level.
+                GameObject.Find("NextLevel")?.GetComponent<Button>().onClick.Invoke();
+                yield return null;
+                ObserveTransition(id);
+            }
+        }
+
+        void ObserveTransition(int from)
+        {
+            var app = FindFirstObjectByType<PrototypeApp>();
+            var flags = BindingFlags.Instance | BindingFlags.NonPublic;
+            transitions.Add(new
+            {
+                from, scene = SceneManager.GetActiveScene().name, hud = Hud?.State.Level, GameplayLevelCatalog.SelectedId,
+                Ledger.LastError, saved = Ledger.Presentation.currentLevel, canLoad = Application.CanStreamedLevelBeLoaded("Gameplay"),
+                frame = Time.frameCount, L.Ready,
+                lastNavigationFrame = typeof(SceneNavigation).GetField("lastFrame", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null),
+                navigating = app != null ? typeof(PrototypeApp).GetField("navigating", flags).GetValue(app) : null,
+                status = ((TMPro.TMP_Text)typeof(PrototypeApp).GetField("status", flags).GetValue(app))?.text
+            });
+        }
+
+        IEnumerator Open(int id)
+        {
+            var task = GameplayLevelCatalog.PrepareAsync(id);
+            yield return Until(() => task.IsCompleted, $"{id}: hazırlık tamamlandı");
+            Check(task.IsCompletedSuccessfully, $"{id}: doğrulanmış düzen hazır");
+            Check(GameplayLevelCatalog.Select(id, Ledger), $"{id}: katalog seçimi");
+            SceneManager.LoadScene("Gameplay");
+            yield return null;
+        }
+
+        sealed class FailingArchive : ILevelArchive
+        {
+            readonly ILevelArchive archive;
+            public volatile bool Fail = true;
+            public FailingArchive(ILevelArchive archive) => this.archive = archive;
+            public bool TryRead(int id, out GeneratedLevel level)
+            {
+                if (id == 3 && Fail) throw new IOException("İzole hazırlık hatası");
+                return archive.TryRead(id, out level);
+            }
+            public void Write(GeneratedLevel level) => archive.Write(level);
+        }
+
+        IEnumerator RetryPreparation()
+        {
+            Seed(1);
+            var archive = new FailingArchive(GameplayLevelCatalog.TestArchive);
+            GameplayLevelCatalog.TestArchive = archive;
+            yield return Open(2);
+            yield return Ready(2);
+            yield return Win(2, 50);
+            Click("NextLevel", true);
+            yield return Until(() => GameObject.Find("RewardBreakdown")?.GetComponent<TMPro.TMP_Text>().text ==
+                L.Resolve(L.V("error.prepare")), "Hazırlık hatası sonuç ekranında görünür");
+            Check(Hud.State.Level == 2 && Board.Won && Ledger.CurrentUnlockedLevel == 3 &&
+                GameplayLevelCatalog.SelectedId == 2, "Hazırlık hatası oynanan bölümü ve kazanış kaydını korudu");
+            archive.Fail = false;
+            Click("NextLevel", true);
+            yield return Ready(3);
+            Check(Ledger.Presentation.coins == 50 && Ledger.BestStars(2) == 3, "Hazırlığı tekrar denemek ikinci ödül vermedi");
+        }
+
+        IEnumerator HomeReady()
+        {
+            yield return Until(() => SceneManager.GetActiveScene().name == "Home" && GameObject.Find("Play") != null &&
+                Mewgic.BootLoadingController.Active == null, "Ana menü hazır");
+            yield return null;
+        }
+
+        IEnumerator Run()
+        {
+            yield return Chain(1, 5);
+            Seed(8); yield return Open(9); yield return Chain(9, 11);
+            Seed(98); yield return Open(99); yield return Chain(99, 101);
+            var latest = Board.Export();
+            long coins = Ledger.Presentation.coins;
+            yield return Open(99);
+            yield return Ready(99);
+            var replay = Board.Export();
+            yield return Win(99, 0);
+            Click("Replay", true);
+            Check(Board.Moves == 0 && !Board.Won && LevelGenerator.Exact(replay, Board.Export()), "Tekrar Oyna 99'u aynı düzenle sıfırladı");
+            yield return Win(99, 0);
+            Click("NextLevel", true);
+            yield return Ready(100);
+            yield return Win(100, 0);
+            Directory.CreateDirectory(Output);
+            ScreenCapture.CaptureScreenshot(Output + "Result100.png");
+            yield return new WaitForSecondsRealtime(.5f);
+            Click("ResultHome", true);
+            yield return Until(() => SceneManager.GetActiveScene().name == "LevelMap" &&
+                FindFirstObjectByType<MapWorld>()?.Mounted == true, "Haritaya Dön gerçek LevelMap sahnesini açtı");
+            Check(Ledger.CurrentUnlockedLevel == 101 && Ledger.CurrentCompletedLevel == 100 &&
+                Ledger.Presentation.coins == coins && Ledger.BestStars(100) == 3, "Eski bölüm tekrarı ödül, yıldız ve açılan seviyeyi bozmadı");
+            Reopen();
+            Check(Ledger.Presentation.currentLevel == 101 && GameplayLevelCatalog.SelectedId == 101 &&
+                Ledger.Presentation.coins == coins && Ledger.BestStars(99) == 3 && Ledger.BestStars(100) == 3,
+                "Kayıt yeniden açıldı: devam=101, önceki yıldızlar ve coin korundu");
+            Check(LevelGenerator.Exact(latest, GameplayLevelCatalog.Load(101).Bottles), "101 dosya arşivi yeniden açıldığında düzen birebir aynı");
+
+            // Reproduce an existing player's stale resume cursor without changing their completion records.
+            Check(Ledger.SetCurrentLevel(1), "Eski devam imleci izole kayda yazıldı");
+            Reopen();
+            SceneManager.LoadScene("Boot");
+            yield return null;
+            yield return HomeReady();
+            Click("Play");
+            yield return Ready(101);
+            Check(LevelGenerator.Exact(latest, Board.Export()), "Boot ve ana menü eski imleci aştı; 101 aynı düzenle açıldı");
+            ScreenCapture.CaptureScreenshot(Output + "Level101.png");
+            yield return new WaitForSecondsRealtime(.5f);
+
+            SceneManager.LoadScene("Home");
+            yield return null;
+            yield return HomeReady();
+            Click("MissionsButton");
+            Click("DailyAction_3");
+            yield return Ready(101);
+            Check(LevelGenerator.Exact(latest, Board.Export()), "Günlük görev Oyna doğru bölümü açtı");
+
+            SceneManager.LoadScene("Home");
+            yield return null;
+            yield return HomeReady();
+            FindFirstObjectByType<Mewgic.Rewards.RewardHubPanel>().Open(1);
+            Click("WeeklyGo");
+            yield return Ready(101);
+            Check(LevelGenerator.Exact(latest, Board.Export()), "Ödül merkezi Oyna doğru bölümü açtı");
+            yield return RetryPreparation();
+        }
+    }
+}
+#endif

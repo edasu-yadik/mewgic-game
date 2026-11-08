@@ -5,7 +5,7 @@ namespace Mewgic
 {
     public sealed class GameplayEndScreen : MonoBehaviour
     {
-        RectTransform root;Image backdrop;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary,breakdown;Button next,skip;int awarded;float clock;Func<bool> paused;bool showing;CompletionReward payout;bool saveOk;
+        RectTransform root;Image backdrop;Image[] stars=new Image[3],sparks=new Image[24];TMP_Text reward,summary,breakdown;Button next,skip,replayButton,mapButton;bool canAdvance;int awarded;float clock;Func<bool> paused;bool showing;CompletionReward payout;bool saveOk;
         public GameObject Panel=>root.gameObject;
         public bool IsShowing=>showing;
         public void Mount(RectTransform safe,Action replay,Action advance,Action home,Func<bool> isPaused,Action retry)
@@ -20,8 +20,8 @@ namespace Mewgic
             breakdown=GameplayTools.Label(root,"RewardBreakdown","",22,new Vector2(.08f,.35f),new Vector2(.92f,.46f));
             skip=Control("SkipReward","",new Vector2(.19f,.245f),new Vector2(.81f,.33f),()=>{if(!saveOk)retry();else{clock=2.4f;Animate();}},panel);
             next=Control("NextLevel",L.V("gameplay.next"),new Vector2(.12f,.135f),new Vector2(.88f,.23f),advance,panel);
-            Control("Replay",L.V("gameplay.replay"),new Vector2(.085f,.025f),new Vector2(.485f,.12f),replay,panel);
-            Control("ResultHome",GetComponent<PrototypeApp>()?.IsTutorialReplay!=true?L.V("common.map"):L.V("common.home"),new Vector2(.515f,.025f),new Vector2(.915f,.12f),home,panel);
+            replayButton=Control("Replay",L.V("gameplay.replay"),new Vector2(.085f,.025f),new Vector2(.485f,.12f),replay,panel);
+            mapButton=Control("ResultHome",GetComponent<PrototypeApp>()?.IsTutorialReplay!=true?L.V("common.map"):L.V("common.home"),new Vector2(.515f,.025f),new Vector2(.915f,.12f),home,panel);
             for(int i=0;i<sparks.Length;i++){var im=GameplayTools.Art(root,"GoldParticle"+i,star,Vector2.zero,Vector2.zero);im.preserveAspect=true;im.raycastTarget=false;im.rectTransform.anchorMin=im.rectTransform.anchorMax=new Vector2(.5f,.5f);im.rectTransform.sizeDelta=Vector2.one*(5+i%4*2);sparks[i]=im;}
             root.gameObject.SetActive(false);
         }
@@ -32,11 +32,17 @@ namespace Mewgic
             if(showing)return;payout=coins;saveOk=saved;showing=true;awarded=starCount;clock=GameFeel.Reduced?2.4f:0;backdrop.gameObject.SetActive(true);backdrop.transform.SetAsLastSibling();root.gameObject.SetActive(true);root.SetAsLastSibling();
             summary.text=L.V("gameplay.result",level,moves,starCount);
             reward.text=saved?"":L.V("error.save");
-            breakdown.text=saved?L.V("economy.breakdown",payout.Base,payout.Stars,payout.FirstAttempt,payout.NoHint):"";
+            canAdvance=hasNext;SetTransition(false);
             skip.transform.Find("Label").GetComponent<TMP_Text>().text=L.V(saved?"economy.skip":"economy.retry_save");
             next.interactable=hasNext;next.transform.Find("Label").GetComponent<TMP_Text>().text=hasNext?L.V("gameplay.next"):L.V("gameplay.last");
             if(saved){GameFeel.Play(GameCue.Victory);if(payout.Coins>0)GameFeel.Play(GameCue.Coin);}
             Animate();
+        }
+        public void SetTransition(bool preparing,string message=null)
+        {
+            next.interactable=canAdvance&&!preparing;
+            replayButton.interactable=mapButton.interactable=!preparing;
+            breakdown.text=message??(saveOk?L.V("economy.breakdown",payout.Base,payout.Stars,payout.FirstAttempt,payout.NoHint):"");
         }
         public void Hide(){showing=false;if(root!=null){root.gameObject.SetActive(false);backdrop.gameObject.SetActive(false);}}
         void Update(){if(showing&&!paused()&&clock<2.4f){clock+=Time.unscaledDeltaTime;Animate();}}

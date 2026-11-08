@@ -83,7 +83,12 @@ namespace Mewgic.Core
             copy.attemptedLevels.Remove(level);
             bool frontier=first&&WorldMapRules.CurrentLevel(state)==level;
             WorldMapRules.Sync(copy);
-            if(frontier)MapJourneyRules.Queue(copy,level);
+            if(frontier)
+            {
+                // Commit the resume point with the win, even if the result screen is never dismissed.
+                copy.presentation.currentLevel=WorldMapRules.CurrentLevel(copy);
+                MapJourneyRules.Queue(copy,level);
+            }
             if(!Commit(copy))return false;LastCompletionReward=reward;granted=first;
             return true;
         }

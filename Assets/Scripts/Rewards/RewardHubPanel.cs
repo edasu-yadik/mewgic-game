@@ -42,7 +42,7 @@ namespace Mewgic.Rewards
   public void Open(int section=0){daily.OnClosed=null;daily.Close();screen.gameObject.SetActive(true);screen.SetAsLastSibling();observed=GameplayProgress.Current.ObserveHub();notice.text=observed?L.V("hub.offline"):L.V("error.clock");Refresh();Layout();FocusSection(section);}
   public void Close(){screen.gameObject.SetActive(false);popup.SetActive(false);}
   void OpenDaily(){Close();daily.OnClosed=()=>Open(0);daily.Open(false);}
-  void Play(){GameplayLevelCatalog.ResetSelection();Mewgic.SceneNavigation.LoadOnce("Gameplay");}
+  void Play(){GetComponent<PrototypeApp>()?.PlayCurrentLevel(message=>notice.text=message);}
   public void FocusSection(int index){if(index<0||index>=sections.Count)return;scroll.StopMovement();Canvas.ForceUpdateCanvases();float hidden=content.rect.height*content.localScale.y-viewport.rect.height;float y=-sections[index].anchoredPosition.y*content.localScale.y;scroll.verticalNormalizedPosition=hidden<=0?1:1-Mathf.Clamp01(y/hidden);TintTab(index);}
   void TintTab(int index){for(int i=0;i<4;i++)tabImages[i].color=i==index?Color.white:new Color(.58f,.57f,.83f,1);}
   void UpdateActiveTab(){if(sections.Count!=4)return;float top=(1-scroll.verticalNormalizedPosition)*Mathf.Max(0,content.rect.height*content.localScale.y-viewport.rect.height)/Mathf.Max(.01f,content.localScale.y);int index=0;for(int i=0;i<4;i++)if(top>=-sections[i].anchoredPosition.y-20)index=i;if(scroll.verticalNormalizedPosition<.01f)index=3;TintTab(index);}

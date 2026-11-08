@@ -135,7 +135,7 @@ namespace Mewgic
             if(homeCharacter != null) homeCharacter.Mount(safe, (RectTransform)safe.parent.Find("Night"));
             if(homeCharacter != null) { homeCharacter.GetComponent<HomeLogoPresenter>()?.Mount(safe); homeCharacter.GetComponent<HomeTopBar>()?.Mount(safe); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomePotionDisplay>()?.Mount(homeCharacter.potionLayer);
-            var play=Button(safe,"Play",L.V("home.play"),new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>{if(!navigating)StartCoroutine(EnterPreparedGameplay());});
+            var play=Button(safe,"Play",L.V("home.play"),new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>PlayCurrentLevel());
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
@@ -165,7 +165,7 @@ namespace Mewgic
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
-            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused)SceneNavigation.LoadOnce(tutorialReplay?"Home":"LevelMap");},()=>paused,RetryReward);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused&&!navigating)SceneNavigation.LoadOnce(tutorialReplay?"Home":"LevelMap");},()=>paused,RetryReward);
             if(GameplayProgress.LoadError!=null)status.text=L.V("error.load");
             Refresh();
             pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);if(tutorialReplay)pawGuide.ReplayFinished=ReturnFromGameplay;else GameplayLevelCatalog.Prewarm(levelInfo.id);
@@ -188,9 +188,50 @@ namespace Mewgic
             }
             if(!applied)Feedback(boosters.Message);else{pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
         }
-        void NextLevel(){if(busy||paused||!puzzle.Won||navigating||!GameplayLevelCatalog.CanAdvance(levelInfo.id,progress))return;StartCoroutine(AdvancePrepared());}
-        IEnumerator EnterPreparedGameplay(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);while(!task.IsCompleted)yield return null;if(task.IsFaulted){var failure=task.Exception;GameObject.Find("Play")?.GetComponent<PremiumPlayButton>()?.AllowRetry();if(GameObject.Find("LevelPreparationNotice")==null)Label(safe,"LevelPreparationNotice",L.V("error.prepare"),24,Gold,new Vector2(.1f,.12f),new Vector2(.9f,.17f));navigating=false;yield break;}Mewgic.SceneNavigation.LoadOnce("Gameplay");}
-        IEnumerator AdvancePrepared(){navigating=true;var task=GameplayLevelCatalog.PrepareAsync(levelInfo.id+1);while(!task.IsCompleted)yield return null;if(task.IsFaulted){status.text=L.V("error.prepare");navigating=false;yield break;}if(GameplayLevelCatalog.Advance(levelInfo.id,progress))Mewgic.SceneNavigation.LoadOnce("Gameplay");else{status.text=L.V("error.save");navigating=false;}}
+        void NextLevel()
+        {
+            if(busy||paused||tutorialReplay||!endScreen.IsShowing||!puzzle.Won||navigating||
+                !GameplayLevelCatalog.CanAdvance(levelInfo.id,progress))return;
+            StartCoroutine(AdvancePrepared());
+        }
+
+        internal void PlayCurrentLevel(Action<string> reportError=null)
+        {
+            if(navigating)return;
+            GameplayLevelCatalog.ResumeFromSave();
+            StartCoroutine(EnterPreparedGameplay(reportError));
+        }
+
+        IEnumerator EnterPreparedGameplay(Action<string> reportError)
+        {
+            navigating=true;
+            var task=GameplayLevelCatalog.PrepareAsync(GameplayLevelCatalog.SelectedId);
+            while(!task.IsCompleted)yield return null;
+            if(task.IsCompletedSuccessfully&&SceneNavigation.LoadOnce("Gameplay"))yield break;
+
+            _=task.Exception;
+            navigating=false;
+            GameObject.Find("Play")?.GetComponent<PremiumPlayButton>()?.AllowRetry();
+            string message=L.V("error.prepare");
+            if(reportError!=null)reportError(message);
+            else if(GameObject.Find("LevelPreparationNotice")==null)
+                Label(safe,"LevelPreparationNotice",message,24,Gold,new Vector2(.1f,.12f),new Vector2(.9f,.17f));
+        }
+
+        IEnumerator AdvancePrepared()
+        {
+            navigating=true;
+            endScreen.SetTransition(true,L.V("map.preparing"));
+            int completed=levelInfo.id;
+            var task=GameplayLevelCatalog.PrepareAsync(completed+1);
+            while(!task.IsCompleted)yield return null;
+            if(task.IsCompletedSuccessfully&&SceneNavigation.LoadOnce("Gameplay",
+                ()=>GameplayLevelCatalog.AdvancePrepared(completed,progress,task.Result)))yield break;
+
+            _=task.Exception;
+            navigating=false;
+            endScreen.SetTransition(false,L.V("error.prepare"));
+        }
         public void PauseGame(){if(hud==null||paused)return;pawGuide?.SuspendHelp();paused=true;SetPresentationPaused(true);hud.ShowPaused(true);UpdateBottleInput();UpdateTools();}
         public void ResumeGame(){if(!paused)return;paused=false;SetPresentationPaused(false);hud.ShowPaused(false);UpdateBottleInput();UpdateTools();if(!busy&&puzzle.Won)Refresh();if(tutorialReplay&&!busy){Reset();pawGuide?.RestartReplay();}}
         void SetPresentationPaused(bool value){if(bottleViews==null)return;foreach(var b in bottleViews)b.GetComponent<GameplayBottleView>().SetPaused(value);}
@@ -205,7 +246,7 @@ namespace Mewgic
         public void RestartPaused(){if(!paused)return;CancelPour();ResumeGame();if(!tutorialReplay)Reset();}
         public void ExitPaused(){if(!paused)return;CancelPour();ResumeGame();ReturnFromGameplay();}
         void UpdateHud(){if(hud!=null)hud.Present(new GameplayHudState(levelInfo,puzzle));}
-        void Reset(){if(busy||paused)return;pawGuide?.ResetGuide();puzzle.Restart();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
+        void Reset(){if(busy||paused||navigating)return;pawGuide?.ResetGuide();puzzle.Restart();firstAttempt=false;hintUsed=false;victoryReceipt=Guid.NewGuid().ToString("N");selected=-1;hintTarget=-1;completionHandled=false;endScreen.Hide();status.text="";Refresh();}
         void Refresh(bool settlePausedVictory=false)
         {
             if(bottleViews==null||bottleViews.Length!=puzzle.Count)
@@ -240,7 +281,7 @@ namespace Mewgic
         }
         void RetryReward()
         {
-            if(busy||paused||!puzzle.Won)return;
+            if(busy||paused||navigating||!puzzle.Won)return;
             completionHandled=false;
             endScreen.Hide();
             Refresh();
