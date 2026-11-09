@@ -84,7 +84,7 @@ namespace Mewgic.Map
             if (journeyPlateMaterial != null)
                 journeyPlateMaterial.SetFloat("_JourneyWater", journeyTheme != null && journeyTheme.flowingWater ? 1 : 0);
             journeyEdge.gameObject.SetActive(journeyNearCrystals != null && !journeyForeground.enabled);
-            ((JourneyRouteGraphic)journeyRoute).UseTheme(journeyTheme, journeyPaving);
+            ((JourneyRouteGraphic)journeyRoute).UseTheme(journeyTheme, journeyPaving, HasVillageTerraces);
             UpdateJourneyDepth();
         }
 

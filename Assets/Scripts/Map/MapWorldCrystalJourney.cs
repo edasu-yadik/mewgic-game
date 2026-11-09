@@ -17,7 +17,7 @@ namespace Mewgic.Map
         Material crystalWater, crystalReferenceWater;
         Texture2D crystalReference, crystalCatRestAtlas;
         RectTransform crystalAtmosphere;
-        float crystalSettleAt;
+        float journeySettleAt;
         bool crystalLite;
 
         // The anchors follow the painted walkable surfaces in each illustration.
@@ -101,7 +101,7 @@ namespace Mewgic.Map
             return ReferencePosition(Vector2.Lerp(a, b, t) + cornerBlend);
         }
 
-        void LayoutCrystalFrame()
+        void LayoutJourneyFrame()
         {
             bool crystal = HasCrystalComposition;
             SetJourneyFrame(journeyScroll.viewport, crystal ? Vector2.zero : new Vector2(0, .105f), crystal ? Vector2.one : new Vector2(1, .87f));
@@ -120,6 +120,16 @@ namespace Mewgic.Map
             SetJourneyFrame(journeyFocus.transform as RectTransform, crystal ? new Vector2(.53f, .05f) : new Vector2(.63f, .12f),
                 crystal ? new Vector2(.99f, .95f) : new Vector2(.93f, .88f));
             SetJourneyFrame(journeySkip.transform as RectTransform, journeyScroll.viewport.anchorMin, journeyScroll.viewport.anchorMax);
+            detailPrevious.gameObject.SetActive(HasJourneyPages);
+            detailNext.gameObject.SetActive(HasJourneyPages);
+            SetJourneyFrame((RectTransform)detailPrevious.transform,
+                crystal ? new Vector2(.16f, .851f) : new Vector2(.035f, .917f),
+                crystal ? new Vector2(.238f, .905f) : new Vector2(.116f, .975f));
+            SetJourneyFrame((RectTransform)detailNext.transform,
+                crystal ? new Vector2(.762f, .851f) : new Vector2(.884f, .917f),
+                crystal ? new Vector2(.84f, .905f) : new Vector2(.965f, .975f));
+            if (HasVillageTerraces)
+                SetJourneyFrame(chapterTitle.rectTransform, new Vector2(.13f, .34f), new Vector2(.87f, .95f));
             journeyInstruction.SetActive(!crystal);
             crystalBrand.SetActive(crystal);
             if (crystalAtmosphere != null) crystalAtmosphere.gameObject.SetActive(crystal);
@@ -132,13 +142,13 @@ namespace Mewgic.Map
             rect.offsetMin = rect.offsetMax = Vector2.zero;
         }
 
-        void SettleCrystalPage()
+        void SettleJourneyPage()
         {
-            if (!HasCrystalComposition || crystalSettleAt == 0 || journeyRunning ||
-                Time.unscaledTime < crystalSettleAt || ((MapScrollRect)journeyScroll).Dragging ||
+            if (!HasJourneyPages || journeySettleAt == 0 || journeyRunning ||
+                Time.unscaledTime < journeySettleAt || ((MapScrollRect)journeyScroll).Dragging ||
                 Mathf.Abs(journeyScroll.velocity.y) > 180) return;
 
-            crystalSettleAt = 0;
+            journeySettleAt = 0;
             int page = Mathf.Clamp(Mathf.RoundToInt(journeyContent.anchoredPosition.y / (10 * rowHeight)), 0, 4);
             journeyScroll.StopMovement();
             if (reducedJourneyMotion || !animateEnvironment) JumpToJourneySlot(page * 10);

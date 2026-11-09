@@ -38,7 +38,7 @@ namespace Mewgic
             if(destination==HomeDestination.Inventory){FindFirstObjectByType<MagicShopPanel>()?.Open();return;}
             if(destination==HomeDestination.Team){FindFirstObjectByType<Clans.ClanPanel>()?.Open();return;}
             if(destination==HomeDestination.Home){information.Close();return;}
-            if(destination==HomeDestination.Map&&(mapSceneReady||Mewgic.Map.MapProgressionCatalog.Ready)&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=true;Mewgic.SceneNavigation.LoadOnce(mapScene);return;}
+            if(destination==HomeDestination.Map&&(mapSceneReady||Mewgic.Map.MapProgressionCatalog.Ready)&&Application.CanStreamedLevelBeLoaded(mapScene)){navigating=Mewgic.SceneNavigation.LoadOnce(mapScene, Mewgic.Map.MapWorld.RequestOverview);return;}
             string message=destination==HomeDestination.Map?L.V("boot.error"):destination==HomeDestination.Events?L.V("boot.error"):L.V("home.inventory_info");
             information.Show(message);
         }

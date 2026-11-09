@@ -6,7 +6,7 @@ namespace Mewgic.Map
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class JourneyRouteGraphic : MaskableGraphic
     {
-        bool foundation;
+        bool foundation, terraceBridges;
         Color paving, wall, gold;
         Texture2D pavingTexture;
         public override Texture mainTexture => pavingTexture != null ? pavingTexture : base.mainTexture;
@@ -19,9 +19,10 @@ namespace Mewgic.Map
             return lane + (lane < .5f ? -.175f : .175f);
         }
 
-        internal void UseTheme(MapJourneyTheme theme, Texture2D commonPaving)
+        internal void UseTheme(MapJourneyTheme theme, Texture2D commonPaving, bool useTerraceBridges)
         {
             foundation = true;
+            terraceBridges = useTerraceBridges;
             pavingTexture = theme != null && theme.pavingTexture != null ? theme.pavingTexture : commonPaving;
             SetMaterialDirty();
             paving = theme != null ? theme.paving : new Color32(178, 138, 160, 255);
@@ -71,7 +72,7 @@ namespace Mewgic.Map
         void DrawFoundation(VertexHelper mesh, Rect bounds)
         {
             float row = bounds.height / 50;
-            float half = bounds.width * .080f;
+            float half = bounds.width * (terraceBridges ? .046f : .080f);
             float depth = bounds.width * .019f;
             Vector2 Point(float slot) => new Vector2(bounds.xMin + FoundationLane(slot) * bounds.width, bounds.yMax - (slot + .5f) * row);
             Vector2 Edge(float slot) => Vector2.Perpendicular((Point(slot + .015f) - Point(slot - .015f)).normalized) * half;
@@ -85,6 +86,21 @@ namespace Mewgic.Map
                 Strip(mesh, center + Vector2.down * depth, bank + Vector2.down * depth, Vector2.up * row * .145f, shadow);
                 Strip(mesh, center, bank, Vector2.up * row * .155f, wall);
                 Strip(mesh, center + Vector2.up * 2, bank + Vector2.up * 2, Vector2.up * row * .127f, paving);
+                if (terraceBridges)
+                {
+                    var landing = new Vector2(bounds.width * .051f, row * .28f);
+                    Disc(mesh, center + Vector2.down * depth, landing, shadow, false);
+                    Disc(mesh, center, landing, wall, false);
+                    Disc(mesh, center, landing * .94f, stoneTint, true);
+                    if (slot % 2 == 1 && slot % 10 != 9)
+                        for (int step = 1; step < 4; step++)
+                        {
+                            Vector2 stone = Point(slot + step * .25f);
+                            var radius = new Vector2(bounds.width * .023f, row * .075f);
+                            Disc(mesh, stone + Vector2.down * 4, radius, shadow, false);
+                            Disc(mesh, stone, radius, stoneTint, true);
+                        }
+                }
                 Disc(mesh, bank + Vector2.down * depth, pad, shadow, false);
                 Disc(mesh, bank + Vector2.down * (depth * .58f), pad, wall, false);
                 Disc(mesh, bank, pad, gold, false);
@@ -96,6 +112,9 @@ namespace Mewgic.Map
             for (int step = 0; step < 400; step++)
             {
                 float a = step / 8f - .5f, b = a + .125f;
+                // Two landings share a short bridge. Stepping stones connect the next pair.
+                if (terraceBridges && Mathf.FloorToInt(a) % 2 != 0)
+                    continue;
                 Vector2 start = Point(a), end = Point(b), left = Edge(a), right = Edge(b);
                 var drop = Vector2.down * depth;
                 Quad(mesh, start - left + drop, end - right + drop, end + right + drop, start + left + drop, shadow);

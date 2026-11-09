@@ -142,7 +142,8 @@ namespace Mewgic.Map
         }
 
         bool JourneyCuts => fromRegion != toRegion || Mathf.Abs(toSlot - fromSlot) > 3 ||
-            (crystalReference != null && fromRegion == CrystalRegion && fromSlot / 10 != toSlot / 10);
+            ((fromRegion == VillageRegion && !useLegacyJourneyArt || fromRegion == CrystalRegion && crystalReference != null) &&
+                fromSlot / LevelsPerTerrace != toSlot / LevelsPerTerrace);
 
         bool JourneyLockPending(int level) => journeyRunning && !journeyArrived && level > fromLevel && level <= toLevel;
 
@@ -227,7 +228,7 @@ namespace Mewgic.Map
                 if (journeyCrossed)
                 {
                     start = Mathf.Max(-.45f, end - .85f);
-                    if (HasCrystalComposition) start = Mathf.Max(toSlot / 10 * 10, start);
+                    if (HasJourneyPages) start = Mathf.Max(toSlot / 10 * 10, start);
                     walk = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(CrossingTime, ArrivalTime, journeyClock));
                 }
                 else
@@ -334,7 +335,7 @@ namespace Mewgic.Map
             pawTrail.Render(count);
         }
 
-        float ScrollForSlot(float slot) => HasCrystalComposition
+        float ScrollForSlot(float slot) => HasJourneyPages
             ? Mathf.Clamp(Mathf.Floor((slot + .01f) / 10), 0, 4) * rowHeight * 10
             : Mathf.Clamp((slot + .5f) * rowHeight - journeyScroll.viewport.rect.height * .5f,
                 0, Mathf.Max(0, journeyContent.rect.height - journeyScroll.viewport.rect.height));

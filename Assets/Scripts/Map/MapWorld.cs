@@ -24,6 +24,11 @@ namespace Mewgic.Map
         Button Control(Transform p,string name,string text,Vector2 min,Vector2 max,Action action)
         {var im=Panel(p,name,min,max);im.raycastTarget=true;var b=im.gameObject.AddComponent<PremiumButton>();b.targetGraphic=im;b.onClick.AddListener(()=>action());Label(im.transform,"Label",text,24,new Vector2(.07f,.1f),new Vector2(.93f,.9f));return b;}
 
+  static bool openOverview;
+  [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+  static void ResetOverviewRequest()=>openOverview=false;
+  internal static bool RequestOverview()=>openOverview=true;
+
   void Start()=>Mount();
   public void Mount()
   {
@@ -47,6 +52,9 @@ namespace Mewgic.Map
    Scroll.onValueChanged.AddListener(_=>UpdateVisibleRegion());Scroll.UserInput=CancelJump;Mounted=true;BindProgress();UnityEngine.Canvas.ForceUpdateCanvases();Layout();
    int focus=ledger?.WorldMap.lastFocusedLevel??1;if(progression!=null&&focus==progression.CurrentId-1)focus=progression.CurrentId;FocusRegion(Mathf.Min(LastFullIsland,WorldMapRules.Island(focus)),false);UpdateVisibleRegion();UpdateProgressTitle();
    if(ledger!=null&&ledger.WorldMap.highestUnlockedIsland>ledger.WorldMap.lastCelebratedIsland){int r=ledger.WorldMap.highestUnlockedIsland;newlyOpenedRegion=r;celebration.text=L.V("map.unlock",L.Island(r));celebrationRoot.SetActive(true);celebrationUntil=Time.unscaledTime+2.6f;ledger.AcknowledgeIsland(r);}
+   bool overview=openOverview;
+   openOverview=false;
+   if(overview){journeyStartupPending=false;return;}
    TryStartJourney();
    if(!journeyRunning&&progression!=null){if(journeyStartupPending&&ledger.PeekMapJourney(out int start,out _)){int slot=(start-1)%50;ShowChapter(WorldMapRules.Island(start),slot/10,slot,false);}else FocusCurrent();}
   }
@@ -69,7 +77,7 @@ namespace Mewgic.Map
    v.root.sizeDelta=new Vector2(w,h);v.root.anchoredPosition=new Vector2(region%2==0?335:565,120+(region-PackStart)*Spacing);v.art.gameObject.SetActive(ready&&!layered);v.art.sprite=ready?terrain[a]:fog;v.art.material=ready?waterLight:null;v.art.color=ready?Color.white:new Color(.78f,.76f,1,.42f);
    bool currentIsland=region==progression.CurrentRegion;v.plate.color=currentIsland?Color.white:new Color(.72f,.69f,.81f,1);v.title.color=currentIsland?new Color32(255,229,159,255):new Color32(247,238,232,255);
    v.title.text=L.V("map.region_title",region+1,L.Island(region));int count=progression.Completed(region);v.bar.SetValue(count,50,0,true,!progression.RegionOpen(region));v.summary.text=ready||layered?L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49):L.V("map.pending",L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49));
-   for(int n=0;n<5;n++){var p=v.groups[n];var pr=(RectTransform)p.transform;pr.anchorMin=pr.anchorMax=aurora?new Vector2(.17f+n*.16f,n==0?.40f:n==1?.34f:n==2?.30f:n==3?.28f:.30f):library?new Vector2(.17f+n*.16f,n==0?.47f:n==1?.40f:n==2?.34f:n==3?.30f:.31f):starlight?new Vector2(.17f+n*.16f,n==0?.47f:n==1?.37f:n==2?.30f:n==3?.27f:.29f):clockwork?new Vector2(.17f+n*.16f,.34f+Mathf.Abs(n-2)*.045f):frost?new Vector2(.17f+n*.16f,.27f+Mathf.Abs(n-2)*.045f):coral?new Vector2(.17f+n*.16f,.315f+Mathf.Abs(n-2)*.045f):mirage?new Vector2(.17f+n*.16f,.505f-n*.027f):woods?new Vector2(.17f+n*.16f,.505f-n*.027f):new Vector2(.12f+n*.19f,n%2==0?.46f:.40f);p.regionIndex=region;p.slotIndex=Mathf.Clamp((progression.CurrentId-data.firstLevel)/10,0,4);p.gameObject.SetActive(n==0);if(n==0){pr.anchorMin=pr.anchorMax=new Vector2(.5f,.32f);}int first=data.firstLevel+n*10,done=Enumerable.Range(first,10).Count(x=>progression.Stars(x)>0);p.GetComponent<MapNodeBadge>().PresentGroup(first,first+9,done,progression.CurrentId>=first&&progression.CurrentId<=first+9,progression.CanEnter(first));}
+   for(int n=0;n<5;n++){var p=v.groups[n];var pr=(RectTransform)p.transform;pr.anchorMin=pr.anchorMax=aurora?new Vector2(.17f+n*.16f,n==0?.40f:n==1?.34f:n==2?.30f:n==3?.28f:.30f):library?new Vector2(.17f+n*.16f,n==0?.47f:n==1?.40f:n==2?.34f:n==3?.30f:.31f):starlight?new Vector2(.17f+n*.16f,n==0?.47f:n==1?.37f:n==2?.30f:n==3?.27f:.29f):clockwork?new Vector2(.17f+n*.16f,.34f+Mathf.Abs(n-2)*.045f):frost?new Vector2(.17f+n*.16f,.27f+Mathf.Abs(n-2)*.045f):coral?new Vector2(.17f+n*.16f,.315f+Mathf.Abs(n-2)*.045f):mirage?new Vector2(.17f+n*.16f,.505f-n*.027f):woods?new Vector2(.17f+n*.16f,.505f-n*.027f):new Vector2(.12f+n*.19f,n%2==0?.46f:.40f);p.regionIndex=region;p.slotIndex=Mathf.Clamp((progression.CurrentId-data.firstLevel)/10,0,4);p.gameObject.SetActive(n==0);if(n==0){pr.anchorMin=pr.anchorMax=new Vector2(.5f,.32f);}int first=data.firstLevel+p.slotIndex*10,done=Enumerable.Range(first,10).Count(x=>progression.Stars(x)>0);p.GetComponent<MapNodeBadge>().PresentGroup(first,first+9,done,progression.CurrentId>=first&&progression.CurrentId<=first+9,progression.CanEnter(first));}
    var cr=(RectTransform)v.chest.transform;cr.anchorMin=cr.anchorMax=aurora?new Vector2(.92f,.58f):library?new Vector2(.92f,.57f):starlight?new Vector2(.93f,.59f):clockwork?new Vector2(.92f,.60f):frost?new Vector2(.92f,.58f):coral?new Vector2(.90f,.59f):mirage?new Vector2(.90f,.58f):woods?new Vector2(.90f,.58f):new Vector2(.90f,.72f);v.chest.regionIndex=region;v.chest.GetComponent<MapNodeBadge>().PresentChest(progression.ChestReady(region),progression.ChestClaimed(region));v.root.gameObject.SetActive(true);
   }
   const int LastFullIsland=(int.MaxValue-50)/50; int poolFirst=-1,poolLast=-1;
@@ -87,7 +95,7 @@ namespace Mewgic.Map
         static void Cover(Image im,Vector2 viewport,float margin){var s=im.sprite.rect.size;im.rectTransform.anchorMin=im.rectTransform.anchorMax=new Vector2(.5f,.5f);im.rectTransform.sizeDelta=s*Mathf.Max((viewport.x+margin)/s.x,(viewport.y+margin)/s.y);im.rectTransform.anchoredPosition=Vector2.zero;}
 
   public float RegionScrollPosition(int index){float hidden=Content.rect.height-Viewport.rect.height;return hidden<=0?0:Mathf.Clamp01(((120+(index-PackStart)*Spacing+340)*scale-Viewport.rect.height*.5f)/hidden);}
-  public void FocusCurrent(){if(progression==null)return;int current=progression.CurrentId;int region=progression.CurrentRegion;FocusRegion(region,false);ShowChapter(region,(current-1)%50/10,(current-1)%50,false);}
+  public void FocusCurrent(){if(progression==null)return;int current=progression.CurrentId;int region=progression.CurrentRegion;if(!journeyRunning)TryStartJourney();if(journeyRunning)return;FocusRegion(region,false);ShowChapter(region,(current-1)%50/10,(current-1)%50,false);}
   public void FocusRegion(int index,bool smooth=true){if(progression==null||index<0||index>LastFullIsland)return;int pack=index/12*12;if(PackStart!=pack){PackStart=pack;poolFirst=poolLast=-1;foreach(var v in views){v.region=-1;v.layered.Release();v.root.gameObject.SetActive(false);}}Scroll.StopMovement();requestedRegion=index;jumpTarget=RegionScrollPosition(index);jumping=smooth&&!reducedJourneyMotion;if(!jumping){Scroll.verticalNormalizedPosition=jumpTarget;UpdateVisibleRegion();}pendingFocus=index*50+1;focusSaveAt=Time.unscaledTime+.6f;}
   public void CancelJump(){jumping=false;requestedRegion=-1;UpdateVisibleRegion();}
   void UpdateVisibleRegion(){if(!Mounted||progression==null||scale<=0)return;float center=(Mathf.Clamp01(Scroll.verticalNormalizedPosition)*Mathf.Max(0,Content.rect.height-Viewport.rect.height)+Viewport.rect.height*.5f)/scale;int closest=Mathf.Min(LastFullIsland,PackStart+Mathf.Clamp(Mathf.RoundToInt((center-460)/Spacing),0,11));if(requestedRegion>=0)closest=requestedRegion;if(ActiveRegion!=closest){ActiveRegion=closest;pendingFocus=closest*50+1;focusSaveAt=Time.unscaledTime+.7f;UpdateProgressTitle();}UpdatePool(center);background.rectTransform.anchoredPosition=new Vector2(0,-Scroll.verticalNormalizedPosition*18);}

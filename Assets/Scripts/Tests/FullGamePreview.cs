@@ -183,7 +183,7 @@ namespace Mewgic
                     typeof(PrototypeApp).GetMethod("Refresh",hidden).Invoke(app,new object[] { false });
                 }
             }
-            else if (page is 3 or 9 or 10)
+            else if (page is 9 or 10)
             {
                 if (page == 9) GameplayProgress.UseTestProfile(Fixture(99));
                 if (page == 10)
@@ -206,6 +206,10 @@ namespace Mewgic
                 yield return null;
                 switch (page)
                 {
+                    case 3:
+                        Press("NavMap",true);
+                        yield return Until(() => FindFirstObjectByType<MapWorld>()?.Mounted == true,"Harita");
+                        break;
                     case 4: Press("NavInventory"); break;
                     case 5: Press("NavTeam"); break;
                     case 6:
@@ -273,6 +277,8 @@ namespace Mewgic
         IEnumerator Verify()
         {
             Directory.CreateDirectory(Evidence);
+            yield return VerifyMapRoutes();
+            GameplayProgress.UseTestProfile(Fixture(0));
             foreach (int page in Enumerable.Range(0,10))
             {
                 yield return OpenPage(page,1,3);
@@ -309,11 +315,39 @@ namespace Mewgic
                 yield return Until(() => FindFirstObjectByType<UI.PawGuide>()?.OnboardingVisible == true,"Pati "+level);
                 checks.Add("Pati "+level);
             }
-            yield return OpenPage(10,100,3);
+            GameplayProgress.UseTestProfile(Fixture(98));
+            if (!GameplayProgress.Current.Claim(99,3,true,out _) || !GameplayProgress.Current.SaveMapFocus(99))
+                throw new InvalidOperationException("Harita yürüyüşü hazırlanamadı.");
+            yield return OpenPage(3,1,3);
             var map = FindFirstObjectByType<MapWorld>();
+            if (map.JourneyRunning || GameObject.Find("ChapterClose") != null)
+                throw new InvalidOperationException("Bekleyen yürüyüş, dünya haritasını atladı.");
+            Press(IslandButton(map,1).name,true);
             if (!map.JourneyRunning) throw new InvalidOperationException("Kristal Şelaleler yürüyüşü başlamadı.");
-            checks.Add("Kristal Şelaleler · Kedi 99 → 100");
-            yield return Until(() => !map.JourneyRunning,"Kedi yürüyüşü tamamlandı");
+            var cat = map.Canvas.GetComponentInChildren<JourneyCatImage>();
+            var trail = map.Canvas.GetComponentInChildren<JourneyPawTrail>();
+            var poses = new List<JourneyCatPose>();
+            bool capturedPaws = false;
+            while (map.JourneyRunning)
+            {
+                if (poses.Count == 0 || poses[^1] != cat.Pose) poses.Add(cat.Pose);
+                if (!capturedPaws && cat.Pose is JourneyCatPose.StepA or JourneyCatPose.StepB &&
+                    trail.canvasRenderer.GetMesh()?.vertexCount >= 216)
+                {
+                    ScreenCapture.CaptureScreenshot(Evidence+"Crystal-Walking.png");
+                    capturedPaws = true;
+                }
+                yield return null;
+            }
+            poses.Add(cat.Pose);
+            if (!capturedPaws || poses.IndexOf(JourneyCatPose.Curled) != 0 ||
+                poses.IndexOf(JourneyCatPose.Stretch) < 1 ||
+                poses.IndexOf(JourneyCatPose.Standing) <= poses.IndexOf(JourneyCatPose.Stretch) ||
+                !poses.Contains(JourneyCatPose.StepA) || !poses.Contains(JourneyCatPose.StepB) ||
+                poses[^1] != JourneyCatPose.Curled || map.Progression.CurrentId != 100 ||
+                GameplayProgress.Current.PeekMapJourney(out _,out _))
+                throw new InvalidOperationException("Kristal Şelaleler pozları: "+string.Join(", ",poses));
+            checks.Add("99 → 100, pati izleri çizildi: "+string.Join(" -> ",poses));
             foreach (int height in new[] {1600,1950,2000})
             {
                 Size(height);
@@ -331,6 +365,98 @@ namespace Mewgic
             yield return OpenPage(0,1,3);
         }
 
+        IEnumerator VerifyMapRoutes()
+        {
+            yield return OpenPage(3,1,3);
+            var map = FindFirstObjectByType<MapWorld>();
+            if (GameObject.Find("ChapterClose") != null || map.ActiveRegion != 0)
+                throw new InvalidOperationException("Ana menü dünya haritasını açmadı.");
+            Press(IslandButton(map,0).name,true);
+            if (map.SelectedChapter != 0 || !GameObject.Find("DetailNext") || !GameObject.Find("StoneRoute"))
+                throw new InvalidOperationException("Büyülü Köy geçici terasını açmadı.");
+            ScreenCapture.CaptureScreenshot(Evidence+"Village-1-10.png");
+            yield return null;
+            Press("ChapterClose",true);
+            Press("NextIsland",true);
+            yield return Until(() => map.ActiveRegion == 1 && Mathf.Abs(
+                map.Scroll.verticalNormalizedPosition - map.RegionScrollPosition(1)) < .001f,"Kristal Şelaleler dünya haritası");
+            ScreenCapture.CaptureScreenshot(Evidence+"World-Map.png");
+            yield return null;
+            Press(IslandButton(map,1).name,true);
+            yield return null;
+            if (map.SelectedChapter != 5)
+                throw new InvalidOperationException("Kristal Şelaleler 51–60 ile açılmadı.");
+            for (int i=0;i<4;i++)
+            {
+                Press("DetailNext",true);
+                yield return new WaitForSecondsRealtime(.35f);
+            }
+
+            var terrace = GameObject.Find("CrystalTerrace_5")?.GetComponent<RawImage>();
+            if (map.SelectedChapter != 9 || terrace == null || terrace.texture.name != "Crystal_Reference_91_100" ||
+                map.Progression.CurrentId != 1 || map.Progression.CanEnter(91))
+                throw new InvalidOperationException("Dünya haritası akışı kilitli 91–100 terasını açmadı.");
+            var locked = map.Points.Single(point => point.gameObject.activeInHierarchy &&
+                point.kind == MapPointKind.LevelSlot && point.slotIndex == 49);
+            Press(locked.name,true);
+            if (!map.InformationVisible || SceneManager.GetActiveScene().name != "LevelMap")
+                throw new InvalidOperationException("Kilitli Kristal Şelaleler bölümüne girildi.");
+            yield return null;
+            Press("MapInfoClose",true);
+            yield return null;
+            ScreenCapture.CaptureScreenshot(Evidence+"Crystal-From-World.png");
+            yield return null;
+            var texture = terrace.texture;
+            var realAnchors = CrystalAnchors(map);
+
+            yield return OpenPage(9,100,3);
+            map = FindFirstObjectByType<MapWorld>();
+            if (map.SelectedChapter != 9 || map.Progression.CurrentId != 100 ||
+                GameObject.Find("CrystalTerrace_5").GetComponent<RawImage>().texture != texture ||
+                !realAnchors.SequenceEqual(CrystalAnchors(map)))
+                throw new InvalidOperationException("Visual QA ile dünya haritası farklı Kristal Şelaleler yerleşimi kullanıyor.");
+            checks.Add("Ana menü → Dünya Haritası → Kristal Şelaleler 51–60 → 91–100, bölüm kilidi korundu");
+            checks.Add("Dünya haritası ve Visual QA aynı LevelMap, Kristal referansı ve 10 düğüm konumunu kullandı");
+
+            foreach (int height in new[] {1600,1950,2000})
+            {
+                Size(height);
+                yield return Until(() => Screen.width == 900 && Screen.height == height,"Kristal Şelaleler portre "+height);
+                yield return null;
+                Press("DetailPrevious",true);
+                yield return new WaitForSecondsRealtime(.35f);
+                Press("DetailNext",true);
+                yield return null;
+                if (map.SelectedChapter != 9 || CrystalAnchors(map).Length != 10)
+                    throw new InvalidOperationException("Kristal Şelaleler terası doğrulanamadı, yükseklik "+height);
+                ScreenCapture.CaptureScreenshot(Evidence+$"Crystal-QA-{height}.png");
+                yield return null;
+                checks.Add("Kristal Şelaleler teras okları, 900 × "+height);
+            }
+            Size(1600);
+            yield return Until(() => Screen.height == 1600,"900 x 1600");
+
+            GameplayProgress.UseTestProfile(Fixture(89));
+            if (!GameplayProgress.Current.Claim(90,3,true,out _) || !GameplayProgress.Current.SaveMapFocus(90))
+                throw new InvalidOperationException("Teras geçişi hazırlanamadı.");
+            yield return OpenPage(3,1,3);
+            map = FindFirstObjectByType<MapWorld>();
+            Press(IslandButton(map,1).name,true);
+            if (!map.JourneyRunning || map.SelectedChapter != 8)
+                throw new InvalidOperationException("90 → 91 yürüyüşü kaynak terastan başlamadı.");
+            yield return Until(() => !map.JourneyRunning,"90 → 91 yürüyüşü");
+            if (map.SelectedChapter != 9 || GameplayProgress.Current.MapJourney.displayedLevel != 91)
+                throw new InvalidOperationException("90 → 91 yürüyüşü referans terasında bitmedi.");
+            checks.Add("Dünya haritasından 90 → 91, maskot referans terasına geçti");
+        }
+
+        static MapPoint IslandButton(MapWorld map,int region) => map.Points.Single(point => point.gameObject.activeInHierarchy &&
+            point.kind == MapPointKind.LevelGroup && point.regionIndex == region);
+
+        static Vector2[] CrystalAnchors(MapWorld map) => map.Points.Where(point => point.gameObject.activeInHierarchy &&
+            point.kind == MapPointKind.LevelSlot && point.slotIndex >= 40).OrderBy(point => point.slotIndex)
+            .Select(point => ((RectTransform)point.transform).anchoredPosition).ToArray();
+
         static void Press(string name,bool raycast = false)
         {
             var button = GameObject.Find(name)?.GetComponent<Button>();
@@ -346,7 +472,9 @@ namespace Mewgic
             var hits = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointer,hits);
             if (hits.Count == 0 || ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject) != button.gameObject)
-                throw new InvalidOperationException("Düğme raycast hedefi değil: "+name);
+                throw new InvalidOperationException("Düğme raycast hedefi değil: "+name+" / "+(hits.Count == 0 ? "—" : hits[0].gameObject.name));
+            ExecuteEvents.Execute(button.gameObject,pointer,ExecuteEvents.pointerDownHandler);
+            ExecuteEvents.Execute(button.gameObject,pointer,ExecuteEvents.pointerUpHandler);
             ExecuteEvents.Execute(button.gameObject,pointer,ExecuteEvents.pointerClickHandler);
         }
 

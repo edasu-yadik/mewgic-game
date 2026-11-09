@@ -15,7 +15,11 @@ namespace Mewgic.Map
         ScrollRect journeyScroll;
         RectTransform journeyContent;
         RawImage journeyCat;
-        Button journeyBack, journeyFocus;
+        Button journeyBack, journeyFocus, detailPrevious, detailNext;
+        const int TerraceCount = JourneyLevelCount / LevelsPerTerrace;
+        const int VillageRegion = 0;
+        bool HasVillageTerraces => !useLegacyJourneyArt && journeyRegion == VillageRegion;
+        bool HasJourneyPages => HasCrystalComposition || HasVillageTerraces;
         RectTransform journeyHeading, journeyFooter;
         GameObject journeyInstruction, crystalBrand;
         int journeyRegion, firstBound = -1, lastBound = -1;
@@ -89,6 +93,8 @@ namespace Mewgic.Map
             chapterTitle = Label(heading.transform, "ChapterTitle", "", 36, new Vector2(.04f, .34f), new Vector2(.96f, .95f));
             journeyInstruction = Label(heading.transform, "ChapterInstruction", L.V("map.choose"), 24,
                 new Vector2(.05f, .03f), new Vector2(.70f, .35f)).gameObject;
+            detailPrevious = Control(overlay, "DetailPrevious", "‹", new Vector2(.16f, .851f), new Vector2(.238f, .905f), () => ChangeTerrace(-1));
+            detailNext = Control(overlay, "DetailNext", "›", new Vector2(.762f, .851f), new Vector2(.84f, .905f), () => ChangeTerrace(1));
             BuildJourneyMotion(heading.rectTransform);
 
             var footer = Panel(overlay, "JourneyFooter", Vector2.zero, new Vector2(1, .105f));
@@ -104,9 +110,18 @@ namespace Mewgic.Map
 
         public void OpenChapter(int region, int group)
         {
+            if (!journeyRunning && ledger != null && ledger.PeekMapJourney(out int start, out int target) &&
+                (JourneyTerraceContains(start, region, group) || JourneyTerraceContains(target, region, group)))
+            {
+                TryStartJourney();
+                if (journeyRunning) return;
+            }
             FinishJourney(false);
             ShowChapter(region, group, -1, true);
         }
+
+        static bool JourneyTerraceContains(int level, int region, int group) =>
+            WorldMapRules.Island(level) == region && (level - 1) % JourneyLevelCount / LevelsPerTerrace == group;
 
         void ShowChapter(int region, int group, int focusSlot, bool saveFocus)
         {
@@ -114,7 +129,7 @@ namespace Mewgic.Map
                 return;
 
             journeyFocusSlot = -1;
-            crystalSettleAt = 0;
+            journeySettleAt = 0;
             journeyRegion = region;
             if (useLegacyJourneyArt) LoadThemedJourney(region);
             SelectedChapter = region * 5 + group;
@@ -123,11 +138,11 @@ namespace Mewgic.Map
             Scroll.StopMovement();
             jumping = false;
             pendingFocus = -1;
-            if (saveFocus) ledger.SaveMapFocus(first);
+            if (saveFocus) ledger.SaveMapFocus(progression.LevelId(region, group * LevelsPerTerrace));
 
             chapter.SetActive(true);
             chapter.transform.SetAsLastSibling();
-            LayoutCrystalFrame();
+            LayoutJourneyFrame();
             UnityEngine.Canvas.ForceUpdateCanvases();
             ResizeJourney(false);
             BindJourneyTheme(region);
@@ -141,22 +156,36 @@ namespace Mewgic.Map
             FinishJourney(false);
             chapter.SetActive(false);
             ReleaseThemedJourney();
+            FocusRegion(journeyRegion, false);
+            pendingFocus = -1;
             var island = views.Find(view => view.region == journeyRegion);
             if (island != null)
                 island.groups[0].GetComponent<Button>().Select();
+        }
+
+        void ChangeTerrace(int direction)
+        {
+            int group = SelectedChapter - journeyRegion * TerraceCount + direction;
+            if (journeyRunning || group < 0 || group >= TerraceCount)
+                return;
+
+            CancelJourneyFocus();
+            journeySettleAt = 0;
+            JumpToJourneySlot(group * LevelsPerTerrace);
+            ledger.SaveMapFocus(progression.LevelId(journeyRegion, group * LevelsPerTerrace));
         }
 
         void CancelJourneyFocus()
         {
             journeyFocusSlot = -1;
             FinishJourney(false);
-            if (HasCrystalComposition) crystalSettleAt = Time.unscaledTime + .24f;
+            if (HasJourneyPages) journeySettleAt = Time.unscaledTime + .24f;
         }
 
         void FocusJourneyCurrent()
         {
             CancelJourneyFocus();
-            crystalSettleAt = 0;
+            journeySettleAt = 0;
             if (journeyRegion != progression.CurrentRegion)
             {
                 FocusCurrent();
@@ -176,7 +205,7 @@ namespace Mewgic.Map
 
         void AnimateJourneyFocus()
         {
-            SettleCrystalPage();
+            SettleJourneyPage();
             if (journeyFocusSlot < 0)
                 return;
             var position = journeyContent.anchoredPosition;
@@ -209,10 +238,10 @@ namespace Mewgic.Map
             float width = journeyScroll.viewport.rect.width;
             float previousViewportHeight = journeyViewportHeight;
             journeyViewportHeight = journeyScroll.viewport.rect.height;
-            // Keep one ten-level crystal terrace readable as a complete composition on short phones.
-            float preferredRow = HasCrystalComposition ? journeyViewportHeight / 10f : !useLegacyJourneyArt ? width * .17f : HasCrystalArt ? Mathf.Min(width * .15f, journeyViewportHeight / 10f) :
+            // Keep a ten-level terrace within the viewport on short phones.
+            float preferredRow = HasJourneyPages ? journeyViewportHeight / LevelsPerTerrace : !useLegacyJourneyArt ? width * .17f : HasCrystalArt ? Mathf.Min(width * .15f, journeyViewportHeight / 10f) :
                 width * (HasThemedArt ? .12f : .193f);
-            rowHeight = HasCrystalComposition ? preferredRow : Mathf.Max(preferredRow, 56 / Canvas.scaleFactor);
+            rowHeight = HasJourneyPages ? preferredRow : Mathf.Max(preferredRow, 56 / Canvas.scaleFactor);
             journeyContent.sizeDelta = new Vector2(0, rowHeight * JourneyLevelCount);
             if (keepPosition && oldHeight > 0)
             {
@@ -253,7 +282,10 @@ namespace Mewgic.Map
 
             float top = Mathf.Max(0, journeyContent.anchoredPosition.y);
             int visibleGroup = Mathf.Clamp(Mathf.FloorToInt((top + journeyScroll.viewport.rect.height * .5f) / rowHeight) / 10, 0, 4);
-            int groupFirst = progression.LevelId(journeyRegion, visibleGroup * 10);
+            SelectedChapter = journeyRegion * TerraceCount + visibleGroup;
+            detailPrevious.interactable = visibleGroup > 0;
+            detailNext.interactable = visibleGroup < TerraceCount - 1;
+            int groupFirst = progression.LevelId(journeyRegion, visibleGroup * LevelsPerTerrace);
             chapterTitle.text = L.V("map.chapter", L.Island(journeyRegion), groupFirst, groupFirst + 9);
             int first = Mathf.Clamp(Mathf.FloorToInt(top / rowHeight) - 1, 0, 49);
             int last = Mathf.Clamp(Mathf.CeilToInt((top + journeyScroll.viewport.rect.height) / rowHeight), first, 49);
@@ -335,7 +367,7 @@ namespace Mewgic.Map
 
             float top = journeyContent.anchoredPosition.y;
             float viewportHeight = journeyScroll.viewport.rect.height;
-            bool outside = HasCrystalComposition
+            bool outside = HasJourneyPages
                 ? slot < firstBound || slot > lastBound ||
                     -JourneyNodePosition(slot).y < top + rowHeight * .4f ||
                     -JourneyNodePosition(slot).y > top + viewportHeight - rowHeight * .4f
