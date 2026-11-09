@@ -74,6 +74,7 @@ namespace Mewgic.Map
         void BindJourneyTheme(int region)
         {
             if (useLegacyJourneyArt) return;
+            villageScenery.SetActive(HasVillageTerraces);
             journeyTheme = Resources.Load<MapJourneyTheme>("Map/JourneyThemes/" + progression.Region(region).key);
             journeyBackplate.transform.parent.gameObject.SetActive(!HasCrystalComposition);
             journeyForeground.transform.parent.gameObject.SetActive(!HasCrystalComposition);
@@ -84,7 +85,7 @@ namespace Mewgic.Map
             if (journeyPlateMaterial != null)
                 journeyPlateMaterial.SetFloat("_JourneyWater", journeyTheme != null && journeyTheme.flowingWater ? 1 : 0);
             journeyEdge.gameObject.SetActive(journeyNearCrystals != null && !journeyForeground.enabled);
-            ((JourneyRouteGraphic)journeyRoute).UseTheme(journeyTheme, journeyPaving, HasVillageTerraces);
+            ((JourneyRouteGraphic)journeyRoute).UseTheme(journeyTheme, journeyPaving);
             UpdateJourneyDepth();
         }
 

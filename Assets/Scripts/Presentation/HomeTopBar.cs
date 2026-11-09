@@ -11,6 +11,7 @@ namespace Mewgic
         public HomeResourceModel Model {get;private set;}
         RectTransform root,safe,popup;
         double displayedCoins=-1;
+        long? rewardDisplay;
         TMP_Text coinsText,gemsText,energyText,heartText,message;
         readonly Button[] feedbackButtons=new Button[4]; readonly TMP_Text[] feedbackLabels=new TMP_Text[4]; static readonly string[] feedbackKeys={"settings.music","settings.effects","settings.vibration","settings.motion"};GameObject languagePicker;Button languageButton,tutorialReplayButton,privacyButton;
         static CultureInfo Turkish=>L.Culture;
@@ -52,7 +53,7 @@ namespace Mewgic
             if(n>=1000000L)return L.V("number.million",n/1000000m);
             return n.ToString("N0",Turkish);
         }
-        void Refresh(){if(displayedCoins<0)displayedCoins=Model.Coins;coinsText.text=FormatAmount(displayedCoins>=long.MaxValue?long.MaxValue:System.Math.Max(0,(long)displayedCoins));gemsText.text=FormatAmount(Model.Gems);heartText.text=Model.Energy.ToString();energyText.text=Model.Energy==HomeResourceModel.MaximumEnergy?L.V("home.full"):Model.Energy+"/5";}
+        void Refresh(){if(displayedCoins<0)displayedCoins=Model.Coins;coinsText.text=FormatAmount(rewardDisplay ?? (displayedCoins>=long.MaxValue?long.MaxValue:System.Math.Max(0,(long)displayedCoins)));gemsText.text=FormatAmount(Model.Gems);heartText.text=Model.Energy.ToString();energyText.text=Model.Energy==HomeResourceModel.MaximumEnergy?L.V("home.full"):Model.Energy+"/5";}
         void BuildPopup()
         {
             popup=Rect(safe,"ResourceInfoPanel",Vector2.zero,Vector2.one);var blocker=popup.gameObject.AddComponent<Image>();blocker.color=new Color(0,0,0,.7f);blocker.raycastTarget=true;
@@ -131,7 +132,14 @@ namespace Mewgic
         public void Show(string text){var card=(RectTransform)popup.Find("Card");var frame=card.GetComponent<Image>();frame.sprite=panel;frame.type=Image.Type.Simple;card.anchorMin=new Vector2(.08f,.43f);card.anchorMax=new Vector2(.92f,.68f);message.rectTransform.anchorMin=new Vector2(.08f,.30f);message.rectTransform.anchorMax=new Vector2(.92f,.90f);var close=(RectTransform)card.Find("ResourceInfoClose");close.anchorMin=new Vector2(.32f,.04f);close.anchorMax=new Vector2(.68f,.28f);if(languagePicker!=null)languagePicker.SetActive(false);if(languageButton!=null)languageButton.gameObject.SetActive(false);foreach(var toggle in feedbackButtons)if(toggle!=null)toggle.gameObject.SetActive(false);if(tutorialReplayButton!=null)tutorialReplayButton.gameObject.SetActive(false);if(privacyButton!=null)privacyButton.gameObject.SetActive(false);message.text=text;popup.gameObject.SetActive(true);popup.SetAsLastSibling();}
         public void Close(){popup.gameObject.SetActive(false);}
         public void Layout(){if(root==null)return;float height=Mathf.Min(safe.rect.width*.082f,safe.rect.height*.06f);root.sizeDelta=new Vector2(0,height);root.anchoredPosition=new Vector2(0,-safe.rect.width*.018f);}
-        void LateUpdate(){Layout();Model?.RefreshFromLedger();if(Model!=null&&displayedCoins!=Model.Coins){displayedCoins=System.Math.Abs(displayedCoins-Model.Coins)<1?Model.Coins:displayedCoins+(Model.Coins-displayedCoins)*(1-System.Math.Exp(-Time.unscaledDeltaTime*6));coinsText.text=FormatAmount(displayedCoins>=long.MaxValue?long.MaxValue:System.Math.Max(0,(long)displayedCoins));}}
+        internal void PresentRewardCoins(long? value)
+        {
+            rewardDisplay = value;
+            Model.RefreshFromLedger();
+            displayedCoins = value ?? Model.Coins;
+            Refresh();
+        }
+        void LateUpdate(){Layout();Model?.RefreshFromLedger();if(Model!=null&&!rewardDisplay.HasValue&&displayedCoins!=Model.Coins){displayedCoins=System.Math.Abs(displayedCoins-Model.Coins)<1?Model.Coins:displayedCoins+(Model.Coins-displayedCoins)*(1-System.Math.Exp(-Time.unscaledDeltaTime*6));coinsText.text=FormatAmount(displayedCoins>=long.MaxValue?long.MaxValue:System.Math.Max(0,(long)displayedCoins));}}
         void OnDestroy(){L.Changed-=Refresh;if(Model!=null)Model.Changed-=Refresh;}
     }
 }

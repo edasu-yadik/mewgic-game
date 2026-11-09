@@ -57,6 +57,7 @@ namespace Mewgic.Map
         Vector2 JourneyNodePosition(int slot)
         {
             float width = journeyScroll.viewport.rect.width;
+            if (HasVillageTerraces) return VillagePosition(slot,true);
             if (!HasCrystalComposition)
                 return new Vector2(width * (useLegacyJourneyArt ? JourneyLane(slot) : JourneyRouteGraphic.NodeLane(slot)),
                     -(slot + .5f) * rowHeight);

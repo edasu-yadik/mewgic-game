@@ -376,6 +376,7 @@ namespace Mewgic.Map
         Vector2 RoutePosition(float slot)
         {
             if (HasCrystalComposition) return CrystalRoutePosition(slot);
+            if (HasVillageTerraces) return VillagePosition(slot,false);
             if (!useLegacyJourneyArt)
                 return new Vector2(JourneyRouteGraphic.FoundationLane(slot) * journeyScroll.viewport.rect.width, -(slot + .5f) * rowHeight);
             int a = Mathf.Clamp(Mathf.FloorToInt(slot), 0, JourneyLevelCount - 2);

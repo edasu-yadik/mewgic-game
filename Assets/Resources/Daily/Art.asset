@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975956782745ddb49aada14d5d3c0411, type: 3}
   m_Name: Art
   m_EditorClassIdentifier: Assembly-CSharp::Mewgic.Daily.DailyArt
+  coin: {fileID: 892819970791454646, guid: 35d0e6ab2ce1a1342b90de822ff14e88, type: 3}
   chest: {fileID: 4549363000812991956}
   parchment: {fileID: 4825796105158359112}
   button: {fileID: -7326651490636560}

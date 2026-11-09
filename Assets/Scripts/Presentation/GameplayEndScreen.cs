@@ -10,19 +10,25 @@ namespace Mewgic
 {
     public sealed class GameplayEndScreen : MonoBehaviour
     {
-        const float ArtWidth = 941, ArtHeight = 1672, RevealEnd = 1.65f;
-        static readonly float[] RevealTimes = { .18f, .49f, .83f };
+        const float ArtWidth = 941, ArtHeight = 1672, RevealEnd = 1.60f;
+        static readonly float[] RevealTimes = { .48f, .76f, 1.04f };
         static readonly Vector2[] StarCenters = { new(329, 400), new(471, 368), new(613, 400) };
         static readonly Color Cream = new(1f, .94f, .77f);
         readonly RawImage[] stars = new RawImage[3];
         readonly VictoryLight[] halos = new VictoryLight[3], sparks = new VictoryLight[12];
         readonly RawImage[] bleed = new RawImage[8];
         readonly float[] edgesX = new float[4], edgesY = new float[4];
-        RectTransform safeArea, overlay, root;
+        RectTransform safeArea, overlay, root, sheet, motionHost;
+        CanvasGroup panelFade, edgeFade;
+        Image blocker;
+        RewardMotion motion;
+        readonly VictoryLight[] atmosphere = new VictoryLight[8];
+        long initialBalance;
+        bool meterShown, rewardFlight, celebrationFinished;
         Rect lastSafe;
         Vector2 lastSize;
         Texture2D plate;
-        VictoryLight sweep, coinGlint;
+        VictoryLight sweep, coinGlint, nextGlint, replayGlint, mapGlint;
         VictoryEdgeArt skyEdge, gardenEdge;
         TMP_Text reward, adTitle, adTotal, notice, skipLabel, nextLabel;
         Button next, replay, map, watch, skip;
@@ -48,25 +54,32 @@ namespace Mewgic
             var star = Resources.Load<Texture2D>("Gameplay/Victory/ReferenceStar");
             safeArea = safe;
             overlay = GameplayTools.Rect(safe.parent, "VictoryBackdrop", Vector2.zero, Vector2.one);
-            var blocker = overlay.gameObject.AddComponent<Image>();
+            blocker = overlay.gameObject.AddComponent<Image>();
             blocker.color = new Color(.075f, .033f, .15f);
             blocker.raycastTarget = true;
+            var edges = GameplayTools.Rect(overlay, "VictoryEdges", Vector2.zero, Vector2.one);
+            edgeFade = edges.gameObject.AddComponent<CanvasGroup>();
+            edgeFade.blocksRaycasts = false;
             for (int i = 0; i < bleed.Length; i++)
             {
-                bleed[i] = GameplayTools.Rect(overlay, "VictoryEdge", Vector2.zero, Vector2.zero)
+                bleed[i] = GameplayTools.Rect(edges, "VictoryEdge", Vector2.zero, Vector2.zero)
                     .gameObject.AddComponent<RawImage>();
                 bleed[i].texture = plate;
                 bleed[i].raycastTarget = false;
             }
             root = GameplayTools.Rect(overlay, "Win panel", Vector2.zero, Vector2.one);
 
+            sheet = GameplayTools.Rect(root, "VictoryPanelEntrance", Vector2.zero, Vector2.one);
+            panelFade = sheet.gameObject.AddComponent<CanvasGroup>();
             Art("ReferenceArt", plate, 0, 0, ArtWidth, ArtHeight);
             for (int i = 0; i < stars.Length; i++)
             {
                 Vector2 c = StarCenters[i];
                 float size = i == 1 ? 173 : 135;
                 halos[i] = Light("StarHalo", c, size * 1.67f, false);
+                halos[i].transform.SetParent(root,false);
                 var starSlot = Place("StarSlot" + i, c.x - size/2, c.y - size/2, c.x + size/2, c.y + size/2);
+                starSlot.SetParent(root,false);
                 stars[i] = GameplayTools.Rect(starSlot, "AwardStar" + (i + 1), Vector2.zero, Vector2.one)
                     .gameObject.AddComponent<RawImage>();
                 stars[i].texture = star;
@@ -77,7 +90,12 @@ namespace Mewgic
                 stars[i].rectTransform.localRotation = Quaternion.Euler(0, 0, i == 0 ? 10 : i == 2 ? -10 : 0);
             }
             for (int i = 0; i < sparks.Length; i++)
+            {
                 sparks[i] = Light("GoldParticle" + i, StarCenters[i / 4], 14 + i % 4 * 4, true);
+                sparks[i].transform.SetParent(root,false);
+            }
+            for (int i = 0; i < atmosphere.Length; i++)
+                atmosphere[i] = Light("VictoryAmbient" + i, Vector2.zero, 13+i%3*5, true);
 
             var title = Caption("Success", L.V("victory.title"), 75, 219, 451, 723, 599);
             title.fontStyle = FontStyles.Bold | FontStyles.Italic;
@@ -98,11 +116,14 @@ namespace Mewgic
 
             next = Control("NextLevel", advance, 284, 1148, 728, 1267);
             nextLabel = Caption("NextLabel", "", 48, 328, 1167, 652, 1243);
+            nextGlint = Light("VictoryNextGlint", new Vector2(713,1176), 36, true);
             replay = Control("Replay", replayLevel, 262, 1301, 504, 1374);
             Caption("ReplayLabel", L.V("victory.replay"), 33, 327, 1306, 491, 1368);
             map = Control("ResultHome", returnToMap, 522, 1301, 786, 1374);
             Caption("MapLabel", GetComponent<PrototypeApp>()?.IsTutorialReplay == true ?
                 L.V("common.home") : L.V("victory.map"), 29, 599, 1306, 774, 1368);
+            replayGlint = Light("VictoryReplayGlint", new Vector2(282,1320), 26, true);
+            mapGlint = Light("VictoryMapGlint", new Vector2(767,1320), 26, true);
             notice = Caption("RewardBreakdown", "", 25, 266, 1374, 771, 1412);
             skip = Control("SkipReward", () =>
             {
@@ -115,14 +136,17 @@ namespace Mewgic
                 }
             }, 275, 888, 666, 931, false);
             skipLabel = Caption("SkipLabel", "", 24, 282, 891, 659, 930);
-            skyEdge = MakeEdge("ReferenceSkyEdge", true);
-            gardenEdge = MakeEdge("ReferenceGardenEdge", false);
+            skyEdge = MakeEdge(edges, "ReferenceSkyEdge", true);
+            gardenEdge = MakeEdge(edges, "ReferenceGardenEdge", false);
+            motionHost = GameplayTools.Rect(overlay, "VictoryRewardSafeArea", Vector2.zero, Vector2.one);
+            var coin = Resources.Load<Mewgic.Daily.DailyArt>("Daily/Art").coin;
+            motion = new RewardMotion(motionHost, coin, new Vector2(.70f,.938f), new Vector2(.977f,.984f));
             Hide();
         }
 
-        VictoryEdgeArt MakeEdge(string name, bool top)
+        VictoryEdgeArt MakeEdge(Transform parent, string name, bool top)
         {
-            var obj = GameplayTools.Rect(overlay, name, Vector2.zero, Vector2.one).gameObject;
+            var obj = GameplayTools.Rect(parent, name, Vector2.zero, Vector2.one).gameObject;
             obj.AddComponent<CanvasRenderer>();
             var edge = obj.AddComponent<VictoryEdgeArt>();
             edge.texture = Resources.Load<Texture2D>("Gameplay/Victory/" + name);
@@ -133,7 +157,7 @@ namespace Mewgic
 
         static Vector2 Point(float x, float y) => new(x / ArtWidth, 1 - y / ArtHeight);
         RectTransform Place(string name, float x0, float y0, float x1, float y1) =>
-            GameplayTools.Rect(root, name, Point(x0, y1), Point(x1, y0));
+            GameplayTools.Rect(sheet, name, Point(x0, y1), Point(x1, y0));
 
         RawImage Art(string name, Texture2D texture, float x0, float y0, float x1, float y1)
         {
@@ -207,6 +231,8 @@ namespace Mewgic
             coins = saved ? payout.Coins : 0;
             awarded = Mathf.Clamp(starCount, 0, stars.Length);
             displayedCoins = -1;
+            initialBalance = ledger == null ? 0 : Math.Max(0, ledger.Presentation.coins - coins);
+            meterShown = rewardFlight = celebrationFinished = false;
             showing = true;
             saveOk = saved;
             canAdvance = hasNext;
@@ -324,13 +350,16 @@ namespace Mewgic
             sounded = awarded;
             coins = ProgressLedger.RewardedVictoryTotal;
             SetTransition(false);
-            GameFeel.Play(GameCue.Coin);
+            if (!meterShown) { motion.Show(initialBalance); meterShown = true; }
+            rewardFlight = true;
+            StartCoroutine(motion.Fly(watch.transform as RectTransform,ledger.Presentation.coins));
             Animate();
         }
 
         public void Hide()
         {
             showing = false;
+            motion?.Reset();
             if (overlay != null) overlay.gameObject.SetActive(false);
         }
 
@@ -352,6 +381,8 @@ namespace Mewgic
             if (screenSize.x <= 0 || screenSize.y <= 0 || (lastSize == screenSize && lastSafe == safe)) return;
             lastSize = screenSize;
             lastSafe = safe;
+            motionHost.anchorMin = safe.min;
+            motionHost.anchorMax = safe.max;
             Vector2 available = Vector2.Scale(screenSize, safe.size);
             float width = Mathf.Min(available.x, available.y * ArtWidth / ArtHeight);
             float height = Mathf.Min(available.y, width * (18.6f / 9));
@@ -395,13 +426,37 @@ namespace Mewgic
         {
             bool reduced = GameFeel.Reduced;
             float reveal = reduced ? RevealEnd : clock;
-            int visibleCoins = Mathf.RoundToInt(coins * Mathf.SmoothStep(0, 1, Mathf.Clamp01((reveal - .36f) / .84f)));
+            float entrance = Mathf.SmoothStep(0,1,Mathf.Clamp01((reveal-.93f)/.59f));
+            blocker.color = new Color(.075f,.033f,.15f,Mathf.Lerp(.10f,1,entrance));
+            edgeFade.alpha = entrance;
+            panelFade.alpha = entrance;
+            panelFade.blocksRaycasts = entrance > .94f;
+            sheet.localScale = Vector3.one*(.94f+.06f*entrance+.023f*Mathf.Sin(entrance*Mathf.PI));
+            if (!reduced && !celebrationFinished)
+            {
+                float burst = Mathf.Clamp01(reveal/.86f);
+                motion.Burst(new Vector2(.5f,.59f),burst,false,.49f);
+                celebrationFinished = burst >= 1;
+            }
+
+            int visibleCoins = coins;
             if (displayedCoins != visibleCoins)
             {
                 displayedCoins = visibleCoins;
                 reward.text = L.V("victory.coins", visibleCoins);
             }
             UpdateSkip();
+
+            if (ledger != null && reveal >= 1.24f && !meterShown)
+            {
+                meterShown = true;
+                motion.Show(initialBalance);
+            }
+            if (ledger != null && reveal >= RevealEnd && !rewardFlight)
+            {
+                rewardFlight = true;
+                StartCoroutine(motion.Fly(reward.rectTransform,ledger.Presentation.coins));
+            }
 
             if (!starsSettled)
             {
@@ -415,6 +470,17 @@ namespace Mewgic
             Position(sweep.rectTransform, new Vector2(Mathf.Lerp(171, 772, scan), 939));
             sweep.CanvasAlpha(active ? Mathf.Sin(scan * Mathf.PI) * .7f : 0);
             coinGlint.CanvasAlpha(active ? Mathf.Sin(Mathf.PI * Mathf.Clamp01((phase - .78f) / .66f)) * .65f : 0);
+            nextGlint.CanvasAlpha(!reduced && canAdvance && reveal > RevealEnd ?
+                Mathf.Sin(Mathf.PI*Mathf.Clamp01((phase-1.4f)/.75f))*.54f : 0);
+            replayGlint.CanvasAlpha(!reduced ? entrance*Mathf.Sin(Mathf.PI*Mathf.Clamp01((phase-.55f)/.55f))*.36f : 0);
+            mapGlint.CanvasAlpha(!reduced ? entrance*Mathf.Sin(Mathf.PI*Mathf.Clamp01((phase-2.5f)/.66f))*.36f : 0);
+            for (int i=0; i<atmosphere.Length; i++)
+            {
+                float wave = reveal * (.62f+i*.023f)+i*1.4f;
+                float x = i%2 == 0 ? 87+i*14 : 844-i*13;
+                Position(atmosphere[i].rectTransform,new Vector2(x+Mathf.Sin(wave)*16,298+i*145-Mathf.Cos(wave)*32));
+                atmosphere[i].CanvasAlpha(reduced ? 0 : entrance*Mathf.Pow(Mathf.Max(0,Mathf.Sin(wave)),2)*.58f);
+            }
         }
 
         void AnimateStars(float reveal, bool reduced)
@@ -430,7 +496,7 @@ namespace Mewgic
                 stars[i].color = earned ? new Color(1, 1, 1, Mathf.Clamp01(age / .11f)) :
                     new Color(.37f, .19f, .44f, .43f);
                 float flash = earned && age >= 0 && !reduced ? Mathf.Clamp01(1 - age / .48f) : 0;
-                halos[i].CanvasAlpha(earned ? .49f + flash * (i == 1 ? .48f : .34f) : 0);
+                halos[i].CanvasAlpha(earned && age >= 0 ? .49f + flash * (i == 1 ? .48f : .34f) : 0);
                 if (earned && age >= 0 && !reduced && sounded <= i)
                 {
                     sounded = i + 1;
@@ -502,6 +568,7 @@ namespace Mewgic
         }
     }
 
+    [RequireComponent(typeof(CanvasRenderer))]
     sealed class VictoryLight : MaskableGraphic
     {
         public bool Rays { get; set; }
@@ -511,8 +578,8 @@ namespace Mewgic
         {
             mesh.Clear();
             Vector2 half = rectTransform.rect.size * .5f;
-            var core = new Color(1, .91f, .60f, Rays ? .9f : .55f);
-            var soft = new Color(1, .55f, .11f, Rays ? .22f : .32f);
+            var core = color * new Color(1, .91f, .60f, Rays ? .9f : .55f);
+            var soft = color * new Color(1, .55f, .11f, Rays ? .22f : .32f);
             var clear = new Color(1, .39f, .05f, 0);
             mesh.AddVert(Vector2.zero, core, Vector2.zero);
             int segments = Rays ? 8 : 24;

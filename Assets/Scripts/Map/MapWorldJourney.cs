@@ -21,7 +21,7 @@ namespace Mewgic.Map
         bool HasVillageTerraces => !useLegacyJourneyArt && journeyRegion == VillageRegion;
         bool HasJourneyPages => HasCrystalComposition || HasVillageTerraces;
         RectTransform journeyHeading, journeyFooter;
-        GameObject journeyInstruction, crystalBrand;
+        GameObject journeyInstruction, crystalBrand, villageScenery;
         int journeyRegion, firstBound = -1, lastBound = -1;
         float rowHeight, journeyViewportHeight, focusVelocity;
         int journeyFocusSlot = -1;
@@ -46,7 +46,11 @@ namespace Mewgic.Map
             scroll.gameObject.AddComponent<Image>().color = Color.clear;
             scroll.gameObject.AddComponent<RectMask2D>();
             journeyScroll.viewport = scroll;
-            if (!useLegacyJourneyArt) BuildJourneyBackground(scroll);
+            if (!useLegacyJourneyArt)
+            {
+                BuildJourneyBackground(scroll);
+                BuildVillageScenery(scroll);
+            }
             journeyContent = Rect(scroll, "JourneyContent", Vector2.up, Vector2.one);
             journeyContent.pivot = new Vector2(.5f, 1);
             journeyScroll.content = journeyContent;
@@ -106,6 +110,31 @@ namespace Mewgic.Map
                 new Vector2(.63f, .12f), new Vector2(.93f, .88f), FocusJourneyCurrent);
             journeyScroll.onValueChanged.AddListener(_ => BindJourneyWindow());
             chapter.SetActive(false);
+        }
+
+        void BuildVillageScenery(RectTransform viewport)
+        {
+            var scenery = Rect(viewport, "VillageChapterScenery", Vector2.zero, Vector2.one);
+            villageScenery = scenery.gameObject;
+            var board = Panel(scenery, "VillageChapterBoard", new Vector2(.065f,.034f), new Vector2(.935f,.515f));
+            board.color = new Color32(232,214,248,255);
+            var island = Art(scenery, "VillagePaintedIsland", terrain[VillageRegion],
+                new Vector2(-.035f,.415f), new Vector2(1.035f,1.025f));
+            island.preserveAspect = true;
+            villageScenery.SetActive(false);
+        }
+
+        Vector2 VillagePosition(float slot, bool marker)
+        {
+            int terrace = Mathf.Clamp(Mathf.FloorToInt(slot / LevelsPerTerrace),0,TerraceCount-1);
+            float within = Mathf.Clamp(slot-terrace*LevelsPerTerrace,0,9.65f);
+            int node = Mathf.Min(9,Mathf.FloorToInt(within));
+            float row = node / 2;
+            if (node % 2 != 0) row += within-node;
+            float x = marker ? (node%2 == 0 ? .285f : .715f) : .5f + Mathf.Sin(within*Mathf.PI)*.055f;
+            if (marker && node%2 != 0) row = node / 2;
+            return new Vector2(x*journeyScroll.viewport.rect.width,
+                -(terrace*LevelsPerTerrace+(5.35f+row*.90f))*rowHeight);
         }
 
         public void OpenChapter(int region, int group)
@@ -256,7 +285,7 @@ namespace Mewgic.Map
                 journeyContent.anchoredPosition = Vector2.up * Mathf.Clamp(newTop, 0, hidden);
             }
 
-            journeyRoute.gameObject.SetActive(!HasPaintedJourney);
+            journeyRoute.gameObject.SetActive(!HasPaintedJourney && !HasVillageTerraces);
             for (int i = 0; i < journeyScenery.Count; i++)
             {
                 var art = journeyScenery[i];
@@ -330,6 +359,11 @@ namespace Mewgic.Map
                     bool milestone = slot == JourneyLevelCount - 1;
                     float stoneWidth = !useLegacyJourneyArt ? width * (milestone ? .16f : .135f) : HasPaintedJourney ? width * (milestone ? .205f : .145f) : 156;
                     float stoneHeight = !useLegacyJourneyArt ? rowHeight * .57f : HasPaintedJourney ? rowHeight * (milestone ? .88f : .72f) : 110;
+                    if (HasVillageTerraces)
+                    {
+                        stoneWidth = width * .205f;
+                        stoneHeight = rowHeight * .71f;
+                    }
                     if (HasCrystalComposition)
                     {
                         stoneWidth = width * (milestone ? .177f : .146f);

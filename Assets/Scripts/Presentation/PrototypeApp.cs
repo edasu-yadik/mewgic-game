@@ -169,11 +169,27 @@ namespace Mewgic
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
             tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
-            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,()=>{if(!busy&&!paused&&!navigating)SceneNavigation.LoadOnce(tutorialReplay?"Home":"LevelMap");},()=>paused,RetryReward);
+            endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,ReturnFromResults,()=>paused,RetryReward);
             if(GameplayProgress.LoadError!=null)status.text=L.V("error.load");
             Refresh();
             pawGuide=gameObject.AddComponent<Mewgic.UI.PawGuide>();pawGuide.Mount(this,safe,puzzle,progress,levelInfo.id);if(tutorialReplay)pawGuide.ReplayFinished=ReturnFromGameplay;else GameplayLevelCatalog.Prewarm(levelInfo.id);
         }
+        void ReturnFromResults()
+        {
+            if (busy || paused || navigating) return;
+            navigating = true;
+            endScreen.SetTransition(true);
+            if (!SceneNavigation.LoadWithFade(tutorialReplay ? "Home" : "LevelMap",
+                tutorialReplay ? null : () => Map.MapWorld.RequestResultChapter(levelInfo.id), RestoreResultNavigation))
+                RestoreResultNavigation();
+        }
+
+        void RestoreResultNavigation()
+        {
+            navigating = false;
+            endScreen.SetTransition(false,L.V("boot.error"));
+        }
+
         void ReturnFromGameplay()=>Mewgic.SceneNavigation.LoadOnce(tutorialReplay?"Home":GameplayLevelCatalog.ReturnScene);
         void SkinGameplayControl(Button control){control.GetComponent<Image>().sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");control.GetComponent<Image>().type=Image.Type.Sliced;control.GetComponent<Image>().color=Color.white;control.GetComponent<Outline>().enabled=false;}
         internal void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused||tutorialReplay||pawGuide?.BlocksGameplayActions==true,originalBottleCount);}

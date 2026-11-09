@@ -25,9 +25,11 @@ namespace Mewgic.Map
         {var im=Panel(p,name,min,max);im.raycastTarget=true;var b=im.gameObject.AddComponent<PremiumButton>();b.targetGraphic=im;b.onClick.AddListener(()=>action());Label(im.transform,"Label",text,24,new Vector2(.07f,.1f),new Vector2(.93f,.9f));return b;}
 
   static bool openOverview;
+  static int resultLevel;
   [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-  static void ResetOverviewRequest()=>openOverview=false;
+  static void ResetMapRequest(){openOverview=false;resultLevel=0;}
   internal static bool RequestOverview()=>openOverview=true;
+  internal static bool RequestResultChapter(int level){resultLevel=level;return true;}
 
   void Start()=>Mount();
   public void Mount()
@@ -54,6 +56,23 @@ namespace Mewgic.Map
    if(ledger!=null&&ledger.WorldMap.highestUnlockedIsland>ledger.WorldMap.lastCelebratedIsland){int r=ledger.WorldMap.highestUnlockedIsland;newlyOpenedRegion=r;celebration.text=L.V("map.unlock",L.Island(r));celebrationRoot.SetActive(true);celebrationUntil=Time.unscaledTime+2.6f;ledger.AcknowledgeIsland(r);}
    bool overview=openOverview;
    openOverview=false;
+   int completed=resultLevel;
+   resultLevel=0;
+   if(completed>0&&progression!=null)
+   {
+    // Replaying a previous chapter must not consume an unrelated pending journey.
+    if(ledger.PeekMapJourney(out int start,out int target)&&(completed==start||completed==target-1))
+    {
+     TryStartJourney();
+     if(journeyRunning)return;
+     completed=start;
+    }
+    else journeyStartupPending=false;
+    int region=WorldMapRules.Island(completed),slot=(completed-1)%JourneyLevelCount;
+    FocusRegion(region,false);
+    ShowChapter(region,slot/LevelsPerTerrace,slot,false);
+    return;
+   }
    if(overview){journeyStartupPending=false;return;}
    TryStartJourney();
    if(!journeyRunning&&progression!=null){if(journeyStartupPending&&ledger.PeekMapJourney(out int start,out _)){int slot=(start-1)%50;ShowChapter(WorldMapRules.Island(start),slot/10,slot,false);}else FocusCurrent();}

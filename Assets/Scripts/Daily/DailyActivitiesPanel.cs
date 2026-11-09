@@ -20,6 +20,7 @@ namespace Mewgic.Daily
    var entry=Image(safe,"DailyHomeEntries",null,new Vector2(.018f,.535f),new Vector2(.225f,.665f));entry.color=Color.clear;
    var mission=Button(entry.transform,"MissionsButton",L.V("daily.missions"),Vector2.zero,Vector2.one,()=>Open(false));
    mission.GetComponent<Image>().color=Color.clear;
+   mission.gameObject.AddComponent<MissionCardDrag>().Bind(entry.rectTransform,safe);
    Image(mission.transform,"QuestLabelPlate",art.button,new Vector2(0,.17f),new Vector2(1,.34f)).transform.SetAsFirstSibling();
    Image(mission.transform,"QuestTimerPlate",Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001"),new Vector2(.07f,0),new Vector2(.93f,.17f),true).transform.SetAsFirstSibling();
    var missionLabel=mission.transform.Find("Label").GetComponent<RectTransform>();missionLabel.anchorMin=new Vector2(0,.17f);missionLabel.anchorMax=new Vector2(1,.34f);
@@ -46,7 +47,7 @@ namespace Mewgic.Daily
   public void Open(bool showGift){screen.gameObject.SetActive(true);screen.SetAsLastSibling();observed=GameplayProgress.Current.ObserveDaily();status.text=observed?L.V("daily.real_rewards"):L.V(GameplayProgress.Current.DailyClockBlocked?"error.clock":"error.save");ShowTab(showGift);Layout();}
   void ShowTab(bool showGift){tasksTab.SetRole(showGift?ButtonRole.Navigation:ButtonRole.Selected);giftTab.SetRole(showGift?ButtonRole.Selected:ButtonRole.Navigation);tasks.SetActive(!showGift);gift.SetActive(showGift);Refresh();}
   public void Close(){screen.gameObject.SetActive(false);var after=OnClosed;OnClosed=null;after?.Invoke();}
-  void ClaimGift(){var popup=gameObject.AddComponent<DailyArrivalPopup>();popup.OnGranted=Refresh;popup.Mount(safe,true);}
+  void ClaimGift(){var popup=GetComponent<DailyArrivalPopup>();popup.OnGranted=Refresh;popup.Mount(safe,true);}
   void TaskAction(DailyTaskKind kind){var ledger=GameplayProgress.Current;if(!observed||ledger.DailyClockBlocked)return;int i=(int)kind;var d=ledger.DailySnapshot;if(d.claimed[i])return;if(d.progress[i]>=DailyRules.Target(kind)){status.text=ledger.ClaimDailyTask(kind)?L.V("daily.task_saved"):L.V("error.save");Refresh();return;}GetComponent<PrototypeApp>()?.PlayCurrentLevel(message=>status.text=message);}
   public void Refresh(){var ledger=GameplayProgress.Current;var d=ledger.DailySnapshot;bool valid=observed&&!ledger.DailyClockBlocked&&ledger.DailyTaskWait>TimeSpan.Zero;for(int i=0;i<4;i++){int target=DailyRules.Target((DailyTaskKind)i);fills[i].SetValue(d.progress[i],target,0,true,!valid);actions[i].transform.Find("Label").GetComponent<TMP_Text>().text=d.claimed[i]?L.V("common.claimed"):d.progress[i]>=target?L.V("common.claim"):L.V("common.go");actions[i].interactable=valid&&!d.claimed[i];((PremiumButton)actions[i]).SetRole(d.progress[i]>=target?ButtonRole.Reward:ButtonRole.Secondary);}
    giftClaim.interactable=valid&&ledger.GiftReady;giftState.text=!valid||ledger.GiftClockBlocked?L.V("error.clock"):ledger.GiftReady?L.V("daily.ready"):L.V("economy.gift_wait",(int)Math.Ceiling(ledger.GiftWait.TotalMinutes));RefreshTimer();refreshAt=Time.unscaledTime+15;
