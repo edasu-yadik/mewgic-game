@@ -1,0 +1,101 @@
+PASS SQLite fixture contains committed reward
+PASS Mid-import failure rolls back every row and allows a clean retry
+PASS Import checks row counts and leaves SQLite source byte-for-byte intact
+PASS Import refuses a populated destination
+PASS PostgreSQL readiness is checked separately
+PASS Password, identity, session and verified wins survived import
+PASS Clan roster and league points survived import
+PASS Search metacharacters are literal in PostgreSQL
+PASS SQLite reward receipt and original draw survived PostgreSQL import
+PASS Overlapping API instances commit one win and score only once
+PASS Overlapping API instances return the same persisted receipt
+PASS PostgreSQL keeps writes and reward receipts after API restart
+PASS Anonymous API access denied
+PASS Wrong password denied
+PASS Leader assigned and configured capacity returned
+PASS Search is case-insensitive
+PASS Approval clan creates request
+PASS Pending requests hidden from outsiders
+PASS Outsider cannot approve request
+PASS Leader appoints deputy
+PASS Deputy cannot edit clan settings
+PASS Real invite visible to recipient
+PASS Invite accepted and announcement visible
+PASS Deputy cannot kick leader
+PASS Member cannot kick deputy
+PASS Unsolved or illegal move proof rejected
+PASS Proof cannot credit another clan
+PASS Concurrent valid solves credit three accounts exactly once
+PASS Second new level on same day gives base points only
+PASS Weekly pool and achievements derived from committed wins
+PASS Deputy can remove ordinary member
+PASS Concurrent joins cannot overfill last slot
+PASS Leader departure promotes deputy atomically
+PASS Replay cannot create points after leaving
+PASS Server enforces joining prerequisites
+PASS Last leader leaving closes the empty clan
+PASS New login creates a distinct opaque session
+PASS Logout revokes bearer session
+PASS Real network interruption observed
+PASS Membership, succession and score persist across process restart
+PASS Replay still rejected after server restart
+PASS League requires an authenticated real account
+PASS Empty leaderboard has no synthetic participants
+PASS Season has exactly 28 server UTC days
+PASS Tutorial three-star formula ignores arbitrary client points and awards shared tie rank
+PASS Invalid proof leaves league score unchanged
+PASS Concurrent season submissions apply each verified level and weekend bonus once
+PASS Difficulty, stars, weekend and season milestone produce expected score and nearby ranks
+PASS Clan ranking aggregates real members without moving past points
+PASS Active season cannot pay rewards
+PASS Exact boundary closes once and creates a fresh season
+PASS Top tied group is promoted together, bronze bottom stays bronze
+PASS Frozen standings include payout and new division
+PASS Clan earns its season emblem
+PASS Old level replay cannot farm new season
+PASS Concurrent reward transfer binds to one wallet and one receipt
+PASS Same wallet can recover delivery using identical receipt
+PASS A shared device wallet cannot receive a second account's reward
+PASS Silver top promotes, middle stays and bottom demotes
+PASS Demotion pays completed tier reward
+PASS Server restart preserves division, history and reward binding
+PASS Reward identity is scoped to the authenticated account
+PASS All 12 definitions visible in live calendar
+PASS Default max four active
+PASS Private board requires authentication
+PASS Zero progress cannot claim
+PASS Invalid puzzle proof and arbitrary points are rejected
+PASS Verified wins feed each metric
+PASS Event and league points remain separate
+PASS Replay adds no points
+PASS Countdown comes from UTC server clock
+PASS Weighted chest preview is the actual saved pool
+PASS Concurrent chest claims return one receipt and roll
+PASS Chest grant belongs to its advertised pool
+PASS Duplicate payout to another wallet is blocked
+PASS Another account cannot take player reward
+PASS Wallet is bound to its account
+PASS Daily rollover starts a new zero-progress instance
+PASS Old event is archived
+PASS Unclaimed earned prize remains claimable after close
+PASS Rotation activates Crystal Collection
+PASS Treasure activates with magic chest
+PASS Marathon scores longest consecutive level sequence
+PASS Three-star proof advances Perfect Magic
+PASS Weekend win and star bonuses apply
+PASS Clan goal combines two real account contributions
+PASS Joining a clan does not grant its earned rewards
+PASS Island theme checks the actual level's world
+PASS New season opens cup with real clan ranking
+PASS Ranked reward remains locked during competition
+PASS Previous season progress persists through rollover
+PASS Receipt and original random roll survive server restart
+PASS Clock rollback cannot reopen expired competitions
+PASS Top ranked eligible scorer waits for closing
+PASS Archived race excludes out-of-rank scorers
+PASS Archived rank pays configured top place
+PASS Configuration changes preserve old reward snapshots
+PASS Archive rejects invalid page numbers
+PASS API process stays up when database is unavailable
+PASS Database outage returns retryable readiness response
+PASS Database outage does not produce fake calendar state

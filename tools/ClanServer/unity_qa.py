@@ -1,5 +1,7 @@
 """Start a disposable loopback API and run the Unity clan integration probe."""
 import json
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from threading import Thread
 from pathlib import Path
 import socket
 import subprocess
@@ -11,7 +13,24 @@ from urllib.request import urlopen
 from test_http import REPO, SERVER
 
 ENDPOINT = REPO / "Library" / "ClanQaEndpoint.txt"
+COLD_ENDPOINT = REPO / "Library" / "ClanQaColdEndpoint.txt"
 REPORT = REPO / "docs" / "ProductionReports" / "Clans" / "PLAY_MODE.json"
+
+
+class GatewayFixture(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/html/v1/me":
+            status, mime, body = 200, "text/html", b"<p>Starting service</p>"
+        else:
+            status, mime, body = 503, "application/json", b'{"error":"retry"}'
+        self.send_response(status)
+        self.send_header("Content-Type",mime)
+        self.send_header("Content-Length",str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, *args):
+        pass
 
 
 def main():
@@ -28,7 +47,14 @@ def main():
             endpoint.write(base)
     except FileExistsError:
         raise SystemExit("Clan QA uç nokta dosyası zaten var. Önce önceki QA koşusunu kapat.")
+    gateway = ThreadingHTTPServer(("127.0.0.1",0),GatewayFixture)
+    thread = Thread(target=gateway.serve_forever,daemon=True)
+    owns_cold_fixture = False
     try:
+        with COLD_ENDPOINT.open("x",encoding="utf-8") as output:
+            owns_cold_fixture = True
+            output.write(f"http://127.0.0.1:{gateway.server_port}")
+        thread.start()
         with tempfile.TemporaryDirectory(prefix="mewgic-unity-clans-") as directory:
             root = Path(directory)
             with (root / "service.log").open("wb") as log:
@@ -66,6 +92,12 @@ def main():
                         server.terminate()
                         server.wait(timeout=10)
     finally:
+        if thread.is_alive():
+            gateway.shutdown()
+            thread.join()
+        gateway.server_close()
+        if owns_cold_fixture:
+            COLD_ENDPOINT.unlink(missing_ok=True)
         ENDPOINT.unlink(missing_ok=True)
 
 

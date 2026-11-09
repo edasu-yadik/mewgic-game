@@ -12,16 +12,16 @@ sealed partial class ClanStore
         long now = leagueClock.GetUtcNow().ToUnixTimeSeconds();
         db.Run("""
             INSERT INTO event_clock VALUES(1,$n)
-            ON CONFLICT(id) DO UPDATE SET utc=MAX(utc,excluded.utc)
+            ON CONFLICT(id) DO UPDATE SET utc=CASE WHEN event_clock.utc>excluded.utc THEN event_clock.utc ELSE excluded.utc END
             """, ("$n",now));
         now = db.Value<long>("SELECT utc FROM event_clock WHERE id=1");
-        var active = ReadWindows(db,"WHERE start<=$n AND end>$n",("$n",now));
+        var active = ReadWindows(db,"WHERE start<=$n AND \"end\">$n",("$n",now));
         var lanes = active.Select(w => w.Snapshot.Definition.Lane).ToHashSet();
         foreach (var candidate in Planned(now,now+1).Where(w => w.Start <= now))
         {
             if (lanes.Count >= eventConfig.MaxActive) break;
             if (!lanes.Add(candidate.Snapshot.Definition.Lane)) continue;
-            db.Run("INSERT OR IGNORE INTO event_windows VALUES($e,$k,$l,$s,$n,$c)",
+            db.Run("INSERT INTO event_windows VALUES($e,$k,$l,$s,$n,$c) ON CONFLICT DO NOTHING",
                 ("$e",candidate.Id),("$k",candidate.Snapshot.Definition.Id),("$l",candidate.Snapshot.Definition.Lane),
                 ("$s",candidate.Start),("$n",candidate.End),("$c",JsonSerializer.Serialize(candidate.Snapshot,EventConfig.Json)));
         }
@@ -44,14 +44,14 @@ sealed partial class ClanStore
     }
 
     static List<EventWindow> ReadWindows(ClanDb db,string where,params (string,object?)[] args) =>
-        db.Read("SELECT id,start,end,config FROM event_windows "+where,
+        db.Read("SELECT id,start,\"end\",config FROM event_windows "+where,
             r => new EventWindow(r.GetString(0),r.GetInt64(1),r.GetInt64(2),
                 JsonSerializer.Deserialize<EventSnapshot>(r.GetString(3),EventConfig.Json)!),args).ToList();
 
     void AddEventWin(ClanDb db,string player,string? clan,int level,VerifiedWin proof)
     {
         long now = AdvanceEvents(db);
-        foreach (var window in ReadWindows(db,"WHERE start<=$n AND end>$n",("$n",now)))
+        foreach (var window in ReadWindows(db,"WHERE start<=$n AND \"end\">$n",("$n",now)))
         {
             var def = window.Snapshot.Definition;
             if (def.Team && clan == null) continue;
@@ -74,7 +74,7 @@ sealed partial class ClanStore
                 db.Value<string>("SELECT handle FROM players WHERE id=$i",("$i",entity))!;
             db.Run("""
                 INSERT INTO event_scores VALUES($e,$i,$n,$s)
-                ON CONFLICT(event,entity) DO UPDATE SET points=points+excluded.points,name=excluded.name
+                ON CONFLICT(event,entity) DO UPDATE SET points=event_scores.points+excluded.points,name=excluded.name
                 """, ("$e",window.Id),("$i",entity),("$n",name),("$s",score-prior.Points));
         }
     }
@@ -86,14 +86,14 @@ sealed partial class ClanStore
         long now = Write(db => AdvanceEvents(db));
         return Snapshot(db =>
         {
-            var active = ReadWindows(db,"WHERE start<=$n AND end>$n ORDER BY lane",("$n",now));
+            var active = ReadWindows(db,"WHERE start<=$n AND \"end\">$n ORDER BY lane",("$n",now));
             var upcoming = Planned(now,now+57*86400L).Where(w => w.Start > now &&
                 !active.Any(a => a.Snapshot.Definition.Lane == w.Snapshot.Definition.Lane && a.End > w.Start))
                 .OrderBy(w => w.Start).GroupBy(w => w.Snapshot.Definition.Id).Select(g => g.First());
             var recent = ReadWindows(db,"""
-                WHERE end<=$n AND (id IN(SELECT id FROM event_windows WHERE end<=$n ORDER BY end DESC,id LIMIT 12)
+                WHERE "end"<=$n AND (id IN(SELECT id FROM event_windows WHERE "end"<=$n ORDER BY "end" DESC,id LIMIT 12)
                   OR EXISTS(SELECT 1 FROM event_players p WHERE p.event=event_windows.id AND p.player=$p))
-                ORDER BY end DESC,id LIMIT $count OFFSET $offset
+                ORDER BY "end" DESC,id LIMIT $count OFFSET $offset
                 """,("$n",now),("$p",player),("$count",pageSize+1),("$offset",page*pageSize));
             return new EventBoard(now,page,recent.Count>pageSize,active.Concat(upcoming).Concat(recent.Take(pageSize))
                 .Select(w => DescribeEvent(db,w,player,now)).ToArray());
@@ -142,7 +142,7 @@ sealed partial class ClanStore
             var card = DescribeEvent(db,window,player,now);
             if (input.Milestone < 0 || input.Milestone >= card.Milestones.Length) throw ClanError.Missing();
             var tier = card.Milestones[input.Milestone];
-            var prior = db.Read("SELECT wallet,grant FROM event_claims WHERE event=$e AND player=$p AND tier=$t",
+            var prior = db.Read("SELECT wallet,\"grant\" FROM event_claims WHERE event=$e AND player=$p AND tier=$t",
                 r => (Wallet:r.GetString(0),Grant:r.GetString(1)),("$e",id),("$p",player),("$t",input.Milestone)).SingleOrDefault();
             if (prior.Wallet != null)
             {
@@ -150,7 +150,7 @@ sealed partial class ClanStore
                 return JsonSerializer.Deserialize<EventGrant>(prior.Grant,EventConfig.Json)!;
             }
             if (!tier.Eligible) throw ClanError.Conflict("events_locked");
-            db.Run("INSERT OR IGNORE INTO league_wallet_owners VALUES($w,$p)",("$w",wallet),("$p",player));
+            db.Run("INSERT INTO league_wallet_owners VALUES($w,$p) ON CONFLICT DO NOTHING",("$w",wallet),("$p",player));
             if (db.Value<string>("SELECT player FROM league_wallet_owners WHERE wallet=$w",("$w",wallet)) != player)
                 throw ClanError.Conflict("events_wallet_account");
             var prize = tier.Prize;

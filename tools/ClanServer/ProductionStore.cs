@@ -10,6 +10,14 @@ sealed partial class ClanStore
     void Migrate() => Write(db =>
     {
         long version = db.Value<long>("PRAGMA user_version");
+        ApplyMigrations(db,version,index => db.Run($"PRAGMA user_version={index}"));
+        if (version != Migrations.Length && db.Read("PRAGMA foreign_key_check",r => r.GetString(0)).Length > 0)
+            throw new InvalidOperationException("ClanServer database has invalid foreign keys.");
+        return true;
+    });
+
+    static void ApplyMigrations(ClanDb db,long version,Action<int> setVersion)
+    {
         if (version < 0 || version > Migrations.Length)
             throw new InvalidOperationException("Unsupported ClanServer database version.");
         for (int index = (int)version; index < Migrations.Length; index++)
@@ -18,12 +26,9 @@ sealed partial class ClanStore
                 ?? throw new InvalidOperationException("Missing embedded migration "+Migrations[index]);
             using var reader = new StreamReader(resource);
             db.Run(reader.ReadToEnd());
-            db.Run($"PRAGMA user_version={index+1}");
+            setVersion(index+1);
         }
-        if (version != Migrations.Length && db.Read("PRAGMA foreign_key_check",r => r.GetString(0)).Length > 0)
-            throw new InvalidOperationException("ClanServer database has invalid foreign keys.");
-        return true;
-    });
+    }
 
     public static void Backup(string source,string destination)
     {
@@ -40,7 +45,7 @@ sealed partial class ClanStore
                 { DataSource=temporary, Pooling=false, ForeignKeys=true }.ToString()))
             {
                 input.Open();
-                input.BackupDatabase(output.Connection);
+                input.BackupDatabase((SqliteConnection)output.Connection);
                 if (output.Value<string>("PRAGMA integrity_check") != "ok" ||
                     output.Read("PRAGMA foreign_key_check",r => r.GetString(0)).Length != 0)
                     throw new InvalidOperationException("SQLite backup failed integrity checks.");

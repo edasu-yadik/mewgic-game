@@ -156,6 +156,7 @@ namespace Mewgic.Rewards
                 {
                     "not_configured" => V("unavailable"),
                     "offline" => L.V("clan.error_offline"),
+                    "retry" => L.V("clan.error_retry"),
                     "unauthorized" => V("sign_in_note"),
                     "events_other_wallet" or "events_wallet_account" => V("wallet"),
                     "events_locked" => V("locked"),

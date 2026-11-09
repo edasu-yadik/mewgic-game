@@ -12,5 +12,6 @@
     <EmbeddedResource Include="Migrations/*.sql" />
     <Content Include="Account/*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Content Update="Events.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <PackageReference Include="Npgsql" Version="10.0.1" />
   </ItemGroup>
 </Project>

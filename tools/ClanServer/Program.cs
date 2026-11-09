@@ -1,4 +1,5 @@
 using System.Net;
+using System.Data.Common;
 using Microsoft.AspNetCore.HttpOverrides;
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
@@ -9,12 +10,22 @@ if (args is ["backup", var source, var destination])
     return;
 }
 
-var builder = WebApplication.CreateBuilder(args);
+string? importPath = args is ["import-sqlite", var file] ? file : null;
+var builder = WebApplication.CreateBuilder(importPath == null ? args : []);
 builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 24 * 1024);
 builder.Logging.AddFilter("Microsoft.AspNetCore.Hosting.Diagnostics", LogLevel.Warning);
 var options = builder.Configuration.GetSection("Clans").Get<ClanOptions>() ?? new();
 options.Validate();
-string path = builder.Configuration["Database"] ?? throw new InvalidOperationException("Database is required.");
+string? path = builder.Configuration["Database"];
+string? pgConnection = builder.Configuration["Postgres:ConnectionString"];
+string schema = builder.Configuration["Postgres:Schema"] ?? "mewgic";
+bool render = builder.Configuration.GetValue<bool>("Render:EdgeTls");
+if (render && !builder.Environment.IsDevelopment() && builder.Configuration["RENDER"] != "true")
+    throw new InvalidOperationException("Render edge TLS requires the Render runtime.");
+if ((render || importPath != null) && string.IsNullOrWhiteSpace(pgConnection))
+    throw new InvalidOperationException("Postgres:ConnectionString is required for Render and SQLite import.");
+if (string.IsNullOrWhiteSpace(path) && string.IsNullOrWhiteSpace(pgConnection))
+    throw new InvalidOperationException("Configure Database or Postgres:ConnectionString.");
 var leagueConfig = builder.Configuration.GetSection("League");
 var league = leagueConfig.Get<LeagueOptions>() ?? new();
 if (leagueConfig.GetSection("Tiers").Exists())
@@ -32,8 +43,16 @@ if (builder.Configuration["LeagueQaClockFile"] is string qaClock)
 }
 var events = EventConfig.Load(builder.Configuration["Events:ConfigPath"] ?? Path.Combine(AppContext.BaseDirectory,"Events.json"),
     builder.Configuration.GetValue<int?>("Events:MaxActive"));
-builder.Services.AddSingleton(new ClanStore(path, options, league, leagueClock, events));
-builder.Services.AddHostedService<LeagueSeasonWorker>();
+using var postgres = string.IsNullOrWhiteSpace(pgConnection) ? null : ClanStore.CreatePostgres(pgConnection,schema,
+    builder.Environment.IsDevelopment(),builder.Configuration["Postgres:RootCertificate"]);
+var store = new ClanStore(path,options,league,leagueClock,events,postgres,schema);
+if (importPath != null)
+{
+    store.ImportSqlite(importPath);
+    return;
+}
+builder.Services.AddSingleton(store);
+if (!render) builder.Services.AddHostedService<LeagueSeasonWorker>();
 builder.Services.AddSingleton(new ClanPuzzles(options.MaxLevel));
 builder.Services.AddRateLimiter(rate =>
 {
@@ -57,7 +76,9 @@ app.Use(async (context, next) =>
 {
     // TLS may terminate at a reverse proxy; configure loopback forwarding explicitly for that deployment.
     bool local = context.Connection.RemoteIpAddress is IPAddress address && IPAddress.IsLoopback(address);
-    if (!context.Request.IsHttps && !local)
+    // Render is an explicit edge-termination mode. The platform redirects public
+    // HTTP before forwarding HTTP to Kestrel. Client-supplied IP headers remain untrusted.
+    if (!render && !context.Request.IsHttps && !local)
     {
         context.Response.StatusCode = 426;
         return;
@@ -68,12 +89,25 @@ app.Use(async (context, next) =>
     {
         if (context.Response.HasStarted) throw;
         context.Response.StatusCode = error.Status;
+        if (error.Status == 503) context.Response.Headers.RetryAfter = "10";
         await context.Response.WriteAsJsonAsync(new { error = error.Code });
+    }
+    catch (DbException error) when (ClanStore.IsDatabaseUnavailable(error))
+    {
+        if (context.Response.HasStarted) throw;
+        context.Response.StatusCode = 503;
+        context.Response.Headers.RetryAfter = "10";
+        await context.Response.WriteAsJsonAsync(new { error = "retry" });
     }
 });
 app.UseRateLimiter();
 var api = app.MapGroup("/v1");
-app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+app.MapGet("/health", () => Results.Ok(new { status = "ok" })).DisableRateLimiting();
+app.MapGet("/ready", (ClanStore db) =>
+{
+    db.CheckDatabase();
+    return Results.Ok(new { status = "ready" });
+});
 app.MapGet("/account/delete", (HttpContext context) =>
 {
     context.Response.Headers.ContentSecurityPolicy = "default-src 'none'; script-src 'self'; connect-src 'self'; " +

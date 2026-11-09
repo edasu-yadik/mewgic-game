@@ -110,6 +110,7 @@ namespace Mewgic.Clans
                 if (this != null) notice.text = error.Code switch
                 {
                     "offline" => L.V("clan.error_offline"),
+                    "retry" => L.V("clan.error_retry"),
                     "unauthorized" => L.V("clan.error_unauthorized"),
                     "league_other_wallet" => V("other_wallet"),
                     "league_wallet_account" => L.V("clan.error_forbidden"),

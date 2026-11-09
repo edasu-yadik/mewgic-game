@@ -341,6 +341,21 @@ namespace Mewgic
             ClanClient.TestEndpoint(address);
             Click("ClanHall");
             yield return Until(() => Text("ClanNotice") == "" && Find("ClanBanner") != null,"Ağ geri gelince salon yenilendi");
+            const string gatewayFixture = "Library/ClanQaColdEndpoint.txt";
+            if (File.Exists(gatewayFixture))
+            {
+                string gateway = File.ReadAllText(gatewayFixture).Trim();
+                foreach (string endpoint in new[] { gateway+"/html", gateway })
+                {
+                    ClanClient.TestEndpoint(endpoint);
+                    var cold = ClanClient.Me();
+                    yield return Until(() => cold.IsCompleted,"Bulut bekleme yanıtı ulaştı");
+                    Check(cold.Exception?.GetBaseException() is ClanClientException failure && failure.Code == "retry" &&
+                        ClanClient.SignedIn && Find("ClanBanner") != null,
+                        "HTML açılış sayfası veya 503 oturumu ve son görünümü korudu");
+                }
+                ClanClient.TestEndpoint(address);
+            }
             ClanClient.TestExpireAccess();
             var renewed = ClanClient.Me();
             yield return Await(renewed,"Unity süresi geçen erişimi yeniledi");

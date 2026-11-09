@@ -4,25 +4,30 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.Sqlite;
+using Npgsql;
 
 sealed partial class ClanStore
 {
     const int Member = 0, Deputy = 1, Leader = 2;
-    readonly string connectionString;
+    readonly string? connectionString;
     readonly ClanOptions settings;
     readonly PasswordHasher<string> passwords = new();
     readonly string dummyHash;
 
-    public ClanStore(string path, ClanOptions settings, LeagueOptions league, TimeProvider leagueClock, EventConfig eventConfig)
+    public ClanStore(string? path, ClanOptions settings, LeagueOptions league, TimeProvider leagueClock, EventConfig eventConfig,
+        NpgsqlDataSource? postgres = null,string schema = "mewgic")
     {
         this.settings = settings;
         this.league = league;
         this.leagueClock = leagueClock;
         this.eventConfig = eventConfig;
-        var file = Path.GetFullPath(path);
+        dummyHash = passwords.HashPassword("", Token());
+        this.postgres = postgres;
+        this.schema = schema;
+        if (postgres != null) return;
+        var file = Path.GetFullPath(path ?? throw new InvalidOperationException("Database is required."));
         Directory.CreateDirectory(Path.GetDirectoryName(file)!);
         connectionString = new SqliteConnectionStringBuilder { DataSource = file, ForeignKeys = true, DefaultTimeout = 10 }.ToString();
-        dummyHash = passwords.HashPassword("", Token());
         using var db = Open();
         db.Run("PRAGMA journal_mode=WAL");
         Migrate();
@@ -90,8 +95,8 @@ sealed partial class ClanStore
 
     public SearchResult Search(string? query) => Snapshot(db =>
         new SearchResult(Cards(db,Clock().Week,
-            "WHERE instr(c.normalized,$q)>0 OR $q='' ORDER BY points DESC,c.normalized LIMIT 30",
-            ("$q", Clean(query,0,40).ToUpperInvariant()))));
+            "WHERE c.normalized LIKE $q ESCAPE '!' ORDER BY points DESC,c.normalized LIMIT 30",
+            ("$q", "%"+Clean(query,0,40).ToUpperInvariant().Replace("!","!!").Replace("%","!%").Replace("_","!_")+"%"))));
 
     public ClanDetail View(string player, string id) => Snapshot(db => View(db, player, id));
 
@@ -104,7 +109,7 @@ sealed partial class ClanStore
             SELECT p.id,p.handle,m.role,COALESCE(SUM(w.base+w.daily+w.event),0)
             FROM members m JOIN players p ON p.id=m.player
             LEFT JOIN wins w ON w.clan=m.clan AND w.player=m.player
-            WHERE m.clan=$c GROUP BY p.id ORDER BY m.role DESC,m.joined,p.id
+            WHERE m.clan=$c GROUP BY p.id,p.handle,m.role,m.joined ORDER BY m.role DESC,m.joined,p.id
             """, PlayerRow, ("$c",id));
         var requests = role >= Deputy ? db.Read("""
             SELECT p.id,p.handle,0,0 FROM requests r JOIN players p ON r.player=p.id
@@ -113,7 +118,7 @@ sealed partial class ClanStore
         string announcement = db.Value<string>("SELECT announcement FROM clans WHERE id=$c", ("$c",id))!;
         bool requested = HasRequest(db,id,player,false);
         bool invited = HasRequest(db,id,player,true);
-        bool weekly = db.Value<long>("SELECT COUNT(*) FROM (SELECT week FROM wins WHERE clan=$c GROUP BY week HAVING SUM(base+daily+event)>=$g)",
+        bool weekly = db.Value<long>("SELECT COUNT(*) FROM (SELECT week FROM wins WHERE clan=$c GROUP BY week HAVING SUM(base+daily+event)>=$g) AS qualified_weeks",
             ("$c",id), ("$g",settings.WeeklyGoal)) > 0;
         return new(card,announcement,role,roster,requests,requested,invited,card.Points>0,card.Points>=100,weekly,now.Week,now.Weekend);
     }
@@ -276,11 +281,11 @@ sealed partial class ClanStore
         """ + "\n" + tail, r =>
         {
             long points = r.GetInt64(7);
-            return new ClanCard(r.GetString(0),r.GetString(1),r.GetString(2),r.GetInt32(3),r.GetBoolean(4),r.GetInt32(5),
+            return new ClanCard(r.GetString(0),r.GetString(1),r.GetString(2),r.GetInt32(3),r.GetInt32(4) != 0,r.GetInt32(5),
                 r.GetInt32(6),settings.Capacity,points,points/settings.PointsPerLevel+1,r.GetInt64(8),settings.WeeklyGoal,r.GetInt32(9));
         }, args.Append(("$week",(object?)week)).ToArray());
 
-    static PlayerCard PlayerRow(SqliteDataReader r) => new(r.GetString(0),r.GetString(1),r.GetInt32(2),r.GetInt64(3));
+    static PlayerCard PlayerRow(System.Data.Common.DbDataReader r) => new(r.GetString(0),r.GetString(1),r.GetInt32(2),r.GetInt64(3));
     static long Wins(ClanDb db, string player) => db.Value<long>("SELECT COUNT(*) FROM wins WHERE player=$p", ("$p",player));
     static bool HasWin(ClanDb db, string player, int level) =>
         db.Value<long>("SELECT COUNT(*) FROM wins WHERE player=$p AND level=$l", ("$p",player), ("$l",level)) > 0;
@@ -355,55 +360,23 @@ sealed partial class ClanStore
         return (day.ToString("yyyy-MM-dd",CultureInfo.InvariantCulture),
             day.AddDays(-dayOfWeek).ToString("yyyy-MM-dd",CultureInfo.InvariantCulture),dayOfWeek>=5);
     }
-    ClanDb Open() => new(connectionString);
+    ClanDb Open()
+    {
+        if (postgres == null) return new ClanDb(connectionString!);
+        EnsurePostgres();
+        return new ClanDb(postgres.CreateConnection());
+    }
 
     T Snapshot<T>(Func<ClanDb,T> action) => Transaction(action,true);
     T Write<T>(Func<ClanDb,T> action) => Transaction(action,false);
     T Transaction<T>(Func<ClanDb,T> action, bool deferred)
     {
         using var db = Open();
-        using var tx = db.Connection.BeginTransaction(deferred);
+        using var tx = db.Begin(deferred);
         db.Transaction = tx;
+        if (!deferred) db.LockWriter();
         var value = action(db);
         tx.Commit();
         return value;
     }
-}
-
-sealed class ClanDb : IDisposable
-{
-    public SqliteConnection Connection { get; }
-    public SqliteTransaction? Transaction { get; set; }
-    public ClanDb(string connectionString)
-    {
-        Connection = new SqliteConnection(connectionString);
-        Connection.Open();
-    }
-    SqliteCommand Command(string query, (string,object?)[] parameters)
-    {
-        var command = Connection.CreateCommand();
-        command.CommandText = query;
-        command.Transaction = Transaction;
-        foreach (var (key,value) in parameters) command.Parameters.AddWithValue(key,value ?? DBNull.Value);
-        return command;
-    }
-    public int Run(string query, params (string,object?)[] parameters)
-    {
-        using var command = Command(query,parameters);
-        return command.ExecuteNonQuery();
-    }
-    public T? Value<T>(string query, params (string,object?)[] parameters)
-    {
-        using var command = Command(query,parameters);
-        return command.ExecuteScalar() is T value ? value : default;
-    }
-    public T[] Read<T>(string query, Func<SqliteDataReader,T> map, params (string,object?)[] parameters)
-    {
-        using var command = Command(query,parameters);
-        using var reader = command.ExecuteReader();
-        var result = new List<T>();
-        while (reader.Read()) result.Add(map(reader));
-        return result.ToArray();
-    }
-    public void Dispose() => Connection.Dispose();
 }

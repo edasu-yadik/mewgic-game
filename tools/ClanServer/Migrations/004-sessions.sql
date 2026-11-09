@@ -1,7 +1,7 @@
 CREATE INDEX IF NOT EXISTS sessions_player ON sessions(player);
 CREATE TABLE IF NOT EXISTS session_refresh(
   hash TEXT PRIMARY KEY, player TEXT NOT NULL REFERENCES players(id), access_hash TEXT NOT NULL UNIQUE,
-  expires INTEGER NOT NULL);
+  expires BIGINT NOT NULL);
 CREATE INDEX IF NOT EXISTS session_refresh_expiry ON session_refresh(expires);
 CREATE INDEX IF NOT EXISTS session_refresh_player ON session_refresh(player);
 CREATE INDEX IF NOT EXISTS event_players_by_account ON event_players(player,event);

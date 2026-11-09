@@ -11,11 +11,11 @@ sealed partial class ClanStore
         int id = league.Id(now);
         if (id < 1) return id;
         long time = now.ToUnixTimeSeconds();
-        var due = db.Read("SELECT id FROM league_seasons WHERE closed=0 AND end<=$now ORDER BY id",
+        var due = db.Read("SELECT id FROM league_seasons WHERE closed=0 AND \"end\"<=$now ORDER BY id",
             r => r.GetInt32(0), ("$now",time));
         foreach (int season in due) CloseLeague(db,season);
         var start = league.Start(id);
-        db.Run("INSERT OR IGNORE INTO league_seasons(id,start,end) VALUES($s,$a,$b)",
+        db.Run("INSERT INTO league_seasons(id,start,\"end\") VALUES($s,$a,$b) ON CONFLICT DO NOTHING",
             ("$s",id),("$a",start.ToUnixTimeSeconds()),("$b",start.AddDays(LeagueOptions.Days).ToUnixTimeSeconds()));
         // A backward clock must never reopen an already settled season.
         return db.Value<long>("SELECT closed FROM league_seasons WHERE id=$s",("$s",id)) == 0 ? id : 0;
@@ -52,14 +52,14 @@ sealed partial class ClanStore
             if (entry.Scope == PersonalLeague)
             {
                 var reward = league.Tiers[tier];
-                db.Run("INSERT OR IGNORE INTO league_rewards(season,player,tier,rank,next_tier,gold,cosmetic) VALUES($s,$p,$t,$r,$n,$g,$c)",
+                db.Run("INSERT INTO league_rewards(season,player,tier,rank,next_tier,gold,cosmetic) VALUES($s,$p,$t,$r,$n,$g,$c) ON CONFLICT DO NOTHING",
                     ("$s",season),("$p",entry.Entity),("$t",tier),("$r",entry.Rank),("$n",next),("$g",reward.Gold),("$c",reward.Cosmetic));
             }
             else
             {
                 db.Run("""
                     INSERT INTO league_clan_emblems VALUES($e,$t)
-                    ON CONFLICT(clan) DO UPDATE SET tier=MAX(tier,excluded.tier)
+                    ON CONFLICT(clan) DO UPDATE SET tier=CASE WHEN league_clan_emblems.tier>excluded.tier THEN league_clan_emblems.tier ELSE excluded.tier END
                     """, ("$e",entry.Entity),("$t",tier));
             }
         }
@@ -78,7 +78,7 @@ sealed partial class ClanStore
         if (now.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday)
         {
             long week = DateOnly.FromDateTime(now.UtcDateTime).DayNumber - (((int)now.DayOfWeek + 6)%7);
-            if (db.Run("INSERT OR IGNORE INTO league_event_bonuses VALUES($s,$p,$w)",
+            if (db.Run("INSERT INTO league_event_bonuses VALUES($s,$p,$w) ON CONFLICT DO NOTHING",
                 ("$s",season),("$p",player),("$w",week.ToString(System.Globalization.CultureInfo.InvariantCulture))) == 1)
                 points += league.WeekendBonus;
         }
@@ -96,7 +96,7 @@ sealed partial class ClanStore
         int tier = Division(db,scope,entity);
         db.Run("""
             INSERT INTO league_entries(season,scope,entity,name,tier,points,wins,next_tier) VALUES($s,$o,$e,$n,$t,$p,1,$t)
-            ON CONFLICT(season,scope,entity) DO UPDATE SET points=points+excluded.points,wins=wins+1,name=excluded.name
+            ON CONFLICT(season,scope,entity) DO UPDATE SET points=league_entries.points+excluded.points,wins=league_entries.wins+1,name=excluded.name
             """, ("$s",season),("$o",scope),("$e",entity),("$n",name),("$t",tier),("$p",points));
     }
 
@@ -115,9 +115,9 @@ sealed partial class ClanStore
             string? clan = Membership(db,player);
             string entity = current == PersonalLeague ? player : clan ?? "";
             int id = requested ?? active;
-            var season = db.Read("SELECT id,start,end,closed FROM league_seasons WHERE id=$s",
+            var season = db.Read("SELECT id,start,\"end\",closed FROM league_seasons WHERE id=$s",
                 SeasonRow,("$s",id)).SingleOrDefault() ?? throw ClanError.Missing();
-            var previous = db.Read("SELECT id,start,end,closed FROM league_seasons WHERE closed=1 ORDER BY id DESC LIMIT 24",SeasonRow);
+            var previous = db.Read("SELECT id,start,\"end\",closed FROM league_seasons WHERE closed=1 ORDER BY id DESC LIMIT 24",SeasonRow);
             int frame = (int)db.Value<long>("SELECT COALESCE(MAX(tier),-1) FROM league_clan_emblems WHERE clan=$c",("$c",clan));
             const string ranking = """
                 WITH ranked AS (
@@ -153,7 +153,7 @@ sealed partial class ClanStore
                 ("$w",wallet),("$s",season),("$p",player));
             if (db.Value<string>("SELECT wallet FROM league_rewards WHERE season=$s AND player=$p",
                 ("$s",season),("$p",player)) != wallet) throw ClanError.Conflict("league_other_wallet");
-            db.Run("INSERT OR IGNORE INTO league_wallet_owners VALUES($w,$p)",("$w",wallet),("$p",player));
+            db.Run("INSERT INTO league_wallet_owners VALUES($w,$p) ON CONFLICT DO NOTHING",("$w",wallet),("$p",player));
             if (db.Value<string>("SELECT player FROM league_wallet_owners WHERE wallet=$w",("$w",wallet)) != player)
                 throw ClanError.Conflict("league_wallet_account");
             return reward with { Claimed=true };
@@ -164,7 +164,7 @@ sealed partial class ClanStore
         SELECT tier,rank,next_tier,gold,cosmetic,wallet IS NOT NULL FROM league_rewards WHERE season=$s AND player=$p
         """, r => new LeagueReward($"league-{season}-{player}",season,r.GetInt32(0),r.GetInt32(1),r.GetInt32(2),
             r.GetInt32(3),r.GetString(4),r.GetBoolean(5)),("$s",season),("$p",player)).SingleOrDefault();
-    static LeagueSeason SeasonRow(Microsoft.Data.Sqlite.SqliteDataReader r) => new(r.GetInt32(0),r.GetInt64(1),r.GetInt64(2),r.GetBoolean(3));
-    static LeagueRow RankRow(Microsoft.Data.Sqlite.SqliteDataReader r) => new(r.GetString(0),r.GetString(1),r.GetInt32(2),
+    static LeagueSeason SeasonRow(System.Data.Common.DbDataReader r) => new(r.GetInt32(0),r.GetInt64(1),r.GetInt64(2),r.GetInt32(3) != 0);
+    static LeagueRow RankRow(System.Data.Common.DbDataReader r) => new(r.GetString(0),r.GetString(1),r.GetInt32(2),
         r.GetInt64(3),r.GetInt32(4),r.GetInt32(5),r.GetInt32(6),r.GetInt32(7));
 }

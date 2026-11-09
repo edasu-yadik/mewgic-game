@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mewgic-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: release/0.8.0-rc.1
+    dockerfilePath: ./tools/ClanServer/Dockerfile
+    dockerContext: .
+    autoDeployTrigger: 'off'
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: Render__EdgeTls
+        value: 'true'
+      - key: Postgres__ConnectionString
+        sync: false

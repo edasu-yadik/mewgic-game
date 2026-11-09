@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace Mewgic.Clans
 {
-    [Serializable] internal sealed class ClanConnection { public string baseUrl; }
+    [Serializable] internal sealed class ClanConnection { public string baseUrl, developmentBaseUrl, productionBaseUrl; }
     [Serializable] internal sealed class ClanSession { public string token, refreshToken, playerId; public int expiresIn; }
     [Serializable] internal sealed class ClanFailure { public string error; }
     [Serializable] internal sealed class ClanCredentials { public string handle, password; }
@@ -83,9 +83,14 @@ namespace Mewgic.Clans
             {
                 if (baseUrl != null) return baseUrl;
                 var asset = Resources.Load<TextAsset>("Clans/Connection");
-                string value = asset == null ? "" : JsonUtility.FromJson<ClanConnection>(asset.text)?.baseUrl;
+                var config = asset == null ? null : JsonUtility.FromJson<ClanConnection>(asset.text);
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                string value = config?.developmentBaseUrl;
 #if UNITY_EDITOR
                 if (string.IsNullOrWhiteSpace(value)) value = "http://127.0.0.1:18740";
+#endif
+#else
+                string value = string.IsNullOrWhiteSpace(config?.productionBaseUrl) ? config?.baseUrl : config.productionBaseUrl;
 #endif
                 if (!Uri.TryCreate(value, UriKind.Absolute, out var uri) ||
                     !string.IsNullOrEmpty(uri.UserInfo) || !string.IsNullOrEmpty(uri.Query) || !string.IsNullOrEmpty(uri.Fragment))
@@ -199,7 +204,7 @@ namespace Mewgic.Clans
             if (Application.internetReachability == NetworkReachability.NotReachable && !BaseUrl.StartsWith("http://127.0.0.1:", StringComparison.Ordinal))
                 throw new ClanClientException("offline");
             using var request = new UnityWebRequest(BaseUrl + "/v1" + path, method);
-            request.timeout = 6;
+            request.timeout = BaseUrl.StartsWith("https://",StringComparison.OrdinalIgnoreCase) ? 15 : 6;
             request.redirectLimit = 0;
             request.downloadHandler = new DownloadHandlerBuffer();
             if (data != null)
@@ -209,9 +214,15 @@ namespace Mewgic.Clans
             }
             if (access != null) request.SetRequestHeader("Authorization", "Bearer " + access);
             try { await request.SendWebRequest(); }
-            catch (Exception) when (request.result == UnityWebRequest.Result.ConnectionError)
-            { throw new ClanClientException("offline"); }
-            if (request.result == UnityWebRequest.Result.ConnectionError) throw new ClanClientException("offline");
+            catch (Exception) when (request.result is UnityWebRequest.Result.ConnectionError or
+                UnityWebRequest.Result.ProtocolError or UnityWebRequest.Result.DataProcessingError) { }
+            if (request.result == UnityWebRequest.Result.ConnectionError)
+                throw new ClanClientException(request.error?.Contains("timeout",StringComparison.OrdinalIgnoreCase) == true ||
+                    request.error?.Contains("timed out",StringComparison.OrdinalIgnoreCase) == true ? "retry" : "offline");
+            if (request.responseCode is 502 or 503 or 504) throw new ClanClientException("retry");
+            if (request.result == UnityWebRequest.Result.Success &&
+                request.GetResponseHeader("Content-Type")?.StartsWith("application/json",StringComparison.OrdinalIgnoreCase) != true)
+                throw new ClanClientException("retry");
             string response = request.downloadHandler.text;
             try
             {
