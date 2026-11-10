@@ -287,7 +287,7 @@ namespace Mewgic
                 checks.Add(Markers[page]);
                 if (page is 2 or 7 or 9)
                 {
-                    yield return new WaitForSecondsRealtime(1.8f);
+                    yield return new WaitForSecondsRealtime(3.85f);
                     ScreenCapture.CaptureScreenshot(Evidence+$"Page-{page}.png");
                     yield return null;
                 }
@@ -295,16 +295,21 @@ namespace Mewgic
             foreach (int stars in new[] {1,2,3})
             {
                 yield return OpenPage(2,2,stars);
-                yield return new WaitForSecondsRealtime(1.8f);
+                yield return new WaitForSecondsRealtime(3.85f);
                 if (GameplayProgress.Current.BestStars(2) != stars)
                     throw new InvalidOperationException("Yıldız örneği eşleşmedi.");
                 ScreenCapture.CaptureScreenshot(Evidence+$"Stars-{stars}.png");
                 checks.Add(stars+" yıldız örneği");
                 yield return null;
             }
+            yield return OpenPage(2,2,3);
+            Press("SkipReward",true);
+            if (GameObject.Find("VictorySecondaryReveal").GetComponent<CanvasGroup>().alpha < .99f)
+                throw new InvalidOperationException("Animasyonu hızlandır düğmesi son duruma geçmedi.");
+            checks.Add("Zafer animasyonu gerçek düğmeyle hızlandırıldı");
             var ledger = GameplayProgress.Current;
             long gold = ledger.Presentation.coins;
-            int bonus = ProgressLedger.RewardedVictoryTotal-ledger.LastCoinReward;
+            int bonus = ledger.LastCoinReward*(ProgressLedger.VictoryAdMultiplier-1);
             Press("WatchRewardedAd",true);
             yield return Until(() => ledger.Presentation.coins == gold+bonus,"Yerel örnek reklam ödülü");
             checks.Add("Yerel örnek reklam ödülü");
@@ -435,6 +440,7 @@ namespace Mewgic
             ledger = GameplayProgress.Current;
             before = ledger.Presentation.coins;
             yield return SolveThroughGameView();
+            StartCoroutine(RecordVictoryFrames());
             var end = FindFirstObjectByType<GameplayEndScreen>();
             var panel = GameObject.Find("VictoryPanelEntrance").GetComponent<CanvasGroup>();
             var stars = Enumerable.Range(1,3).Select(i => GameObject.Find("AwardStar"+i).GetComponent<RawImage>()).ToArray();
@@ -445,6 +451,14 @@ namespace Mewgic
             if (GameObject.Find("VictoryFireworkBloom0")?.GetComponent<CanvasRenderer>()?.GetMesh()?.vertexCount is not > 0)
                 throw new InvalidOperationException("Zafer patlama ışığı oluşmadı.");
             ScreenCapture.CaptureScreenshot(Evidence+"RewardFlow-Victory-Burst.png");
+            var frame=GameObject.Find("GoldFrame").GetComponent<CanvasRenderer>();
+            yield return Until(() => frame.GetMesh()?.vertexCount is > 0,"Altın çerçeve oluşuyor");
+            if (panel.alpha>.03f) throw new InvalidOperationException("Mor panel çerçeveden önce açıldı.");
+            ScreenCapture.CaptureScreenshot(Evidence+"ApprovedVictory-Frame.png");
+            var title=GameObject.Find("VictoryTitleReveal").GetComponent<CanvasGroup>();
+            yield return Until(() => title.alpha>.2f,"Başlık açıldı");
+            if (stars[0].color.a>.05f) throw new InvalidOperationException("Yıldız başlıktan önce açıldı.");
+            ScreenCapture.CaptureScreenshot(Evidence+"ApprovedVictory-Title.png");
             for (int i=0; i<stars.Length; i++)
             {
                 int index = i;
@@ -454,13 +468,23 @@ namespace Mewgic
                 if (i==0) ScreenCapture.CaptureScreenshot(Evidence+"RewardFlow-Victory-FirstStar.png");
             }
             yield return Until(() => panel.alpha >= .99f,"Sonuç paneli açıldı");
+            var adStage=GameObject.Find("VictoryAdReveal").GetComponent<CanvasGroup>();
+            var goldStage=GameObject.Find("VictoryGoldReveal").GetComponent<CanvasGroup>();
+            var nextStage=GameObject.Find("VictoryNextReveal").GetComponent<CanvasGroup>();
+            yield return Until(() => goldStage.alpha>.2f,"Altın ödülü açıldı");
+            if (adStage.alpha>.05f) throw new InvalidOperationException("Reklam altın ödülünden önce açıldı.");
+            yield return Until(() => adStage.alpha>.2f,"Reklam paneli açıldı");
+            if (nextStage.alpha>.05f) throw new InvalidOperationException("Sonraki Bölüm reklamdan önce açıldı.");
             target = ledger.Presentation.coins;
             if (target <= before || ledger.BestStars(5) != 3)
                 throw new InvalidOperationException("Gerçek bölüm ödülü kaydedilmedi.");
             yield return Until(() => GameObject.Find("FlyingCoin2") != null,"Zafer coin uçuşu");
             ScreenCapture.CaptureScreenshot(Evidence+"RewardFlow-Victory-Coins.png");
             yield return CheckCountUp(before,target,"Victory");
-            checks.Add("Gerçek bölüm 5, kutlama → üç yıldız → panel → artan altın bakiyesi");
+            yield return new WaitForSecondsRealtime(.23f);
+            ScreenCapture.CaptureScreenshot(Evidence+"ApprovedVictory-Settled.png");
+            yield return null;
+            checks.Add("Gerçek bölüm 5, kutlama → çerçeve → panel ve başlık → üç yıldız → ödül ve CTA");
             foreach (int height in new[] {1950,2000})
             {
                 Size(height);
@@ -493,8 +517,11 @@ namespace Mewgic
             ScreenCapture.CaptureScreenshot(Evidence+"RewardFlow-Map-Village.png");
             checks.Add("Sonuçtan fade ile LevelMap Büyülü Köy 1–10 ve güncel bölüm 6");
             yield return null;
-            yield return OpenPage(2,91,3,100);
-            yield return new WaitForSecondsRealtime(1.65f);
+            yield return OpenPage(2,91,2,100);
+            yield return new WaitForSecondsRealtime(3.85f);
+            if(GameObject.Find("WatchRewardedAd").GetComponent<Button>().interactable ||
+                GameObject.Find("Reward").GetComponent<TMPro.TMP_Text>().text != L.Resolve(L.V("victory.no_gold")))
+                throw new InvalidOperationException("Tekrar oynama sıfır altın veya reklam vaadi gösterdi.");
             Press("ResultHome",true);
             yield return Until(() => FindFirstObjectByType<MapWorld>()?.Mounted == true,"Eski bölümden LevelMap");
             map = FindFirstObjectByType<MapWorld>();
@@ -515,6 +542,36 @@ namespace Mewgic
             yield return Until(() => Balance() != null && Balance() != first && Balance() != last,"Coin bar ara bakiye");
             ScreenCapture.CaptureScreenshot(Evidence+$"RewardFlow-{tag}-CountUp.png");
             yield return Until(() => Balance() == last,"Coin bar son bakiye");
+        }
+
+        static IEnumerator RecordVictoryFrames()
+        {
+            string directory=Evidence+"ApprovedVictoryFrames/";
+            Directory.CreateDirectory(directory);
+            var pixels=new Texture2D(360,640,TextureFormat.RGB24,false);
+            var small=RenderTexture.GetTemporary(360,640,0);
+            var full=RenderTexture.GetTemporary(Screen.width,Screen.height,0);
+            try
+            {
+                for(int frame=0;frame<30;frame++)
+                {
+                    yield return new WaitForEndOfFrame();
+                    ScreenCapture.CaptureScreenshotIntoRenderTexture(full);
+                    Graphics.Blit(full,small,new Vector2(1,-1),new Vector2(0,1));
+                    var previous=RenderTexture.active;
+                    RenderTexture.active=small;
+                    pixels.ReadPixels(new Rect(0,0,360,640),0,0);
+                    RenderTexture.active=previous;
+                    File.WriteAllBytes(directory+frame.ToString("D2")+".jpg",pixels.EncodeToJPG(87));
+                    yield return new WaitForSecondsRealtime(.145f);
+                }
+            }
+            finally
+            {
+                RenderTexture.ReleaseTemporary(full);
+                RenderTexture.ReleaseTemporary(small);
+                Destroy(pixels);
+            }
         }
 
         static IEnumerator SolveThroughGameView()

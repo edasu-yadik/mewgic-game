@@ -6,7 +6,7 @@ namespace Mewgic.Core
     public sealed class EconomyConfig
     {
         public int levelBase = 20, perNewStar = 5, firstAttempt = 10, withoutHint = 5;
-        public int firstClearHints = 1, rewardedTotal = 100;
+        public int firstClearHints = 1;
         public int dailyGiftGold = 100, dailyGiftHints = 1, dailyTaskBooster = 1;
         public int taskBottlesGold = 15, taskWinsGold = 25, taskStarsGold = 30, taskBoosterGold = 10;
         public int weeklyGold = 60, seasonFirstGold = 30, seasonSecondGold = 45, seasonFinalGold = 75, eventBooster = 1;
@@ -36,8 +36,7 @@ namespace Mewgic.Core
             foreach (var product in ShopCatalog.Products)
                 if (!ShopCatalog.Included(product) && !ShopCatalog.RewardOnly(product) && (Price(product) <= 0 || Price(product) > 1_000_000))
                     throw new ArgumentException("Mağaza fiyatı geçersiz.");
-            if (boosterQuantity < 1 || boosterQuantity > 100 || rewardedTotal < 1 || rewardedTotal > 1_000_000 ||
-                rewardedTotal < levelBase + 3 * perNewStar + firstAttempt + withoutHint)
+            if (boosterQuantity < 1 || boosterQuantity > 100)
                 throw new ArgumentException("Ekonomi üst sınırı geçersiz.");
         }
 

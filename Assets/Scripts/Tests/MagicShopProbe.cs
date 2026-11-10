@@ -189,7 +189,7 @@ namespace Mewgic
             Check(rewards.Claim(1, 3, true, out _, "shop-victory-1", 3, false, true) && rewards.LastCompletionReward.Base == Config.levelBase,
                 "İlk kazanış temel altını yapılandırmadan aldı");
             Check(rewards.TryBoostVictory(1, "shop-victory-1", out int bonus) &&
-                rewards.LastCoinReward + bonus == Config.rewardedTotal, "Reklam ödülü yapılandırılmış toplama ulaştı");
+                rewards.LastCoinReward + bonus == rewards.LastCoinReward * ProgressLedger.VictoryAdMultiplier, "Reklam ödülü yapılandırılmış toplama ulaştı");
             for (int i = 2; i <= 6; i++)
                 Check(rewards.Claim(i, 3, true, out _, "shop-victory-" + i, 3), "Etkinlik kazanışı " + i);
             long coins = rewards.Presentation.coins;

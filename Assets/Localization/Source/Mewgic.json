@@ -6246,5 +6246,34 @@
       "it": "Your online account was deleted.",
       "pl": "Your online account was deleted."
     }
+  },
+  {
+    "key": "victory.no_gold",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Yeni altın ödülü yok",
+      "en": "No new gold reward",
+      "de": "Keine neue Goldbelohnung",
+      "fr": "Pas de nouvelle récompense",
+      "es": "Sin nueva recompensa de oro",
+      "pt-BR": "Sem nova recompensa de ouro",
+      "it": "Nessuna nuova ricompensa",
+      "pl": "Brak nowej nagrody w złocie"
+    }
+  },
+  {
+    "key": "victory.ad_offer",
+    "review": "draft",
+    "values": {
+      "tr": "{0} Altın Kazan",
+      "en": "Earn {0} Gold",
+      "de": "{0} Gold erhalten",
+      "fr": "Gagne {0} pièces",
+      "es": "Gana {0} de oro",
+      "pt-BR": "Ganhe {0} de ouro",
+      "it": "Ottieni {0} oro",
+      "pl": "Zdobądź {0} złota"
+    }
   }
 ]

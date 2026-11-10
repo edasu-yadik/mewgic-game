@@ -1998,6 +1998,15 @@ MonoBehaviour:
     m_Localized: "Your online account was deleted."
     m_Metadata:
       m_Items: []
+  - m_Id: 3606352729833472
+    m_Localized: Keine neue Goldbelohnung
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3606352847273984
+    m_Localized: '{0} Gold erhalten'
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:

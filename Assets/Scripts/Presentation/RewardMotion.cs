@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using Mewgic.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,20 +22,30 @@ namespace Mewgic
         readonly Action<long?> onDisplay;
         int flightVersion;
         internal long Displayed { get; private set; }
+        internal RectTransform Meter => meter;
 
         internal RewardMotion(RectTransform parent, Sprite coinArt, Vector2 meterMin, Vector2 meterMax,
-            Action<long?> onDisplay = null)
+            Action<long?> onDisplay = null, bool artDriven = false)
         {
             this.onDisplay = onDisplay;
             coin = coinArt;
             star = Resources.Load<Sprite>("Gameplay/HUD/HUD_Star_v001");
             layer = GameplayTools.Rect(parent, "RewardEffects", Vector2.zero, Vector2.one);
             var panel = Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
-            meter = GameplayTools.Art(layer, "RewardCoinMeter", panel, meterMin, meterMax, true).rectTransform;
+            var face = GameplayTools.Art(layer,"RewardCoinMeter",panel,meterMin,meterMax,true);
+            meter = face.rectTransform;
+            face.enabled = !artDriven;
             var icon = GameplayTools.Art(meter, "CoinIcon", coin, new Vector2(.05f,.12f), new Vector2(.34f,.88f));
             icon.preserveAspect = true;
             target = icon.rectTransform;
             count = GameplayTools.Label(meter, "RewardCoinBalance", "", 29, new Vector2(.35f,.08f), new Vector2(.94f,.92f));
+            if (artDriven)
+            {
+                icon.enabled = false;
+                count.font = MewgicTypographySettings.Current.heading;
+                count.rectTransform.anchorMin = new Vector2(.38f,.08f);
+                count.rectTransform.anchorMax = new Vector2(.78f,.92f);
+            }
             count.color = new Color(1,.92f,.68f);
             count.textWrappingMode = TextWrappingModes.NoWrap;
             flash = Light("CoinImpact", false);

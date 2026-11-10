@@ -1996,6 +1996,15 @@ MonoBehaviour:
     m_Localized: "Your online account was deleted."
     m_Metadata:
       m_Items: []
+  - m_Id: 3606352729833472
+    m_Localized: "Brak nowej nagrody w z\u0142ocie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3606352847273984
+    m_Localized: "Zdob\u0105d\u017A {0} z\u0142ota"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
   references:
     version: 2
     RefIds:

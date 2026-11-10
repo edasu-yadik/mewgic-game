@@ -1,23 +1,27 @@
-using System;
 using System.Linq;
 
 namespace Mewgic.Core
 {
     public sealed partial class ProgressLedger
     {
-        public static int RewardedVictoryTotal => EconomyConfig.Current.rewardedTotal;
+        public const int VictoryAdMultiplier = 5;
 
-        public bool CanBoostVictory(int level, string receipt) =>
-            FindBoostableVictory(state, level, receipt) != null;
+        public bool CanBoostVictory(int level, string receipt) => TryGetVictoryAdTotal(level, receipt, out _);
+
+        public bool TryGetVictoryAdTotal(int level, string receipt, out int total)
+        {
+            var record = FindBoostableVictory(state, level, receipt);
+            total = record == null ? 0 : record.rewardedVictoryBase * VictoryAdMultiplier;
+            return record != null && state.presentation.coins <= long.MaxValue - (total - record.rewardedVictoryBase);
+        }
 
         public bool TryBoostVictory(int level, string receipt, out int bonus)
         {
             bonus = 0;
-            if (!CanBoostVictory(level, receipt)) return false;
+            if (!TryGetVictoryAdTotal(level, receipt, out int total)) return false;
             var copy = state.Copy();
             var record = FindBoostableVictory(copy, level, receipt);
-            int amount = RewardedVictoryTotal - record.rewardedVictoryBase;
-            if (copy.presentation.coins > long.MaxValue - amount) return false;
+            int amount = total - record.rewardedVictoryBase;
             copy.presentation.coins += amount;
             record.rewardedVictoryReceipt = null;
             if (!Commit(copy)) return false;
@@ -30,7 +34,7 @@ namespace Mewgic.Core
             if (string.IsNullOrEmpty(receipt)) return null;
             return data.levels.FirstOrDefault(record => record.level == level && record.rewardClaimed &&
                 record.rewardedVictoryReceipt == receipt && record.rewardedVictoryBase > 0 &&
-                record.rewardedVictoryBase < RewardedVictoryTotal);
+                record.rewardedVictoryBase <= int.MaxValue / VictoryAdMultiplier);
         }
     }
 }

@@ -1739,6 +1739,14 @@ MonoBehaviour:
     m_Key: clan.account_deleted
     m_Metadata:
       m_Items: []
+  - m_Id: 3606352729833472
+    m_Key: victory.no_gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3606352847273984
+    m_Key: victory.ad_offer
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

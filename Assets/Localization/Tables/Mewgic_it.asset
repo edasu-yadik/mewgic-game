@@ -2005,6 +2005,15 @@ MonoBehaviour:
     m_Localized: "Your online account was deleted."
     m_Metadata:
       m_Items: []
+  - m_Id: 3606352729833472
+    m_Localized: Nessuna nuova ricompensa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3606352847273984
+    m_Localized: Ottieni {0} oro
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
   references:
     version: 2
     RefIds:

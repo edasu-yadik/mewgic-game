@@ -1987,6 +1987,15 @@ MonoBehaviour:
     m_Localized: "Your online account was deleted."
     m_Metadata:
       m_Items: []
+  - m_Id: 3606352729833472
+    m_Localized: "Pas de nouvelle r\xE9compense"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3606352847273984
+    m_Localized: "Gagne {0} pi\xE8ces"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
   references:
     version: 2
     RefIds:

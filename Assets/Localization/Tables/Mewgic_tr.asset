@@ -1991,6 +1991,15 @@ MonoBehaviour:
     m_Localized: "\u00c7evrimi\u00e7i hesab\u0131n silindi."
     m_Metadata:
       m_Items: []
+  - m_Id: 3606352729833472
+    m_Localized: "Yeni alt\u0131n \xF6d\xFCl\xFC yok"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3606352847273984
+    m_Localized: "{0} Alt\u0131n Kazan"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
   references:
     version: 2
     RefIds:

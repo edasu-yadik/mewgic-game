@@ -22,7 +22,8 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class VictoryReferenceProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/RewardedAds/";
+        const string DefaultOutput = "docs/ProductionReports/RewardedAds/";
+        [SerializeField] string output = DefaultOutput;
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo Profile = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
         static readonly FieldInfo PuzzleField = typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -38,13 +39,15 @@ namespace Mewgic
         static void RunRewardedAds() => Begin();
 
         [MenuItem("Mewgic/QA/Run Victory Reference")]
-        public static void Begin()
+        public static void Begin() => Begin(DefaultOutput);
+
+        public static void Begin(string folder)
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             for (int i = 0; i < SceneManager.sceneCount; i++)
                 if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Açık sahnede kaydedilmemiş değişiklik var.");
             EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
-            new GameObject("Victory Reference QA").AddComponent<VictoryReferenceProbe>();
+            new GameObject("Victory Reference QA").AddComponent<VictoryReferenceProbe>().output = folder;
             Size(1600);
             EditorApplication.isPlaying = true;
         }
@@ -129,8 +132,8 @@ namespace Mewgic
             }
             var current = PlayerSave();
             bool intact = original.All(pair => current[pair.Key] == pair.Value);
-            Directory.CreateDirectory(Output);
-            File.WriteAllText(Output + "PLAY_MODE.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
+            Directory.CreateDirectory(output);
+            File.WriteAllText(output + "PLAY_MODE.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
             {
                 success = failure == null && errors.Count == 0 && intact,
                 editor = Application.unityVersion, count = checks.Count, checks, failure, errors, playerSaveIntact = intact
@@ -220,7 +223,7 @@ namespace Mewgic
                 for (int pending = slot + 1; pending <= awarded; pending++)
                     Check(Star(pending).color.a < .1f, $"Yıldız {pending}, yıldız {slot} açıldığında henüz görünmedi");
             }
-            yield return new WaitForSecondsRealtime(1.7f);
+            yield return new WaitForSecondsRealtime(2.3f);
             for (int i = 1; i <= 3; i++)
                 Check(i <= awarded ? Star(i).color.a > .99f : Star(i).color.a < .5f,
                     $"{i}. yıldız, {awarded} yıldızlık sonuçta doğru parlaklıkta");
@@ -228,9 +231,9 @@ namespace Mewgic
 
         IEnumerator Capture(string name)
         {
-            ScreenCapture.CaptureScreenshot(Output + name + ".png");
+            ScreenCapture.CaptureScreenshot(output + name + ".png");
             yield return new WaitForSecondsRealtime(.35f);
-            Check(File.Exists(Output + name + ".png"), name + " Game View kaydedildi");
+            Check(File.Exists(output + name + ".png"), name + " Game View kaydedildi");
         }
 
         void Layout(string label)
@@ -301,7 +304,7 @@ namespace Mewgic
 
         IEnumerator Run()
         {
-            Directory.CreateDirectory(Output);
+            Directory.CreateDirectory(output);
             RewardModel();
             var config = RewardedAdSettings.Load();
             Check(config.UnitId(false, false) == null && config.UnitId(true, false) == null,
@@ -338,7 +341,7 @@ namespace Mewgic
             yield return Ready();
             yield return Win(3, 3);
             yield return Reveal(3);
-            Check(Star(2).rectTransform.rect.width > Star(1).rectTransform.rect.width * 1.2f, "Orta yıldız daha büyük");
+            Check(Star(2).rectTransform.rect.width > Star(1).rectTransform.rect.width * 1.14f, "Orta yıldız daha büyük");
             Layout("9:16 TR");
             yield return Capture("03-ThreeStars-900x1600");
             foreach (int height in new[] { 1950, 2000 })
@@ -429,10 +432,10 @@ namespace Mewgic
             Check(provider.Pending.TrySetResult(RewardedVictoryAdResult.Rewarded) &&
                 !provider.Pending.TrySetResult(RewardedVictoryAdResult.Rewarded),
                 "Yinelenen tamamlama aynı oynatma görevini ikinci kez bitiremez");
-            yield return Until(() => Ledger.Presentation.coins == 100, "Onaylı reklam farkı ekledi ve toplam 100 oldu");
+            yield return Until(() => Ledger.Presentation.coins == baseCoins*5, "Onaylı reklam farkı ekledi ve toplam kazanıcın beş katı oldu");
             var disk = GameplayProgress.Open(key);
             var record = disk.Snapshot.levels.Single(x => x.level == 1);
-            Check(!Watch.IsInteractable() && provider.Calls == 4 && disk.Presentation.coins == 100 &&
+            Check(!Watch.IsInteractable() && provider.Calls == 4 && disk.Presentation.coins == baseCoins*5 &&
                 !disk.TryBoostVictory(1, record.lastCoinReceipt, out _), "Ödül kalıcı ve aynı reklam yeniden ödenmiyor");
             yield return Capture("07-AdRewardClaimed");
             Click("NextLevel", true);
@@ -467,7 +470,7 @@ namespace Mewgic
             Click("NextLevel", true);
             yield return Ready(2);
             provider.Pending.SetResult(RewardedVictoryAdResult.Rewarded);
-            yield return Until(() => GameplayProgress.Open(key).Presentation.coins == 100,
+            yield return Until(() => GameplayProgress.Open(key).Presentation.coins == baseCoins*5,
                 "Sonraki bölüm açıldıktan sonra doğrulanan ödül eski makbuza bir kez yazıldı");
         }
     }
