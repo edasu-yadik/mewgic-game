@@ -23,7 +23,7 @@ namespace Mewgic
     {
         const string Output = "docs/ProductionReports/GameplayPolish";
         const string OnboardingOutput = "docs/ProductionReports/PawOnboardingReplay";
-        [SerializeField] bool onboardingOnly;
+        [SerializeField] bool onboardingOnly, bottleOnly;
         [SerializeField] string outputOverride;
         string OutputFolder => !string.IsNullOrEmpty(outputOverride) ? outputOverride : onboardingOnly ? OnboardingOutput : Output;
         static GameplayPolishProbe active;
@@ -35,7 +35,7 @@ namespace Mewgic
         Puzzle Model => (Puzzle)typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(App);
         ProgressLedger Ledger => GameplayProgress.Current;
         void Check(bool okay, string message) { if (!okay) throw new Exception(message); checks.Add(message); }
-        public static void Begin(bool onboardingOnly = false, string output = null)
+        public static void Begin(bool onboardingOnly = false, string output = null, bool bottleOnly = false)
         {
             if (EditorApplication.isPlaying) throw new Exception("Önce Play Mode durdurulmalı");
             var player = new Dictionary<string, string>();
@@ -45,6 +45,7 @@ namespace Mewgic
             EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
             var probe = new GameObject("Gameplay Polish - isolated QA").AddComponent<GameplayPolishProbe>();
             probe.onboardingOnly = onboardingOnly;
+            probe.bottleOnly = bottleOnly;
             probe.outputOverride = output;
             Size(1600); EditorApplication.isPlaying = true;
         }
@@ -200,9 +201,128 @@ namespace Mewgic
             }
         }
 
+        IEnumerator BottleEffects()
+        {
+            // İki bağımsız şişede aynı karede tamamlama; başlangıçtaki dolu şişe ve tekrar Present ayrı doğrulanır.
+            yield return Resize(1600);
+            var bottles = FindObjectsByType<GameplayBottleView>(FindObjectsSortMode.None).OrderBy(view => view.name).Take(3).ToArray();
+            foreach (var bottle in bottles) bottle.Present(new[] { 0, 0, 0 }, false);
+            Check(bottles.All(bottle => !bottle.Completion.Playing), "Yarım tek renk şişe tetiklemez");
+            bottles[2].Present(new[] { 0, 1, 0, 1 }, false);
+            Check(!bottles[2].Completion.Playing, "Dolu karışık şişe tetiklemez");
+            bottles[0].Present(new[] { 0, 0, 0, 0 }, false); bottles[1].Present(new[] { 1, 1, 1, 1 }, false);
+            int plays = bottles[0].Completion.PlayCount;
+            bottles[0].Present(new[] { 0, 0, 0, 0 }, false);
+            Check(bottles[0].Completion.Playing && bottles[1].Completion.Playing && bottles[0].Completion.PlayCount == plays,
+                "İki şişe bağımsız kutluyor; aynı tamamlanmış verinin tekrarı efekti yeniden başlatmıyor");
+            yield return new WaitForSecondsRealtime(.24f); yield return Shot("04-Bottle-Completion");
+            bottles[0].SetPaused(true); yield return new WaitForSecondsRealtime(.2f); Check(bottles[0].Completion.Playing, "Pause kutlamayı donduruyor"); bottles[0].SetPaused(false);
+            yield return new WaitForSecondsRealtime(1.2f);
+            Check(!bottles[0].Completion.Playing && !bottles[1].Completion.Playing, "Kutlama sonlanıyor ve sonsuz dönmüyor");
+            bottles[0].Present(new[] { 0, 0 }, false); bottles[0].Present(new[] { 0, 0, 0, 0 }, false);
+            Check(bottles[0].Completion.PlayCount == plays + 1, "Undo sonrası gerçekten yeniden tamamlanınca tekrar kutlanabiliyor");
+            Ledger.SetReducedMotion(true); bottles[0].Present(new[] { 0, 0 }, false); bottles[0].Present(new[] { 0, 0, 0, 0 }, false);
+            yield return new WaitForSecondsRealtime(.45f);
+            Check(!bottles[0].Completion.Playing, "Az hareket tercihinde kısa kutlama sonlanıyor"); Ledger.SetReducedMotion(false);
+            var seeded = new GameObject("QA-Initially-Complete", typeof(RectTransform), typeof(GameplayBottleView));
+            seeded.transform.SetParent(GameObject.Find("Bottle board").transform, false);
+            seeded.SetActive(false);
+            var seededView = seeded.GetComponent<GameplayBottleView>();
+            seededView.Initialize(Resources.Load<Sprite>("Gameplay/Gameplay_GlassShell_v001"), new[] { Color.cyan });
+            seededView.Present(new[] { 0, 0, 0, 0 }, false);
+            Check(seededView.Completion.PlayCount == 0, "Sahne başında zaten dolu şişe kutlamayı tetiklemiyor"); Destroy(seeded);
+            var fixture = new Puzzle(new[] { new[] { 2, 2, 2 }, new[] { 1, 1, 1 }, new[] { 2 }, new[] { 1 },
+                new[] { 0, 3, 0, 3 }, new[] { 3, 0, 3, 0 }, new int[0], new int[0] });
+            const BindingFlags hidden = BindingFlags.Instance | BindingFlags.NonPublic;
+            typeof(PrototypeApp).GetField("puzzle", hidden).SetValue(App, fixture);
+            typeof(PrototypeApp).GetField("selected", hidden).SetValue(App, -1);
+            typeof(PrototypeApp).GetMethod("Refresh", hidden).Invoke(App, new object[] { false });
+            yield return null;
+            yield return null;
+
+            var first = GameObject.Find("Bottle 1").GetComponent<GameplayBottleView>();
+            var second = GameObject.Find("Bottle 2").GetComponent<GameplayBottleView>();
+            int firstBefore = first.Completion.PlayCount, secondBefore = second.Completion.PlayCount;
+            string before = JsonUtility.ToJson(Ledger.Snapshot);
+            yield return Shot("05-Before-Pour");
+            TapBottle("Bottle 3");
+            yield return null;
+            TapBottle("Bottle 1");
+            yield return WaitBottle(() => first.DisplayedVolume is > 3.08f and < 3.94f, "Sıvı aktarımı sürüyor");
+            Check(first.Completion.PlayCount == firstBefore && !first.Completion.Playing,
+                "Geçici dolum sırasında tamamlanma efekti yok");
+            yield return WaitBottle(() => first.Completion.PlayCount == firstBefore + 1, "Sarı şişe tamamlandı");
+            Check(Model.Moves == 1 && Model.Bottle(0).All(color => color == 2) && first.DisplayedVolume == Puzzle.Capacity &&
+                first.Completion.Playing && second.Completion.PlayCount == secondBefore, "İlk gerçek döküş yalnız sarı şişenin efektini tetikledi");
+            yield return new WaitForSecondsRealtime(.39f);
+            yield return Shot("07-Real-Pour-Completion");
+            var mesh = first.Completion.canvasRenderer.GetMesh();
+            Check(mesh != null && mesh.vertexCount is > 1000 and < 3000 &&
+                mesh.bounds.max.y > first.Completion.rectTransform.rect.yMax,
+                "Altın spiral ve şişe ağzından yükselen iz tek UI mesh'inde");
+
+            yield return WaitBottle(() => App.GuideCanInteract, "İkinci hamle hazır");
+            TapBottle("Bottle 4");
+            yield return null;
+            TapBottle("Bottle 2");
+            yield return WaitBottle(() => second.Completion.PlayCount == secondBefore + 1, "Pembe şişe tamamlandı");
+            Check(Model.Moves == 2 && Model.Bottle(1).Count == Puzzle.Capacity && Model.Bottle(1).All(color => color == 1) &&
+                second.Completion.Playing && first.Completion.PlayCount == firstBefore + 1, "İkinci gerçek döküş yalnız yeni şişede efekti başlattı");
+            yield return new WaitForSecondsRealtime(.41f);
+            yield return Shot("09-Second-Real-Pour");
+            yield return WaitBottle(() => !first.Completion.Playing && !second.Completion.Playing, "İki efekt de durdu");
+            Check(first.Completion.PlayCount == firstBefore + 1 && second.Completion.PlayCount == secondBefore + 1 &&
+                !Model.Won && before == JsonUtility.ToJson(Ledger.Snapshot), "Efektler birer kez oynadı ve bölüm kaydı değişmedi");
+            yield return Shot("10-After-Completion");
+            if (!bottleOnly) yield break;
+
+            foreach (int height in new[] { 1950, 2000 })
+            {
+                yield return Resize(height);
+                first.Present(new[] { 2, 2, 2 }, false);
+                first.Present(fixture.Bottle(0), false);
+                yield return new WaitForSecondsRealtime(.39f);
+                yield return Shot("11-Portrait-" + height);
+                var top = RectTransformUtility.WorldToScreenPoint(null,
+                    first.Completion.rectTransform.TransformPoint(first.Completion.canvasRenderer.GetMesh().bounds.max));
+                Check(top.x > 0 && top.x < Screen.width && top.y > 0 && top.y < Screen.height,
+                    height + " portrede şişe ışığı ekranda");
+                first.Completion.Stop();
+            }
+        }
+
+        IEnumerator WaitBottle(Func<bool> condition, string label)
+        {
+            float end = Time.unscaledTime + 4;
+            while (!condition() && Time.unscaledTime < end) yield return null;
+            Check(condition(), label);
+        }
+
+        void TapBottle(string name)
+        {
+            var button = GameObject.Find(name).GetComponent<Button>();
+            var rect = (RectTransform)button.transform;
+            var hits = Hits(rect);
+            Check(hits.Count > 0 && hits[0].gameObject == button.gameObject, name + " gerçek raycast hedefi");
+            var pointer = new PointerEventData(EventSystem.current)
+            {
+                position = RectTransformUtility.WorldToScreenPoint(null, rect.TransformPoint(rect.rect.center)),
+                button = PointerEventData.InputButton.Left, eligibleForClick = true, pointerCurrentRaycast = hits[0]
+            };
+            ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerDownHandler);
+            ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerUpHandler);
+            ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
+        }
+
         IEnumerator Run()
         {
             yield return Ready("Gameplay");
+            if (bottleOnly)
+            {
+                yield return LoadLevel(5, 4);
+                yield return BottleEffects();
+                yield break;
+            }
             for (int id = 1; id <= 4; id++)
             {
                 if (id > 1) yield return LoadLevel(id, id - 1);
@@ -292,41 +412,7 @@ namespace Mewgic
                 yield return Shot("03-Gameplay-" + height);
             }
             Size(1600); yield return null; yield return null;
-            // İki bağımsız şişede aynı karede tamamlama; başlangıçtaki dolu şişe ve tekrar Present ayrı doğrulanır.
-            var bottles = FindObjectsByType<GameplayBottleView>(FindObjectsSortMode.None).OrderBy(view => view.name).Take(3).ToArray();
-            foreach (var bottle in bottles) bottle.Present(new[] { 0, 0, 0 }, false);
-            bottles[0].Present(new[] { 0, 0, 0, 0 }, false); bottles[1].Present(new[] { 1, 1, 1, 1 }, false);
-            int plays = bottles[0].Completion.PlayCount;
-            bottles[0].Present(new[] { 0, 0, 0, 0 }, false);
-            Check(bottles[0].Completion.Playing && bottles[1].Completion.Playing && bottles[0].Completion.PlayCount == plays,
-                "İki şişe bağımsız kutluyor; aynı tamamlanmış verinin tekrarı efekti yeniden başlatmıyor");
-            yield return new WaitForSecondsRealtime(.24f); yield return Shot("04-Bottle-Completion");
-            bottles[0].SetPaused(true); yield return new WaitForSecondsRealtime(.2f); Check(bottles[0].Completion.Playing, "Pause kutlamayı donduruyor"); bottles[0].SetPaused(false);
-            yield return new WaitForSecondsRealtime(1.2f);
-            Check(!bottles[0].Completion.Playing && !bottles[1].Completion.Playing, "Kutlama sonlanıyor ve sonsuz dönmüyor");
-            bottles[0].Present(new[] { 0, 0 }, false); bottles[0].Present(new[] { 0, 0, 0, 0 }, false);
-            Check(bottles[0].Completion.PlayCount == plays + 1, "Undo sonrası gerçekten yeniden tamamlanınca tekrar kutlanabiliyor");
-            Ledger.SetReducedMotion(true); bottles[0].Present(new[] { 0, 0 }, false); bottles[0].Present(new[] { 0, 0, 0, 0 }, false);
-            yield return new WaitForSecondsRealtime(.45f);
-            Check(!bottles[0].Completion.Playing, "Az hareket tercihinde kısa kutlama sonlanıyor"); Ledger.SetReducedMotion(false);
-            var seeded = new GameObject("QA-Initially-Complete", typeof(RectTransform), typeof(GameplayBottleView));
-            seeded.transform.SetParent(GameObject.Find("Bottle board").transform, false);
-            seeded.SetActive(false);
-            var seededView = seeded.GetComponent<GameplayBottleView>();
-            seededView.Initialize(Resources.Load<Sprite>("Gameplay/Gameplay_GlassShell_v001"), new[] { Color.cyan });
-            seededView.Present(new[] { 0, 0, 0, 0 }, false);
-            Check(seededView.Completion.PlayCount == 0, "Sahne başında zaten dolu şişe kutlamayı tetiklemiyor"); Destroy(seeded);
-            var fixture = new Puzzle(new[] { new[] { 0, 0, 0 }, new[] { 1, 1, 1 }, new[] { 0 }, new[] { 1 },
-                new[] { 2, 3, 2, 3 }, new[] { 3, 2, 3, 2 }, new int[0], new int[0] });
-            typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(App, fixture);
-            typeof(PrototypeApp).GetField("selected", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(App, -1);
-            typeof(PrototypeApp).GetMethod("Refresh", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(App, new object[] { false });
-            yield return null; yield return null;
-            Tap("Bottle 3"); Tap("Bottle 1"); yield return new WaitForSecondsRealtime(.95f);
-            var poured = GameObject.Find("Bottle 1").GetComponent<GameplayBottleView>();
-            Check(Model.Moves == 1 && Model.Bottle(0).Count == 4 && poured.Completion.PlayCount == 1 && poured.Completion.Playing,
-                "Gerçek şişe tıklaması ve döküş bitişi tek renk kutlamasını tetikliyor");
-            yield return Shot("07-Real-Pour-Completion");
+            yield return BottleEffects();
 
             Bind(4); disk.daily.progress = new[] { 2, 2, 3, 0 }; Bind(4, disk);
             SceneManager.LoadScene("Home"); yield return null; yield return Ready("Home");
