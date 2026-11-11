@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using Mewgic.Core;
 using Mewgic.UI;
 using TMPro;
@@ -16,14 +17,16 @@ namespace Mewgic
 
         [Serializable] sealed class ArtRegion { public string name; public int x, y, width, height, border; }
         [Serializable] sealed class ArtRegions { public ArtRegion[] regions; }
-        [Serializable] sealed class Package
+        [Serializable] internal sealed class PreviewPower { public string id, name; public int price; }
+        [Serializable] internal sealed class Catalogue
         {
-            public string id, name, art, price, previous;
-            public int amount, bonus, discount;
-            public string[] items, icons;
+            public StorePackage[] offers, offerGold, gold;
+            public PreviewPower[] previewPowers;
+            public IEnumerable<StorePackage> Packages => offers.Concat(offerGold).Concat(gold);
         }
-        [Serializable] sealed class PreviewPower { public string id, name; public int price; }
-        [Serializable] sealed class Catalogue { public Package[] offers, offerGold, gold; public PreviewPower[] previewPowers; }
+
+        internal static Catalogue LoadCatalogue() =>
+            JsonUtility.FromJson<Catalogue>(Resources.Load<TextAsset>("ShopReference/Offers").text);
 
         sealed class Row
         {
@@ -48,6 +51,9 @@ namespace Mewgic
 
         readonly Dictionary<string, Sprite> art = new();
         readonly List<Row> rows = new();
+        readonly List<(StorePackage package, TMP_Text price, TMP_Text action, string preview)> paymentRows = new();
+        StorePayments payments;
+        StorePackage modalPackage;
         readonly RectTransform[] pages = new RectTransform[4];
         readonly Image[] tabFaces = new Image[4];
         readonly Image[] tabPoints = new Image[4];
@@ -81,6 +87,15 @@ namespace Mewgic
             root.gameObject.SetActive(true);
             root.SetAsLastSibling();
             modal.gameObject.SetActive(false);
+            modalPackage = null;
+            if (payments != StorePayments.Current)
+            {
+                if (payments != null) payments.Changed -= PaymentChanged;
+                payments = StorePayments.Current;
+                if (payments != null) payments.Changed += PaymentChanged;
+            }
+            payments?.RefreshPurchases();
+            RefreshPayments();
             Select(Page.Offers);
             Resize();
         }
@@ -108,6 +123,7 @@ namespace Mewgic
 
         void OnDestroy()
         {
+            if (payments != null) payments.Changed -= PaymentChanged;
             foreach (var sprite in art.Values) if (sprite != null) Destroy(sprite);
         }
 
@@ -131,7 +147,7 @@ namespace Mewgic
         void Build()
         {
             LoadArt();
-            var catalog = JsonUtility.FromJson<Catalogue>(Resources.Load<TextAsset>("ShopReference/Offers").text);
+            var catalog = LoadCatalogue();
             root = GameplayTools.Rect(safeArea, "MagicShop", Vector2.zero, Vector2.one);
             var background = root.gameObject.AddComponent<Image>();
             background.sprite = art["back"];
@@ -192,7 +208,7 @@ namespace Mewgic
                 GoldTile(parent, catalog.offerGold[i], 12 + i * 306, 730, 305, 365);
         }
 
-        void Offer(Transform parent, Package package, float x, float y, float width, float height, bool featured)
+        void Offer(Transform parent, StorePackage package, float x, float y, float width, float height, bool featured)
         {
             var card = Surface(parent, "Offer_" + package.id, "panel", x, y, width, height).rectTransform;
             Picture(card, "PackageArt", package.art, 18, featured ? 106 : 22, featured ? 357 : 333, featured ? 249 : 275);
@@ -200,49 +216,50 @@ namespace Mewgic
             var details = Surface(card, "OfferContents", "tab", featured ? 376 : 359, 94 - (featured ? 0 : 18),
                 featured ? 271 : 265, featured ? 173 : 199);
             details.color = new Color(.31f, .10f, .45f, .86f);
-            for (int i = 0; i < package.items.Length; i++)
+            int index = 0;
+            void ContentRow(string label, string icon)
             {
-                float row = 10 + i * 46;
-                Picture(details.transform, "RewardIcon", package.icons[i], 13, row, 47, 43, true);
-                Text(details.transform, "Reward", package.items[i], 25, 70, row, featured ? 190 : 169, 43, left: true);
+                float row = 10 + index++ * 46;
+                Picture(details.transform, "RewardIcon", icon, 13, row, 47, 43, true);
+                Text(details.transform, "Reward", label, 25, 70, row, featured ? 190 : 169, 43, left: true);
             }
-            if (featured) Ribbon(card, "FeaturedRibbon", "EN AVANTAJLI\nBAŞLANGIÇ PAKETİ!", 23, 13, 319, 102, -9, 29);
-            Ribbon(card, "Discount", $"%{package.discount}\nİNDİRİM", 732, featured ? 38 : 32, 159, 108, 5, 37);
+            if (package.amount > 0) ContentRow(GoldAmount(package), "coin");
+            foreach (var power in package.powers ?? Array.Empty<StorePackagePower>())
+                ContentRow($"{power.count} {power.label}", power.icon);
+            if (featured) Ribbon(card, "FeaturedRibbon", "ÖZEL\nBAŞLANGIÇ PAKETİ", 23, 13, 319, 102, -9, 29);
             var price = Surface(card, "OfferPrice", "cream", featured ? 657 : 652, height - 211 + (featured ? 0 : 31), 235, 100);
-            Text(price.transform, "PreviousPrice", "₺" + package.previous, 27, 8, 10, 218, 32, Ink);
-            var strike = Box(price.transform, "PreviousPriceStrike", 64, 27, 106, 3).gameObject.AddComponent<Image>();
-            strike.color = new Color(.78f, .05f, .23f);
-            strike.raycastTarget = false;
-            strike.rectTransform.localRotation = Quaternion.Euler(0, 0, 4);
-            Text(price.transform, "Price", "₺" + package.price, 43, 6, 39, 222, 52, Ink);
-            Control(card, "ShopBuy_" + package.id, "Paketi Önizle", "green",
+            var priceText = Text(price.transform, "Price", "Önizleme", 39, 6, 16, 222, 68, Ink);
+            var buy = Control(card, "ShopBuy_" + package.id, "Paketi Önizle", "green",
                 featured ? 542 : 608, height - (featured ? 110 : 97), featured ? 359 : 303, featured ? 88 : 79,
                 () => ShowPackage(package), featured ? 35 : 31);
+            BindPayment(package, priceText, buy, "Paketi Önizle");
         }
 
-        void BuildGold(RectTransform parent, Package[] gold)
+        void BuildGold(RectTransform parent, StorePackage[] gold)
         {
             var featured = gold[^1];
             var hero = Surface(parent, "Featured10000Gold", "panel", 9, 12, 923, 379).rectTransform;
             Picture(hero, "GoldChest", featured.art, 29, 99, 419, 262);
-            Ribbon(hero, "FeaturedRibbon", "EN AVANTAJLI\nALTIN PAKETİ", 33, 16, 360, 105, -9, 32);
+            Ribbon(hero, "FeaturedRibbon", "ÖNE ÇIKAN\nALTIN PAKETİ", 33, 16, 360, 105, -9, 32);
             Text(hero, "GoldAmount", GoldAmount(featured), 69, 444, 18, 439, 92, serif: true);
             Ribbon(hero, "Bonus", Bonus(featured), 484, 111, 337, 68, 0, 40);
-            Price(hero, "₺" + featured.price, null, 509, 180, 310, 83, 46);
-            Control(hero, "ShopBuy_gold_featured", "Paketi Önizle", "green", 475, 260, 410, 94,
+            var heroPrice = Price(hero, "Önizleme", null, 509, 180, 310, 83, 46);
+            var heroBuy = Control(hero, "ShopBuy_gold_featured", "Paketi Önizle", "green", 475, 260, 410, 94,
                 () => ShowPackage(featured), 40);
+            BindPayment(featured, heroPrice, heroBuy, "Paketi Önizle");
             for (int i = 0; i < 4; i++)
                 GoldTile(parent, gold[i], 8 + i % 2 * 465, 394 + i / 2 * 269, 457, 266);
             var last = Surface(parent, "Repeat10000Gold", "panel", 9, 935, 923, 206).rectTransform;
             Picture(last, "GoldChest", featured.art, 30, 22, 275, 175);
             Text(last, "GoldAmount", GoldAmount(featured), 42, 288, 22, 281, 62, serif: true);
             Ribbon(last, "Bonus", Bonus(featured), 297, 81, 266, 56, 0, 30);
-            Price(last, "₺" + featured.price, null, 595, 43, 272, 62, 37);
-            Control(last, "ShopBuy_" + featured.id, "Önizle", "green", 577, 104, 302, 74,
+            var lastPrice = Price(last, "Önizleme", null, 595, 43, 272, 62, 37);
+            var lastBuy = Control(last, "ShopBuy_" + featured.id, "Önizle", "green", 577, 104, 302, 74,
                 () => ShowPackage(featured), 35);
+            BindPayment(featured, lastPrice, lastBuy, "Önizle");
         }
 
-        void GoldTile(Transform parent, Package package, float x, float y, float width, float height)
+        void GoldTile(Transform parent, StorePackage package, float x, float y, float width, float height)
         {
             var card = Surface(parent, "GoldPackage_" + package.id, "panel", x, y, width, height).rectTransform;
             Text(card, "GoldAmount", GoldAmount(package), 34, 12, 10, width - 24, 46, serif: true);
@@ -251,9 +268,10 @@ namespace Mewgic
             if (package.bonus > 0)
                 Ribbon(card, "Bonus", Bonus(package), width * .24f, 55, width * .52f, 44, 0, 25);
             Surface(card, "PriceArea", "cream", width * .052f, height * .62f, width * .896f, height * .356f);
-            Text(card, "Price", "₺" + package.price, 32, 10, height * .618f, width - 20, height * .135f, Ink);
-            Control(card, "ShopBuy_" + package.id, "Önizle", "green", width * .108f, height * .75f,
+            var price = Text(card, "Price", "Önizleme", 32, 10, height * .618f, width - 20, height * .135f, Ink);
+            var buy = Control(card, "ShopBuy_" + package.id, "Önizle", "green", width * .108f, height * .75f,
                 width * .784f, height * .205f, () => ShowPackage(package), 33);
+            BindPayment(package, price, buy, "Önizle");
         }
 
         void BuildPowers(RectTransform parent, PreviewPower[] previews)
@@ -363,10 +381,82 @@ namespace Mewgic
             modal.gameObject.SetActive(false);
         }
 
-        void ShowPackage(Package package)
+        void BindPayment(StorePackage package, TMP_Text price, Button button, string preview)
+        {
+            price.font = MewgicTypographySettings.Current.body;
+            paymentRows.Add((package, price, button.transform.Find("Label").GetComponent<TMP_Text>(), preview));
+        }
+
+        void RefreshPayments()
+        {
+            foreach (var row in paymentRows)
+            {
+                string price = payments?.Price(row.package.id);
+                row.price.text = price ?? "Önizleme";
+                row.action.text = price == null ? row.preview : "Test Satın Al";
+            }
+        }
+
+        void PaymentChanged(string id)
+        {
+            RefreshPayments();
+            if (modalPackage?.id == id && modal.gameObject.activeSelf) ShowPaymentStatus();
+        }
+
+        void ShowPackage(StorePackage package)
         {
             var title = string.IsNullOrEmpty(package.name) ? GoldAmount(package) : package.name;
-            Inform(title, $"{package.price} TL · Önizleme fiyatı\nGerçek para ile satın alma şu anda kapalı.", package.art);
+            Inform(title, "Mağaza fiyatı şu anda kullanılamıyor. Satın alma kapalı.", package.art);
+            if (payments?.Price(package.id) == null && payments?.State(package.id) != StorePaymentState.Waiting) return;
+            modalPackage = package;
+            if (payments.State(package.id) is StorePaymentState.Success or StorePaymentState.Cancelled or StorePaymentState.Failed)
+                payments.SetState(package.id, StorePaymentState.Ready);
+            ShowPaymentStatus();
+        }
+
+        void ShowPaymentStatus()
+        {
+            var id = modalPackage.id;
+            modalConfirm.interactable = true;
+            modalConfirmLabel.text = "Tamam";
+            modalLink = null;
+            switch (payments.State(id))
+            {
+                case StorePaymentState.Ready:
+                    string price = payments.Price(id);
+                    if (price == null)
+                    {
+                        modalMessage.text = "Mağaza fiyatı şu anda kullanılamıyor.";
+                        break;
+                    }
+                    string content = modalPackage.bonus > 0 ? $"\nToplam {Number(modalPackage.Gold)} Altın" : "";
+                    modalMessage.text = $"TEST SATIN ALIMI · {price}{content}";
+                    modalConfirmLabel.text = "Test Satın Al";
+                    modalLink = () =>
+                    {
+                        modal.gameObject.SetActive(true);
+                        if (!payments.Buy(id)) modalMessage.text = "Mağaza hazırlanıyor veya başka bir işlem sürüyor.";
+                    };
+                    break;
+                case StorePaymentState.Processing:
+                    modalMessage.text = "Test satın alımı işleniyor…";
+                    modalConfirm.interactable = false;
+                    break;
+                case StorePaymentState.Waiting:
+                    modalMessage.text = "Test satın alımı onay bekliyor.";
+                    modalConfirmLabel.text = "Durumu Denetle";
+                    modalLink = () => { modal.gameObject.SetActive(true); payments.RefreshPurchases(); };
+                    break;
+                case StorePaymentState.Success:
+                    modalMessage.text = "Test satın alımı başarılı. Paket test hesabına eklendi.";
+                    break;
+                case StorePaymentState.Cancelled:
+                    modalMessage.text = "Test satın alımı iptal edildi.";
+                    break;
+                default:
+                    modalMessage.text = "Test satın alımı başarısız.";
+                    break;
+            }
         }
 
         void Inform(string title, string message, string picture)
@@ -378,6 +468,8 @@ namespace Mewgic
         void ShowModal(string title, string message, string picture, string buttonText)
         {
             modalLink = null;
+            modalPackage = null;
+            modalConfirm.interactable = true;
             modalTitle.text = title;
             modalMessage.text = message;
             modalArt.sprite = art[picture];
@@ -555,8 +647,8 @@ namespace Mewgic
         }
 
         static string Number(long value) => value.ToString("N0", Turkish);
-        static string GoldAmount(Package package) => Number(package.amount) + " Altın";
-        static string Bonus(Package package) => $"%{package.bonus} BONUS";
+        static string GoldAmount(StorePackage package) => Number(package.amount) + " Altın";
+        static string Bonus(StorePackage package) => $"%{package.bonus} BONUS";
         static string ItemTitle(ShopItem item)
         {
             foreach (var costume in Costumes) if (costume.item == item) return costume.name;
@@ -584,11 +676,11 @@ namespace Mewgic
             _ => "shop.item." + item.ToString().ToLowerInvariant()
         };
 
-        void Price(Transform parent, string value, string icon, float x, float y, float w, float h, int size, bool compact = false)
+        TMP_Text Price(Transform parent, string value, string icon, float x, float y, float w, float h, int size, bool compact = false)
         {
             var plate = Surface(parent, "PricePlate", "cream", x, y, w, h).rectTransform;
             if (icon != null) Picture(plate, "CurrencyIcon", icon, w * .16f, compact ? 5 : 8, 56, 49, true);
-            Text(plate, "Price", value, size, icon == null ? 6 : w * .35f, 4,
+            return Text(plate, "Price", value, size, icon == null ? 6 : w * .35f, 4,
                 icon == null ? w - 12 : w * .60f, compact ? 52 : h - 8, Ink);
         }
 

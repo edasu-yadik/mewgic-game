@@ -10,13 +10,14 @@ namespace Mewgic.Core
         public WorldMapData worldMap=new WorldMapData();
         public ShopData shop=new ShopData();
         public List<WalletTransaction> walletTransactions = new();
+        public List<StoreDelivery> storeDeliveries = new();
         public LeagueWalletData leagueWallet=new LeagueWalletData();
         public PlayerPresentationData presentation=new PlayerPresentationData();
         public List<int> attemptedLevels=new List<int>(); public List<string> completedTutorials=new List<string>();
         public int version=1;public long storageRevision;public int undo=EconomyConfig.Current.initialUndo,hint=EconomyConfig.Current.initialHint,extra=EconomyConfig.Current.initialExtra,shuffle=EconomyConfig.Current.initialShuffle;
         public int colorSwap, bottleHammer;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{walletTransactions=new List<WalletTransaction>(walletTransactions ?? new List<WalletTransaction>()),leagueWallet=(leagueWallet??new LeagueWalletData()).Copy(),shop=(shop??new ShopData()).Copy(),worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,colorSwap=colorSwap,bottleHammer=bottleHammer,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
+        public ProgressData Copy()=>new ProgressData{storeDeliveries=(storeDeliveries??new List<StoreDelivery>()).Select(entry=>new StoreDelivery{key=entry.key,product=entry.product,quantity=entry.quantity}).ToList(),walletTransactions=new List<WalletTransaction>(walletTransactions ?? new List<WalletTransaction>()),leagueWallet=(leagueWallet??new LeagueWalletData()).Copy(),shop=(shop??new ShopData()).Copy(),worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,colorSwap=colorSwap,bottleHammer=bottleHammer,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
     }
     public sealed partial class ProgressLedger
     {
@@ -31,6 +32,11 @@ namespace Mewgic.Core
             if(data.completedTutorials!=null&&(data.completedTutorials.Any(id=>string.IsNullOrWhiteSpace(id)||id.Length>120)||data.completedTutorials.Distinct().Count()!=data.completedTutorials.Count))throw new ArgumentException("Geçersiz öğretici geçmişi");
             (data.leagueWallet??new LeagueWalletData()).Validate();(data.shop??new ShopData()).Validate();(data.presentation??new PlayerPresentationData()).Validate();(data.hub??new RewardHubData()).Validate();(data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);giftClockStart=clock();giftElapsed=elapsedTime;if(giftElapsed==null&&localClock==null){var session=System.Diagnostics.Stopwatch.StartNew();giftElapsed=()=>session.Elapsed;}
             WalletTransaction.Validate(data.walletTransactions);
+            if (data.storeDeliveries != null && (data.storeDeliveries.Any(entry => entry == null ||
+                !ValidStoreKey(entry.key) || string.IsNullOrWhiteSpace(entry.product) || entry.product.Length > 80 ||
+                entry.quantity < 1 || entry.quantity > 100) ||
+                data.storeDeliveries.Select(entry => entry.key).Distinct().Count() != data.storeDeliveries.Count))
+                throw new ArgumentException("Geçersiz mağaza teslimat kaydı.");
             state=data.Copy();if(state.hub.owned.Contains(RewardHubRules.StarBadge))state.shop.Grant(ShopItem.RoseEffect);if(state.hub.owned.Contains(RewardHubRules.WizardCard))state.shop.Grant(ShopItem.GoldBottle);CurrentUnlockedLevel=WorldMapRules.Initialize(state);
             HighestCompletedLevel=CompletedRecords.Select(record=>record.level).DefaultIfEmpty(0).Max();
             save=persist??throw new ArgumentNullException(nameof(persist));

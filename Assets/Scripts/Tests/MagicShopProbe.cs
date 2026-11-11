@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Mewgic.Core;
 using Mewgic.Characters;
 using Mewgic.Map;
@@ -493,12 +494,15 @@ namespace Mewgic
                 string id = (string)offer["id"];
                 var card = GameObject.Find("Offer_" + id).transform;
                 Check(card.Find("OfferTitle").GetComponent<TMP_Text>().text == (string)offer["name"] &&
-                    card.Find("OfferPrice/Price").GetComponent<TMP_Text>().text == "₺" + (string)offer["price"] &&
-                    card.Find("OfferPrice/PreviousPrice").GetComponent<TMP_Text>().text == "₺" + (string)offer["previous"] &&
+                    card.Find("OfferPrice/Price").GetComponent<TMP_Text>().text == "Önizleme" &&
+                    card.Find("OfferPrice/PreviousPrice") == null && card.Find("Discount") == null &&
                     card.Find("ShopBuy_" + id + "/Label").GetComponent<TMP_Text>().text.Contains("Önizle"),
                     id + " teklif fiyatları ve önizleme durumu");
                 var items = card.Find("OfferContents").GetComponentsInChildren<TMP_Text>().Select(label => label.text);
-                Check(items.SequenceEqual(offer["items"].Values<string>()), id + " paket içeriği katalogla aynı");
+                var product = MagicShopPanel.LoadCatalogue().Packages.Single(package => package.id == id);
+                var expected = product.powers.Select(power => $"{power.count} {power.label}");
+                if (product.amount > 0) expected = new[]{ "1.000 Altın" }.Concat(expected);
+                Check(items.SequenceEqual(expected), id + " paket içeriği teslimat kataloğuyla aynı");
             }
             Press("ShopBuy_powers");
             yield return null;
@@ -509,12 +513,11 @@ namespace Mewgic
 
             Press("ShopTab_Gold");
             yield return null;
-            var featured = catalog["gold"].Last;
             foreach (string name in new[]{"Featured10000Gold", "Repeat10000Gold"})
             {
                 var card = GameObject.Find(name).transform;
                 Check(card.Find("GoldAmount").GetComponent<TMP_Text>().text == "10.000 Altın" &&
-                    card.Find("PricePlate/Price").GetComponent<TMP_Text>().text == "₺" + (string)featured["price"] &&
+                    card.Find("PricePlate/Price").GetComponent<TMP_Text>().text == "Önizleme" &&
                     card.Find("Bonus/Label").GetComponent<TMP_Text>().text == "%30 BONUS", name + " katalogyla aynı");
             }
             Press("ShopBuy_gold_featured");
@@ -632,8 +635,131 @@ namespace Mewgic
             Press("ShopClose");
             yield return null;
             Check(GameObject.Find("MagicShop") == null, "Mağaza kapandı ve Ana Menü açığa çıktı");
+            yield return RunIap();
             yield return ShowGemRewards();
         }
+
+        sealed class LocalVerifier : IStorePurchaseVerifier
+        {
+            public StoreVerificationState result = StoreVerificationState.Verified;
+            public bool sandbox = true;
+            public Task<StoreVerification> VerifyAsync(StoreProof proof) =>
+                Task.FromResult(new StoreVerification(proof.Receipt == "editor-fixture" ? result : StoreVerificationState.Rejected,
+                    proof.TransactionId, sandbox));
+        }
+
+        IEnumerator RunIap()
+        {
+            var package = MagicShopPanel.LoadCatalogue().Packages.Single(item => item.id == "gold_10000");
+            package.appleId = "qa.gold.10000";
+            var verifier = new LocalVerifier();
+            int started = 0, confirmed = 0;
+            var session = new StorePayments(new[]{ package }, Ledger, "apple", verifier, _ => started++);
+            StorePayments.UseLocalTest(session);
+            session.Ready();
+            session.SetPrice(package.id, "€39,99");
+            Press("NavInventory");
+            yield return null;
+            Press("ShopTab_Gold");
+            yield return null;
+            Check(GameObject.Find("Featured10000Gold").transform.Find("PricePlate/Price").GetComponent<TMP_Text>().text == "€39,99",
+                "Yerel test sağlayıcısının fiyatı ve para birimi aynen gösterildi");
+            yield return Shot("IapTestLocalizedPrice");
+            Press("ShopBuy_gold_featured");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Check(started == 1 && !session.Buy(package.id) && PaymentMessage("işleniyor"),
+                "İşleniyor durumunda ikinci istek engellendi");
+            session.SetState(package.id, StorePaymentState.Cancelled);
+            Check(PaymentMessage("iptal edildi"), "İptal mesajı");
+            Press("ShopConfirm");
+            yield return null;
+            Press("ShopBuy_gold_featured");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            session.SetState(package.id, StorePaymentState.Failed);
+            Check(PaymentMessage("başarısız"), "Başarısızlık mesajı");
+            Press("ShopConfirm");
+            yield return null;
+            Press("ShopBuy_gold_featured");
+            yield return null;
+            Press("ShopConfirm");
+            long oldGold = Ledger.Presentation.coins;
+            long oldGems = Ledger.Presentation.gems;
+            var proof = new StoreProof("apple", package.appleId, "editor-pending-1", "editor-fixture", 1, false);
+            verifier.result = StoreVerificationState.Pending;
+            var pending = session.Accept(package.id, proof, () => confirmed++);
+            yield return Until(() => pending.IsCompletedSuccessfully, "Gecikmeli ödeme denetimi döndü");
+            Check(confirmed == 0 && Ledger.Presentation.coins == oldGold && PaymentMessage("onay bekliyor"), "Onay beklerken teslimat ve onay yok");
+            yield return Shot("IapTestWaiting");
+            verifier.result = StoreVerificationState.Verified;
+            verifier.sandbox = false;
+            var rejectedEnvironment = session.Accept(package.id, proof, () => confirmed++);
+            yield return Until(() => rejectedEnvironment.IsCompletedSuccessfully, "Canlı makbuz kararı işlendi");
+            Check(confirmed == 0 && Ledger.Presentation.coins == oldGold && PaymentMessage("başarısız"), "Canlı makbuz sandbox'ta reddedildi");
+            verifier.sandbox = true;
+            var accepted = session.Accept(package.id, proof, () => confirmed++);
+            yield return Until(() => accepted.IsCompletedSuccessfully, "Gecikmeli tamamlanan ödeme işlendi");
+            Check(confirmed == 1 && Ledger.Presentation.coins == oldGold + 13_000 && Ledger.Presentation.gems == oldGems &&
+                PaymentMessage("başarılı"), "Paketin 10.000 + %30 altını yalnız test profiline teslim edildi");
+            yield return Shot("IapTestSuccess");
+
+            var reopened = GameplayProgress.Open(key);
+            var afterRestart = new StorePayments(new[]{ package }, reopened, "apple", verifier, _ => {});
+            var replay = afterRestart.Accept(package.id, proof, () => confirmed++);
+            yield return Until(() => replay.IsCompletedSuccessfully, "Yeniden açılışta tekrar bildirim işlendi");
+            Check(confirmed == 2 && reopened.Presentation.coins == oldGold + 13_000 &&
+                reopened.Snapshot.storeDeliveries.Count == 1, "Yeniden açılışta yinelenen makbuz tekrar altın vermedi");
+
+            var bundle = MagicShopPanel.LoadCatalogue().Packages.Single(item => item.id == "starter");
+            var durable = new StorePackage { id = "qa-permanent", permanentItem = ShopItem.ExplorerCat };
+            bool failSave = true;
+            var isolated = new ProgressLedger(new ProgressData(), _ =>
+            {
+                if (failSave) throw new IOException("QA");
+            });
+            int bottles = isolated.Remaining(BoosterKind.ExtraBottle);
+            string bundleKey = new string('a',64), durableKey = new string('b',64);
+            Check(isolated.DeliverStorePackage(bundle, bundleKey, 1) == StoreDeliveryResult.Retry &&
+                isolated.Presentation.coins == 0 && isolated.Snapshot.storeDeliveries.Count == 0 &&
+                isolated.Remaining(BoosterKind.ExtraBottle) == bottles, "Kayıt hatasında paket parçalı teslim edilmedi");
+            failSave = false;
+            Check(isolated.DeliverStorePackage(bundle, bundleKey, 1) == StoreDeliveryResult.Applied &&
+                isolated.Presentation.coins == 1_000 && isolated.Remaining(BoosterKind.ExtraBottle) == bottles + 3 &&
+                isolated.Remaining(BoosterKind.BottleHammer) == 2 &&
+                isolated.DeliverStorePackage(durable, bundleKey, 1) == StoreDeliveryResult.Rejected,
+                "Katalog içeriği atomik, çakışan işlem kimliği reddedildi");
+            Check(isolated.DeliverStorePackage(durable, durableKey, 1) == StoreDeliveryResult.Applied &&
+                isolated.DeliverStorePackage(durable, durableKey, 1) == StoreDeliveryResult.AlreadyApplied &&
+                isolated.Owns(ShopItem.ExplorerCat), "Kalıcı hak yeniden teslimde tek sahiplik kaydı olarak kaldı");
+
+            package.googleId = "qa.android.gold";
+            var google = new StorePayments(new[]{ package }, isolated, "google", verifier, _ => {});
+            long googleBefore = isolated.Presentation.coins;
+            var wrongSku = new StoreProof("google", package.appleId, "editor-google-1", "editor-fixture", 2, false);
+            var wrongSkuTask = google.Accept(package.id, wrongSku, () => confirmed++);
+            yield return Until(() => wrongSkuTask.IsCompletedSuccessfully, "Yanlış Android ürün kimliği işlendi");
+            Check(confirmed == 2 && isolated.Presentation.coins == googleBefore, "Android eşlemesi Apple ürününü reddetti");
+            var googleProof = new StoreProof("google", package.googleId, "editor-google-1", "editor-fixture", 2, false);
+            var googleTask = google.Accept(package.id, googleProof, () => confirmed++);
+            yield return Until(() => googleTask.IsCompletedSuccessfully, "Android yerel test bildirimi işlendi");
+            Check(confirmed == 3 && isolated.Presentation.coins == googleBefore + 26_000 &&
+                isolated.Snapshot.storeDeliveries.Last().quantity == 2, "Android eşlemesi ve doğrulanmış ürün adedi");
+
+            var nativeAttempt = StorePayments.ConfigureNativeSandbox(verifier, Guid.NewGuid());
+            yield return Until(() => nativeAttempt.IsCompletedSuccessfully, "Editör yerel test sınırı kontrol edildi");
+            Check(!nativeAttempt.Result && StorePayments.Current == session, "Editör platform ödeme servisini açmadı");
+
+            Press("ShopConfirm");
+            yield return null;
+            Press("ShopClose");
+            StorePayments.UseLocalTest(null);
+        }
+
+        static bool PaymentMessage(string text) =>
+            GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains(text);
 
         void CheckGemLabel(TMP_Text label, int amount, string location)
         {

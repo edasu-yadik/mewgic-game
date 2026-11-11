@@ -1,19 +1,132 @@
 {
   "offers": [
-    {"id":"starter","name":"Başlangıç Paketi","art":"starter","price":"149,99","previous":"299,99","discount":50,"items":["1.000 Altın","3 Ekstra Hamle","2 Şişe Çekici"],"icons":["coin","potion","hammer"]},
-    {"id":"powers","name":"Oyun Gücü Paketi","art":"powerpack","price":"299,99","previous":"499,99","discount":40,"items":["5 Ekstra Hamle","3 Şişe Çekici","3 Karıştırıcı","1 Renk Bombası"],"icons":["potion","hammer","shuffle","swap"]}
+    {
+      "id": "starter",
+      "name": "Başlangıç Paketi",
+      "art": "starter",
+      "amount": 1000,
+      "powers": [
+        {
+          "kind": 2,
+          "count": 3,
+          "label": "Ek Şişe",
+          "icon": "potion"
+        },
+        {
+          "kind": 5,
+          "count": 2,
+          "label": "Şişe Çekici",
+          "icon": "hammer"
+        }
+      ],
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "powers",
+      "name": "Oyun Gücü Paketi",
+      "art": "powerpack",
+      "powers": [
+        {
+          "kind": 2,
+          "count": 5,
+          "label": "Ek Şişe",
+          "icon": "potion"
+        },
+        {
+          "kind": 5,
+          "count": 3,
+          "label": "Şişe Çekici",
+          "icon": "hammer"
+        },
+        {
+          "kind": 3,
+          "count": 3,
+          "label": "Karıştır",
+          "icon": "shuffle"
+        },
+        {
+          "kind": 4,
+          "count": 1,
+          "label": "Renk Değiştir",
+          "icon": "swap"
+        }
+      ],
+      "appleId": "",
+      "googleId": ""
+    }
   ],
   "offerGold": [
-    {"id":"offer_100","amount":100,"price":"29,99","art":"gold100"},
-    {"id":"offer_250","amount":250,"price":"62,99","bonus":10,"art":"gold250"},
-    {"id":"offer_1000","amount":1000,"price":"149,99","bonus":25,"art":"gold1000"}
+    {
+      "id": "offer_100",
+      "amount": 100,
+      "art": "gold100",
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "offer_250",
+      "amount": 250,
+      "bonus": 10,
+      "art": "gold250",
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "offer_1000",
+      "amount": 1000,
+      "bonus": 25,
+      "art": "gold1000",
+      "appleId": "",
+      "googleId": ""
+    }
   ],
   "gold": [
-    {"id":"gold_250","amount":250,"price":"79,99","art":"gold100"},
-    {"id":"gold_1000","amount":1000,"price":"299,99","bonus":10,"art":"gold1000"},
-    {"id":"gold_2500","amount":2500,"price":"649,99","bonus":15,"art":"gold2500"},
-    {"id":"gold_5000","amount":5000,"price":"999,99","bonus":20,"art":"gold5000"},
-    {"id":"gold_10000","amount":10000,"price":"1.299,99","bonus":30,"art":"gold10000"}
+    {
+      "id": "gold_250",
+      "amount": 250,
+      "art": "gold100",
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "gold_1000",
+      "amount": 1000,
+      "bonus": 10,
+      "art": "gold1000",
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "gold_2500",
+      "amount": 2500,
+      "bonus": 15,
+      "art": "gold2500",
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "gold_5000",
+      "amount": 5000,
+      "bonus": 20,
+      "art": "gold5000",
+      "appleId": "",
+      "googleId": ""
+    },
+    {
+      "id": "gold_10000",
+      "amount": 10000,
+      "bonus": 30,
+      "art": "gold10000",
+      "appleId": "",
+      "googleId": ""
+    }
   ],
-  "previewPowers":[{"id":"move","name":"Ekstra Hamle","price":500}]
+  "previewPowers": [
+    {
+      "id": "move",
+      "name": "Ekstra Hamle",
+      "price": 500
+    }
+  ]
 }
