@@ -1,0 +1,422 @@
+{
+  "unity": "6000.3.27f2",
+  "scenes": [
+    {
+      "path": "Assets/Scenes/Boot.unity",
+      "build": true,
+      "objects": 4,
+      "components": 9,
+      "dependencies": 7
+    },
+    {
+      "path": "Assets/Scenes/Gameplay.unity",
+      "build": true,
+      "objects": 3,
+      "components": 9,
+      "dependencies": 26
+    },
+    {
+      "path": "Assets/Scenes/Home.unity",
+      "build": true,
+      "objects": 23,
+      "components": 52,
+      "dependencies": 63
+    },
+    {
+      "path": "Assets/Scenes/LevelMap.unity",
+      "build": true,
+      "objects": 3,
+      "components": 8,
+      "dependencies": 23
+    },
+    {
+      "path": "Assets/Scenes/SampleScene.unity",
+      "build": false,
+      "objects": 2,
+      "components": 6,
+      "dependencies": 3
+    },
+    {
+      "path": "Assets/Scenes/WizardCatAnimationTest.unity",
+      "build": false,
+      "objects": 26,
+      "components": 77,
+      "dependencies": 27
+    },
+    {
+      "path": "Assets/Settings/Scenes/URP2DSceneTemplate.unity",
+      "build": false,
+      "objects": 2,
+      "components": 6,
+      "dependencies": 3
+    }
+  ],
+  "references": [
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Interstitials/1024x768.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/LARGE_BANNER.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/BANNER.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/AppOpen/768x1024.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/SMART_BANNER.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Rewarded/1024x768.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/ADAPTIVE.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Interstitials/768x1024.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/MEDIUM_RECTANGLE.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/LEADERBOARD.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/AppOpen/1024x768.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/FULL_BANNER.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/Ump/ConsentForm.prefab / çözülemeyen GUID f795a5541737a4c09a571dc953a23ba5",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/CENTER.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c",
+    "Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Rewarded/768x1024.prefab / çözülemeyen GUID f70555f144d8491a825f0804e09c671c"
+  ],
+  "packages": [
+    {
+      "name": "com.unity.2d.animation",
+      "declared": "10.1.4",
+      "resolved": "10.1.4"
+    },
+    {
+      "name": "com.unity.2d.aseprite",
+      "declared": "1.2.1",
+      "resolved": "1.2.1"
+    },
+    {
+      "name": "com.unity.2d.psdimporter",
+      "declared": "10.0.0",
+      "resolved": "10.0.0"
+    },
+    {
+      "name": "com.unity.2d.sprite",
+      "declared": "1.0.0",
+      "resolved": "1.0.0"
+    },
+    {
+      "name": "com.unity.2d.spriteshape",
+      "declared": "10.0.7",
+      "resolved": "10.0.7"
+    },
+    {
+      "name": "com.unity.2d.tilemap",
+      "declared": "1.0.0",
+      "resolved": "1.0.0"
+    },
+    {
+      "name": "com.unity.2d.tilemap.extras",
+      "declared": "4.2.1",
+      "resolved": "4.2.1"
+    },
+    {
+      "name": "com.unity.2d.tooling",
+      "declared": "1.0.0",
+      "resolved": "1.0.0"
+    },
+    {
+      "name": "com.unity.collab-proxy",
+      "declared": "2.13.6",
+      "resolved": "2.13.6"
+    },
+    {
+      "name": "com.unity.external-dependency-manager",
+      "declared": "2.1.0",
+      "resolved": "2.1.0"
+    },
+    {
+      "name": "com.unity.ide.rider",
+      "declared": "3.0.34",
+      "resolved": "3.0.34"
+    },
+    {
+      "name": "com.unity.ide.visualstudio",
+      "declared": "2.0.22",
+      "resolved": "2.0.22"
+    },
+    {
+      "name": "com.unity.inputsystem",
+      "declared": "1.20.1",
+      "resolved": "1.20.1"
+    },
+    {
+      "name": "com.unity.localization",
+      "declared": "1.5.13",
+      "resolved": "1.5.13"
+    },
+    {
+      "name": "com.unity.modules.androidjni",
+      "declared": "1.0.0",
+      "resolved": "1.0.0"
+    },
+    {
+      "name": "com.unity.nuget.newtonsoft-json",
+      "declared": "3.2.2",
+      "resolved": "3.2.2"
+    },
+    {
+      "name": "com.unity.pipeline",
+      "declared": "0.9.1-exp.1",
+      "resolved": "0.9.1-exp.1"
+    },
+    {
+      "name": "com.unity.purchasing",
+      "declared": "file:../Library/IapPackageInspection/iap.tgz",
+      "resolved": "file:../Library/IapPackageInspection/iap.tgz"
+    },
+    {
+      "name": "com.unity.render-pipelines.universal",
+      "declared": "17.0.3",
+      "resolved": "17.3.0"
+    },
+    {
+      "name": "com.unity.test-framework",
+      "declared": "1.4.5",
+      "resolved": "1.6.0"
+    },
+    {
+      "name": "com.unity.timeline",
+      "declared": "1.8.7",
+      "resolved": "1.8.7"
+    },
+    {
+      "name": "com.unity.ugui",
+      "declared": "2.0.0",
+      "resolved": "2.0.0"
+    },
+    {
+      "name": "com.unity.visualscripting",
+      "declared": "1.9.5",
+      "resolved": "1.9.5"
+    }
+  ],
+  "atlases": [
+    "Assets/Art/Environment/Map/MapProps.spriteatlas",
+    "Assets/Art/UI/Navigation/Navigation.spriteatlas"
+  ],
+  "textures": [
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_06.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3961384,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_01.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3921359,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_07.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3810314,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_04.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3802290,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_09.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3792691,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_12.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3753048,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_03.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3704679,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_10.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3675626,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_11.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3672900,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_04.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3664321,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_08.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3640700,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_02.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3530939,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_01.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3498871,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_05.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3472046,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Resources/ShopReference/Art.png",
+      "width": 2048,
+      "height": 2048,
+      "bytes": 3297972,
+      "readable": false,
+      "mips": false,
+      "android": "Default",
+      "ios": "Default"
+    },
+    {
+      "path": "Assets/Resources/Map/Journeys/Island_05.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3284932,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Art/Environment/Map/CrystalJourney/Crystal_Terrace_03.png",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 3146790,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_5x5",
+      "ios": "ASTC_5x5"
+    },
+    {
+      "path": "Assets/Art/Environment/Map/Map_Village_v001.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3050101,
+      "readable": false,
+      "mips": false,
+      "android": "ASTC_4x4",
+      "ios": "Default"
+    }
+  ],
+  "runtimeRoots": 144,
+  "resolvedDependencies": 344,
+  "heavyCandidates": [
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_v003.png",
+      "bytes": 1920758
+    },
+    {
+      "path": "Assets/Art/AppIcon/Mewgic_AppIcon_1024_v001.png",
+      "bytes": 1920145
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Right.png",
+      "bytes": 1772450
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_v002.png",
+      "bytes": 1737696
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Left.png",
+      "bytes": 1707636
+    },
+    {
+      "path": "Assets/Art/Characters/MageCat/MageCat_NoWand_v001.png",
+      "bytes": 1697357
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center.png",
+      "bytes": 1604531
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_Glow_v003.png",
+      "bytes": 1526510
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_GlowFront_v003.png",
+      "bytes": 1448875
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_GlowBack_v003.png",
+      "bytes": 1446675
+    },
+    {
+      "path": "Assets/Art/Potions/Home/Potion_Center_Glow.png",
+      "bytes": 1363593
+    }
+  ]
+}

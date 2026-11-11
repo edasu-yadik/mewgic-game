@@ -15,7 +15,9 @@ public static class Part19AEditor
 {
     const string Output="docs/ProductionReports/Part19A";
 
-    public static void Audit()
+    public static void Audit() => Audit(Output);
+
+    public static void Audit(string output)
     {
         var references=new List<string>();
         var scenePaths=AssetDatabase.FindAssets("t:Scene",new[]{"Assets"})
@@ -70,7 +72,35 @@ public static class Part19AEditor
             return new{path=p,width,height,bytes=new FileInfo(p).Length,readable=importer.isReadable,mips=importer.mipmapEnabled,
                 android=android.overridden?android.format.ToString():"Default",ios=ios.overridden?ios.format.ToString():"Default"};
         }).ToArray();
-        Write("PROJECT_AUDIT.json",new{unity=Application.unityVersion,scenes=sceneResults,references=references.Distinct(),packages,atlases,textures});
+        var addressableSettings = UnityEditor.AddressableAssets.AddressableAssetSettingsDefaultObject.Settings;
+        var addressableRoots = addressableSettings == null ? Array.Empty<string>() : addressableSettings.groups
+            .Where(group => group != null).SelectMany(group => group.entries)
+            .Select(entry => entry.AssetPath).Where(path => !string.IsNullOrEmpty(path)).Distinct().ToArray();
+        var allPaths = AssetDatabase.GetAllAssetPaths().Where(path => path.StartsWith("Assets/") && File.Exists(path)).ToArray();
+        var possibleRuntimeRoots = allPaths.Where(path => path.Contains("/Resources/") ||
+            path.StartsWith("Assets/StreamingAssets/") || addressableRoots.Any(root =>
+                path == root || path.StartsWith(root + "/")));
+        var roots = build.Concat(possibleRuntimeRoots).Concat(atlases)
+            .Concat(PlayerSettings.GetPreloadedAssets().Where(asset => asset != null).Select(AssetDatabase.GetAssetPath))
+            .Distinct().ToArray();
+        var reachable = new HashSet<string>(AssetDatabase.GetDependencies(roots, true));
+        foreach (string path in reachable.Where(path => path.StartsWith("Assets/") && path.EndsWith(".prefab") && File.Exists(path)))
+            foreach (Match match in missingGuid.Matches(File.ReadAllText(path)))
+            {
+                string id = match.Groups[2].Value;
+                if (!id.StartsWith("0000000000000000") && string.IsNullOrEmpty(AssetDatabase.GUIDToAssetPath(id)))
+                    references.Add(path + " / çözülemeyen GUID " + id);
+            }
+        var heavyCandidates = allPaths.Where(path => !reachable.Contains(path) &&
+                (AssetImporter.GetAtPath(path) is TextureImporter || path.EndsWith(".psd", StringComparison.OrdinalIgnoreCase)))
+            .Select(path => new { path, bytes = new FileInfo(path).Length }).Where(file => file.bytes >= 1_000_000)
+            .OrderByDescending(file => file.bytes).Take(25).ToArray();
+        Directory.CreateDirectory(output);
+        File.WriteAllText(Path.Combine(output, "PROJECT_AUDIT.json"), JsonConvert.SerializeObject(new
+        {
+            unity = Application.unityVersion, scenes = sceneResults, references = references.Distinct(),
+            packages, atlases, textures, runtimeRoots = roots.Length, resolvedDependencies = reachable.Count, heavyCandidates
+        }, Formatting.Indented));
     }
 
     public static void StorageChecks()

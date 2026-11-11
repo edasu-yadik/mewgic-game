@@ -9,7 +9,7 @@ public sealed class FullGamePreviewWindow : EditorWindow
     const string StartSceneKey = "Mewgic.VisualQA.PreviousScene";
     int level = 1;
     int selected;
-    static readonly string[] Screens = { "Ana Menü", "Oyun", "Bölüm Sonu", "Harita", "Mağaza", "Klan", "Lig", "Etkinlikler", "Günlük Görevler" };
+    static readonly string[] Screens = { "Ana Menü", "Oyun", "Bölüm Sonu", "Dünya Haritası", "Özel Teklifler", "Klan", "Lig", "Etkinlikler", "Günlük Görevler" };
 
     [MenuItem("Mewgic/Visual QA/Open Full Game Preview")]
     public static void Open()
@@ -21,6 +21,13 @@ public sealed class FullGamePreviewWindow : EditorWindow
     [MenuItem("Mewgic/Visual QA/Verify Full Game Preview")]
     static void Verify() => StartPreview(true);
 
+    [MenuItem("Mewgic/Visual QA/Run Final Visual Review")]
+    public static void Review()
+    {
+        GetWindow<FullGamePreviewWindow>("MeWGic Visual QA").Show();
+        StartPreview(false, true);
+    }
+
     [InitializeOnLoadMethod]
     static void RegisterRestore() => EditorApplication.playModeStateChanged += change =>
     {
@@ -29,9 +36,10 @@ public sealed class FullGamePreviewWindow : EditorWindow
         SessionState.EraseString(StartSceneKey);
         SessionState.EraseBool(FullGamePreview.SessionKey);
         SessionState.EraseBool(FullGamePreview.VerifyKey);
+        SessionState.EraseBool(FullGamePreview.ReviewKey);
     };
 
-    static void StartPreview(bool verify)
+    static void StartPreview(bool verify, bool review = false)
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode) return;
         for (int i=0;i<UnityEngine.SceneManagement.SceneManager.sceneCount;i++)
@@ -41,6 +49,7 @@ public sealed class FullGamePreviewWindow : EditorWindow
         SessionState.SetString(StartSceneKey,AssetDatabase.GetAssetPath(EditorSceneManager.playModeStartScene));
         SessionState.SetBool(FullGamePreview.SessionKey,true);
         SessionState.SetBool(FullGamePreview.VerifyKey,verify);
+        SessionState.SetBool(FullGamePreview.ReviewKey,review);
         EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/Scenes/Home.unity");
         EditorApplication.isPlaying = true;
     }
@@ -75,6 +84,13 @@ public sealed class FullGamePreviewWindow : EditorWindow
             using (new EditorGUILayout.HorizontalScope())
                 for (int stars=1;stars<=3;stars++)
                     if (GUILayout.Button($"{stars} yıldız")) { selected=2; preview.Navigate(2,level,stars); }
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                if (GUILayout.Button("Altın Paketleri")) preview.NavigateShopTab("Gold");
+                if (GUILayout.Button("Oyun Güçleri")) preview.NavigateShopTab("Powers");
+                if (GUILayout.Button("Kostümler")) preview.NavigateShopTab("Costumes");
+            }
+            if (GUILayout.Button("Büyülü Köy · 1–10")) preview.Navigate(11,1,3);
             if (GUILayout.Button("Kristal Şelaleler · 91–100")) preview.Navigate(9,100,3);
             if (GUILayout.Button("Kedi yürüyüşü · 99 → 100")) preview.Navigate(10,100,3);
             if (GUILayout.Button("Örnek bakiye ve ilerlemeyi sıfırla")) preview.ResetPreview();

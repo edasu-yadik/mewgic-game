@@ -23,16 +23,17 @@ using ProcessStartInfo = System.Diagnostics.ProcessStartInfo;
 
 namespace Mewgic
 {
-    public sealed class FullGamePreview : MonoBehaviour
+    public sealed partial class FullGamePreview : MonoBehaviour
     {
         public const string SessionKey = "Mewgic.VisualQA.Active";
         public const string VerifyKey = "Mewgic.VisualQA.Verify";
+        public const string ReviewKey = "Mewgic.VisualQA.FinalReview";
         const string Evidence = "Library/MewgicVisualQA/";
         static readonly string[] SaveSuffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly string[] Markers =
         {
             "NavEvents","Bottle 1","Win panel","MapHome","MagicShop","ClanBanner","LeagueSelf",
-            "EventOpen_daily_spell","DailyClose","ChapterClose","ChapterClose"
+            "EventOpen_daily_spell","DailyClose","ChapterClose","ChapterClose","VillagePaintedIsland"
         };
         public static FullGamePreview Active { get; private set; }
         public bool Busy { get; private set; }
@@ -63,7 +64,8 @@ namespace Mewgic
         void Start()
         {
             Size(1600);
-            if (SessionState.GetBool(VerifyKey,false)) StartCoroutine(Drive(Verify(),true));
+            if (SessionState.GetBool(ReviewKey,false)) StartCoroutine(Drive(Review(),true));
+            else if (SessionState.GetBool(VerifyKey,false)) StartCoroutine(Drive(Verify(),true));
             else StartCoroutine(Drive(Warmup(),false));
         }
 
@@ -72,7 +74,8 @@ namespace Mewgic
             yield return Until(() => GameObject.Find("NavEvents") != null && L.Ready,"Ana menü");
             yield return null;
             if (GameObject.Find("ArrivalDismiss") != null) Press("ArrivalDismiss");
-            yield return EnsureBackend();
+            yield return null;
+            Press("NavInventory");
         }
 
         void OnDestroy()
@@ -102,7 +105,9 @@ namespace Mewgic
         {
             var data = new ProgressData();
             data.presentation.manualLocale = "tr";
-            data.presentation.coins = 550;
+            bool verifying = SessionState.GetBool(VerifyKey, false);
+            data.presentation.coins = verifying ? 550 : 4200;
+            data.presentation.gems = verifying ? 0 : 3600;
             if (completed >= EconomyConfig.Current.colorSwapUnlock - 1) data.colorSwap = 1;
             data.presentation.motionPreferenceSet = true;
             for (int i=1;i<=completed;i++)
@@ -147,10 +152,13 @@ namespace Mewgic
             if (!verifying) yield break;
             var after = PlayerSave();
             bool intact = playerBefore.All(pair => after[pair.Key] == pair.Value);
-            Directory.CreateDirectory(Evidence);
-            File.WriteAllText(Evidence+"RESULT.json",Newtonsoft.Json.JsonConvert.SerializeObject(new
+            bool review = SessionState.GetBool(ReviewKey, false);
+            string output = review ? ReviewOutput : Evidence;
+            Directory.CreateDirectory(output);
+            File.WriteAllText(output+"RESULT.json",Newtonsoft.Json.JsonConvert.SerializeObject(new
             {
-                success=failure == null && errors.Count == 0 && intact, failure, errors, checks, playerSaveIntact=intact
+                success=failure == null && errors.Count == 0 && intact, failure, errors, checks, playerSaveIntact=intact,
+                performance = review ? reviewPerformance : null, overflow = review ? reviewOverflow : null
             },Newtonsoft.Json.Formatting.Indented));
         }
 
@@ -183,6 +191,14 @@ namespace Mewgic
                     FindFirstObjectByType<GameplayEndScreen>().Show(level,stars,true,true,ledger.LastCompletionReward,ledger,receipt);
                     typeof(PrototypeApp).GetMethod("Refresh",hidden).Invoke(app,new object[] { false });
                 }
+            }
+            else if (page == 11)
+            {
+                yield return OpenPage(3, level, stars);
+                var map = FindFirstObjectByType<MapWorld>();
+                map.FocusRegion(0, false);
+                yield return null;
+                Press(IslandButton(map, 0).name);
             }
             else if (page is 9 or 10)
             {
@@ -230,8 +246,10 @@ namespace Mewgic
         IEnumerator EnsureBackend()
         {
             if (server != null && !server.HasExited && ClanClient.SignedIn) yield break;
-            string dll = Path.GetFullPath("tools/ClanServer/bin/Release/net10.0/ClanServer.dll");
-            if (!File.Exists(dll)) throw new InvalidOperationException("Yerel API gerekli. Repo kökünde dotnet build tools/ClanServer -c Release çalıştır.");
+            string dll = Path.GetFullPath(Evidence + "LocalBackend/ClanServer.dll");
+            if (!File.Exists(dll)) dll = Path.GetFullPath("tools/ClanServer/bin/Release/net10.0/ClanServer.dll");
+            if (!File.Exists(dll)) throw new InvalidOperationException(
+                "Yerel API gerekli. Repo kökünde dotnet build tools/ClanServer -c Release -o Library/MewgicVisualQA/LocalBackend çalıştır.");
             if (server != null)
             {
                 if (!server.HasExited) server.Kill();
