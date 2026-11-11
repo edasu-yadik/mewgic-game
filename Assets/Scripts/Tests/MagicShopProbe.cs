@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Mewgic.Core;
+using Mewgic.Characters;
+using Mewgic.Map;
 using Mewgic.Localization;
 using Newtonsoft.Json.Linq;
 using TMPro;
@@ -22,6 +24,7 @@ namespace Mewgic
     public sealed class MagicShopProbe : MonoBehaviour
     {
         [SerializeField] string output;
+        [SerializeField] bool costumes;
         string Output => string.IsNullOrEmpty(output) ? "docs/ProductionReports/ShopVisualAudit/" : output;
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo Current = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
@@ -36,13 +39,20 @@ namespace Mewgic
         [MenuItem("Mewgic/QA/Run Magic Shop")]
         public static void Begin() => Begin(null);
 
-        public static void Begin(string output)
+        public static void Begin(string output) => Begin(output, false);
+
+        [MenuItem("Mewgic/QA/Run Costume Integration")]
+        public static void BeginCostumes() => Begin("Library/CostumeIntegration/", true);
+
+        static void Begin(string output, bool costumes)
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             for (int i = 0; i < SceneManager.sceneCount; i++)
                 if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Önce açık sahneyi kaydet.");
             EditorSceneManager.OpenScene("Assets/Scenes/Home.unity");
-            new GameObject("Magic Shop QA").AddComponent<MagicShopProbe>().output = output;
+            var probe = new GameObject("Magic Shop QA").AddComponent<MagicShopProbe>();
+            probe.output = output;
+            probe.costumes = costumes;
             Size(1600);
             EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
             EditorApplication.isPlaying = true;
@@ -64,7 +74,7 @@ namespace Mewgic
             original = PlayerSave();
             var data = new ProgressData();
             data.presentation.coins = 600;
-            data.presentation.gems = 2700;
+            data.presentation.gems = costumes ? 15000 : 2700;
             data.presentation.energy = 4;
             data.presentation.manualLocale = "tr";
             data.presentation.reduceMotion = true;
@@ -107,7 +117,7 @@ namespace Mewgic
             Directory.CreateDirectory(Output);
             string failure = null;
             var stack = new Stack<IEnumerator>();
-            stack.Push(Run());
+            stack.Push(costumes ? RunCostumes() : Run());
             while (stack.Count > 0)
             {
                 bool more; object item;
@@ -144,6 +154,13 @@ namespace Mewgic
             EventSystem.current.RaycastAll(pointer, hits);
             var hit = hits.Count == 0 ? null : ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
             Check(hit == button.gameObject, name + " tıklama alanı: " + (hits.Count == 0 ? "-" : hits[0].gameObject.name));
+            if (button is MapPointButton or BottleTapButton)
+            {
+                pointer.eligibleForClick = true;
+                pointer.pointerCurrentRaycast = hits[0];
+                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerDownHandler);
+                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerUpHandler);
+            }
             ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerClickHandler);
         }
 
@@ -173,6 +190,151 @@ namespace Mewgic
         {
             ScreenCapture.CaptureScreenshot(Output + name + ".png");
             yield return new WaitForSecondsRealtime(.33f);
+        }
+
+        IEnumerator RunCostumes()
+        {
+            var items = new[]{ ShopItem.PrincessCat, ShopItem.ExplorerCat, ShopItem.CrystalCat,
+                ShopItem.NightCat, ShopItem.FairyCat, ShopItem.RoyalCat };
+            yield return Until(() => L.Ready && Button("NavInventory") != null, "Ana Menü hazır");
+            if (Button("ArrivalDismiss") != null) Press("ArrivalDismiss");
+            yield return null;
+            Press("NavInventory");
+            yield return null;
+            Press("ShopTab_Costumes");
+            yield return null;
+            long initialGold = Ledger.Presentation.coins;
+            foreach (var item in items)
+            {
+                foreach (CostumePose pose in Enum.GetValues(typeof(CostumePose)))
+                {
+                    var sprite = CostumeArt.Get(item, pose);
+                    Check(sprite != null && sprite.rect.width > 200 && sprite.rect.height > 200,
+                        item + " ayrı sprite: " + pose);
+                }
+                long gems = Ledger.Presentation.gems;
+                long request = Ledger.NextShopPurchase;
+                string button = "ShopAction_" + item;
+                Press(button);
+                yield return null;
+                Press("CostumeSide");
+                yield return null;
+                var art = GameObject.Find("ConfirmArt").GetComponent<Image>();
+                Check(art.sprite == CostumeArt.Get(item, CostumePose.StepA) && !Ledger.Owns(item) && Ledger.Presentation.gems == gems,
+                    item + " ücret olmadan yan açı önizlendi");
+                if (item == ShopItem.FairyCat) yield return Shot("SidePreview");
+                Press("CostumeFront");
+                yield return null;
+                Check(art.sprite == CostumeArt.Get(item, CostumePose.Front), item + " ön açı");
+                Press("ShopConfirm");
+                yield return null;
+                Check(Ledger.Owns(item) && Ledger.Presentation.gems == gems - Config.Price(item) &&
+                    Ledger.Presentation.coins == initialGold, item + " yalnızca bir kez elmasla alındı");
+                Check(Ledger.Purchase(item, Config.Price(item), request) == ShopPurchaseResult.Duplicate &&
+                    Ledger.Purchase(item, Config.Price(item), Ledger.NextShopPurchase) == ShopPurchaseResult.AlreadyOwned,
+                    item + " eski ve yeni istekle ikinci ücret reddedildi");
+                Press(button);
+                yield return null;
+                var home = FindObjectsByType<WizardCatPresentation>(FindObjectsSortMode.None)
+                    .FirstOrDefault(actor => actor.WornCostume == item && actor.WearingCostumeArt);
+                Check(home != null && Ledger.Equipped(ShopCategory.Cats) == item, item + " Ana Menü prefabı anında güncellendi");
+            }
+            var reopened = GameplayProgress.Open(key);
+            Check(items.All(reopened.Owns) && reopened.Equipped(ShopCategory.Cats) == ShopItem.RoyalCat &&
+                reopened.Presentation.gems == 15000 - items.Sum(Config.Price), "Altı sahiplik ve son kuşanma kayıt yeniden açıldığında doğru");
+            Press("ShopEquipClassic");
+            yield return null;
+            Check(Ledger.Equipped(ShopCategory.Cats) == ShopItem.ClassicCat &&
+                GameplayProgress.Open(key).Equipped(ShopCategory.Cats) == ShopItem.ClassicCat,
+                "Varsayılan kostüme dönüş kaydedildi");
+            Press("ShopClose");
+            yield return null;
+            var purchased = Ledger.Snapshot;
+
+            foreach (var item in new[]{ShopItem.ClassicCat}.Concat(items))
+            {
+                bool classic = item == ShopItem.ClassicCat;
+                var fixture = purchased.Copy();
+                fixture.levels = MapFlowProbe.Data(98).levels;
+                fixture.worldMap = new WorldMapData { highestUnlockedIsland = 1, lastCelebratedIsland = 1 };
+                fixture.presentation.reduceMotion = false;
+                GameplayProgress.UseTestProfile(fixture);
+                Check(Ledger.Equip(item) && Ledger.Claim(99, 3, true, out _) && Ledger.SaveMapFocus(99),
+                    item + " izole Kristal Şelaleler yürüyüşü hazır");
+                SceneManager.LoadScene("Home");
+                yield return null;
+                yield return Until(() => SceneManager.GetActiveScene().name == "Home" && Button("NavMap") != null, "Home hazır");
+                if (Button("ArrivalDismiss") != null) Press("ArrivalDismiss");
+                yield return null;
+                var home = FindObjectsByType<WizardCatPresentation>(FindObjectsSortMode.None)
+                    .First(actor => actor.WornCostume == item);
+                Check(home.WearingCostumeArt != classic, item + " Ana Menü kostüm sprite durumu doğru");
+                yield return Shot(item + "-Home");
+                Check(home.TriggerMagic() || home.MagicBusy, item + " Ana Menü kutlaması çalıştı");
+                yield return new WaitForSecondsRealtime(.3f);
+                if (!classic)
+                    Check(home.transform.Find("BreathingRig/Body").GetComponent<Image>().sprite ==
+                        CostumeArt.Get(item, CostumePose.Victory), item + " kutlama pozu rig üzerinde");
+                Press("NavMap");
+                yield return Until(() => SceneManager.GetActiveScene().name == "LevelMap" &&
+                    FindFirstObjectByType<MapWorld>()?.Mounted == true, "Dünya haritası açıldı");
+                var map = FindFirstObjectByType<MapWorld>();
+                var overview = map.Canvas.GetComponentsInChildren<RawImage>().Single(img =>
+                    img.name == "WorldCostumeMascot" && img.enabled);
+                Check(classic || overview.texture == CostumeArt.Get(item, CostumePose.Sitting).texture,
+                    item + " dünya haritasındaki gerçek kostüm atlası");
+                yield return Shot(item + "-World");
+                var island = map.Points.Single(point => point.gameObject.activeInHierarchy &&
+                    point.kind == MapPointKind.LevelGroup && point.regionIndex == 1);
+                Press(island.name);
+                yield return Until(() => map.JourneyRunning, "99 → 100 animasyonu başladı");
+                var journeyCat = GameObject.Find("WizardCatGuide").GetComponent<JourneyCatImage>();
+                var states = new HashSet<JourneyCatPose>();
+                float end = Time.realtimeSinceStartup + 12;
+                while (map.JourneyRunning && Time.realtimeSinceStartup < end)
+                {
+                    var pose = journeyCat.Pose;
+                    if (states.Add(pose))
+                    {
+                        Check(classic || journeyCat.texture == CostumeArt.Get(item, (CostumePose)((int)pose + 1)).texture &&
+                            journeyCat.uvRect == CostumeArt.UV(CostumeArt.Get(item, (CostumePose)((int)pose + 1))),
+                            item + " bölüm haritası gerçek poz: " + pose);
+                        ScreenCapture.CaptureScreenshot(Output + item + "-" + pose + ".png");
+                    }
+                    yield return null;
+                }
+                Check(!map.JourneyRunning && states.Contains(JourneyCatPose.Curled) &&
+                    states.Contains(JourneyCatPose.Blink) && states.Contains(JourneyCatPose.Stretch) &&
+                    states.Contains(JourneyCatPose.Standing) && states.Contains(JourneyCatPose.StepA) &&
+                    states.Contains(JourneyCatPose.StepB), item + " uyku, uyanış, gerinme, kalkış ve iki adım oynadı");
+
+                var prepared = GameplayLevelCatalog.PrepareAsync(100);
+                yield return Until(() => prepared.IsCompletedSuccessfully, "Bölüm 100 hazır");
+                Check(GameplayLevelCatalog.Select(100, Ledger), "Bölüm 100 seçildi");
+                SceneManager.LoadScene("Gameplay");
+                yield return null;
+                yield return Until(() => FindFirstObjectByType<GameplayHud>()?.State.Level == 100, "Gameplay hazır");
+                var actor = GameObject.Find("GameplayWizardCat").GetComponent<WizardCatPresentation>();
+                Check(actor.WornCostume == item && actor.WearingCostumeArt != classic, item + " oyun içi bekleme");
+                yield return Shot(item + "-Gameplay");
+                var app = FindFirstObjectByType<PrototypeApp>();
+                const BindingFlags hidden = BindingFlags.Instance | BindingFlags.NonPublic;
+                var board = (Puzzle)typeof(PrototypeApp).GetField("puzzle", hidden).GetValue(app);
+                var solution = PuzzleSolver.Solve(board.Export());
+                foreach (var move in solution.Moves)
+                    if (board.Pour(move.Source, move.Target) == 0) throw new InvalidOperationException("Geçersiz QA döküşü");
+                Check(board.Won, "Gerçek kurallarla 100. bölüm çözüldü");
+                typeof(PrototypeApp).GetMethod("Refresh", hidden).Invoke(app, new object[] { false });
+                yield return Until(() => GameObject.Find("VictoryMascotReveal")?.GetComponent<CanvasGroup>().alpha > .99f,
+                    item + " bölüm sonu maskot animasyonu tamamlandı");
+                var victory = GameObject.Find("VictoryCostume").GetComponent<Image>();
+                Check(classic ? !victory.enabled : victory.enabled && victory.sprite == CostumeArt.Get(item, CostumePose.Victory),
+                    item + " bölüm sonu doğru kostüm");
+                var backdrop = GameObject.Find("CostumeBackdrop").GetComponent<RawImage>();
+                Check(classic ? !backdrop.enabled : backdrop.enabled && backdrop.texture != null,
+                    item + " bölüm sonu maskot fonu doğru");
+                yield return Shot(item + "-Victory");
+            }
         }
 
         IEnumerator Run()

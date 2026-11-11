@@ -21,6 +21,9 @@ namespace Mewgic
         CanvasGroup panelFade, environmentFade, titleFade, goldFade, adFade, nextFade, secondaryFade, mascotFade;
         VictoryArtwork frame;
         RectTransform mascotVisual;
+        VictoryArtwork wizardMascot;
+        Image dressedMascot;
+        RawImage costumeBackdrop;
         CanvasGroup eyes;
         Image blocker;
         RewardMotion motion;
@@ -80,6 +83,10 @@ namespace Mewgic
             panelFade = Group(sheet,"VictoryPanelEntrance");
             Artwork(panelFade.transform,"PurplePanel",VictoryArtwork.Layer.Panel,0,0,400,714);
             frame = Artwork(sheet,"GoldFrame",VictoryArtwork.Layer.Frame,0,0,400,714);
+            costumeBackdrop=Place(sheet,"CostumeBackdrop",0,466,112,637).gameObject.AddComponent<RawImage>();
+            costumeBackdrop.raycastTarget=false;
+            costumeBackdrop.texture=Resources.Load<Texture2D>("CatCostumes/VictoryCostumeBackdrop");
+            costumeBackdrop.enabled=false;
             frameGlint = Light(sheet,"FrameTraceLight",new Vector2(199,73),24,true);
             rightFrameGlint = Light(sheet,"FrameTraceLightRight",new Vector2(199,73),21,true);
             for (int i=0; i<atmosphere.Length; i++)
@@ -151,7 +158,13 @@ namespace Mewgic
             mascotFade = Group(sheet,"VictoryMascotReveal");
             mascotVisual=GameplayTools.Rect(mascotFade.transform,"MascotBreath",Vector2.zero,Vector2.one);
             mascotVisual.pivot=new Vector2(.14f,.147f);
-            Artwork(mascotVisual,"VictoryMascot",VictoryArtwork.Layer.Mascot,0,479,97,614);
+            wizardMascot=Artwork(mascotVisual,"VictoryMascot",VictoryArtwork.Layer.Mascot,0,479,97,614);
+            dressedMascot=Place(mascotVisual,"VictoryCostume",0,479,97,614).gameObject.AddComponent<Image>();
+            dressedMascot.raycastTarget=false;
+            dressedMascot.preserveAspect=true;
+            dressedMascot.rectTransform.pivot=new Vector2(.5f,0);
+            dressedMascot.rectTransform.offsetMin=dressedMascot.rectTransform.offsetMax=Vector2.zero;
+            dressedMascot.enabled=false;
             eyes=Group(mascotVisual,"MascotBlink");
             Place(eyes.transform,"LeftEye",52,527,60,532).gameObject.AddComponent<VictoryEye>();
             Place(eyes.transform,"RightEye",77,521,83,526).gameObject.AddComponent<VictoryEye>();
@@ -450,6 +463,12 @@ namespace Mewgic
             RevealLayer(nextFade,reveal,3.06f,.31f,true);
             RevealLayer(secondaryFade,reveal,3.27f,.31f,true);
             RevealLayer(mascotFade,reveal,3.25f,.37f);
+            var costume = GameplayProgress.Current.Equipped(ShopCategory.Cats);
+            var celebration = Characters.CostumeArt.Get(costume, Characters.CostumePose.Victory);
+            dressedMascot.sprite=celebration;
+            dressedMascot.enabled=celebration!=null;
+            costumeBackdrop.enabled=celebration!=null && costumeBackdrop.texture!=null;
+            wizardMascot.enabled=celebration==null;
             if(!reduced)
             {
                 float joy=Stage(reveal,3.25f,.60f);
@@ -457,7 +476,7 @@ namespace Mewgic
                 float bounce=Mathf.Sin(joy*Mathf.PI)*.044f;
                 mascotVisual.localScale=new Vector3(1-breath,1+breath+bounce,1);
                 float blink=Mathf.Repeat(Mathf.Max(0,reveal-3.43f),5.7f);
-                eyes.alpha=Pulse(blink,0,.31f)*.73f;
+                eyes.alpha=celebration==null?Pulse(blink,0,.31f)*.73f:0;
                 catGlint.CanvasAlpha(Mathf.Sin(joy*Mathf.PI)*.86f);
             }
             else { catGlint.CanvasAlpha(0); eyes.alpha=0; }

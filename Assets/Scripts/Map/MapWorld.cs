@@ -12,7 +12,7 @@ namespace Mewgic.Map
   readonly List<MapPoint> points=new List<MapPoint>();readonly List<IslandView> views=new List<IslandView>();readonly List<Graphic> motesGraphics=new List<Graphic>();
   Image background,mist;RectTransform header,tabs,navigation,scrollArea;TMP_Text regionTitle,informationText,celebration;GameObject celebrationRoot;CanvasGroup celebrationFade;MapPathGraphic paths;GameObject information,chapter;Button infoClose;TMP_Text chapterTitle;readonly List<MapPoint> chapterNodes=new List<MapPoint>();
   Sprite panel;TMP_FontAsset font;Material waterLight;Rect nativeSafe;int screenWidth,screenHeight;Vector2 lastSafeSize;float scale,jumpTarget,celebrationUntil,focusSaveAt;bool jumping;int requestedRegion=-1,pendingFocus=-1;
-  sealed class IslandView {public int region=-1;public RectTransform root;public Image art,plate;public TMP_Text title,summary;public MagicalProgressBar bar;public MapPoint[] groups=new MapPoint[5];public MapPoint chest;public IslandArtSlot layered;}
+  sealed class IslandView {public int region=-1;public RectTransform root;public Image art,plate;public TMP_Text title,summary;public MagicalProgressBar bar;public MapPoint[] groups=new MapPoint[5];public MapPoint chest;public IslandArtSlot layered;public RawImage mascot;}
         static RectTransform Rect(Transform p,string name,Vector2 min,Vector2 max)
         {var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(p,false);r.anchorMin=min;r.anchorMax=max;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
         static Image Art(Transform p,string name,Sprite sprite,Vector2 min,Vector2 max)
@@ -83,6 +83,8 @@ namespace Mewgic.Map
    for(int n=0;n<5;n++)v.groups[n]=Point(v.root,-1,n,MapPointKind.LevelGroup,new Vector2(.12f+n*.19f,n%2==0?.46f:.40f),node,88);
    v.chest=Point(v.root,-1,0,MapPointKind.Chest,new Vector2(.90f,.72f),chest,94);
    var plate=Panel(v.root,"IslandName",new Vector2(.5f,0),new Vector2(.5f,0));plate.rectTransform.sizeDelta=new Vector2(610,132);plate.rectTransform.anchoredPosition=new Vector2(0,25);
+   v.mascot=Rect(v.root,"WorldCostumeMascot",new Vector2(.78f,.37f),new Vector2(.78f,.37f)).gameObject.AddComponent<RawImage>();
+   v.mascot.raycastTarget=false;v.mascot.rectTransform.pivot=new Vector2(.5f,0);v.mascot.enabled=false;
    v.plate=plate;v.title=Label(plate.transform,"Title","",29,new Vector2(.04f,.65f),new Vector2(.96f,.96f));v.bar=MagicalProgressBar.Create(plate.transform,"IslandCompletion",new Vector2(.14f,.36f),new Vector2(.86f,.56f));v.bar.label.fontSizeMin=14;v.bar.label.fontSizeMax=17;v.summary=Label(plate.transform,"Summary","",21,new Vector2(.05f,.05f),new Vector2(.95f,.30f));v.root.gameObject.SetActive(false);return v;
   }
   MapPoint Point(RectTransform parent,int region,int slot,MapPointKind kind,Vector2 position,Sprite sprite,float size)
@@ -94,7 +96,19 @@ namespace Mewgic.Map
   {
    v.region=region;var data=progression.Region(region);bool woods=data.artReady&&data.artKey=="woods",mirage=data.artReady&&data.artKey=="mirage",coral=data.artReady&&data.artKey=="coral",frost=data.artReady&&data.artKey=="frost",clockwork=data.artReady&&data.artKey=="clockwork",starlight=data.artReady&&data.artKey=="starlight",library=data.artReady&&data.artKey=="library",aurora=data.artReady&&data.artKey=="aurora",layered=woods||mirage||coral||frost||clockwork||starlight||library||aurora;int a=data.artIndex;bool ready=data.artReady&&a>=0&&a<terrain.Length&&terrain[a]!=null;float w=layered?640:ready&&a<4?new[]{620f,560f,600f,540f}[a]:620;float h=layered?640:ready?w*terrain[a].rect.height/terrain[a].rect.width:620;v.layered.Bind(layered?data.artKey:null,animateEnvironment);
    v.root.sizeDelta=new Vector2(w,h);v.root.anchoredPosition=new Vector2(region%2==0?335:565,120+(region-PackStart)*Spacing);v.art.gameObject.SetActive(ready&&!layered);v.art.sprite=ready?terrain[a]:fog;v.art.material=ready?waterLight:null;v.art.color=ready?Color.white:new Color(.78f,.76f,1,.42f);
-   bool currentIsland=region==progression.CurrentRegion;v.plate.color=currentIsland?Color.white:new Color(.72f,.69f,.81f,1);v.title.color=currentIsland?new Color32(255,229,159,255):new Color32(247,238,232,255);
+   bool currentIsland=region==progression.CurrentRegion;
+   v.mascot.enabled=currentIsland&&(journeyCatPoses!=null||journeyMascot!=null);
+   if(v.mascot.enabled)
+   {
+    var sprite=Characters.CostumeArt.Get(ledger.Equipped(ShopCategory.Cats),Characters.CostumePose.Sitting);
+    v.mascot.texture=sprite!=null?sprite.texture:journeyCatPoses!=null?journeyCatPoses:journeyMascot;
+    v.mascot.material=sprite!=null?null:journeyCatMaterial;
+    v.mascot.uvRect=sprite!=null?Characters.CostumeArt.UV(sprite):journeyCatPoses!=null?JourneyCatImage.SittingUV:new Rect(0,0,1,1);
+    var uv=v.mascot.uvRect;
+    float mascotAspect=v.mascot.texture.width*uv.width/(v.mascot.texture.height*uv.height);
+    v.mascot.rectTransform.sizeDelta=new Vector2(122*mascotAspect,122);
+   }
+   v.plate.color=currentIsland?Color.white:new Color(.72f,.69f,.81f,1);v.title.color=currentIsland?new Color32(255,229,159,255):new Color32(247,238,232,255);
    v.title.text=L.V("map.region_title",region+1,L.Island(region));int count=progression.Completed(region);v.bar.SetValue(count,50,0,true,!progression.RegionOpen(region));v.summary.text=ready||layered?L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49):L.V("map.pending",L.V(progression.RegionOpen(region)?"map.levels":"map.levels_locked",data.firstLevel,data.firstLevel+49));
    for(int n=0;n<5;n++){var p=v.groups[n];var pr=(RectTransform)p.transform;pr.anchorMin=pr.anchorMax=aurora?new Vector2(.17f+n*.16f,n==0?.40f:n==1?.34f:n==2?.30f:n==3?.28f:.30f):library?new Vector2(.17f+n*.16f,n==0?.47f:n==1?.40f:n==2?.34f:n==3?.30f:.31f):starlight?new Vector2(.17f+n*.16f,n==0?.47f:n==1?.37f:n==2?.30f:n==3?.27f:.29f):clockwork?new Vector2(.17f+n*.16f,.34f+Mathf.Abs(n-2)*.045f):frost?new Vector2(.17f+n*.16f,.27f+Mathf.Abs(n-2)*.045f):coral?new Vector2(.17f+n*.16f,.315f+Mathf.Abs(n-2)*.045f):mirage?new Vector2(.17f+n*.16f,.505f-n*.027f):woods?new Vector2(.17f+n*.16f,.505f-n*.027f):new Vector2(.12f+n*.19f,n%2==0?.46f:.40f);p.regionIndex=region;p.slotIndex=Mathf.Clamp((progression.CurrentId-data.firstLevel)/10,0,4);p.gameObject.SetActive(n==0);if(n==0){pr.anchorMin=pr.anchorMax=new Vector2(.5f,.32f);}int first=data.firstLevel+p.slotIndex*10,done=Enumerable.Range(first,10).Count(x=>progression.Stars(x)>0);p.GetComponent<MapNodeBadge>().PresentGroup(first,first+9,done,progression.CurrentId>=first&&progression.CurrentId<=first+9,progression.CanEnter(first));}
    var cr=(RectTransform)v.chest.transform;cr.anchorMin=cr.anchorMax=aurora?new Vector2(.92f,.58f):library?new Vector2(.92f,.57f):starlight?new Vector2(.93f,.59f):clockwork?new Vector2(.92f,.60f):frost?new Vector2(.92f,.58f):coral?new Vector2(.90f,.59f):mirage?new Vector2(.90f,.58f):woods?new Vector2(.90f,.58f):new Vector2(.90f,.72f);v.chest.regionIndex=region;v.chest.GetComponent<MapNodeBadge>().PresentChest(progression.ChestReady(region),progression.ChestClaimed(region));v.root.gameObject.SetActive(true);

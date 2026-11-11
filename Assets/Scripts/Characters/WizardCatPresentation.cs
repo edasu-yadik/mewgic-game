@@ -13,6 +13,12 @@ namespace Mewgic.Characters
         public bool automaticBlink=true;
         float nextBlinkTime;
         Image costumeBody;
+        Sprite wizardBody;
+        RectTransform bodyTransform;
+        GameObject wandBack, wandFront;
+        Vector2 baseBodySize, baseBodyPosition;
+        public ShopItem WornCostume => costume;
+        public bool WearingCostumeArt => costumeBody != null && wizardBody != null && costumeBody.sprite != wizardBody;
         int cosmeticRevision = -1;
         ShopItem costume, effect;
         bool playerCosmetics;
@@ -21,6 +27,15 @@ namespace Mewgic.Characters
         {
             foreach (var image in GetComponentsInChildren<Image>(true))
                 if (image.name == "Body") { costumeBody = image; break; }
+            if (costumeBody != null && wizardBody == null)
+            {
+                wizardBody = costumeBody.sprite;
+                bodyTransform = costumeBody.rectTransform;
+                baseBodySize = bodyTransform.sizeDelta;
+                baseBodyPosition = bodyTransform.anchoredPosition;
+                wandBack = bodyTransform.parent.Find("WandBackPivot")?.gameObject;
+                wandFront = bodyTransform.parent.Find("WandFrontPivot")?.gameObject;
+            }
             playerCosmetics = true;
             RefreshCosmetics();
         }
@@ -34,10 +49,26 @@ namespace Mewgic.Characters
             if (next != costume && costumeBody != null)
             {
                 costume = next;
-                costumeBody.material = ShopCosmetics.CostumeMaterial(next);
+                ApplyCostumePose(MagicBusy ? CostumePose.Victory : CostumePose.Front);
             }
             effect = ledger.Equipped(ShopCategory.Effects);
         }
+        void ApplyCostumePose(CostumePose pose)
+        {
+            if (costumeBody == null) return;
+            var rendered = CostumeArt.Get(costume, pose) ?? CostumeArt.Get(costume, CostumePose.Front);
+            costumeBody.sprite = rendered != null ? rendered : wizardBody;
+            costumeBody.material = !CostumeArt.IsReferenceCostume(costume) && rendered == null
+                ? ShopCosmetics.CostumeMaterial(costume) : null;
+            bool usesWizard = rendered == null;
+            bodyTransform.sizeDelta = usesWizard ? baseBodySize : new Vector2(baseBodySize.x, baseBodySize.y * .82f);
+            bodyTransform.anchoredPosition = usesWizard ? baseBodyPosition :
+                baseBodyPosition + Vector2.up * (baseBodySize.y * .08f);
+            if (wandBack != null) wandBack.SetActive(usesWizard);
+            if (wandFront != null) wandFront.SetActive(usesWizard);
+            if (blinkOverlay != null) blinkOverlay.gameObject.SetActive(usesWizard);
+        }
+
         [Range(4,24)] public int sparkBudget=18;
         RectTransform[] sparks;
         WizardSparkGraphic[] graphics;
@@ -46,7 +77,7 @@ namespace Mewgic.Characters
         Vector2 burstOrigin;
         float magicTime=-1;
         const float MagicDuration=1.6f;
-        public bool CanBlink => blinkOverlay != null;
+        public bool CanBlink => blinkOverlay != null && blinkOverlay.gameObject.activeSelf;
         public bool MagicBusy => magicTime>=0;
         public int ActiveSparks {get;private set;}
         public int PoolSize => sparks==null?0:sparks.Length;
@@ -74,6 +105,7 @@ namespace Mewgic.Characters
         {
             if(MagicBusy)return false;
             magicTime=0;animator.SetTrigger("Magic");
+            if (playerCosmetics) ApplyCostumePose(CostumePose.Victory);
             burstOrigin=fxRoot.InverseTransformPoint(magicOrigin.position);
             for(int i=0;i<sparks.Length;i++)
             {
@@ -104,7 +136,7 @@ namespace Mewgic.Characters
                 var tint=ShopCosmetics.EffectTint(effect);tint.a=alpha;graphics[i].color=tint;
                 sparks[i].localScale=Vector3.one*(.45f+.55f*alpha);
             }
-            if(magicTime>=MagicDuration){magicTime=-1;ActiveSparks=0;foreach(var s in sparks)s.gameObject.SetActive(false);}
+            if(magicTime>=MagicDuration){magicTime=-1;ActiveSparks=0;foreach(var s in sparks)s.gameObject.SetActive(false);if(playerCosmetics)ApplyCostumePose(CostumePose.Front);}
         }
         void OnDisable()
         {

@@ -467,11 +467,26 @@ namespace Mewgic.Map
             return new Rect(x / size, 1 - (y + height) / size, width / size, height / size);
         }
 
+        internal static Rect SittingUV => Poses[0];
+        Material defaultMaterial;
+        bool usingCostume;
+        public ShopItem WornCostume { get; private set; }
         public int PoseIndex { get; private set; }
         internal JourneyCatPose Pose => (JourneyCatPose)PoseIndex;
 
         internal float ShowPose(Texture2D fallback, Texture2D walkAtlas, Texture2D restAtlas, JourneyCatPose pose)
         {
+            WornCostume = GameplayProgress.Current.Equipped(ShopCategory.Cats);
+            var dressed = Characters.CostumeArt.Get(WornCostume, (Characters.CostumePose)((int)pose + 1));
+            if (dressed != null)
+            {
+                if (!usingCostume) { defaultMaterial = material; material = null; usingCostume = true; }
+                PoseIndex = (int)pose;
+                texture = dressed.texture;
+                uvRect = Characters.CostumeArt.UV(dressed);
+                return dressed.rect.width / dressed.rect.height;
+            }
+            if (usingCostume) { material = defaultMaterial; usingCostume = false; }
             bool rest = pose >= JourneyCatPose.Curled && restAtlas != null;
             PoseIndex = rest || walkAtlas != null ? (int)pose : 0;
             Texture desired = rest ? restAtlas : walkAtlas != null ? walkAtlas : fallback;

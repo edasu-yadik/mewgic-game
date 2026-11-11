@@ -55,6 +55,8 @@ namespace Mewgic
         RectTransform safeArea, root, stage, viewport, scrollContent, garden, gardenMist, modal, collection;
         TMP_Text balance, selectedCostume, modalTitle, modalMessage, modalConfirmLabel, costumeDescription;
         Image selectedArt, modalArt;
+        RectTransform costumeAngles;
+        ShopItem previewCostume;
         Button modalConfirm, classicEquip;
         ScrollRect scroll;
         ProgressLedger ledger;
@@ -302,7 +304,15 @@ namespace Mewgic
                 float x = 9 + i % 3 * 306, y = 317 + i / 3 * 384;
                 var card = Surface(parent, "ShopProduct_" + item, "panel", x, y, 307, 377).rectTransform;
                 Text(card, "ProductName", name, 33, 11, 13, 285, 47, serif: true);
-                Picture(card, "CostumeArt", portrait, 10, 54, 287, 215, true);
+                var portraitImage = Picture(card, "CostumeArt", portrait, 10, 54, 287, 215, true);
+                portraitImage.raycastTarget = true;
+                var preview = portraitImage.gameObject.AddComponent<Button>();
+                preview.targetGraphic = portraitImage;
+                preview.onClick.AddListener(() =>
+                {
+                    Inform(ItemTitle(item), "Kostümün oyundaki görünümü", portrait);
+                    ShowCostumeAngles(item);
+                });
                 Price(card, Number(EconomyConfig.Current.Price(item)), "diamond", 14, 251, 279, 112, 35, compact: true);
                 var button = Control(card, "ShopAction_" + item, "Satın Al", "green", 32, 300, 243, 66, () => Choose(item), 32);
                 rows.Add(new Row { item = item, button = button, action = button.transform.Find("Label").GetComponent<TMP_Text>() });
@@ -338,6 +348,12 @@ namespace Mewgic
             modalTitle = Text(card, "ConfirmTitle", "", 47, 23, 21, 695, 94, serif: true);
             modalArt = Picture(card, "ConfirmArt", "stack", 209, 128, 323, 212, true);
             modalMessage = Text(card, "ConfirmMessage", "", 33, 51, 347, 639, 146);
+            costumeAngles = Box(card, "CostumePreviewAngles", 85, 337, 571, 61);
+            Control(costumeAngles, "CostumeFront", "Ön açı", "active", 0, 0, 278, 60,
+                () => ShowCostumePose(Characters.CostumePose.Front));
+            Control(costumeAngles, "CostumeSide", "Yürüyüş açısı", "active", 291, 0, 278, 60,
+                () => ShowCostumePose(Characters.CostumePose.StepA));
+            costumeAngles.gameObject.SetActive(false);
             Control(card, "ShopCancel", "Geri", "active", 45, 529, 299, 84, Cancel, 35);
             modalConfirm = Control(card, "ShopConfirm", "Satın Al", "green", 396, 529, 299, 84, Confirm, 35);
             modalConfirmLabel = modalConfirm.transform.Find("Label").GetComponent<TMP_Text>();
@@ -361,6 +377,9 @@ namespace Mewgic
             modalTitle.text = title;
             modalMessage.text = message;
             modalArt.sprite = art[picture];
+            costumeAngles.gameObject.SetActive(false);
+            modalMessage.rectTransform.anchoredPosition = new Vector2(51, -347);
+            modalMessage.rectTransform.sizeDelta = new Vector2(639, 146);
             modalConfirmLabel.text = buttonText;
             modal.SetAsLastSibling();
             modal.gameObject.SetActive(true);
@@ -382,6 +401,23 @@ namespace Mewgic
             pendingRequest = ledger.NextShopPurchase;
             ShowModal(ItemTitle(item), $"{Number(pendingPrice)} {(costume ? "Elmas" : "Altın")} karşılığında satın al?",
                 ProductArt(item), "Satın Al");
+            if (costume) ShowCostumeAngles(item);
+        }
+
+        void ShowCostumeAngles(ShopItem item)
+        {
+            if (Characters.CostumeArt.Get(item, Characters.CostumePose.Front) == null) return;
+            previewCostume = item;
+            costumeAngles.gameObject.SetActive(true);
+            modalMessage.rectTransform.anchoredPosition = new Vector2(51, -407);
+            modalMessage.rectTransform.sizeDelta = new Vector2(639, 86);
+            ShowCostumePose(Characters.CostumePose.Front);
+        }
+
+        void ShowCostumePose(Characters.CostumePose pose)
+        {
+            var sprite = Characters.CostumeArt.Get(previewCostume, pose);
+            if (sprite != null) modalArt.sprite = sprite;
         }
 
         void Cancel()
