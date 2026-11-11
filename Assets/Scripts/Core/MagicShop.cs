@@ -147,7 +147,7 @@ namespace Mewgic.Core
             if (gems) next.presentation.gems -= price;
             else next.presentation.coins -= price;
             next.shop.purchaseRevision = request;
-            return Commit(next) ? ShopPurchaseResult.Purchased : ShopPurchaseResult.SaveFailed;
+            return Commit(next, $"shop:{request}:{item}") ? ShopPurchaseResult.Purchased : ShopPurchaseResult.SaveFailed;
         }
     }
 }

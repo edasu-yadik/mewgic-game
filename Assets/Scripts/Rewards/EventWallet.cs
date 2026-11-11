@@ -24,7 +24,7 @@ namespace Mewgic.Core
             if (item != 0) copy.shop.Grant(item);
             if (kind.HasValue) Set(copy,kind.Value,Get(copy,kind.Value)+count);
             copy.leagueWallet.receipts.Add(receipt);
-            return Commit(copy);
+            return Commit(copy, receipt);
         }
     }
 }

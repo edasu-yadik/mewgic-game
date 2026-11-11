@@ -2037,6 +2037,21 @@ MonoBehaviour:
     m_Localized: "Farben umgef\u00fcllt. Leere Flasche entfernt."
     m_Metadata:
       m_Items: []
+  - m_Id: 4269934501003264
+    m_Localized: "+{0} Edelsteine"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 4269934626832384
+    m_Localized: "{0} \u00b7 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
+  - m_Id: 4269934626832385
+    m_Localized: "{0}\n{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:
@@ -2264,3 +2279,6 @@ MonoBehaviour:
         - id: 2924300237897937
         - id: 2924300237897938
         - id: 2924300237897939
+        - id: 4269934501003264
+        - id: 4269934626832384
+        - id: 4269934626832385

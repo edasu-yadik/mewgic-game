@@ -209,6 +209,13 @@ namespace Mewgic
                 if(json["leagueWallet"]!=null && (json["leagueWallet"] is not Newtonsoft.Json.Linq.JObject wallet ||
                     !Integer(wallet["version"]) || (wallet["walletId"]!=null && wallet["walletId"].Type is not (Newtonsoft.Json.Linq.JTokenType.String or Newtonsoft.Json.Linq.JTokenType.Null)) || wallet["receipts"] is not Newtonsoft.Json.Linq.JArray receipts ||
                     receipts.Any(value=>value.Type!=Newtonsoft.Json.Linq.JTokenType.String)))return null;
+                if (json["walletTransactions"] != null &&
+                    (json["walletTransactions"] is not Newtonsoft.Json.Linq.JArray transactions ||
+                    transactions.Any(entry => entry is not Newtonsoft.Json.Linq.JObject ||
+                        entry["id"]?.Type != Newtonsoft.Json.Linq.JTokenType.String ||
+                        entry["source"]?.Type != Newtonsoft.Json.Linq.JTokenType.String ||
+                        !Integer(entry["goldDelta"]) || !long.TryParse(entry["goldDelta"].ToString(), out _) ||
+                        !Integer(entry["gemsDelta"]) || !long.TryParse(entry["gemsDelta"].ToString(), out _)))) return null;
                 var data=JsonUtility.FromJson<ProgressData>(raw);
                 if(data==null||data.storageRevision<0)return null;
                 return new ProgressLedger(data,_=>{}).Snapshot;

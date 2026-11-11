@@ -52,12 +52,12 @@ namespace Mewgic.Core
   {
    if(expectedLastGift.HasValue&&expectedLastGift.Value!=state.daily.lastGiftUtc)return false;
    var now=clock();if(GiftTimeBlocked(now))return false;var copy=state.Copy();if(!DailyRules.Sync(copy.daily,now)||(copy.daily.lastGiftUtc>0&&now.UtcTicks-copy.daily.lastGiftUtc<TimeSpan.FromHours(24).Ticks))return false;
-   try{copy.hint=checked(copy.hint+DailyGiftHints);copy.presentation.coins=checked(copy.presentation.coins+DailyGiftCoins);}catch(OverflowException){return false;}copy.daily.lastGiftDay=copy.daily.day;copy.daily.lastGiftUtc=now.UtcTicks;return Commit(copy);
+   try{copy.hint=checked(copy.hint+DailyGiftHints);copy.presentation.coins=checked(copy.presentation.coins+DailyGiftCoins);}catch(OverflowException){return false;}copy.daily.lastGiftDay=copy.daily.day;copy.daily.lastGiftUtc=now.UtcTicks;return Commit(copy, $"daily-gift:{now.UtcTicks}");
   }
   public bool ClaimDailyTask(DailyTaskKind kind)
   {
    if(!Enum.IsDefined(typeof(DailyTaskKind),kind))return false;var copy=state.Copy();if(!DailyRules.Sync(copy.daily,clock()))return false;int i=(int)kind;if(copy.daily.claimed[i]||copy.daily.progress[i]<DailyRules.Target(kind))return false;
-   var reward=DailyRules.Reward(kind);try{Set(copy,reward,checked(Get(copy,reward)+EconomyConfig.Current.dailyTaskBooster));copy.presentation.coins=checked(copy.presentation.coins+EconomyConfig.Current.DailyGold(kind));}catch(OverflowException){return false;}copy.daily.claimed[i]=true;return Commit(copy);
+   var reward=DailyRules.Reward(kind);try{Set(copy,reward,checked(Get(copy,reward)+EconomyConfig.Current.dailyTaskBooster));copy.presentation.coins=checked(copy.presentation.coins+EconomyConfig.Current.DailyGold(kind));copy.presentation.gems=checked(copy.presentation.gems+EconomyConfig.Current.DailyGems(kind));}catch(OverflowException){return false;}copy.daily.claimed[i]=true;return Commit(copy, $"daily-task:{copy.daily.taskCycleUtc}:{kind}");
   }
  }
 }

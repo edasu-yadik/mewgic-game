@@ -2026,6 +2026,21 @@ MonoBehaviour:
     m_Localized: "Couleurs transf\u00e9r\u00e9es. Bouteille vide retir\u00e9e."
     m_Metadata:
       m_Items: []
+  - m_Id: 4269934501003264
+    m_Localized: "+{0} gemmes"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 4269934626832384
+    m_Localized: "{0} \u00b7 {1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
+  - m_Id: 4269934626832385
+    m_Localized: "{0}\n{1}"
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
   references:
     version: 2
     RefIds:
@@ -2253,3 +2268,6 @@ MonoBehaviour:
         - id: 2924300237897937
         - id: 2924300237897938
         - id: 2924300237897939
+        - id: 4269934501003264
+        - id: 4269934626832384
+        - id: 4269934626832385

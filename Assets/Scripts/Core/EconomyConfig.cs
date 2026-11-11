@@ -6,7 +6,12 @@ namespace Mewgic.Core
     public sealed class EconomyConfig
     {
         public int levelBase = 20, perNewStar = 5, firstAttempt = 10, withoutHint = 5;
-        public int firstClearHints = 1;
+        public int firstClearHints = 1, victoryAdMultiplier = 5;
+        public int introGemLevel = 20, introGems = 40;
+        public int gemMilestoneInterval = 25, gemMilestoneAmount = 20;
+        public int majorGemMilestoneInterval = 100, majorGemMilestoneBonus = 45;
+        public int dailyStarsGems = 2, weeklyGems = 12;
+        public int seasonFirstGems = 15, seasonSecondGems = 25, seasonFinalGems = 40;
         public int dailyGiftGold = 100, dailyGiftHints = 1, dailyTaskBooster = 1;
         public int taskBottlesGold = 15, taskWinsGold = 25, taskStarsGold = 30, taskBoosterGold = 10;
         public int weeklyGold = 60, seasonFirstGold = 30, seasonSecondGold = 45, seasonFinalGold = 75, eventBooster = 1;
@@ -33,12 +38,17 @@ namespace Mewgic.Core
             var grants = new[] { levelBase, perNewStar, firstAttempt, withoutHint, firstClearHints, dailyGiftGold,
                 dailyGiftHints, dailyTaskBooster, taskBottlesGold, taskWinsGold, taskStarsGold, taskBoosterGold,
                 weeklyGold, seasonFirstGold, seasonSecondGold, seasonFinalGold, eventBooster,
-                initialGold, initialUndo, initialHint, initialExtra, initialShuffle };
+                initialGold, initialUndo, initialHint, initialExtra, initialShuffle,
+                introGems, gemMilestoneAmount, majorGemMilestoneBonus, dailyStarsGems, weeklyGems,
+                seasonFirstGems, seasonSecondGems, seasonFinalGems };
             foreach (int amount in grants)
                 if (amount < 0 || amount > 1_000_000) throw new ArgumentException("Ekonomi ödülü geçersiz.");
             foreach (var product in ShopCatalog.Products)
                 if (!ShopCatalog.Included(product) && !ShopCatalog.RewardOnly(product) && (Price(product) <= 0 || Price(product) > 1_000_000))
                     throw new ArgumentException("Mağaza fiyatı geçersiz.");
+            if (introGemLevel < 1 || gemMilestoneInterval < 1 || majorGemMilestoneInterval < 1 ||
+                victoryAdMultiplier < 2 || victoryAdMultiplier > 100)
+                throw new ArgumentException("Ekonomi ödül eşiği geçersiz.");
             if (boosterQuantity < 1 || boosterQuantity > 100 || colorSwapUnlock < 1 || colorSwapUnlock > WorldMapRules.MaxLevel ||
                 bottleHammerUnlock < 1 || bottleHammerUnlock > WorldMapRules.MaxLevel)
                 throw new ArgumentException("Ekonomi üst sınırı geçersiz.");
@@ -65,6 +75,22 @@ namespace Mewgic.Core
         {
             DailyTaskKind.Bottles => taskBottlesGold, DailyTaskKind.Wins => taskWinsGold,
             DailyTaskKind.Stars => taskStarsGold, DailyTaskKind.Boosters => taskBoosterGold, _ => 0
+        };
+
+        public int FirstClearGems(int level)
+        {
+            if (level < 1) return 0;
+            int intro = level == introGemLevel ? introGems : 0;
+            int milestone = level % gemMilestoneInterval == 0 ? gemMilestoneAmount : 0;
+            int major = level % majorGemMilestoneInterval == 0 ? majorGemMilestoneBonus : 0;
+            return intro + milestone + major;
+        }
+
+        public int DailyGems(DailyTaskKind kind) => kind == DailyTaskKind.Stars ? dailyStarsGems : 0;
+
+        public int SeasonGems(int tier) => tier switch
+        {
+            0 => seasonFirstGems, 1 => seasonSecondGems, 2 => seasonFinalGems, _ => 0
         };
 
         public int SeasonGold(int tier) => tier switch

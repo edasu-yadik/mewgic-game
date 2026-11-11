@@ -19,7 +19,7 @@ namespace Mewgic.Core
         public bool SetCurrentLevel(int level){if(level<1)return false;if(Presentation.currentLevel==level)return true;var copy=state.Copy();copy.presentation.currentLevel=level;return Commit(copy);}
         public bool SetManualLocale(string code){if(string.IsNullOrWhiteSpace(code)||code.Length>20)return false;if(Presentation.manualLocale==code)return true;var copy=state.Copy();copy.presentation.manualLocale=code;return Commit(copy);}
         public bool SetSoundEnabled(bool enabled){var copy=state.Copy();copy.presentation.soundEnabled=enabled;copy.presentation.audioPreferencesSet=true;copy.presentation.musicEnabled=copy.presentation.effectsEnabled=enabled;return Commit(copy);}
-        public bool SetResources(long coins,long gems,int energy){if(coins<0||gems<0||energy<0||energy>5)return false;var copy=state.Copy();copy.presentation.coins=coins;copy.presentation.gems=gems;copy.presentation.energy=energy;return Commit(copy);}
+        public bool SetResources(long coins,long gems,int energy){if(coins<0||gems<0||energy<0||energy>5)return false;var copy=state.Copy();copy.presentation.coins=coins;copy.presentation.gems=gems;copy.presentation.energy=energy;return Commit(copy, "resource-adjustment");}
         public bool SetFeedbackPreferences(bool music,bool effects,bool vibration,bool reduced)
         {
             var copy=state.Copy();

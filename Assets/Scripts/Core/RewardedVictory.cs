@@ -4,7 +4,7 @@ namespace Mewgic.Core
 {
     public sealed partial class ProgressLedger
     {
-        public const int VictoryAdMultiplier = 5;
+        public static int VictoryAdMultiplier => EconomyConfig.Current.victoryAdMultiplier;
 
         public bool CanBoostVictory(int level, string receipt) => TryGetVictoryAdTotal(level, receipt, out _);
 
@@ -24,7 +24,7 @@ namespace Mewgic.Core
             int amount = total - record.rewardedVictoryBase;
             copy.presentation.coins += amount;
             record.rewardedVictoryReceipt = null;
-            if (!Commit(copy)) return false;
+            if (!Commit(copy, $"victory-ad:{level}")) return false;
             bonus = amount;
             return true;
         }

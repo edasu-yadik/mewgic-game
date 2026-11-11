@@ -1775,6 +1775,18 @@ MonoBehaviour:
     m_Key: booster.hammer_applied
     m_Metadata:
       m_Items: []
+  - m_Id: 4269934501003264
+    m_Key: economy.gem_amount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269934626832384
+    m_Key: economy.reward_pair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4269934626832385
+    m_Key: economy.reward_lines
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

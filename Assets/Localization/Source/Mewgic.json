@@ -6379,5 +6379,47 @@
       "it": "Colori trasferiti. Bottiglia vuota rimossa.",
       "pl": "Kolory przeniesiono. Usuni\u0119to pust\u0105 butelk\u0119."
     }
+  },
+  {
+    "key": "economy.gem_amount",
+    "review": "draft",
+    "values": {
+      "tr": "+{0} Elmas",
+      "en": "+{0} Gems",
+      "de": "+{0} Edelsteine",
+      "fr": "+{0} gemmes",
+      "es": "+{0} gemas",
+      "pt-BR": "+{0} gemas",
+      "it": "+{0} gemme",
+      "pl": "+{0} klejnot\u00f3w"
+    }
+  },
+  {
+    "key": "economy.reward_pair",
+    "review": "draft",
+    "values": {
+      "tr": "{0} \u00b7 {1}",
+      "en": "{0} \u00b7 {1}",
+      "de": "{0} \u00b7 {1}",
+      "fr": "{0} \u00b7 {1}",
+      "es": "{0} \u00b7 {1}",
+      "pt-BR": "{0} \u00b7 {1}",
+      "it": "{0} \u00b7 {1}",
+      "pl": "{0} \u00b7 {1}"
+    }
+  },
+  {
+    "key": "economy.reward_lines",
+    "review": "draft",
+    "values": {
+      "tr": "{0}\n{1}",
+      "en": "{0}\n{1}",
+      "de": "{0}\n{1}",
+      "fr": "{0}\n{1}",
+      "es": "{0}\n{1}",
+      "pt-BR": "{0}\n{1}",
+      "it": "{0}\n{1}",
+      "pl": "{0}\n{1}"
+    }
   }
 ]

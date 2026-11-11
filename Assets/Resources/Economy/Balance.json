@@ -40,5 +40,17 @@
   "princessCatPrice": 1200,
   "explorerCatPrice": 900,
   "fairyCatPrice": 1200,
-  "royalCatPrice": 1800
+  "royalCatPrice": 1800,
+  "victoryAdMultiplier": 5,
+  "introGemLevel": 20,
+  "introGems": 40,
+  "gemMilestoneInterval": 25,
+  "gemMilestoneAmount": 20,
+  "majorGemMilestoneInterval": 100,
+  "majorGemMilestoneBonus": 45,
+  "dailyStarsGems": 2,
+  "weeklyGems": 12,
+  "seasonFirstGems": 15,
+  "seasonSecondGems": 25,
+  "seasonFinalGems": 40
 }

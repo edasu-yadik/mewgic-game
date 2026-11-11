@@ -9,13 +9,14 @@ namespace Mewgic.Core
         public DailyData daily=new DailyData();public RewardHubData hub=new RewardHubData();
         public WorldMapData worldMap=new WorldMapData();
         public ShopData shop=new ShopData();
+        public List<WalletTransaction> walletTransactions = new();
         public LeagueWalletData leagueWallet=new LeagueWalletData();
         public PlayerPresentationData presentation=new PlayerPresentationData();
         public List<int> attemptedLevels=new List<int>(); public List<string> completedTutorials=new List<string>();
         public int version=1;public long storageRevision;public int undo=EconomyConfig.Current.initialUndo,hint=EconomyConfig.Current.initialHint,extra=EconomyConfig.Current.initialExtra,shuffle=EconomyConfig.Current.initialShuffle;
         public int colorSwap, bottleHammer;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{leagueWallet=(leagueWallet??new LeagueWalletData()).Copy(),shop=(shop??new ShopData()).Copy(),worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,colorSwap=colorSwap,bottleHammer=bottleHammer,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
+        public ProgressData Copy()=>new ProgressData{walletTransactions=new List<WalletTransaction>(walletTransactions ?? new List<WalletTransaction>()),leagueWallet=(leagueWallet??new LeagueWalletData()).Copy(),shop=(shop??new ShopData()).Copy(),worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,colorSwap=colorSwap,bottleHammer=bottleHammer,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
     }
     public sealed partial class ProgressLedger
     {
@@ -29,6 +30,7 @@ namespace Mewgic.Core
             if(data.claimedMilestones!=null&&(data.claimedMilestones.Any(string.IsNullOrWhiteSpace)||data.claimedMilestones.Distinct().Count()!=data.claimedMilestones.Count))throw new ArgumentException("Geçersiz sandık kaydı");
             if(data.completedTutorials!=null&&(data.completedTutorials.Any(id=>string.IsNullOrWhiteSpace(id)||id.Length>120)||data.completedTutorials.Distinct().Count()!=data.completedTutorials.Count))throw new ArgumentException("Geçersiz öğretici geçmişi");
             (data.leagueWallet??new LeagueWalletData()).Validate();(data.shop??new ShopData()).Validate();(data.presentation??new PlayerPresentationData()).Validate();(data.hub??new RewardHubData()).Validate();(data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);giftClockStart=clock();giftElapsed=elapsedTime;if(giftElapsed==null&&localClock==null){var session=System.Diagnostics.Stopwatch.StartNew();giftElapsed=()=>session.Elapsed;}
+            WalletTransaction.Validate(data.walletTransactions);
             state=data.Copy();if(state.hub.owned.Contains(RewardHubRules.StarBadge))state.shop.Grant(ShopItem.RoseEffect);if(state.hub.owned.Contains(RewardHubRules.WizardCard))state.shop.Grant(ShopItem.GoldBottle);CurrentUnlockedLevel=WorldMapRules.Initialize(state);
             HighestCompletedLevel=CompletedRecords.Select(record=>record.level).DefaultIfEmpty(0).Max();
             save=persist??throw new ArgumentNullException(nameof(persist));
@@ -40,7 +42,23 @@ namespace Mewgic.Core
             BoosterKind.Shuffle=>d.shuffle,BoosterKind.ColorSwap=>d.colorSwap,BoosterKind.BottleHammer=>d.bottleHammer,_=>0
         };
         static void Set(ProgressData d,BoosterKind k,int value){switch(k){case BoosterKind.Undo:d.undo=value;break;case BoosterKind.Hint:d.hint=value;break;case BoosterKind.ExtraBottle:d.extra=value;break;case BoosterKind.Shuffle:d.shuffle=value;break;case BoosterKind.ColorSwap:d.colorSwap=value;break;case BoosterKind.BottleHammer:d.bottleHammer=value;break;}}
-        bool Commit(ProgressData copy){try{save(copy.Copy());state=copy;Revision++;LastError=null;return true;}catch(Exception e){LastError=e.Message;return false;}}
+        bool Commit(ProgressData copy, string walletSource = null)
+        {
+            try
+            {
+                WalletTransaction.Record(copy, state.presentation, walletSource);
+                save(copy.Copy());
+                state = copy;
+                Revision++;
+                LastError = null;
+                return true;
+            }
+            catch (Exception e)
+            {
+                LastError = e.Message;
+                return false;
+            }
+        }
         public bool TrySpend(BoosterKind kind){if(Remaining(kind)<=0)return false;var copy=state.Copy();Set(copy,kind,Get(copy,kind)-1);if(DailyRules.Sync(copy.daily,clock()))DailyRules.Add(copy.daily,DailyTaskKind.Boosters,1);return Commit(copy);}
         public bool BeginFirstAttempt(int level)
         {
@@ -75,9 +93,14 @@ namespace Mewgic.Core
             if(existing!=null&&existing.rewardClaimed&&existing.bestStars>=stars&&!dailyChanged&&!hubChanged)return true;
             var record=copy.levels.FirstOrDefault(l=>l.level==level);
             if(record==null){record=new LevelRecord{level=level};copy.levels.Add(record);}
-            bool first=!record.rewardClaimed;var reward=new CompletionReward(first?0:record.bestStars,stars,first,firstAttempt&&copy.attemptedLevels.Contains(level),hintUsed);record.bestStars=Math.Max(record.bestStars,stars);
+            bool first=!record.rewardClaimed;var reward=new CompletionReward(first?0:record.bestStars,stars,first,firstAttempt&&copy.attemptedLevels.Contains(level),hintUsed,level);record.bestStars=Math.Max(record.bestStars,stars);
             if(first){try{copy.hint=checked(copy.hint+EconomyConfig.Current.firstClearHints);}catch(OverflowException){LastError="Ödül sayacı sınırda.";return false;}record.rewardClaimed=true;}
-            try{copy.presentation.coins=checked(copy.presentation.coins+reward.Coins);}catch(OverflowException){return false;}
+            try
+            {
+                copy.presentation.coins = checked(copy.presentation.coins + reward.Coins);
+                copy.presentation.gems = checked(copy.presentation.gems + reward.Gems);
+            }
+            catch (OverflowException) { return false; }
             if(!string.IsNullOrWhiteSpace(victoryReceipt)&&victoryReceipt.Length<=80)record.lastCoinReceipt=victoryReceipt;
             if(first && !string.IsNullOrWhiteSpace(victoryReceipt) && victoryReceipt.Length<=80)
             {
@@ -95,7 +118,7 @@ namespace Mewgic.Core
                 copy.presentation.currentLevel=unlocked;
                 if(unlocked>level) MapJourneyRules.Queue(copy,level,unlocked);
             }
-            if(!Commit(copy))return false;
+            if(!Commit(copy, $"victory:{level}"))return false;
             CurrentUnlockedLevel=unlocked;
             HighestCompletedLevel=Math.Max(HighestCompletedLevel,level);
             if(first||existing.bestStars<stars) CompletionRevision++;

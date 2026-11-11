@@ -39,7 +39,7 @@ namespace Mewgic
         Func<bool> paused;
         ProgressLedger ledger;
         string receipt, message;
-        int level, awarded, coins, sounded, displayedCoins;
+        int level, awarded, coins, gems, sounded, displayedCoins;
         float clock;
         RewardedVictoryAdState? lastAdState;
         IRewardedVictoryAd activeAd;
@@ -272,6 +272,7 @@ namespace Mewgic
             ledger = progress;
             receipt = victoryReceipt;
             coins = saved ? payout.Coins : 0;
+            gems = saved ? payout.Gems : 0;
             awarded = Mathf.Clamp(starCount, 0, stars.Length);
             displayedCoins = -1;
             initialBalance = ledger == null ? 0 : Math.Max(0, ledger.Presentation.coins - coins);
@@ -491,7 +492,10 @@ namespace Mewgic
             if(displayedCoins!=coins)
             {
                 displayedCoins=coins;
-                reward.text=coins>0?L.V("victory.coins",coins):L.V("victory.no_gold");
+                reward.text = gems > 0
+                    ? coins > 0 ? L.V("economy.reward_pair", L.V("victory.coins", coins), L.V("economy.gem_amount", gems))
+                        : L.V("economy.gem_amount", gems)
+                    : coins > 0 ? L.V("victory.coins", coins) : L.V("victory.no_gold");
             }
             UpdateSkip();
 

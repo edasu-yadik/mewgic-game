@@ -55,7 +55,7 @@ namespace Mewgic.Core
             copy.presentation.coins += gold;
             if (item != 0) copy.shop.Grant(item);
             copy.leagueWallet.receipts.Add(receipt);
-            return Commit(copy);
+            return Commit(copy, receipt);
         }
 
         static ShopItem RewardCosmetic(string cosmetic) => cosmetic switch

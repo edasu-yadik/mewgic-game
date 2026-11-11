@@ -58,6 +58,7 @@ namespace Mewgic
         RectTransform costumeAngles;
         ShopItem previewCostume;
         Button modalConfirm, classicEquip;
+        Action modalLink;
         ScrollRect scroll;
         ProgressLedger ledger;
         Page current;
@@ -94,6 +95,8 @@ namespace Mewgic
         {
             if (root != null) root.gameObject.SetActive(false);
             pendingRequest = 0;
+            modalLink = null;
+            if (modal != null) modal.gameObject.SetActive(false);
         }
 
         void LateUpdate()
@@ -374,6 +377,7 @@ namespace Mewgic
 
         void ShowModal(string title, string message, string picture, string buttonText)
         {
+            modalLink = null;
             modalTitle.text = title;
             modalMessage.text = message;
             modalArt.sprite = art[picture];
@@ -423,12 +427,20 @@ namespace Mewgic
         void Cancel()
         {
             pendingRequest = 0;
+            modalLink = null;
             modal.gameObject.SetActive(false);
         }
 
         void Confirm()
         {
-            if (pendingRequest == 0) { modal.gameObject.SetActive(false); return; }
+            if (pendingRequest == 0)
+            {
+                modal.gameObject.SetActive(false);
+                var link = modalLink;
+                modalLink = null;
+                link?.Invoke();
+                return;
+            }
             var result = ledger.Purchase(pendingItem, pendingPrice, pendingRequest);
             if (result == ShopPurchaseResult.Purchased)
             {
@@ -438,14 +450,35 @@ namespace Mewgic
                 GameFeel.Play(GameCue.Coin);
                 return;
             }
+            if (result is ShopPurchaseResult.InsufficientGems or ShopPurchaseResult.InsufficientGold)
+            {
+                ShowShortfall(result == ShopPurchaseResult.InsufficientGems);
+                return;
+            }
             modalMessage.text = result switch
             {
-                ShopPurchaseResult.InsufficientGems => "Yeterli elmasın yok.",
-                ShopPurchaseResult.InsufficientGold => "Yeterli altının yok.",
                 ShopPurchaseResult.SaveFailed => "Kayıt güncellenemedi. Tekrar dene.",
                 ShopPurchaseResult.StockFull => "Güç stoğu dolu.",
                 _ => "Teklif değişti. Geri dönüp tekrar dene."
             };
+        }
+
+        void ShowShortfall(bool gems)
+        {
+            var funds = ledger.Presentation;
+            long balance = gems ? funds.gems : funds.coins;
+            long missing = pendingPrice - balance;
+            var currency = gems ? "Elmas" : "Altın";
+            string sources = gems
+                ? "Ücretsiz: Günlük yıldız görevi, haftalık ve sezonluk ödüller, bölüm kilometre taşları."
+                : "Ücretsiz: Bölümler, günlük hediye, görevler ve etkinlik ödülleri.";
+            Inform(ItemTitle(pendingItem), $"Bakiye: {Number(balance)} {currency} · Eksik: {Number(missing)} {currency}\n{sources}",
+                ProductArt(pendingItem));
+            if (!gems)
+            {
+                modalConfirmLabel.text = "Paketlere Bak";
+                modalLink = () => Select(Page.Gold);
+            }
         }
 
         void Equip(ShopItem item)

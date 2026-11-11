@@ -81,6 +81,7 @@ namespace Mewgic
             data.presentation.motionPreferenceSet = true;
             var old = JObject.Parse(JsonUtility.ToJson(data));
             old.Remove("shop");
+            old.Remove("walletTransactions");
             PlayerPrefs.SetString(key, old.ToString());
             PlayerPrefs.Save();
             GameplayProgress.UseTestProfile();
@@ -190,6 +191,14 @@ namespace Mewgic
         {
             ScreenCapture.CaptureScreenshot(Output + name + ".png");
             yield return new WaitForSecondsRealtime(.33f);
+        }
+
+        void CheckShortfall(string balance, string missing)
+        {
+            var label = GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>();
+            label.ForceMeshUpdate();
+            Check(label.text.Contains("Bakiye: " + balance) && label.text.Contains("Eksik: " + missing) &&
+                label.text.Contains("Ücretsiz:") && !label.isTextOverflowing, "Bakiye, eksik miktar ve ücretsiz yollar görünür");
         }
 
         IEnumerator RunCostumes()
@@ -337,8 +346,101 @@ namespace Mewgic
             }
         }
 
+        void CheckEconomyLedger()
+        {
+            var now = new DateTimeOffset(2026, 11, 9, 10, 0, 0, TimeSpan.Zero);
+            var originalData = new ProgressData { walletTransactions = null };
+            originalData.presentation.gems = 8;
+            ProgressData saved = null;
+            bool failSave = false;
+            var wallet = new ProgressLedger(originalData, data =>
+            {
+                if (failSave) throw new IOException("Test yazma hatası");
+                saved = data;
+            }, () => now);
+
+            Check(wallet.Presentation.gems == 8 && wallet.Snapshot.walletTransactions.Count == 0, "Eski kayıt bakiyesi korundu");
+            Check(wallet.Claim(20, 2, true, out bool granted, "clear-20", 4) && granted &&
+                wallet.LastCompletionReward.Gems == Config.introGems, "20. bölümde ilk elmas ödülü");
+            var milestone = wallet.Snapshot.walletTransactions.Single();
+            Check(Guid.TryParseExact(milestone.id, "N", out _) && milestone.source == "victory:20" &&
+                milestone.goldDelta == wallet.LastCoinReward && milestone.gemsDelta == Config.introGems,
+                "Altın ve elmas aynı kalıcı işlem kimliğini taşıyor");
+            Check(wallet.Claim(20, 2, true, out granted, "clear-20", 4) && !granted &&
+                wallet.Snapshot.walletTransactions.Count == 1, "Tekrarlanan bölüm bildirimi ikinci ödülü yazmadı");
+            Check(wallet.Claim(20, 3, true, out granted, "replay-20", 4) && !granted &&
+                wallet.LastCompletionReward.Coins == Config.perNewStar && wallet.LastCompletionReward.Gems == 0,
+                "Daha iyi tekrar oynama sadece yıldız farkı kadar altın verdi");
+            Check(wallet.Claim(100, 3, true, out granted, "clear-100", 4) && granted &&
+                wallet.LastCompletionReward.Gems == Config.gemMilestoneAmount + Config.majorGemMilestoneBonus,
+                "100. bölümde iki kilometre taşı birlikte ödüllendirildi");
+
+            long before = wallet.Presentation.gems;
+            Check(wallet.ClaimDailyTask(DailyTaskKind.Stars) && !wallet.ClaimDailyTask(DailyTaskKind.Stars) &&
+                wallet.Presentation.gems == before + Config.dailyStarsGems, "Günlük yıldız elması bir kez");
+            before = wallet.Presentation.gems;
+            Check(wallet.ClaimWeekly() && !wallet.ClaimWeekly() &&
+                wallet.Presentation.gems == before + Config.weeklyGems, "Haftalık elmas bir kez");
+            before = wallet.Presentation.gems;
+            for (int level = 21; level <= 23; level++)
+                Check(wallet.Claim(level, 3, true, out _, $"clear-{level}", 4), $"{level}. bölüm sezon ilerlemesi");
+            for (int tier = 0; tier < 3; tier++)
+                Check(wallet.ClaimSeason(tier) && !wallet.ClaimSeason(tier), $"Sezon kademesi {tier + 1} bir kez");
+            Check(wallet.Presentation.gems == before + Config.SeasonGems(0) + Config.SeasonGems(1) + Config.SeasonGems(2),
+                "Üç sezon kademesinin elmas toplamı");
+
+            var snapshot = wallet.Snapshot;
+            var reopened = new ProgressLedger(saved, _ => { }, () => now);
+            Check(reopened.Presentation.gems == snapshot.presentation.gems && reopened.Completed(20) &&
+                reopened.Snapshot.walletTransactions[0].id == milestone.id && !reopened.ClaimWeekly() &&
+                !reopened.ClaimSeason(0) && !reopened.ClaimDailyTask(DailyTaskKind.Stars),
+                "Yeniden yüklemede işlem kimliği, ödül hakları ve bakiye korundu");
+            before = wallet.Presentation.coins;
+            int baseGold = snapshot.levels.Single(level => level.level == 100).rewardedVictoryBase;
+            Check(wallet.TryBoostVictory(100, "clear-100", out int bonus) &&
+                bonus == baseGold * (Config.victoryAdMultiplier - 1) && !wallet.TryBoostVictory(100, "clear-100", out _) &&
+                wallet.Presentation.coins == before + bonus && wallet.Presentation.gems == snapshot.presentation.gems,
+                "Reklam bildirimi sadece altın farkını bir kez verdi");
+
+            string eventReceipt = "event-" + Guid.NewGuid().ToString("N");
+            string eventWallet = wallet.GetOrCreateLeagueWallet();
+            before = wallet.Presentation.coins;
+            Check(wallet.ApplyEventReward(eventWallet, eventReceipt, 50, "", 0, "") &&
+                wallet.ApplyEventReward(eventWallet, eventReceipt, 50, "", 0, "") &&
+                wallet.Presentation.coins == before + 50 && wallet.Snapshot.walletTransactions.Last().source == eventReceipt,
+                "Etkinlik altını ve makbuz bir kez kaydedildi");
+
+            long gems = Config.Price(ShopItem.ExplorerCat);
+            Check(wallet.SetResources(Config.extraPrice, gems, 5) && !wallet.SetResources(-1, gems, 5) &&
+                !wallet.SetResources(0, -1, 5), "Negatif altın ve elmas reddedildi");
+            var previous = wallet.Snapshot;
+            long request = wallet.NextShopPurchase;
+            failSave = true;
+            Check(wallet.Purchase(ShopItem.ExplorerCat, (int)gems, request) == ShopPurchaseResult.SaveFailed &&
+                wallet.Purchase(ShopItem.ExtraBottle, Config.extraPrice, request) == ShopPurchaseResult.SaveFailed &&
+                wallet.Presentation.gems == gems && wallet.Presentation.coins == Config.extraPrice &&
+                wallet.Remaining(BoosterKind.ExtraBottle) == previous.extra && !wallet.Owns(ShopItem.ExplorerCat) &&
+                wallet.NextShopPurchase == request && wallet.Snapshot.walletTransactions.SequenceEqual(previous.walletTransactions),
+                "Yazma hatasında iki para birimi, stok, sahiplik ve kimlik değişmedi");
+            failSave = false;
+            Check(wallet.Purchase(ShopItem.ExplorerCat, (int)gems, request) == ShopPurchaseResult.Purchased &&
+                wallet.Presentation.gems == 0 && wallet.Owns(ShopItem.ExplorerCat) &&
+                wallet.Purchase(ShopItem.ExplorerCat, (int)gems, wallet.NextShopPurchase) == ShopPurchaseResult.AlreadyOwned,
+                "Tam elmas tutarıyla satın alma ve kalıcı sahiplik");
+            Check(wallet.Purchase(ShopItem.ExtraBottle, Config.extraPrice, wallet.NextShopPurchase) == ShopPurchaseResult.Purchased &&
+                wallet.Presentation.coins == 0 && wallet.Remaining(BoosterKind.ExtraBottle) == previous.extra + Config.boosterQuantity,
+                "Tam altın tutarıyla satın alma ve stok artışı");
+            Check(wallet.Purchase(ShopItem.ExtraBottle, Config.extraPrice, wallet.NextShopPurchase) == ShopPurchaseResult.InsufficientGold,
+                "Sıfır bakiye ile yeniden alım reddedildi");
+            for (int i = 1; i <= WalletTransaction.RecentLimit + 2; i++) wallet.SetResources(i, 0, 5);
+            Check(saved.walletTransactions.Count == WalletTransaction.RecentLimit &&
+                saved.walletTransactions.Select(entry => entry.id).Distinct().Count() == WalletTransaction.RecentLimit,
+                "Son 32 bakiye işlemi benzersiz kimlikle saklanıyor");
+        }
+
         IEnumerator Run()
         {
+            CheckEconomyLedger();
             yield return Until(() => L.Ready && Button("NavInventory") != null, "Ana Menü hazır");
             if (Button("ArrivalDismiss") != null) Press("ArrivalDismiss");
             Check(Ledger.Presentation.coins == 600 && Ledger.Presentation.gems == 2700 &&
@@ -445,8 +547,13 @@ namespace Mewgic
             yield return null;
             Press("ShopConfirm");
             yield return null;
-            Check(GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains("altının"), "Yetersiz altın bildirimi");
-            Press("ShopCancel");
+            CheckShortfall("600 Altın", $"{Config.extraPrice - 600} Altın");
+            yield return Shot("GoldShortfall");
+            Press("ShopConfirm");
+            yield return null;
+            Check(GameObject.Find("ShopPage_Gold") != null && Ledger.Presentation.coins == 600,
+                "Yetersiz altın bağlantısı ödeme almadan paket önizlemesini açtı");
+            Press("ShopTab_Powers");
             yield return null;
             Check(Ledger.SetResources(3000, 2700, 4), "İzole profil işlemler için dolduruldu");
             int extra = Ledger.Remaining(BoosterKind.ExtraBottle);
@@ -491,8 +598,9 @@ namespace Mewgic
             yield return null;
             Press("ShopConfirm");
             yield return null;
-            Check(GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains("elmasın") &&
-                !Ledger.Owns(ShopItem.RoyalCat), "Yetersiz elmasta kostüm verilmedi");
+            CheckShortfall("1.500 Elmas", $"{Config.royalCatPrice - (2700 - Config.princessCatPrice)} Elmas");
+            Check(!Ledger.Owns(ShopItem.RoyalCat), "Yetersiz elmasta kostüm verilmedi");
+            yield return Shot("GemShortfall");
             Press("ShopCancel");
             yield return null;
 
@@ -518,10 +626,73 @@ namespace Mewgic
 
             var reopened = GameplayProgress.Open(key);
             Check(reopened.Owns(ShopItem.PrincessCat) && reopened.Presentation.gems == 2700 - Config.princessCatPrice &&
-                reopened.Remaining(BoosterKind.ExtraBottle) == extra + 1, "Yeniden açılan profilde kostüm, elmas ve stok korundu");
+                reopened.Remaining(BoosterKind.ExtraBottle) == extra + 1 &&
+                reopened.Snapshot.walletTransactions.SequenceEqual(Ledger.Snapshot.walletTransactions),
+                "Yeniden açılan profilde kostüm, elmas, stok ve işlem kimlikleri korundu");
             Press("ShopClose");
             yield return null;
             Check(GameObject.Find("MagicShop") == null, "Mağaza kapandı ve Ana Menü açığa çıktı");
+            yield return ShowGemRewards();
+        }
+
+        void CheckGemLabel(TMP_Text label, int amount, string location)
+        {
+            label.ForceMeshUpdate();
+            Check(label.text.Contains($"+{amount} Elmas") && !label.isTextOverflowing &&
+                label.textBounds.size.x <= label.rectTransform.rect.width + 1 &&
+                label.textBounds.size.y <= label.rectTransform.rect.height + 1,
+                $"{location} elmas ödülü okunaklı ({label.textBounds.size} / {label.rectTransform.rect.size}): {label.text}");
+        }
+
+        IEnumerator ShowGemRewards()
+        {
+            var daily = FindFirstObjectByType<Daily.DailyActivitiesPanel>();
+            var hub = FindFirstObjectByType<Rewards.RewardHubPanel>();
+            foreach (int height in new[]{1600, 1950, 2000})
+            {
+                Size(height);
+                daily.Open(false);
+                yield return null;
+                CheckGemLabel(GameObject.Find("DailyTask_2").transform.Find("RewardAmount").GetComponent<TMP_Text>(),
+                    Config.dailyStarsGems, $"Günlük görev {height}");
+                if (height == 1950) yield return Shot("DailyGemReward");
+                daily.Close();
+                hub.Open(1);
+                yield return null;
+                CheckGemLabel(GameObject.Find("WeeklyReward").GetComponent<TMP_Text>(), Config.weeklyGems, $"Haftalık {height}");
+                if (height == 1950) yield return Shot("WeeklyGemReward");
+                hub.FocusSection(2);
+                yield return null;
+                for (int tier = 0; tier < 3; tier++)
+                    CheckGemLabel(GameObject.Find($"FreeTier_{tier}").transform.Find("RewardDescription").GetComponent<TMP_Text>(),
+                        Config.SeasonGems(tier), $"Sezon {tier + 1}, {height}");
+                if (height == 1950) yield return Shot("SeasonGemReward");
+                hub.Close();
+            }
+
+            for (int level = 1; level < Config.introGemLevel; level++)
+                if (!Ledger.Claim(level, 3, true, out _)) throw new InvalidOperationException($"QA hazırlığı: {level}");
+            int milestone = Config.introGemLevel;
+            var prepared = GameplayLevelCatalog.PrepareAsync(milestone);
+            yield return Until(() => prepared.IsCompletedSuccessfully, "Elmas kilometre taşı bölümü hazır");
+            Check(GameplayLevelCatalog.Select(milestone, Ledger), "Elmas kilometre taşı bölümü seçildi");
+            SceneManager.LoadScene("Gameplay");
+            yield return Until(() => FindFirstObjectByType<GameplayHud>()?.State.Level == milestone, "Oyun ekranı hazır");
+            var app = FindFirstObjectByType<PrototypeApp>();
+            const BindingFlags hidden = BindingFlags.Instance | BindingFlags.NonPublic;
+            var board = (Puzzle)typeof(PrototypeApp).GetField("puzzle", hidden).GetValue(app);
+            var solution = PuzzleSolver.Solve(board.Export());
+            foreach (var move in solution.Moves)
+                if (board.Pour(move.Source, move.Target) == 0) throw new InvalidOperationException("Geçersiz QA döküşü");
+            Check(board.Won, $"{milestone}. bölüm geçerli döküşlerle çözüldü");
+            long gemsBefore = Ledger.Presentation.gems;
+            typeof(PrototypeApp).GetMethod("Refresh", hidden).Invoke(app, new object[] { false });
+            yield return Until(() => GameObject.Find("VictoryGoldReveal")?.GetComponent<CanvasGroup>().alpha > .99f,
+                "Gerçek galibiyet ekranı ödülü açtı");
+            Check(Ledger.Presentation.gems == gemsBefore + Config.FirstClearGems(milestone), "Galibiyet elması canlı bakiyeye yazıldı");
+            CheckGemLabel(GameObject.Find("VictoryGoldReveal").transform.Find("Reward").GetComponent<TMP_Text>(),
+                Config.FirstClearGems(milestone), "Bölüm sonu");
+            yield return Shot("VictoryGemReward");
         }
     }
 }
