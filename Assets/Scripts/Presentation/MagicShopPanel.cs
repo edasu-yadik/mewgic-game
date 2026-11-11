@@ -50,8 +50,9 @@ namespace Mewgic
         readonly List<Row> rows = new();
         readonly RectTransform[] pages = new RectTransform[4];
         readonly Image[] tabFaces = new Image[4];
+        readonly Image[] tabPoints = new Image[4];
         readonly TMP_Text[] tabLabels = new TMP_Text[4];
-        RectTransform safeArea, root, stage, viewport, scrollContent, garden, modal, collection;
+        RectTransform safeArea, root, stage, viewport, scrollContent, garden, gardenMist, modal, collection;
         TMP_Text balance, selectedCostume, modalTitle, modalMessage, modalConfirmLabel, costumeDescription;
         Image selectedArt, modalArt;
         Button modalConfirm, classicEquip;
@@ -105,7 +106,11 @@ namespace Mewgic
             var definitions = JsonUtility.FromJson<ArtRegions>(Resources.Load<TextAsset>("ShopReference/ArtRegions").text);
             foreach (var region in definitions.regions)
             {
-                var border = region.name == "green" ? new Vector4(44, 31, 44, 31) : Vector4.one * region.border;
+                var border = region.name switch
+                {
+                    "green" => new Vector4(44, 31, 44, 31),
+                    _ => Vector4.one * region.border
+                };
                 var bounds = new Rect(region.x, texture.height - region.y - region.height, region.width, region.height);
                 art.Add(region.name, Sprite.Create(texture, bounds, new Vector2(.5f, .5f), 100, 0,
                     SpriteMeshType.FullRect, border));
@@ -120,6 +125,7 @@ namespace Mewgic
             var background = root.gameObject.AddComponent<Image>();
             background.sprite = art["back"];
             stage = Box(root, "ReferenceLayout", 0, 0, 941, 1672);
+            gardenMist = Picture(stage, "GardenMist", "gardenMist", 0, 1548, 941, 0).rectTransform;
             garden = Picture(stage, "Garden", "garden", 0, 1548, 941, 124).rectTransform;
             BuildHeader();
             viewport = Box(stage, "ShopViewport", 0, 458, 941, 1214);
@@ -159,6 +165,7 @@ namespace Mewgic
                 float x = 24 + i * 225;
                 var button = Control(stage, "ShopTab_" + PageIds[i], "", "tab", x, 339, 224, 111, () => Select(page));
                 tabFaces[i] = button.image;
+                tabPoints[i] = Picture(button.transform, "SelectedPoint", "tabPoint", 89, 95, 46, 26);
                 Picture(button.transform, "Icon", TabIcons[i], 74, 10, 76, 51, true);
                 tabLabels[i] = Text(button.transform, "TabTitle", Tabs[i], 26, 7, 55, 210, 46, Ink);
             }
@@ -178,7 +185,7 @@ namespace Mewgic
         {
             var card = Surface(parent, "Offer_" + package.id, "panel", x, y, width, height).rectTransform;
             Picture(card, "PackageArt", package.art, 18, featured ? 106 : 22, featured ? 357 : 333, featured ? 249 : 275);
-            Text(card, "OfferTitle", package.name, featured ? 48 : 44, 352, 12, 390, 68, serif: true);
+            Text(card, "OfferTitle", package.name, featured ? 48 : 44, 351, 13, 391, 66, serif: true);
             var details = Surface(card, "OfferContents", "tab", featured ? 376 : 359, 94 - (featured ? 0 : 18),
                 featured ? 271 : 265, featured ? 173 : 199);
             details.color = new Color(.31f, .10f, .45f, .86f);
@@ -197,7 +204,7 @@ namespace Mewgic
             strike.raycastTarget = false;
             strike.rectTransform.localRotation = Quaternion.Euler(0, 0, 4);
             Text(price.transform, "Price", "₺" + package.price, 43, 6, 39, 222, 52, Ink);
-            Control(card, "ShopBuy_" + package.id, "Hemen Satın Al", "green",
+            Control(card, "ShopBuy_" + package.id, "Paketi Önizle", "green",
                 featured ? 542 : 608, height - (featured ? 110 : 97), featured ? 359 : 303, featured ? 88 : 79,
                 () => ShowPackage(package), featured ? 35 : 31);
         }
@@ -211,7 +218,7 @@ namespace Mewgic
             Text(hero, "GoldAmount", GoldAmount(featured), 69, 444, 18, 439, 92, serif: true);
             Ribbon(hero, "Bonus", Bonus(featured), 484, 111, 337, 68, 0, 40);
             Price(hero, "₺" + featured.price, null, 509, 180, 310, 83, 46);
-            Control(hero, "ShopBuy_gold_featured", "Hemen Satın Al", "green", 475, 260, 410, 94,
+            Control(hero, "ShopBuy_gold_featured", "Paketi Önizle", "green", 475, 260, 410, 94,
                 () => ShowPackage(featured), 40);
             for (int i = 0; i < 4; i++)
                 GoldTile(parent, gold[i], 8 + i % 2 * 465, 394 + i / 2 * 269, 457, 266);
@@ -220,7 +227,7 @@ namespace Mewgic
             Text(last, "GoldAmount", GoldAmount(featured), 42, 288, 22, 281, 62, serif: true);
             Ribbon(last, "Bonus", Bonus(featured), 297, 81, 266, 56, 0, 30);
             Price(last, "₺" + featured.price, null, 595, 43, 272, 62, 37);
-            Control(last, "ShopBuy_" + featured.id, "Satın Al", "green", 577, 104, 302, 74,
+            Control(last, "ShopBuy_" + featured.id, "Önizle", "green", 577, 104, 302, 74,
                 () => ShowPackage(featured), 35);
         }
 
@@ -228,12 +235,13 @@ namespace Mewgic
         {
             var card = Surface(parent, "GoldPackage_" + package.id, "panel", x, y, width, height).rectTransform;
             Text(card, "GoldAmount", GoldAmount(package), 34, 12, 10, width - 24, 46, serif: true);
-            Picture(card, "GoldArt", package.art, width * .12f, height * .28f, width * .76f, height * .38f, true);
+            float artTop = height * (package.bonus > 0 ? .32f : .23f);
+            Picture(card, "GoldArt", package.art, width * .09f, artTop, width * .82f, height * .625f - artTop, true);
             if (package.bonus > 0)
                 Ribbon(card, "Bonus", Bonus(package), width * .24f, 55, width * .52f, 44, 0, 25);
-            Surface(card, "PriceArea", "cream", width * .052f, height * .603f, width * .896f, height * .373f);
-            Text(card, "Price", "₺" + package.price, 32, 10, height * .604f, width - 20, height * .15f, Ink);
-            Control(card, "ShopBuy_" + package.id, "Satın Al", "green", width * .108f, height * .75f,
+            Surface(card, "PriceArea", "cream", width * .052f, height * .62f, width * .896f, height * .356f);
+            Text(card, "Price", "₺" + package.price, 32, 10, height * .618f, width - 20, height * .135f, Ink);
+            Control(card, "ShopBuy_" + package.id, "Önizle", "green", width * .108f, height * .75f,
                 width * .784f, height * .205f, () => ShowPackage(package), 33);
         }
 
@@ -243,7 +251,7 @@ namespace Mewgic
             Picture(intro, "PowerArt", "powers", 17, 0, 261, 166);
             Text(intro, "PowersTitle", "Oyun Güçleri Mağazası", 52, 279, 10, 599, 76, serif: true);
             Strap(intro, "PowersTagline", "Zorlu seviyeleri daha kolay geçmeni sağlayan\ngüçlü oyun desteklerini keşfet!", 278, 84, 580, 75);
-            Power(parent, 0, previews[0].name, "Hamle sınırı bulunan seviyede 1 ek hamle.", "move", default, previews[0].price);
+            Power(parent, 0, previews[0].name, "Hamle sınırına 1 ek hamle.", "move", default, previews[0].price);
             Power(parent, 1, "Ek Şişe", "Seviyeye fazladan 1 boş şişe ekle.", "extra", ShopItem.ExtraBottle);
             Power(parent, 2, "İpucu", "Çözüme götüren geçerli bir döküşü gösterir.", "hint", ShopItem.Hint);
             Power(parent, 3, "Karıştır", "Katmanları koruyarak şişelerin yerini değiştirir.", "shuffle", ShopItem.Shuffle);
@@ -256,16 +264,16 @@ namespace Mewgic
             var row = Surface(parent, "Power_" + icon, "panel", 6, 175 + index * 155, 929, 157).rectTransform;
             Picture(row, "ProductArt", icon, 19, 8, 213, 134);
             Text(row, "ProductName", title, 39, 246, 11, 364, 45, serif: true, left: true);
-            Text(row, "ProductPurpose", description, 24, 248, 55, 360, 46, left: true);
-            Surface(row, "StockPlate", "badge", 245, 94, 234, 47);
-            var stock = Text(row, "ProductInfo", "Sahip Olduğun: 0", 23, 254, 101, 215, 33, Ink);
+            Text(row, "ProductPurpose", description, 24, 248, 53, 360, 42, left: true);
+            Surface(row, "StockPlate", "badge", 245, 96, 244, 44);
+            var stock = Text(row, "ProductInfo", "Sahip Olduğun: 0", 23, 260, 102, 214, 32, Ink);
             var separator = Box(row, "ColumnDivider", 615, 30, 1.5f, 91).gameObject.AddComponent<Image>();
             separator.color = new Color(1, .79f, .55f, .7f);
             separator.raycastTarget = false;
             Price(row, Number(item == default ? previewPrice : EconomyConfig.Current.Price(item)), "coin", 656, 10, 215, 66, 35);
             bool implemented = item != default;
             string action = implemented ? "Buy" + ShopCatalog.Booster(item) : "ShopPreview_" + icon;
-            var button = Control(row, action, "Satın Al", "green", 635, 72, 259, 72,
+            var button = Control(row, action, implemented ? "Satın Al" : "Önizle", "green", 635, 72, 259, 72,
                 () => { if (implemented) Choose(item); else Inform(title, "Bu güç şu anda önizlemede. Satın alma ve stok ekleme kapalı.", icon); }, 34);
             if (implemented) rows.Add(new Row { item = item, button = button, stock = stock });
         }
@@ -276,7 +284,9 @@ namespace Mewgic
             selectedArt = Picture(hero, "EquippedCostumeArt", "wizard", 22, 12, 364, 274, true);
             selectedCostume = Text(hero, "EquippedCostumeTitle", "", 49, 390, 18, 414, 62, serif: true, left: true);
             Surface(hero, "CostumeStatusRibbon", "active", 403, 82, 255, 64);
-            Text(hero, "CostumeStatus", "Mevcut Kostüm", 28, 410, 89, 242, 49);
+            Text(hero, "CostumeStatus", "Mevcut Kostüm", 27, 422, 89, 217, 49);
+            Picture(hero, "CostumeLaurelLeft", "laurelLeft", 401, 85, 35, 55);
+            Picture(hero, "CostumeLaurelRight", "laurelRight", 626, 85, 35, 55);
             costumeDescription = Text(hero, "CostumeDescription", "", 24, 410, 151, 268, 104, left: true);
             classicEquip = Control(hero, "ShopEquipClassic", "Kuşan", "green", 673, 128, 235, 90,
                 () => Equip(ShopItem.ClassicCat), 41);
@@ -286,7 +296,7 @@ namespace Mewgic
                 float x = 9 + i % 3 * 306, y = 317 + i / 3 * 384;
                 var card = Surface(parent, "ShopProduct_" + item, "panel", x, y, 307, 377).rectTransform;
                 Text(card, "ProductName", name, 33, 11, 13, 285, 47, serif: true);
-                Picture(card, "CostumeArt", portrait, 15, 55, 276, 208, true);
+                Picture(card, "CostumeArt", portrait, 10, 54, 287, 215, true);
                 Price(card, Number(EconomyConfig.Current.Price(item)), "diamond", 14, 251, 279, 112, 35, compact: true);
                 var button = Control(card, "ShopAction_" + item, "Satın Al", "green", 32, 300, 243, 66, () => Choose(item), 32);
                 rows.Add(new Row { item = item, button = button, action = button.transform.Find("Label").GetComponent<TMP_Text>() });
@@ -403,6 +413,9 @@ namespace Mewgic
 
         void Select(Page page)
         {
+            scroll.StopMovement();
+            // Reset the shared viewport before changing content height or activating the next page.
+            scrollContent.anchoredPosition = Vector2.zero;
             current = page;
             if (collection != null) { collection.gameObject.SetActive(false); Destroy(collection.gameObject); }
             for (int i = 0; i < pages.Length; i++)
@@ -410,12 +423,12 @@ namespace Mewgic
                 bool selected = i == (int)page;
                 pages[i].gameObject.SetActive(selected);
                 tabFaces[i].sprite = art[selected ? "active" : "tab"];
+                tabPoints[i].enabled = selected;
                 tabLabels[i].color = selected ? Ivory : Ink;
             }
             Resize();
             Refresh();
             Canvas.ForceUpdateCanvases();
-            scroll.StopMovement();
             scroll.verticalNormalizedPosition = 1;
         }
 
@@ -456,7 +469,11 @@ namespace Mewgic
             stage.localScale = Vector3.one * scale;
             stage.sizeDelta = new Vector2(941, height);
             viewport.sizeDelta = new Vector2(941, Mathf.Max(90, height - 458));
-            garden.anchoredPosition = new Vector2(0, -Mathf.Max(458, height - 124));
+            float gardenTop = Mathf.Max(458, height - 124);
+            garden.anchoredPosition = new Vector2(0, -gardenTop);
+            gardenMist.anchoredPosition = new Vector2(0, -1548);
+            gardenMist.sizeDelta = new Vector2(941, Mathf.Max(0, gardenTop - 1548 + 22));
+            gardenMist.gameObject.SetActive(gardenTop > 1560);
             scrollContent.sizeDelta = new Vector2(941, PageHeights[(int)current]);
             modal.sizeDelta = new Vector2(941, height);
         }
@@ -495,7 +512,7 @@ namespace Mewgic
         {
             var plate = Surface(parent, "PricePlate", "cream", x, y, w, h).rectTransform;
             if (icon != null) Picture(plate, "CurrencyIcon", icon, w * .16f, compact ? 5 : 8, 56, 49, true);
-            Text(plate, "Price", value, size, icon == null ? 6 : w * .35f, compact ? 4 : 4,
+            Text(plate, "Price", value, size, icon == null ? 6 : w * .35f, 4,
                 icon == null ? w - 12 : w * .60f, compact ? 52 : h - 8, Ink);
         }
 
@@ -568,6 +585,8 @@ namespace Mewgic
             label.raycastTarget = false;
             label.text = value;
             label.extraPadding = true;
+            if (name is "Price" or "PreviousPrice" or "ShopBalance")
+                label.textWrappingMode = TextWrappingModes.NoWrap;
             label.overflowMode = TextOverflowModes.Truncate;
             return label;
         }

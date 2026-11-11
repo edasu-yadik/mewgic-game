@@ -249,16 +249,24 @@
       "border": 48
     },
     {
-      "name": "tagline",
+      "name": "gardenMist",
       "x": 1386,
       "y": 945,
+      "width": 235,
+      "height": 96,
+      "border": 0
+    },
+    {
+      "name": "tagline",
+      "x": 0,
+      "y": 1057,
       "width": 505,
       "height": 85,
       "border": 0
     },
     {
       "name": "gold5000",
-      "x": 0,
+      "x": 509,
       "y": 1057,
       "width": 242,
       "height": 80,
@@ -266,7 +274,7 @@
     },
     {
       "name": "ribbon",
-      "x": 246,
+      "x": 755,
       "y": 1057,
       "width": 200,
       "height": 80,
@@ -274,7 +282,7 @@
     },
     {
       "name": "gold2500",
-      "x": 450,
+      "x": 959,
       "y": 1057,
       "width": 207,
       "height": 79,
@@ -282,7 +290,7 @@
     },
     {
       "name": "green",
-      "x": 661,
+      "x": 1170,
       "y": 1057,
       "width": 257,
       "height": 71,
@@ -290,15 +298,31 @@
     },
     {
       "name": "edgeglow",
-      "x": 922,
+      "x": 1431,
       "y": 1057,
       "width": 400,
       "height": 64,
       "border": 0
     },
     {
+      "name": "laurelLeft",
+      "x": 1835,
+      "y": 1057,
+      "width": 32,
+      "height": 56,
+      "border": 0
+    },
+    {
+      "name": "laurelRight",
+      "x": 1871,
+      "y": 1057,
+      "width": 32,
+      "height": 56,
+      "border": 0
+    },
+    {
       "name": "potion",
-      "x": 1326,
+      "x": 1907,
       "y": 1057,
       "width": 55,
       "height": 53,
@@ -306,7 +330,7 @@
     },
     {
       "name": "coin",
-      "x": 1385,
+      "x": 1966,
       "y": 1057,
       "width": 55,
       "height": 51,
@@ -314,42 +338,50 @@
     },
     {
       "name": "stack",
-      "x": 1444,
-      "y": 1057,
+      "x": 0,
+      "y": 1146,
       "width": 70,
       "height": 51,
       "border": 0
     },
     {
       "name": "shirt",
-      "x": 1518,
-      "y": 1057,
+      "x": 74,
+      "y": 1146,
       "width": 65,
       "height": 51,
       "border": 0
     },
     {
       "name": "paw",
-      "x": 1587,
-      "y": 1057,
+      "x": 143,
+      "y": 1146,
       "width": 45,
       "height": 50,
       "border": 0
     },
     {
       "name": "crown",
-      "x": 1636,
-      "y": 1057,
+      "x": 192,
+      "y": 1146,
       "width": 71,
       "height": 49,
       "border": 0
     },
     {
       "name": "diamond",
-      "x": 1711,
-      "y": 1057,
+      "x": 267,
+      "y": 1146,
       "width": 54,
       "height": 42,
+      "border": 0
+    },
+    {
+      "name": "tabPoint",
+      "x": 325,
+      "y": 1146,
+      "width": 46,
+      "height": 26,
       "border": 0
     }
   ]

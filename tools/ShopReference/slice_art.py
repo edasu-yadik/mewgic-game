@@ -30,23 +30,41 @@ for y in range(331, 343):
 header.putalpha(mask.filter(ImageFilter.GaussianBlur(3)))
 pieces["scenery"] = header
 crop("garden", 1, (0, 1548, 941, 1672))
+garden_alpha = Image.new("L", pieces["garden"].size, 255)
+for y in range(18):
+    ImageDraw.Draw(garden_alpha).line((0, y, 941, y), fill=round(255*y/18))
+pieces["garden"].putalpha(garden_alpha)
+# Stretch only the light in front of the horizon on tall phones.
+horizon = pieces["garden"].crop((0, 12, 941, 32)).resize((235, 1)).filter(ImageFilter.GaussianBlur(8))
+mist = Image.new("RGBA", (235, 96))
+for y in range(mist.height):
+    for x in range(mist.width):
+        r, g, b, _ = horizon.getpixel((x,0))
+        mist.putpixel((x,y), (r,g,b,round(246*(y/95)**1.65)))
+pieces["gardenMist"] = mist
 crop("logo", 1, (327, 2, 599, 141), 6)
 
-def label_free_plate(name, bounds, label, sample):
+def label_free_plate(name, bounds, label):
     plate = references[0].crop(bounds)
     left, top, right, bottom = label
     inset = Image.new("RGBA", plate.size)
-    fill = ImageDraw.Draw(inset)
+    pixels = inset.load()
     for y in range(top, bottom):
-        fill.line((left, y, right - 1, y), fill=plate.getpixel((sample, y)))
+        a = plate.getpixel((left - 1, y))
+        b = plate.getpixel((right, y))
+        for x in range(left, right):
+            t = (x - left) / (right - left - 1)
+            pixels[x,y] = tuple(round(start*(1-t)+end*t) for start,end in zip(a,b))
     alpha = Image.new("L", plate.size)
-    ImageDraw.Draw(alpha).rectangle((left + 2, top + 1, right - 3, bottom - 2), fill=255)
-    inset.putalpha(alpha.filter(ImageFilter.GaussianBlur(2)))
+    ImageDraw.Draw(alpha).rectangle((left + 3, top + 2, right - 4, bottom - 3), fill=255)
+    inset.putalpha(alpha.filter(ImageFilter.GaussianBlur(3)))
     plate.alpha_composite(inset)
     pieces[name] = plate
 
-label_free_plate("heading", (257,143,757,248), (132,20,472,76), 474)
-label_free_plate("tagline", (250,248,755,333), (74,15,441,69), 439)
+label_free_plate("heading", (257,143,757,248), (130,17,471,77))
+label_free_plate("tagline", (250,248,755,333), (76,12,433,74))
+crop("laurelLeft", 3, (410,549,442,605), 2)
+crop("laurelRight", 3, (645,549,677,605), 2)
 crop("coin", 1, (401, 575, 456, 626), 1)
 crop("paw", 1, (277, 269, 322, 319), 1)
 crop("crown", 1, (111, 350, 182, 399), 1)
@@ -107,12 +125,18 @@ def surface(name, size, radius, top, bottom, edge, halo, border=4):
     shine = (255, 250, 203, 255) if name in {"panel", "active", "green"} else edge
     draw.line((radius+13, 9, w-radius-14, 9), fill=shine, width=2)
     draw.line((radius+13, h-11, w-radius-14, h-11), fill=shine, width=2)
+    if name in {"panel", "active"}:
+        rim = Image.new("L", size)
+        ImageDraw.Draw(rim).rounded_rectangle((12, 12, w-13, h-13), radius-4, outline=200, width=5)
+        reflected = Image.new("RGBA", size, (255, 140, 207))
+        reflected.putalpha(rim.filter(ImageFilter.GaussianBlur(4)))
+        base.alpha_composite(reflected)
     base.putalpha(mask)
     tint.alpha_composite(base)
     pieces[name] = tint
 
-surface("panel", (176,176), 48, (81,23,119,255), (123,49,152,255), (255,221,46,255), (255,145,234,255))
-surface("tab", (104,104), 26, (231,221,255,255), (248,205,207,255), (255,228,241,255), (247,185,242,255), 2)
+surface("panel", (176,176), 48, (75,23,114,255), (137,58,158,255), (255,220,52,255), (255,153,237,255))
+surface("tab", (104,104), 26, (229,217,252,255), (253,213,220,255), (255,234,249,255), (247,185,242,255), 2)
 surface("active", (104,104), 26, (151,6,202,255), (75,0,106,255), (255,224,43,255), (255,106,206,255))
 surface("cream", (104,104), 43, (255,237,239,255), (255,214,125,255), (255,230,183,255), (255,169,81,255), 2)
 # Reuse the approved pill edges. Fill only the separate UI label's former rectangle
@@ -145,6 +169,15 @@ for y in range(glow.height):
         alpha = math.exp(-2.9 * u * u - v * v) * max(0, 1 - u*u)
         pixels[x, y] = (255, 195 + round(42 * alpha), 235, round(235 * alpha))
 pieces["edgeglow"] = glow
+point = Image.new("RGBA", (46, 26))
+mask = Image.new("L", point.size)
+diamond_tip = [(7,5), (39,5), (23,20)]
+ImageDraw.Draw(mask).polygon(diamond_tip, fill=255)
+point.paste((255,143,67), (0,0,46,26))
+point.putalpha(mask.filter(ImageFilter.GaussianBlur(4)))
+ImageDraw.Draw(point).polygon(diamond_tip, fill=(255,236,107))
+ImageDraw.Draw(point).polygon([(10,5),(36,5),(23,14)], fill=(111,0,146))
+pieces["tabPoint"] = point
 
 discount = Image.new("RGBA", (168, 124))
 shape = []
