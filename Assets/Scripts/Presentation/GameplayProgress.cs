@@ -1,4 +1,7 @@
 using L=Mewgic.Localization.L;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System;using System.Linq;using Mewgic.Core;using UnityEngine;
 namespace Mewgic
 {
@@ -22,21 +25,24 @@ namespace Mewgic
                 return current;
             }
         }
-        public static ProgressLedger Open(string key,Func<DateTimeOffset> clock=null)
+        public static ProgressLedger Open(string key,Func<DateTimeOffset> clock=null,string directory=null)
         {
-            string primary=PlayerPrefs.GetString(key,"");
+            var slots=new ProgressSlots(key,directory??Path.Combine(Application.persistentDataPath,"Progress"));
+            string primary=slots.Read(key);
             string pendingKey=key+".pending", backupKey=key+".backup", previousKey=key+".previous";
-            string pending=PlayerPrefs.GetString(pendingKey,"");
-            var candidates=new[]{primary,pending,PlayerPrefs.GetString(backupKey,""),PlayerPrefs.GetString(previousKey,"")};
+            string pending=slots.Read(pendingKey);
+            var candidates=new[]{primary,pending,slots.Read(backupKey),slots.Read(previousKey)};
             ProgressData data=null;
             string head="";
             bool foundAny=false, primaryValid=false;
+            var seen=new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal);
             for(int i=0;i<candidates.Length;i++)
             {
                 string candidate=candidates[i];
                 string slot=i==0?key:i==1?pendingKey:i==2?backupKey:previousKey;
-                if(!PlayerPrefs.HasKey(slot))continue;
+                if(!slots.Exists(slot))continue;
                 foundAny=true;
+                if(!seen.Add(candidate))continue;
                 var parsed=ReadCandidate(candidate);
                 if(i==0)primaryValid=parsed!=null;
                 if(parsed==null||(data!=null&&parsed.storageRevision<=data.storageRevision))continue;
@@ -48,19 +54,19 @@ namespace Mewgic
                 if(foundAny)throw new InvalidOperationException(L.V("error.load"));
                 data=new ProgressData();
             }
-            else if(primary!=head||PlayerPrefs.HasKey(pendingKey))
+            else if(primary!=head||slots.Exists(pendingKey))
             {
-                if(primaryValid&&primary!=head)PlayerPrefs.SetString(previousKey,primary);
-                else if(!primaryValid&&PlayerPrefs.HasKey(key))PlayerPrefs.SetString(key+".corrupt",primary);
-                Promote(key,pendingKey,backupKey,head);
+                if(primaryValid&&primary!=head)slots.Write(previousKey,primary);
+                else if(!primaryValid&&slots.Exists(key))slots.Write(key+".corrupt",primary);
+                Promote(slots,key,pendingKey,backupKey,head);
                 if(key==StorageKey)RecoveryNotice="Doğrulanmış son kayıt kopyasından kurtarıldı.";
             }
 
             long revision=data.storageRevision;
-            string expectedPrimary=PlayerPrefs.GetString(key,""), expectedPending=PlayerPrefs.GetString(pendingKey,"");
+            string expectedPrimary=slots.Read(key), expectedPending=slots.Read(pendingKey);
             return new ProgressLedger(data,copy=>
             {
-                if(PlayerPrefs.GetString(key,"")!=expectedPrimary||PlayerPrefs.GetString(pendingKey,"")!=expectedPending)
+                if(slots.Read(key)!=expectedPrimary||slots.Read(pendingKey)!=expectedPending)
                     throw new InvalidOperationException("Kayıt başka bir oturumda değişti; yeniden yüklenmeli.");
 
                 copy.storageRevision=checked(revision+1);
@@ -68,36 +74,107 @@ namespace Mewgic
                 if(ReadCandidate(next)==null)throw new InvalidOperationException("Kayıt doğrulanamadı.");
 
                 // The flushed journal is the commit point. Recovery may finish promotion after a crash.
-                PlayerPrefs.SetString(pendingKey,next);
-                try{PlayerPrefs.Save();}
-                catch
-                {
-                    if(expectedPending.Length==0)PlayerPrefs.DeleteKey(pendingKey);
-                    else PlayerPrefs.SetString(pendingKey,expectedPending);
-                    throw;
-                }
+                slots.BeginCommit(pendingKey,next,expectedPending);
 
-                Promote(key,pendingKey,backupKey,next,previousKey,head);
+                Promote(slots,key,pendingKey,backupKey,next,previousKey,head);
                 revision=copy.storageRevision;head=next;
-                expectedPrimary=PlayerPrefs.GetString(key,"");expectedPending=PlayerPrefs.GetString(pendingKey,"");
+                expectedPrimary=slots.Read(key);expectedPending=slots.Read(pendingKey);
             },clock);
         }
 
-        static void Promote(string key,string pendingKey,string backupKey,string document,string previousKey=null,string old=null)
+        static void Promote(ProgressSlots slots,string key,string pendingKey,string backupKey,string document,string previousKey=null,string old=null)
         {
             try
             {
-                if(!string.IsNullOrEmpty(old))PlayerPrefs.SetString(previousKey,old);
-                PlayerPrefs.SetString(key,document);
-                PlayerPrefs.SetString(backupKey,document);
-                PlayerPrefs.DeleteKey(pendingKey);
-                PlayerPrefs.Save();
+                if(!string.IsNullOrEmpty(old))slots.Write(previousKey,old);
+                slots.Write(key,document);
+                slots.Write(backupKey,document);
+                slots.ClearJournal(pendingKey);
+                slots.Flush();
             }
             catch(Exception e)
             {
                 // A failed mirror flush cannot undo a committed journal.
-                try{PlayerPrefs.SetString(pendingKey,document);}catch(PlayerPrefsException){}
+                try{slots.Write(pendingKey,document);}catch(Exception){}
                 Debug.LogWarning("Kayıt aynası henüz yazılamadı: "+e.GetType().Name);
+            }
+        }
+
+        sealed class ProgressSlots
+        {
+            const int FileThreshold=128*1024;
+            readonly string key, prefix;
+            bool fileBacked;
+
+            internal ProgressSlots(string key,string directory)
+            {
+                this.key=key;
+                using var hash=SHA256.Create();
+                string id=BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(key))).Replace("-","");
+                prefix=Path.Combine(directory,id);
+                fileBacked=File.Exists(PathFor(key))||File.Exists(PathFor(key+".pending"))||
+                    File.Exists(PathFor(key+".backup"))||File.Exists(PathFor(key+".previous"));
+            }
+
+            string PathFor(string slot)=>prefix+slot.Substring(key.Length)+".json";
+            internal bool Exists(string slot)=>File.Exists(PathFor(slot))||PlayerPrefs.HasKey(slot);
+            internal string Read(string slot)
+            {
+                string path=PathFor(slot);
+                return File.Exists(path)?File.ReadAllText(path):PlayerPrefs.GetString(slot,"");
+            }
+
+            internal void BeginCommit(string slot,string next,string previous)
+            {
+                fileBacked|=next.Length>=FileThreshold;
+                if(fileBacked)
+                {
+                    Write(slot,next);
+                    return;
+                }
+                PlayerPrefs.SetString(slot,next);
+                try{PlayerPrefs.Save();}
+                catch
+                {
+                    if(previous.Length==0)PlayerPrefs.DeleteKey(slot);
+                    else PlayerPrefs.SetString(slot,previous);
+                    throw;
+                }
+            }
+
+            internal void Write(string slot,string data)
+            {
+                if(!fileBacked)
+                {
+                    PlayerPrefs.SetString(slot,data);
+                    return;
+                }
+                string path=PathFor(slot);
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+                string temporary=path+".tmp";
+                using(var stream=new FileStream(temporary,FileMode.Create,FileAccess.Write,FileShare.None))
+                {
+                    using(var writer=new StreamWriter(stream,new UTF8Encoding(false),4096,true))
+                        writer.Write(data);
+                    stream.Flush(true);
+                }
+                if(File.Exists(path))File.Replace(temporary,path,null);
+                else File.Move(temporary,path);
+            }
+
+            internal void ClearJournal(string slot)
+            {
+                if(fileBacked)File.Delete(PathFor(slot));
+                if(PlayerPrefs.HasKey(slot))
+                {
+                    PlayerPrefs.DeleteKey(slot);
+                    if(fileBacked)PlayerPrefs.Save();
+                }
+            }
+
+            internal void Flush()
+            {
+                if(!fileBacked)PlayerPrefs.Save();
             }
         }
 
@@ -115,6 +192,7 @@ namespace Mewgic
                     if(json[field] is Newtonsoft.Json.Linq.JObject block)CheckVersion(block["version"]);
                 foreach(string field in new[]{"version","undo","hint","extra","shuffle"})
                     if(!Integer(json[field]))return null;
+                if(json["colorSwap"]!=null&&!Integer(json["colorSwap"]))return null;
                 if(json["levels"] is not Newtonsoft.Json.Linq.JArray levels)return null;
                 foreach(var level in levels)
                     if(!Integer(level["level"])||!Integer(level["bestStars"])||

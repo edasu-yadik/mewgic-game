@@ -103,6 +103,7 @@ namespace Mewgic
             var data = new ProgressData();
             data.presentation.manualLocale = "tr";
             data.presentation.coins = 550;
+            if (completed >= EconomyConfig.Current.colorSwapUnlock - 1) data.colorSwap = 1;
             data.presentation.motionPreferenceSet = true;
             for (int i=1;i<=completed;i++)
                 data.levels.Add(new LevelRecord { level=i, bestStars=(i%3)+1, rewardClaimed=true });

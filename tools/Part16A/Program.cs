@@ -6,7 +6,9 @@ using Newtonsoft.Json;
 
 const string resources = "Assets/Resources/Levels/";
 const string fallbackPath = resources + "GeneratedFallbacksV2.json";
-const string output = "docs/ProductionReports/Part16A/";
+string output = args.FirstOrDefault(arg => arg.StartsWith("--output=", StringComparison.Ordinal))?[9..] ??
+    "docs/ProductionReports/Part16A";
+output = Path.TrimEndingDirectorySeparator(output) + Path.DirectorySeparatorChar;
 var settings = new JsonSerializerSettings { Formatting = Formatting.Indented };
 Directory.CreateDirectory(output);
 
@@ -71,14 +73,21 @@ foreach (var level in fallback.Concat(legacy))
         "Yedek havuzu en kısa çözümü bağımsız aramayla doğrulandı");
 }
 
-int count = args.Length == 0 ? 10000 : int.Parse(args[0], CultureInfo.InvariantCulture);
+int count = args.FirstOrDefault(arg => int.TryParse(arg, out _)) is string countArg
+    ? int.Parse(countArg, CultureInfo.InvariantCulture) : 10000;
+int[] ids = args.Contains("--frontier")
+    ? new[] { 999,1000,1001,9999,10000,10001,99999,100000,999999,1000000,WorldMapRules.MaxLevel }
+        .Concat(Enumerable.Range(0,count).Select(i=>i<5000?i+3:10_002+(i-5000)*211))
+        .Distinct().Take(count).Order().ToArray()
+    : Enumerable.Range(3,count).ToArray();
 var rows = new AuditRow[count];
 Parallel.For(0, count, new ParallelOptions { MaxDegreeOfParallelism = Math.Min(8, Environment.ProcessorCount) }, index =>
 {
-    int id = index + 3;
+    int id = ids[index];
     var request = WorldMapRules.Request(id);
     var timer = Stopwatch.StartNew();
-    var result = LevelGenerator.Resolve(request, null, fallback);
+    using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(12));
+    var result = LevelGenerator.Resolve(request, null, fallback, cancellation:deadline.Token);
     double wall = timer.Elapsed.TotalMilliseconds;
     var level = result.level;
     if (level != null)
@@ -128,10 +137,30 @@ foreach (var row in parity)
         packed.Stored == reference.Stored && packed.PeakQueue == reference.PeakQueue &&
         packed.DeadEndStates == reference.DeadEndStates && packed.Moves.SequenceEqual(reference.Moves), $"BFS eşitliği {row.Level}");
 }
+using (var canceled = new CancellationTokenSource())
+{
+    canceled.Cancel();
+    bool cancellationObserved = false;
+    try { LevelGenerator.Resolve(WorldMapRules.Request(1_000_000),null,fallback,cancellation:canceled.Token); }
+    catch (OperationCanceledException) { cancellationObserved = true; }
+    Require(cancellationObserved,"Zaman iptalinde onaylı bölüm dönülmez");
+}
 var impossible = new[] { new[] { 0, 1, 0, 1 }, new[] { 1, 0, 1, 0 } };
 Require(PuzzleSolver.Solve(impossible).Status == SearchStatus.Unsolvable, "Çözümsüz durum");
 Require(PuzzleSolver.Solve(fallback[0].Export(), 1).Status == SearchStatus.LimitReached, "Durum sınırı");
 var tiny = new GenerationBudget { candidates = 1, statesPerCandidate = 1, totalStates = 1 };
+// At a fixed recipe and partition, fallback coverage is independent of the level seed.
+var fallbackRecipes = Enumerable.Range(3, WorldMapRules.FrontierFirstLevel + 400 - 3)
+    .Select(WorldMapRules.Request)
+    .GroupBy(request => (request.version, request.colors, request.emptyBottles, request.target,
+        request.EarlyMoveCeiling, partition: request.seed % (uint)LevelGenerator.PartitionCount(request.colors)))
+    .Select(group => group.First()).ToArray();
+foreach (var request in fallbackRecipes)
+{
+    var verified = LevelGenerator.Resolve(request, null, fallback, tiny).level;
+    Require(verified != null && verified.fallback, $"Eksik yedek tarifi: {request.level}");
+    verified!.Validate();
+}
 var forcedCase = Enumerable.Range(4900, 201).Select(WorldMapRules.Request)
     .Select(request => (request, result: LevelGenerator.Resolve(request, null, fallback, tiny)))
     .First(pair => pair.result.limits > 0);
@@ -175,6 +204,7 @@ var report = new
     direct = accepted.Count(row => !row.Fallback),
     fallback = accepted.Count(row => row.Fallback),
     fallbackPool = fallback.Length,
+    verifiedFallbackRecipes = fallbackRecipes.Length,
     forcedLimitLevel = forcedCase.request.level,
     verifiedFallbacksIncludingLegacy = fallback.Length + legacy.Length,
     maxOptimalMoves = accepted.Max(row => row.Moves),
@@ -192,7 +222,7 @@ var report = new
     equivalentReferenceSolves = parity.Length,
     authored,
     early = rows.Where(row => row.Level <= 20),
-    examples = rows.Where(row => row.Level is 100 or 500 or 1000 or 5000),
+    examples = rows.Where(row => row.Level is 100 or 500 or 999 or 1000 or 1001 or 9999 or 10000 or 10001 or 99999 or 100000 or 999999 or 1000000 || row.Level == WorldMapRules.MaxLevel),
     phases = new[] { (3, 20), (21, 99), (100, 499), (500, 999), (1000, 4999), (5000, count + 2) }
         .Where(p => p.Item1 <= count + 2).Select(p =>
         {

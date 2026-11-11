@@ -157,7 +157,7 @@ namespace Mewgic
         {
             tutorialReplay=tutorialReplayPending;tutorialReplayPending=false;
             var level=tutorialReplay?GameplayLevelCatalog.Load(1):GameplayLevelCatalog.Current();levelInfo=level.Info;puzzle=new Puzzle(level.Bottles);
-            originalBottleCount=puzzle.Count;progress=tutorialReplay?new ProgressLedger(new ProgressData(),_=>{}):GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount);
+            originalBottleCount=puzzle.Count;progress=tutorialReplay?new ProgressLedger(new ProgressData(),_=>{}):GameplayProgress.Current;boosters=new BoosterActions(puzzle,progress,originalBottleCount,levelInfo.id);
             firstAttempt=!tutorialReplay&&progress.BeginFirstAttempt(levelInfo.id);
             board=Box(safe,"Bottle board",new Color(.12f,.10f,.23f,.85f),new Vector2(.05f,.29f),new Vector2(.95f,.73f));
             status=Label(safe,"Status","",25,Color.white,new Vector2(.06f,.2f),new Vector2(.94f,.27f));
@@ -168,7 +168,7 @@ namespace Mewgic
             gameplayVisual=GetComponent<GameplayPresentation>();if(gameplayVisual!=null)gameplayVisual.Mount(safe,board);
             hud=gameObject.AddComponent<GameplayHud>();hud.Mount(safe,PauseGame,ResumeGame,RestartPaused,ExitPaused);
             SkinGameplayControl(restart);SkinGameplayControl(home);
-            tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster);
+            tools=gameObject.AddComponent<GameplayTools>();undo=tools.Mount(safe,UseBooster,levelInfo.id);
             endScreen=gameObject.AddComponent<GameplayEndScreen>();endScreen.Mount(safe,Reset,NextLevel,ReturnFromResults,()=>paused,RetryReward);
             if(GameplayProgress.LoadError!=null)status.text=L.V("error.load");
             Refresh();
@@ -204,9 +204,22 @@ namespace Mewgic
                 case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_undo");}break;
                 case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;hintUsed=true;selected=move.Source;hintTarget=move.Target;status.text="";}break;
                 case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");}break;
+                case BoosterKind.ColorSwap:
+                    int source=selected;
+                    applied=boosters.ColorSwap(source,out int target);
+                    if(applied)
+                    {
+                        selected=-1;
+                        hintTarget=-1;
+                        hintUsed=true;
+                        status.text=L.V("booster.color_applied");
+                        bottleViews[source].GetComponent<GameplayBottleView>().Accept();
+                        bottleViews[target].GetComponent<GameplayBottleView>().Accept();
+                    }
+                    break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
-            if(!applied)Feedback(boosters.Message);else{clanTrace.Booster(kind);pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
+            if(!applied)Feedback(boosters.Message);else{clanTrace.Booster(kind);pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied&&kind!=BoosterKind.ColorSwap)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
         }
         void NextLevel()
         {

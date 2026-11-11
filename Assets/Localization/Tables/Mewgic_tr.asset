@@ -2000,6 +2000,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
+  - m_Id: 4154944402063360
+    m_Localized: "Renk D\xF6n\xFC\u015F\xFCm\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: "Bir \u015Fi\u015Fe se\xE7. \xC7\xF6z\xFCm\xFC k\u0131saltan d\xF6n\xFC\u015F\xFCm
+      yoksa stok harcanmaz."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: "\xDCst renkler de\u011Fi\u015Fti. Geri Al yeni d\xF6k\xFC\u015Flerden
+      ba\u015Flar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: "{0}. b\xF6l\xFCmden itibaren bir \u015Fi\u015Fe se\xE7ip faydal\u0131
+      bir \xFCst renk de\u011Fi\u015Fimi yap."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126368
   references:
     version: 2
     RefIds:

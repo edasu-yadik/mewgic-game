@@ -114,7 +114,7 @@ namespace Mewgic
             var art = Art(card, "ProductArt", null, .027f, .10f, .235f, .91f);
             PresentArt(art, item);
             Text(card, "ProductName", L.V(Name(item)), 37, .26f, .67f, .97f, .95f, TextAlignmentOptions.MidlineLeft);
-            Text(card, "ProductPurpose", L.V(Purpose(item)), 25, .26f, .32f, .97f, .68f, TextAlignmentOptions.MidlineLeft);
+            Text(card, "ProductPurpose", item == ShopItem.ColorSwap ? L.V(Purpose(item),EconomyConfig.Current.colorSwapUnlock) : L.V(Purpose(item)), 25, .26f, .32f, .97f, .68f, TextAlignmentOptions.MidlineLeft);
             var info = Text(card, "ProductInfo", "", 25, .26f, .065f, .635f, .31f, TextAlignmentOptions.MidlineLeft);
             string actionName = ShopCatalog.Category(item) == ShopCategory.Boosters
                 ? "Buy" + ShopCatalog.Booster(item) : "ShopAction_" + item;
@@ -192,7 +192,7 @@ namespace Mewgic
                 row.ActionLabel.text = buying
                     ? (booster ? L.V("shop.buy_for", EconomyConfig.Current.Price(item)) : L.V("shop.buy"))
                     : L.V(equipped ? "shop.equipped" : "shop.equip");
-                row.Action.interactable = !equipped;
+                row.Action.interactable = !equipped && (item!=ShopItem.ColorSwap || ledger.CurrentUnlockedLevel>=EconomyConfig.Current.colorSwapUnlock);
                 row.Action.SetRole(buying ? ButtonRole.Primary : ButtonRole.Secondary);
             }
             ownedLabel.text = L.V("shop.owned_tab", owned);
@@ -262,7 +262,7 @@ namespace Mewgic
             switch (ShopCatalog.Category(item))
             {
                 case ShopCategory.Boosters:
-                    string key = item == ShopItem.ExtraBottle ? "Extra" : item.ToString();
+                    string key = item == ShopItem.ExtraBottle ? "Extra" : item == ShopItem.ColorSwap ? "Shuffle" : item.ToString();
                     image.sprite = Resources.Load<Sprite>("Gameplay/Tools/Tool_" + key + "_v001");
                     break;
                 case ShopCategory.Cats:
@@ -283,14 +283,14 @@ namespace Mewgic
         public static string Name(ShopItem item) => item switch
         {
             ShopItem.Undo => "booster.undo", ShopItem.Hint => "booster.hint",
-            ShopItem.ExtraBottle => "booster.extra", ShopItem.Shuffle => "booster.shuffle",
+            ShopItem.ExtraBottle => "booster.extra", ShopItem.Shuffle => "booster.shuffle", ShopItem.ColorSwap => "booster.color_swap",
             _ => "shop.item." + item.ToString().ToLowerInvariant()
         };
 
         static string Purpose(ShopItem item) => item switch
         {
             ShopItem.Undo => "shop.use_undo", ShopItem.Hint => "shop.use_hint",
-            ShopItem.ExtraBottle => "shop.use_extra", ShopItem.Shuffle => "shop.use_shuffle",
+            ShopItem.ExtraBottle => "shop.use_extra", ShopItem.Shuffle => "shop.use_shuffle", ShopItem.ColorSwap => "shop.use_color_swap",
             _ => ShopCatalog.Category(item) switch
             {
                 ShopCategory.Cats => "shop.use_cat", ShopCategory.Bottles => "shop.use_bottle",

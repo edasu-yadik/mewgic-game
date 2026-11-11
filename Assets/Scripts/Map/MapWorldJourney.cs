@@ -154,7 +154,7 @@ namespace Mewgic.Map
 
         void ShowChapter(int region, int group, int focusSlot, bool saveFocus)
         {
-            if (navigating || progression == null || region < 0 || region > (int.MaxValue - 50) / 50 || group < 0 || group > 4)
+            if (navigating || progression == null || region < 0 || region > WorldMapRules.LastIsland || group < 0 || group > 4)
                 return;
 
             journeyFocusSlot = -1;

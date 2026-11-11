@@ -13,6 +13,7 @@ namespace Mewgic.Core
         readonly Stack<int[][]> history = new Stack<int[][]>();
         public int Moves { get; private set; }
         public int Count => bottles.Length;
+        public bool ColorSwapUsed { get; private set; }
         public bool CanUndo => history.Count > 0;
         public IReadOnlyList<int> Bottle(int index) => bottles[index].AsReadOnly();
         public bool Won => bottles.All(b => b.Count == 0 || (b.Count == Capacity && b.All(c => c == b[0])));
@@ -61,12 +62,22 @@ namespace Mewgic.Core
             var states=history.ToArray();history.Clear();
             for(int i=states.Length-1;i>=0;i--)history.Push(map(states[i]));
         }
+        internal void ApplyColorSwap(int source,int target)
+        {
+            var first=bottles[source];
+            var second=bottles[target];
+            (first[first.Count-1],second[second.Count-1])=(second[second.Count-1],first[first.Count-1]);
+            // Earlier pours describe a different arrangement of layers.
+            history.Clear();
+            ColorSwapUsed=true;
+        }
+
         public bool Undo()
         {
             if (!CanUndo) return false;
             Restore(history.Pop()); Moves--; return true;
         }
-        public void Restart() { Restore(initial); history.Clear(); Moves = 0; }
+        public void Restart() { Restore(initial); history.Clear(); Moves = 0; ColorSwapUsed = false; }
         public int[][] Export() => Snapshot();
     }
 }

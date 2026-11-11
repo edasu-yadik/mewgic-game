@@ -6275,5 +6275,64 @@
       "it": "Ottieni {0} oro",
       "pl": "Zdobądź {0} złota"
     }
+  },
+  {
+    "key": "booster.color_swap",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Renk D\u00f6n\u00fc\u015f\u00fcm\u00fc",
+      "en": "Color Swap",
+      "de": "Farbtausch",
+      "fr": "\u00c9change de couleurs",
+      "es": "Intercambio de color",
+      "pt-BR": "Troca de cores",
+      "it": "Scambio di colori",
+      "pl": "Zamiana kolor\u00f3w"
+    }
+  },
+  {
+    "key": "booster.color_unavailable",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Bir \u015fi\u015fe se\u00e7. \u00c7\u00f6z\u00fcm\u00fc k\u0131saltan d\u00f6n\u00fc\u015f\u00fcm yoksa stok harcanmaz.",
+      "en": "Select a bottle. Stock is used only if the swap helps.",
+      "de": "W\u00e4hle eine Flasche. Nur ein hilfreicher Tausch kostet.",
+      "fr": "Choisis une bouteille. Seul un \u00e9change utile est consomm\u00e9.",
+      "es": "Elige una botella. Solo se gasta si el cambio ayuda.",
+      "pt-BR": "Selecione uma garrafa. S\u00f3 gasta se a troca ajudar.",
+      "it": "Scegli una bottiglia. Si consuma solo con uno scambio utile.",
+      "pl": "Wybierz butelk\u0119. Zu\u017cycie nast\u0119puje tylko przy pomocnej zamianie."
+    }
+  },
+  {
+    "key": "booster.color_applied",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "\u00dcst renkler de\u011fi\u015fti. Geri Al yeni d\u00f6k\u00fc\u015flerden ba\u015flar.",
+      "en": "Top colors swapped. Undo starts with the next pour.",
+      "de": "Obere Farben getauscht. R\u00fcckg\u00e4ngig ab dem n\u00e4chsten Guss.",
+      "fr": "Couleurs du haut \u00e9chang\u00e9es. Annulation au prochain versement.",
+      "es": "Colores superiores cambiados. Deshacer desde el siguiente vertido.",
+      "pt-BR": "Cores superiores trocadas. Desfazer a partir do pr\u00f3ximo despejo.",
+      "it": "Colori in cima scambiati. Annulla dal prossimo versamento.",
+      "pl": "Zamieniono g\u00f3rne kolory. Cofanie od nast\u0119pnego przelewu."
+    }
+  },
+  {
+    "key": "shop.use_color_swap",
+    "review": "draft",
+    "values": {
+      "tr": "{0}. b\u00f6l\u00fcmden itibaren bir \u015fi\u015fe se\u00e7ip faydal\u0131 bir \u00fcst renk de\u011fi\u015fimi yap.",
+      "en": "From level {0}, select a bottle to swap top colors when it helps.",
+      "de": "Ab Level {0} tauscht eine gew\u00e4hlte Flasche die oberen Farben, wenn es hilft.",
+      "fr": "D\u00e8s le niveau {0}, choisis une bouteille pour \u00e9changer les couleurs du haut.",
+      "es": "Desde el nivel {0}, elige una botella para intercambiar colores superiores.",
+      "pt-BR": "A partir da fase {0}, selecione uma garrafa para trocar as cores superiores.",
+      "it": "Dal livello {0}, scegli una bottiglia per scambiare i colori in cima.",
+      "pl": "Od poziomu {0} wybierz butelk\u0119, aby zamieni\u0107 g\u00f3rne kolory."
+    }
   }
 ]

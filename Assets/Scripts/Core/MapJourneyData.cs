@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Mewgic.Core
 {
@@ -14,10 +16,9 @@ namespace Mewgic.Core
 
     public static class MapJourneyRules
     {
-        public static void Initialize(ProgressData data)
+        public static void Initialize(ProgressData data,int current)
         {
             var journey = data.worldMap.journey ?? (data.worldMap.journey = new MapJourneyData());
-            int current = WorldMapRules.CurrentLevel(data);
             // Old saves start at their existing frontier, without replaying historical victories.
             if (!journey.initialized)
             {
@@ -33,20 +34,25 @@ namespace Mewgic.Core
                 throw new ArgumentException("Geçersiz harita yolculuğu kaydı");
         }
 
-        public static void Queue(ProgressData data, int completed)
+        public static void Queue(ProgressData data, int completed, int next)
         {
             var journey = data.worldMap.journey;
             if (!journey.Pending) journey.pendingFrom = completed;
             // Consecutive Next victories become one short journey to the latest frontier.
-            journey.pendingTo = WorldMapRules.CurrentLevel(data);
+            journey.pendingTo = next;
         }
     }
 
     public sealed partial class ProgressLedger
     {
         public MapJourneyData MapJourney => state.worldMap.journey.Copy();
-        public int CurrentUnlockedLevel => WorldMapRules.CurrentLevel(state);
-        public int CurrentCompletedLevel => CurrentUnlockedLevel - 1;
+        public int CurrentUnlockedLevel { get; private set; }
+        public int HighestCompletedLevel { get; private set; }
+        public int CurrentCompletedLevel => CurrentUnlockedLevel == WorldMapRules.MaxLevel &&
+            HighestCompletedLevel == CurrentUnlockedLevel && Completed(CurrentUnlockedLevel)
+            ? CurrentUnlockedLevel : CurrentUnlockedLevel - 1;
+        internal int CompletionRevision { get; private set; }
+        internal IEnumerable<LevelRecord> CompletedRecords => state.levels.Where(record => record.rewardClaimed);
         public bool PeekMapJourney(out int from, out int to)
         {
             var journey = state.worldMap.journey;

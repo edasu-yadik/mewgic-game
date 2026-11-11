@@ -1,3 +1,4 @@
+using System.Threading;
 using System;using System.Linq;using System.Collections.Generic;using System.Threading.Tasks;using System.IO;using Mewgic.Core;using UnityEngine;
 namespace Mewgic
 {
@@ -21,7 +22,7 @@ namespace Mewgic
         static VerifiedGameplayLevel Wrap(GeneratedLevel level){level.Validate();int moves=level.difficulty.optimalMoves;return new VerifiedGameplayLevel{Info=new GameplayLevelInfo{id=level.level,threeStarMoves=moves,twoStarMoves=moves+Math.Max(2,moves/2),goal="Renkleri ayır"},Bottles=level.Export(),OptimalMoves=moves,Generated=level};}
         public static Task<VerifiedGameplayLevel> PrepareAsync(int id)
         {
-            if(id<1)throw new ArgumentOutOfRangeException(nameof(id));
+            if(id<1||id>WorldMapRules.MaxLevel)throw new ArgumentOutOfRangeException(nameof(id));
             if(id<3)
             {
                 try{return Task.FromResult(Load(id));}
@@ -30,10 +31,10 @@ namespace Mewgic
             var store=Archive;var asset=Resources.Load<TextAsset>("Levels/GeneratedFallbacksV2");string poolJson=asset!=null?asset.text:"[]";if(pending.TryGetValue(id,out var task)&&!task.IsFaulted&&!task.IsCanceled)return task;
             foreach(var key in pending.Where(p=>p.Value.IsCompleted).Select(p=>p.Key).ToArray())pending.Remove(key);
             if(pending.Count>=2)return Task.FromException<VerifiedGameplayLevel>(new InvalidOperationException("Hazırlık sürüyor; tekrar deneyebilirsin."));
-            task=Task.Run(()=>{lock(worker){if(fallbacks==null){fallbacks=Newtonsoft.Json.JsonConvert.DeserializeObject<GeneratedLevel[]>(poolJson);foreach(var l in fallbacks)l.Validate();}if(store.TryRead(id,out var saved))return Wrap(saved);var request=WorldMapRules.Request(id);var result=LevelGenerator.Resolve(request,null,fallbacks);if(result.level==null)throw new InvalidOperationException("Doğrulanmış yeni bölüm hazırlanamadı; tekrar deneyebilirsin.");store.Write(result.level);return Wrap(result.level);}});pending[id]=task;return task;
+            task=Task.Run(()=>{lock(worker){if(fallbacks==null){fallbacks=Newtonsoft.Json.JsonConvert.DeserializeObject<GeneratedLevel[]>(poolJson);foreach(var l in fallbacks)l.Validate();}if(store.TryRead(id,out var saved))return Wrap(saved);var request=WorldMapRules.Request(id);using var deadline=new CancellationTokenSource(TimeSpan.FromSeconds(12));var result=LevelGenerator.Resolve(request,null,fallbacks,cancellation:deadline.Token);deadline.Token.ThrowIfCancellationRequested();if(result.level==null)throw new InvalidOperationException("Doğrulanmış yeni bölüm hazırlanamadı; tekrar deneyebilirsin.");store.Write(result.level);return Wrap(result.level);}});pending[id]=task;return task;
         }
-        public static void Prewarm(int current){if(current>=2&&current<int.MaxValue){var unused=PrepareAsync(current+1);}}
-        public static bool CanEnter(int id,ProgressLedger ledger)=>ledger!=null&&(id==1||id>1&&ledger.Completed(id-1));
+        public static void Prewarm(int current){if(current>=2&&current<WorldMapRules.MaxLevel){var unused=PrepareAsync(current+1);}}
+        public static bool CanEnter(int id,ProgressLedger ledger)=>ledger!=null&&id>=1&&id<=ledger.CurrentUnlockedLevel;
         public static int SelectedId {get;private set;}=1;
         public static bool FromMap {get;private set;}
         public static string ReturnScene=>FromMap?"LevelMap":"Home";
@@ -63,7 +64,7 @@ namespace Mewgic
             SelectedId=GameplayProgress.Current.CurrentUnlockedLevel;FromMap=false;
         }
         public static VerifiedGameplayLevel Current()=>Load(SelectedId);
-        public static bool CanAdvance(int current,ProgressLedger ledger)=>current>=1&&current<int.MaxValue&&ledger!=null&&ledger.Completed(current);
+        public static bool CanAdvance(int current,ProgressLedger ledger)=>current>=1&&current<WorldMapRules.MaxLevel&&ledger!=null&&current<ledger.CurrentUnlockedLevel&&ledger.Completed(current);
         public static bool Advance(int current,ProgressLedger ledger)
         {
             if(!CanAdvance(current,ledger))return false;

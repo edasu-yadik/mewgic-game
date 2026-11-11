@@ -14,6 +14,7 @@ namespace Mewgic.Core
         public int crystalCatPrice = 240, goldCatPrice = 360, nightCatPrice = 300;
         public int crystalBottlePrice = 150, goldBottlePrice = 240, roseEffectPrice = 120, crystalEffectPrice = 180;
         public int boosterQuantity = 1;
+        public int colorSwapPrice = 60, colorSwapUnlock = 101;
         public int initialGold;
         public int initialUndo = 3, initialHint = 3, initialExtra = 1, initialShuffle = 1;
 
@@ -36,14 +37,14 @@ namespace Mewgic.Core
             foreach (var product in ShopCatalog.Products)
                 if (!ShopCatalog.Included(product) && !ShopCatalog.RewardOnly(product) && (Price(product) <= 0 || Price(product) > 1_000_000))
                     throw new ArgumentException("Mağaza fiyatı geçersiz.");
-            if (boosterQuantity < 1 || boosterQuantity > 100)
+            if (boosterQuantity < 1 || boosterQuantity > 100 || colorSwapUnlock < 1 || colorSwapUnlock > WorldMapRules.MaxLevel)
                 throw new ArgumentException("Ekonomi üst sınırı geçersiz.");
         }
 
         public int Price(ShopItem item) => item switch
         {
             ShopItem.Undo => undoPrice, ShopItem.ExtraBottle => extraPrice, ShopItem.Hint => hintPrice,
-            ShopItem.Shuffle => shufflePrice, ShopItem.CrystalCat => crystalCatPrice, ShopItem.GoldCat => goldCatPrice,
+            ShopItem.Shuffle => shufflePrice, ShopItem.ColorSwap => colorSwapPrice, ShopItem.CrystalCat => crystalCatPrice, ShopItem.GoldCat => goldCatPrice,
             ShopItem.NightCat => nightCatPrice, ShopItem.CrystalBottle => crystalBottlePrice,
             ShopItem.GoldBottle => goldBottlePrice, ShopItem.RoseEffect => roseEffectPrice,
             ShopItem.CrystalEffect => crystalEffectPrice, _ => 0

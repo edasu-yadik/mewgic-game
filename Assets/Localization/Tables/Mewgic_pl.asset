@@ -2005,6 +2005,25 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
+  - m_Id: 4154944402063360
+    m_Localized: "Zamiana kolor\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: "Wybierz butelk\u0119. Zu\u017Cycie nast\u0119puje tylko przy pomocnej
+      zamianie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: "Zamieniono g\xF3rne kolory. Cofanie od nast\u0119pnego przelewu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: "Od poziomu {0} wybierz butelk\u0119, aby zamieni\u0107 g\xF3rne
+      kolory."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126370
   references:
     version: 2
     RefIds:

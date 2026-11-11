@@ -22,6 +22,10 @@ namespace Mewgic
     public sealed class LevelProgressionProbe : MonoBehaviour
     {
         const string Output = "docs/ProductionReports/LevelProgression/";
+        [SerializeField] bool frontier;
+        [SerializeField] string regressionOutput;
+        string Evidence => frontier ? "docs/ProductionReports/InfiniteLevels/" :
+            string.IsNullOrEmpty(regressionOutput) ? Output : regressionOutput;
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo LedgerField = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
         static readonly FieldInfo PuzzleField = typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -36,13 +40,22 @@ namespace Mewgic
         Puzzle Board => (Puzzle)PuzzleField.GetValue(FindFirstObjectByType<PrototypeApp>());
 
         [MenuItem("Mewgic/QA/Run Level Progression")]
-        public static void Begin()
+        public static void Begin() => Begin(false);
+
+        [MenuItem("Mewgic/QA/Run Infinite Levels and Boosters")]
+        public static void BeginFrontier() => Begin(true);
+
+        public static void BeginRegression(string folder) => Begin(false, folder);
+
+        static void Begin(bool frontier, string regressionOutput = null)
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             for (int i = 0; i < SceneManager.sceneCount; i++)
                 if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Açık sahnede kaydedilmemiş değişiklik var.");
             EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
-            new GameObject("Isolated level progression QA").AddComponent<LevelProgressionProbe>();
+            var probe = new GameObject("Isolated level progression QA").AddComponent<LevelProgressionProbe>();
+            probe.frontier = frontier;
+            probe.regressionOutput = regressionOutput;
             Type.GetType("Part12BEditor, Assembly-CSharp-Editor")?.GetMethod("Size")?.Invoke(null, new object[] { 1600 });
             EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
             EditorApplication.isPlaying = true;
@@ -111,7 +124,7 @@ namespace Mewgic
         {
             string failure = null;
             var stack = new Stack<IEnumerator>();
-            stack.Push(Run());
+            stack.Push(frontier ? RunFrontier() : Run());
             while (stack.Count > 0)
             {
                 bool more = false; object item = null;
@@ -123,8 +136,8 @@ namespace Mewgic
             }
             var after = PlayerSave();
             bool intact = original.All(pair => after[pair.Key] == pair.Value);
-            Directory.CreateDirectory(Output);
-            File.WriteAllText(Output + "PLAY_MODE.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
+            Directory.CreateDirectory(Evidence);
+            File.WriteAllText(Evidence + "PLAY_MODE.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
             {
                 success = passed && failure == null && intact && errors.Count == 0,
                 editor = Application.unityVersion, checks, boards, transitions, errors, failure, playerSaveIntact = intact
@@ -146,7 +159,7 @@ namespace Mewgic
 
         IEnumerator Until(Func<bool> ready, string message)
         {
-            float deadline = Time.realtimeSinceStartup + 15;
+            float deadline = Time.realtimeSinceStartup + (frontier ? 40 : 15);
             while (!ready() && Time.realtimeSinceStartup < deadline) yield return null;
             Check(ready(), message);
         }
@@ -182,6 +195,10 @@ namespace Mewgic
         {
             var solution = PuzzleSolver.Solve(Board.Export());
             Check(solution.Status == SearchStatus.Solved && solution.Moves.Count > 0, $"{id} çözülebilir");
+            if (frontier && expectedCoins > 0)
+                expectedCoins = new CompletionReward(0, 3, true,
+                    (bool)typeof(PrototypeApp).GetField("firstAttempt", BindingFlags.Instance | BindingFlags.NonPublic)
+                        .GetValue(FindFirstObjectByType<PrototypeApp>()), false).Coins;
             long coins = Ledger.Presentation.coins; int hints = Ledger.Remaining(BoosterKind.Hint);
             foreach (var move in solution.Moves)
             {
@@ -195,7 +212,8 @@ namespace Mewgic
             yield return null;
             Check(Board.Won && Hud.State.AwardedStars == 3 && Ledger.BestStars(id) == 3, $"{id}: üç yıldız hesaplandı ve kaydedildi");
             Check(Ledger.Presentation.coins - coins == expectedCoins && Ledger.LastCoinReward == expectedCoins &&
-                Ledger.Remaining(BoosterKind.Hint) - hints == (expectedCoins > 0 ? 1 : 0), $"{id}: ödül {expectedCoins} coin");
+                Ledger.Remaining(BoosterKind.Hint) - hints == (expectedCoins > 0 ? EconomyConfig.Current.firstClearHints : 0),
+                $"{id}: ödül {expectedCoins} coin (bakiye farkı {Ledger.Presentation.coins - coins}, kayıt {Ledger.LastCoinReward}, ipucu farkı {Ledger.Remaining(BoosterKind.Hint) - hints})");
         }
 
         IEnumerator Chain(int start, int end)
@@ -298,6 +316,167 @@ namespace Mewgic
             yield return null;
         }
 
+        void SeedFrontier(int completed, bool persistent = false)
+        {
+            ClearJournal();
+            key = null;
+            var data = MapFlowProbe.Data(completed);
+            foreach (var record in data.levels) record.bestStars = 3;
+            data.presentation.currentLevel = completed + 1;
+            data.presentation.reduceMotion = true;
+            data.presentation.motionPreferenceSet = true;
+            data.presentation.coins = 500;
+            if (persistent)
+            {
+                key = "Mewgic.Tests.InfiniteLevels." + Guid.NewGuid().ToString("N");
+                PlayerPrefs.SetString(key, JsonUtility.ToJson(data));
+                PlayerPrefs.Save();
+                Reopen();
+                return;
+            }
+            GameplayProgress.UseTestProfile(data);
+            GameplayLevelCatalog.TestArchive = new FileLevelArchive(archiveRoot);
+            GameplayLevelCatalog.ResetSelection();
+            GameplayLevelCatalog.ResumeFromSave();
+        }
+
+        void CheckJournal()
+        {
+            key = "Mewgic.Tests.InfiniteLevels." + Guid.NewGuid().ToString("N");
+            var legacy = MapFlowProbe.Data(1800);
+            legacy.colorSwap = 1;
+            legacy.presentation.coins = 500;
+            var directory = Path.Combine(archiveRoot, "Progress");
+            string json = JsonUtility.ToJson(legacy);
+            PlayerPrefs.SetString(key, json);
+            PlayerPrefs.Save();
+            var writer = GameplayProgress.Open(key, directory: directory);
+            Check(writer.CurrentUnlockedLevel == 1801 && writer.Claim(1801, 3, true, out bool granted) && granted,
+                "Eski PlayerPrefs profili okundu ve yeni kazanış işlendi");
+            var stale = GameplayProgress.Open(key, directory: directory);
+            foreach (BoosterKind kind in Enum.GetValues(typeof(BoosterKind)))
+            {
+                var item = ShopCatalog.Product(kind);
+                int price = ProgressLedger.BoosterPrice(kind);
+                int stock = writer.Remaining(kind);
+                long before = writer.Presentation.coins, request = writer.NextShopPurchase;
+                Check(writer.Purchase(item, price, request) == ShopPurchaseResult.Purchased &&
+                    writer.Purchase(item, price, request) == ShopPurchaseResult.Duplicate &&
+                    writer.Remaining(kind) == stock + 1 && writer.Presentation.coins == before - price,
+                    $"{kind}: satın alma, stok, altın ve aynı istekle çift işlem engeli");
+            }
+            var file = Directory.GetFiles(directory, "*.json").Single(path =>
+                !Path.GetFileNameWithoutExtension(path).Contains("."));
+            Check(!stale.SetCurrentLevel(1) && PlayerPrefs.GetString(key) == json,
+                "Eski açık yazıcı yeni kaydı ezmedi; eski PlayerPrefs kopyası duruyor");
+            File.WriteAllText(file, "corrupt");
+            var reopened = GameplayProgress.Open(key, directory: directory);
+            Check(reopened.CurrentUnlockedLevel == 1802 && reopened.HighestCompletedLevel == 1801 &&
+                reopened.Presentation.coins == writer.Presentation.coins && reopened.Remaining(BoosterKind.ColorSwap) == 2 &&
+                reopened.BestStars(1801) == 3, "Bozuk ana dosyadan yedekle devam, altın, stok ve yıldız kurtarıldı");
+        }
+
+        void CheckExistingPowers()
+        {
+            var board = new Puzzle(new[] { new[] { 0, 0, 0, 1 }, new[] { 1, 1, 1, 0 }, Array.Empty<int>(), Array.Empty<int>() });
+            var saved = new ProgressData { undo = 1, hint = 1, extra = 1, shuffle = 1, colorSwap = 1 };
+            var ledger = new ProgressLedger(saved, _ => { });
+            var actions = new BoosterActions(board, ledger, board.Count);
+            Check(!actions.Undo() && ledger.Remaining(BoosterKind.Undo) == 1, "Geri Al: döküş yokken stok korunuyor");
+            Check(actions.Hint(out var move) && ledger.Remaining(BoosterKind.Hint) == 0 &&
+                board.Pour(move.Source, move.Target) > 0 && !actions.Hint(out _), "Akıllı İpucu: geçerli çözüm hamlesi ve stok sınırı");
+            Check(actions.Undo() && board.Moves == 0 && ledger.Remaining(BoosterKind.Undo) == 0, "Geri Al: gerçek döküş geri alındı");
+            int length = PuzzleSolver.Solve(board.Export()).Moves.Count;
+            Check(actions.Shuffle() && !actions.Shuffle() && PuzzleSolver.Solve(board.Export()).Moves.Count == length,
+                "Karıştır: tüm şişeler taşındı ve çözüm uzunluğu korundu");
+            Check(actions.Extra() && board.Count == 5 && !actions.Extra() &&
+                PuzzleSolver.Solve(board.Export()).Status == SearchStatus.Solved, "Ek Şişe: tek boş şişe ve çözülebilir tahta");
+            Check(!actions.ColorSwap(0, out _) && ledger.Remaining(BoosterKind.ColorSwap) == 1, "Renk Dönüşümü: erken bölümde kapalı");
+        }
+
+        IEnumerator RunFrontier()
+        {
+            Directory.CreateDirectory(Evidence);
+            CheckJournal();
+            CheckExistingPowers();
+            foreach (int level in new[] { 999, 1000, 9999, 99999, 999999 })
+            {
+                SeedFrontier(level - 1);
+                yield return Open(level);
+                yield return Chain(level, level + 1);
+            }
+
+            ScreenCapture.CaptureScreenshot(Evidence + "Level1000000.png");
+            yield return new WaitForSecondsRealtime(.5f);
+            SceneManager.LoadScene("LevelMap");
+            yield return Until(() => FindFirstObjectByType<MapWorld>()?.Mounted == true, "Milyonuncu bölümün gerçek LevelMap sahnesi hazır");
+            var map = FindFirstObjectByType<MapWorld>();
+            map.FocusCurrent();
+            yield return null;
+            Check(map.ActiveRegion == WorldMapRules.Island(1000000) && map.PooledIslands == 5 && map.ActivePointCount <= 40,
+                $"1.000.000: doğru dünya, {map.PooledIslands} havuz adası, {map.ActivePointCount} etkin nokta");
+            ScreenCapture.CaptureScreenshot(Evidence + "Map1000000.png");
+            yield return new WaitForSecondsRealtime(.5f);
+
+            SeedFrontier(100);
+            yield return Open(99);
+            yield return Ready(99);
+            yield return Win(99, 0);
+            Check(Ledger.CurrentUnlockedLevel == 101 && Ledger.HighestCompletedLevel == 100 && Ledger.Presentation.currentLevel == 101,
+                "Eski bölüm tekrarı en yüksek kayıtları ve devam imlecini düşürmedi");
+            SeedFrontier(120, persistent: true);
+            SceneManager.LoadScene("Home");
+            yield return HomeReady();
+            if (GameObject.Find("ArrivalDismiss") != null) Click("ArrivalDismiss");
+            Click("NavInventory");
+            yield return null;
+            var scroll = GameObject.Find("MagicShop").GetComponentInChildren<ScrollRect>();
+            if (scroll != null) scroll.verticalNormalizedPosition = 0;
+            yield return null;
+            ScreenCapture.CaptureScreenshot(Evidence + "BoosterShop.png");
+            yield return new WaitForSecondsRealtime(.5f);
+            Click("BuyColorSwap");
+            yield return null;
+            Click("ShopConfirm");
+            Check(Ledger.Remaining(BoosterKind.ColorSwap) == 1 && Ledger.Presentation.coins == 440,
+                "Mağaza arayüzü: Renk Dönüşümü 60 altına bir stok verdi");
+
+            int source = -1, swapLevel = 0;
+            for (int id = 101; id <= 120 && source < 0; id++)
+            {
+                var task = GameplayLevelCatalog.PrepareAsync(id);
+                yield return Until(() => task.IsCompletedSuccessfully, $"Dönüşüm denemesi için {id} hazır");
+                var layout = task.Result.Bottles;
+                for (int i = 0; i < layout.Length; i++)
+                {
+                    var clone = new Puzzle(layout);
+                    var temporary = new ProgressLedger(new ProgressData { colorSwap = 1 }, _ => { });
+                    if (!new BoosterActions(clone, temporary, clone.Count, id).ColorSwap(i, out _)) continue;
+                    source = i;
+                    swapLevel = id;
+                    break;
+                }
+            }
+            Check(source >= 0, $"{swapLevel}. bölümde doğrulanmış dönüşüm hedefi bulundu");
+            yield return Open(swapLevel);
+            yield return Ready(swapLevel);
+            int before = PuzzleSolver.Solve(Board.Export()).Moves.Count;
+            Click("ColorSwap");
+            Check(Ledger.Remaining(BoosterKind.ColorSwap) == 1, "Şişe seçmeden kullanma stoğu korudu");
+            Click($"Bottle {source + 1}");
+            yield return null;
+            Click("ColorSwap");
+            var solved = PuzzleSolver.Solve(Board.Export());
+            Check(Board.ColorSwapUsed && !Board.Won && solved.Status == SearchStatus.Solved &&
+                solved.Moves.Count < before && Ledger.Remaining(BoosterKind.ColorSwap) == 0,
+                $"Gerçek Gameplay: dönüşüm {before} → {solved.Moves.Count} hamle, bir stok");
+            ScreenCapture.CaptureScreenshot(Evidence + "ColorSwap.png");
+            yield return new WaitForSecondsRealtime(.5f);
+            var reopened = GameplayProgress.Open(key);
+            Check(reopened.Remaining(BoosterKind.ColorSwap) == 0 && reopened.Presentation.coins == 440 &&
+                reopened.CurrentUnlockedLevel == 121, "Güç kullanımı sonrası yeniden açılan kayıtta stok, bakiye ve ilerleme doğru");
+        }
+
         IEnumerator Run()
         {
             yield return Chain(1, 5);
@@ -315,8 +494,8 @@ namespace Mewgic
             Click("NextLevel", true);
             yield return Ready(100);
             yield return Win(100, 0);
-            Directory.CreateDirectory(Output);
-            ScreenCapture.CaptureScreenshot(Output + "Result100.png");
+            Directory.CreateDirectory(Evidence);
+            ScreenCapture.CaptureScreenshot(Evidence + "Result100.png");
             yield return new WaitForSecondsRealtime(.5f);
             Click("ResultHome", true);
             yield return Until(() => SceneManager.GetActiveScene().name == "LevelMap" &&
@@ -338,7 +517,7 @@ namespace Mewgic
             Click("Play");
             yield return Ready(101);
             Check(LevelGenerator.Exact(latest, Board.Export()), "Boot ve ana menü eski imleci aştı; 101 aynı düzenle açıldı");
-            ScreenCapture.CaptureScreenshot(Output + "Level101.png");
+            ScreenCapture.CaptureScreenshot(Evidence + "Level101.png");
             yield return new WaitForSecondsRealtime(.5f);
 
             SceneManager.LoadScene("Home");

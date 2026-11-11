@@ -59,7 +59,7 @@ public sealed class FullGamePreviewWindow : EditorWindow
             return;
         }
         EditorGUILayout.LabelField(preview.Status,EditorStyles.wordWrappedLabel);
-        level = EditorGUILayout.IntSlider("Test bölümü",level,1,101);
+        level = EditorGUILayout.IntSlider("Test bölümü",level,1,120);
         using (new EditorGUI.DisabledScope(preview.Busy))
         {
             for (int i=0;i<Screens.Length;i++)

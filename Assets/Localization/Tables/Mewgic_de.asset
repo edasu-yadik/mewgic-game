@@ -2007,6 +2007,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
+  - m_Id: 4154944402063360
+    m_Localized: Farbtausch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: "W\xE4hle eine Flasche. Nur ein hilfreicher Tausch kostet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: "Obere Farben getauscht. R\xFCckg\xE4ngig ab dem n\xE4chsten Guss."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: "Ab Level {0} tauscht eine gew\xE4hlte Flasche die oberen Farben,
+      wenn es hilft."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126366
   references:
     version: 2
     RefIds:

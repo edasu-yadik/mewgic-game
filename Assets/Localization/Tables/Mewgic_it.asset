@@ -2014,6 +2014,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
+  - m_Id: 4154944402063360
+    m_Localized: Scambio di colori
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: Scegli una bottiglia. Si consuma solo con uno scambio utile.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: Colori in cima scambiati. Annulla dal prossimo versamento.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: Dal livello {0}, scegli una bottiglia per scambiare i colori in
+      cima.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126369
   references:
     version: 2
     RefIds:

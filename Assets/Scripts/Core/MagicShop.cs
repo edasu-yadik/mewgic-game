@@ -7,7 +7,7 @@ namespace Mewgic.Core
     public enum ShopCategory { Boosters, Cats, Bottles, Effects, Packs }
     public enum ShopItem
     {
-        Undo = 1, ExtraBottle = 2, Hint = 3, Shuffle = 4,
+        Undo = 1, ExtraBottle = 2, Hint = 3, Shuffle = 4, ColorSwap = 5,
         ClassicCat = 10, CrystalCat = 11, GoldCat = 12, NightCat = 13, LeagueCat = 14,
         ClassicBottle = 20, CrystalBottle = 21, GoldBottle = 22,
         ClassicEffect = 30, RoseEffect = 31, CrystalEffect = 32
@@ -18,7 +18,7 @@ namespace Mewgic.Core
     {
         public static IReadOnlyList<ShopItem> Products { get; } = Array.AsReadOnly(new[]
         {
-            ShopItem.Undo, ShopItem.ExtraBottle, ShopItem.Hint, ShopItem.Shuffle,
+            ShopItem.Undo, ShopItem.ExtraBottle, ShopItem.Hint, ShopItem.Shuffle, ShopItem.ColorSwap,
             ShopItem.ClassicCat, ShopItem.CrystalCat, ShopItem.GoldCat, ShopItem.NightCat, ShopItem.LeagueCat,
             ShopItem.ClassicBottle, ShopItem.CrystalBottle, ShopItem.GoldBottle,
             ShopItem.ClassicEffect, ShopItem.RoseEffect, ShopItem.CrystalEffect
@@ -31,7 +31,7 @@ namespace Mewgic.Core
 
         public static ShopCategory Category(ShopItem item) => item switch
         {
-            ShopItem.Undo or ShopItem.ExtraBottle or ShopItem.Hint or ShopItem.Shuffle => ShopCategory.Boosters,
+            ShopItem.Undo or ShopItem.ExtraBottle or ShopItem.Hint or ShopItem.Shuffle or ShopItem.ColorSwap => ShopCategory.Boosters,
             ShopItem.ClassicCat or ShopItem.CrystalCat or ShopItem.GoldCat or ShopItem.NightCat or ShopItem.LeagueCat => ShopCategory.Cats,
             ShopItem.ClassicBottle or ShopItem.CrystalBottle or ShopItem.GoldBottle => ShopCategory.Bottles,
             ShopItem.ClassicEffect or ShopItem.RoseEffect or ShopItem.CrystalEffect => ShopCategory.Effects,
@@ -41,14 +41,14 @@ namespace Mewgic.Core
         public static BoosterKind Booster(ShopItem item) => item switch
         {
             ShopItem.Undo => BoosterKind.Undo, ShopItem.ExtraBottle => BoosterKind.ExtraBottle,
-            ShopItem.Hint => BoosterKind.Hint, ShopItem.Shuffle => BoosterKind.Shuffle,
+            ShopItem.Hint => BoosterKind.Hint, ShopItem.Shuffle => BoosterKind.Shuffle, ShopItem.ColorSwap => BoosterKind.ColorSwap,
             _ => throw new ArgumentOutOfRangeException(nameof(item))
         };
 
         public static ShopItem Product(BoosterKind kind) => kind switch
         {
             BoosterKind.Undo => ShopItem.Undo, BoosterKind.ExtraBottle => ShopItem.ExtraBottle,
-            BoosterKind.Hint => ShopItem.Hint, BoosterKind.Shuffle => ShopItem.Shuffle, _ => 0
+            BoosterKind.Hint => ShopItem.Hint, BoosterKind.Shuffle => ShopItem.Shuffle, BoosterKind.ColorSwap => ShopItem.ColorSwap, _ => 0
         };
 
         public static ShopItem Default(ShopCategory category) => category switch
@@ -121,6 +121,7 @@ namespace Mewgic.Core
         public ShopPurchaseResult Purchase(ShopItem item, int quotedPrice, long request)
         {
             if (request <= 0 || !ShopCatalog.Known(item) || ShopCatalog.Included(item) || ShopCatalog.RewardOnly(item)) return ShopPurchaseResult.Invalid;
+            if (item == ShopItem.ColorSwap && CurrentUnlockedLevel < EconomyConfig.Current.colorSwapUnlock) return ShopPurchaseResult.Invalid;
             if (request != NextShopPurchase) return ShopPurchaseResult.Duplicate;
             int price = EconomyConfig.Current.Price(item);
             if (price <= 0 || price != quotedPrice) return ShopPurchaseResult.PriceChanged;

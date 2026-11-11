@@ -1,3 +1,4 @@
+using System.Threading;
 using System;using System.Collections.Generic;using System.Linq;
 namespace Mewgic.Core
 {
@@ -5,13 +6,14 @@ namespace Mewgic.Core
     [Serializable]public sealed class GeneratorRequest
     {
         public const int CurrentVersion = 2;
+        public const int FrontierVersion = 3;
         public int level,version=1,capacity=4,colors=3,emptyBottles=2;
         public uint seed;
         public LevelDifficulty target=LevelDifficulty.Normal;
 
         public void Validate()
         {
-            if (level < 3 || (version != 1 && version != CurrentVersion) || capacity != Puzzle.Capacity ||
+            if (level < 3 || (version != 1 && version != CurrentVersion && version != FrontierVersion) || capacity != Puzzle.Capacity ||
                 colors < 2 || colors > 4 || emptyBottles < 1 || emptyBottles > 2 || !Enum.IsDefined(typeof(LevelDifficulty), target))
                 throw new ArgumentException("Üretici parametreleri desteklenmiyor.");
         }
@@ -139,24 +141,26 @@ namespace Mewgic.Core
     public static class LevelGenerator
     {
         struct Reverse{public int a,b,k;}
-        public static GenerationResult Generate(GeneratorRequest request,IEnumerable<string> recent=null,GenerationBudget budget=null)
+        public static GenerationResult Generate(GeneratorRequest request,IEnumerable<string> recent=null,GenerationBudget budget=null,CancellationToken cancellation=default)
         {
             if(request==null)throw new ArgumentNullException(nameof(request));request.Validate();budget=budget??new GenerationBudget{candidates=request.version>=2?64:32};budget.Validate();var history=new HashSet<string>(request.version==1?(recent??Array.Empty<string>()):Array.Empty<string>(),StringComparer.Ordinal);var result=new GenerationResult();
             for(int attempt=0;attempt<budget.candidates&&result.states<budget.totalStates;attempt++){
+                cancellation.ThrowIfCancellationRequested();
                 result.candidates++;var data=BuildCandidate(request,attempt);if(data==null){result.shapeRejected++;continue;}string sig=LevelSignatures.Canonical(data);if(history.Contains(sig)){result.duplicates++;continue;}if(!PartitionMatches(request,sig)){result.partitionRejected++;continue;}
                 long started=System.Diagnostics.Stopwatch.GetTimestamp();
-                var search=PuzzleSolver.Solve(data,Math.Min(budget.statesPerCandidate,budget.totalStates-result.states));result.solverTicks+=System.Diagnostics.Stopwatch.GetTimestamp()-started;result.states+=Math.Max(search.Visited,search.Stored);if(search.Status!=SearchStatus.Solved){if(search.Status==SearchStatus.LimitReached)result.limits++;else if(request.version==1)throw new InvalidOperationException("Ters hamle sertifikasıyla çelişen solver sonucu.");else result.unsolvable++;continue;}
+                var search=PuzzleSolver.Solve(data,Math.Min(budget.statesPerCandidate,budget.totalStates-result.states),cancellation);result.solverTicks+=System.Diagnostics.Stopwatch.GetTimestamp()-started;result.states+=Math.Max(search.Visited,search.Stored);if(search.Status!=SearchStatus.Solved){if(search.Status==SearchStatus.LimitReached)result.limits++;else if(request.version==1)throw new InvalidOperationException("Ters hamle sertifikasıyla çelişen solver sonucu.");else result.unsolvable++;continue;}
                 var metrics=Measure(data,search,request);if(metrics.measured!=request.target||metrics.optimalMoves>request.EarlyMoveCeiling){result.difficultyRejected++;continue;}
                 result.level=new GeneratedLevel{level=request.level,version=request.version,requestVersion=request.version,seed=CandidateSeed(request.seed,attempt),requestSeed=request.seed,recipeDifficulty=request.target,colors=request.colors,emptyBottles=request.emptyBottles,target=request.target,attempt=attempt,signature=sig,difficulty=metrics,bottles=data.Select(b=>new GeneratedBottle{layers=b}).ToArray(),solution=search.Moves.Select(m=>new GeneratedMove{source=m.Source,target=m.Target}).ToArray()};result.level.Validate();return result;
             }
             result.failure="Doğrulanmış ve hedefe uygun yeni aday bütçe içinde bulunamadı.";return result;
         }
-        public static GenerationResult Resolve(GeneratorRequest request,IEnumerable<string> recent,GeneratedLevel[] fallbackPool,GenerationBudget budget=null)
+        public static GenerationResult Resolve(GeneratorRequest request,IEnumerable<string> recent,GeneratedLevel[] fallbackPool,GenerationBudget budget=null,CancellationToken cancellation=default)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
             var history = new HashSet<string>(request.version == 1 ? recent ?? Array.Empty<string>() : Array.Empty<string>(),
                 StringComparer.Ordinal);
-            var result = Generate(request, history, budget);
+            var result = Generate(request, history, budget, cancellation);
+            cancellation.ThrowIfCancellationRequested();
             if (result.level != null) return result;
             var choices = (fallbackPool ?? Array.Empty<GeneratedLevel>()).Where(l =>
                 l != null && l.difficulty != null && l.colors == request.colors && l.emptyBottles == request.emptyBottles &&

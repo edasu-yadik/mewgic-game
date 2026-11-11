@@ -2000,6 +2000,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
+  - m_Id: 4154944402063360
+    m_Localized: Troca de cores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: "Selecione uma garrafa. S\xF3 gasta se a troca ajudar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: "Cores superiores trocadas. Desfazer a partir do pr\xF3ximo despejo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: A partir da fase {0}, selecione uma garrafa para trocar as cores
+      superiores.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126372
   references:
     version: 2
     RefIds:

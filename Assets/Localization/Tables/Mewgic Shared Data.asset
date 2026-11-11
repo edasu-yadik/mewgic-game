@@ -1747,6 +1747,22 @@ MonoBehaviour:
     m_Key: victory.ad_offer
     m_Metadata:
       m_Items: []
+  - m_Id: 4154944402063360
+    m_Key: booster.color_swap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Key: booster.color_unavailable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Key: booster.color_applied
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Key: shop.use_color_swap
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

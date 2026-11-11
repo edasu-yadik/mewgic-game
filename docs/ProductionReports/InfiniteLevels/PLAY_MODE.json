@@ -1,0 +1,1589 @@
+{
+  "success": true,
+  "editor": "6000.3.27f2",
+  "checks": [
+    {
+      "ok": true,
+      "message": "Eski PlayerPrefs profili okundu ve yeni kazanış işlendi"
+    },
+    {
+      "ok": true,
+      "message": "Undo: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "Hint: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "ExtraBottle: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "Shuffle: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "ColorSwap: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "Eski açık yazıcı yeni kaydı ezmedi; eski PlayerPrefs kopyası duruyor"
+    },
+    {
+      "ok": true,
+      "message": "Bozuk ana dosyadan yedekle devam, altın, stok ve yıldız kurtarıldı"
+    },
+    {
+      "ok": true,
+      "message": "Geri Al: döküş yokken stok korunuyor"
+    },
+    {
+      "ok": true,
+      "message": "Akıllı İpucu: geçerli çözüm hamlesi ve stok sınırı"
+    },
+    {
+      "ok": true,
+      "message": "Geri Al: gerçek döküş geri alındı"
+    },
+    {
+      "ok": true,
+      "message": "Karıştır: tüm şişeler taşındı ve çözüm uzunluğu korundu"
+    },
+    {
+      "ok": true,
+      "message": "Ek Şişe: tek boş şişe ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "Renk Dönüşümü: erken bölümde kapalı"
+    },
+    {
+      "ok": true,
+      "message": "999: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "999: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "999: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 999"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 999 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "999: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "999: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "999 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "999: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "999: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "999: ödül 40 coin (bakiye farkı 40, kayıt 40, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "999: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 1000"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 1000 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "1000: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "1000: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "1000: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "1000: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "1000: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 1000"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 1000 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "1000: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "1000: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "1000 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 12"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1000: döküş 13"
+    },
+    {
+      "ok": true,
+      "message": "1000: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "1000: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "1000: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "1000: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 1001"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 1001 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "1001: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "1001: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "9999: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "9999: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "9999: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 9999"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 9999 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "9999: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "9999: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "9999 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9999: döküş 12"
+    },
+    {
+      "ok": true,
+      "message": "9999: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "9999: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "9999: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "9999: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 10000"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 10000 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "10000: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "10000: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "99999: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "99999: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "99999: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 99999"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 99999 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "99999: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "99999: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "99999 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99999: döküş 12"
+    },
+    {
+      "ok": true,
+      "message": "99999: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "99999: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "99999: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "99999: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 100000"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 100000 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "100000: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "100000: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "999999: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "999999: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "999999: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 999999"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 999999 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "999999: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "999999: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "999999 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "999999: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "999999: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "999999: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "999999: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "999999: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 1000000"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 1000000 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "1000000: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "1000000: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "Milyonuncu bölümün gerçek LevelMap sahnesi hazır"
+    },
+    {
+      "ok": true,
+      "message": "1.000.000: doğru dünya, 5 havuz adası, 17 etkin nokta"
+    },
+    {
+      "ok": true,
+      "message": "99: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "99: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "99: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 99"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 99 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "99 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "99: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "99: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "99: ödül 0 coin (bakiye farkı 0, kayıt 0, ipucu farkı 0)"
+    },
+    {
+      "ok": true,
+      "message": "Eski bölüm tekrarı en yüksek kayıtları ve devam imlecini düşürmedi"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "ArrivalDismiss etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "NavInventory etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "BuyColorSwap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Mağaza arayüzü: Renk Dönüşümü 60 altına bir stok verdi"
+    },
+    {
+      "ok": true,
+      "message": "Dönüşüm denemesi için 101 hazır"
+    },
+    {
+      "ok": true,
+      "message": "Dönüşüm denemesi için 102 hazır"
+    },
+    {
+      "ok": true,
+      "message": "Dönüşüm denemesi için 103 hazır"
+    },
+    {
+      "ok": true,
+      "message": "Dönüşüm denemesi için 104 hazır"
+    },
+    {
+      "ok": true,
+      "message": "Dönüşüm denemesi için 105 hazır"
+    },
+    {
+      "ok": true,
+      "message": "Dönüşüm denemesi için 106 hazır"
+    },
+    {
+      "ok": true,
+      "message": "106. bölümde doğrulanmış dönüşüm hedefi bulundu"
+    },
+    {
+      "ok": true,
+      "message": "106: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "106: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "106: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 106"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 106 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "ColorSwap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Şişe seçmeden kullanma stoğu korudu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "ColorSwap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek Gameplay: dönüşüm 12 → 11 hamle, bir stok"
+    },
+    {
+      "ok": true,
+      "message": "Güç kullanımı sonrası yeniden açılan kayıtta stok, bakiye ve ilerleme doğru"
+    }
+  ],
+  "boards": [
+    {
+      "id": 999,
+      "signature": "||AABA|BCBD|CCDD|DBAC",
+      "moves": 10,
+      "difficulty": "Hard"
+    },
+    {
+      "id": 1000,
+      "signature": "||ABAC|BCCB|BDAD|DCDA",
+      "moves": 13,
+      "difficulty": "Expert"
+    },
+    {
+      "id": 1000,
+      "signature": "||ABAC|BCCB|BDAD|DCDA",
+      "moves": 13,
+      "difficulty": "Expert"
+    },
+    {
+      "id": 1001,
+      "signature": "||AAAB|ABBC|CCCB",
+      "moves": 5,
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9999,
+      "signature": "||ABAB|BACD|CBDD|DCAC",
+      "moves": 12,
+      "difficulty": "Expert"
+    },
+    {
+      "id": 10000,
+      "signature": "||ABBA|CBAC|DBCD|DCAD",
+      "moves": 13,
+      "difficulty": "Expert"
+    },
+    {
+      "id": 99999,
+      "signature": "||AABA|CBBC|CDAD|DBDC",
+      "moves": 12,
+      "difficulty": "Hard"
+    },
+    {
+      "id": 100000,
+      "signature": "||ABAB|CABD|DACC|DCDB",
+      "moves": 12,
+      "difficulty": "Expert"
+    },
+    {
+      "id": 999999,
+      "signature": "||AABC|ABBD|ADDC|BDCC",
+      "moves": 10,
+      "difficulty": "Hard"
+    },
+    {
+      "id": 1000000,
+      "signature": "||ABAB|CACD|CDCB|DBAD",
+      "moves": 14,
+      "difficulty": "Expert"
+    }
+  ],
+  "transitions": [
+    {
+      "from": 999,
+      "scene": "Gameplay",
+      "hud": 999,
+      "SelectedId": 1000,
+      "LastError": null,
+      "saved": 1000,
+      "canLoad": true,
+      "frame": 960,
+      "Ready": true,
+      "lastNavigationFrame": 960,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 999,
+      "scene": "Gameplay",
+      "hud": 1000,
+      "SelectedId": 1000,
+      "LastError": null,
+      "saved": 1000,
+      "canLoad": true,
+      "frame": 961,
+      "Ready": true,
+      "lastNavigationFrame": 960,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 1000,
+      "scene": "Gameplay",
+      "hud": 1000,
+      "SelectedId": 1001,
+      "LastError": null,
+      "saved": 1001,
+      "canLoad": true,
+      "frame": 1747,
+      "Ready": true,
+      "lastNavigationFrame": 1747,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 1000,
+      "scene": "Gameplay",
+      "hud": 1001,
+      "SelectedId": 1001,
+      "LastError": null,
+      "saved": 1001,
+      "canLoad": true,
+      "frame": 1748,
+      "Ready": true,
+      "lastNavigationFrame": 1747,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 9999,
+      "scene": "Gameplay",
+      "hud": 9999,
+      "SelectedId": 10000,
+      "LastError": null,
+      "saved": 10000,
+      "canLoad": true,
+      "frame": 2411,
+      "Ready": true,
+      "lastNavigationFrame": 2411,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 9999,
+      "scene": "Gameplay",
+      "hud": 10000,
+      "SelectedId": 10000,
+      "LastError": null,
+      "saved": 10000,
+      "canLoad": true,
+      "frame": 2412,
+      "Ready": true,
+      "lastNavigationFrame": 2411,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 99999,
+      "scene": "Gameplay",
+      "hud": 99999,
+      "SelectedId": 100000,
+      "LastError": null,
+      "saved": 100000,
+      "canLoad": true,
+      "frame": 3143,
+      "Ready": true,
+      "lastNavigationFrame": 3143,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 99999,
+      "scene": "Gameplay",
+      "hud": 100000,
+      "SelectedId": 100000,
+      "LastError": null,
+      "saved": 100000,
+      "canLoad": true,
+      "frame": 3144,
+      "Ready": true,
+      "lastNavigationFrame": 3143,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 999999,
+      "scene": "Gameplay",
+      "hud": 999999,
+      "SelectedId": 1000000,
+      "LastError": null,
+      "saved": 1000000,
+      "canLoad": true,
+      "frame": 3686,
+      "Ready": true,
+      "lastNavigationFrame": 3686,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 999999,
+      "scene": "Gameplay",
+      "hud": 1000000,
+      "SelectedId": 1000000,
+      "LastError": null,
+      "saved": 1000000,
+      "canLoad": true,
+      "frame": 3687,
+      "Ready": true,
+      "lastNavigationFrame": 3686,
+      "navigating": false,
+      "status": ""
+    }
+  ],
+  "errors": [],
+  "failure": null,
+  "playerSaveIntact": true
+}

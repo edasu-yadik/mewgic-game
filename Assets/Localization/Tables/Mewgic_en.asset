@@ -2012,6 +2012,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
+  - m_Id: 4154944402063360
+    m_Localized: Color Swap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: Select a bottle. Stock is used only if the swap helps.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: Top colors swapped. Undo starts with the next pour.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: From level {0}, select a bottle to swap top colors when it helps.
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126371
   references:
     version: 2
     RefIds:

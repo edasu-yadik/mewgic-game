@@ -1,3 +1,4 @@
+using System.Threading;
 using System;using System.Collections.Generic;using System.Linq;
 namespace Mewgic.Core
 {
@@ -10,18 +11,20 @@ namespace Mewgic.Core
     {
         sealed class Node{public int[][] Data;public Node Previous;public PuzzleMove Move;}
         public static string StateKey(int[][] data)=>string.Join("|",data.Select(b=>string.Join(",",b)).OrderBy(b=>b,StringComparer.Ordinal));
-        public static PuzzleSolution Solve(int[][] data,int limit=10000)
+        public static PuzzleSolution Solve(int[][] data,int limit=10000,CancellationToken cancellation=default)
         {
             if(limit<1)throw new ArgumentOutOfRangeException(nameof(limit));
+            cancellation.ThrowIfCancellationRequested();
             var valid = new Puzzle(data).Export();
-            return PackedPuzzleSearch.TrySolve(valid, limit, out var packed) ? packed : SolveReference(valid, limit);
+            return PackedPuzzleSearch.TrySolve(valid, limit, out var packed, cancellation) ? packed : SolveReference(valid, limit, cancellation);
         }
-        internal static PuzzleSolution SolveReference(int[][] data, int limit)
+        internal static PuzzleSolution SolveReference(int[][] data, int limit, CancellationToken cancellation=default)
         {
             var result=new PuzzleSolution();var first=new Node{Data=data};
             var queue=new Queue<Node>();queue.Enqueue(first);var seen=new HashSet<string>{StateKey(first.Data)};
             while(queue.Count>0)
             {
+                cancellation.ThrowIfCancellationRequested();
                 result.Stored=seen.Count;result.PeakQueue=Math.Max(result.PeakQueue,queue.Count);var node=queue.Dequeue();var current=new Puzzle(node.Data);result.Visited++;
                 if(current.Won){result.Status=SearchStatus.Solved;for(var n=node;n.Previous!=null;n=n.Previous)result.Moves.Add(n.Move);result.Moves.Reverse();return result;}
                 int productive=0;string currentKey=StateKey(node.Data);

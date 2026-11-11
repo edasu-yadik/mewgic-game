@@ -1996,6 +1996,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
+  - m_Id: 4154944402063360
+    m_Localized: "\xC9change de couleurs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532352
+    m_Localized: "Choisis une bouteille. Seul un \xE9change utile est consomm\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532353
+    m_Localized: "Couleurs du haut \xE9chang\xE9es. Annulation au prochain versement."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532354
+    m_Localized: "D\xE8s le niveau {0}, choisis une bouteille pour \xE9changer les
+      couleurs du haut."
+    m_Metadata:
+      m_Items:
+      - rid: 1668092879795126365
   references:
     version: 2
     RefIds:

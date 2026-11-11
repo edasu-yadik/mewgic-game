@@ -20,6 +20,8 @@
   "extraPrice": 60,
   "hintPrice": 40,
   "shufflePrice": 50,
+  "colorSwapPrice": 60,
+  "colorSwapUnlock": 101,
   "crystalCatPrice": 240,
   "goldCatPrice": 360,
   "nightCatPrice": 300,

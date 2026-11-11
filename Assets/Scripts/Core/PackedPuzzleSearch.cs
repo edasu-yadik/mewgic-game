@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace Mewgic.Core
@@ -43,7 +44,7 @@ namespace Mewgic.Core
             internal PuzzleMove move;
         }
 
-        internal static bool TrySolve(int[][] data, int limit, out PuzzleSolution result)
+        internal static bool TrySolve(int[][] data, int limit, out PuzzleSolution result, CancellationToken cancellation=default)
         {
             result = null;
             int count = data.Length;
@@ -67,6 +68,7 @@ namespace Mewgic.Core
             Span<int> lengths = stackalloc int[8];
             for (int head = 0; head < nodes.Count; head++)
             {
+                cancellation.ThrowIfCancellationRequested();
                 result.Stored = nodes.Count;
                 result.PeakQueue = Math.Max(result.PeakQueue, nodes.Count - head);
                 result.Visited++;
