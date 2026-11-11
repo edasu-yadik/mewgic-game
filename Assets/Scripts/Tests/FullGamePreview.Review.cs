@@ -38,7 +38,7 @@ namespace Mewgic
             Directory.CreateDirectory(ReviewOutput);
             var screens = new[]
             {
-                (0, 1, "Home"), (1, 5, "Gameplay"), (2, 7, "Victory"), (3, 1, "World"),
+                (0, 1, "Home"), (1, 5, "Gameplay"), (2, 7, "Victory"), (3, 1, "Map"),
                 (11, 1, "Village"), (9, 100, "Crystal"),
                 (5, 1, "Clans"), (6, 1, "League"), (7, 1, "Events"), (8, 1, "Daily")
             };

@@ -181,7 +181,7 @@ namespace Mewgic
             navigating = true;
             endScreen.SetTransition(true);
             if (!SceneNavigation.LoadWithFade(tutorialReplay ? "Home" : "LevelMap",
-                tutorialReplay ? null : () => Map.MapWorld.RequestResultChapter(levelInfo.id), RestoreResultNavigation))
+                tutorialReplay ? null : () => Map.MapWorld.RequestResultFocus(levelInfo.id), RestoreResultNavigation))
                 RestoreResultNavigation();
         }
 

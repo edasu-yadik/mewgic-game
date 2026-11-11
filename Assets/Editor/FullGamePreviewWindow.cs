@@ -9,7 +9,7 @@ public sealed class FullGamePreviewWindow : EditorWindow
     const string StartSceneKey = "Mewgic.VisualQA.PreviousScene";
     int level = 1;
     int selected;
-    static readonly string[] Screens = { "Ana Menü", "Oyun", "Bölüm Sonu", "Dünya Haritası", "Özel Teklifler", "Klan", "Lig", "Etkinlikler", "Günlük Görevler" };
+    static readonly string[] Screens = { "Ana Menü", "Oyun", "Bölüm Sonu", "Harita", "Özel Teklifler", "Klan", "Lig", "Etkinlikler", "Günlük Görevler" };
 
     [MenuItem("Mewgic/Visual QA/Open Full Game Preview")]
     public static void Open()
@@ -28,6 +28,9 @@ public sealed class FullGamePreviewWindow : EditorWindow
         StartPreview(false, true);
     }
 
+    [MenuItem("Mewgic/Visual QA/Verify Continuous Map")]
+    static void VerifyMap() => StartPreview(false, map: true);
+
     [InitializeOnLoadMethod]
     static void RegisterRestore() => EditorApplication.playModeStateChanged += change =>
     {
@@ -37,9 +40,10 @@ public sealed class FullGamePreviewWindow : EditorWindow
         SessionState.EraseBool(FullGamePreview.SessionKey);
         SessionState.EraseBool(FullGamePreview.VerifyKey);
         SessionState.EraseBool(FullGamePreview.ReviewKey);
+        SessionState.EraseBool(FullGamePreview.SingleMapKey);
     };
 
-    static void StartPreview(bool verify, bool review = false)
+    static void StartPreview(bool verify, bool review = false, bool map = false)
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode) return;
         for (int i=0;i<UnityEngine.SceneManagement.SceneManager.sceneCount;i++)
@@ -50,6 +54,7 @@ public sealed class FullGamePreviewWindow : EditorWindow
         SessionState.SetBool(FullGamePreview.SessionKey,true);
         SessionState.SetBool(FullGamePreview.VerifyKey,verify);
         SessionState.SetBool(FullGamePreview.ReviewKey,review);
+        SessionState.SetBool(FullGamePreview.SingleMapKey,map);
         EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/Scenes/Home.unity");
         EditorApplication.isPlaying = true;
     }

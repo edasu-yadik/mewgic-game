@@ -1,0 +1,17 @@
+{
+  "blendLevels": 14,
+  "themes": [
+    {
+      "firstLevel": 1,
+      "title": "Büyülü Köy",
+      "roadTint": "#FFE0C6",
+      "backdropTint": "#FFE4D3"
+    },
+    {
+      "firstLevel": 51,
+      "title": "Kristal Şelaleler",
+      "roadTint": "#FFFFFF",
+      "backdropTint": "#FFFFFF"
+    }
+  ]
+}

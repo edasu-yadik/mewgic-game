@@ -4,15 +4,84 @@ namespace Mewgic.Map
 {
  public sealed partial class MapWorld
  {
-  MapProgression progression;ProgressLedger ledger;Button claimButton;int selectedChest=-1;bool navigating;
-  public MapProgression Progression=>progression;
-  void BindProgress(){ledger=GameplayProgress.Current;try{progression=MapProgressionCatalog.Open(ledger);}catch(Exception){Message(L.V("boot.error"));return;}if(GameplayProgress.LoadError!=null)Message(L.V("error.load"));}
-  public void RefreshProgress(){if(ledger==null)return;progression=MapProgressionCatalog.Open(ledger);foreach(var v in views)if(v.region>=0)BindIsland(v,v.region);UpdateProgressTitle();if(chapter.activeSelf){firstBound=-1;BindJourneyWindow();}}
-  void UpdateProgressTitle(){if(progression==null)return;regionTitle.text=progression.RegionOpen(ActiveRegion)?L.Island(ActiveRegion):L.V("map.region_locked",L.Island(ActiveRegion));}
-  void Message(string text){CancelJump();Scroll.StopMovement();informationText.text=text;information.SetActive(true);information.transform.SetAsLastSibling();claimButton.gameObject.SetActive(false);if(chapter.activeSelf){SetJourneyNavigation(infoClose,null,null);infoClose.Select();}else infoClose.navigation=Navigation.defaultNavigation;}
-  public void ShowInformation(MapPoint point){if(navigating)return;if(progression==null){Message(L.V("boot.error"));return;}int r=point.regionIndex;if(point.kind==MapPointKind.LevelGroup){OpenChapter(r,point.slotIndex);return;}if(point.kind==MapPointKind.LevelSlot){int id=progression.LevelId(r,point.slotIndex);if(JourneyLockPending(id))return;if(!progression.CanEnter(id)){Message(L.V("map.level_locked",id));return;}EnterLevel(id);return;}selectedChest=r;if(progression.ChestClaimed(r)){Message(L.V("map.chest_taken"));return;}if(!progression.ChestReady(r)){Message(L.V("map.chest_wait",L.Island(r)));return;}Message(L.V("map.chest_ready",progression.Reward(r).amount));claimButton.gameObject.SetActive(true);}
-  public async void EnterLevel(int id){if(navigating||progression==null||JourneyLockPending(id)||!progression.CanEnter(id))return;CancelJourneyFocus();navigating=true;Message(L.V("map.preparing"));try{await GameplayLevelCatalog.PrepareAsync(id);if(this==null)return;if(!GameplayLevelCatalog.Select(id,ledger))throw new InvalidOperationException();pendingFocus=-1;ledger.SaveMapFocus(id);SceneNavigation.LoadOnce("Gameplay");}catch(Exception){if(this!=null){navigating=false;Message(L.V("error.prepare"));}}}
-  void ClaimSelectedChest(){if(selectedChest<0||progression==null)return;bool saved=progression.ClaimChest(selectedChest,out bool granted);RefreshProgress();Message(!saved?L.V("error.save"):granted?L.V("map.chest_saved"):L.V("map.chest_taken"));}
+  MapProgression progression;
+  ProgressLedger ledger;
+  Button claimButton;
+  int selectedChest = -1;
+  bool navigating;
+  public MapProgression Progression => progression;
+
+  void BindProgress()
+  {
+   ledger = GameplayProgress.Current;
+   try { progression = MapProgressionCatalog.Open(ledger); }
+   catch (Exception) { Message(L.V("boot.error")); return; }
+   if (GameplayProgress.LoadError != null) Message(L.V("error.load"));
+  }
+
+  public void RefreshProgress()
+  {
+   if (ledger == null) return;
+   progression = MapProgressionCatalog.Open(ledger);
+   InvalidateRoad();
+  }
+
+  void Message(string text)
+  {
+   following = false;
+   Scroll.StopMovement();
+   informationText.text = text;
+   information.SetActive(true);
+   information.transform.SetAsLastSibling();
+   claimButton.gameObject.SetActive(false);
+   infoClose.Select();
+  }
+
+  public void ShowInformation(MapPoint point)
+  {
+   if (navigating || progression == null || point == null) return;
+   int region = point.regionIndex;
+   if (point.kind == MapPointKind.LevelSlot)
+   {
+    int id = progression.LevelId(region, point.slotIndex);
+    if (journeyRunning && id == walkTo) return;
+    if (!progression.CanEnter(id)) { Message(L.V("map.level_locked", id)); return; }
+    EnterLevel(id);
+    return;
+   }
+   selectedChest = region;
+   if (progression.ChestClaimed(region)) { Message(L.V("map.chest_taken")); return; }
+   if (!progression.ChestReady(region)) { Message(L.V("map.chest_wait", L.Island(region))); return; }
+   Message(L.V("map.chest_ready", progression.Reward(region).amount));
+   claimButton.gameObject.SetActive(true);
+  }
+
+  public async void EnterLevel(int id)
+  {
+   if (navigating || progression == null || journeyRunning && id == walkTo || !progression.CanEnter(id)) return;
+   navigating = true;
+   Message(L.V("map.preparing"));
+   try
+   {
+    await GameplayLevelCatalog.PrepareAsync(id);
+    if (this == null) return;
+    if (!GameplayLevelCatalog.Select(id, ledger)) throw new InvalidOperationException();
+    ledger.SaveMapFocus(id);
+    SceneNavigation.LoadOnce("Gameplay");
+   }
+   catch (Exception)
+   {
+    if (this != null) { navigating = false; Message(L.V("error.prepare")); }
+   }
+  }
+
+  void ClaimSelectedChest()
+  {
+   if (selectedChest < 0 || progression == null) return;
+   bool saved = progression.ClaimChest(selectedChest, out bool granted);
+   RefreshProgress();
+   Message(!saved ? L.V("error.save") : granted ? L.V("map.chest_saved") : L.V("map.chest_taken"));
+  }
  }
  public sealed class MapNodeBadge : MonoBehaviour
  {

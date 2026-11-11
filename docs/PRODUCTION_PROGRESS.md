@@ -1,5 +1,11 @@
 # Üretim ilerlemesi
 
+## Tek parça bölüm haritası
+Ana Menü ve bölüm sonu aynı LevelMap rotasını açıyor. Ada seçimi kaldırıldı.
+Kristal köprüler ve dinamik taşlar kayarken dış çevre sabit kalıyor.
+Unity Play Mode ve üç portre oranı doğrulaması için [rapor](ProductionReports/SingleMap/REPORT.md).
+
+
 ## PART10F — Alt açıklamanın kaldırılması
 BoosterPolicy runtime metni kaldırıldı;Restart/Home hizası,dokunma alanları
 ve işlevleri korundu.30 Unity kontrolü,3 oran/Safe Area ve gerçek raycast
