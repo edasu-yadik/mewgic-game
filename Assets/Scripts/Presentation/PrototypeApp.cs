@@ -139,7 +139,7 @@ namespace Mewgic
             var play=Button(safe,"Play",L.V("home.play"),new Vector2(.15f,.18f),new Vector2(.85f,.28f),()=>PlayCurrentLevel());
             if(homeCharacter != null) { homeCharacter.GetComponent<HomePlayButtonPresenter>()?.Bind(play); homeCharacter.Bind(play); }
             if(homeCharacter != null) homeCharacter.GetComponent<HomeNavigation>()?.Mount(safe);
-            gameObject.AddComponent<MagicShopPanel>().Mount(safe,homeCharacter?.GetComponent<HomeTopBar>()?.coin);
+            gameObject.AddComponent<MagicShopPanel>().Mount(safe);
             gameObject.AddComponent<Clans.ClanPanel>().Mount(safe, homeCharacter?.GetComponent<HomeNavigation>()?.team);
             gameObject.AddComponent<Mewgic.Daily.DailyActivitiesPanel>().Mount(safe);
             gameObject.AddComponent<Mewgic.Rewards.RewardHubPanel>().Mount(safe);

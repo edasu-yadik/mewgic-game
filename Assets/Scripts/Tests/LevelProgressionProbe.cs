@@ -24,8 +24,8 @@ namespace Mewgic
         const string Output = "docs/ProductionReports/LevelProgression/";
         [SerializeField] bool frontier;
         [SerializeField] string regressionOutput;
-        string Evidence => frontier ? "docs/ProductionReports/InfiniteLevels/" :
-            string.IsNullOrEmpty(regressionOutput) ? Output : regressionOutput;
+        string Evidence => !string.IsNullOrEmpty(regressionOutput) ? regressionOutput :
+            frontier ? "docs/ProductionReports/InfiniteLevels/" : Output;
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo LedgerField = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
         static readonly FieldInfo PuzzleField = typeof(PrototypeApp).GetField("puzzle", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -44,6 +44,8 @@ namespace Mewgic
 
         [MenuItem("Mewgic/QA/Run Infinite Levels and Boosters")]
         public static void BeginFrontier() => Begin(true);
+
+        public static void BeginFrontier(string folder) => Begin(true, folder);
 
         public static void BeginRegression(string folder) => Begin(false, folder);
 
@@ -122,6 +124,8 @@ namespace Mewgic
 
         IEnumerator Start()
         {
+            // Mount the initial level before changing the isolated profile for frontier tests.
+            if (frontier) yield return null;
             string failure = null;
             var stack = new Stack<IEnumerator>();
             stack.Push(frontier ? RunFrontier() : Run());
@@ -345,7 +349,7 @@ namespace Mewgic
             key = "Mewgic.Tests.InfiniteLevels." + Guid.NewGuid().ToString("N");
             var legacy = MapFlowProbe.Data(1800);
             legacy.colorSwap = 1;
-            legacy.presentation.coins = 500;
+            legacy.presentation.coins = Enum.GetValues(typeof(BoosterKind)).Cast<BoosterKind>().Sum(ProgressLedger.BoosterPrice) + 100;
             var directory = Path.Combine(archiveRoot, "Progress");
             string json = JsonUtility.ToJson(legacy);
             PlayerPrefs.SetString(key, json);
@@ -425,10 +429,14 @@ namespace Mewgic
             Check(Ledger.CurrentUnlockedLevel == 101 && Ledger.HighestCompletedLevel == 100 && Ledger.Presentation.currentLevel == 101,
                 "Eski bölüm tekrarı en yüksek kayıtları ve devam imlecini düşürmedi");
             SeedFrontier(120, persistent: true);
+            int swapPrice = ProgressLedger.BoosterPrice(BoosterKind.ColorSwap);
+            Check(Ledger.SetResources(swapPrice + 440, 0, 5), "Mağaza test bakiyesi hazır");
             SceneManager.LoadScene("Home");
             yield return HomeReady();
             if (GameObject.Find("ArrivalDismiss") != null) Click("ArrivalDismiss");
             Click("NavInventory");
+            yield return null;
+            Click("ShopTab_Powers");
             yield return null;
             var scroll = GameObject.Find("MagicShop").GetComponentInChildren<ScrollRect>();
             if (scroll != null) scroll.verticalNormalizedPosition = 0;
@@ -439,7 +447,7 @@ namespace Mewgic
             yield return null;
             Click("ShopConfirm");
             Check(Ledger.Remaining(BoosterKind.ColorSwap) == 1 && Ledger.Presentation.coins == 440,
-                "Mağaza arayüzü: Renk Dönüşümü 60 altına bir stok verdi");
+                $"Mağaza arayüzü: Renk Dönüşümü {swapPrice} altına bir stok verdi");
 
             int source = -1, swapLevel = 0;
             for (int id = 101; id <= 120 && source < 0; id++)

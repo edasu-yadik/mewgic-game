@@ -1,0 +1,356 @@
+{
+  "regions": [
+    {
+      "name": "scenery",
+      "x": 0,
+      "y": 0,
+      "width": 941,
+      "height": 343,
+      "border": 0
+    },
+    {
+      "name": "powerpack",
+      "x": 945,
+      "y": 0,
+      "width": 333,
+      "height": 275,
+      "border": 0
+    },
+    {
+      "name": "wizard",
+      "x": 1282,
+      "y": 0,
+      "width": 364,
+      "height": 274,
+      "border": 0
+    },
+    {
+      "name": "back",
+      "x": 1650,
+      "y": 0,
+      "width": 32,
+      "height": 256,
+      "border": 0
+    },
+    {
+      "name": "gold10000",
+      "x": 0,
+      "y": 347,
+      "width": 419,
+      "height": 251,
+      "border": 0
+    },
+    {
+      "name": "starter",
+      "x": 423,
+      "y": 347,
+      "width": 347,
+      "height": 235,
+      "border": 0
+    },
+    {
+      "name": "night",
+      "x": 774,
+      "y": 347,
+      "width": 269,
+      "height": 215,
+      "border": 0
+    },
+    {
+      "name": "fairy",
+      "x": 1047,
+      "y": 347,
+      "width": 276,
+      "height": 215,
+      "border": 0
+    },
+    {
+      "name": "royal",
+      "x": 1327,
+      "y": 347,
+      "width": 277,
+      "height": 215,
+      "border": 0
+    },
+    {
+      "name": "crystal",
+      "x": 1608,
+      "y": 347,
+      "width": 277,
+      "height": 203,
+      "border": 0
+    },
+    {
+      "name": "princess",
+      "x": 0,
+      "y": 602,
+      "width": 269,
+      "height": 201,
+      "border": 0
+    },
+    {
+      "name": "explorer",
+      "x": 273,
+      "y": 602,
+      "width": 276,
+      "height": 201,
+      "border": 0
+    },
+    {
+      "name": "panel",
+      "x": 553,
+      "y": 602,
+      "width": 176,
+      "height": 176,
+      "border": 60
+    },
+    {
+      "name": "powers",
+      "x": 733,
+      "y": 602,
+      "width": 261,
+      "height": 166,
+      "border": 0
+    },
+    {
+      "name": "logo",
+      "x": 998,
+      "y": 602,
+      "width": 272,
+      "height": 139,
+      "border": 0
+    },
+    {
+      "name": "move",
+      "x": 1274,
+      "y": 602,
+      "width": 213,
+      "height": 134,
+      "border": 0
+    },
+    {
+      "name": "extra",
+      "x": 1491,
+      "y": 602,
+      "width": 213,
+      "height": 134,
+      "border": 0
+    },
+    {
+      "name": "hint",
+      "x": 1708,
+      "y": 602,
+      "width": 213,
+      "height": 134,
+      "border": 0
+    },
+    {
+      "name": "shuffle",
+      "x": 0,
+      "y": 807,
+      "width": 213,
+      "height": 134,
+      "border": 0
+    },
+    {
+      "name": "swap",
+      "x": 217,
+      "y": 807,
+      "width": 213,
+      "height": 134,
+      "border": 0
+    },
+    {
+      "name": "hammer",
+      "x": 434,
+      "y": 807,
+      "width": 213,
+      "height": 134,
+      "border": 0
+    },
+    {
+      "name": "gold100",
+      "x": 651,
+      "y": 807,
+      "width": 202,
+      "height": 126,
+      "border": 0
+    },
+    {
+      "name": "garden",
+      "x": 857,
+      "y": 807,
+      "width": 941,
+      "height": 124,
+      "border": 0
+    },
+    {
+      "name": "discount",
+      "x": 1802,
+      "y": 807,
+      "width": 168,
+      "height": 124,
+      "border": 0
+    },
+    {
+      "name": "gold250",
+      "x": 0,
+      "y": 945,
+      "width": 215,
+      "height": 108,
+      "border": 0
+    },
+    {
+      "name": "gold1000",
+      "x": 219,
+      "y": 945,
+      "width": 227,
+      "height": 108,
+      "border": 0
+    },
+    {
+      "name": "heading",
+      "x": 450,
+      "y": 945,
+      "width": 500,
+      "height": 105,
+      "border": 0
+    },
+    {
+      "name": "tab",
+      "x": 954,
+      "y": 945,
+      "width": 104,
+      "height": 104,
+      "border": 34
+    },
+    {
+      "name": "active",
+      "x": 1062,
+      "y": 945,
+      "width": 104,
+      "height": 104,
+      "border": 34
+    },
+    {
+      "name": "cream",
+      "x": 1170,
+      "y": 945,
+      "width": 104,
+      "height": 104,
+      "border": 48
+    },
+    {
+      "name": "badge",
+      "x": 1278,
+      "y": 945,
+      "width": 104,
+      "height": 104,
+      "border": 48
+    },
+    {
+      "name": "tagline",
+      "x": 1386,
+      "y": 945,
+      "width": 505,
+      "height": 85,
+      "border": 0
+    },
+    {
+      "name": "gold5000",
+      "x": 0,
+      "y": 1057,
+      "width": 242,
+      "height": 80,
+      "border": 0
+    },
+    {
+      "name": "ribbon",
+      "x": 246,
+      "y": 1057,
+      "width": 200,
+      "height": 80,
+      "border": 34
+    },
+    {
+      "name": "gold2500",
+      "x": 450,
+      "y": 1057,
+      "width": 207,
+      "height": 79,
+      "border": 0
+    },
+    {
+      "name": "green",
+      "x": 661,
+      "y": 1057,
+      "width": 257,
+      "height": 71,
+      "border": 48
+    },
+    {
+      "name": "edgeglow",
+      "x": 922,
+      "y": 1057,
+      "width": 400,
+      "height": 64,
+      "border": 0
+    },
+    {
+      "name": "potion",
+      "x": 1326,
+      "y": 1057,
+      "width": 55,
+      "height": 53,
+      "border": 0
+    },
+    {
+      "name": "coin",
+      "x": 1385,
+      "y": 1057,
+      "width": 55,
+      "height": 51,
+      "border": 0
+    },
+    {
+      "name": "stack",
+      "x": 1444,
+      "y": 1057,
+      "width": 70,
+      "height": 51,
+      "border": 0
+    },
+    {
+      "name": "shirt",
+      "x": 1518,
+      "y": 1057,
+      "width": 65,
+      "height": 51,
+      "border": 0
+    },
+    {
+      "name": "paw",
+      "x": 1587,
+      "y": 1057,
+      "width": 45,
+      "height": 50,
+      "border": 0
+    },
+    {
+      "name": "crown",
+      "x": 1636,
+      "y": 1057,
+      "width": 71,
+      "height": 49,
+      "border": 0
+    },
+    {
+      "name": "diamond",
+      "x": 1711,
+      "y": 1057,
+      "width": 54,
+      "height": 42,
+      "border": 0
+    }
+  ]
+}

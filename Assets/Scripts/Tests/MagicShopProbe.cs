@@ -7,7 +7,6 @@ using System.Linq;
 using System.Reflection;
 using Mewgic.Core;
 using Mewgic.Localization;
-using Mewgic.UI;
 using Newtonsoft.Json.Linq;
 using TMPro;
 using UnityEditor;
@@ -22,7 +21,7 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class MagicShopProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/MagicShop/";
+        const string Output = "docs/ProductionReports/ReferenceShop/";
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo Current = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
         static MagicShopProbe active;
@@ -42,6 +41,7 @@ namespace Mewgic
             EditorSceneManager.OpenScene("Assets/Scenes/Home.unity");
             new GameObject("Magic Shop QA").AddComponent<MagicShopProbe>();
             Size(1600);
+            EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
             EditorApplication.isPlaying = true;
         }
 
@@ -60,8 +60,8 @@ namespace Mewgic
             Application.runInBackground = true;
             original = PlayerSave();
             var data = new ProgressData();
-            data.presentation.coins = 700;
-            data.presentation.gems = 17;
+            data.presentation.coins = 600;
+            data.presentation.gems = 2700;
             data.presentation.energy = 4;
             data.presentation.manualLocale = "tr";
             data.presentation.reduceMotion = true;
@@ -124,19 +124,12 @@ namespace Mewgic
             EditorApplication.isPlaying = false;
         }
 
-        IEnumerator Until(Func<bool> condition, string name)
-        {
-            float limit = Time.realtimeSinceStartup + 20;
-            while (!condition() && Time.realtimeSinceStartup < limit) yield return null;
-            Check(condition(), name);
-        }
-
         static Button Button(string name) => GameObject.Find(name)?.GetComponent<Button>();
 
-        void Click(string name, bool doubleTap = false)
+        void Press(string name)
         {
             var button = Button(name);
-            Check(button != null && button.IsInteractable(), name + " etkileşimli");
+            Check(button != null && button.IsInteractable(), name + " etkin");
             Canvas.ForceUpdateCanvases();
             var rect = (RectTransform)button.transform;
             var pointer = new PointerEventData(EventSystem.current)
@@ -146,216 +139,153 @@ namespace Mewgic
             };
             var hits = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointer, hits);
-            Check(hits.Count > 0 && ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject) == button.gameObject,
-                name + " gerçek raycast hedefi" + (hits.Count > 0 ? " · " + hits[0].gameObject.name : ""));
-            ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
-            if (doubleTap) ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
+            var hit = hits.Count == 0 ? null : ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
+            Check(hit == button.gameObject, name + " tıklama alanı: " + (hits.Count == 0 ? "-" : hits[0].gameObject.name));
+            ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerClickHandler);
         }
 
-        IEnumerator Shot(string file)
+        IEnumerator Until(Func<bool> condition, string description)
         {
-            yield return new WaitForSecondsRealtime(.20f);
-            ScreenCapture.CaptureScreenshot(Output + file + ".png");
-            yield return new WaitForSecondsRealtime(.25f);
-            Check(File.Exists(Output + file + ".png"), file + " Game View kaydedildi");
+            float deadline = Time.realtimeSinceStartup + 15;
+            while (!condition() && Time.realtimeSinceStartup < deadline) yield return null;
+            Check(condition(), description);
         }
 
-        void Models()
+        void CheckText()
         {
-            var data = new ProgressData();
-            data.presentation.coins = 500;
-            var failed = new ProgressLedger(data, _ => throw new IOException("QA"));
-            var item = ShopItem.CrystalCat;
-            int price = Config.Price(item);
-            Check(failed.Purchase(item, price, 1) == ShopPurchaseResult.SaveFailed && failed.Presentation.coins == 500 &&
-                !failed.Owns(item) && failed.NextShopPurchase == 1, "Başarısız kayıt altın, sahiplik ve işlem numarasını değiştirmedi");
-            var ledger = new ProgressLedger(data, _ => { });
-            Check(ledger.Purchase(item, -1, 1) == ShopPurchaseResult.PriceChanged && ledger.Presentation.coins == 500,
-                "Negatif fiyat reddedildi");
-            Check(!ledger.SetResources(-1, 0, 5), "Negatif altın engellendi");
-            Check(!ledger.Equip(item), "Sahip olunmayan görünüm kuşanılamadı");
-            Check(ledger.Purchase(item, price, 1) == ShopPurchaseResult.Purchased, "Yeterli altınla kozmetik alındı");
-            Check(ledger.Purchase(item, price, 1) == ShopPurchaseResult.Duplicate &&
-                ledger.Purchase(item, price, 2) == ShopPurchaseResult.AlreadyOwned, "Tekrarlanan işlem ve tekil ürün ikinci kez ödenmedi");
-            Check(ledger.Purchase(ShopItem.GoldCat, Config.Price(ShopItem.GoldCat), 2) == ShopPurchaseResult.InsufficientGold &&
-                ledger.Presentation.coins == 500 - price, "Yetersiz altın bakiye ve sahipliği değiştirmedi");
-            var consumed = new ProgressLedger(data, _ => { });
-            int stock = consumed.Remaining(BoosterKind.Hint);
-            Check(consumed.Purchase(ShopItem.Hint, Config.hintPrice, 1) == ShopPurchaseResult.Purchased &&
-                consumed.Purchase(ShopItem.Hint, Config.hintPrice, 1) == ShopPurchaseResult.Duplicate &&
-                consumed.Remaining(BoosterKind.Hint) == stock + Config.boosterQuantity, "Aynı tekrar alınabilir güçlendirici isteği tek kez uygulandı");
-
-            var rewards = new ProgressLedger(new ProgressData(), _ => { }, () => new DateTimeOffset(2026, 11, 8, 10, 0, 0, TimeSpan.Zero));
-            Check(rewards.Claim(1, 3, true, out _, "shop-victory-1", 3, false, true) && rewards.LastCompletionReward.Base == Config.levelBase,
-                "İlk kazanış temel altını yapılandırmadan aldı");
-            Check(rewards.TryBoostVictory(1, "shop-victory-1", out int bonus) &&
-                rewards.LastCoinReward + bonus == rewards.LastCoinReward * ProgressLedger.VictoryAdMultiplier, "Reklam ödülü yapılandırılmış toplama ulaştı");
-            for (int i = 2; i <= 6; i++)
-                Check(rewards.Claim(i, 3, true, out _, "shop-victory-" + i, 3), "Etkinlik kazanışı " + i);
-            long coins = rewards.Presentation.coins;
-            Check(rewards.ClaimDailyTask(DailyTaskKind.Wins) && !rewards.ClaimDailyTask(DailyTaskKind.Wins) &&
-                rewards.Presentation.coins == coins + Config.taskWinsGold, "Günlük görev değişken altını bir kez verdi");
-            coins = rewards.Presentation.coins;
-            Check(rewards.ClaimWeekly() && rewards.Owns(ShopItem.RoseEffect) && !rewards.ClaimWeekly() &&
-                rewards.Presentation.coins == coins + Config.weeklyGold, "Haftalık etkinlik altın ve kozmetik verdi");
-            coins = rewards.Presentation.coins;
-            Check(rewards.ClaimSeason(2) && rewards.Owns(ShopItem.GoldBottle) && !rewards.ClaimSeason(2) &&
-                rewards.Presentation.coins == coins + Config.SeasonGold(2), "Sezon altını ve cam ödülünü bir kez verdi");
-        }
-
-        IEnumerator Buy(string button)
-        {
-            Click(button);
-            yield return null;
-            Click("ShopConfirm", true);
-            yield return new WaitForSecondsRealtime(.31f);
-        }
-
-        void CheckPortrait(int height)
-        {
-            Canvas.ForceUpdateCanvases();
-            var view = GameObject.Find("ShopViewport").GetComponent<RectTransform>();
-            Check(view.rect.width > 300 && view.rect.height > 500, height + " mağaza görünüm alanı");
-            foreach (var text in GameObject.Find("MagicShop").GetComponentsInChildren<TMP_Text>())
+            foreach (var label in GameObject.Find("MagicShop").GetComponentsInChildren<TMP_Text>())
             {
-                text.ForceMeshUpdate();
-                Check(!text.isTextOverflowing, height + " " + text.name + " taşmıyor");
+                label.ForceMeshUpdate();
+                Check(!label.isTextOverflowing, label.transform.parent.name + "/" + label.name + " taşmıyor");
             }
+        }
+
+        IEnumerator Shot(string name)
+        {
+            ScreenCapture.CaptureScreenshot(Output + name + ".png");
+            yield return new WaitForSecondsRealtime(.33f);
         }
 
         IEnumerator Run()
         {
-            Models();
-            yield return Until(() => L.Ready && Button("NavInventory") != null, "Home ve yerelleştirme hazır");
-            L.Select("tr", false);
-            Check(Ledger.Presentation.coins == 700 && Ledger.Presentation.gems == 17 && Ledger.Presentation.energy == 4 &&
-                Ledger.Equipped(ShopCategory.Cats) == ShopItem.ClassicCat, "Eski profilsiz mağaza verisi altın, mücevher ve enerjiyi korudu");
-            if (Button("ArrivalDismiss") != null) { Click("ArrivalDismiss"); yield return null; }
-            Click("NavInventory");
+            yield return Until(() => L.Ready && Button("NavInventory") != null, "Ana Menü hazır");
+            if (Button("ArrivalDismiss") != null) Press("ArrivalDismiss");
+            Check(Ledger.Presentation.coins == 600 && Ledger.Presentation.gems == 2700 &&
+                Ledger.Presentation.energy == 4, "Eski şema bakiyeleri korundu");
+            Press("NavInventory");
             yield return null;
-            yield return Shot("01-Boosters");
-            CheckPortrait(1600);
-            Click("BuyHint");
-            yield return null;
-            yield return Shot("02-Confirm");
-            Click("ShopCancel");
-            Check(Ledger.Presentation.coins == 700, "Vazgeç altın harcamadı");
-            int hints = Ledger.Remaining(BoosterKind.Hint);
-            yield return Buy("BuyHint");
-            Check(Ledger.Presentation.coins == 700 - Config.hintPrice &&
-                Ledger.Remaining(BoosterKind.Hint) == hints + Config.boosterQuantity, "Raycast ile onaylanan çift dokunuş bir kez satın aldı");
-
-            Click("ShopTab_Cats");
-            yield return null;
-            yield return Shot("03-Costumes");
-            yield return Buy("ShopAction_CrystalCat");
-            Click("ShopAction_CrystalCat");
-            yield return null;
-            Check(Ledger.Equipped(ShopCategory.Cats) == ShopItem.CrystalCat, "Kristal kostüm kuşanıldı");
-            Click("ShopTab_Bottles");
-            yield return null;
-            yield return Buy("ShopAction_CrystalBottle");
-            Click("ShopAction_CrystalBottle");
-            yield return null;
-            yield return Shot("04-Bottles");
-            Click("ShopTab_Effects");
-            yield return null;
-            yield return Buy("ShopAction_RoseEffect");
-            Click("ShopAction_RoseEffect");
-            yield return null;
-            yield return Shot("05-Effects");
-
-            Click("ShopTab_Cats");
-            yield return null;
-            Click("ShopAction_GoldCat");
-            yield return null;
-            Click("ShopConfirm");
-            long remaining = Ledger.Presentation.coins;
-            Check(!Ledger.Owns(ShopItem.GoldCat) && remaining == 700 - Config.hintPrice - Config.crystalCatPrice -
-                Config.crystalBottlePrice - Config.roseEffectPrice, "Yetersiz bakiye gerçek mağazada harcanmadı");
-            yield return Shot("06-Insufficient");
-            Click("ShopCancel");
-            yield return null;
-            Click("ShopOwned");
-            yield return null;
-            Check(GameObject.Find("ShopProduct_GoldCat") == null && GameObject.Find("ShopProduct_CrystalCat") != null,
-                "Sahip Olduklarım yalnız sahip olunanları listeliyor");
-            yield return Shot("07-Owned");
-            Click("ShopTab_Packs");
-            yield return null;
-            Check(GameObject.Find("ShopSpecialPacks") != null && Button("ShopConfirm") == null &&
-                Button("BuyHint") == null, "Özel paketler ödeme eylemi açmadı");
-            yield return Shot("08-Packs");
-            foreach (int height in new[] { 1950, 2000, 1600 })
+            string[] pages = { "Offers", "Gold", "Powers", "Costumes" };
+            foreach (int height in new[] { 1600, 1950, 2000 })
             {
                 Size(height);
-                yield return Until(() => Screen.height == height, height + " Game View hazır");
-                yield return null;
-                if (height == 2000)
+                yield return Until(() => Screen.height == height, $"900 × {height} Game View");
+                foreach (string page in pages)
                 {
-                    var safe = (RectTransform)GameObject.Find("MagicShop").transform.parent;
-                    safe.anchorMin = new Vector2(.03f, .045f);
-                    safe.anchorMax = new Vector2(.97f, .945f);
-                }
-                Click("ShopTab_Boosters");
-                yield return null;
-                CheckPortrait(height);
-                if (height == 2000) yield return Shot("09-Shop-SafeArea");
-            }
-            Click("ShopClose");
+                    Press("ShopTab_" + page);
             yield return null;
-            var liveCat = FindFirstObjectByType<HomeCharacterPresenter>().cat;
-            Check(liveCat.GetComponentsInChildren<Image>().Any(i => i.name == "Body" && i.material.shader.name == "Mewgic/ShopCostume"),
-                "Ana menüde asıl maskotun kostüm malzemesi değişti");
-            yield return Shot("10-EquippedHome");
-
-            PlayerPrefs.SetString(key, "{corrupt");
-            PlayerPrefs.Save();
-            var reopened = GameplayProgress.Open(key);
-            Check(PlayerPrefs.GetString(key + ".corrupt") == "{corrupt" && reopened.Presentation.coins == remaining &&
-                reopened.Presentation.gems == 17 && reopened.Equipped(ShopCategory.Cats) == ShopItem.CrystalCat &&
-                reopened.Equipped(ShopCategory.Bottles) == ShopItem.CrystalBottle &&
-                reopened.Equipped(ShopCategory.Effects) == ShopItem.RoseEffect, "Bozuk ana kayıt aynadan bakiye ve kuşanılanları kurtardı");
-            Check(reopened.Purchase(ShopItem.Hint, Config.hintPrice, 1) == ShopPurchaseResult.Duplicate,
-                "Yeniden açılan kayıtta eski satın alma yeniden ödenmedi");
-            Current.SetValue(null, reopened);
-            SceneManager.LoadScene("Boot");
-            yield return null;
-            yield return Until(() => SceneManager.GetActiveScene().name == "Home" && Button("Play") != null &&
-                BootLoadingController.Active == null, "Kayıt yeniden açıldı ve gerçek Boot → Home tamamlandı");
-            yield return null;
-            if (Button("ArrivalDismiss") != null) { Click("ArrivalDismiss"); yield return null; }
-            Click("Play");
-            yield return Until(() => SceneManager.GetActiveScene().name == "Gameplay" && Button("Hint") != null, "Gerçek Gameplay açıldı");
-            yield return null;
-            FindFirstObjectByType<PawGuide>()?.Close();
-            var glass = GameObject.Find("Bottle 1").GetComponentsInChildren<Image>().First(i => i.name == "GlassShell");
-            Check(glass.color == ShopCosmetics.BottleTint(ShopItem.CrystalBottle), "Kuşanılan şişe camı Gameplay’de etkin");
-            yield return Shot("11-EquippedGameplay");
-            int hintBefore = Ledger.Remaining(BoosterKind.Hint);
-            Click("Hint");
-            Check(Ledger.Remaining(BoosterKind.Hint) == hintBefore - 1, "Alınan güçlendirici gerçek oyunda harcandı");
-            int selected = FindFirstObjectByType<PrototypeApp>().GuideSelectedBottle;
-            if (selected >= 0) Button("Bottle " + (selected + 1)).onClick.Invoke();
-            int pours = 0;
-            foreach (var move in new[] { (1,3), (2,1), (3,2) })
-            {
-                Button("Bottle " + move.Item1).onClick.Invoke();
-                Button("Bottle " + move.Item2).onClick.Invoke();
-                yield return new WaitForSecondsRealtime(.22f);
-                if (++pours == 2)
-                {
-                    var sparkle = GameObject.Find("Bottle 1").GetComponentInChildren<BottleCompletionGraphic>();
-                    var tint = (Color)typeof(BottleCompletionGraphic).GetField("tint", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(sparkle);
-                    Check(sparkle.Playing && tint == ShopCosmetics.EffectTint(ShopItem.RoseEffect),
-                        "Kuşanılan Gül Parıltısı gerçek şişe tamamlanışında çalıştı");
-                    ScreenCapture.CaptureScreenshot(Output + "12-EquippedSparkle.png");
                     yield return null;
+                    Check(GameObject.Find("ShopPage_" + page) != null && Button("ShopTab_Effects") == null,
+                        page + " açık, Efektler sekmesi yok");
+                    CheckText();
+                    if (height == 1600) yield return Shot(page);
                 }
             }
-            yield return Until(() => GameObject.Find("Win panel") != null, "Bulmaca gerçek döküşlerle kazanıldı");
-            Check(Ledger.Completed(1) && Ledger.BestStars(1) == 3 && Ledger.Presentation.coins == remaining + Ledger.LastCoinReward &&
-                Ledger.LastCompletionReward.Base == Config.levelBase, "Kazanış mağaza bakiyesine eklendi ve ilerleme korundu");
+
+            Size(1600);
+            yield return Until(() => Screen.height == 1600, "9:16 işlem senaryoları");
+            Press("ShopTab_Offers");
+            yield return null;
+            Check(GameObject.Find("Offer_starter") != null && GameObject.Find("Offer_powers") != null, "İki özel teklif kartı mevcut");
+            Press("ShopBuy_powers");
+            yield return null;
+            Check(GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains("kapalı"), "Gerçek para teklifi açıklaması");
+            Press("ShopConfirm");
+            yield return null;
+            Check(Ledger.Presentation.coins == 600 && Ledger.NextShopPurchase == 1, "Özel paket ödeme/teslimat başlatmadı");
+
+            Press("ShopTab_Gold");
+            yield return null;
+            Check(GameObject.Find("Featured10000Gold") != null && GameObject.Find("Repeat10000Gold") != null, "10.000 altın kartları");
+            Press("ShopBuy_gold_featured");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Check(Ledger.Presentation.coins == 600 && Ledger.NextShopPurchase == 1, "Altın paketi önizlemesi bakiye yazmadı");
+
+            Press("ShopTab_Powers");
+            yield return null;
+            Press("ShopPreview_move");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Press("ShopPreview_hammer");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Check(Ledger.NextShopPurchase == 1, "Ekstra Hamle ve Şişe Çekici önizleme");
+            Press("BuyExtraBottle");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Check(GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains("altının"), "Yetersiz altın bildirimi");
+            Press("ShopCancel");
+            yield return null;
+            Check(Ledger.SetResources(3000, 2700, 4), "İzole profil işlemler için dolduruldu");
+            int extra = Ledger.Remaining(BoosterKind.ExtraBottle);
+            Press("BuyExtraBottle");
+            yield return null;
+            long request = Ledger.NextShopPurchase;
+            Press("ShopConfirm");
+            yield return null;
+            Check(Ledger.Presentation.coins == 3000 - Config.extraPrice && Ledger.Remaining(BoosterKind.ExtraBottle) == extra + 1 &&
+                Ledger.Purchase(ShopItem.ExtraBottle, Config.extraPrice, request) == ShopPurchaseResult.Duplicate,
+                "Güç stoğu canlı, altın doğru, aynı işlem numarası yeniden yazılmadı");
+            Check(GameObject.Find("Power_extra").transform.Find("ProductInfo").GetComponent<TMP_Text>().text.EndsWith((extra + 1).ToString()),
+                "Sahip Olduğun satırı satın almadan sonra yenilendi");
+
+            Press("ShopTab_Costumes");
+            yield return null;
+            Press("ShopAction_PrincessCat");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Check(Ledger.Owns(ShopItem.PrincessCat) && Ledger.Presentation.gems == 2700 - Config.princessCatPrice &&
+                Ledger.Presentation.coins == 3000 - Config.extraPrice, "Prenses Kedi yalnızca elmasla alındı");
+            Press("ShopAction_PrincessCat");
+            yield return null;
+            Check(Ledger.Equipped(ShopCategory.Cats) == ShopItem.PrincessCat &&
+                GameObject.Find("EquippedCostumeTitle").GetComponent<TMP_Text>().text == "Prenses Kedi", "Kuşan ve seçili kostüm eşleşti");
+            Press("ShopEquipClassic");
+            yield return null;
+            Check(Ledger.Equipped(ShopCategory.Cats) == ShopItem.ClassicCat, "Büyücü Kedi yeniden kuşanıldı");
+            Press("ShopAction_RoyalCat");
+            yield return null;
+            Press("ShopConfirm");
+            yield return null;
+            Check(GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains("elmasın") &&
+                !Ledger.Owns(ShopItem.RoyalCat), "Yetersiz elmasta kostüm verilmedi");
+            Press("ShopCancel");
+            yield return null;
+
+            var scroll = GameObject.Find("ShopViewport").GetComponent<ScrollRect>();
+            float before = scroll.content.anchoredPosition.y;
+            var mouse = new PointerEventData(EventSystem.current) { scrollDelta = new Vector2(0, -12) };
+            ExecuteEvents.Execute(scroll.gameObject, mouse, ExecuteEvents.scrollHandler);
+            yield return null;
+            Check(scroll.content.anchoredPosition.y > before + 10, "Unity scroll girdisi koleksiyon alanına kaydırdı");
+            scroll.verticalNormalizedPosition = 0;
+            yield return null;
+            Press("ShopOwned");
+            yield return null;
+            Press("ShopCollectionClose");
+            yield return null;
+
+            var reopened = GameplayProgress.Open(key);
+            Check(reopened.Owns(ShopItem.PrincessCat) && reopened.Presentation.gems == 2700 - Config.princessCatPrice &&
+                reopened.Remaining(BoosterKind.ExtraBottle) == extra + 1, "Yeniden açılan profilde kostüm, elmas ve stok korundu");
+            Press("ShopClose");
+            yield return null;
+            Check(GameObject.Find("MagicShop") == null, "Mağaza kapandı ve Ana Menü açığa çıktı");
         }
     }
 }

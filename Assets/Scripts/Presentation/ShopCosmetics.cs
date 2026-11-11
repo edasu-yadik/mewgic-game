@@ -29,6 +29,10 @@ namespace Mewgic
             {
                 ShopItem.CrystalCat => new Color(.08f, .78f, 1),
                 ShopItem.LeagueCat => new Color(1,.25f,.57f),
+                ShopItem.PrincessCat => new Color(1, .22f, .68f),
+                ShopItem.ExplorerCat => new Color(.83f, .43f, .16f),
+                ShopItem.FairyCat => new Color(.37f, .84f, .21f),
+                ShopItem.RoyalCat => new Color(.96f, .15f, .22f),
                 ShopItem.GoldCat => new Color(1, .63f, .12f),
                 _ => new Color(.27f, .32f, .88f)
             });

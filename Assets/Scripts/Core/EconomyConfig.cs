@@ -10,11 +10,12 @@ namespace Mewgic.Core
         public int dailyGiftGold = 100, dailyGiftHints = 1, dailyTaskBooster = 1;
         public int taskBottlesGold = 15, taskWinsGold = 25, taskStarsGold = 30, taskBoosterGold = 10;
         public int weeklyGold = 60, seasonFirstGold = 30, seasonSecondGold = 45, seasonFinalGold = 75, eventBooster = 1;
-        public int undoPrice = 35, extraPrice = 60, hintPrice = 40, shufflePrice = 50;
-        public int crystalCatPrice = 240, goldCatPrice = 360, nightCatPrice = 300;
+        public int undoPrice = 35, extraPrice = 800, hintPrice = 1000, shufflePrice = 1200;
+        public int crystalCatPrice = 1500, goldCatPrice = 360, nightCatPrice = 1800;
+        public int princessCatPrice = 1200, explorerCatPrice = 900, fairyCatPrice = 1200, royalCatPrice = 1800;
         public int crystalBottlePrice = 150, goldBottlePrice = 240, roseEffectPrice = 120, crystalEffectPrice = 180;
         public int boosterQuantity = 1;
-        public int colorSwapPrice = 60, colorSwapUnlock = 101;
+        public int colorSwapPrice = 1500, colorSwapUnlock = 101;
         public int initialGold;
         public int initialUndo = 3, initialHint = 3, initialExtra = 1, initialShuffle = 1;
 
@@ -45,7 +46,8 @@ namespace Mewgic.Core
         {
             ShopItem.Undo => undoPrice, ShopItem.ExtraBottle => extraPrice, ShopItem.Hint => hintPrice,
             ShopItem.Shuffle => shufflePrice, ShopItem.ColorSwap => colorSwapPrice, ShopItem.CrystalCat => crystalCatPrice, ShopItem.GoldCat => goldCatPrice,
-            ShopItem.NightCat => nightCatPrice, ShopItem.CrystalBottle => crystalBottlePrice,
+            ShopItem.NightCat => nightCatPrice, ShopItem.PrincessCat => princessCatPrice,
+            ShopItem.ExplorerCat => explorerCatPrice, ShopItem.FairyCat => fairyCatPrice, ShopItem.RoyalCat => royalCatPrice, ShopItem.CrystalBottle => crystalBottlePrice,
             ShopItem.GoldBottle => goldBottlePrice, ShopItem.RoseEffect => roseEffectPrice,
             ShopItem.CrystalEffect => crystalEffectPrice, _ => 0
         };

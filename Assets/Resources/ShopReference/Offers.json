@@ -1,0 +1,19 @@
+{
+  "offers": [
+    {"id":"starter","name":"Başlangıç Paketi","art":"starter","price":"149,99","previous":"299,99","discount":50,"items":["1.000 Altın","3 Ekstra Hamle","2 Şişe Çekici"],"icons":["coin","potion","hammer"]},
+    {"id":"powers","name":"Oyun Gücü Paketi","art":"powerpack","price":"299,99","previous":"499,99","discount":40,"items":["5 Ekstra Hamle","3 Şişe Çekici","3 Karıştırıcı","1 Renk Bombası"],"icons":["potion","hammer","shuffle","swap"]}
+  ],
+  "offerGold": [
+    {"id":"offer_100","amount":100,"price":"29,99","art":"gold100"},
+    {"id":"offer_250","amount":250,"price":"62,99","bonus":10,"art":"gold250"},
+    {"id":"offer_1000","amount":1000,"price":"149,99","bonus":25,"art":"gold1000"}
+  ],
+  "gold": [
+    {"id":"gold_250","amount":250,"price":"79,99","art":"gold100"},
+    {"id":"gold_1000","amount":1000,"price":"299,99","bonus":10,"art":"gold1000"},
+    {"id":"gold_2500","amount":2500,"price":"649,99","bonus":15,"art":"gold2500"},
+    {"id":"gold_5000","amount":5000,"price":"999,99","bonus":20,"art":"gold5000"},
+    {"id":"gold_10000","amount":10000,"price":"1.299,99","bonus":30,"art":"gold10000"}
+  ],
+  "previewPowers":[{"id":"move","name":"Ekstra Hamle","price":500},{"id":"hammer","name":"Şişe Çekici","price":1800}]
+}

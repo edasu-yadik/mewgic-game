@@ -9,10 +9,11 @@ namespace Mewgic.Core
     {
         Undo = 1, ExtraBottle = 2, Hint = 3, Shuffle = 4, ColorSwap = 5,
         ClassicCat = 10, CrystalCat = 11, GoldCat = 12, NightCat = 13, LeagueCat = 14,
+        PrincessCat = 15, ExplorerCat = 16, FairyCat = 17, RoyalCat = 18,
         ClassicBottle = 20, CrystalBottle = 21, GoldBottle = 22,
         ClassicEffect = 30, RoseEffect = 31, CrystalEffect = 32
     }
-    public enum ShopPurchaseResult { Purchased, Invalid, AlreadyOwned, Duplicate, PriceChanged, InsufficientGold, StockFull, SaveFailed }
+    public enum ShopPurchaseResult { Purchased, Invalid, AlreadyOwned, Duplicate, PriceChanged, InsufficientGold, StockFull, SaveFailed, InsufficientGems }
 
     public static class ShopCatalog
     {
@@ -20,19 +21,22 @@ namespace Mewgic.Core
         {
             ShopItem.Undo, ShopItem.ExtraBottle, ShopItem.Hint, ShopItem.Shuffle, ShopItem.ColorSwap,
             ShopItem.ClassicCat, ShopItem.CrystalCat, ShopItem.GoldCat, ShopItem.NightCat, ShopItem.LeagueCat,
+            ShopItem.PrincessCat, ShopItem.ExplorerCat, ShopItem.FairyCat, ShopItem.RoyalCat,
             ShopItem.ClassicBottle, ShopItem.CrystalBottle, ShopItem.GoldBottle,
             ShopItem.ClassicEffect, ShopItem.RoseEffect, ShopItem.CrystalEffect
         });
 
         public static bool Known(ShopItem item) => Products.Contains(item);
         public static bool RewardOnly(ShopItem item) => item == ShopItem.LeagueCat;
+        public static bool UsesGems(ShopItem item) => Category(item) == ShopCategory.Cats;
         public static bool Included(ShopItem item) =>
             item is ShopItem.ClassicCat or ShopItem.ClassicBottle or ShopItem.ClassicEffect;
 
         public static ShopCategory Category(ShopItem item) => item switch
         {
             ShopItem.Undo or ShopItem.ExtraBottle or ShopItem.Hint or ShopItem.Shuffle or ShopItem.ColorSwap => ShopCategory.Boosters,
-            ShopItem.ClassicCat or ShopItem.CrystalCat or ShopItem.GoldCat or ShopItem.NightCat or ShopItem.LeagueCat => ShopCategory.Cats,
+            ShopItem.ClassicCat or ShopItem.CrystalCat or ShopItem.GoldCat or ShopItem.NightCat or ShopItem.LeagueCat or
+            ShopItem.PrincessCat or ShopItem.ExplorerCat or ShopItem.FairyCat or ShopItem.RoyalCat => ShopCategory.Cats,
             ShopItem.ClassicBottle or ShopItem.CrystalBottle or ShopItem.GoldBottle => ShopCategory.Bottles,
             ShopItem.ClassicEffect or ShopItem.RoseEffect or ShopItem.CrystalEffect => ShopCategory.Effects,
             _ => throw new ArgumentOutOfRangeException(nameof(item))
@@ -127,7 +131,9 @@ namespace Mewgic.Core
             if (price <= 0 || price != quotedPrice) return ShopPurchaseResult.PriceChanged;
             var category = ShopCatalog.Category(item);
             if (category != ShopCategory.Boosters && Owns(item)) return ShopPurchaseResult.AlreadyOwned;
-            if (state.presentation.coins < price) return ShopPurchaseResult.InsufficientGold;
+            bool gems = ShopCatalog.UsesGems(item);
+            if (gems ? state.presentation.gems < price : state.presentation.coins < price)
+                return gems ? ShopPurchaseResult.InsufficientGems : ShopPurchaseResult.InsufficientGold;
 
             var next = state.Copy();
             if (category == ShopCategory.Boosters)
@@ -138,7 +144,8 @@ namespace Mewgic.Core
             }
             else next.shop.Grant(item);
 
-            next.presentation.coins -= price;
+            if (gems) next.presentation.gems -= price;
+            else next.presentation.coins -= price;
             next.shop.purchaseRevision = request;
             return Commit(next) ? ShopPurchaseResult.Purchased : ShopPurchaseResult.SaveFailed;
         }
