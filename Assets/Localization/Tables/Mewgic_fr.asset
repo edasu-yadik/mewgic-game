@@ -2014,6 +2014,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126365
+  - m_Id: 4154944498532360
+    m_Localized: "Marteau \u00e0 bouteilles"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "Choisis une bouteille inachev\u00e9e que tu peux retirer sans risque."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Couleurs transf\u00e9r\u00e9es. Bouteille vide retir\u00e9e."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

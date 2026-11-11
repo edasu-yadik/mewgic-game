@@ -2024,6 +2024,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126370
+  - m_Id: 4154944498532360
+    m_Localized: "M\u0142otek do butelek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "Wybierz niedoko\u0144czon\u0105 butelk\u0119, kt\u00f3r\u0105 mo\u017cna bezpiecznie usun\u0105\u0107."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Kolory przeniesiono. Usuni\u0119to pust\u0105 butelk\u0119."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -13,6 +13,8 @@ namespace Mewgic.Core
         readonly Stack<int[][]> history = new Stack<int[][]>();
         public int Moves { get; private set; }
         public int Count => bottles.Length;
+        public bool ExtraBottleUsed { get; private set; }
+        public bool BottleHammerUsed { get; private set; }
         public bool ColorSwapUsed { get; private set; }
         public bool CanUndo => history.Count > 0;
         public IReadOnlyList<int> Bottle(int index) => bottles[index].AsReadOnly();
@@ -46,9 +48,9 @@ namespace Mewgic.Core
         // the new topology so Undo still means the last successful pour.
         public bool AddEmptyBottle(int maximum)
         {
-            if(Count>=maximum)return false;
+            if(ExtraBottleUsed||Count>=maximum)return false;
             bottles=bottles.Concat(new[]{new List<int>()}).ToArray();
-            MapHistory(state=>state.Concat(new[]{new int[0]}).ToArray());return true;
+            MapHistory(state=>state.Concat(new[]{new int[0]}).ToArray());ExtraBottleUsed=true;return true;
         }
         public bool RotateBottles()
         {
@@ -72,12 +74,19 @@ namespace Mewgic.Core
             ColorSwapUsed=true;
         }
 
+        internal void ApplyBottleHammer(int[][] layout)
+        {
+            Restore(layout);
+            history.Clear();
+            BottleHammerUsed = true;
+        }
+
         public bool Undo()
         {
             if (!CanUndo) return false;
             Restore(history.Pop()); Moves--; return true;
         }
-        public void Restart() { Restore(initial); history.Clear(); Moves = 0; ColorSwapUsed = false; }
+        public void Restart() { Restore(initial); history.Clear(); Moves = 0; ColorSwapUsed = BottleHammerUsed = ExtraBottleUsed = false; }
         public int[][] Export() => Snapshot();
     }
 }

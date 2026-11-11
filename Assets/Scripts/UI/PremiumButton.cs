@@ -128,7 +128,7 @@ namespace Mewgic.UI
             if (name.StartsWith("Nav", StringComparison.Ordinal) || name.StartsWith("RewardTab_", StringComparison.Ordinal) ||
                 name is "DailyTasksTab" or "DailyGiftTab" or "HubOpenDaily" or "MissionsButton") return ButtonRole.Navigation;
             if (name.EndsWith("Plus", StringComparison.Ordinal) ||
-                name is "Pause" or "SettingsButton" or "Undo" or "Hint" or "ExtraBottle" or "Shuffle" or "ColorSwap" or "PawThoughtClose")
+                name is "Pause" or "SettingsButton" or "Undo" or "Hint" or "ExtraBottle" or "Shuffle" or "ColorSwap" or "BottleHammer" or "PawThoughtClose")
                 return ButtonRole.Tool;
             return ButtonRole.Secondary;
         }
@@ -189,7 +189,7 @@ namespace Mewgic.UI
             if (name == "MissionsButton")
                 SetAnchors(face.rectTransform, new Vector2(0, .15f), new Vector2(1, .36f));
             bool stacked = name.StartsWith("Nav", StringComparison.Ordinal) ||
-                name is "Undo" or "Hint" or "ExtraBottle" or "Shuffle" or "ColorSwap" or "MissionsButton";
+                name is "Undo" or "Hint" or "ExtraBottle" or "Shuffle" or "ColorSwap" or "BottleHammer" or "MissionsButton";
             if (stacked && name.StartsWith("Nav", StringComparison.Ordinal) && icon != null)
             {
                 SetAnchors(icon, new Vector2(.12f, .28f), new Vector2(.88f, .93f));

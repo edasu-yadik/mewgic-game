@@ -255,7 +255,7 @@ namespace Mewgic.Clans
         {
             if (kind == Mewgic.Core.BoosterKind.Undo && moves.Count >= 2)
                 moves.RemoveRange(moves.Count - 2, 2);
-            if (kind is Mewgic.Core.BoosterKind.ExtraBottle or Mewgic.Core.BoosterKind.Shuffle or Mewgic.Core.BoosterKind.ColorSwap)
+            if (kind is Mewgic.Core.BoosterKind.ExtraBottle or Mewgic.Core.BoosterKind.Shuffle or Mewgic.Core.BoosterKind.ColorSwap or Mewgic.Core.BoosterKind.BottleHammer)
                 eligible = false;
         }
         public void Reset() { moves.Clear(); eligible = true; }

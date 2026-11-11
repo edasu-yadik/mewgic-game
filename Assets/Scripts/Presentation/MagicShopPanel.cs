@@ -82,6 +82,12 @@ namespace Mewgic
             Resize();
         }
 
+        public void OpenPowers()
+        {
+            Open();
+            Select(Page.Powers);
+        }
+
         public void Close()
         {
             if (root != null) root.gameObject.SetActive(false);
@@ -251,12 +257,12 @@ namespace Mewgic
             Picture(intro, "PowerArt", "powers", 17, 0, 261, 166);
             Text(intro, "PowersTitle", "Oyun Güçleri Mağazası", 52, 279, 10, 599, 76, serif: true);
             Strap(intro, "PowersTagline", "Zorlu seviyeleri daha kolay geçmeni sağlayan\ngüçlü oyun desteklerini keşfet!", 278, 84, 580, 75);
-            Power(parent, 0, previews[0].name, "Hamle sınırına 1 ek hamle.", "move", default, previews[0].price);
+            Power(parent, 0, previews[0].name, "Hamle sınırı gerektirir. Tasarım onayı bekliyor.", "move", default, previews[0].price);
             Power(parent, 1, "Ek Şişe", "Seviyeye fazladan 1 boş şişe ekle.", "extra", ShopItem.ExtraBottle);
             Power(parent, 2, "İpucu", "Çözüme götüren geçerli bir döküşü gösterir.", "hint", ShopItem.Hint);
             Power(parent, 3, "Karıştır", "Katmanları koruyarak şişelerin yerini değiştirir.", "shuffle", ShopItem.Shuffle);
             Power(parent, 4, "Renk Değiştir", "İki şişenin üst rengini takas eder.", "swap", ShopItem.ColorSwap);
-            Power(parent, 5, previews[1].name, "Şişe kaldırma desteği için önizleme.", "hammer", default, previews[1].price);
+            Power(parent, 5, "Şişe Çekici", "Renkleri güvenle aktarır, boşalan şişeyi kaldırır.", "hammer", ShopItem.BottleHammer);
         }
 
         void Power(RectTransform parent, int index, string title, string description, string icon, ShopItem item, int previewPrice = 0)
@@ -274,7 +280,7 @@ namespace Mewgic
             bool implemented = item != default;
             string action = implemented ? "Buy" + ShopCatalog.Booster(item) : "ShopPreview_" + icon;
             var button = Control(row, action, implemented ? "Satın Al" : "Önizle", "green", 635, 72, 259, 72,
-                () => { if (implemented) Choose(item); else Inform(title, "Bu güç şu anda önizlemede. Satın alma ve stok ekleme kapalı.", icon); }, 34);
+                () => { if (implemented) Choose(item); else Inform(title, "Bu bölümlerde hamle sınırı yok. Güç tasarım onayı bekliyor ve satın alınamıyor.", icon); }, 34);
             if (implemented) rows.Add(new Row { item = item, button = button, stock = stock });
         }
 
@@ -365,9 +371,10 @@ namespace Mewgic
             if (modal.gameObject.activeSelf) return;
             bool costume = ShopCatalog.UsesGems(item);
             if (costume && ledger.Owns(item)) { Equip(item); return; }
-            if (item == ShopItem.ColorSwap && ledger.CurrentUnlockedLevel < EconomyConfig.Current.colorSwapUnlock)
+            int unlock = EconomyConfig.Current.UnlockLevel(item);
+            if (ledger.CurrentUnlockedLevel < unlock)
             {
-                Inform(ItemTitle(item), $"{EconomyConfig.Current.colorSwapUnlock}. bölümde açılır.", "swap");
+                Inform(ItemTitle(item), $"{unlock}. bölümde açılır.", ProductArt(item));
                 return;
             }
             pendingItem = item;
@@ -487,7 +494,7 @@ namespace Mewgic
             return item switch
             {
                 ShopItem.ClassicCat => "Büyücü Kedi", ShopItem.ExtraBottle => "Ek Şişe", ShopItem.Hint => "İpucu",
-                ShopItem.Shuffle => "Karıştır", ShopItem.ColorSwap => "Renk Değiştir", _ => L.Resolve(L.V(Name(item)))
+                ShopItem.Shuffle => "Karıştır", ShopItem.ColorSwap => "Renk Değiştir", ShopItem.BottleHammer => "Şişe Çekici", _ => L.Resolve(L.V(Name(item)))
             };
         }
 
@@ -497,14 +504,14 @@ namespace Mewgic
             return item switch
             {
                 ShopItem.ExtraBottle => "extra", ShopItem.Hint => "hint", ShopItem.Shuffle => "shuffle",
-                ShopItem.ColorSwap => "swap", _ => "wizard"
+                ShopItem.ColorSwap => "swap", ShopItem.BottleHammer => "hammer", _ => "wizard"
             };
         }
 
         public static string Name(ShopItem item) => item switch
         {
             ShopItem.Undo => "booster.undo", ShopItem.Hint => "booster.hint",
-            ShopItem.ExtraBottle => "booster.extra", ShopItem.Shuffle => "booster.shuffle", ShopItem.ColorSwap => "booster.color_swap",
+            ShopItem.ExtraBottle => "booster.extra", ShopItem.Shuffle => "booster.shuffle", ShopItem.ColorSwap => "booster.color_swap", ShopItem.BottleHammer => "booster.bottle_hammer",
             _ => "shop.item." + item.ToString().ToLowerInvariant()
         };
 

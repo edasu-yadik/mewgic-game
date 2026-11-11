@@ -193,6 +193,7 @@ namespace Mewgic
                 foreach(string field in new[]{"version","undo","hint","extra","shuffle"})
                     if(!Integer(json[field]))return null;
                 if(json["colorSwap"]!=null&&!Integer(json["colorSwap"]))return null;
+                if(json["bottleHammer"]!=null&&!Integer(json["bottleHammer"]))return null;
                 if(json["levels"] is not Newtonsoft.Json.Linq.JArray levels)return null;
                 foreach(var level in levels)
                     if(!Integer(level["level"])||!Integer(level["bestStars"])||

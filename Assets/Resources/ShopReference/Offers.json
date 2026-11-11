@@ -15,5 +15,5 @@
     {"id":"gold_5000","amount":5000,"price":"999,99","bonus":20,"art":"gold5000"},
     {"id":"gold_10000","amount":10000,"price":"1.299,99","bonus":30,"art":"gold10000"}
   ],
-  "previewPowers":[{"id":"move","name":"Ekstra Hamle","price":500},{"id":"hammer","name":"Şişe Çekici","price":1800}]
+  "previewPowers":[{"id":"move","name":"Ekstra Hamle","price":500}]
 }

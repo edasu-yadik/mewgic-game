@@ -17,6 +17,7 @@ namespace Mewgic
         GameplayPresentation gameplayVisual;
         GameplayHud hud;
         GameplayTools tools;
+        MagicShopPanel boosterShop;
         GameplayEndScreen endScreen;
         ProgressLedger progress;
         BoosterActions boosters;
@@ -192,20 +193,31 @@ namespace Mewgic
 
         void ReturnFromGameplay()=>Mewgic.SceneNavigation.LoadOnce(tutorialReplay?"Home":GameplayLevelCatalog.ReturnScene);
         void SkinGameplayControl(Button control){control.GetComponent<Image>().sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");control.GetComponent<Image>().type=Image.Type.Sliced;control.GetComponent<Image>().color=Color.white;control.GetComponent<Outline>().enabled=false;}
-        internal void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused||tutorialReplay||pawGuide?.BlocksGameplayActions==true,originalBottleCount);}
+        internal void UpdateTools(){if(tools!=null)tools.Present(puzzle,progress,busy||paused||tutorialReplay||pawGuide?.BlocksGameplayActions==true);}
         public void UseBooster(BoosterKind kind)
         {
-            if(busy||paused||puzzle.Won||navigating||tutorialReplay)return;
+            if(busy||paused||puzzle.Won||navigating||tutorialReplay||boosterShop?.IsOpen==true)return;
             if(pawGuide!=null&&pawGuide.BlocksGameplayActions)return;
             if(kind==BoosterKind.Hint&&hintTarget>=0){Feedback(L.V("booster.hint_active"));return;}
+            if (kind != BoosterKind.Undo && progress.Remaining(kind) == 0)
+            {
+                if (boosterShop == null)
+                {
+                    boosterShop = gameObject.AddComponent<MagicShopPanel>();
+                    boosterShop.Mount(safe);
+                }
+                boosterShop.OpenPowers();
+                return;
+            }
             bool applied=false;
+            int flashFirst=-1,flashSecond=-1;
             switch(kind)
             {
                 case BoosterKind.Undo:applied=boosters.Undo();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_undo");}break;
                 case BoosterKind.Hint:if(boosters.Hint(out var move)){applied=true;hintUsed=true;selected=move.Source;hintTarget=move.Target;status.text="";}break;
-                case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");}break;
+                case BoosterKind.ExtraBottle:applied=boosters.Extra();if(applied){selected=-1;hintTarget=-1;status.text=L.V("booster.used_extra");flashFirst=puzzle.Count-1;}break;
                 case BoosterKind.ColorSwap:
-                    int source=selected;
+                    int source=hintTarget>=0?-1:selected;
                     applied=boosters.ColorSwap(source,out int target);
                     if(applied)
                     {
@@ -213,13 +225,69 @@ namespace Mewgic
                         hintTarget=-1;
                         hintUsed=true;
                         status.text=L.V("booster.color_applied");
-                        bottleViews[source].GetComponent<GameplayBottleView>().Accept();
-                        bottleViews[target].GetComponent<GameplayBottleView>().Accept();
+                        flashFirst=source;
+                        flashSecond=target;
+                    }
+                    break;
+                case BoosterKind.BottleHammer:
+                    int removed=hintTarget>=0?-1:selected;
+                    applied=boosters.Hammer(removed);
+                    if (applied)
+                    {
+                        AnimateHammer(bottleViews[removed]);
+                        selected=hintTarget=-1;
+                        hintUsed=true;
+                        status.text=L.V("booster.hammer_applied");
                     }
                     break;
                 case BoosterKind.Shuffle:applied=boosters.Shuffle();if(applied){selected=-1;hintTarget=-1;status.text=boosters.Message;}break;
             }
-            if(!applied)Feedback(boosters.Message);else{clanTrace.Booster(kind);pawGuide?.ResetGuide();if(!string.IsNullOrEmpty(status.text))feedbackUntil=Time.unscaledTime+1.45f;}Refresh();if(applied&&kind!=BoosterKind.ColorSwap)pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
+            if (!applied) { GameFeel.Play(GameCue.Invalid); Feedback(boosters.Message); }
+            else
+            {
+                GameFeel.Play(GameCue.Valid);
+                clanTrace.Booster(kind);
+                pawGuide?.ResetGuide();
+                if (!string.IsNullOrEmpty(status.text)) feedbackUntil=Time.unscaledTime+1.45f;
+            }
+            Refresh();
+            if (!applied) return;
+            if (flashFirst>=0) bottleViews[flashFirst].GetComponent<GameplayBottleView>().Accept();
+            if (flashSecond>=0) bottleViews[flashSecond].GetComponent<GameplayBottleView>().Accept();
+            if (kind==BoosterKind.Shuffle)
+                foreach (var bottle in bottleViews) bottle.GetComponent<GameplayBottleView>().Accept();
+            if (kind is BoosterKind.Undo or BoosterKind.Hint or BoosterKind.ExtraBottle or BoosterKind.Shuffle)
+                pawGuide?.ShowBoosterTip(kind,tools.Target(kind));
+        }
+
+        void AnimateHammer(RectTransform bottle)
+        {
+            if (GameFeel.Reduced) return;
+            var ghost = GameplayTools.Art(board,"HammerBreak",Resources.Load<Sprite>("Gameplay/Gameplay_GlassShell_v001"),
+                bottle.anchorMin,bottle.anchorMax);
+            ghost.rectTransform.offsetMin=bottle.offsetMin;
+            ghost.rectTransform.offsetMax=bottle.offsetMax;
+            var burst = GameplayTools.Rect(ghost.transform, "HammerSparks", Vector2.zero, Vector2.one)
+                .gameObject.AddComponent<BottleCompletionGraphic>();
+            burst.raycastTarget = false;
+            burst.Play();
+            ghost.transform.SetAsLastSibling();
+            StartCoroutine(FadeHammer(ghost));
+        }
+
+        IEnumerator FadeHammer(Image ghost)
+        {
+            const float duration=.37f;
+            for (float time=0;time<duration;time+=Time.unscaledDeltaTime)
+            {
+                ghost.transform.SetAsLastSibling();
+                float fraction=time/duration;
+                ghost.color=new Color(1,.73f,.32f,1-fraction);
+                ghost.transform.localScale=Vector3.one*(1+.3f*fraction);
+                ghost.transform.localRotation=Quaternion.Euler(0,0,-22*fraction);
+                yield return null;
+            }
+            Destroy(ghost.gameObject);
         }
         void NextLevel()
         {
@@ -350,7 +418,7 @@ namespace Mewgic
 
         void Select(int target)
         {
-            if(busy||paused||puzzle.Won||navigating)return;
+            if(busy||paused||puzzle.Won||navigating||boosterShop?.IsOpen==true)return;
             if(pawGuide!=null&&!pawGuide.AllowsBottleTap(target))return;
             pawGuide?.PlayerInteracted();
             hintTarget=-1;feedbackUntil=0;

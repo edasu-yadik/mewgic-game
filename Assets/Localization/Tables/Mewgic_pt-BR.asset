@@ -2018,6 +2018,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126372
+  - m_Id: 4154944498532360
+    m_Localized: "Martelo de garrafas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "Selecione uma garrafa incompleta que possa ser removida com seguran\u00e7a."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Cores transferidas. Garrafa vazia removida."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

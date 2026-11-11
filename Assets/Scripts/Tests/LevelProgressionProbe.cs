@@ -22,7 +22,7 @@ namespace Mewgic
     public sealed class LevelProgressionProbe : MonoBehaviour
     {
         const string Output = "docs/ProductionReports/LevelProgression/";
-        [SerializeField] bool frontier;
+        [SerializeField] bool frontier, boosterIntegration;
         [SerializeField] string regressionOutput;
         string Evidence => !string.IsNullOrEmpty(regressionOutput) ? regressionOutput :
             frontier ? "docs/ProductionReports/InfiniteLevels/" : Output;
@@ -49,7 +49,10 @@ namespace Mewgic
 
         public static void BeginRegression(string folder) => Begin(false, folder);
 
-        static void Begin(bool frontier, string regressionOutput = null)
+        [MenuItem("Mewgic/QA/Run Gameplay Booster Integration")]
+        public static void BeginBoosterIntegration() => Begin(false, "docs/ProductionReports/BoosterIntegration/", true);
+
+        static void Begin(bool frontier, string regressionOutput = null, bool boosterIntegration = false)
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -57,6 +60,7 @@ namespace Mewgic
             EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
             var probe = new GameObject("Isolated level progression QA").AddComponent<LevelProgressionProbe>();
             probe.frontier = frontier;
+            probe.boosterIntegration = boosterIntegration;
             probe.regressionOutput = regressionOutput;
             Type.GetType("Part12BEditor, Assembly-CSharp-Editor")?.GetMethod("Size")?.Invoke(null, new object[] { 1600 });
             EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
@@ -125,10 +129,10 @@ namespace Mewgic
         IEnumerator Start()
         {
             // Mount the initial level before changing the isolated profile for frontier tests.
-            if (frontier) yield return null;
+            if (frontier || boosterIntegration) yield return null;
             string failure = null;
             var stack = new Stack<IEnumerator>();
-            stack.Push(frontier ? RunFrontier() : Run());
+            stack.Push(boosterIntegration ? RunBoosterIntegration() : frontier ? RunFrontier() : Run());
             while (stack.Count > 0)
             {
                 bool more = false; object item = null;
@@ -192,6 +196,13 @@ namespace Mewgic
             EventSystem.current.RaycastAll(pointer, hits);
             var hit = hits.Count == 0 ? null : ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
             Check(hit == button.gameObject, $"UI raycast {name}: {(hits.Count == 0 ? "boş" : hits[0].gameObject.name)}");
+            if (button is BottleTapButton)
+            {
+                pointer.eligibleForClick = true;
+                pointer.pointerCurrentRaycast = hits[0];
+                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerDownHandler);
+                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerUpHandler);
+            }
             ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerClickHandler);
         }
 
@@ -369,6 +380,8 @@ namespace Mewgic
                     writer.Remaining(kind) == stock + 1 && writer.Presentation.coins == before - price,
                     $"{kind}: satın alma, stok, altın ve aynı istekle çift işlem engeli");
             }
+            Check(writer.TrySpend(BoosterKind.BottleHammer) && writer.Remaining(BoosterKind.BottleHammer) == 0,
+                "Çekiç stok düşümü dosya günlüğüne yazıldı");
             var file = Directory.GetFiles(directory, "*.json").Single(path =>
                 !Path.GetFileNameWithoutExtension(path).Contains("."));
             Check(!stale.SetCurrentLevel(1) && PlayerPrefs.GetString(key) == json,
@@ -377,6 +390,7 @@ namespace Mewgic
             var reopened = GameplayProgress.Open(key, directory: directory);
             Check(reopened.CurrentUnlockedLevel == 1802 && reopened.HighestCompletedLevel == 1801 &&
                 reopened.Presentation.coins == writer.Presentation.coins && reopened.Remaining(BoosterKind.ColorSwap) == 2 &&
+                reopened.Remaining(BoosterKind.BottleHammer) == 0 &&
                 reopened.BestStars(1801) == 3, "Bozuk ana dosyadan yedekle devam, altın, stok ve yıldız kurtarıldı");
         }
 
@@ -396,6 +410,194 @@ namespace Mewgic
             Check(actions.Extra() && board.Count == 5 && !actions.Extra() &&
                 PuzzleSolver.Solve(board.Export()).Status == SearchStatus.Solved, "Ek Şişe: tek boş şişe ve çözülebilir tahta");
             Check(!actions.ColorSwap(0, out _) && ledger.Remaining(BoosterKind.ColorSwap) == 1, "Renk Dönüşümü: erken bölümde kapalı");
+        }
+
+        static ProgressLedger PowerFixture(Action<ProgressData> persist = null) =>
+            new ProgressLedger(new ProgressData { extra = 2, shuffle = 2, hint = 2, colorSwap = 2, bottleHammer = 2 },
+                persist ?? (_ => { }));
+
+        static int[] Totals(int[][] board) => board.SelectMany(bottle => bottle).OrderBy(color => color).ToArray();
+
+        static int FindColorSwap(Puzzle board, int level)
+        {
+            var data = board.Export();
+            for (int source = 0; source < data.Length; source++)
+            {
+                var copy = new Puzzle(data);
+                if (new BoosterActions(copy, PowerFixture(), copy.Count, level).ColorSwap(source, out _)) return source;
+            }
+            return -1;
+        }
+
+        IEnumerator PowerShot(string name)
+        {
+            Directory.CreateDirectory(Evidence);
+            ScreenCapture.CaptureScreenshot(Evidence + name + ".png");
+            yield return new WaitForSecondsRealtime(.4f);
+        }
+
+        IEnumerator RunBoosterIntegration()
+        {
+            int level = 0, hammerSource = -1, swapSource = -1;
+            int[][] layout = null;
+            for (int id = 10001; id <= 10025 && level == 0; id++)
+            {
+                var task = GameplayLevelCatalog.PrepareAsync(id);
+                yield return Until(() => task.IsCompletedSuccessfully, $"{id} prosedürel düzeni hazır");
+                var bottles = task.Result.Bottles;
+                for (int source = 0; source < bottles.Length && level == 0; source++)
+                {
+                    var board = new Puzzle(bottles);
+                    var actions = new BoosterActions(board, PowerFixture(), board.Count, id);
+                    if (!actions.Extra() || !actions.Shuffle() || !actions.Hammer(source)) continue;
+                    int swap = FindColorSwap(board, id);
+                    if (swap < 0) continue;
+                    level = id; hammerSource = source; swapSource = swap; layout = bottles;
+                }
+            }
+            Check(level > 0, "Aynı yüksek bölümde beş güç için geçerli sıra bulundu");
+            CheckExistingPowers();
+            CheckJournal();
+            var independent = new Puzzle(layout);
+            int independentHammer = Enumerable.Range(0, independent.Count).Where(source =>
+            {
+                var copy = new Puzzle(layout);
+                return new BoosterActions(copy, PowerFixture(), copy.Count, level).Hammer(source);
+            }).DefaultIfEmpty(-1).First();
+            Check(independentHammer >= 0, "Çekiç, diğer güçler kullanılmadan da çalıştı");
+            var failedLedger = PowerFixture(_ => throw new IOException("izole kayıt hatası"));
+            Check(!new BoosterActions(independent, failedLedger, independent.Count, level).Hammer(independentHammer) &&
+                failedLedger.Remaining(BoosterKind.BottleHammer) == 2 && LevelGenerator.Exact(layout, independent.Export()),
+                "Çekiç kayıt hatasında tahta ve stok korunuyor");
+            Check(FindColorSwap(independent, level) >= 0, "Renk Değiştir diğer güçler olmadan da çözücü onayı aldı");
+
+            // Keep the actual board/archive isolated; the older large-save journal test covers persistence separately.
+            SeedFrontier(level - 1);
+            Check(Ledger.SetResources(10000, 0, 5) && Ledger.SetReducedMotion(false), "İzole test bakiyesi ve animasyonlar hazır");
+            yield return Open(level);
+            yield return Ready(level);
+            Check(LevelGenerator.Exact(layout, Board.Export()), "Gerçek Gameplay aynı prosedürel düzeni açtı");
+            int count = Board.Count;
+            var totals = Totals(Board.Export());
+
+            Click("BottleHammer", true);
+            yield return null;
+            Check(GameObject.Find("ShopPage_Powers") != null, "Sıfır Çekiç stoğunda Oyun Güçleri açıldı");
+            Click("BuyBottleHammer", true);
+            yield return null;
+            var receipt = Ledger.NextShopPurchase;
+            Click("ShopConfirm", true);
+            yield return null;
+            Check(Ledger.Remaining(BoosterKind.BottleHammer) == 1 &&
+                Ledger.Presentation.coins == 10000 - EconomyConfig.Current.bottleHammerPrice &&
+                Ledger.Purchase(ShopItem.BottleHammer, EconomyConfig.Current.bottleHammerPrice, receipt) == ShopPurchaseResult.Duplicate,
+                "Çekiç bir kez satın alındı ve aynı makbuz reddedildi");
+            yield return PowerShot("HammerShop");
+            Click("ShopClose", true);
+            yield return null;
+            Check(LevelGenerator.Exact(layout, Board.Export()), "Mağaza dönüşünde tahta ve hamleler korundu");
+
+            Click("ColorSwap", true);
+            yield return null;
+            Click("BuyColorSwap", true);
+            yield return null;
+            Click("ShopConfirm", true);
+            yield return null;
+            Click("ShopClose", true);
+            yield return null;
+
+            Click("BottleHammer", true);
+            Check(Ledger.Remaining(BoosterKind.BottleHammer) == 1 && Board.Count == count, "Şişe seçilmeden Çekiç stok harcamadı");
+            yield return null;
+            Click("ExtraBottle", true);
+            Check(Board.Count == count + 1 && Board.Bottle(count).Count == 0 &&
+                Ledger.Remaining(BoosterKind.ExtraBottle) == 0, "Ek Şişe gerçek tahtada tek boş şişe ekledi");
+            yield return PowerShot("ExtraBottle");
+
+            var beforeShuffle = Board.Export();
+            Click("Shuffle", true);
+            Check(!LevelGenerator.Exact(beforeShuffle, Board.Export()) && Totals(Board.Export()).SequenceEqual(totals) &&
+                Ledger.Remaining(BoosterKind.Shuffle) == 0 && PuzzleSolver.Solve(Board.Export()).Status == SearchStatus.Solved,
+                "Karıştır yerleri değiştirdi, renkler ve çözüm korundu");
+            yield return PowerShot("Shuffle");
+            FindFirstObjectByType<PawGuide>()?.Close();
+            yield return new WaitForSecondsRealtime(.25f);
+
+            Click($"Bottle {hammerSource + 1}", true);
+            yield return null;
+            Click("BottleHammer", true);
+            Check(Board.BottleHammerUsed && Board.Count == count && Totals(Board.Export()).SequenceEqual(totals) &&
+                Ledger.Remaining(BoosterKind.BottleHammer) == 0 && Board.Moves == 0 && !Board.Won &&
+                GameObject.Find("HammerBreak") != null,
+                $"Çekiç şişeyi kaldırdı, hacim ve hamleler korundu; animasyon başladı ({Board.BottleHammerUsed}, {Board.Count}/{count}, stok {Ledger.Remaining(BoosterKind.BottleHammer)})");
+            yield return new WaitForSecondsRealtime(.08f);
+            yield return PowerShot("BottleHammer");
+
+            Click($"Bottle {swapSource + 1}", true);
+            yield return null;
+            Click("ColorSwap", true);
+            Check(Board.ColorSwapUsed && Totals(Board.Export()).SequenceEqual(totals) &&
+                Ledger.Remaining(BoosterKind.ColorSwap) == 0 && !Board.Won,
+                "Renk Değiştir Çekiç sonrası da çözücü onayıyla çalıştı");
+            yield return PowerShot("ColorSwap");
+
+            int hints = Ledger.Remaining(BoosterKind.Hint);
+            Click("Hint", true);
+            Check(Ledger.Remaining(BoosterKind.Hint) == hints - 1 &&
+                FindObjectsByType<HintCueGraphic>(FindObjectsSortMode.None).Length == 2,
+                "İpucu gerçek çözüm yolundaki iki şişeyi işaretledi");
+            yield return PowerShot("Hint");
+
+            var solution = PuzzleSolver.Solve(Board.Export());
+            Check(solution.Status == SearchStatus.Solved && solution.Moves.Count > 0 &&
+                Board.Export().All(row => row.Length <= Puzzle.Capacity), "Beş güçten sonraki tahta çözülebilir ve kapasite geçerli");
+            var snapshot = Ledger.Snapshot;
+            var restored = new ProgressLedger(JsonUtility.FromJson<ProgressData>(JsonUtility.ToJson(snapshot)), _ => {});
+            Check(restored.Remaining(BoosterKind.BottleHammer) == 0 && restored.Remaining(BoosterKind.ColorSwap) == 0 &&
+                restored.Presentation.coins == Ledger.Presentation.coins, "Yeni ve eski stoklar kayıt biçiminde korunuyor");
+            Check(Ledger.LastCoinReward == 0 && Ledger.CurrentUnlockedLevel == level,
+                "Güçler tek başına zafer ödülü veya bölüm ilerlemesi vermedi");
+            FindFirstObjectByType<PawGuide>()?.Close();
+            yield return null;
+            var app = FindFirstObjectByType<PrototypeApp>();
+            int selected = (int)typeof(PrototypeApp).GetField("selected", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(app);
+            Click($"Bottle {selected + 1}");
+            yield return null;
+            yield return Win(level, new CompletionReward(0, 3, true, true, true).Coins);
+            Check(Ledger.CurrentUnlockedLevel == level + 1, "Gerçek döküşlerle kazanış normal ilerlemeyi açtı");
+            yield return new WaitForSecondsRealtime(4f);
+            Click("Replay", true);
+            yield return null;
+            Check(LevelGenerator.Exact(layout, Board.Export()) && !Board.BottleHammerUsed && !Board.ExtraBottleUsed,
+                "Tekrar Oyna özgün tahtayı ve deneme sınırlarını sıfırladı");
+            yield return Win(level, 0);
+
+            SeedFrontier(10004);
+            yield return Open(10005);
+            yield return Ready(10005);
+            Check(Board.Count == 6, "10005 dört renk ve altı başlangıç şişesiyle açıldı");
+            yield return null;
+            Click("ExtraBottle", true);
+            Check(Board.Count == 7 && PuzzleSolver.Solve(Board.Export()).Status == SearchStatus.Solved,
+                "10005 yedi şişe ile çözülebilir");
+            yield return PowerShot("ExtraBottleSeven");
+            FullGamePreview.Size(2000);
+            yield return Until(() => Screen.height == 2000, "Yedi şişe için 9:20 Game View");
+            yield return null;
+            foreach (var label in GameObject.Find("GameplayBoosters").GetComponentsInChildren<TMPro.TMP_Text>())
+            {
+                label.ForceMeshUpdate();
+                Check(!label.isTextOverflowing && label.firstOverflowCharacterIndex == -1, "9:20 güç etiketi sığıyor: " + label.text);
+            }
+            for (int i = 1; i <= 7; i++)
+            {
+                var rect = (RectTransform)GameObject.Find($"Bottle {i}").transform;
+                var position = RectTransformUtility.WorldToScreenPoint(null, rect.TransformPoint(rect.rect.center));
+                Check(position.x > 0 && position.x < Screen.width && position.y > 0 && position.y < Screen.height,
+                    $"9:20 şişe {i} görünüm içinde");
+            }
+            yield return PowerShot("ExtraBottleSevenTall");
+            FullGamePreview.Size(1600);
         }
 
         IEnumerator RunFrontier()

@@ -2020,6 +2020,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126368
+  - m_Id: 4154944498532360
+    m_Localized: "\u015ei\u015fe \u00c7ekici"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "\u00c7\u00f6z\u00fcm\u00fc kolayla\u015ft\u0131racak tamamlanmam\u0131\u015f bir \u015fi\u015fe se\u00e7."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Renkler aktar\u0131ld\u0131, bo\u015f \u015fi\u015fe kald\u0131r\u0131ld\u0131."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

@@ -6334,5 +6334,50 @@
       "it": "Dal livello {0}, scegli una bottiglia per scambiare i colori in cima.",
       "pl": "Od poziomu {0} wybierz butelk\u0119, aby zamieni\u0107 g\u00f3rne kolory."
     }
+  },
+  {
+    "key": "booster.bottle_hammer",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "\u015ei\u015fe \u00c7ekici",
+      "en": "Bottle Hammer",
+      "de": "Flaschenhammer",
+      "fr": "Marteau \u00e0 bouteilles",
+      "es": "Martillo de botellas",
+      "pt-BR": "Martelo de garrafas",
+      "it": "Martello per bottiglie",
+      "pl": "M\u0142otek do butelek"
+    }
+  },
+  {
+    "key": "booster.hammer_unavailable",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "\u00c7\u00f6z\u00fcm\u00fc kolayla\u015ft\u0131racak tamamlanmam\u0131\u015f bir \u015fi\u015fe se\u00e7.",
+      "en": "Select an unfinished bottle that can be safely removed.",
+      "de": "W\u00e4hle eine unfertige Flasche, die sicher entfernt werden kann.",
+      "fr": "Choisis une bouteille inachev\u00e9e que tu peux retirer sans risque.",
+      "es": "Elige una botella sin terminar que se pueda retirar con seguridad.",
+      "pt-BR": "Selecione uma garrafa incompleta que possa ser removida com seguran\u00e7a.",
+      "it": "Scegli una bottiglia incompleta che puoi rimuovere in sicurezza.",
+      "pl": "Wybierz niedoko\u0144czon\u0105 butelk\u0119, kt\u00f3r\u0105 mo\u017cna bezpiecznie usun\u0105\u0107."
+    }
+  },
+  {
+    "key": "booster.hammer_applied",
+    "review": "draft",
+    "plain": true,
+    "values": {
+      "tr": "Renkler aktar\u0131ld\u0131, bo\u015f \u015fi\u015fe kald\u0131r\u0131ld\u0131.",
+      "en": "Colors transferred. Empty bottle removed.",
+      "de": "Farben umgef\u00fcllt. Leere Flasche entfernt.",
+      "fr": "Couleurs transf\u00e9r\u00e9es. Bouteille vide retir\u00e9e.",
+      "es": "Colores trasladados. Botella vac\u00eda retirada.",
+      "pt-BR": "Cores transferidas. Garrafa vazia removida.",
+      "it": "Colori trasferiti. Bottiglia vuota rimossa.",
+      "pl": "Kolory przeniesiono. Usuni\u0119to pust\u0105 butelk\u0119."
+    }
   }
 ]

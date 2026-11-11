@@ -2032,6 +2032,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126369
+  - m_Id: 4154944498532360
+    m_Localized: "Martello per bottiglie"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "Scegli una bottiglia incompleta che puoi rimuovere in sicurezza."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Colori trasferiti. Bottiglia vuota rimossa."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

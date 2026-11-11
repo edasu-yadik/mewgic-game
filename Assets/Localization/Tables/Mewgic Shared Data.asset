@@ -1763,6 +1763,18 @@ MonoBehaviour:
     m_Key: shop.use_color_swap
     m_Metadata:
       m_Items: []
+  - m_Id: 4154944498532360
+    m_Key: booster.bottle_hammer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Key: booster.hammer_unavailable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Key: booster.hammer_applied
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

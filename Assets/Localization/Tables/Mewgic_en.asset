@@ -2029,6 +2029,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126371
+  - m_Id: 4154944498532360
+    m_Localized: "Bottle Hammer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "Select an unfinished bottle that can be safely removed."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Colors transferred. Empty bottle removed."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

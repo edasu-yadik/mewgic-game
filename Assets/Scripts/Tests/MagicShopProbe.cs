@@ -21,7 +21,8 @@ namespace Mewgic
     [DefaultExecutionOrder(-20000)]
     public sealed class MagicShopProbe : MonoBehaviour
     {
-        const string Output = "docs/ProductionReports/ShopVisualAudit/";
+        [SerializeField] string output;
+        string Output => string.IsNullOrEmpty(output) ? "docs/ProductionReports/ShopVisualAudit/" : output;
         static readonly string[] Suffixes = { "", ".pending", ".backup", ".previous", ".corrupt" };
         static readonly FieldInfo Current = typeof(GameplayProgress).GetField("current", BindingFlags.Static | BindingFlags.NonPublic);
         static MagicShopProbe active;
@@ -33,13 +34,15 @@ namespace Mewgic
         EconomyConfig Config => EconomyConfig.Current;
 
         [MenuItem("Mewgic/QA/Run Magic Shop")]
-        public static void Begin()
+        public static void Begin() => Begin(null);
+
+        public static void Begin(string output)
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             for (int i = 0; i < SceneManager.sceneCount; i++)
                 if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Önce açık sahneyi kaydet.");
             EditorSceneManager.OpenScene("Assets/Scenes/Home.unity");
-            new GameObject("Magic Shop QA").AddComponent<MagicShopProbe>();
+            new GameObject("Magic Shop QA").AddComponent<MagicShopProbe>().output = output;
             Size(1600);
             EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
             EditorApplication.isPlaying = true;
@@ -262,7 +265,7 @@ namespace Mewgic
             {
                 ("move", (int)catalog["previewPowers"][0]["price"]), ("extra", Config.Price(ShopItem.ExtraBottle)),
                 ("hint", Config.Price(ShopItem.Hint)), ("shuffle", Config.Price(ShopItem.Shuffle)),
-                ("swap", Config.Price(ShopItem.ColorSwap)), ("hammer", (int)catalog["previewPowers"][1]["price"])
+                ("swap", Config.Price(ShopItem.ColorSwap)), ("hammer", Config.Price(ShopItem.BottleHammer))
             };
             foreach (var (icon, price) in powerPrices)
                 Check(GameObject.Find("Power_" + icon).transform.Find("PricePlate/Price").GetComponent<TMP_Text>().text ==
@@ -271,11 +274,11 @@ namespace Mewgic
             yield return null;
             Press("ShopConfirm");
             yield return null;
-            Press("ShopPreview_hammer");
+            Press("BuyBottleHammer");
             yield return null;
             Press("ShopConfirm");
             yield return null;
-            Check(Ledger.NextShopPurchase == 1, "Ekstra Hamle ve Şişe Çekici önizleme");
+            Check(Ledger.NextShopPurchase == 1, "Ekstra Hamle önizleme ve erken bölümde Çekiç satın alma kilidi");
             Press("BuyExtraBottle");
             yield return null;
             Press("ShopConfirm");

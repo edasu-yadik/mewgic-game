@@ -2,7 +2,7 @@ using L=Mewgic.Localization.L;
 using System;using System.Collections.Generic;using System.Linq;
 namespace Mewgic.Core
 {
-    public enum BoosterKind{Undo,Hint,ExtraBottle,Shuffle,ColorSwap}
+    public enum BoosterKind{Undo,Hint,ExtraBottle,Shuffle,ColorSwap,BottleHammer}
     [Serializable] public sealed class LevelRecord{public int level;public int bestStars;public bool rewardClaimed;public string lastCoinReceipt,rewardedVictoryReceipt;public int rewardedVictoryBase;}
     [Serializable] public sealed class ProgressData
     {
@@ -13,9 +13,9 @@ namespace Mewgic.Core
         public PlayerPresentationData presentation=new PlayerPresentationData();
         public List<int> attemptedLevels=new List<int>(); public List<string> completedTutorials=new List<string>();
         public int version=1;public long storageRevision;public int undo=EconomyConfig.Current.initialUndo,hint=EconomyConfig.Current.initialHint,extra=EconomyConfig.Current.initialExtra,shuffle=EconomyConfig.Current.initialShuffle;
-        public int colorSwap;
+        public int colorSwap, bottleHammer;
         public List<LevelRecord> levels=new List<LevelRecord>();public List<string> claimedMilestones=new List<string>();
-        public ProgressData Copy()=>new ProgressData{leagueWallet=(leagueWallet??new LeagueWalletData()).Copy(),shop=(shop??new ShopData()).Copy(),worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,colorSwap=colorSwap,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
+        public ProgressData Copy()=>new ProgressData{leagueWallet=(leagueWallet??new LeagueWalletData()).Copy(),shop=(shop??new ShopData()).Copy(),worldMap=(worldMap??new WorldMapData()).Copy(),version=version,storageRevision=storageRevision,attemptedLevels=attemptedLevels==null?new List<int>():new List<int>(attemptedLevels),completedTutorials=completedTutorials==null?new List<string>():new List<string>(completedTutorials),presentation=(presentation??new PlayerPresentationData()).Copy(),hub=(hub??new RewardHubData()).Copy(),daily=(daily??new DailyData()).Copy(),undo=undo,hint=hint,extra=extra,shuffle=shuffle,colorSwap=colorSwap,bottleHammer=bottleHammer,claimedMilestones=claimedMilestones==null?new List<string>():new List<string>(claimedMilestones),levels=levels.Select(l=>new LevelRecord{level=l.level,bestStars=l.bestStars,rewardClaimed=l.rewardClaimed,lastCoinReceipt=l.lastCoinReceipt,rewardedVictoryReceipt=l.rewardedVictoryReceipt,rewardedVictoryBase=l.rewardedVictoryBase}).ToList()};
     }
     public sealed partial class ProgressLedger
     {
@@ -25,7 +25,7 @@ namespace Mewgic.Core
         public ProgressData Snapshot=>state.Copy();
         public ProgressLedger(ProgressData data,Action<ProgressData> persist,Func<DateTimeOffset> localClock=null,Func<TimeSpan> elapsedTime=null)
         {
-            if(data==null||data.version!=1||data.levels==null||data.undo<0||data.hint<0||data.extra<0||data.shuffle<0||data.colorSwap<0||data.levels.Any(l=>l==null||l.level<1||l.bestStars<1||l.bestStars>3)||data.levels.Select(l=>l.level).Distinct().Count()!=data.levels.Count)throw new ArgumentException("Geçersiz ilerleme kaydı");
+            if(data==null||data.version!=1||data.levels==null||data.undo<0||data.hint<0||data.extra<0||data.shuffle<0||data.colorSwap<0||data.bottleHammer<0||data.levels.Any(l=>l==null||l.level<1||l.bestStars<1||l.bestStars>3)||data.levels.Select(l=>l.level).Distinct().Count()!=data.levels.Count)throw new ArgumentException("Geçersiz ilerleme kaydı");
             if(data.claimedMilestones!=null&&(data.claimedMilestones.Any(string.IsNullOrWhiteSpace)||data.claimedMilestones.Distinct().Count()!=data.claimedMilestones.Count))throw new ArgumentException("Geçersiz sandık kaydı");
             if(data.completedTutorials!=null&&(data.completedTutorials.Any(id=>string.IsNullOrWhiteSpace(id)||id.Length>120)||data.completedTutorials.Distinct().Count()!=data.completedTutorials.Count))throw new ArgumentException("Geçersiz öğretici geçmişi");
             (data.leagueWallet??new LeagueWalletData()).Validate();(data.shop??new ShopData()).Validate();(data.presentation??new PlayerPresentationData()).Validate();(data.hub??new RewardHubData()).Validate();(data.daily??new DailyData()).Validate();clock=localClock??(()=>DateTimeOffset.Now);giftClockStart=clock();giftElapsed=elapsedTime;if(giftElapsed==null&&localClock==null){var session=System.Diagnostics.Stopwatch.StartNew();giftElapsed=()=>session.Elapsed;}
@@ -37,9 +37,9 @@ namespace Mewgic.Core
         static int Get(ProgressData d,BoosterKind k)=>k switch
         {
             BoosterKind.Undo=>d.undo,BoosterKind.Hint=>d.hint,BoosterKind.ExtraBottle=>d.extra,
-            BoosterKind.Shuffle=>d.shuffle,BoosterKind.ColorSwap=>d.colorSwap,_=>0
+            BoosterKind.Shuffle=>d.shuffle,BoosterKind.ColorSwap=>d.colorSwap,BoosterKind.BottleHammer=>d.bottleHammer,_=>0
         };
-        static void Set(ProgressData d,BoosterKind k,int value){switch(k){case BoosterKind.Undo:d.undo=value;break;case BoosterKind.Hint:d.hint=value;break;case BoosterKind.ExtraBottle:d.extra=value;break;case BoosterKind.Shuffle:d.shuffle=value;break;case BoosterKind.ColorSwap:d.colorSwap=value;break;}}
+        static void Set(ProgressData d,BoosterKind k,int value){switch(k){case BoosterKind.Undo:d.undo=value;break;case BoosterKind.Hint:d.hint=value;break;case BoosterKind.ExtraBottle:d.extra=value;break;case BoosterKind.Shuffle:d.shuffle=value;break;case BoosterKind.ColorSwap:d.colorSwap=value;break;case BoosterKind.BottleHammer:d.bottleHammer=value;break;}}
         bool Commit(ProgressData copy){try{save(copy.Copy());state=copy;Revision++;LastError=null;return true;}catch(Exception e){LastError=e.Message;return false;}}
         public bool TrySpend(BoosterKind kind){if(Remaining(kind)<=0)return false;var copy=state.Copy();Set(copy,kind,Get(copy,kind)-1);if(DailyRules.Sync(copy.daily,clock()))DailyRules.Add(copy.daily,DailyTaskKind.Boosters,1);return Commit(copy);}
         public bool BeginFirstAttempt(int level)
@@ -121,7 +121,7 @@ namespace Mewgic.Core
             if(solution.Status!=SearchStatus.Solved||solution.Moves.Count==0){Message=L.V("booster.no_hint");return false;}
             if(!Spend(BoosterKind.Hint))return false;move=solution.Moves[0];Message="";return true;
         }
-        public bool Extra(){if(!Allowed(BoosterKind.ExtraBottle))return false;if(puzzle.Count>=maximumBottles){Message=L.V("booster.extra_limit");return false;}if(!Spend(BoosterKind.ExtraBottle))return false;return puzzle.AddEmptyBottle(maximumBottles);}
+        public bool Extra(){if(!Allowed(BoosterKind.ExtraBottle))return false;if(puzzle.ExtraBottleUsed||puzzle.Count>=maximumBottles){Message=L.V("booster.extra_limit");return false;}if(!Spend(BoosterKind.ExtraBottle))return false;return puzzle.AddEmptyBottle(maximumBottles);}
         public bool ColorSwap(int source,out int target)
         {
             target=-1;
@@ -155,6 +155,58 @@ namespace Mewgic.Core
             }
             catch(OperationCanceledException) { }
             return false;
+        }
+
+        public bool Hammer(int source)
+        {
+            if (!Allowed(BoosterKind.BottleHammer)) return false;
+            Message = L.V("booster.hammer_unavailable");
+            if (level < EconomyConfig.Current.bottleHammerUnlock || puzzle.BottleHammerUsed ||
+                source < 0 || source >= puzzle.Count || puzzle.Count <= 2) return false;
+            var board = puzzle.Export();
+            if (!CanSwap(board[source])) return false;
+
+            using var deadline = new System.Threading.CancellationTokenSource(TimeSpan.FromMilliseconds(120));
+            try
+            {
+                var original = PuzzleSolver.Solve(board, 6000, deadline.Token);
+                if (original.Status != SearchStatus.Solved) return false;
+                int candidates = 64;
+                var visited = new HashSet<string>(StringComparer.Ordinal);
+                var result = FindHammerLayout(board, source, original.Moves.Count, visited, ref candidates, deadline.Token);
+                if (result == null) return false;
+                deadline.Token.ThrowIfCancellationRequested();
+                if (!Spend(BoosterKind.BottleHammer)) return false;
+                puzzle.ApplyBottleHammer(result);
+                Message = "";
+                return true;
+            }
+            catch (OperationCanceledException) { return false; }
+        }
+
+        static int[][] FindHammerLayout(int[][] board, int source, int originalLength,
+            HashSet<string> visited, ref int candidates, System.Threading.CancellationToken cancellation)
+        {
+            cancellation.ThrowIfCancellationRequested();
+            if (candidates-- <= 0 || !visited.Add(string.Join("|", board.Select(row => string.Join(",", row)))))
+                return null;
+            if (board[source].Length == 0)
+            {
+                var reduced = board.Where((_, index) => index != source).ToArray();
+                var solution = PuzzleSolver.Solve(reduced, 6000, cancellation);
+                return solution.Status == SearchStatus.Solved && solution.Moves.Count > 0 &&
+                    solution.Moves.Count < originalLength ? reduced : null;
+            }
+
+            // Only real maximal pours out of the selected bottle may empty it.
+            for (int target = 0; target < board.Length && candidates > 0; target++)
+            {
+                var probe = new Puzzle(board);
+                if (probe.Pour(source, target) == 0) continue;
+                var result = FindHammerLayout(probe.Export(), source, originalLength, visited, ref candidates, cancellation);
+                if (result != null) return result;
+            }
+            return null;
         }
 
         static bool CanSwap(int[] bottle)=>bottle.Length>0 &&

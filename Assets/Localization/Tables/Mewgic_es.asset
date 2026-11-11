@@ -2025,6 +2025,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126367
+  - m_Id: 4154944498532360
+    m_Localized: "Martillo de botellas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "Elige una botella sin terminar que se pueda retirar con seguridad."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Colores trasladados. Botella vac\u00eda retirada."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

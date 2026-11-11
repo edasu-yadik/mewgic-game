@@ -2025,6 +2025,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 1668092879795126366
+  - m_Id: 4154944498532360
+    m_Localized: "Flaschenhammer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532361
+    m_Localized: "W\u00e4hle eine unfertige Flasche, die sicher entfernt werden kann."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4154944498532362
+    m_Localized: "Farben umgef\u00fcllt. Leere Flasche entfernt."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
