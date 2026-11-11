@@ -54,6 +54,7 @@ namespace Mewgic
     {
         readonly Dictionary<string, StorePackage> packages;
         readonly Dictionary<string, string> prices = new(StringComparer.Ordinal);
+        readonly Dictionary<string, double> offerEnds = new(StringComparer.Ordinal);
         readonly Dictionary<string, StorePaymentState> states = new(StringComparer.Ordinal);
         readonly HashSet<string> processing = new(StringComparer.Ordinal);
         readonly IStorePurchaseVerifier verifier;
@@ -102,9 +103,22 @@ namespace Mewgic
             Changed?.Invoke(id);
         }
 
+        // Only a store or authenticated offer service should supply an observed server time and a real deadline.
+        internal void SetVerifiedOfferEnd(string id, DateTimeOffset observedUtc, DateTimeOffset endsUtc)
+        {
+            if (!packages.ContainsKey(id)) return;
+            offerEnds[id] = Time.realtimeSinceStartupAsDouble + (endsUtc - observedUtc).TotalSeconds;
+            Changed?.Invoke(id);
+        }
+
+        internal bool HasOfferDeadlines => offerEnds.Count > 0;
+
+        internal TimeSpan? OfferRemaining(string id) => offerEnds.TryGetValue(id, out double end)
+            ? TimeSpan.FromSeconds(Math.Max(0, end - Time.realtimeSinceStartupAsDouble)) : null;
+
         internal bool Buy(string id)
         {
-            if (!restored || Price(id) == null || State(id) is StorePaymentState.Processing or StorePaymentState.Waiting ||
+            if (!restored || Price(id) == null || OfferRemaining(id) == TimeSpan.Zero || State(id) is StorePaymentState.Processing or StorePaymentState.Waiting ||
                 states.Values.Contains(StorePaymentState.Processing)) return false;
             SetState(id, StorePaymentState.Processing);
             try { start(id); return true; }

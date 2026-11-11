@@ -481,6 +481,7 @@ namespace Mewgic
                     float offset = tabScroll.content.anchoredPosition.y;
                     Check(scrollRoom > .1f ? offset > .1f && offset <= scrollRoom + .1f : Mathf.Abs(offset) < .1f,
                         page + " " + height + " kaydırma içerik sınırına uyuyor");
+                    tabScroll.verticalNormalizedPosition = 1;
                 }
             }
 
@@ -620,6 +621,7 @@ namespace Mewgic
             Check(Mathf.Abs(scroll.content.anchoredPosition.y) < .1f, "Kaydırma sonraki sekmeye taşınmadı");
             Press("ShopTab_Costumes");
             yield return null;
+            Check(scroll.content.anchoredPosition.y > before + 10, "Kostümler sekmesi kaydırma konumunu korudu");
             scroll.verticalNormalizedPosition = 0;
             yield return null;
             Press("ShopOwned");
@@ -635,8 +637,108 @@ namespace Mewgic
             Press("ShopClose");
             yield return null;
             Check(GameObject.Find("MagicShop") == null, "Mağaza kapandı ve Ana Menü açığa çıktı");
+            yield return RunShopMotion();
             yield return RunIap();
             yield return ShowGemRewards();
+        }
+
+        IEnumerator RunShopMotion()
+        {
+            Check(Ledger.SetReducedMotion(false) && Ledger.SetResources(4_000, 3_000, 4), "Mağaza animasyonu için izole profil");
+            Press("NavInventory");
+            yield return null;
+            var scroll = GameObject.Find("ShopViewport").GetComponent<ScrollRect>();
+            scroll.verticalNormalizedPosition = 1;
+            var offer = GameObject.Find("Offer_starter").transform.Find("ShopOfferShimmer").GetComponent<Image>();
+            yield return Until(() => offer.color.a > .12f, "Başlangıç Paketi üzerinde tek shimmer");
+            Check(GameObject.Find("ShopOfferDeadline") == null, "Bitiş zamanı olmayan teklif sayaç göstermedi");
+            Press("ShopTab_Powers");
+            var outgoing = GameObject.Find("ShopOutgoingPage").GetComponent<CanvasGroup>();
+            var incoming = GameObject.Find("ShopPage_Powers").GetComponent<CanvasGroup>();
+            Check(outgoing.alpha > .99f && incoming.alpha < .01f && !outgoing.blocksRaycasts,
+                "Önceki sayfa görünürken yeni sayfa saydam, eski sayfa tıklanamaz");
+            yield return CaptureMotion("Tab", 4, .06f);
+            Check(!outgoing.gameObject.activeSelf && incoming.alpha == 1, "Sekme geçişi temiz tamamlandı");
+
+            var stock = GameObject.Find("Power_extra").transform.Find("ProductInfo").GetComponent<TMP_Text>();
+            var wallet = GameObject.Find("ShopBalance").GetComponent<TMP_Text>();
+            string oldStock = stock.text;
+            int count = Ledger.Remaining(BoosterKind.ExtraBottle);
+            Press("BuyExtraBottle");
+            yield return null;
+            Press("ShopConfirm");
+            Check(Ledger.Presentation.coins == 4_000 - Config.extraPrice &&
+                Ledger.Remaining(BoosterKind.ExtraBottle) == count + Config.boosterQuantity &&
+                wallet.text == "4.000" && stock.text == oldStock, "Alış kaydedildi, görünen bakiye ve stok animasyona başlangıç değerinden girdi");
+            var flying = GameObject.Find("ShopFlyingIcon").GetComponent<Image>();
+            var origin = flying.rectTransform.anchoredPosition;
+            yield return new WaitForSecondsRealtime(.22f);
+            Check(flying.rectTransform.anchoredPosition != origin && wallet.text != "4.000" &&
+                wallet.text != (4_000 - Config.extraPrice).ToString("N0", new System.Globalization.CultureInfo("tr-TR")),
+                "İkon stok yönünde hareket etti ve bakiye ara değer gösterdi");
+            yield return CaptureMotion("Power", 5, .07f);
+            yield return Until(() => GameObject.Find("ShopMotion") == null, "Güç animasyonu bitti");
+            Check(stock.text.EndsWith((count + Config.boosterQuantity).ToString()) && wallet.text == "3.200",
+                "Stok ve altın doğru son değere oturdu");
+
+            Press("BuyHint");
+            yield return null;
+            Press("ShopConfirm");
+            Check(GameObject.Find("ShopFlyingIcon") == flying.gameObject, "İkinci alışta aynı efekt nesneleri kullanıldı");
+            yield return null;
+            Press("ShopSkipMotion");
+            Check(GameObject.Find("ShopMotion") == null && wallet.text == "2.200", "Atla, efekti kapattı ve kayıtlı bakiyeyi gösterdi");
+
+            Press("ShopTab_Costumes");
+            yield return Until(() => GameObject.Find("ShopOutgoingPage") == null, "Kostüm sekmesi geçişi tamamlandı");
+            scroll.verticalNormalizedPosition = 1;
+            Press("ShopAction_ExplorerCat");
+            yield return null;
+            Press("ShopConfirm");
+            Check(Ledger.Owns(ShopItem.ExplorerCat) && Ledger.Equipped(ShopCategory.Cats) == ShopItem.ClassicCat &&
+                GameObject.Find("ShopRevealedCostume").GetComponent<Image>().sprite == CostumeArt.Get(ShopItem.ExplorerCat, CostumePose.Front),
+                "Elmas alışında gerçek kostüm önizlemesi açıldı ve otomatik kuşanılmadı");
+            yield return CaptureMotion("Unlock", 9, .09f);
+            yield return Until(() => GameObject.Find("ShopMotion") == null, "Kostüm açılma animasyonu bitti");
+            Check(wallet.text == "2.100" &&
+                Button("ShopAction_ExplorerCat").transform.Find("Label").GetComponent<TMP_Text>().text == "Kuşan",
+                "Elmas bakiyesi ve Kuşan durumu güncel");
+            Press("ShopAction_ExplorerCat");
+            Check(Ledger.Equipped(ShopCategory.Cats) == ShopItem.ExplorerCat &&
+                GameObject.Find("ShopPreviousCostume") != null && GameObject.Find("ShopRevealedCostume") != null,
+                "Kuşanmada eski ve yeni kostüm arasında geçiş başladı");
+            yield return CaptureMotion("Equip", 8, .09f);
+            yield return Until(() => GameObject.Find("ShopMotion") == null, "Kuşanma animasyonu bitti");
+            Check(GameObject.Find("EquippedCostumeArt").GetComponent<Image>().enabled &&
+                GameObject.Find("EquippedCostumeTitle").GetComponent<TMP_Text>().text == "Kaşif Kedi",
+                "Maskot normal kostüm pozuna döndü");
+
+            Check(Ledger.SetResources(0, Ledger.Presentation.gems, 4), "Yetersiz altın senaryosu");
+            Press("ShopTab_Powers");
+            yield return Until(() => GameObject.Find("ShopOutgoingPage") == null, "Güç sekmesi geçişi tamamlandı");
+            Press("BuyExtraBottle");
+            yield return null;
+            Press("ShopConfirm");
+            Check(GameObject.Find("ShopMotion") == null && Ledger.Presentation.coins == 0 &&
+                GameObject.Find("ConfirmMessage").GetComponent<TMP_Text>().text.Contains("Eksik"), "Başarısız alışta kutlama çalışmadı");
+            Press("ShopCancel");
+
+            Check(Ledger.SetReducedMotion(true) && Ledger.SetResources(800, Ledger.Presentation.gems, 4), "Azaltılmış hareket senaryosu");
+            Press("BuyExtraBottle");
+            yield return null;
+            Press("ShopConfirm");
+            Check(GameObject.Find("ShopMotion") == null && wallet.text == "0" && Ledger.Presentation.coins == 0,
+                "Azaltılmış hareketle alış anında ve aynı kayıtla tamamlandı");
+            Press("ShopClose");
+        }
+
+        IEnumerator CaptureMotion(string name, int frames, float interval)
+        {
+            for (int i = 0; i < frames; i++)
+            {
+                ScreenCapture.CaptureScreenshot($"{Output}{name}-{i:D2}.png");
+                yield return new WaitForSecondsRealtime(interval);
+            }
         }
 
         sealed class LocalVerifier : IStorePurchaseVerifier
@@ -751,6 +853,13 @@ namespace Mewgic
             var nativeAttempt = StorePayments.ConfigureNativeSandbox(verifier, Guid.NewGuid());
             yield return Until(() => nativeAttempt.IsCompletedSuccessfully, "Editör yerel test sınırı kontrol edildi");
             Check(!nativeAttempt.Result && StorePayments.Current == session, "Editör platform ödeme servisini açmadı");
+            var clock = DateTimeOffset.UtcNow;
+            session.SetVerifiedOfferEnd(package.id, clock, clock.AddMinutes(12));
+            Check(GameObject.Find("ShopOfferDeadline").GetComponent<TMP_Text>().text.StartsWith("00:12:"),
+                "Doğrulanmış test teklifinde kalan süre gösterildi");
+            session.SetVerifiedOfferEnd(package.id, clock, clock.AddSeconds(-1));
+            Check(!session.Buy(package.id) && GameObject.Find("ShopOfferDeadline").GetComponent<TMP_Text>().text == "Teklif sona erdi",
+                "Süresi geçen teklif yeni alış başlatmadı");
 
             Press("ShopConfirm");
             yield return null;

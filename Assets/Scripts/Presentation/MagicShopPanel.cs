@@ -11,7 +11,7 @@ using L = Mewgic.Localization.L;
 
 namespace Mewgic
 {
-    public sealed class MagicShopPanel : MonoBehaviour
+    public sealed partial class MagicShopPanel : MonoBehaviour
     {
         enum Page { Offers, Gold, Powers, Costumes }
 
@@ -33,6 +33,8 @@ namespace Mewgic
             public ShopItem item;
             public Button button;
             public TMP_Text stock, action;
+            public RectTransform card;
+            public Image icon;
         }
 
         static readonly CultureInfo Turkish = CultureInfo.GetCultureInfo("tr-TR");
@@ -51,7 +53,7 @@ namespace Mewgic
 
         readonly Dictionary<string, Sprite> art = new();
         readonly List<Row> rows = new();
-        readonly List<(StorePackage package, TMP_Text price, TMP_Text action, string preview)> paymentRows = new();
+        readonly List<(StorePackage package, TMP_Text price, TMP_Text action, TMP_Text timer, string preview)> paymentRows = new();
         StorePayments payments;
         StorePackage modalPackage;
         readonly RectTransform[] pages = new RectTransform[4];
@@ -96,7 +98,8 @@ namespace Mewgic
             }
             payments?.RefreshPurchases();
             RefreshPayments();
-            Select(Page.Offers);
+            Select(Page.Offers, false);
+            Refresh();
             Resize();
         }
 
@@ -108,7 +111,12 @@ namespace Mewgic
 
         public void Close()
         {
-            if (root != null) root.gameObject.SetActive(false);
+            if (root != null)
+            {
+                RememberOffset();
+                SkipMotion();
+                root.gameObject.SetActive(false);
+            }
             pendingRequest = 0;
             modalLink = null;
             if (modal != null) modal.gameObject.SetActive(false);
@@ -119,6 +127,12 @@ namespace Mewgic
             if (!IsOpen) return;
             if (root.rect.size != lastSize) Resize();
             if (observedRevision != ledger.Revision) Refresh();
+            TickMotion(Time.unscaledDeltaTime);
+            if (payments?.HasOfferDeadlines == true && Time.unscaledTime >= nextOfferRefresh)
+            {
+                nextOfferRefresh = Time.unscaledTime + .5f;
+                RefreshPayments();
+            }
         }
 
         void OnDestroy()
@@ -170,6 +184,7 @@ namespace Mewgic
             BuildPowers(pages[2], catalog.previewPowers);
             BuildCostumes(pages[3]);
             BuildModal();
+            BuildMotion();
             Close();
         }
 
@@ -192,6 +207,8 @@ namespace Mewgic
                 float x = 24 + i * 225;
                 var button = Control(stage, "ShopTab_" + PageIds[i], "", "tab", x, 339, 224, 111, () => Select(page));
                 tabFaces[i] = button.image;
+                tabGlows[i] = Picture(button.transform, "ShopTabGoldLight", "edgeglow", 15, 1, 194, 20);
+                tabGlows[i].color = Color.clear;
                 tabPoints[i] = Picture(button.transform, "SelectedPoint", "tabPoint", 89, 95, 46, 26);
                 Picture(button.transform, "Icon", TabIcons[i], 74, 10, 76, 51, true);
                 tabLabels[i] = Text(button.transform, "TabTitle", Tabs[i], 26, 7, 55, 210, 46, Ink);
@@ -226,6 +243,7 @@ namespace Mewgic
             if (package.amount > 0) ContentRow(GoldAmount(package), "coin");
             foreach (var power in package.powers ?? Array.Empty<StorePackagePower>())
                 ContentRow($"{power.count} {power.label}", power.icon);
+            if (featured) starterShimmer = OfferShimmer(card);
             if (featured) Ribbon(card, "FeaturedRibbon", "ÖZEL\nBAŞLANGIÇ PAKETİ", 23, 13, 319, 102, -9, 29);
             var price = Surface(card, "OfferPrice", "cream", featured ? 657 : 652, height - 211 + (featured ? 0 : 31), 235, 100);
             var priceText = Text(price.transform, "Price", "Önizleme", 39, 6, 16, 222, 68, Ink);
@@ -240,6 +258,7 @@ namespace Mewgic
             var featured = gold[^1];
             var hero = Surface(parent, "Featured10000Gold", "panel", 9, 12, 923, 379).rectTransform;
             Picture(hero, "GoldChest", featured.art, 29, 99, 419, 262);
+            goldShimmer = OfferShimmer(hero);
             Ribbon(hero, "FeaturedRibbon", "ÖNE ÇIKAN\nALTIN PAKETİ", 33, 16, 360, 105, -9, 32);
             Text(hero, "GoldAmount", GoldAmount(featured), 69, 444, 18, 439, 92, serif: true);
             Ribbon(hero, "Bonus", Bonus(featured), 484, 111, 337, 68, 0, 40);
@@ -291,7 +310,7 @@ namespace Mewgic
         void Power(RectTransform parent, int index, string title, string description, string icon, ShopItem item, int previewPrice = 0)
         {
             var row = Surface(parent, "Power_" + icon, "panel", 6, 175 + index * 155, 929, 157).rectTransform;
-            Picture(row, "ProductArt", icon, 19, 8, 213, 134);
+            var productIcon = Picture(row, "ProductArt", icon, 19, 8, 213, 134);
             Text(row, "ProductName", title, 39, 246, 11, 364, 45, serif: true, left: true);
             Text(row, "ProductPurpose", description, 24, 248, 53, 360, 42, left: true);
             Surface(row, "StockPlate", "badge", 245, 96, 244, 44);
@@ -304,7 +323,7 @@ namespace Mewgic
             string action = implemented ? "Buy" + ShopCatalog.Booster(item) : "ShopPreview_" + icon;
             var button = Control(row, action, implemented ? "Satın Al" : "Önizle", "green", 635, 72, 259, 72,
                 () => { if (implemented) Choose(item); else Inform(title, "Bu bölümlerde hamle sınırı yok. Güç tasarım onayı bekliyor ve satın alınamıyor.", icon); }, 34);
-            if (implemented) rows.Add(new Row { item = item, button = button, stock = stock });
+            if (implemented) rows.Add(new Row { item = item, button = button, stock = stock, card = row, icon = productIcon });
         }
 
         void BuildCostumes(RectTransform parent)
@@ -336,7 +355,8 @@ namespace Mewgic
                 });
                 Price(card, Number(EconomyConfig.Current.Price(item)), "diamond", 14, 251, 279, 112, 35, compact: true);
                 var button = Control(card, "ShopAction_" + item, "Satın Al", "green", 32, 300, 243, 66, () => Choose(item), 32);
-                rows.Add(new Row { item = item, button = button, action = button.transform.Find("Label").GetComponent<TMP_Text>() });
+                rows.Add(new Row { item = item, button = button, card = card, icon = portraitImage,
+                    action = button.transform.Find("Label").GetComponent<TMP_Text>() });
             }
             Control(parent, "ShopOwned", "Sahip Olduklarım", "active", 288, 1250, 365, 69, ShowCollection, 27);
         }
@@ -384,7 +404,11 @@ namespace Mewgic
         void BindPayment(StorePackage package, TMP_Text price, Button button, string preview)
         {
             price.font = MewgicTypographySettings.Current.body;
-            paymentRows.Add((package, price, button.transform.Find("Label").GetComponent<TMP_Text>(), preview));
+            var priceRect = price.rectTransform;
+            var timer = Text(priceRect.parent, "ShopOfferDeadline", "", 22, priceRect.anchoredPosition.x,
+                -priceRect.anchoredPosition.y - 26, priceRect.rect.width, 28);
+            timer.gameObject.SetActive(false);
+            paymentRows.Add((package, price, button.transform.Find("Label").GetComponent<TMP_Text>(), timer, preview));
         }
 
         void RefreshPayments()
@@ -392,8 +416,17 @@ namespace Mewgic
             foreach (var row in paymentRows)
             {
                 string price = payments?.Price(row.package.id);
-                row.price.text = price ?? "Önizleme";
-                row.action.text = price == null ? row.preview : "Test Satın Al";
+                var remaining = payments?.OfferRemaining(row.package.id);
+                bool ended = remaining == TimeSpan.Zero;
+                row.timer.gameObject.SetActive(remaining.HasValue);
+                if (remaining.HasValue)
+                {
+                    var left = TimeSpan.FromSeconds(Math.Ceiling(remaining.Value.TotalSeconds));
+                    row.timer.text = ended ? "Teklif sona erdi" : left.TotalDays >= 1
+                        ? $"{left.Days}g {left.Hours}sa" : $"{left.Hours:00}:{left.Minutes:00}:{left.Seconds:00}";
+                }
+                row.price.text = ended ? "Sona Erdi" : price ?? "Önizleme";
+                row.action.text = ended || price == null ? row.preview : "Test Satın Al";
             }
         }
 
@@ -407,6 +440,11 @@ namespace Mewgic
         {
             var title = string.IsNullOrEmpty(package.name) ? GoldAmount(package) : package.name;
             Inform(title, "Mağaza fiyatı şu anda kullanılamıyor. Satın alma kapalı.", package.art);
+            if (payments?.OfferRemaining(package.id) == TimeSpan.Zero && payments.State(package.id) != StorePaymentState.Waiting)
+            {
+                modalMessage.text = "Teklifin süresi sona erdi.";
+                return;
+            }
             if (payments?.Price(package.id) == null && payments?.State(package.id) != StorePaymentState.Waiting) return;
             modalPackage = package;
             if (payments.State(package.id) is StorePaymentState.Success or StorePaymentState.Cancelled or StorePaymentState.Failed)
@@ -424,9 +462,10 @@ namespace Mewgic
             {
                 case StorePaymentState.Ready:
                     string price = payments.Price(id);
-                    if (price == null)
+                    bool ended = payments.OfferRemaining(id) == TimeSpan.Zero;
+                    if (price == null || ended)
                     {
-                        modalMessage.text = "Mağaza fiyatı şu anda kullanılamıyor.";
+                        modalMessage.text = ended ? "Teklifin süresi sona erdi." : "Mağaza fiyatı şu anda kullanılamıyor.";
                         break;
                     }
                     string content = modalPackage.bonus > 0 ? $"\nToplam {Number(modalPackage.Gold)} Altın" : "";
@@ -435,7 +474,11 @@ namespace Mewgic
                     modalLink = () =>
                     {
                         modal.gameObject.SetActive(true);
-                        if (!payments.Buy(id)) modalMessage.text = "Mağaza hazırlanıyor veya başka bir işlem sürüyor.";
+                        if (!payments.Buy(id))
+                        {
+                            if (payments.OfferRemaining(id) == TimeSpan.Zero) ShowPaymentStatus();
+                            else modalMessage.text = "Mağaza hazırlanıyor veya başka bir işlem sürüyor.";
+                        }
                     };
                     break;
                 case StorePaymentState.Processing:
@@ -484,6 +527,7 @@ namespace Mewgic
         void Choose(ShopItem item)
         {
             if (modal.gameObject.activeSelf) return;
+            SkipMotion();
             bool costume = ShopCatalog.UsesGems(item);
             if (costume && ledger.Owns(item)) { Equip(item); return; }
             int unlock = EconomyConfig.Current.UnlockLevel(item);
@@ -533,11 +577,17 @@ namespace Mewgic
                 link?.Invoke();
                 return;
             }
+            var row = rows.Find(product => product.item == pendingItem);
+            bool gems = ShopCatalog.UsesGems(pendingItem);
+            var player = ledger.Presentation;
+            long previousBalance = gems ? player.gems : player.coins;
+            int previousStock = row?.stock == null ? 0 : ledger.Remaining(ShopCatalog.Booster(pendingItem));
             var result = ledger.Purchase(pendingItem, pendingPrice, pendingRequest);
             if (result == ShopPurchaseResult.Purchased)
             {
                 pendingRequest = 0;
                 modal.gameObject.SetActive(false);
+                StartPurchaseMotion(row, previousBalance, previousStock);
                 Refresh();
                 GameFeel.Play(GameCue.Coin);
                 return;
@@ -575,41 +625,45 @@ namespace Mewgic
 
         void Equip(ShopItem item)
         {
-            if (ledger.Equip(item)) Refresh();
+            SkipMotion();
+            var oldItem = ledger.Equipped(ShopCategory.Cats);
+            if (ledger.Equip(item))
+            {
+                StartEquipMotion(oldItem, item);
+                Refresh();
+            }
             else Inform("Kuşan", "Kayıt güncellenemedi.", "wizard");
         }
 
-        void Select(Page page)
+        void Select(Page page, bool motion = true)
         {
-            scroll.StopMovement();
-            // Reset the shared viewport before changing content height or activating the next page.
-            scrollContent.anchoredPosition = Vector2.zero;
-            current = page;
-            if (collection != null) { collection.gameObject.SetActive(false); Destroy(collection.gameObject); }
-            for (int i = 0; i < pages.Length; i++)
+            if (pageSelected && page == current && collection == null) return;
+            bool animate = motion && pageSelected && page != current && !GameFeel.Reduced && IsOpen;
+            // Finishing a purchase commits only the displayed counters; the ledger is already saved.
+            if (rewardDuration > 0) SkipMotion();
+            if (collection != null)
             {
-                bool selected = i == (int)page;
-                pages[i].gameObject.SetActive(selected);
-                tabFaces[i].sprite = art[selected ? "active" : "tab"];
-                tabPoints[i].enabled = selected;
-                tabLabels[i].color = selected ? Ivory : Ink;
+                collection.gameObject.SetActive(false);
+                Destroy(collection.gameObject);
+                collection = null;
             }
-            Resize();
+            BeginTab(page, animate);
             Refresh();
-            Canvas.ForceUpdateCanvases();
-            scroll.verticalNormalizedPosition = 1;
         }
 
         void Refresh()
         {
             observedRevision = ledger.Revision;
             var player = ledger.Presentation;
-            balance.text = Number(current == Page.Costumes ? player.gems : player.coins);
+            if (!countWallet) balance.text = Number(current == Page.Costumes ? player.gems : player.coins);
             var wallet = stage.Find("WalletCoin").GetComponent<Image>();
             wallet.sprite = art[current == Page.Costumes ? "diamond" : "coin"];
             foreach (var row in rows)
             {
-                if (row.stock != null) row.stock.text = "Sahip Olduğun: " + Number(ledger.Remaining(ShopCatalog.Booster(row.item)));
+                if (row.stock != null)
+                {
+                    if (row != rewardRow) row.stock.text = "Sahip Olduğun: " + Number(ledger.Remaining(ShopCatalog.Booster(row.item)));
+                }
                 else
                 {
                     bool equipped = ledger.Equipped(ShopCategory.Cats) == row.item;

@@ -369,3 +369,5 @@ Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120d
 11 Kasım 2026 · Altın ve elmas ekonomisi. Ücretsiz elmas ilk galibiyet kilometre taşlarına, günlük yıldız görevine, haftalık etkinliğe ve yerel sezona bağlandı. Bakiye değişiklikleri yerel işlem kimliğiyle kaydediliyor. Yetersiz bakiye penceresi eksik miktarı ve ücretsiz yolları gösteriyor. 772 izole Unity Play Mode kontrolü geçti. Denge modeli ve Game View kanıtları ProductionReports/TwoCurrencyEconomy altında.
 
 11 Kasım 2026 · IAP altyapısı. Unity IAP 5.5.0, iOS/Android ürün eşlemeleri, mağaza fiyatı, test satın alma durumları ve tek seferlik teslimat kaydı eklendi. 760 izole Unity Play Mode kontrolü geçti. Canlı ödeme kapalı. Cihaz sandbox ve mağaza hesap bağlantıları bekliyor. Kanıtlar ProductionReports/StoreIap altında.
+
+11 Kasım 2026 · Mağaza animasyonları. Dört sekme kaydırma konumunu koruyor, güç ve kostüm alımları kayıt sonrası animasyon oynatıyor. Kuşanma portre geçişi, Atla, azaltılmış hareket ve doğrulanmış teklif zamanı desteği eklendi. 822 izole Unity Play Mode kontrolü geçti. GIF'ler ProductionReports/ShopMotion altında.
