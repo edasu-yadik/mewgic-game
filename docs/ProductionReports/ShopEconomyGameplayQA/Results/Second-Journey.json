@@ -1,0 +1,495 @@
+{
+  "success": false,
+  "editor": "6000.3.27f2",
+  "checks": [
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Ana Menü arayüzü hazır"
+    },
+    {
+      "ok": true,
+      "message": "ArrivalDismiss etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ArrivalDismiss: ArrivalDismiss"
+    },
+    {
+      "ok": true,
+      "message": "Sıfır bakiyeli yeni oyuncu"
+    },
+    {
+      "ok": true,
+      "message": "Play etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Play: Play"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 1"
+    },
+    {
+      "ok": true,
+      "message": "1: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "1: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "1: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "1: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "1: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "1: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "1: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "1: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "Ödül simgesi bar yönünde hareket etti"
+    },
+    {
+      "ok": true,
+      "message": "Ödül barı kayıtlı ödüle kademeli ilerledi"
+    },
+    {
+      "ok": true,
+      "message": "Ödül barı kayıtlı altınla eşleşti"
+    },
+    {
+      "ok": true,
+      "message": "Kalan senaryolar için azaltılmış hareket etkin"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 2"
+    },
+    {
+      "ok": true,
+      "message": "2: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "2: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "2: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "2: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "2: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 3"
+    },
+    {
+      "ok": true,
+      "message": "3: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "3: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "3: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "3: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "3: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 4"
+    },
+    {
+      "ok": true,
+      "message": "4: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "4: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "4: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "4: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "4: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "4: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "4: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "4: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "ResultHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ResultHome: ResultHome"
+    },
+    {
+      "ok": true,
+      "message": "Sonuçtan gerçek harita açıldı"
+    },
+    {
+      "ok": true,
+      "message": "MapHome etkileşimli"
+    },
+    {
+      "ok": false,
+      "message": "UI raycast MapHome: boş"
+    }
+  ],
+  "boards": [],
+  "transitions": [],
+  "errors": [],
+  "failure": "System.InvalidOperationException: UI raycast MapHome: boş\r\n  at Mewgic.LevelProgressionProbe.Check (System.Boolean ok, System.String message, System.Boolean required) [0x0002f] in C:\\Dev\\Mewgic\\Assets\\Scripts\\Tests\\LevelProgressionProbe.cs:136 \r\n  at Mewgic.LevelProgressionProbe.Click (System.String name, System.Boolean raycast) [0x000c3] in C:\\Dev\\Mewgic\\Assets\\Scripts\\Tests\\LevelProgressionProbe.cs:215 \r\n  at Mewgic.LevelProgressionProbe+<JourneyBackHome>d__10.MoveNext () [0x00075] in C:\\Dev\\Mewgic\\Assets\\Scripts\\Tests\\LevelProgressionProbe.Journey.cs:87 \r\n  at Mewgic.LevelProgressionProbe+<Start>d__54.MoveNext () [0x000ca] in C:\\Dev\\Mewgic\\Assets\\Scripts\\Tests\\LevelProgressionProbe.cs:149 ",
+  "playerSaveIntact": true
+}

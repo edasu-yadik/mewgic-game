@@ -43,7 +43,9 @@ namespace Mewgic
         public static void Begin(string output) => Begin(output, false);
 
         [MenuItem("Mewgic/QA/Run Costume Integration")]
-        public static void BeginCostumes() => Begin("Library/CostumeIntegration/", true);
+        public static void BeginCostumes() => BeginCostumes("Library/CostumeIntegration/");
+
+        public static void BeginCostumes(string output) => Begin(output, true);
 
         static void Begin(string output, bool costumes)
         {

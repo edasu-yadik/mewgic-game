@@ -19,7 +19,7 @@ using UnityEngine.UI;
 namespace Mewgic
 {
     [DefaultExecutionOrder(-20000)]
-    public sealed class LevelProgressionProbe : MonoBehaviour
+    public sealed partial class LevelProgressionProbe : MonoBehaviour
     {
         const string Output = "docs/ProductionReports/LevelProgression/";
         [SerializeField] bool frontier, boosterIntegration;
@@ -52,16 +52,19 @@ namespace Mewgic
         [MenuItem("Mewgic/QA/Run Gameplay Booster Integration")]
         public static void BeginBoosterIntegration() => Begin(false, "docs/ProductionReports/BoosterIntegration/", true);
 
-        static void Begin(bool frontier, string regressionOutput = null, bool boosterIntegration = false)
+        public static void BeginBoosterIntegration(string folder) => Begin(false, folder, true);
+
+        static void Begin(bool frontier, string regressionOutput = null, bool boosterIntegration = false, int journeyPhase = 0)
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
             for (int i = 0; i < SceneManager.sceneCount; i++)
                 if (SceneManager.GetSceneAt(i).isDirty) throw new InvalidOperationException("Açık sahnede kaydedilmemiş değişiklik var.");
-            EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
+            EditorSceneManager.OpenScene(journeyPhase == 0 ? "Assets/Scenes/Gameplay.unity" : "Assets/Scenes/Boot.unity");
             var probe = new GameObject("Isolated level progression QA").AddComponent<LevelProgressionProbe>();
             probe.frontier = frontier;
             probe.boosterIntegration = boosterIntegration;
             probe.regressionOutput = regressionOutput;
+            probe.journeyPhase = journeyPhase;
             Type.GetType("Part12BEditor, Assembly-CSharp-Editor")?.GetMethod("Size")?.Invoke(null, new object[] { 1600 });
             EditorWindow.GetWindow(typeof(Editor).Assembly.GetType("UnityEditor.GameView")).Focus();
             EditorApplication.isPlaying = true;
@@ -81,7 +84,13 @@ namespace Mewgic
             original = PlayerSave();
             archiveRoot = Path.GetFullPath("Library/LevelProgressionQA/" + Guid.NewGuid().ToString("N"));
             Application.logMessageReceived += Log;
-            Seed(0);
+            if (journeyPhase == 2)
+            {
+                key = SessionState.GetString(JourneyState + "Key", "");
+                archiveRoot = SessionState.GetString(JourneyState + "Archive", "");
+                Reopen();
+            }
+            else Seed(0);
         }
 
         void Log(string message, string stack, LogType kind)
@@ -95,7 +104,7 @@ namespace Mewgic
             key = "Mewgic.Tests.LevelProgression." + Guid.NewGuid().ToString("N");
             var data = MapFlowProbe.Data(completed);
             data.presentation.currentLevel = completed + 1;
-            data.presentation.reduceMotion = true;
+            data.presentation.reduceMotion = journeyPhase != 1;
             data.presentation.motionPreferenceSet = true;
             PlayerPrefs.SetString(key, JsonUtility.ToJson(data));
             PlayerPrefs.Save();
@@ -132,7 +141,8 @@ namespace Mewgic
             if (frontier || boosterIntegration) yield return null;
             string failure = null;
             var stack = new Stack<IEnumerator>();
-            stack.Push(boosterIntegration ? RunBoosterIntegration() : frontier ? RunFrontier() : Run());
+            stack.Push(journeyPhase == 1 ? RunJourney() : journeyPhase == 2 ? RunJourneyRestart() :
+                boosterIntegration ? RunBoosterIntegration() : frontier ? RunFrontier() : Run());
             while (stack.Count > 0)
             {
                 bool more = false; object item = null;
@@ -144,6 +154,7 @@ namespace Mewgic
             }
             var after = PlayerSave();
             bool intact = original.All(pair => after[pair.Key] == pair.Value);
+            keepJourneySave &= passed && failure == null && intact && errors.Count == 0;
             Directory.CreateDirectory(Evidence);
             File.WriteAllText(Evidence + "PLAY_MODE.json", Newtonsoft.Json.JsonConvert.SerializeObject(new
             {
@@ -159,7 +170,13 @@ namespace Mewgic
             active=null;
             Application.runInBackground = previousRunInBackground;
             Application.logMessageReceived -= Log;
-            ClearJournal();
+            if (!keepJourneySave)
+            {
+                ClearJournal();
+                if (journeyPhase != 0)
+                    foreach (string suffix in new[] { "Key", "Archive", "Snapshot" })
+                        SessionState.EraseString(JourneyState + suffix);
+            }
             GameplayProgress.RestorePlayerProfile();
             GameplayLevelCatalog.TestArchive = null;
             GameplayLevelCatalog.ResetSelection();
@@ -185,25 +202,43 @@ namespace Mewgic
             var button = GameObject.Find(name)?.GetComponent<Button>();
             Check(button != null && button.IsInteractable(), $"{name} etkileşimli");
             if (!raycast) { button.onClick.Invoke(); return; }
+            var hit = RaycastButton(button, out var pointer, out var hitName);
+            Check(hit == button.gameObject, $"UI raycast {name}: {hitName}");
+            if (button is BottleTapButton)
+            {
+                pointer.eligibleForClick = true;
+                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerDownHandler);
+                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerUpHandler);
+            }
+            ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerClickHandler);
+        }
+
+        static GameObject RaycastButton(Button button, out PointerEventData pointer, out string hitName)
+        {
             Canvas.ForceUpdateCanvases();
             var rect = (RectTransform)button.transform;
-            var pointer = new PointerEventData(EventSystem.current)
+            pointer = new PointerEventData(EventSystem.current)
             {
                 button = PointerEventData.InputButton.Left,
                 position = RectTransformUtility.WorldToScreenPoint(null, rect.TransformPoint(rect.rect.center))
             };
             var hits = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointer, hits);
-            var hit = hits.Count == 0 ? null : ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
-            Check(hit == button.gameObject, $"UI raycast {name}: {(hits.Count == 0 ? "boş" : hits[0].gameObject.name)}");
-            if (button is BottleTapButton)
+            hitName = hits.Count == 0 ? "boş" : hits[0].gameObject.name;
+            if (hits.Count == 0) return null;
+            pointer.pointerCurrentRaycast = hits[0];
+            return ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject);
+        }
+
+        IEnumerator ClickWhenReady(string name)
+        {
+            yield return Until(() =>
             {
-                pointer.eligibleForClick = true;
-                pointer.pointerCurrentRaycast = hits[0];
-                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerDownHandler);
-                ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerUpHandler);
-            }
-            ExecuteEvents.Execute(hit, pointer, ExecuteEvents.pointerClickHandler);
+                var button = GameObject.Find(name)?.GetComponent<Button>();
+                return button != null && button.IsInteractable() && EventSystem.current != null &&
+                    RaycastButton(button, out _, out _) == button.gameObject;
+            }, $"{name}: dokunma alanı hazır");
+            Click(name, true);
         }
 
         IEnumerator Win(int id, int expectedCoins)
@@ -483,7 +518,7 @@ namespace Mewgic
             Click("BottleHammer", true);
             yield return null;
             Check(GameObject.Find("ShopPage_Powers") != null, "Sıfır Çekiç stoğunda Oyun Güçleri açıldı");
-            Click("BuyBottleHammer", true);
+            yield return ClickWhenReady("BuyBottleHammer");
             yield return null;
             var receipt = Ledger.NextShopPurchase;
             Click("ShopConfirm", true);
@@ -499,7 +534,7 @@ namespace Mewgic
 
             Click("ColorSwap", true);
             yield return null;
-            Click("BuyColorSwap", true);
+            yield return ClickWhenReady("BuyColorSwap");
             yield return null;
             Click("ShopConfirm", true);
             yield return null;

@@ -1,0 +1,2051 @@
+{
+  "success": true,
+  "editor": "6000.3.27f2",
+  "checks": [
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 1"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 1 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "1: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "1 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "1: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "1: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "1: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "1: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "1: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "Sonraki tıklanmadan kazanış diskte: devam=2"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 2"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 2 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "2: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "2 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "2: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "2: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "2: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "2: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 3"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 3 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "3: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "3: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "3 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "3: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "3: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "3: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "3: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "3: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "3: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "3: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "3: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "3: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 4"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 4 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "4: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "4: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "4 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "4: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "4: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "4: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "4: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "4: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "4: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "4: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 5"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 5 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "5: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "5: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "9: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "9: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "9: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 9"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 9 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "9: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "9: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "9 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "9: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "9: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "9: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "9: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "9: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 10"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 10 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "10: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "10: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "10 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "10: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "10: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "10: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "10: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 11"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 11 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "11: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "11: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "99: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "99: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "99: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 99"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 99 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "99: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "99: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "99 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "99: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "99: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "99: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "99: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 100"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 100 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "100: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "100: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "100 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "100: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "100: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "100: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "100: tamamlanan ve açık bölüm ayrıldı"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 101"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 101 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "101: farklı ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "101: arşivsiz yeniden üretim birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "99: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "99: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "99: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 99"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 99 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "99 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "99: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "99: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "99: ödül 0 coin (bakiye farkı 0, kayıt 0, ipucu farkı 0)"
+    },
+    {
+      "ok": true,
+      "message": "Replay etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Replay: Replay"
+    },
+    {
+      "ok": true,
+      "message": "Tekrar Oyna 99'u aynı düzenle sıfırladı"
+    },
+    {
+      "ok": true,
+      "message": "99 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 6 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "99: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "99: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "99: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "99: ödül 0 coin (bakiye farkı 0, kayıt 0, ipucu farkı 0)"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 100"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 100 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "100 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 6"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 7"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 8"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 9"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 5 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 10"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "100: döküş 11"
+    },
+    {
+      "ok": true,
+      "message": "100: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "100: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "100: ödül 0 coin (bakiye farkı 0, kayıt 0, ipucu farkı 0)"
+    },
+    {
+      "ok": true,
+      "message": "ResultHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ResultHome: ResultHome"
+    },
+    {
+      "ok": true,
+      "message": "Haritaya Dön gerçek LevelMap sahnesini açtı"
+    },
+    {
+      "ok": true,
+      "message": "Eski bölüm tekrarı ödül, yıldız ve açılan seviyeyi bozmadı"
+    },
+    {
+      "ok": true,
+      "message": "Kayıt yeniden açıldı: devam=101, önceki yıldızlar ve coin korundu"
+    },
+    {
+      "ok": true,
+      "message": "101 dosya arşivi yeniden açıldığında düzen birebir aynı"
+    },
+    {
+      "ok": true,
+      "message": "Eski devam imleci izole kayda yazıldı"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Play etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 101"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 101 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "Boot ve ana menü eski imleci aştı; 101 aynı düzenle açıldı"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "MissionsButton etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "DailyAction_3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 101"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 101 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "Günlük görev Oyna doğru bölümü açtı"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "WeeklyGo etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 101"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 101 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "Ödül merkezi Oyna doğru bölümü açtı"
+    },
+    {
+      "ok": true,
+      "message": "2: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "2: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "2: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 2"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 2 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "2 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "2: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "2: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "2: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "2: ödül 50 coin (bakiye farkı 50, kayıt 50, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Hazırlık hatası sonuç ekranında görünür"
+    },
+    {
+      "ok": true,
+      "message": "Hazırlık hatası oynanan bölümü ve kazanış kaydını korudu"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 3"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 3 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "Hazırlığı tekrar denemek ikinci ödül vermedi"
+    }
+  ],
+  "boards": [
+    {
+      "id": 1,
+      "signature": "||AABB|BBAA",
+      "moves": 3,
+      "difficulty": "Hazır"
+    },
+    {
+      "id": 2,
+      "signature": "||AABB|BBCC|CCAA",
+      "moves": 4,
+      "difficulty": "Hazır"
+    },
+    {
+      "id": 3,
+      "signature": "||AAAB|ABCC|CCBB",
+      "moves": 5,
+      "difficulty": "Easy"
+    },
+    {
+      "id": 4,
+      "signature": "||AAAA|BBBC|CCCB",
+      "moves": 3,
+      "difficulty": "Easy"
+    },
+    {
+      "id": 5,
+      "signature": "||AABB|BCAA|BCCC",
+      "moves": 5,
+      "difficulty": "Easy"
+    },
+    {
+      "id": 9,
+      "signature": "||ABBC|BACA|BACC",
+      "moves": 8,
+      "difficulty": "Normal"
+    },
+    {
+      "id": 10,
+      "signature": "||ABBA|ABBC|ACCC",
+      "moves": 7,
+      "difficulty": "Normal"
+    },
+    {
+      "id": 11,
+      "signature": "||ABBB|ABCA|ACCC",
+      "moves": 7,
+      "difficulty": "Normal"
+    },
+    {
+      "id": 99,
+      "signature": "||ABBC|ADCC|BACD|BADD",
+      "moves": 11,
+      "difficulty": "Hard"
+    },
+    {
+      "id": 100,
+      "signature": "||AABC|BDAB|BDCD|CCDA",
+      "moves": 11,
+      "difficulty": "Hard"
+    },
+    {
+      "id": 101,
+      "signature": "||AAAA|BBCB|BCCC",
+      "moves": 4,
+      "difficulty": "Easy"
+    }
+  ],
+  "transitions": [
+    {
+      "from": 1,
+      "scene": "Gameplay",
+      "hud": 1,
+      "SelectedId": 2,
+      "LastError": null,
+      "saved": 2,
+      "canLoad": true,
+      "frame": 493,
+      "Ready": true,
+      "lastNavigationFrame": 493,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 1,
+      "scene": "Gameplay",
+      "hud": 2,
+      "SelectedId": 2,
+      "LastError": null,
+      "saved": 2,
+      "canLoad": true,
+      "frame": 494,
+      "Ready": true,
+      "lastNavigationFrame": 493,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 2,
+      "scene": "Gameplay",
+      "hud": 2,
+      "SelectedId": 3,
+      "LastError": null,
+      "saved": 3,
+      "canLoad": true,
+      "frame": 712,
+      "Ready": true,
+      "lastNavigationFrame": 712,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 2,
+      "scene": "Gameplay",
+      "hud": 3,
+      "SelectedId": 3,
+      "LastError": null,
+      "saved": 3,
+      "canLoad": true,
+      "frame": 713,
+      "Ready": true,
+      "lastNavigationFrame": 712,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 3,
+      "scene": "Gameplay",
+      "hud": 3,
+      "SelectedId": 4,
+      "LastError": null,
+      "saved": 4,
+      "canLoad": true,
+      "frame": 984,
+      "Ready": true,
+      "lastNavigationFrame": 984,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 3,
+      "scene": "Gameplay",
+      "hud": 4,
+      "SelectedId": 4,
+      "LastError": null,
+      "saved": 4,
+      "canLoad": true,
+      "frame": 985,
+      "Ready": true,
+      "lastNavigationFrame": 984,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 4,
+      "scene": "Gameplay",
+      "hud": 4,
+      "SelectedId": 5,
+      "LastError": null,
+      "saved": 5,
+      "canLoad": true,
+      "frame": 1153,
+      "Ready": true,
+      "lastNavigationFrame": 1153,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 4,
+      "scene": "Gameplay",
+      "hud": 5,
+      "SelectedId": 5,
+      "LastError": null,
+      "saved": 5,
+      "canLoad": true,
+      "frame": 1154,
+      "Ready": true,
+      "lastNavigationFrame": 1153,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 9,
+      "scene": "Gameplay",
+      "hud": 9,
+      "SelectedId": 10,
+      "LastError": null,
+      "saved": 10,
+      "canLoad": true,
+      "frame": 1606,
+      "Ready": true,
+      "lastNavigationFrame": 1606,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 9,
+      "scene": "Gameplay",
+      "hud": 10,
+      "SelectedId": 10,
+      "LastError": null,
+      "saved": 10,
+      "canLoad": true,
+      "frame": 1607,
+      "Ready": true,
+      "lastNavigationFrame": 1606,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 10,
+      "scene": "Gameplay",
+      "hud": 10,
+      "SelectedId": 11,
+      "LastError": null,
+      "saved": 11,
+      "canLoad": true,
+      "frame": 1999,
+      "Ready": true,
+      "lastNavigationFrame": 1999,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 10,
+      "scene": "Gameplay",
+      "hud": 11,
+      "SelectedId": 11,
+      "LastError": null,
+      "saved": 11,
+      "canLoad": true,
+      "frame": 2000,
+      "Ready": true,
+      "lastNavigationFrame": 1999,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 99,
+      "scene": "Gameplay",
+      "hud": 99,
+      "SelectedId": 100,
+      "LastError": null,
+      "saved": 100,
+      "canLoad": true,
+      "frame": 2607,
+      "Ready": true,
+      "lastNavigationFrame": 2607,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 99,
+      "scene": "Gameplay",
+      "hud": 100,
+      "SelectedId": 100,
+      "LastError": null,
+      "saved": 100,
+      "canLoad": true,
+      "frame": 2608,
+      "Ready": true,
+      "lastNavigationFrame": 2607,
+      "navigating": false,
+      "status": ""
+    },
+    {
+      "from": 100,
+      "scene": "Gameplay",
+      "hud": 100,
+      "SelectedId": 101,
+      "LastError": null,
+      "saved": 101,
+      "canLoad": true,
+      "frame": 3210,
+      "Ready": true,
+      "lastNavigationFrame": 3210,
+      "navigating": true,
+      "status": ""
+    },
+    {
+      "from": 100,
+      "scene": "Gameplay",
+      "hud": 101,
+      "SelectedId": 101,
+      "LastError": null,
+      "saved": 101,
+      "canLoad": true,
+      "frame": 3211,
+      "Ready": true,
+      "lastNavigationFrame": 3210,
+      "navigating": false,
+      "status": ""
+    }
+  ],
+  "errors": [],
+  "failure": null,
+  "playerSaveIntact": true
+}

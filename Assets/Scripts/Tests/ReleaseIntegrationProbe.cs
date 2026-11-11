@@ -50,9 +50,11 @@ namespace Mewgic
         }
 
         [MenuItem("Mewgic/QA/Validate Release Generator")]
-        public static void ValidateGenerator()
+        public static void ValidateGenerator() => ValidateGenerator(Output, 1024);
+
+        public static void ValidateGenerator(string output, int count)
         {
-            const int count = 1024;
+            if (count < 1 || count > 10000) throw new ArgumentOutOfRangeException(nameof(count));
             var pool = Newtonsoft.Json.JsonConvert.DeserializeObject<GeneratedLevel[]>(
                 Resources.Load<TextAsset>("Levels/GeneratedFallbacksV2").text);
             foreach (var fallback in pool) fallback.Validate();
@@ -80,8 +82,8 @@ namespace Mewgic
                 determinismChecks++;
             }
             timings.Sort();
-            Directory.CreateDirectory(Output);
-            File.WriteAllText(Output+"Generator.json",Newtonsoft.Json.JsonConvert.SerializeObject(new
+            Directory.CreateDirectory(output);
+            File.WriteAllText(Path.Combine(output, "Generator.json"),Newtonsoft.Json.JsonConvert.SerializeObject(new
             {
                 success=true, count, adjacentRepeats=0, uniqueLayouts=signatures.Count, fallbackCount, determinismChecks,
                 editor=Application.unityVersion, resolveP95Ms=timings[(int)(timings.Count*.95)], resolveMaxMs=timings.Last()

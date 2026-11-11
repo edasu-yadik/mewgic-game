@@ -371,3 +371,5 @@ Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120d
 11 Kasım 2026 · IAP altyapısı. Unity IAP 5.5.0, iOS/Android ürün eşlemeleri, mağaza fiyatı, test satın alma durumları ve tek seferlik teslimat kaydı eklendi. 760 izole Unity Play Mode kontrolü geçti. Canlı ödeme kapalı. Cihaz sandbox ve mağaza hesap bağlantıları bekliyor. Kanıtlar ProductionReports/StoreIap altında.
 
 11 Kasım 2026 · Mağaza animasyonları. Dört sekme kaydırma konumunu koruyor, güç ve kostüm alımları kayıt sonrası animasyon oynatıyor. Kuşanma portre geçişi, Atla, azaltılmış hareket ve doğrulanmış teklif zamanı desteği eklendi. 822 izole Unity Play Mode kontrolü geçti. GIF'ler ProductionReports/ShopMotion altında.
+
+11 Kasım 2026 · Mağaza, ekonomi ve oynanış entegrasyon denetimi. Yeni oyuncunun ilk dört pati öğreticisi, coin uçuşu, güç satın alımı ve gerçek kullanım, günlük görev elması, kostüm kuşanma ve ayrı Play Mode açılışı doğrulandı. Son koşularda 2.782 kontrol, ayrıca 2.048 üretici örneği geçti. Dört referans ve Game View karşılaştırmaları ProductionReports/ShopEconomyGameplayQA altında.

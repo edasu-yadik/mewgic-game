@@ -1,0 +1,61 @@
+{
+  "success": false,
+  "editor": "6000.3.27f2",
+  "checks": [
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Ana Menü arayüzü hazır"
+    },
+    {
+      "ok": true,
+      "message": "ArrivalDismiss: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ArrivalDismiss etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ArrivalDismiss: ArrivalDismiss"
+    },
+    {
+      "ok": true,
+      "message": "Ayrı Play Mode oturumu: bakiye, stok, sahiplik, kuşanma, görev, işlem ve bölüm kayıtları birebir"
+    },
+    {
+      "ok": true,
+      "message": "Yeniden açılışta günlük ödül tekrarlanmadı ve kostüm kuşanılmış kaldı"
+    },
+    {
+      "ok": true,
+      "message": "Play: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Play etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Play: Play"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 6"
+    },
+    {
+      "ok": true,
+      "message": "Yeniden açılan oyunda doğru bölüm ve kostüm"
+    }
+  ],
+  "boards": [],
+  "transitions": [],
+  "errors": [
+    "Failed to store screen shot (C:/Dev/Mewgic/Library/ShopEconomyGameplayQA/Restart4/RestartGameplay.png)"
+  ],
+  "failure": null,
+  "playerSaveIntact": true
+}

@@ -1,0 +1,571 @@
+{
+  "success": true,
+  "editor": "6000.3.27f2",
+  "checks": [
+    {
+      "ok": true,
+      "message": "10001 prosedürel düzeni hazır"
+    },
+    {
+      "ok": true,
+      "message": "Aynı yüksek bölümde beş güç için geçerli sıra bulundu"
+    },
+    {
+      "ok": true,
+      "message": "Geri Al: döküş yokken stok korunuyor"
+    },
+    {
+      "ok": true,
+      "message": "Akıllı İpucu: geçerli çözüm hamlesi ve stok sınırı"
+    },
+    {
+      "ok": true,
+      "message": "Geri Al: gerçek döküş geri alındı"
+    },
+    {
+      "ok": true,
+      "message": "Karıştır: tüm şişeler taşındı ve çözüm uzunluğu korundu"
+    },
+    {
+      "ok": true,
+      "message": "Ek Şişe: tek boş şişe ve çözülebilir tahta"
+    },
+    {
+      "ok": true,
+      "message": "Renk Dönüşümü: erken bölümde kapalı"
+    },
+    {
+      "ok": true,
+      "message": "Eski PlayerPrefs profili okundu ve yeni kazanış işlendi"
+    },
+    {
+      "ok": true,
+      "message": "Undo: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "Hint: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "ExtraBottle: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "Shuffle: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "ColorSwap: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "BottleHammer: satın alma, stok, altın ve aynı istekle çift işlem engeli"
+    },
+    {
+      "ok": true,
+      "message": "Çekiç stok düşümü dosya günlüğüne yazıldı"
+    },
+    {
+      "ok": true,
+      "message": "Eski açık yazıcı yeni kaydı ezmedi; eski PlayerPrefs kopyası duruyor"
+    },
+    {
+      "ok": true,
+      "message": "Bozuk ana dosyadan yedekle devam, altın, stok ve yıldız kurtarıldı"
+    },
+    {
+      "ok": true,
+      "message": "Çekiç, diğer güçler kullanılmadan da çalıştı"
+    },
+    {
+      "ok": true,
+      "message": "Çekiç kayıt hatasında tahta ve stok korunuyor"
+    },
+    {
+      "ok": true,
+      "message": "Renk Değiştir diğer güçler olmadan da çözücü onayı aldı"
+    },
+    {
+      "ok": true,
+      "message": "İzole test bakiyesi ve animasyonlar hazır"
+    },
+    {
+      "ok": true,
+      "message": "10001: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "10001: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "10001: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 10001"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 10001 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek Gameplay aynı prosedürel düzeni açtı"
+    },
+    {
+      "ok": true,
+      "message": "BottleHammer etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast BottleHammer: BottleHammer"
+    },
+    {
+      "ok": true,
+      "message": "Sıfır Çekiç stoğunda Oyun Güçleri açıldı"
+    },
+    {
+      "ok": true,
+      "message": "BuyBottleHammer: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "BuyBottleHammer etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast BuyBottleHammer: BuyBottleHammer"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopConfirm: ShopConfirm"
+    },
+    {
+      "ok": true,
+      "message": "Çekiç bir kez satın alındı ve aynı makbuz reddedildi"
+    },
+    {
+      "ok": true,
+      "message": "ShopClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopClose: ShopClose"
+    },
+    {
+      "ok": true,
+      "message": "Mağaza dönüşünde tahta ve hamleler korundu"
+    },
+    {
+      "ok": true,
+      "message": "ColorSwap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ColorSwap: ColorSwap"
+    },
+    {
+      "ok": true,
+      "message": "BuyColorSwap: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "BuyColorSwap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast BuyColorSwap: BuyColorSwap"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopConfirm: ShopConfirm"
+    },
+    {
+      "ok": true,
+      "message": "ShopClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopClose: ShopClose"
+    },
+    {
+      "ok": true,
+      "message": "BottleHammer etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast BottleHammer: BottleHammer"
+    },
+    {
+      "ok": true,
+      "message": "Şişe seçilmeden Çekiç stok harcamadı"
+    },
+    {
+      "ok": true,
+      "message": "ExtraBottle etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ExtraBottle: ExtraBottle"
+    },
+    {
+      "ok": true,
+      "message": "Ek Şişe gerçek tahtada tek boş şişe ekledi"
+    },
+    {
+      "ok": true,
+      "message": "Shuffle etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Shuffle: Shuffle"
+    },
+    {
+      "ok": true,
+      "message": "Karıştır yerleri değiştirdi, renkler ve çözüm korundu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "BottleHammer etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast BottleHammer: BottleHammer"
+    },
+    {
+      "ok": true,
+      "message": "Çekiç şişeyi kaldırdı, hacim ve hamleler korundu; animasyon başladı (True, 5/5, stok 0)"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "ColorSwap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ColorSwap: ColorSwap"
+    },
+    {
+      "ok": true,
+      "message": "Renk Değiştir Çekiç sonrası da çözücü onayıyla çalıştı"
+    },
+    {
+      "ok": true,
+      "message": "Hint etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Hint: Hint"
+    },
+    {
+      "ok": true,
+      "message": "İpucu gerçek çözüm yolundaki iki şişeyi işaretledi"
+    },
+    {
+      "ok": true,
+      "message": "Beş güçten sonraki tahta çözülebilir ve kapasite geçerli"
+    },
+    {
+      "ok": true,
+      "message": "Yeni ve eski stoklar kayıt biçiminde korunuyor"
+    },
+    {
+      "ok": true,
+      "message": "Güçler tek başına zafer ödülü veya bölüm ilerlemesi vermedi"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "10001: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "10001: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "10001: ödül 45 coin (bakiye farkı 45, kayıt 45, ipucu farkı 1)"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek döküşlerle kazanış normal ilerlemeyi açtı"
+    },
+    {
+      "ok": true,
+      "message": "Replay etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Replay: Replay"
+    },
+    {
+      "ok": true,
+      "message": "Tekrar Oyna özgün tahtayı ve deneme sınırlarını sıfırladı"
+    },
+    {
+      "ok": true,
+      "message": "10001 çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "10001: döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "10001: yıldızlı sonuç ekranı"
+    },
+    {
+      "ok": true,
+      "message": "10001: üç yıldız hesaplandı ve kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "10001: ödül 0 coin (bakiye farkı 0, kayıt 0, ipucu farkı 0)"
+    },
+    {
+      "ok": true,
+      "message": "10005: hazırlık tamamlandı"
+    },
+    {
+      "ok": true,
+      "message": "10005: doğrulanmış düzen hazır"
+    },
+    {
+      "ok": true,
+      "message": "10005: katalog seçimi"
+    },
+    {
+      "ok": true,
+      "message": "Gameplay ve HUD: 10005"
+    },
+    {
+      "ok": true,
+      "message": "Bölüm 10005 temiz başladı"
+    },
+    {
+      "ok": true,
+      "message": "10005 dört renk ve altı başlangıç şişesiyle açıldı"
+    },
+    {
+      "ok": true,
+      "message": "ExtraBottle etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ExtraBottle: ExtraBottle"
+    },
+    {
+      "ok": true,
+      "message": "10005 yedi şişe ile çözülebilir"
+    },
+    {
+      "ok": true,
+      "message": "Yedi şişe için 9:20 Game View"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: Geri Al"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: 3"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: İpucu"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: 3"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: Ek Şişe"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: 0"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: Karıştır"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: 1"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: Renk Dönüşümü"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: 0"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: Şişe Çekici"
+    },
+    {
+      "ok": true,
+      "message": "9:20 güç etiketi sığıyor: 0"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 1 görünüm içinde"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 2 görünüm içinde"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 3 görünüm içinde"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 4 görünüm içinde"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 5 görünüm içinde"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 6 görünüm içinde"
+    },
+    {
+      "ok": true,
+      "message": "9:20 şişe 7 görünüm içinde"
+    }
+  ],
+  "boards": [],
+  "transitions": [],
+  "errors": [],
+  "failure": null,
+  "playerSaveIntact": true
+}

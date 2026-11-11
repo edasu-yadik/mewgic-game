@@ -1,0 +1,1183 @@
+{
+  "success": true,
+  "editor": "6000.3.27f2",
+  "checks": [
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Ana Menü arayüzü hazır"
+    },
+    {
+      "ok": true,
+      "message": "ArrivalDismiss: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ArrivalDismiss etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ArrivalDismiss: ArrivalDismiss"
+    },
+    {
+      "ok": true,
+      "message": "Sıfır bakiyeli yeni oyuncu"
+    },
+    {
+      "ok": true,
+      "message": "Play: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Play etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Play: Play"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 1"
+    },
+    {
+      "ok": true,
+      "message": "1: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "1: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "Tutorial1: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "1: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "1: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "1: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "1: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "1: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "1: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "Ödül simgesi bar yönünde hareket etti"
+    },
+    {
+      "ok": true,
+      "message": "Ödül barı kayıtlı ödüle kademeli ilerledi"
+    },
+    {
+      "ok": true,
+      "message": "CoinFlight: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "Ödül barı kayıtlı altınla eşleşti"
+    },
+    {
+      "ok": true,
+      "message": "Kalan senaryolar için azaltılmış hareket etkin"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 2"
+    },
+    {
+      "ok": true,
+      "message": "2: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "2: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "Tutorial2: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "2: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "2: gerçek döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "2: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "2: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 3"
+    },
+    {
+      "ok": true,
+      "message": "3: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "3: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "Tutorial3: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "3: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "3: gerçek döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "3: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "3: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "NextLevel etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NextLevel: NextLevel"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 4"
+    },
+    {
+      "ok": true,
+      "message": "4: bekleyince pati öğreticisi göründü"
+    },
+    {
+      "ok": true,
+      "message": "4: öğretici geçerli hamleyi gösterdi ve oyuncu tahtasına dokunmadı"
+    },
+    {
+      "ok": true,
+      "message": "Tutorial4: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "4: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "4: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "4: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "4: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "4: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "4: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "ResultHome: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ResultHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ResultHome: ResultHome"
+    },
+    {
+      "ok": true,
+      "message": "Sonuçtan gerçek harita açıldı"
+    },
+    {
+      "ok": true,
+      "message": "ChapterClose: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ChapterClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ChapterClose: ChapterClose"
+    },
+    {
+      "ok": true,
+      "message": "MapHome: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "MapHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast MapHome: MapHome"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Ana Menü arayüzü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Uzun birikim yerine izole test bakiyesi, elmas günlük görevin iki elmas eksiğinde"
+    },
+    {
+      "ok": true,
+      "message": "NavInventory: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "NavInventory etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NavInventory: NavInventory"
+    },
+    {
+      "ok": true,
+      "message": "ShopTab_Powers: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopTab_Powers etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopTab_Powers: ShopTab_Powers"
+    },
+    {
+      "ok": true,
+      "message": "BuyExtraBottle: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "BuyExtraBottle etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast BuyExtraBottle: BuyExtraBottle"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopConfirm: ShopConfirm"
+    },
+    {
+      "ok": true,
+      "message": "Ek Şişe altınla alındı"
+    },
+    {
+      "ok": true,
+      "message": "ShopClose: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopClose: ShopClose"
+    },
+    {
+      "ok": true,
+      "message": "Play: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Play etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Play: Play"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 5"
+    },
+    {
+      "ok": true,
+      "message": "ExtraBottle: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ExtraBottle etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ExtraBottle: ExtraBottle"
+    },
+    {
+      "ok": true,
+      "message": "Satın alınan Ek Şişe gerçek bulmacaya eklendi"
+    },
+    {
+      "ok": true,
+      "message": "Stok bir düştü ve bulmaca çözülebilir kaldı"
+    },
+    {
+      "ok": true,
+      "message": "PurchasedBooster: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "5: çözücü geçerli bir rota buldu"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "5: gerçek döküş 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "5: gerçek döküş 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 1 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 1: Bottle 1"
+    },
+    {
+      "ok": true,
+      "message": "5: gerçek döküş 3"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 4 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 4: Bottle 4"
+    },
+    {
+      "ok": true,
+      "message": "5: gerçek döküş 4"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 2: Bottle 2"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Bottle 3 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Bottle 3: Bottle 3"
+    },
+    {
+      "ok": true,
+      "message": "5: gerçek döküş 5"
+    },
+    {
+      "ok": true,
+      "message": "5: sonuç ekranı ve etkileşim katmanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "5: yıldız, altın ve sonraki bölüm aynı kazanışla kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "ResultHome: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ResultHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ResultHome: ResultHome"
+    },
+    {
+      "ok": true,
+      "message": "Sonuçtan gerçek harita açıldı"
+    },
+    {
+      "ok": true,
+      "message": "ChapterClose: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ChapterClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ChapterClose: ChapterClose"
+    },
+    {
+      "ok": true,
+      "message": "MapHome: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "MapHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast MapHome: MapHome"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Ana Menü arayüzü hazır"
+    },
+    {
+      "ok": true,
+      "message": "MissionsButton: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "MissionsButton etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast MissionsButton: MissionsButton"
+    },
+    {
+      "ok": true,
+      "message": "DailyAction_2: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "DailyAction_2 etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast DailyAction_2: DailyAction_2"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek günlük görev altın ve elmas verdi, tekrar talep reddedildi"
+    },
+    {
+      "ok": true,
+      "message": "DailyClaim: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "DailyClose: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "DailyClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast DailyClose: DailyClose"
+    },
+    {
+      "ok": true,
+      "message": "NavInventory: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "NavInventory etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NavInventory: NavInventory"
+    },
+    {
+      "ok": true,
+      "message": "ShopTab_Costumes: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopTab_Costumes etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopTab_Costumes: ShopTab_Costumes"
+    },
+    {
+      "ok": true,
+      "message": "ShopAction_ExplorerCat: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopAction_ExplorerCat etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopAction_ExplorerCat: ShopAction_ExplorerCat"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopConfirm etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopConfirm: ShopConfirm"
+    },
+    {
+      "ok": true,
+      "message": "Kaşif Kedi yalnız elmasla alındı"
+    },
+    {
+      "ok": true,
+      "message": "ShopAction_ExplorerCat: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopAction_ExplorerCat etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopAction_ExplorerCat: ShopAction_ExplorerCat"
+    },
+    {
+      "ok": true,
+      "message": "Kaşif Kedi düğme ile kuşanıldı"
+    },
+    {
+      "ok": true,
+      "message": "ShopClose: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "ShopClose etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast ShopClose: ShopClose"
+    },
+    {
+      "ok": true,
+      "message": "NavMap: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "NavMap etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast NavMap: NavMap"
+    },
+    {
+      "ok": true,
+      "message": "Kostüm ile dünya haritası açıldı"
+    },
+    {
+      "ok": true,
+      "message": "Dünya haritasında gerçek Kaşif Kedi dokusu"
+    },
+    {
+      "ok": true,
+      "message": "CostumeMap: gerçek Game View görüntüsü kaydedildi"
+    },
+    {
+      "ok": true,
+      "message": "MapHome: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "MapHome etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast MapHome: MapHome"
+    },
+    {
+      "ok": true,
+      "message": "Ana menü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Ana Menü arayüzü hazır"
+    },
+    {
+      "ok": true,
+      "message": "Play: dokunma alanı hazır"
+    },
+    {
+      "ok": true,
+      "message": "Play etkileşimli"
+    },
+    {
+      "ok": true,
+      "message": "UI raycast Play: Play"
+    },
+    {
+      "ok": true,
+      "message": "Gerçek oyun ekranı açıldı, bölüm 6"
+    },
+    {
+      "ok": true,
+      "message": "Oyun maskotu aynı kuşanılmış kostümü gösterdi"
+    },
+    {
+      "ok": true,
+      "message": "CostumeGameplay: gerçek Game View görüntüsü kaydedildi"
+    }
+  ],
+  "boards": [],
+  "transitions": [],
+  "errors": [],
+  "failure": null,
+  "playerSaveIntact": true
+}
