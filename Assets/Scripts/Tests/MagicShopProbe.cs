@@ -776,7 +776,7 @@ namespace Mewgic
             var controller = UnityIAPServices.StoreController("fake");
             var verifier = new FakeStoreVerifier();
             var ledger = new ProgressLedger(new ProgressData(), _ => { });
-            var connection = StorePayments.ConnectSandboxStore(controller, products, ledger, "google", verifier, Guid.NewGuid());
+            var connection = StorePayments.ConnectSandboxStore(controller, products, ledger, "apple", verifier, Guid.NewGuid());
             yield return Until(() => connection.IsCompletedSuccessfully, "Unity IAP Fake Store bağlantısı döndü");
             var session = StorePayments.Current;
             Check(connection.Result && products.All(package => session.Price(package.id) != null &&
@@ -792,17 +792,38 @@ namespace Mewgic
             yield return Until(() => session.State(first.id) == StorePaymentState.Cancelled, "IAP iptal bildirimi uygulandı");
             Check(ledger.Snapshot.storeDeliveries.Count == initial, "IAP iptalinde ödül verilmedi");
             yield return null;
-            Check(session.Buy(first.id), "İptal sonrası Fake Store alış tekrar başladı");
-            yield return Until(() => GameObject.Find("UIFakeStoreWindow") != null, "Fake Store satın alma penceresi açıldı");
-            ResolveFakeStoreDialog("OkayButtonClicked");
-            yield return Until(() => session.State(first.id) == StorePaymentState.Success, "IAP bekleyen işlem teslim edilip onaylandı");
-            Check(ledger.Presentation.coins == first.Gold && ledger.Snapshot.storeDeliveries.Count == initial + 1,
-                "IAP test satın alımı izole kayda doğru altın verdi");
-            var replay = session.Accept(first.id, verifier.Last, null);
-            yield return Until(() => replay.IsCompletedSuccessfully, "IAP işleminin tekrar bildirimi işlendi");
-            Check(ledger.Presentation.coins == first.Gold && ledger.Snapshot.storeDeliveries.Count == initial + 1,
-                "Aynı Fake Store işlemi ikinci kez ödül vermedi");
             var store = FakeStoreInstance();
+            var mode = store.GetType().GetField("UIMode");
+            mode.SetValue(store, FakeStoreUIMode.DeveloperUser);
+            Check(session.Buy(first.id), "Fake Store başarısız ödeme denemesi başladı");
+            yield return Until(() => GameObject.Find("UIFakeStoreWindow") != null, "Fake Store hata seçimi açıldı");
+            store.GetType().GetMethod("DropdownValueChanged", BindingFlags.Instance | BindingFlags.NonPublic)
+                .Invoke(store, new object[] { (int)PurchaseFailureReason.PaymentDeclined + 1 });
+            ResolveFakeStoreDialog("OkayButtonClicked");
+            yield return Until(() => session.State(first.id) == StorePaymentState.Failed, "Unity IAP reddedilen ödemeyi bildirdi");
+            Check(ledger.Presentation.coins == 0 && ledger.Snapshot.storeDeliveries.Count == initial, "Başarısız ödemede ödül yok");
+            mode.SetValue(store, FakeStoreUIMode.StandardUser);
+            yield return null;
+            foreach (var sku in new[]{ "gold_250", "gold_1000", "gold_10000", "starter", "powers" })
+            {
+                var pack = products.Single(product => product.id == sku);
+                long coins = ledger.Presentation.coins;
+                int count = ledger.Snapshot.storeDeliveries.Count;
+                var balances = Enum.GetValues(typeof(BoosterKind)).Cast<BoosterKind>()
+                    .ToDictionary(kind => kind, ledger.Remaining);
+                Check(session.Buy(sku), sku + " Fake Store işlemi başlatıldı");
+                yield return Until(() => GameObject.Find("UIFakeStoreWindow") != null, sku + " satın alma penceresi açıldı");
+                ResolveFakeStoreDialog("OkayButtonClicked");
+                yield return Until(() => session.State(sku) == StorePaymentState.Success, sku + " teslim edilip onaylandı");
+                var replay = session.Accept(sku, verifier.Last, null);
+                yield return Until(() => replay.IsCompletedSuccessfully, sku + " işlem tekrarı işlendi");
+                Check(verifier.Last.Sku == pack.appleId && ledger.Presentation.coins == coins + pack.Gold &&
+                    ledger.Snapshot.storeDeliveries.Count == count + 1 &&
+                    balances.All(pair => ledger.Remaining(pair.Key) == pair.Value +
+                        (pack.powers ?? Array.Empty<StorePackagePower>()).Where(power => power.kind == pair.Key).Sum(power => power.count)),
+                    sku + " Apple kimliğiyle altın ve güçlendiricileri tam bir kez teslim etti");
+                yield return null;
+            }
             store.GetType().GetProperty("unavailableProductId").SetValue(store, first.id);
             session.RefreshPurchases();
             yield return Until(() => session.Price(first.id) == null, "Eksik SKU için önceki fiyat kaldırıldı");
@@ -870,17 +891,24 @@ namespace Mewgic
             StorePayments.UseLocalTest(session);
             session.Ready();
             Check(!session.Buy(package.id), "Mağazadan fiyatı gelmeyen ürün satın alınamıyor");
-            session.SetMetadata(package.id, new ProductMetadata("€39,99", "10.000 Altın",
-                "Mağazadan gelen açıklama", "EUR", 39.99m));
             Press("NavInventory");
             yield return null;
             Press("ShopTab_Gold");
             yield return null;
+            Press("ShopBuy_gold_featured");
+            Check(PaymentMessage("yükleniyor"), "Panel fiyat yükleniyor durumunu gösterdi");
+            yield return Shot("IosIapLoading");
+            session.SetMetadata(package.id, null);
+            Check(PaymentMessage("bulunamadı") && !session.Buy(package.id), "Panel bulunamayan ürünü ayırdı");
+            yield return Shot("IosIapMissing");
+            session.SetListing(package.id, StoreListingState.ConnectionError);
+            Check(PaymentMessage("bağlanılamadı") && !session.Buy(package.id), "Panel bağlantı hatasını ayırdı");
+            yield return Shot("IosIapConnectionError");
+            session.SetMetadata(package.id, new ProductMetadata("€39,99", "10.000 Altın",
+                "Mağazadan gelen açıklama", "EUR", 39.99m));
             Check(GameObject.Find("Featured10000Gold").transform.Find("PricePlate/Price").GetComponent<TMP_Text>().text == "€39,99",
                 "Yerel test sağlayıcısının fiyatı ve para birimi aynen gösterildi");
             yield return Shot("IapTestLocalizedPrice");
-            Press("ShopBuy_gold_featured");
-            yield return null;
             Check(PaymentMessage("Mağazadan gelen açıklama") && PaymentMessage("13.000") &&
                 session.Metadata(package.id).isoCurrencyCode == "EUR", "Yerelleştirilmiş açıklama, ISO para birimi ve bonuslu toplam");
             yield return Shot("IapLocalizedDetails");
@@ -890,6 +918,7 @@ namespace Mewgic
                 "İşleniyor durumunda ikinci istek engellendi");
             session.SetState(package.id, StorePaymentState.Cancelled);
             Check(PaymentMessage("iptal edildi"), "İptal mesajı");
+            yield return Shot("IosIapCancelled");
             Press("ShopConfirm");
             yield return null;
             Press("ShopBuy_gold_featured");

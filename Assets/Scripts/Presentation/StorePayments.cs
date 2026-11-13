@@ -12,6 +12,7 @@ using UnityEngine.Purchasing;
 namespace Mewgic
 {
     public enum StorePaymentState { Ready, Processing, Waiting, Success, Cancelled, Failed }
+    public enum StoreListingState { Loading, Available, Missing, ConnectionError }
     public enum StoreVerificationState { Verified, Pending, Rejected }
 
     public readonly struct StoreProof
@@ -60,6 +61,7 @@ namespace Mewgic
     {
         readonly Dictionary<string, StorePackage> packages;
         readonly Dictionary<string, ProductMetadata> metadata = new(StringComparer.Ordinal);
+        readonly Dictionary<string, StoreListingState> listings = new(StringComparer.Ordinal);
         readonly Dictionary<string, double> offerEnds = new(StringComparer.Ordinal);
         readonly Dictionary<string, StorePaymentState> states = new(StringComparer.Ordinal);
         readonly HashSet<string> processing = new(StringComparer.Ordinal);
@@ -74,7 +76,10 @@ namespace Mewgic
         public event Action<string> Changed;
         public static StorePayments Current { get; private set; }
         public ProductMetadata Metadata(string id) => id != null && metadata.TryGetValue(id, out var value) ? value : null;
-        public string Price(string id) => Metadata(id)?.localizedPriceString;
+        public string Price(string id) => Listing(id) == StoreListingState.Available ? Metadata(id)?.localizedPriceString : null;
+        public StoreListingState Listing(string id) => id != null && listings.TryGetValue(id, out var state)
+            ? state : StoreListingState.Loading;
+        internal bool HasProduct(string id) => packages.ContainsKey(id);
         public StorePaymentState State(string id) => states.TryGetValue(id, out var state) ? state : StorePaymentState.Ready;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -111,6 +116,13 @@ namespace Mewgic
                 string.IsNullOrWhiteSpace(value.isoCurrencyCode) || value.localizedPrice <= 0)
                 metadata.Remove(id);
             else metadata[id] = value;
+            SetListing(id, metadata.ContainsKey(id) ? StoreListingState.Available : StoreListingState.Missing);
+        }
+
+        internal void SetListing(string id, StoreListingState state)
+        {
+            if (!HasProduct(id)) return;
+            listings[id] = state;
             Changed?.Invoke(id);
         }
 
@@ -292,10 +304,12 @@ namespace Mewgic
             var definitions = ProductDefinitions(mapped, platform);
             var retryOrders = new Dictionary<string, PendingOrder>(StringComparer.Ordinal);
             bool fetchingProducts = false, fetchingPurchases = false;
+            StorePayments session = null;
             void FetchProducts()
             {
                 if (fetchingProducts || controller.GetConnectionState() != ConnectionState.Connected) return;
                 fetchingProducts = true;
+                foreach (var package in mapped) session.SetListing(package.id, StoreListingState.Loading);
                 controller.FetchProducts(definitions, new NoRetriesPolicy());
             }
             void FetchPurchases()
@@ -305,7 +319,7 @@ namespace Mewgic
                 controller.FetchPurchases();
             }
             Action retry = null;
-            var session = new StorePayments(mapped, ledger, platform, verifier, controller.PurchaseProduct,
+            session = new StorePayments(mapped, ledger, platform, verifier, controller.PurchaseProduct,
                 () =>
                 {
                     if (controller.GetConnectionState() == ConnectionState.Connected)
@@ -338,7 +352,9 @@ namespace Mewgic
                 if (items.Count != 1) return;
                 var item = items[0];
                 if (!session.packages.TryGetValue(item.Product.definition.id, out var package)) return;
-                string receipt = platform == "apple" ? order.Info.Apple?.jwsRepresentation : order.Info.Receipt;
+                // Fake Store carries a synthetic unified receipt even when exercising Apple SKU mappings.
+                string receipt = order.StoreName == "fake" ? order.Info.Receipt :
+                    platform == "apple" ? order.Info.Apple?.jwsRepresentation : order.Info.Receipt;
                 string transaction = TransactionId(order);
                 if (transaction == null) { session.SetState(package.id, StorePaymentState.Waiting); return; }
                 if (order is PendingOrder pendingOrder) retryOrders[transaction] = pendingOrder;
@@ -376,8 +392,11 @@ namespace Mewgic
             controller.OnProductsFetchFailed += failure =>
             {
                 fetchingProducts = false;
-                foreach (var product in failure.FailedFetchProducts)
-                    session.SetMetadata(product.id, null);
+                foreach (var package in mapped)
+                    if (session.Listing(package.id) == StoreListingState.Loading)
+                        session.SetListing(package.id, string.Equals(failure.FailureReason,
+                            nameof(ProductFetchFailureReason.ProductsUnavailable), StringComparison.Ordinal)
+                            ? StoreListingState.Missing : StoreListingState.ConnectionError);
             };
             controller.OnStoreDisconnected += _ =>
             {
@@ -388,7 +407,7 @@ namespace Mewgic
                 {
                     if (session.State(package.id) == StorePaymentState.Processing)
                         session.SetState(package.id, StorePaymentState.Waiting);
-                    session.SetMetadata(package.id, null);
+                    session.SetListing(package.id, StoreListingState.ConnectionError);
                 }
             };
             controller.OnStoreConnected += () =>
@@ -441,7 +460,11 @@ namespace Mewgic
                 await controller.Connect();
                 return controller.GetConnectionState() == ConnectionState.Connected;
             }
-            catch (Exception) { return false; }
+            catch (Exception)
+            {
+                foreach (var package in mapped) session.SetListing(package.id, StoreListingState.ConnectionError);
+                return false;
+            }
         }
 #endif
     }

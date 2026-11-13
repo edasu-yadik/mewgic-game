@@ -1,5 +1,8 @@
 # Üretim ilerlemesi
 
+## iOS Sandbox satın alma test hazırlığı
+Beş Apple SKU'su Unity Fake Store'da doğru ödülü bir kez verdi. Mağaza paneli yükleme, eksik ürün ve bağlantı hatasını ayırıyor. Apple Sandbox bağlantısı kapalı; [iPhone kontrol listesi](ProductionReports/IosSandboxReadiness/REPORT.md) cihaz ve hesap gereksinimlerini içeriyor.
+
 ## Güvenli satın alma ve ödül teslimi
 İzole Unity IAP işlemlerinde ödül, tekilleştirme kaydıyla birlikte kaydedilir; mağaza onayı teslimden sonra yapılır. ClanServer hesap ödül defteri hazır. Canlı satış kapalı; mağaza doğrulaması ve sunucu cüzdanı henüz bağlı değil.
 [Doğrulama ve canlıya geçiş raporu](ProductionReports/PurchaseReliability/REPORT.md).

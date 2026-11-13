@@ -447,7 +447,7 @@ namespace Mewgic
                 modalMessage.text = "Teklifin süresi sona erdi.";
                 return;
             }
-            if (payments?.Price(package.id) == null && payments?.State(package.id) != StorePaymentState.Waiting) return;
+            if (payments == null || !payments.HasProduct(package.id)) return;
             modalPackage = package;
             if (payments.State(package.id) is StorePaymentState.Success or StorePaymentState.Cancelled or StorePaymentState.Failed)
                 payments.SetState(package.id, StorePaymentState.Ready);
@@ -467,7 +467,17 @@ namespace Mewgic
                     bool ended = payments.OfferRemaining(id) == TimeSpan.Zero;
                     if (price == null || ended)
                     {
-                        modalMessage.text = ended ? "Teklifin süresi sona erdi." : "Mağaza fiyatı şu anda kullanılamıyor.";
+                        modalMessage.text = ended ? "Teklifin süresi sona erdi." : payments.Listing(id) switch
+                        {
+                            StoreListingState.Loading => "Mağaza fiyatı yükleniyor…",
+                            StoreListingState.Missing => "Ürün mağazada bulunamadı.",
+                            _ => "Mağazaya bağlanılamadı."
+                        };
+                        if (!ended && payments.Listing(id) == StoreListingState.ConnectionError)
+                        {
+                            modalConfirmLabel.text = "Tekrar Dene";
+                            modalLink = () => { modal.gameObject.SetActive(true); payments.RefreshPurchases(); };
+                        }
                         break;
                     }
                     string description = payments.Metadata(id)?.localizedDescription;
