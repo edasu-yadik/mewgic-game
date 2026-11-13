@@ -1,0 +1,29 @@
+{
+  "unity": "6000.3.27f2",
+  "platform": "iOS",
+  "result": "Succeeded",
+  "bundle": "com.edasuyadik.mewgic",
+  "version": "0.8.0",
+  "number": "13",
+  "sdk": "DeviceSDK",
+  "architecture": "1",
+  "minimum": "15.0",
+  "error": "",
+  "success": true,
+  "development": false,
+  "errors": 0,
+  "warnings": 3,
+  "bytes": 1645529991,
+  "scenes": [
+    "Assets/Scenes/Boot.unity",
+    "Assets/Scenes/Home.unity",
+    "Assets/Scenes/Gameplay.unity",
+    "Assets/Scenes/LevelMap.unity"
+  ],
+  "messages": [
+    "Warning: [ServicesCore]: To use Unity's dashboard services, you need to link your Unity project to a project ID. To do this, go to Project Settings to select your organization, select your project and then link a project ID. You also need to make sure your organization has access to the required products. Visit https://dashboard.unity3d.com to sign up.",
+    "Warning: iOS App Info has not been configured. Please add and configure `iOS App Info` metadata to the Localization Settings in order to correctly support Localization on iOS.",
+    "Warning: Cocoapod installation is disabled.\nIf CocoaPods are not installed in your project it will not link.\n\nThe command 'pod install' must be executed from the C:/Dev/Mewgic/Builds/iOS/Build13 directory to generate a Xcode workspace that includes the CocoaPods referenced by C:/Dev/Mewgic/Builds/iOS/Build13\\Podfile.\nFor more information see:\n  https://guides.cocoapods.org/using/using-cocoapods.html\n\n"
+  ],
+  "packedAssetCount": 3667
+}

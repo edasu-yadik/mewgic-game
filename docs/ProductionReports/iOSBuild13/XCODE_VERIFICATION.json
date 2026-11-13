@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "bundle": "com.edasuyadik.mewgic",
+  "icon": "Unity-iPhone/Images.xcassets/AppIcon.appiconset/Icon-Store-1024.png",
+  "iconPixelsMatch": true,
+  "sdk": "iphoneos",
+  "platform": "ARM64",
+  "minimum": "15.0",
+  "podfile": true,
+  "nativeAdIdentifier": "ca-app-pub-3940256099942544~1458002511",
+  "packedAssets": 3667,
+  "assetGroups": {
+    "sprite shop": [
+      "Assets/Resources/ShopReference/Art.png",
+      "Assets/Resources/ShopReference/ArtRegions.json",
+      "Assets/Resources/ShopReference/Offers.json",
+      "Assets/Resources/ShopReference/ShopPrice.asset"
+    ],
+    "map": [
+      "Assets/Resources/Map/ContinuousThemes.json"
+    ],
+    "mascot": [
+      "Assets/Art/Environment/Map/JourneyFoundation/MapCat_Poses.png"
+    ],
+    "daily": [
+      "Assets/Resources/Daily/QuestIcon_v001.png"
+    ],
+    "level generation data": [
+      "Assets/Resources/Levels/GeneratedFallbacks.json",
+      "Assets/Resources/Levels/GeneratedFallbacksV2.json"
+    ]
+  },
+  "archiveFiles": 3351,
+  "archiveBytes": 410751783,
+  "archiveSha256": "6da272c529f9b87b93beb737f71fb14b2f04607d0985ea7f41bceb0bc1eec503",
+  "archiveCrcPass": true
+}

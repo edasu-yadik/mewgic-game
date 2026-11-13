@@ -1,5 +1,8 @@
 # Üretim ilerlemesi
 
+## iOS 0.8.0 (13) TestFlight hazırlığı
+Unity 6000.3.27f2 ile Windows Xcode export'u tamamlandı. Cihazda ödeme ve reklam kapalı; çevrimiçi testler Editor'de. [Export denetimi ve Mac adımları](ProductionReports/iOSBuild13/REPORT.md).
+
 ## iOS Sandbox satın alma test hazırlığı
 Beş Apple SKU'su Unity Fake Store'da doğru ödülü bir kez verdi. Mağaza paneli yükleme, eksik ürün ve bağlantı hatasını ayırıyor. Apple Sandbox bağlantısı kapalı; [iPhone kontrol listesi](ProductionReports/IosSandboxReadiness/REPORT.md) cihaz ve hesap gereksinimlerini içeriyor.
 
