@@ -1,5 +1,9 @@
 # Üretim ilerlemesi
 
+## Güvenli satın alma ve ödül teslimi
+İzole Unity IAP işlemlerinde ödül, tekilleştirme kaydıyla birlikte kaydedilir; mağaza onayı teslimden sonra yapılır. ClanServer hesap ödül defteri hazır. Canlı satış kapalı; mağaza doğrulaması ve sunucu cüzdanı henüz bağlı değil.
+[Doğrulama ve canlıya geçiş raporu](ProductionReports/PurchaseReliability/REPORT.md).
+
 ## Unity IAP 5.5.0 Registry düzeltmesi
 Yerel arşiv bağımlılığı resmî Registry yapılandırmasına döndürüldü. Unity 6000.3.27f2’de 822 izole Play Mode kontrolü geçti.
 [Doğrulama raporu](ProductionReports/IapRegistryRepair/REPORT.md).

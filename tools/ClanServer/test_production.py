@@ -88,7 +88,7 @@ def test(folder):
         with closing(sqlite3.connect(backup)) as restore:
             check(restore.execute("PRAGMA integrity_check").fetchone()[0] == "ok" and
                   not restore.execute("PRAGMA foreign_key_check").fetchall(), "Online backup is consistent with WAL writes")
-            check(restore.execute("PRAGMA user_version").fetchone()[0] == 4 and
+            check(restore.execute("PRAGMA user_version").fetchone()[0] == 5 and
                   restore.execute("SELECT receipt FROM event_claims").fetchone()[0] == first["id"],
                   "Backup preserves migrated schema and idempotency receipts")
         overwrite = subprocess.run(["dotnet",str(SERVER),"backup",str(database),str(backup)],capture_output=True)

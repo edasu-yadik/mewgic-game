@@ -4,7 +4,7 @@ using Microsoft.Data.Sqlite;
 sealed partial class ClanStore
 {
     static readonly string[] Migrations = [
-        "001-clans.sql", "002-league.sql", "003-events.sql", "004-sessions.sql"
+        "001-clans.sql", "002-league.sql", "003-events.sql", "004-sessions.sql", "005-purchases.sql"
     ];
 
     void Migrate() => Write(db =>

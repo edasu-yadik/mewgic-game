@@ -33,6 +33,7 @@ namespace Mewgic
         static MagicShopProbe active;
         readonly List<string> checks = new(), errors = new();
         readonly string key = "Mewgic.Tests.Shop." + Guid.NewGuid().ToString("N");
+        string RecoveryKey => key + ".IapRecovery";
         Dictionary<string, string> original;
         bool runInBackground;
         ProgressLedger Ledger => GameplayProgress.Current;
@@ -107,7 +108,11 @@ namespace Mewgic
             Application.logMessageReceived -= Log;
             GameplayProgress.RestorePlayerProfile();
             GameplayLevelCatalog.ResetSelection();
-            foreach (var suffix in Suffixes) PlayerPrefs.DeleteKey(key + suffix);
+            foreach (var suffix in Suffixes)
+            {
+                PlayerPrefs.DeleteKey(key + suffix);
+                PlayerPrefs.DeleteKey(RecoveryKey + suffix);
+            }
             PlayerPrefs.Save();
         }
 
@@ -748,7 +753,9 @@ namespace Mewgic
         {
             public StoreVerificationState result = StoreVerificationState.Verified;
             public bool sandbox = true;
+            public bool offline;
             public Task<StoreVerification> VerifyAsync(StoreProof proof) =>
+                offline ? Task.FromException<StoreVerification>(new IOException("QA bağlantı kesildi")) :
                 Task.FromResult(new StoreVerification(proof.Receipt == "editor-fixture" ? result : StoreVerificationState.Rejected,
                     proof.TransactionId, sandbox));
         }
@@ -920,8 +927,9 @@ namespace Mewgic
             var afterRestart = new StorePayments(new[]{ package }, reopened, "apple", verifier, _ => {});
             var replay = afterRestart.Accept(package.id, proof, () => confirmed++);
             yield return Until(() => replay.IsCompletedSuccessfully, "Yeniden açılışta tekrar bildirim işlendi");
-            Check(confirmed == 2 && reopened.Presentation.coins == oldGold + 13_000 &&
+            Check(confirmed == 1 && reopened.Presentation.coins == oldGold + 13_000 &&
                 reopened.Snapshot.storeDeliveries.Count == 1, "Yeniden açılışta yinelenen makbuz tekrar altın vermedi");
+            yield return RunPurchaseRecovery(package);
 
             var bundle = MagicShopPanel.LoadCatalogue().Packages.Single(item => item.id == "starter");
             var durable = new StorePackage { id = "qa-permanent", permanentItem = ShopItem.ExplorerCat };
@@ -950,11 +958,11 @@ namespace Mewgic
             var wrongSku = new StoreProof("google", "com.mewgic.game.gold_250", "editor-google-1", "editor-fixture", 2, false);
             var wrongSkuTask = google.Accept(package.id, wrongSku, () => confirmed++);
             yield return Until(() => wrongSkuTask.IsCompletedSuccessfully, "Yanlış Android ürün kimliği işlendi");
-            Check(confirmed == 2 && isolated.Presentation.coins == googleBefore, "Android eşlemesi farklı ürün kimliğini reddetti");
+            Check(confirmed == 1 && isolated.Presentation.coins == googleBefore, "Android eşlemesi farklı ürün kimliğini reddetti");
             var googleProof = new StoreProof("google", package.googleId, "editor-google-1", "editor-fixture", 2, false);
             var googleTask = google.Accept(package.id, googleProof, () => confirmed++);
             yield return Until(() => googleTask.IsCompletedSuccessfully, "Android yerel test bildirimi işlendi");
-            Check(confirmed == 3 && isolated.Presentation.coins == googleBefore + 26_000 &&
+            Check(confirmed == 2 && isolated.Presentation.coins == googleBefore + 26_000 &&
                 isolated.Snapshot.storeDeliveries.Last().quantity == 2, "Android eşlemesi ve doğrulanmış ürün adedi");
 
             var nativeAttempt = StorePayments.ConfigureNativeSandbox(verifier, Guid.NewGuid());
@@ -973,6 +981,68 @@ namespace Mewgic
             Press("ShopClose");
             StorePayments.UseLocalTest(null);
             yield return RunFakeStore(mapped);
+        }
+
+        IEnumerator RunPurchaseRecovery(StorePackage package)
+        {
+            var verifier = new LocalVerifier { offline = true };
+            int confirms = 0;
+            var proof = new StoreProof("apple", package.appleId, "interrupted", "editor-fixture", 1, false);
+            var ledger = GameplayProgress.Open(RecoveryKey);
+            var before = ledger.Presentation.coins;
+            StorePayments Session(ProgressLedger profile) => new(new[]{ package }, profile, "apple", verifier, _ => {});
+            var session = Session(ledger);
+            Action confirm = () => confirms++;
+            var offline = session.Accept(package.id, proof, confirm);
+            yield return Until(() => offline.IsCompletedSuccessfully, "Çevrimdışı deneme döndü");
+            Check(ledger.StorePurchase("apple", "interrupted").purchase == StorePurchaseStatus.Pending &&
+                ledger.Presentation.coins == before && confirms == 0, "Ağ kesintisinde bekleyen işlem kaydedildi; teslim/onay yok");
+
+            ledger = GameplayProgress.Open(RecoveryKey);
+            session = Session(ledger);
+            verifier.offline = false;
+            var recovered = session.Accept(package.id, proof, confirm, waitForConfirmation:true);
+            yield return Until(() => recovered.IsCompletedSuccessfully, "Teslim öncesi kapanış sonrası mağaza bildirimi işlendi");
+            var duplicate = session.Accept(package.id, proof, confirm, waitForConfirmation:true);
+            yield return Until(() => duplicate.IsCompletedSuccessfully, "Onay uçuşundayken yinelenen bildirim işlendi");
+            session.Confirmation(package.id, "unrelated", true);
+            Check(ledger.Presentation.coins == before + package.Gold && confirms == 1 &&
+                ledger.StorePurchase("apple", "interrupted").confirmation == StoreConfirmationStatus.Waiting,
+                "Ödül bir kez kaydedildi; ilgisiz onay işlemi tamamlamadı");
+            session.Confirmation(package.id, "interrupted", false);
+            Check(ledger.StorePurchase("apple", "interrupted").confirmation == StoreConfirmationStatus.Retry,
+                "Mağaza onay hatası kalıcı tekrar durumuna geçti");
+
+            ledger = GameplayProgress.Open(RecoveryKey);
+            session = Session(ledger);
+            verifier.offline = true;
+            var retry = session.Accept(package.id, proof, confirm, waitForConfirmation:true);
+            yield return Until(() => retry.IsCompletedSuccessfully, "Teslim sonrası kapanışta onay tekrarlandı");
+            session.Confirmation(package.id, "interrupted", true);
+            ledger = GameplayProgress.Open(RecoveryKey);
+            Check(confirms == 2 && ledger.Presentation.coins == before + package.Gold &&
+                ledger.StorePurchase("apple", "interrupted").confirmation == StoreConfirmationStatus.Confirmed &&
+                !JsonUtility.ToJson(ledger.Snapshot).Contains(proof.Receipt),
+                "Onay tekrarında ödül artmadı, sonuç kalıcı ve makbuz kayıt dışında");
+
+            bool rejectGrant = true;
+            var memory = new ProgressLedger(new ProgressData(), next =>
+            {
+                if (rejectGrant && next.presentation.coins > 0) throw new IOException("QA diske yazılamadı");
+            });
+            session = Session(memory);
+            verifier.offline = false;
+            var failure = session.Accept(package.id, proof, confirm);
+            yield return Until(() => failure.IsCompletedSuccessfully, "Teslim kaydı hatası işlendi");
+            Check(memory.Presentation.coins == 0 && confirms == 2 && memory.Snapshot.storeDeliveries.Count == 0 &&
+                memory.StorePurchase("apple", "interrupted").reward == StoreRewardStatus.Retry,
+                "Teslim hatasında bakiye ve onay değişmedi");
+            rejectGrant = false;
+            var delivered = session.Accept(package.id, proof, confirm);
+            yield return Until(() => delivered.IsCompletedSuccessfully, "Teslim tekrar denemesi işlendi");
+            Check(memory.Presentation.coins == package.Gold && confirms == 3, "Teslim tekrarında tek ödül ve tek onay");
+            Check(StorePayments.JournalId("google", "private-test-token") is { Length:71 } hash &&
+                hash.StartsWith("sha256:") && !hash.Contains("private-test-token"), "Google ödeme tokenı günlüğe açık yazılmıyor");
         }
 
         static bool PaymentMessage(string text) =>

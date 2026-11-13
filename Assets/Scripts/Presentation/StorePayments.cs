@@ -17,10 +17,13 @@ namespace Mewgic
     public readonly struct StoreProof
     {
         public readonly string Platform, Sku, TransactionId, Receipt;
+        public readonly string StoreOrderId;
+        internal readonly string JournalTransactionId;
         public readonly int Quantity;
         public readonly bool Permanent;
 
-        public StoreProof(string platform, string sku, string transactionId, string receipt, int quantity, bool permanent)
+        public StoreProof(string platform, string sku, string transactionId, string receipt, int quantity, bool permanent,
+            string storeOrderId = null, string journalTransactionId = null)
         {
             Platform = platform;
             Sku = sku;
@@ -28,6 +31,8 @@ namespace Mewgic
             Receipt = receipt;
             Quantity = quantity;
             Permanent = permanent;
+            StoreOrderId = storeOrderId;
+            JournalTransactionId = journalTransactionId ?? StorePayments.JournalId(platform, transactionId);
         }
     }
 
@@ -58,6 +63,7 @@ namespace Mewgic
         readonly Dictionary<string, double> offerEnds = new(StringComparer.Ordinal);
         readonly Dictionary<string, StorePaymentState> states = new(StringComparer.Ordinal);
         readonly HashSet<string> processing = new(StringComparer.Ordinal);
+        readonly Dictionary<string, double> confirming = new(StringComparer.Ordinal);
         readonly IStorePurchaseVerifier verifier;
         readonly ProgressLedger ledger;
         readonly string platform;
@@ -149,35 +155,115 @@ namespace Mewgic
         internal async Task Accept(string id, StoreProof proof, Action confirm, bool restoration = false, bool waitForConfirmation = false)
         {
             if (!packages.TryGetValue(id, out var package) || proof.Platform != platform ||
-                (!restoration && (string.IsNullOrWhiteSpace(proof.TransactionId) || string.IsNullOrWhiteSpace(proof.Receipt))) ||
+                !ValidTransactionId(proof.JournalTransactionId) ||
                 string.IsNullOrWhiteSpace(proof.Sku) || proof.Sku != package.PlatformId(platform) ||
                 proof.Permanent != package.Permanent || proof.Quantity < 1 || proof.Quantity > 100 ||
                 (restoration && !package.Permanent)) return;
-            string flight = id + ":" + proof.TransactionId;
-            if (!processing.Add(flight)) return;
-            SetState(id, StorePaymentState.Processing);
+            string flight = proof.JournalTransactionId;
+            if ((confirming.TryGetValue(flight, out double retryAfter) &&
+                retryAfter > Time.realtimeSinceStartupAsDouble) || !processing.Add(flight)) return;
             try
             {
+                var entry = ledger.StorePurchase(platform, flight) ?? Entry(proof.Sku, flight, proof.Quantity);
+                if (entry.productId != proof.Sku || entry.quantity != proof.Quantity) return;
+                if (!string.IsNullOrEmpty(proof.StoreOrderId)) entry.storeOrderId = proof.StoreOrderId;
+                if (entry.confirmation == StoreConfirmationStatus.Confirmed)
+                {
+                    SetState(id, StorePaymentState.Success);
+                    return;
+                }
+                SetState(id, StorePaymentState.Processing);
+                if (entry.reward == StoreRewardStatus.Delivered)
+                {
+                    Confirm(id, entry, confirm, waitForConfirmation);
+                    return;
+                }
+                entry.purchase = StorePurchaseStatus.Pending;
+                if (!Save(entry) || string.IsNullOrWhiteSpace(proof.Receipt))
+                {
+                    SetState(id, StorePaymentState.Waiting);
+                    return;
+                }
                 var result = await verifier.VerifyAsync(proof);
                 if (result.State != StoreVerificationState.Verified || !result.Sandbox ||
                     string.IsNullOrWhiteSpace(result.CanonicalId) || result.CanonicalId.Length > 512)
                 {
+                    entry.purchase = result.State == StoreVerificationState.Pending
+                        ? StorePurchaseStatus.Pending : StorePurchaseStatus.Rejected;
+                    Save(entry);
                     SetState(id, result.State == StoreVerificationState.Pending ? StorePaymentState.Waiting : StorePaymentState.Failed);
                     return;
                 }
                 // A verifier must return the same canonical ID for all replays of this platform transaction.
                 string key = Hash(platform + ":sandbox:" + result.CanonicalId);
-                var delivered = ledger.DeliverStorePackage(package, key, proof.Quantity);
+                entry.purchase = StorePurchaseStatus.Verified;
+                entry.reward = StoreRewardStatus.Delivered;
+                entry.updatedUtc = DateTimeOffset.UtcNow.ToString("O");
+                var delivered = ledger.DeliverStorePackage(package, key, proof.Quantity, entry);
                 if (delivered is StoreDeliveryResult.Applied or StoreDeliveryResult.AlreadyApplied)
+                    Confirm(id, entry, confirm, waitForConfirmation);
+                else
                 {
-                    if (waitForConfirmation) SetState(id, StorePaymentState.Waiting);
-                    confirm?.Invoke();
-                    if (!waitForConfirmation) SetState(id, StorePaymentState.Success);
+                    entry.reward = StoreRewardStatus.Retry;
+                    Save(entry);
+                    SetState(id, delivered == StoreDeliveryResult.Retry ? StorePaymentState.Waiting : StorePaymentState.Failed);
                 }
-                else SetState(id, delivered == StoreDeliveryResult.Retry ? StorePaymentState.Waiting : StorePaymentState.Failed);
             }
             catch (Exception) { SetState(id, StorePaymentState.Waiting); }
             finally { processing.Remove(flight); }
+        }
+
+        StorePurchaseEntry Entry(string sku, string transactionId, int quantity) =>
+            new() { platform = platform, transactionId = transactionId, productId = sku, quantity = quantity };
+
+        bool Save(StorePurchaseEntry entry)
+        {
+            entry.updatedUtc = DateTimeOffset.UtcNow.ToString("O");
+            return ledger.SaveStorePurchase(entry);
+        }
+
+        static bool ValidTransactionId(string id) =>
+            !string.IsNullOrWhiteSpace(id) && id.Length <= 512 && !id.Any(char.IsControl);
+
+        // Google IAP uses the purchase token as TransactionID; never persist that token.
+        internal static string JournalId(string platform, string sdkId) =>
+            !ValidTransactionId(sdkId) ? null : platform == "google"
+                ? "sha256:" + Hash(sdkId) : sdkId;
+
+        void Confirm(string id, StorePurchaseEntry entry, Action confirm, bool waitForConfirmation)
+        {
+            entry.confirmation = StoreConfirmationStatus.Waiting;
+            if (!Save(entry)) { SetState(id, StorePaymentState.Waiting); return; }
+            SetState(id, StorePaymentState.Waiting);
+            if (waitForConfirmation) confirming[entry.transactionId] = Time.realtimeSinceStartupAsDouble + 30;
+            try { confirm?.Invoke(); }
+            catch (Exception)
+            {
+                Confirmation(id, entry.transactionId, false);
+                return;
+            }
+            if (!waitForConfirmation) Confirmation(id, entry.transactionId, true);
+        }
+
+        internal void Confirmation(string id, string transactionId, bool success)
+        {
+            if (!packages.TryGetValue(id ?? "", out var package) || !ValidTransactionId(transactionId)) return;
+            var entry = ledger.StorePurchase(platform, transactionId);
+            if (entry == null || entry.productId != package.PlatformId(platform) ||
+                entry.reward != StoreRewardStatus.Delivered) return;
+            confirming.Remove(transactionId);
+            if (entry.confirmation == StoreConfirmationStatus.Confirmed) return;
+            entry.confirmation = success ? StoreConfirmationStatus.Confirmed : StoreConfirmationStatus.Retry;
+            SetState(id, Save(entry) && success ? StorePaymentState.Success : StorePaymentState.Waiting);
+        }
+
+        void Observe(string id, string transactionId, int quantity, StorePurchaseStatus status)
+        {
+            if (!packages.TryGetValue(id ?? "", out var package) || !ValidTransactionId(transactionId) ||
+                ledger.StorePurchase(platform, transactionId) != null) return;
+            var entry = Entry(package.PlatformId(platform), transactionId, quantity);
+            entry.purchase = status;
+            Save(entry);
         }
 
         static string Hash(string value)
@@ -194,34 +280,17 @@ namespace Mewgic
         }
 #endif
 
-        public static Task<bool> ConfigureNativeSandbox(IStorePurchaseVerifier verifier, Guid sandboxAccount)
-        {
-#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID) && DEVELOPMENT_BUILD
-            return ConnectNativeSandbox(verifier, sandboxAccount);
-#else
-            return Task.FromResult(false);
-#endif
-        }
+        // Do not open a native billing sheet until store validation and account delivery are integrated.
+        public static Task<bool> ConfigureNativeSandbox(IStorePurchaseVerifier verifier, Guid sandboxAccount) =>
+            Task.FromResult(false);
 
-        static async Task<bool> ConnectNativeSandbox(IStorePurchaseVerifier verifier, Guid sandboxAccount)
-        {
-            if (verifier == null || sandboxAccount == Guid.Empty || Current != null) return false;
-            var catalog = MagicShopPanel.LoadCatalogue();
-            string platform = Application.platform == RuntimePlatform.IPhonePlayer ? "apple" : "google";
-            var mapped = catalog.Packages.Where(package => !string.IsNullOrWhiteSpace(package.PlatformId(platform))).ToArray();
-            if (mapped.Length == 0) return false;
-            // Platform sandbox receipts stay in a dedicated save even on a device with real progress.
-            ProgressLedger ledger;
-            try { ledger = GameplayProgress.Open("Mewgic.IapSandbox.v1." + sandboxAccount.ToString("N")); }
-            catch (Exception) { return false; }
-            var controller = UnityIAPServices.StoreController(platform == "apple" ? AppleAppStore.Name : GooglePlay.Name);
-            return await ConnectSandboxStore(controller, mapped, ledger, platform, verifier, sandboxAccount);
-        }
-
+#if UNITY_EDITOR
         internal static async Task<bool> ConnectSandboxStore(StoreController controller, StorePackage[] mapped,
             ProgressLedger ledger, string platform, IStorePurchaseVerifier verifier, Guid sandboxAccount)
         {
+            if (!GameplayProgress.IsTestProfile) return false;
             var definitions = ProductDefinitions(mapped, platform);
+            var retryOrders = new Dictionary<string, PendingOrder>(StringComparer.Ordinal);
             bool fetchingProducts = false, fetchingPurchases = false;
             void FetchProducts()
             {
@@ -235,11 +304,15 @@ namespace Mewgic
                 fetchingPurchases = true;
                 controller.FetchPurchases();
             }
+            Action retry = null;
             var session = new StorePayments(mapped, ledger, platform, verifier, controller.PurchaseProduct,
                 () =>
                 {
                     if (controller.GetConnectionState() == ConnectionState.Connected)
+                    {
+                        retry?.Invoke();
                         FetchProducts();
+                    }
                     else if (controller.GetConnectionState() is ConnectionState.Disconnected or ConnectionState.Unavailable)
                         _ = controller.Connect();
                 }, completed =>
@@ -257,7 +330,8 @@ namespace Mewgic
                     }
                 });
             Current = session;
-            string ProductId(Order order) => order.CartOrdered.Items().FirstOrDefault()?.Product.definition.id;
+            string ProductId(Order order) => order?.CartOrdered?.Items().FirstOrDefault()?.Product.definition.id;
+            string TransactionId(Order order) => JournalId(platform, order?.Info?.TransactionID);
             async void Deliver(Order order, bool restore)
             {
                 var items = order.CartOrdered.Items();
@@ -265,10 +339,25 @@ namespace Mewgic
                 var item = items[0];
                 if (!session.packages.TryGetValue(item.Product.definition.id, out var package)) return;
                 string receipt = platform == "apple" ? order.Info.Apple?.jwsRepresentation : order.Info.Receipt;
+                string transaction = TransactionId(order);
+                if (transaction == null) { session.SetState(package.id, StorePaymentState.Waiting); return; }
+                if (order is PendingOrder pendingOrder) retryOrders[transaction] = pendingOrder;
                 var proof = new StoreProof(platform, item.Product.definition.storeSpecificId, order.Info.TransactionID,
-                    receipt, item.Quantity, package.Permanent);
+                    receipt, item.Quantity, package.Permanent, order.Info.Google?.OrderId, transaction);
                 Action confirm = order is PendingOrder pending ? () => controller.ConfirmPurchase(pending) : null;
                 await session.Accept(package.id, proof, confirm, restore, waitForConfirmation: confirm != null);
+                if (ledger.StorePurchase(platform, transaction)?.confirmation == StoreConfirmationStatus.Confirmed)
+                    retryOrders.Remove(transaction);
+            }
+            retry = () =>
+            {
+                foreach (var order in retryOrders.Values.ToArray()) Deliver(order, false);
+            };
+            void Observe(Order order, StorePurchaseStatus purchase, StorePaymentState state)
+            {
+                string id = ProductId(order);
+                session.Observe(id, TransactionId(order), order.CartOrdered.Items().FirstOrDefault()?.Quantity ?? 0, purchase);
+                session.SetState(id, state);
             }
             controller.ProcessPendingOrdersOnPurchasesFetched(false);
             controller.OnProductsFetched += products =>
@@ -293,6 +382,7 @@ namespace Mewgic
             controller.OnStoreDisconnected += _ =>
             {
                 session.restored = false;
+                session.confirming.Clear();
                 fetchingProducts = fetchingPurchases = false;
                 foreach (var package in mapped)
                 {
@@ -310,23 +400,35 @@ namespace Mewgic
             controller.OnAuthAccountChanged += () =>
             {
                 session.restored = false;
+                retryOrders.Clear();
+                session.confirming.Clear();
                 FetchPurchases();
             };
-            controller.OnPurchaseDeferred += order => session.SetState(ProductId(order), StorePaymentState.Waiting);
-            controller.OnPurchaseFailed += order => session.SetState(ProductId(order),
-                order.FailureReason == PurchaseFailureReason.UserCancelled ? StorePaymentState.Cancelled : StorePaymentState.Failed);
+            controller.OnPurchaseDeferred += order => Observe(order, StorePurchaseStatus.Deferred, StorePaymentState.Waiting);
+            controller.OnPurchaseFailed += order =>
+            {
+                bool cancelled = order.FailureReason == PurchaseFailureReason.UserCancelled;
+                Observe(order, cancelled ? StorePurchaseStatus.Cancelled : StorePurchaseStatus.Failed,
+                    cancelled ? StorePaymentState.Cancelled : StorePaymentState.Failed);
+            };
             controller.OnPurchaseConfirmed += order =>
             {
-                session.SetState(ProductId(order), order is FailedOrder ? StorePaymentState.Waiting : StorePaymentState.Success);
+                bool finished = order is ConfirmedOrder || platform == "apple" &&
+                    order is FailedOrder failed && failed.FailureReason == PurchaseFailureReason.DuplicateTransaction;
+                session.Confirmation(ProductId(order), TransactionId(order), finished);
             };
             controller.OnPurchasePending += order => Deliver(order, false);
             controller.OnPurchasesFetched += orders =>
             {
                 fetchingPurchases = false;
                 if (controller.GetConnectionState() != ConnectionState.Connected) return;
-                foreach (var order in orders.DeferredOrders) session.SetState(ProductId(order), StorePaymentState.Waiting);
+                foreach (var order in orders.DeferredOrders) Observe(order, StorePurchaseStatus.Deferred, StorePaymentState.Waiting);
                 foreach (var order in orders.PendingOrders) Deliver(order, false);
-                foreach (var order in orders.ConfirmedOrders) Deliver(order, true);
+                foreach (var order in orders.ConfirmedOrders)
+                {
+                    session.Confirmation(ProductId(order), TransactionId(order), true);
+                    Deliver(order, true);
+                }
                 session.Ready();
             };
             controller.OnPurchasesFetchFailed += _ =>
@@ -341,5 +443,6 @@ namespace Mewgic
             }
             catch (Exception) { return false; }
         }
+#endif
     }
 }

@@ -222,6 +222,14 @@ namespace Mewgic
                         entry["key"]?.Type != Newtonsoft.Json.Linq.JTokenType.String ||
                         entry["product"]?.Type != Newtonsoft.Json.Linq.JTokenType.String ||
                         !Integer(entry["quantity"]) || !int.TryParse(entry["quantity"].ToString(), out _)))) return null;
+                if (json["storePurchases"] != null &&
+                    (json["storePurchases"] is not Newtonsoft.Json.Linq.JArray purchases ||
+                    purchases.Any(entry => entry is not Newtonsoft.Json.Linq.JObject ||
+                        new[]{"platform","transactionId","productId"}.Any(field =>
+                            entry[field]?.Type != Newtonsoft.Json.Linq.JTokenType.String) ||
+                        entry["updatedUtc"]?.Type is not (Newtonsoft.Json.Linq.JTokenType.String or Newtonsoft.Json.Linq.JTokenType.Date) ||
+                        new[]{"quantity","purchase","reward","confirmation"}.Any(field =>
+                            !Integer(entry[field]) || !int.TryParse(entry[field].ToString(), out _))))) return null;
                 var data=JsonUtility.FromJson<ProgressData>(raw);
                 if(data==null||data.storageRevision<0)return null;
                 return new ProgressLedger(data,_=>{}).Snapshot;

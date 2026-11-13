@@ -88,7 +88,8 @@ sealed partial class ClanStore
         string[] tables = [
             "players","sessions","session_refresh","clans","members","requests","wins",
             "league_seasons","league_divisions","league_entries","league_event_bonuses","league_rewards",
-            "league_wallet_owners","league_clan_emblems","event_clock","event_windows","event_players","event_scores","event_claims"
+            "league_wallet_owners","league_clan_emblems","event_clock","event_windows","event_players","event_scores","event_claims",
+            "store_purchases","store_reward_grants"
         ];
         var counts = Write(db =>
         {
