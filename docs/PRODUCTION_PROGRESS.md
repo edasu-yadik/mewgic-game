@@ -388,3 +388,5 @@ Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120d
 11 Kasım 2026 · Son Visual QA. On dört ekran üç portre boyutunda açıldı. 44 kontrol geçti, Game View 42 ekran görüntüsü verdi. İzole mağazada Ek Şişe alındı ve Kaşif Kedi kuşanıldı. Home sahnesinde Özel Teklifler açık bırakıldı. Asset ve Editor performans sonuçları ProductionReports/FinalVisualReview altında.
 
 13 Kasım 2026 · Unity IAP 5.5.0 kataloğunda beş altın paketi ve iki özel teklif Apple ve Google Consumable ürünlerine eşlendi. Yerelleştirilmiş mağaza metaverisi, doğru bonus teslimatı, eksik ürün, iptal ve yinelenen işlem izole Unity Play Mode'da 844 kontrolle doğrulandı. Kanıtlar ProductionReports/IapProductCatalogue altında.
+
+13 Kasım 2026 · App Store Connect IAP hazırlığında kayıtlı iOS kimlikleri karşılaştırıldı. Yedi Consumable ürün için Türkçe ve İngilizce mağaza metinleri ile iki Game View inceleme PNG'si hazırlandı. Apple oturumu gerekli olduğundan canlı hesap ve ürün durumları doğrulama bekliyor. Teslim ProductionReports/AppStoreConnectIap altında.
