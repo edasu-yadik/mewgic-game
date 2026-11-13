@@ -1,5 +1,10 @@
 # Üretim ilerlemesi
 
+## Unity IAP 5.5.0 Registry düzeltmesi
+Yerel arşiv bağımlılığı resmî Registry yapılandırmasına döndürüldü. Unity 6000.3.27f2’de 822 izole Play Mode kontrolü geçti.
+[Doğrulama raporu](ProductionReports/IapRegistryRepair/REPORT.md).
+
+
 ## Tek parça bölüm haritası
 Ana Menü ve bölüm sonu aynı LevelMap rotasını açıyor. Ada seçimi kaldırıldı.
 Kristal köprüler ve dinamik taşlar kayarken dış çevre sabit kalıyor.
