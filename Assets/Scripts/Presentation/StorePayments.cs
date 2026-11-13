@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Mewgic.Core;
 using UnityEngine;
@@ -53,7 +54,7 @@ namespace Mewgic
     public sealed class StorePayments
     {
         readonly Dictionary<string, StorePackage> packages;
-        readonly Dictionary<string, string> prices = new(StringComparer.Ordinal);
+        readonly Dictionary<string, ProductMetadata> metadata = new(StringComparer.Ordinal);
         readonly Dictionary<string, double> offerEnds = new(StringComparer.Ordinal);
         readonly Dictionary<string, StorePaymentState> states = new(StringComparer.Ordinal);
         readonly HashSet<string> processing = new(StringComparer.Ordinal);
@@ -66,7 +67,8 @@ namespace Mewgic
         bool restored;
         public event Action<string> Changed;
         public static StorePayments Current { get; private set; }
-        public string Price(string id) => prices.TryGetValue(id, out var price) ? price : null;
+        public ProductMetadata Metadata(string id) => id != null && metadata.TryGetValue(id, out var value) ? value : null;
+        public string Price(string id) => Metadata(id)?.localizedPriceString;
         public StorePaymentState State(string id) => states.TryGetValue(id, out var state) ? state : StorePaymentState.Ready;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -82,17 +84,27 @@ namespace Mewgic
             this.start = start;
             this.refresh = refresh;
             this.restorePermanent = restorePermanent;
-            if (this.packages.Values.Any(package => !package.Valid) ||
+            if (platform is not ("apple" or "google") || this.packages.Values.Any(package => !package.Valid) ||
                 this.packages.Values.GroupBy(package => package.PlatformId(platform), StringComparer.Ordinal)
-                    .Any(group => !string.IsNullOrWhiteSpace(group.Key) && group.Count() > 1))
+                    .Any(group => !ValidPlatformId(platform, group.Key) || group.Count() > 1))
                 throw new ArgumentException("Mağaza ürün eşlemesi geçersiz.");
         }
 
-        internal void SetPrice(string id, string price)
+        static bool ValidPlatformId(string platform, string id) => id != null &&
+            Regex.IsMatch(id, platform == "apple" ? @"\A[A-Za-z0-9._]{1,100}\z" : @"\A[a-z0-9][a-z0-9._]{0,149}\z");
+
+        internal static List<ProductDefinition> ProductDefinitions(IEnumerable<StorePackage> packages, string platform) =>
+            packages.Where(package => !string.IsNullOrWhiteSpace(package.PlatformId(platform)))
+                .Select(package => new ProductDefinition(package.id, package.PlatformId(platform),
+                    package.Permanent ? ProductType.NonConsumable : ProductType.Consumable)).ToList();
+
+        internal void SetMetadata(string id, ProductMetadata value)
         {
             if (id == null || !packages.ContainsKey(id)) return;
-            if (string.IsNullOrWhiteSpace(price)) prices.Remove(id);
-            else prices[id] = price;
+            if (string.IsNullOrWhiteSpace(value?.localizedPriceString) ||
+                string.IsNullOrWhiteSpace(value.isoCurrencyCode) || value.localizedPrice <= 0)
+                metadata.Remove(id);
+            else metadata[id] = value;
             Changed?.Invoke(id);
         }
 
@@ -134,7 +146,7 @@ namespace Mewgic
         }
         internal void Ready() => restored = true;
 
-        internal async Task Accept(string id, StoreProof proof, Action confirm, bool restoration = false)
+        internal async Task Accept(string id, StoreProof proof, Action confirm, bool restoration = false, bool waitForConfirmation = false)
         {
             if (!packages.TryGetValue(id, out var package) || proof.Platform != platform ||
                 (!restoration && (string.IsNullOrWhiteSpace(proof.TransactionId) || string.IsNullOrWhiteSpace(proof.Receipt))) ||
@@ -158,8 +170,9 @@ namespace Mewgic
                 var delivered = ledger.DeliverStorePackage(package, key, proof.Quantity);
                 if (delivered is StoreDeliveryResult.Applied or StoreDeliveryResult.AlreadyApplied)
                 {
+                    if (waitForConfirmation) SetState(id, StorePaymentState.Waiting);
                     confirm?.Invoke();
-                    SetState(id, StorePaymentState.Success);
+                    if (!waitForConfirmation) SetState(id, StorePaymentState.Success);
                 }
                 else SetState(id, delivered == StoreDeliveryResult.Retry ? StorePaymentState.Waiting : StorePaymentState.Failed);
             }
@@ -202,18 +215,44 @@ namespace Mewgic
             try { ledger = GameplayProgress.Open("Mewgic.IapSandbox.v1." + sandboxAccount.ToString("N")); }
             catch (Exception) { return false; }
             var controller = UnityIAPServices.StoreController(platform == "apple" ? AppleAppStore.Name : GooglePlay.Name);
+            return await ConnectSandboxStore(controller, mapped, ledger, platform, verifier, sandboxAccount);
+        }
+
+        internal static async Task<bool> ConnectSandboxStore(StoreController controller, StorePackage[] mapped,
+            ProgressLedger ledger, string platform, IStorePurchaseVerifier verifier, Guid sandboxAccount)
+        {
+            var definitions = ProductDefinitions(mapped, platform);
+            bool fetchingProducts = false, fetchingPurchases = false;
+            void FetchProducts()
+            {
+                if (fetchingProducts || controller.GetConnectionState() != ConnectionState.Connected) return;
+                fetchingProducts = true;
+                controller.FetchProducts(definitions, new NoRetriesPolicy());
+            }
+            void FetchPurchases()
+            {
+                if (fetchingPurchases || controller.GetConnectionState() != ConnectionState.Connected) return;
+                fetchingPurchases = true;
+                controller.FetchPurchases();
+            }
             var session = new StorePayments(mapped, ledger, platform, verifier, controller.PurchaseProduct,
-                controller.FetchPurchases, completed =>
+                () =>
+                {
+                    if (controller.GetConnectionState() == ConnectionState.Connected)
+                        FetchProducts();
+                    else if (controller.GetConnectionState() is ConnectionState.Disconnected or ConnectionState.Unavailable)
+                        _ = controller.Connect();
+                }, completed =>
                 {
                     if (platform == "apple")
                         controller.RestoreTransactions((ok, _) =>
                         {
-                            if (ok) controller.FetchPurchases();
+                            if (ok) FetchPurchases();
                             completed?.Invoke(ok);
                         });
                     else
                     {
-                        controller.FetchPurchases();
+                        FetchPurchases();
                         completed?.Invoke(true);
                     }
                 });
@@ -229,50 +268,78 @@ namespace Mewgic
                 var proof = new StoreProof(platform, item.Product.definition.storeSpecificId, order.Info.TransactionID,
                     receipt, item.Quantity, package.Permanent);
                 Action confirm = order is PendingOrder pending ? () => controller.ConfirmPurchase(pending) : null;
-                await session.Accept(package.id, proof, confirm, restore);
+                await session.Accept(package.id, proof, confirm, restore, waitForConfirmation: confirm != null);
             }
             controller.ProcessPendingOrdersOnPurchasesFetched(false);
             controller.OnProductsFetched += products =>
             {
-                foreach (var product in products.Where(product => product.availableToPurchase))
-                    session.SetPrice(product.definition.id, product.metadata.localizedPriceString);
-                controller.FetchPurchases();
+                if (controller.GetConnectionState() != ConnectionState.Connected) return;
+                fetchingProducts = false;
+                foreach (var package in mapped)
+                {
+                    var product = products.Find(candidate => candidate.availableToPurchase &&
+                        candidate.definition.id == package.id &&
+                        candidate.definition.storeSpecificId == package.PlatformId(platform));
+                    session.SetMetadata(package.id, product?.metadata);
+                }
+                FetchPurchases();
+            };
+            controller.OnProductsFetchFailed += failure =>
+            {
+                fetchingProducts = false;
+                foreach (var product in failure.FailedFetchProducts)
+                    session.SetMetadata(product.id, null);
             };
             controller.OnStoreDisconnected += _ =>
             {
                 session.restored = false;
-                foreach (var package in mapped) session.SetPrice(package.id, null);
+                fetchingProducts = fetchingPurchases = false;
+                foreach (var package in mapped)
+                {
+                    if (session.State(package.id) == StorePaymentState.Processing)
+                        session.SetState(package.id, StorePaymentState.Waiting);
+                    session.SetMetadata(package.id, null);
+                }
             };
             controller.OnStoreConnected += () =>
             {
                 if (platform == "apple") controller.AppleStoreExtendedService?.SetAppAccountToken(sandboxAccount);
                 else controller.GooglePlayStoreExtendedService?.SetObfuscatedAccountId(sandboxAccount.ToString("N"));
-                controller.FetchProductsWithNoRetries(mapped.Select(package =>
-                    new ProductDefinition(package.id, package.PlatformId(platform),
-                        package.Permanent ? ProductType.NonConsumable : ProductType.Consumable)).ToList());
+                FetchProducts();
             };
             controller.OnAuthAccountChanged += () =>
             {
                 session.restored = false;
-                controller.FetchPurchases();
+                FetchPurchases();
             };
             controller.OnPurchaseDeferred += order => session.SetState(ProductId(order), StorePaymentState.Waiting);
             controller.OnPurchaseFailed += order => session.SetState(ProductId(order),
                 order.FailureReason == PurchaseFailureReason.UserCancelled ? StorePaymentState.Cancelled : StorePaymentState.Failed);
             controller.OnPurchaseConfirmed += order =>
             {
-                if (order is FailedOrder) session.SetState(ProductId(order), StorePaymentState.Waiting);
+                session.SetState(ProductId(order), order is FailedOrder ? StorePaymentState.Waiting : StorePaymentState.Success);
             };
             controller.OnPurchasePending += order => Deliver(order, false);
             controller.OnPurchasesFetched += orders =>
             {
+                fetchingPurchases = false;
+                if (controller.GetConnectionState() != ConnectionState.Connected) return;
                 foreach (var order in orders.DeferredOrders) session.SetState(ProductId(order), StorePaymentState.Waiting);
                 foreach (var order in orders.PendingOrders) Deliver(order, false);
                 foreach (var order in orders.ConfirmedOrders) Deliver(order, true);
                 session.Ready();
             };
-            try { await controller.Connect(); return true; }
-            catch (Exception) { Current = null; return false; }
+            controller.OnPurchasesFetchFailed += _ =>
+            {
+                fetchingPurchases = false;
+                session.restored = false;
+            };
+            try
+            {
+                await controller.Connect();
+                return controller.GetConnectionState() == ConnectionState.Connected;
+            }
+            catch (Exception) { return false; }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Mewgic.Core
     [Serializable]
     public sealed class StorePackage
     {
-        public string id, name, art, appleId, googleId;
+        public string id, name, description, art, appleId, googleId;
         public int amount, bonus;
         public StorePackagePower[] powers;
         public ShopItem permanentItem;

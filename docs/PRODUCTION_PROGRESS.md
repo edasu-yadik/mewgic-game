@@ -386,3 +386,5 @@ Harita altyapısı Git teslimi. Uygulama commit'i `f784e54706d14e4d16939a751120d
 11 Kasım 2026 · Mağaza, ekonomi ve oynanış entegrasyon denetimi. Yeni oyuncunun ilk dört pati öğreticisi, coin uçuşu, güç satın alımı ve gerçek kullanım, günlük görev elması, kostüm kuşanma ve ayrı Play Mode açılışı doğrulandı. Son koşularda 2.782 kontrol, ayrıca 2.048 üretici örneği geçti. Dört referans ve Game View karşılaştırmaları ProductionReports/ShopEconomyGameplayQA altında.
 
 11 Kasım 2026 · Son Visual QA. On dört ekran üç portre boyutunda açıldı. 44 kontrol geçti, Game View 42 ekran görüntüsü verdi. İzole mağazada Ek Şişe alındı ve Kaşif Kedi kuşanıldı. Home sahnesinde Özel Teklifler açık bırakıldı. Asset ve Editor performans sonuçları ProductionReports/FinalVisualReview altında.
+
+13 Kasım 2026 · Unity IAP 5.5.0 kataloğunda beş altın paketi ve iki özel teklif Apple ve Google Consumable ürünlerine eşlendi. Yerelleştirilmiş mağaza metaverisi, doğru bonus teslimatı, eksik ürün, iptal ve yinelenen işlem izole Unity Play Mode'da 844 kontrolle doğrulandı. Kanıtlar ProductionReports/IapProductCatalogue altında.

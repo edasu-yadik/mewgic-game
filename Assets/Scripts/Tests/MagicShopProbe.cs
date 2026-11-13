@@ -16,6 +16,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Purchasing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -521,7 +522,7 @@ namespace Mewgic
                 var card = GameObject.Find(name).transform;
                 Check(card.Find("GoldAmount").GetComponent<TMP_Text>().text == "10.000 Altın" &&
                     card.Find("PricePlate/Price").GetComponent<TMP_Text>().text == "Önizleme" &&
-                    card.Find("Bonus/Label").GetComponent<TMP_Text>().text == "%30 BONUS", name + " katalogyla aynı");
+                    card.Find("Bonus/Label").GetComponent<TMP_Text>().text == "+%30 BONUS", name + " katalogyla aynı");
             }
             Press("ShopBuy_gold_featured");
             yield return null;
@@ -752,16 +753,118 @@ namespace Mewgic
                     proof.TransactionId, sandbox));
         }
 
+        sealed class FakeStoreVerifier : IStorePurchaseVerifier
+        {
+            public StoreProof Last { get; private set; }
+
+            public Task<StoreVerification> VerifyAsync(StoreProof proof)
+            {
+                Last = proof;
+                return Task.FromResult(new StoreVerification(StoreVerificationState.Verified, proof.TransactionId, true));
+            }
+        }
+
+        IEnumerator RunFakeStore(StorePackage[] products)
+        {
+            var controller = UnityIAPServices.StoreController("fake");
+            var verifier = new FakeStoreVerifier();
+            var ledger = new ProgressLedger(new ProgressData(), _ => { });
+            var connection = StorePayments.ConnectSandboxStore(controller, products, ledger, "google", verifier, Guid.NewGuid());
+            yield return Until(() => connection.IsCompletedSuccessfully, "Unity IAP Fake Store bağlantısı döndü");
+            var session = StorePayments.Current;
+            Check(connection.Result && products.All(package => session.Price(package.id) != null &&
+                session.Metadata(package.id).isoCurrencyCode == "USD" &&
+                !string.IsNullOrWhiteSpace(session.Metadata(package.id).localizedDescription)),
+                "Fake Store yedi SKU için yerelleştirilmiş ürün verisi döndürdü");
+            var first = products.Single(package => package.id == "gold_250");
+            int initial = ledger.Snapshot.storeDeliveries.Count;
+            Check(!session.Buy("missing-product"), "Katalogda olmayan ürün alış başlatmadı");
+            Check(session.Buy(first.id), "Fake Store satın alma başlatıldı");
+            yield return Until(() => GameObject.Find("UIFakeStoreWindow") != null, "Fake Store iptal penceresi açıldı");
+            ResolveFakeStoreDialog("CancelButtonClicked");
+            yield return Until(() => session.State(first.id) == StorePaymentState.Cancelled, "IAP iptal bildirimi uygulandı");
+            Check(ledger.Snapshot.storeDeliveries.Count == initial, "IAP iptalinde ödül verilmedi");
+            yield return null;
+            Check(session.Buy(first.id), "İptal sonrası Fake Store alış tekrar başladı");
+            yield return Until(() => GameObject.Find("UIFakeStoreWindow") != null, "Fake Store satın alma penceresi açıldı");
+            ResolveFakeStoreDialog("OkayButtonClicked");
+            yield return Until(() => session.State(first.id) == StorePaymentState.Success, "IAP bekleyen işlem teslim edilip onaylandı");
+            Check(ledger.Presentation.coins == first.Gold && ledger.Snapshot.storeDeliveries.Count == initial + 1,
+                "IAP test satın alımı izole kayda doğru altın verdi");
+            var replay = session.Accept(first.id, verifier.Last, null);
+            yield return Until(() => replay.IsCompletedSuccessfully, "IAP işleminin tekrar bildirimi işlendi");
+            Check(ledger.Presentation.coins == first.Gold && ledger.Snapshot.storeDeliveries.Count == initial + 1,
+                "Aynı Fake Store işlemi ikinci kez ödül vermedi");
+            var store = FakeStoreInstance();
+            store.GetType().GetProperty("unavailableProductId").SetValue(store, first.id);
+            session.RefreshPurchases();
+            yield return Until(() => session.Price(first.id) == null, "Eksik SKU için önceki fiyat kaldırıldı");
+            Check(!session.Buy(first.id) && products.Where(package => package != first).All(package => session.Price(package.id) != null),
+                "Ürün bulunamadığında yalnızca ilgili satın alma kapandı");
+            StorePayments.UseLocalTest(null);
+        }
+
+        static object FakeStoreInstance()
+        {
+            var assembly = typeof(StoreController).Assembly;
+            var managerType = assembly.GetType("UnityEngine.Purchasing.StoreManager");
+            var flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance;
+            var manager = managerType.GetMethod("Instance", flags).Invoke(null, null);
+            var wrapper = managerType.GetMethod("GetStore", flags).Invoke(manager, new object[] { "fake" });
+            return wrapper.GetType().GetProperty("instance", flags).GetValue(wrapper);
+        }
+
+        static void ResolveFakeStoreDialog(string callback)
+        {
+            var store = FakeStoreInstance();
+            store.GetType().GetMethod(callback, BindingFlags.Instance | BindingFlags.NonPublic).Invoke(store, null);
+        }
+
         IEnumerator RunIap()
         {
-            var package = MagicShopPanel.LoadCatalogue().Packages.Single(item => item.id == "gold_10000");
-            package.appleId = "qa.gold.10000";
+            var catalog = MagicShopPanel.LoadCatalogue();
+            var mapped = catalog.Packages.Except(catalog.offerGold).ToArray();
+            foreach (var platform in new[] { "apple", "google" })
+            {
+                var definitions = StorePayments.ProductDefinitions(catalog.Packages, platform);
+                Check(definitions.Count == 7 && definitions.Select(value => value.storeSpecificId).Distinct().Count() == 7 &&
+                    definitions.All(value => value.type == ProductType.Consumable &&
+                        value.storeSpecificId == "com.mewgic.game." + value.id),
+                    $"{platform} kataloğunda yedi eşsiz Consumable ürün var");
+            }
+            Check(catalog.gold.Select(value => value.Gold).SequenceEqual(new[] { 250, 1100, 2875, 6000, 13000 }) &&
+                mapped.All(value => value.Valid && !string.IsNullOrWhiteSpace(value.name) && !string.IsNullOrWhiteSpace(value.description)),
+                "Katalog adları, açıklamaları ve tek sefer uygulanan altın bonusları doğru");
+            var powers = mapped.Single(item => item.id == "powers");
+            var powerLedger = new ProgressLedger(new ProgressData(), _ => { });
+            int extra = powerLedger.Remaining(BoosterKind.ExtraBottle);
+            int shuffle = powerLedger.Remaining(BoosterKind.Shuffle);
+            int hammer = powerLedger.Remaining(BoosterKind.BottleHammer);
+            int swap = powerLedger.Remaining(BoosterKind.ColorSwap);
+            Check(powerLedger.DeliverStorePackage(powers, new string('c', 64), 1) == StoreDeliveryResult.Applied &&
+                powerLedger.Presentation.coins == 0 &&
+                powerLedger.Remaining(BoosterKind.ExtraBottle) == extra + 5 &&
+                powerLedger.Remaining(BoosterKind.Shuffle) == shuffle + 3 &&
+                powerLedger.Remaining(BoosterKind.BottleHammer) == hammer + 3 &&
+                powerLedger.Remaining(BoosterKind.ColorSwap) == swap + 1,
+                "Oyun Gücü Paketi dört gücü doğru adette teslim etti");
+            var package = mapped.Single(item => item.id == "gold_10000");
             var verifier = new LocalVerifier();
             int started = 0, confirmed = 0;
             var session = new StorePayments(new[]{ package }, Ledger, "apple", verifier, _ => started++);
+            bool invalidRejected = false;
+            try
+            {
+                var invalid = new StorePackage { id = "invalid", appleId = "bad sku!", amount = 250 };
+                _ = new StorePayments(new[] { invalid }, Ledger, "apple", verifier, _ => { });
+            }
+            catch (ArgumentException) { invalidRejected = true; }
+            Check(invalidRejected, "Geçersiz platform ürün kimliği reddedildi");
             StorePayments.UseLocalTest(session);
             session.Ready();
-            session.SetPrice(package.id, "€39,99");
+            Check(!session.Buy(package.id), "Mağazadan fiyatı gelmeyen ürün satın alınamıyor");
+            session.SetMetadata(package.id, new ProductMetadata("€39,99", "10.000 Altın",
+                "Mağazadan gelen açıklama", "EUR", 39.99m));
             Press("NavInventory");
             yield return null;
             Press("ShopTab_Gold");
@@ -771,6 +874,9 @@ namespace Mewgic
             yield return Shot("IapTestLocalizedPrice");
             Press("ShopBuy_gold_featured");
             yield return null;
+            Check(PaymentMessage("Mağazadan gelen açıklama") && PaymentMessage("13.000") &&
+                session.Metadata(package.id).isoCurrencyCode == "EUR", "Yerelleştirilmiş açıklama, ISO para birimi ve bonuslu toplam");
+            yield return Shot("IapLocalizedDetails");
             Press("ShopConfirm");
             yield return null;
             Check(started == 1 && !session.Buy(package.id) && PaymentMessage("işleniyor"),
@@ -839,13 +945,12 @@ namespace Mewgic
                 isolated.DeliverStorePackage(durable, durableKey, 1) == StoreDeliveryResult.AlreadyApplied &&
                 isolated.Owns(ShopItem.ExplorerCat), "Kalıcı hak yeniden teslimde tek sahiplik kaydı olarak kaldı");
 
-            package.googleId = "qa.android.gold";
             var google = new StorePayments(new[]{ package }, isolated, "google", verifier, _ => {});
             long googleBefore = isolated.Presentation.coins;
-            var wrongSku = new StoreProof("google", package.appleId, "editor-google-1", "editor-fixture", 2, false);
+            var wrongSku = new StoreProof("google", "com.mewgic.game.gold_250", "editor-google-1", "editor-fixture", 2, false);
             var wrongSkuTask = google.Accept(package.id, wrongSku, () => confirmed++);
             yield return Until(() => wrongSkuTask.IsCompletedSuccessfully, "Yanlış Android ürün kimliği işlendi");
-            Check(confirmed == 2 && isolated.Presentation.coins == googleBefore, "Android eşlemesi Apple ürününü reddetti");
+            Check(confirmed == 2 && isolated.Presentation.coins == googleBefore, "Android eşlemesi farklı ürün kimliğini reddetti");
             var googleProof = new StoreProof("google", package.googleId, "editor-google-1", "editor-fixture", 2, false);
             var googleTask = google.Accept(package.id, googleProof, () => confirmed++);
             yield return Until(() => googleTask.IsCompletedSuccessfully, "Android yerel test bildirimi işlendi");
@@ -867,6 +972,7 @@ namespace Mewgic
             yield return null;
             Press("ShopClose");
             StorePayments.UseLocalTest(null);
+            yield return RunFakeStore(mapped);
         }
 
         static bool PaymentMessage(string text) =>

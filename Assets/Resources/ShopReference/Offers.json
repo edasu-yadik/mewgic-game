@@ -19,8 +19,9 @@
           "icon": "hammer"
         }
       ],
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.starter",
+      "googleId": "com.mewgic.game.starter",
+      "description": "1.000 Altın, 3 Ek Şişe ve 2 Şişe Çekici."
     },
     {
       "id": "powers",
@@ -52,8 +53,9 @@
           "icon": "swap"
         }
       ],
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.powers",
+      "googleId": "com.mewgic.game.powers",
+      "description": "5 Ek Şişe, 3 Şişe Çekici, 3 Karıştır ve 1 Renk Değiştir."
     }
   ],
   "offerGold": [
@@ -86,40 +88,50 @@
       "id": "gold_250",
       "amount": 250,
       "art": "gold100",
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.gold_250",
+      "googleId": "com.mewgic.game.gold_250",
+      "name": "250 Altın",
+      "description": "Toplam 250 Altın."
     },
     {
       "id": "gold_1000",
       "amount": 1000,
       "bonus": 10,
       "art": "gold1000",
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.gold_1000",
+      "googleId": "com.mewgic.game.gold_1000",
+      "name": "1.000 Altın",
+      "description": "1.000 Altın ve %10 bonus. Toplam 1.100 Altın."
     },
     {
       "id": "gold_2500",
       "amount": 2500,
       "bonus": 15,
       "art": "gold2500",
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.gold_2500",
+      "googleId": "com.mewgic.game.gold_2500",
+      "name": "2.500 Altın",
+      "description": "2.500 Altın ve %15 bonus. Toplam 2.875 Altın."
     },
     {
       "id": "gold_5000",
       "amount": 5000,
       "bonus": 20,
       "art": "gold5000",
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.gold_5000",
+      "googleId": "com.mewgic.game.gold_5000",
+      "name": "5.000 Altın",
+      "description": "5.000 Altın ve %20 bonus. Toplam 6.000 Altın."
     },
     {
       "id": "gold_10000",
       "amount": 10000,
       "bonus": 30,
       "art": "gold10000",
-      "appleId": "",
-      "googleId": ""
+      "appleId": "com.mewgic.game.gold_10000",
+      "googleId": "com.mewgic.game.gold_10000",
+      "name": "10.000 Altın",
+      "description": "10.000 Altın ve %30 bonus. Toplam 13.000 Altın."
     }
   ],
   "previewPowers": [

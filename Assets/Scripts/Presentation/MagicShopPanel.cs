@@ -438,8 +438,10 @@ namespace Mewgic
 
         void ShowPackage(StorePackage package)
         {
-            var title = string.IsNullOrEmpty(package.name) ? GoldAmount(package) : package.name;
-            Inform(title, "Mağaza fiyatı şu anda kullanılamıyor. Satın alma kapalı.", package.art);
+            var title = payments?.Metadata(package.id)?.localizedTitle;
+            if (string.IsNullOrWhiteSpace(title))
+                title = string.IsNullOrEmpty(package.name) ? GoldAmount(package) : package.name;
+            Inform(title, ("Mağaza fiyatı şu anda kullanılamıyor. Satın alma kapalı.\n" + package.description).TrimEnd(), package.art);
             if (payments?.OfferRemaining(package.id) == TimeSpan.Zero && payments.State(package.id) != StorePaymentState.Waiting)
             {
                 modalMessage.text = "Teklifin süresi sona erdi.";
@@ -468,8 +470,11 @@ namespace Mewgic
                         modalMessage.text = ended ? "Teklifin süresi sona erdi." : "Mağaza fiyatı şu anda kullanılamıyor.";
                         break;
                     }
-                    string content = modalPackage.bonus > 0 ? $"\nToplam {Number(modalPackage.Gold)} Altın" : "";
-                    modalMessage.text = $"TEST SATIN ALIMI · {price}{content}";
+                    string description = payments.Metadata(id)?.localizedDescription;
+                    string total = "";
+                    if (string.IsNullOrWhiteSpace(description)) description = modalPackage.description;
+                    else if (modalPackage.bonus > 0) total = $"\nToplam {Number(modalPackage.Gold)} Altın";
+                    modalMessage.text = $"TEST SATIN ALIMI · {price}\n{description}{total}";
                     modalConfirmLabel.text = "Test Satın Al";
                     modalLink = () =>
                     {
@@ -702,7 +707,7 @@ namespace Mewgic
 
         static string Number(long value) => value.ToString("N0", Turkish);
         static string GoldAmount(StorePackage package) => Number(package.amount) + " Altın";
-        static string Bonus(StorePackage package) => $"%{package.bonus} BONUS";
+        static string Bonus(StorePackage package) => $"+%{package.bonus} BONUS";
         static string ItemTitle(ShopItem item)
         {
             foreach (var costume in Costumes) if (costume.item == item) return costume.name;
