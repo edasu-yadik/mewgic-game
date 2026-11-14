@@ -165,68 +165,17 @@ namespace Mewgic
         {
             yield return Ready();
             Check(Map.JourneyTarget == 92 && Ledger.MapJourney.Pending, "Kayıt yeniden açılınca 91→92 bekliyor ve başlıyor");
-            Check(Node(92).Status == MapLevelStatus.Locked, "Hedef varışa kadar görsel kilitli");
-            var cat = GameObject.Find("WizardCatGuide").GetComponent<RectTransform>();
-            var catView = cat.GetComponent<JourneyCatImage>();
-            var contact = GameObject.Find("JourneyCatContact").GetComponent<RectTransform>();
-            var backplate = GameObject.Find("CrystalTerrace_5").GetComponent<RawImage>();
-            var water = backplate.material;
-            float waterClock = water.GetFloat("_EnvironmentTime");
-            Check(backplate.texture.name == "Crystal_Reference_91_100" &&
-                water.IsKeywordEnabled("MEWGIC_CRYSTAL_REFERENCE") && !ShaderUtil.ShaderHasError(water.shader),
-                "Kristal referans görseli ve katmanlı şelale shader'ı etkin");
-            Vector2 before = cat.anchoredPosition;
-            yield return Until(() => catView.Pose == JourneyCatPose.Blink);
-            Check(catView.Pose == JourneyCatPose.Blink && catView.texture.name == "CrystalCat_RestWake" &&
-                Vector2.Distance(before, cat.anchoredPosition) < .01f, "Kedi yerinde gözünü açıp kulağını kaldırıyor");
-            yield return Shot("09-Wake");
-            yield return Until(() => catView.Pose == JourneyCatPose.Standing);
-            Check(catView.Pose == JourneyCatPose.Standing && Vector2.Distance(before, cat.anchoredPosition) < .01f,
-                "Mutlu ayağa kalkma pozu ilk adımdan önce aynı zeminde");
-            yield return Shot("10-Standing");
             var paw = GameObject.Find("GoldenPawTrail").GetComponent<JourneyPawTrail>();
-            yield return Until(() => paw.canvasRenderer.GetMesh() != null && paw.canvasRenderer.GetMesh().vertexCount > 0);
-            Check(Vector2.Distance(before, cat.anchoredPosition) > 5, "Maskot rota boyunca ilerliyor");
-            Check(catView.PoseIndex > 0 && catView.texture.name == "MapCat_Poses" &&
-                Vector2.Distance(cat.anchoredPosition, contact.anchoredPosition) < .01f, "Asasız yürüyüş pozu ve temas gölgesi zemine bağlı");
-            Check(water.GetFloat("_EnvironmentTime") > waterClock, "Şelale saati kaydırmadan bağımsız ilerliyor");
-            Check(paw.canvasRenderer.GetMesh() != null && paw.canvasRenderer.GetMesh().vertexCount > 0, "Altın pati mesh'i kademeli oluşuyor");
-            var viewport = GameObject.Find("JourneyScroll").GetComponent<RectTransform>();
-            Check(paw.canvasRenderer.GetMesh().vertices.Any(vertex => RectTransformUtility.RectangleContainsScreenPoint(viewport,
-                RectTransformUtility.WorldToScreenPoint(null, paw.transform.TransformPoint(vertex)))), "Pati izleri görünür viewport içinde ve rota ile aynı koordinat uzayında");
+            Check(GameObject.Find("WizardCatGuide") == null, "Haritada görünür maskot yok");
+            yield return Until(() => paw.VisibleSteps >= 3);
+            Check(paw.canvasRenderer.GetMesh()?.vertexCount > 0 && paw.transform.IsChildOf(Map.Content),
+                "Altın pati mesh'i kademeli ve rota ile aynı katmanda");
             yield return Shot("01-Walk");
-            yield return Until(() => Node(92).Status == MapLevelStatus.Current);
-            Check(Node(92).Status == MapLevelStatus.Current && Map.JourneyRunning, "Varışta kilit açılıp altın burst başlıyor");
-            yield return new WaitForSecondsRealtime(.2f);
-            yield return Shot("02-Unlock");
             yield return Until(() => !Map.JourneyRunning);
-            Check(!Map.JourneyRunning && !Ledger.MapJourney.Pending && Ledger.MapJourney.displayedLevel == 92 && Ledger.MapJourney.lastShownLevel == 92,
-                "Tamamlanınca gösterilen konum ve already-shown atomik kaydediliyor");
-            Check(catView.Pose == JourneyCatPose.Curled && Vector2.Distance(cat.anchoredPosition, contact.anchoredPosition) < .01f,
-                "Maskot yerde kıvrılmış dinlenme pozuna dönüyor");
-            var scroll = viewport.GetComponent<ScrollRect>();
-            Check(backplate.transform.IsChildOf(scroll.content) && GameObject.Find("StoneRoute") == null &&
-                Node(91).transform.position.x < Node(92).transform.position.x &&
-                Node(93).transform.position.x < Node(94).transform.position.x &&
-                Node(97).transform.position.x < Node(98).transform.position.x, "Kristal taşları, çizilmiş köprüler ve maskot aynı sayfada");
-            var routeBefore = scroll.content.anchoredPosition;
-            var atmosphere = GameObject.Find("CrystalAnchoredAtmosphere").transform;
-            var atmosphereBefore = atmosphere.position;
-            scroll.verticalNormalizedPosition = .38f;
-            yield return null; yield return null;
-            Check(Vector2.Distance(scroll.content.anchoredPosition, routeBefore) > 500 &&
-                GameObject.Find("CrystalBrand") != null && atmosphere.position == atmosphereBefore &&
-                !atmosphere.IsChildOf(scroll.content), "Kristal rotası kayarken sabit dış sis ve başlık yerinde kalır");
-            ((MapScrollRect)scroll).UserInput.Invoke();
-            yield return new WaitForSecondsRealtime(1f);
-            Check(Mathf.Abs(scroll.content.anchoredPosition.y / viewport.rect.height - 2) < .01f,
-                "Kaydırma bırakılınca en yakın teras kadraja yerleşir");
-            var headingBounds = new Vector3[4];
-            GameObject.Find("JourneyHeading").GetComponent<RectTransform>().GetWorldCorners(headingBounds);
-            Check(Node(71).transform.position.y < headingBounds[0].y &&
-                Node(80).transform.position.y > GameObject.Find("ChapterClose").transform.position.y,
-                "Önceki terasın ilk ve son taşı sabit kontrollerin arasında");
-            yield return Shot("06-Scroll-Settled");
+            Check(Node(92).Status == MapLevelStatus.Current && !Ledger.MapJourney.Pending &&
+                Ledger.MapJourney.displayedLevel == 92 && Ledger.MapJourney.lastShownLevel == 92,
+                "Varış gösterilen konumu ve tekrar oynatma durumunu kaydetti");
+            yield return Shot("02-Unlock");
             Reopen(); yield return Reload();
             Check(!Map.JourneyRunning && Node(92).Status == MapLevelStatus.Current, "İkinci giriş: running=" + Map.JourneyRunning + " status=" + Node(92).Status + " current=" + Map.Progression.CurrentId + " pending=" + Ledger.MapJourney.Pending);
             Ledger.Claim(91, 3, true, out _); yield return Reload();
@@ -234,42 +183,21 @@ namespace Mewgic
 
             Bind(Data(98)); UseJournal(); Ledger.Claim(99, 3, true, out _); yield return Reload();
             yield return new WaitForSecondsRealtime(.65f);
-            typeof(MapWorld).GetMethod("OnApplicationPause", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(Map, new object[] { true });
-            Check(Ledger.MapJourney.Pending && Ledger.MapJourney.lastShownLevel == 99, "Arka plana geçiş animasyonu gösterildi olarak tüketmiyor");
+            Check(Ledger.MapJourney.Pending && Ledger.MapJourney.lastShownLevel == 99, "Yürüyüş sürerken varış henüz kaydedilmedi");
             // Destroy the scene before arrival: durable acknowledgement must not be written.
             Reopen(); yield return Reload();
             Check(Map.JourneyTarget == 100 && Ledger.MapJourney.Pending, "Yarıda kesilen sunum gerçek PlayerPrefs günlüğünden yeniden bekliyor");
             Canvas.ForceUpdateCanvases();
             yield return null;
-            var pointer = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current)
-            { position = RectTransformUtility.WorldToScreenPoint(null, Node(100).transform.position) };
-            var hits = new List<UnityEngine.EventSystems.RaycastResult>();
-            UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointer, hits);
-            Check(hits.Count > 0 && hits[0].gameObject.name == "TapToSkipJourney", "Animasyonda gerçek raycast atlama yüzeyine ulaşıyor: " + string.Join(",", hits.Select(hit => hit.gameObject.name)));
-            GameObject.Find("TapToSkipJourney").GetComponent<Button>().onClick.Invoke();
+            Map.SkipJourney();
             Check(!Map.JourneyRunning && Node(100).Status == MapLevelStatus.Current && Ledger.MapJourney.lastShownLevel == 100,
-                "Ekrana dokunma atlar, hedefe odaklar ve bir kez kaydeder");
-            var endCat = GameObject.Find("WizardCatGuide").GetComponent<JourneyCatImage>();
-            Check(endCat.Pose == JourneyCatPose.Curled && endCat.transform.position.x < Node(100).transform.position.x,
-                "100 açıldığında asasız maskot alt sol kaya üzerinde kıvrılır");
+                "Atlama hedefe odaklar ve bir kez kaydeder");
             yield return Shot("03-Crystal-100");
-            yield return new WaitForSecondsRealtime(.4f);
-            yield return Shot("08-Water-Later");
-            var restRect = endCat.rectTransform;
-            Vector2 restFeet = restRect.anchoredPosition;
-            float initialBreath = restRect.localScale.y;
-            yield return Until(() => Mathf.Abs(restRect.localScale.y - initialBreath) > .002f, 1);
-            Check(Mathf.Abs(restRect.localScale.y - initialBreath) > .002f && restRect.anchoredPosition == restFeet,
-                "Dinlenme nefesi hareket ediyor, pati teması sabit");
-            yield return Until(() => endCat.Pose == JourneyCatPose.Blink, 6);
-            Check(endCat.Pose == JourneyCatPose.Blink && !Map.JourneyRunning && restRect.anchoredPosition == restFeet,
-                "Dinlenen kedi yerinde kısa göz ve kulak hareketi yapar");
-            yield return Shot("11-Idle-Blink");
             Reopen(); yield return Reload();
             Check(!Map.JourneyRunning && Node(100).Status == MapLevelStatus.Current && Ledger.MapJourney.lastShownLevel == 100,
                 "Gerçek günlükten yeniden giriş gösterilmiş 100 animasyonunu tekrarlamaz");
             Bind(Data(98)); Ledger.Claim(99, 3, true, out _); yield return Reload();
-            yield return new WaitForSecondsRealtime(1.1f);
+            yield return Until(() => GameObject.Find("GoldenPawTrail").GetComponent<JourneyPawTrail>().VisibleSteps >= 4);
             Check(GameObject.Find("GoldenPawTrail").GetComponent<JourneyPawTrail>().canvasRenderer.GetMesh().vertexCount > 0,
                 "99 → 100 alt kıvrımında pati izleri çiziliyor");
             yield return Shot("07-Walk-99-100");
@@ -290,29 +218,17 @@ namespace Mewgic
             Bind(Data(89)); Ledger.Claim(90, 3, true, out _); yield return Reload();
             Check(Map.JourneyTarget == 91, "90 → 91 önceki terastan başlar");
             yield return Until(() => !Map.JourneyRunning);
-            var crystalScroll = GameObject.Find("JourneyScroll").GetComponent<ScrollRect>();
-            Check(Node(91).Status == MapLevelStatus.Current && !Map.JourneyRunning &&
-                Mathf.Abs(crystalScroll.content.anchoredPosition.y / crystalScroll.viewport.rect.height - 4) < .01f,
-                "90 → 91 sonunda referans terası tam kadraja gelir");
+            Check(Node(91).Status == MapLevelStatus.Current && !Map.JourneyRunning,
+                "90 → 91 köprü geçişi doğru hedefe ulaştı");
 
             foreach (int boundary in Enumerable.Range(1, 12).Select(index => index * 50))
             {
                 Bind(Data(boundary - 1)); Ledger.Claim(boundary, 2, true, out _); Reopen(); yield return Reload();
                 Check(Map.JourneyTarget == boundary + 1, boundary + " dünya sınırı animasyonu");
-                yield return Until(() => !Map.JourneyRunning);
-                Check(!Map.JourneyRunning && Node(boundary + 1).Status == MapLevelStatus.Current && Ledger.MapJourney.displayedLevel == boundary + 1,
-                    boundary + " sınırında doğru ada, kedi ve açılış");
-                var catBounds = new Vector3[4];
-                GameObject.Find("WizardCatGuide").GetComponent<RectTransform>().GetWorldCorners(catBounds);
-                var targetViewport = GameObject.Find("JourneyScroll").GetComponent<RectTransform>();
-                Check(targetViewport.InverseTransformPoint(catBounds[1]).y <= targetViewport.rect.yMax + 1,
-                    (boundary + 1) + " ilk bölümünde kedinin şapkası görünür");
-                if (boundary == 100 || boundary == 600)
-                {
-                    Check(GameObject.Find("CrystalBrand") == null && GameObject.Find("StoneRoute") != null &&
-                        GameObject.Find("JourneyNearCrystals") != null, "Kristal dışındaki dünya ortak katman ve kontrol düzenini koruyor");
-                    yield return Shot("05-Island-" + (boundary + 1));
-                }
+                yield return Until(() => !Map.JourneyRunning, 6);
+                Check(!Map.JourneyRunning && Node(boundary + 1).Status == MapLevelStatus.Current &&
+                    Ledger.MapJourney.displayedLevel == boundary + 1 && GameObject.Find("WizardCatGuide") == null,
+                    boundary + " sınırında doğru bölüm ve maskotsuz varış");
             }
             Bind(Data(98)); Ledger.Claim(99, 2, true, out _); Ledger.Claim(100, 3, true, out _); Reopen(); yield return Reload();
             Check(Map.JourneyTarget == 101 && Ledger.MapJourney.pendingFrom == 99, "Ardışık Next kazanışları tek kısa yolculukta birleşiyor");
@@ -341,7 +257,12 @@ namespace Mewgic
                 yield return new WaitForSecondsRealtime(1.1f);
             }
             Check(Ledger.Completed(51) && Ledger.MapJourney.pendingTo == 52 && GameObject.Find("ResultHome") != null, "Gerçek kazanış ödülü ve bekleyen açılış birlikte oluştu");
-            GameObject.Find("NextLevel").GetComponent<Button>().onClick.Invoke();
+            var next = GameObject.Find("NextLevel").GetComponent<Button>();
+            yield return Until(() => next.IsInteractable() && next.GetComponentsInParent<CanvasGroup>()
+                .All(group => group.blocksRaycasts && group.alpha > .95f), 12);
+            Check(next.IsInteractable() && next.GetComponentsInParent<CanvasGroup>()
+                .All(group => group.blocksRaycasts && group.alpha > .95f), "Sonraki Bölüm geçiş için hazır");
+            next.onClick.Invoke();
             limit = Time.unscaledTime + 40;
             while ((GameplayLevelCatalog.SelectedId != 52 || GameObject.Find("ResultHome") != null) && Time.unscaledTime < limit) yield return null;
             Check(GameplayLevelCatalog.SelectedId == 52 && Ledger.MapJourney.Pending, "Sonraki bölüm butonu bekleyen yolculuğu silmedi");

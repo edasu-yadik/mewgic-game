@@ -235,6 +235,15 @@ namespace Mewgic.Map
     public sealed class JourneyStoneRing : MaskableGraphic
     {
         bool crystalGold;
+        float arrival;
+        internal float ArrivalStrength => arrival;
+
+        public void SetArrival(float value)
+        {
+            if (arrival == value) return;
+            arrival = value;
+            SetVerticesDirty();
+        }
 
         public void SetCrystalGold(bool value)
         {
@@ -248,14 +257,22 @@ namespace Mewgic.Map
             mesh.Clear();
             var outline = JourneyStoneGraphic.Outline;
             var size = rectTransform.rect.size;
+            if (crystalGold)
+            {
+                Glow(mesh, new Vector2(0, -size.y * .08f), size * new Vector2(.85f, 1.02f),
+                    new Color(1, .62f, .07f, .39f + arrival * .49f));
+                Glow(mesh, new Vector2(0, -size.y * .37f), size * new Vector2(.82f, .42f),
+                    new Color(1, .69f, .12f, .54f + arrival * .40f));
+                if (arrival > .005f) PaintRays(mesh, size);
+            }
             for (int i = 0; i < outline.Length; i++)
             {
                 Vector2 edge = Vector2.Scale(outline[i], size);
                 mesh.AddVert(edge * .85f, new Color32(148, 67, 240, 0), Vector2.zero);
                 mesh.AddVert(edge * .98f, crystalGold ? new Color32(255, 242, 158, 255) : new Color32(255, 216, 117, 245), Vector2.zero);
-                mesh.AddVert(edge * (crystalGold ? 1.10f : 1.035f),
-                    crystalGold ? new Color32(255, 168, 49, 210) : new Color32(190, 98, 247, 168), Vector2.zero);
-                mesh.AddVert(edge * (crystalGold ? 1.36f : 1.115f),
+                mesh.AddVert(edge * (crystalGold ? 1.08f : 1.035f),
+                    crystalGold ? new Color32(255, 211, 67, 255) : new Color32(190, 98, 247, 168), Vector2.zero);
+                mesh.AddVert(edge * (crystalGold ? 1.55f + .22f * arrival : 1.115f),
                     crystalGold ? new Color32(255, 190, 85, 0) : new Color32(175, 76, 242, 0), Vector2.zero);
             }
 
@@ -275,6 +292,41 @@ namespace Mewgic.Map
                 CrestDiamond(mesh, new Vector2(0, size.y * .57f), new Vector2(11, 18));
                 CrestDiamond(mesh, new Vector2(-16, size.y * .51f), new Vector2(6, 9));
                 CrestDiamond(mesh, new Vector2(16, size.y * .51f), new Vector2(6, 9));
+            }
+        }
+
+        static void Glow(VertexHelper mesh, Vector2 center, Vector2 radius, Color color)
+        {
+            int root = mesh.currentVertCount;
+            mesh.AddVert(center, color, Vector2.zero);
+            for (int i = 0; i <= 32; i++)
+            {
+                float angle = i * Mathf.PI / 16;
+                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                mesh.AddVert(center + direction * radius, new Color(color.r, color.g, color.b, 0), Vector2.zero);
+                if (i > 0) mesh.AddTriangle(root, root + i, root + i + 1);
+            }
+        }
+
+        void PaintRays(VertexHelper mesh, Vector2 size)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                float angle = .07f + i * .213f;
+                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                var center = new Vector2(0, -size.y * .12f);
+                Vector2 start = center + direction * size * .42f;
+                float length = .59f + ((i * 7) % 9) * .043f;
+                Vector2 end = center + direction * size * (length + .23f * (1 - arrival));
+                Vector2 normal = new Vector2(-direction.y, direction.x) * (1 + i % 3);
+                int root = mesh.currentVertCount;
+                var baseColor = new Color(1, .82f, .25f, arrival * .78f);
+                mesh.AddVert(start - normal, baseColor, Vector2.zero);
+                mesh.AddVert(start + normal, baseColor, Vector2.zero);
+                mesh.AddVert(end, new Color(1, .68f, .17f, 0), Vector2.zero);
+                mesh.AddTriangle(root, root + 1, root + 2);
+                if (i % 2 == 0)
+                    Glow(mesh, end, Vector2.one * (3 + i % 5), new Color(1, .92f, .52f, arrival));
             }
         }
 

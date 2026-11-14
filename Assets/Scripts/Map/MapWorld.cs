@@ -18,7 +18,6 @@ namespace Mewgic.Map
         public Sprite[] terrain;
         public Shader waterLightShader;
         public bool animateEnvironment = true;
-        [SerializeField] Texture2D journeyMascot, journeyCatPoses;
 
         public Texture2D LoadedJourneyAtlas => roadPlate;
         public Canvas Canvas { get; private set; }
@@ -51,8 +50,6 @@ namespace Mewgic.Map
         GameObject information;
         TMP_Text informationText, motionLabel;
         Button infoClose;
-        Texture2D crystalCatRestAtlas;
-        JourneyCatImage catImage;
         JourneyPawTrail pawTrail;
         bool journeyRunning, reducedJourneyMotion;
 

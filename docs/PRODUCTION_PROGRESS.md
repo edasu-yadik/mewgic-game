@@ -1,5 +1,8 @@
 # Üretim ilerlemesi
 
+## Haritada altın pati izleri ve varış ışığı
+Harita maskotu kaldırıldı. Tek sıra patiler mevcut köprü eğrisini izliyor ve varışta aktif taşı altın ışık sarıyor. [Unity doğrulaması](ProductionReports/GoldenMapJourney/REPORT.md).
+
 ## iOS 0.8.0 (13) TestFlight hazırlığı
 Unity 6000.3.27f2 ile Windows Xcode export'u tamamlandı. Cihazda ödeme ve reklam kapalı; çevrimiçi testler Editor'de. [Export denetimi ve Mac adımları](ProductionReports/iOSBuild13/REPORT.md).
 

@@ -38,7 +38,7 @@ namespace Mewgic
             yield return null;
             RequireMap((map.Content.anchoredPosition - track).sqrMagnitude > 1 &&
                 backdrop.transform.position == world &&
-                FindFirstObjectByType<JourneyCatImage>().transform.IsChildOf(map.Content), "Kaydırmada dış çevre sabit, rota ve maskot aynı katmanda");
+                FindFirstObjectByType<JourneyPawTrail>().transform.IsChildOf(map.Content), "Kaydırmada dış çevre sabit ve pati katmanı rotaya bağlı");
             map.Scroll.StopMovement();
             Press("FocusCurrent", true);
             yield return Until(() => (map.Content.anchoredPosition - track).sqrMagnitude < 1, "Bulunduğum Bölüm");
@@ -78,28 +78,22 @@ namespace Mewgic
 
             yield return OpenPage(10, 100, 3);
             map = FindFirstObjectByType<MapWorld>();
-            yield return Until(() => map.JourneyRunning, "99 → 100 maskot hareketi");
-            var cat = FindFirstObjectByType<JourneyCatImage>();
-            var poses = new HashSet<int>();
+            yield return Until(() => map.JourneyRunning, "99 → 100 pati yürüyüşü");
             var paws = FindFirstObjectByType<JourneyPawTrail>();
-            bool trailDrawn = false;
-            while (map.JourneyRunning)
-            {
-                int pose = cat.PoseIndex;
-                if (!trailDrawn && paws.canvasRenderer.GetMesh()?.vertexCount >= 144)
-                {
-                    trailDrawn = true;
-                    yield return MapShot("Cat-Golden-Paws");
-                }
-                if (poses.Add(pose)) yield return MapShot("Cat-" + (JourneyCatPose)pose);
-                yield return null;
-            }
-            RequireMap(new[] { JourneyCatPose.Curled, JourneyCatPose.Blink, JourneyCatPose.Stretch,
-                JourneyCatPose.Standing, JourneyCatPose.StepA, JourneyCatPose.StepB, JourneyCatPose.Sitting }.All(p => poses.Contains((int)p)) &&
-                trailDrawn &&
+            RequireMap(!Node(100).transform.Find("StoneLight").gameObject.activeSelf,
+                "Varış ışıması adımlar bitmeden görünmedi");
+            yield return Until(() => paws.VisibleSteps >= 5, "Patiler sırayla oluştu");
+            RequireSingleMap(map);
+            yield return MapShot("Golden-Paw-Trail");
+            yield return Until(() => !map.JourneyRunning, "99 → 100 varış");
+            var light = Node(100).GetComponentInChildren<JourneyStoneRing>();
+            RequireMap(light != null && light.ArrivalStrength > .5f &&
                 Node(100).Status == MapLevelStatus.Current &&
-                !GameplayProgress.Current.PeekMapJourney(out _, out _), "Maskot uyanma, yürüme, oturma ve kalıcı varış kaydı");
-            checks.Add("99 → 100 uyku, uyanma, ayağa kalkma, yürüme, altın patiler, oturma ve varış kaydı");
+                !GameplayProgress.Current.PeekMapJourney(out _, out _), "Altın varış ışıması ve kalıcı varış kaydı");
+            yield return MapShot("Golden-Arrival");
+            yield return Until(() => light.ArrivalStrength == 0, "Varış parlaması söndü");
+            RequireMap(light.gameObject.activeSelf && paws.VisibleSteps > 0, "Aktif taşın aurası ve geçiş izleri kaldı");
+            checks.Add("99 → 100 tek sıra altın patiler, varış ışığı ve kalıcı kayıt");
 
             GameplayProgress.UseTestProfile(Fixture(49));
             RequireMap(GameplayProgress.Current.Claim(50, 3, true, out _), "50 → 51 test kaydı");
@@ -109,8 +103,8 @@ namespace Mewgic
             yield return Until(() => !map.JourneyRunning, "50 → 51 varış");
             RequireSingleMap(map);
             RequireMap(map.Progression.CurrentId == 51 && Node(51).Status == MapLevelStatus.Current &&
-                !GameplayProgress.Current.PeekMapJourney(out _, out _), "Maskot tek rotada tema sınırını geçti");
-            checks.Add("50 → 51 maskot aynı rotada tema sınırını geçti");
+                !GameplayProgress.Current.PeekMapJourney(out _, out _), "Pati akışı tek rotada tema sınırını geçti");
+            checks.Add("50 → 51 aynı rotada tema sınırını geçti");
 
             foreach (int height in new[] { 1600, 1950, 2000 })
             {
@@ -119,7 +113,6 @@ namespace Mewgic
                 yield return OpenPage(9, 100, 3);
                 map = FindFirstObjectByType<MapWorld>();
                 RequireSingleMap(map);
-                yield return Until(() => FindFirstObjectByType<JourneyCatImage>()?.Pose == JourneyCatPose.Curled, "Kristal uyku pozu");
                 RequireMap(Node(100).Status == MapLevelStatus.Current && map.ActivePointCount <= 45, "Sanal taş havuzu ve aktif taş");
                 yield return MapShot("Crystal-" + height);
                 checks.Add("900×" + height + " Kristal Game View, etkin bölüm 100");
@@ -136,7 +129,7 @@ namespace Mewgic
         {
             RequireMap(map != null && SceneManager.GetActiveScene().name == "LevelMap" &&
                 GameObject.Find("ContinuousRoadContent") != null &&
-                new[] { "PreviousIsland", "NextIsland", "ChapterClose", "DetailNext", "WorldCostumeMascot" }
+                new[] { "PreviousIsland", "NextIsland", "ChapterClose", "DetailNext", "WorldCostumeMascot", "WizardCatGuide", "JourneyCatContact" }
                     .All(name => GameObject.Find(name) == null), "Tek LevelMap, ada seçimi görünmüyor");
         }
 

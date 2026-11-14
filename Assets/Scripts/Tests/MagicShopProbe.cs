@@ -297,34 +297,9 @@ namespace Mewgic
                 yield return Until(() => SceneManager.GetActiveScene().name == "LevelMap" &&
                     FindFirstObjectByType<MapWorld>()?.Mounted == true, "Dünya haritası açıldı");
                 var map = FindFirstObjectByType<MapWorld>();
-                var overview = map.Canvas.GetComponentsInChildren<RawImage>().Single(img =>
-                    img.name == "WorldCostumeMascot" && img.enabled);
-                Check(classic || overview.texture == CostumeArt.Get(item, CostumePose.Sitting).texture,
-                    item + " dünya haritasındaki gerçek kostüm atlası");
+                Check(GameObject.Find("WorldCostumeMascot") == null && GameObject.Find("WizardCatGuide") == null,
+                    item + " haritada kostüm maskotu çizilmedi");
                 yield return Shot(item + "-World");
-                var island = map.Points.Single(point => point.gameObject.activeInHierarchy &&
-                    point.kind == MapPointKind.LevelGroup && point.regionIndex == 1);
-                Press(island.name);
-                yield return Until(() => map.JourneyRunning, "99 → 100 animasyonu başladı");
-                var journeyCat = GameObject.Find("WizardCatGuide").GetComponent<JourneyCatImage>();
-                var states = new HashSet<JourneyCatPose>();
-                float end = Time.realtimeSinceStartup + 12;
-                while (map.JourneyRunning && Time.realtimeSinceStartup < end)
-                {
-                    var pose = journeyCat.Pose;
-                    if (states.Add(pose))
-                    {
-                        Check(classic || journeyCat.texture == CostumeArt.Get(item, (CostumePose)((int)pose + 1)).texture &&
-                            journeyCat.uvRect == CostumeArt.UV(CostumeArt.Get(item, (CostumePose)((int)pose + 1))),
-                            item + " bölüm haritası gerçek poz: " + pose);
-                        ScreenCapture.CaptureScreenshot(Output + item + "-" + pose + ".png");
-                    }
-                    yield return null;
-                }
-                Check(!map.JourneyRunning && states.Contains(JourneyCatPose.Curled) &&
-                    states.Contains(JourneyCatPose.Blink) && states.Contains(JourneyCatPose.Stretch) &&
-                    states.Contains(JourneyCatPose.Standing) && states.Contains(JourneyCatPose.StepA) &&
-                    states.Contains(JourneyCatPose.StepB), item + " uyku, uyanış, gerinme, kalkış ve iki adım oynadı");
 
                 var prepared = GameplayLevelCatalog.PrepareAsync(100);
                 yield return Until(() => prepared.IsCompletedSuccessfully, "Bölüm 100 hazır");

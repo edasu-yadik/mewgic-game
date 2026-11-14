@@ -48,9 +48,14 @@ namespace Mewgic.Map
         int roadBase, roadWindowSize, visibleTile = -1, paintedRevision = -1, arrivalLevel;
         int boundFirst = -1, boundLast = -1;
         bool rebasing, following, awaitingJourney;
-        float journeyElapsed, arrivalGlow, moveTravel;
+        const int TrailSamples = 128;
+        const float StepInterval = .16f, FirstStepDelay = .06f;
+        readonly float[] trailDistances = new float[TrailSamples + 1];
+        readonly float[] stepPhases = new float[JourneyPawTrail.Capacity];
+        float journeyElapsed, arrivalElapsed;
+        int stepCount, trailRoadBase;
         int walkFrom, walkTo;
-        float walkStartFraction, walkEndFraction;
+        const float WalkStartFraction = .16f;
         float focusGoal;
         Texture2D roadPlate;
         int MaxRoadTile => Mathf.Min(LastRoadTile, (progression.CurrentId - 1) / RoadLevels + 1);
@@ -73,8 +78,8 @@ namespace Mewgic.Map
         {
             if (Mounted) return;
             var crystal = Resources.Load<MapJourneyTheme>("Map/JourneyThemes/crystal");
-            if (crystal == null || crystal.background == null || crystal.referenceTerrace == null || journeyCatPoses == null)
-                throw new InvalidOperationException("Tek harita için çevre, yol veya maskot kaynağı eksik.");
+            if (crystal == null || crystal.background == null || crystal.referenceTerrace == null)
+                throw new InvalidOperationException("Tek harita için çevre veya yol kaynağı eksik.");
             var asset = Resources.Load<TextAsset>("Map/ContinuousThemes");
             roadThemes = asset == null ? null : JsonUtility.FromJson<RoadThemeConfig>(asset.text);
             if (roadThemes?.themes == null || roadThemes.themes.Length == 0 || roadThemes.themes[0].firstLevel != 1 ||
@@ -84,7 +89,6 @@ namespace Mewgic.Map
             roadTints = roadThemes.themes.Select(theme => ParseRoadTint(theme.roadTint)).ToArray();
             backdropTints = roadThemes.themes.Select(theme => ParseRoadTint(theme.backdropTint)).ToArray();
             roadPlate = crystal.referenceTerrace;
-            crystalCatRestAtlas = crystal.mascotRestAtlas;
             font = MewgicTypographySettings.Current.body;
             panel = Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
 
@@ -125,11 +129,7 @@ namespace Mewgic.Map
 
             pawTrail = Rect(Content, "GoldenPawTrail", Vector2.zero, Vector2.one).gameObject.AddComponent<JourneyPawTrail>();
             pawTrail.raycastTarget = false;
-            var cat = Rect(Content, "WizardCatGuide", Vector2.up, Vector2.up);
-            catImage = cat.gameObject.AddComponent<JourneyCatImage>();
-            catImage.raycastTarget = false;
-            catImage.maskable = false;
-
+            pawTrail.transform.SetSiblingIndex(roadStones.GetSiblingIndex());
             var brand = Panel(SafeArea, "MapTitle", new Vector2(.344f,.919f), new Vector2(.656f,.982f));
             Label(brand.transform, "Brand", "MEWGIC", 33, new Vector2(.06f,.39f), new Vector2(.94f,.98f));
             Label(brand.transform, "Title", L.V("common.map"), 23, new Vector2(.06f,.06f), new Vector2(.94f,.46f));
@@ -220,6 +220,11 @@ namespace Mewgic.Map
                 (fixedBackdrop.texture.height * fixedBackdrop.rectTransform.rect.width));
             fixedBackdrop.uvRect = new Rect(0, (1 - crop) * .5f, 1, crop);
             RoadJump(level);
+            if (journeyRunning || arrivalLevel != 0 && stepCount > 0)
+            {
+                PreparePawSteps(preserveCount: true);
+                if (!journeyRunning) PaintPawSteps(stepCount, journeyElapsed + Mathf.Min(1.75f, arrivalElapsed));
+            }
         }
 
         void RebaseRoad(int tile, float progress)
@@ -331,7 +336,8 @@ namespace Mewgic.Map
                 rect.anchoredPosition = new Vector2(foot.x * roadWidth, -Band(foot.y - (i == 9 ? .034f : .024f)) * roadHeight);
                 rect.sizeDelta = new Vector2(roadWidth * (i == 9 ? .18f : .145f), roadHeight * (i == 9 ? .093f : .078f));
                 p.GetComponent<MapNodeBadge>().PresentJourney(id, progression.Status(id), progression.Stars(id),
-                    !reducedJourneyMotion, i == 9 && id == progression.CurrentId, true);
+                    !reducedJourneyMotion, i == 9 && id == progression.CurrentId, true,
+                    id != walkTo || !journeyRunning && !awaitingJourney);
             }
             int last = first + RoadLevels - 1;
             bool milestone = last % WorldMapRules.LevelsPerIsland == 0;
@@ -385,46 +391,67 @@ namespace Mewgic.Map
 
         Vector2 WalkPosition(float progress)
         {
-            if (walkFrom == walkTo) return RoadPosition(walkTo, walkEndFraction);
+            progress = Mathf.Clamp01(progress);
+            if (walkFrom == walkTo) return RoadPosition(walkTo, 0);
             if (TileOf(walkFrom) != TileOf(walkTo))
             {
-                // Finish the old painted bridge, traverse the continuous join, then step onto the next one.
-                if (progress < .40f) return RoadPosition(walkFrom, Mathf.Lerp(walkStartFraction, 1, progress / .40f));
-                if (progress < .76f)
-                {
-                    var exit = RoadPosition(walkFrom, 1);
-                    var entry = RoadPosition(walkTo, 0);
-                    float t = (progress - .40f) / .36f;
-                    return new Vector2(MapRoadJoinGraphic.Center(t) * roadWidth, Mathf.Lerp(exit.y, entry.y, t));
-                }
-                return RoadPosition(walkTo, Mathf.Lerp(0, walkEndFraction, (progress - .76f) / .24f));
+                // Follow the painted bridge to the join, ending at the next terrace's first stone.
+                if (progress < .65f) return RoadPosition(walkFrom, Mathf.Lerp(WalkStartFraction, 1, progress / .65f));
+                var exit = RoadPosition(walkFrom, 1);
+                var entry = RoadPosition(walkTo, 0);
+                float t = (progress - .65f) / .35f;
+                return new Vector2(MapRoadJoinGraphic.Center(t) * roadWidth, Mathf.Lerp(exit.y, entry.y, t));
             }
-            float f = Mathf.Lerp(walkStartFraction, walkTo - walkFrom + walkEndFraction, progress);
+            float f = Mathf.Lerp(WalkStartFraction, walkTo - walkFrom, progress);
             int whole = Mathf.FloorToInt(f);
             return RoadPosition(walkFrom + whole, f - whole);
         }
 
-        static float RestFraction(int level)
+        void PreparePawSteps(bool preserveCount = false)
         {
-            int slot = (level - 1) % RoadLevels;
-            return slot == 0 ? .57f : slot == RoadLevels - 1 ? .88f : .34f;
+            // Measure the already painted route, including bridge joins, in canvas units.
+            Vector2 previous = WalkPosition(0);
+            for (int i = 1; i <= TrailSamples; i++)
+            {
+                Vector2 point = WalkPosition((float)i / TrailSamples);
+                trailDistances[i] = trailDistances[i - 1] + Vector2.Distance(previous, point);
+                previous = point;
+            }
+            float length = trailDistances[TrailSamples];
+            if (TileOf(walkFrom) == TileOf(walkTo))
+                length -= Mathf.Min(length * .22f, roadWidth * .080f);
+            if (!preserveCount)
+                stepCount = Mathf.Clamp(Mathf.RoundToInt(length / (roadWidth * .052f)) + 1, 2, stepPhases.Length);
+
+            int sample = 1;
+            for (int i = 0; i < stepCount; i++)
+            {
+                float distance = length * i / (stepCount - 1);
+                while (sample < TrailSamples && trailDistances[sample] < distance) sample++;
+                stepPhases[i] = (sample - 1 + Mathf.InverseLerp(trailDistances[sample - 1],
+                    trailDistances[sample], distance)) / TrailSamples;
+            }
         }
 
-        void PaintRoadCat(Vector2 feet, JourneyCatPose pose, int facing = 1)
+        void PaintPawSteps(int shown, float elapsed)
         {
-            var rect = catImage.rectTransform;
-            float aspect = catImage.ShowPose(journeyMascot, journeyCatPoses, crystalCatRestAtlas, pose);
-            rect.pivot = new Vector2(.5f,.025f);
-            float height = roadWidth * (pose is JourneyCatPose.Curled or JourneyCatPose.Blink ? .173f : .225f);
-            rect.sizeDelta = new Vector2(height * aspect, height);
-            rect.anchoredPosition = feet;
-            rect.localScale = new Vector3(facing, 1, 1);
-            // Feet follow the same track while the head can extend above its upper edge.
-            float screenY = feet.y + Content.anchoredPosition.y;
-            float opacity = Mathf.InverseLerp(5, -roadWidth * .08f, screenY) *
-                Mathf.InverseLerp(-roadHeight - 4, -roadHeight + roadWidth * .05f, screenY);
-            catImage.enabled = opacity > .01f;
-            if (catImage.enabled) catImage.canvasRenderer.SetAlpha(opacity);
+            int first = Mathf.Max(0, shown - 12);
+            int count = 0;
+            for (int i = first; i < shown; i++)
+            {
+                float phase = stepPhases[i];
+                Vector2 point = WalkPosition(phase);
+                Vector2 tangent = WalkPosition(phase + .006f) - WalkPosition(phase - .006f);
+                float age = elapsed - (FirstStepDelay + i * StepInterval);
+                float settle = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.16f, .95f, age));
+                float remainder = arrivalLevel != 0 && i >= stepCount - 5 ? .56f : 0;
+                float light = Mathf.Max(remainder, 1 - settle);
+                float alpha = Mathf.Lerp(remainder, 1, 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.56f, 1.75f, age)));
+                float depth = Mathf.Repeat(-point.y / roadHeight, 1);
+                float size = roadWidth * Mathf.Lerp(.029f, .041f, depth);
+                pawTrail.Set(count++, point, tangent, size, alpha, light);
+            }
+            pawTrail.Render(count);
         }
 
         void BeginRoadWalk()
@@ -437,8 +464,9 @@ namespace Mewgic.Map
                 walkFrom = walkTo - 1;
                 RoadJump(walkFrom);
             }
-            walkStartFraction = RestFraction(walkFrom);
-            walkEndFraction = RestFraction(walkTo);
+            arrivalLevel = 0;
+            PreparePawSteps();
+            InvalidateRoad();
             journeyElapsed = 0;
             journeyRunning = true;
             Scroll.StopMovement();
@@ -453,14 +481,18 @@ namespace Mewgic.Map
             Scroll.enabled = true;
             RoadJump(walkTo);
             arrivalLevel = walkTo;
-            arrivalGlow = 1;
+            arrivalElapsed = 0;
             if (!ledger.AcknowledgeMapJourney(walkTo)) Message(L.V("error.save"));
-            pawTrail.Clear();
+            if (reducedJourneyMotion || journeyElapsed < FirstStepDelay + (stepCount - 1) * StepInterval)
+            {
+                stepCount = 0;
+                pawTrail.Clear();
+            }
         }
 
         void TickRoad()
         {
-            if (!Mounted) return;
+            if (!Mounted || progression == null) return;
             if (screenWidth != Screen.width || screenHeight != Screen.height || nativeSafe != Screen.safeArea) ApplySafeArea();
             if (lastSafeSize != SafeArea.rect.size)
                 LayoutRoad(journeyRunning ? walkFrom : visibleTile >= 0 ? visibleTile * RoadLevels + 1 : progression.CurrentId);
@@ -469,36 +501,20 @@ namespace Mewgic.Map
             if (journeyRunning)
             {
                 journeyElapsed += dt;
-                moveTravel = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.60f, 2.65f, journeyElapsed));
-                var feet = WalkPosition(moveTravel);
-                var forward = WalkPosition(Mathf.Min(1, moveTravel + .035f)) - feet;
-                var pose = journeyElapsed < .18f ? JourneyCatPose.Curled : journeyElapsed < .34f ? JourneyCatPose.Blink :
-                    journeyElapsed < .52f ? JourneyCatPose.Stretch : journeyElapsed < .60f ? JourneyCatPose.Standing :
-                    moveTravel >= 1 ? JourneyCatPose.Sitting :
-                    Mathf.FloorToInt(journeyElapsed * 10) % 2 == 0 ? JourneyCatPose.StepA : JourneyCatPose.StepB;
-                PaintRoadCat(feet, pose, pose is JourneyCatPose.StepA or JourneyCatPose.StepB && forward.x < 0 ? -1 : 1);
-                int steps = Mathf.Min(12, Mathf.FloorToInt(moveTravel * 14));
-                for (int i = 0; i < steps; i++)
-                {
-                    float point = i / 14f;
-                    Vector2 paw = WalkPosition(point);
-                    var direction = WalkPosition(point + .035f) - paw;
-                    pawTrail.Set(i, paw + Vector2.right * (i % 2 == 0 ? -7 : 7), direction, 16, .74f);
-                }
-                pawTrail.Render(steps);
+                int shown = Mathf.Clamp(Mathf.FloorToInt((journeyElapsed - FirstStepDelay) / StepInterval) + 1, 0, stepCount);
+                PaintPawSteps(shown, journeyElapsed);
+                float lastStep = FirstStepDelay + (stepCount - 1) * StepInterval;
+                float moveTravel = shown == 0 ? 0 : Mathf.Lerp(stepPhases[shown - 1], stepPhases[Mathf.Min(shown, stepCount - 1)],
+                    Mathf.Repeat(journeyElapsed - FirstStepDelay, StepInterval) / StepInterval);
                 if (TileOf(walkTo) != TileOf(walkFrom))
                 {
                     float offset = (TileOf(walkFrom) - roadBase + moveTravel) * roadHeight;
                     Content.anchoredPosition = Vector2.up * Mathf.Clamp(offset, 0, WorldHeight - roadHeight);
                 }
-                if (journeyElapsed >= 3.06f) FinishRoadWalk();
+                if (journeyElapsed >= lastStep + .12f) FinishRoadWalk();
             }
             else
             {
-                int current = progression.CurrentId;
-                PaintRoadCat(RoadPosition(current, RestFraction(current)),
-                    reducedJourneyMotion || Mathf.Repeat(Time.unscaledTime, 7) > 5.6f
-                        ? JourneyCatPose.Sitting : JourneyCatPose.Curled);
                 if (following)
                 {
                     float value = Mathf.SmoothDamp(Content.anchoredPosition.y, focusGoal, ref cameraVelocity, .24f, Mathf.Infinity, dt);
@@ -520,12 +536,21 @@ namespace Mewgic.Map
                 }
             }
             BindRoad();
-            if (arrivalGlow > 0)
+            if (arrivalLevel != 0 && !journeyRunning)
             {
-                arrivalGlow = Mathf.Max(0, arrivalGlow - dt * .9f);
-                var tile = Array.Find(roadTiles, part => part.index == TileOf(arrivalLevel));
-                if (tile != null) tile.nodes[(arrivalLevel - 1) % RoadLevels].GetComponent<MapNodeBadge>()
-                    .SetJourneyAccent(arrivalGlow, true);
+                float previous = arrivalElapsed;
+                arrivalElapsed += dt;
+                if (stepCount > 0 && (arrivalElapsed < 1.75f || previous < 1.75f || trailRoadBase != roadBase))
+                {
+                    PaintPawSteps(stepCount, journeyElapsed + Mathf.Min(1.75f, arrivalElapsed));
+                    trailRoadBase = roadBase;
+                }
+                if (previous < .95f)
+                {
+                    var tile = Array.Find(roadTiles, part => part.index == TileOf(arrivalLevel));
+                    float pulse = reducedJourneyMotion ? 0 : 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01(arrivalElapsed / .95f));
+                    tile?.nodes[(arrivalLevel - 1) % RoadLevels].GetComponent<MapNodeBadge>().SetArrivalLight(pulse);
+                }
             }
         }
 

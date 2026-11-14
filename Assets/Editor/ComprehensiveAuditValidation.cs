@@ -72,7 +72,6 @@ public static class ComprehensiveAuditValidation
                     Check(map.sky && map.node && map.chest && map.fog && map.waterLightShader &&
                         map.terrain.Length >= 4 && map.terrain.Take(4).All(art => art != null), "LevelMap görsel ve shader bağları");
                     var serialized = new SerializedObject(map);
-                    Check(serialized.FindProperty("journeyCatPoses").objectReferenceValue != null, "LevelMap yürüyüş atlası");
                     var terraces = serialized.FindProperty("crystalTerraces");
                     Check(terraces.arraySize == 5 && Enumerable.Range(0, 5).All(i => terraces.GetArrayElementAtIndex(i).objectReferenceValue),
                         "Kristal'in beş teras referansı");
@@ -97,7 +96,7 @@ public static class ComprehensiveAuditValidation
         }
 
         var crystal = Resources.Load<MapJourneyTheme>("Map/JourneyThemes/crystal");
-        Check(crystal && crystal.referenceTerrace && crystal.mascotRestAtlas, "Kristal referans çizimi ve uyku atlası");
+        Check(crystal && crystal.referenceTerrace, "Kristal referans çizimi");
         Check(Resources.Load<Sprite>("Daily/QuestIcon_v001") != null, "Günlük görev parşömen sprite'ı");
         Check(Resources.Load<Sprite>("Gameplay/Gameplay_GlassShell_v001") != null, "Şişe cam sprite'ı");
         var shader = Shader.Find("Mewgic/MapWaterLight");
