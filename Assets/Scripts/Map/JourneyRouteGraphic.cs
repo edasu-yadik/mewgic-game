@@ -234,14 +234,23 @@ namespace Mewgic.Map
     [RequireComponent(typeof(CanvasRenderer))]
     public sealed class JourneyStoneRing : MaskableGraphic
     {
+        internal const float ArrivalDuration = 1.8f;
+        static readonly Color Amber = new(1f, .50f, .026f);
+        static readonly Color Gold = new(1f, .76f, .095f);
+        static readonly Color Highlight = new(1f, .98f, .69f);
+        static readonly float[] RimOffsets = { 0, 2, 4, 9, 20, 36 };
+        static readonly float[] RimAlphas = { .38f, 1, .9f, .67f, .20f, 0 };
         bool crystalGold;
-        float arrival;
-        internal float ArrivalStrength => arrival;
+        float elapsed = ArrivalDuration;
 
-        public void SetArrival(float value)
+        internal float ArrivalTime => elapsed;
+        internal float ArrivalStrength => Rise(.20f, .74f) * (1 - Rise(.93f, ArrivalDuration));
+
+        internal void SetArrivalTime(float seconds)
         {
-            if (arrival == value) return;
-            arrival = value;
+            seconds = Mathf.Clamp(seconds, 0, ArrivalDuration);
+            if (elapsed == seconds) return;
+            elapsed = seconds;
             SetVerticesDirty();
         }
 
@@ -252,94 +261,192 @@ namespace Mewgic.Map
             SetVerticesDirty();
         }
 
+        float Rise(float start, float end) =>
+            Mathf.SmoothStep(0, 1, Mathf.InverseLerp(start, end, elapsed));
+
         protected override void OnPopulateMesh(VertexHelper mesh)
         {
             mesh.Clear();
-            var outline = JourneyStoneGraphic.Outline;
-            var size = rectTransform.rect.size;
+            Vector2 size = rectTransform.rect.size;
+            float energy = crystalGold ? ArrivalStrength : 0;
+            float unit = Mathf.Min(size.x / 164, size.y / 111);
+            float ground = crystalGold ? Rise(.54f, .86f) * (1 - Rise(.98f, ArrivalDuration)) : 0;
+
             if (crystalGold)
             {
-                Glow(mesh, new Vector2(0, -size.y * .08f), size * new Vector2(.85f, 1.02f),
-                    new Color(1, .62f, .07f, .39f + arrival * .49f));
-                Glow(mesh, new Vector2(0, -size.y * .37f), size * new Vector2(.82f, .42f),
-                    new Color(1, .69f, .12f, .54f + arrival * .40f));
-                if (arrival > .005f) PaintRays(mesh, size);
-            }
-            for (int i = 0; i < outline.Length; i++)
-            {
-                Vector2 edge = Vector2.Scale(outline[i], size);
-                mesh.AddVert(edge * .85f, new Color32(148, 67, 240, 0), Vector2.zero);
-                mesh.AddVert(edge * .98f, crystalGold ? new Color32(255, 242, 158, 255) : new Color32(255, 216, 117, 245), Vector2.zero);
-                mesh.AddVert(edge * (crystalGold ? 1.08f : 1.035f),
-                    crystalGold ? new Color32(255, 211, 67, 255) : new Color32(190, 98, 247, 168), Vector2.zero);
-                mesh.AddVert(edge * (crystalGold ? 1.55f + .22f * arrival : 1.115f),
-                    crystalGold ? new Color32(255, 190, 85, 0) : new Color32(175, 76, 242, 0), Vector2.zero);
-            }
-
-            for (int i = 0; i < outline.Length; i++)
-            {
-                int start = i * 4;
-                int next = (i + 1) % outline.Length * 4;
-                for (int band = 0; band < 3; band++)
+                SoftLight(mesh, new Vector2(0, size.y * .11f), size * new Vector2(.83f, 1.12f),
+                    Amber, .25f + energy * .53f);
+                if (energy > .005f) Rays(mesh, size, energy);
+                Vector2 floor = new(0, -size.y * .47f);
+                SoftLight(mesh, floor, size * new Vector2(.90f, .27f), Amber, .30f + ground * .68f);
+                SoftLight(mesh, floor, size * new Vector2(.79f, .14f), Gold, .34f + ground * .65f);
+                SoftLight(mesh, floor - Vector2.up * unit * 2, size * new Vector2(.42f, .031f),
+                    Highlight, .36f + ground * .63f);
+                if (energy > .005f)
                 {
-                    mesh.AddTriangle(start + band, start + band + 1, next + band);
-                    mesh.AddTriangle(next + band, start + band + 1, next + band + 1);
+                    SoftLight(mesh, floor - Vector2.up * unit * 3, size * new Vector2(.17f, .045f), Highlight, ground);
+                    Flourish(mesh, size, -1, energy);
+                    Flourish(mesh, size, 1, energy);
+                    Sparks(mesh, size, energy);
                 }
             }
 
+            Rim(mesh, size, unit, energy);
+
             if (crystalGold)
             {
-                CrestDiamond(mesh, new Vector2(0, size.y * .57f), new Vector2(11, 18));
-                CrestDiamond(mesh, new Vector2(-16, size.y * .51f), new Vector2(6, 9));
-                CrestDiamond(mesh, new Vector2(16, size.y * .51f), new Vector2(6, 9));
+                Diamond(mesh, new Vector2(-size.x * .108f, size.y * .60f), new Vector2(5, 8) * unit, .38f, .64f);
+                Diamond(mesh, new Vector2(0, size.y * .67f), new Vector2(9, 14) * unit, .51f, .77f);
+                Diamond(mesh, new Vector2(size.x * .108f, size.y * .60f), new Vector2(5, 8) * unit, .64f, .90f);
             }
         }
 
-        static void Glow(VertexHelper mesh, Vector2 center, Vector2 radius, Color color)
+        void Rim(VertexHelper mesh, Vector2 size, float unit, float energy)
+        {
+            var outline = JourneyStoneGraphic.Outline;
+            Vector2 stoneSize = size - new Vector2(18, 16);
+            int root = mesh.currentVertCount;
+            for (int i = 0; i < outline.Length; i++)
+            {
+                Vector2 point = outline[i];
+                Vector2 edge = point * stoneSize;
+                edge.y -= Mathf.InverseLerp(-.20f, -.43f, point.y) * 7;
+                Vector2 outside = (point - Vector2.down * .15f).normalized;
+                float height = Mathf.InverseLerp(-.49f, .49f, point.y);
+                float sweep = Rise(.045f + height * .29f, .19f + height * .36f);
+                float power = crystalGold ? .08f + sweep * (.69f + .23f * energy) : .60f;
+                for (int band = 0; band < RimOffsets.Length; band++)
+                {
+                    Color tint = band == 1 ? Highlight : band <= 3 ? Gold : Amber;
+                    float offset = RimOffsets[band] * unit * (crystalGold ? 1 + energy * .20f : .48f);
+                    mesh.AddVert(edge + outside * offset, Alpha(tint, power * RimAlphas[band]), Vector2.zero);
+                }
+            }
+
+            for (int i = 0; i < outline.Length; i++)
+            {
+                int row = root + i * RimOffsets.Length;
+                int next = root + (i + 1) % outline.Length * RimOffsets.Length;
+                JoinRows(mesh, row, next, RimOffsets.Length);
+            }
+        }
+
+        static Color Alpha(Color color, float alpha)
+        {
+            color.a = alpha;
+            return color;
+        }
+
+        static void JoinRows(VertexHelper mesh, int first, int second, int width)
+        {
+            for (int i = 0; i < width - 1; i++)
+            {
+                mesh.AddTriangle(first + i, first + i + 1, second + i);
+                mesh.AddTriangle(second + i, first + i + 1, second + i + 1);
+            }
+        }
+
+        static void SoftLight(VertexHelper mesh, Vector2 center, Vector2 radius, Color color, float alpha)
+        {
+            const int segments = 32;
+            int root = mesh.currentVertCount;
+            for (int ring = 0; ring < 4; ring++)
+            {
+                float t = ring / 3f;
+                float falloff = (1 - t) * (1 - t);
+                for (int i = 0; i <= segments; i++)
+                {
+                    float angle = i * Mathf.PI * 2 / segments;
+                    Vector2 point = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+                    mesh.AddVert(center + point * t, Alpha(color, alpha * falloff), Vector2.zero);
+                }
+                if (ring > 0) JoinRows(mesh, root + (ring - 1) * (segments + 1), root + ring * (segments + 1), segments + 1);
+            }
+        }
+
+        static void Rays(VertexHelper mesh, Vector2 size, float energy)
+        {
+            var center = Vector2.down * size.y * .12f;
+            for (int ray = 0; ray < 20; ray++)
+            {
+                float angle = .15f + ray * .148f + Mathf.Sin(ray * 8.13f) * .033f;
+                var forward = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                var across = new Vector2(-forward.y, forward.x);
+                float reach = .78f + ((ray * 7) % 11) * .066f;
+                float width = .017f + ((ray * 3) % 7) * .009f;
+                int root = mesh.currentVertCount;
+                for (int row = 0; row < 5; row++)
+                {
+                    float t = row / 4f;
+                    Vector2 axis = center + forward * size * Mathf.Lerp(.34f, reach, t);
+                    Vector2 span = across * size * width * Mathf.Lerp(.50f, 1.42f, t);
+                    float intensity = Mathf.Sin(Mathf.PI * Mathf.Lerp(.44f, 1, t)) * (1 - t);
+                    Color tint = Color.Lerp(Gold, Amber, t);
+                    float opacity = energy * intensity * (ray % 3 == 0 ? .81f : .43f);
+                    mesh.AddVert(axis - span, Alpha(tint, 0), Vector2.zero);
+                    mesh.AddVert(axis, Alpha(tint, opacity), Vector2.zero);
+                    mesh.AddVert(axis + span, Alpha(tint, 0), Vector2.zero);
+                    if (row > 0) JoinRows(mesh, root + row * 3 - 3, root + row * 3, 3);
+                }
+            }
+        }
+
+        static void Flourish(VertexHelper mesh, Vector2 size, float side, float energy)
         {
             int root = mesh.currentVertCount;
-            mesh.AddVert(center, color, Vector2.zero);
-            for (int i = 0; i <= 32; i++)
+            for (int i = 0; i <= 20; i++)
             {
-                float angle = i * Mathf.PI / 16;
-                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-                mesh.AddVert(center + direction * radius, new Color(color.r, color.g, color.b, 0), Vector2.zero);
-                if (i > 0) mesh.AddTriangle(root, root + i, root + i + 1);
+                float t = i / 20f;
+                float x = .46f + .33f * Mathf.Sin(Mathf.PI * t);
+                float y = Mathf.Lerp(-.42f, .24f, t);
+                var point = new Vector2(side * x * size.x, y * size.y);
+                float opacity = energy * Mathf.Sin(Mathf.PI * t) * .88f;
+                mesh.AddVert(point - Vector2.up * 2.5f, Alpha(Amber, 0), Vector2.zero);
+                mesh.AddVert(point, Alpha(Gold, opacity), Vector2.zero);
+                mesh.AddVert(point + Vector2.up * 2.5f, Alpha(Amber, 0), Vector2.zero);
+                if (i > 0) JoinRows(mesh, root + i * 3 - 3, root + i * 3, 3);
             }
         }
 
-        void PaintRays(VertexHelper mesh, Vector2 size)
+        static void Sparks(VertexHelper mesh, Vector2 size, float energy)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 14; i++)
             {
-                float angle = .07f + i * .213f;
-                var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-                var center = new Vector2(0, -size.y * .12f);
-                Vector2 start = center + direction * size * .42f;
-                float length = .59f + ((i * 7) % 9) * .043f;
-                Vector2 end = center + direction * size * (length + .23f * (1 - arrival));
-                Vector2 normal = new Vector2(-direction.y, direction.x) * (1 + i % 3);
-                int root = mesh.currentVertCount;
-                var baseColor = new Color(1, .82f, .25f, arrival * .78f);
-                mesh.AddVert(start - normal, baseColor, Vector2.zero);
-                mesh.AddVert(start + normal, baseColor, Vector2.zero);
-                mesh.AddVert(end, new Color(1, .68f, .17f, 0), Vector2.zero);
-                mesh.AddTriangle(root, root + 1, root + 2);
-                if (i % 2 == 0)
-                    Glow(mesh, end, Vector2.one * (3 + i % 5), new Color(1, .92f, .52f, arrival));
+                float angle = i * 2.399963f;
+                float radius = .56f + (i % 5) * .058f;
+                var position = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle) * .74f) * size * radius;
+                float width = (i % 4 == 0 ? .013f : .006f) * size.x;
+                Spark(mesh, position, new Vector2(width, width * 1.22f), energy);
             }
         }
 
-        static void CrestDiamond(VertexHelper mesh, Vector2 center, Vector2 radius)
+        static void Spark(VertexHelper mesh, Vector2 center, Vector2 radius, float light)
         {
-            int index = mesh.currentVertCount;
-            mesh.AddVert(center, new Color32(255, 246, 185, 255), Vector2.zero);
-            mesh.AddVert(center + Vector2.up * radius.y, new Color32(255, 227, 140, 255), Vector2.zero);
-            mesh.AddVert(center + Vector2.right * radius.x, new Color32(255, 174, 51, 240), Vector2.zero);
-            mesh.AddVert(center - Vector2.up * radius.y, new Color32(210, 107, 32, 240), Vector2.zero);
-            mesh.AddVert(center - Vector2.right * radius.x, new Color32(255, 196, 76, 240), Vector2.zero);
+            int root = mesh.currentVertCount;
+            mesh.AddVert(center, Alpha(Highlight, light), Vector2.zero);
+            mesh.AddVert(center + Vector2.up * radius.y, Alpha(Gold, light * .24f), Vector2.zero);
+            mesh.AddVert(center + Vector2.right * radius.x, Alpha(Gold, light * .24f), Vector2.zero);
+            mesh.AddVert(center - Vector2.up * radius.y, Alpha(Gold, light * .24f), Vector2.zero);
+            mesh.AddVert(center - Vector2.right * radius.x, Alpha(Gold, light * .24f), Vector2.zero);
             for (int i = 0; i < 4; i++)
-                mesh.AddTriangle(index, index + 1 + i, index + 1 + (i + 1) % 4);
+                mesh.AddTriangle(root, root + 1 + i, root + 1 + (i + 1) % 4);
+        }
+
+        void Diamond(VertexHelper mesh, Vector2 center, Vector2 radius, float start, float peak)
+        {
+            float shine = Rise(start, peak) * (1 - Rise(1.0f, ArrivalDuration));
+            float brightness = .68f * Rise(start, peak) + .32f * shine;
+            if (brightness < .005f) return;
+            SoftLight(mesh, center, radius * 2.2f, Gold, .20f + shine * .46f);
+            int root = mesh.currentVertCount;
+            mesh.AddVert(center, Alpha(Highlight, brightness), Vector2.zero);
+            mesh.AddVert(center + Vector2.up * radius.y, Alpha(Highlight, brightness), Vector2.zero);
+            mesh.AddVert(center + Vector2.right * radius.x, Alpha(Gold, brightness), Vector2.zero);
+            mesh.AddVert(center - Vector2.up * radius.y, Alpha(new Color(1, .64f, .055f), brightness), Vector2.zero);
+            mesh.AddVert(center - Vector2.right * radius.x, Alpha(new Color(1, .86f, .33f), brightness), Vector2.zero);
+            for (int i = 0; i < 4; i++)
+                mesh.AddTriangle(root, root + 1 + i, root + 1 + (i + 1) % 4);
+            Spark(mesh, center, radius * .53f, brightness * (.47f + shine * .53f));
         }
     }
 }

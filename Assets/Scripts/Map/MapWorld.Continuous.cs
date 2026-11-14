@@ -594,11 +594,11 @@ namespace Mewgic.Map
                     PaintPawSteps(stepCount, journeyElapsed + Mathf.Min(1.75f, arrivalElapsed));
                     trailRoadBase = roadBase;
                 }
-                if (previous < .95f)
+                if (previous < JourneyStoneRing.ArrivalDuration)
                 {
                     var tile = Array.Find(roadTiles, part => part.index == TileOf(arrivalLevel));
-                    float pulse = reducedJourneyMotion ? 0 : 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01(arrivalElapsed / .95f));
-                    tile?.nodes[(arrivalLevel - 1) % RoadLevels].GetComponent<MapNodeBadge>().SetArrivalLight(pulse);
+                    float lightTime = reducedJourneyMotion ? JourneyStoneRing.ArrivalDuration : arrivalElapsed;
+                    tile?.nodes[(arrivalLevel - 1) % RoadLevels].GetComponent<MapNodeBadge>().SetArrivalLight(lightTime);
                 }
             }
         }

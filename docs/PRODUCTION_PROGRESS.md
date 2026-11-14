@@ -1,5 +1,8 @@
 # Üretim ilerlemesi
 
+## Bölüm taşı altın ışığı
+99 → 100 varışında altın kenarlık yukarı doğru açılıyor, üç elmas sırayla parlıyor ve ışık 1,8 saniyede sakin auraya dönüyor. [Unity kareleri ve karşılaştırma](ProductionReports/GoldenStoneLight/REPORT.md).
+
 ## Kesintisiz MeWGic bölüm yolu
 Köprü bağlantıları ortak eğriyi kullanıyor, görünür parçalar kaydırma penceresi değişirken korunuyor. Köy manzarası görüntülenen konuma göre Kristal Şelaleler'e karışıyor. [Harita mimarisi ve Unity sonuçları](ProductionReports/InfiniteContinuousMap/REPORT.md).
 

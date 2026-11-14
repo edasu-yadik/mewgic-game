@@ -142,7 +142,7 @@ namespace Mewgic.Map
    arrow.rectTransform.anchoredPosition=new Vector2(0,arrowHeight);
    bool light = showCurrentLight && (current || milestone && !closed);
    stoneLight.SetCrystalGold(crystal && light);
-   stoneLight.SetArrival(0);
+   stoneLight.SetArrivalTime(JourneyStoneRing.ArrivalDuration);
    arrow.gameObject.SetActive(current && !crystal);
    stoneLight.gameObject.SetActive(light);
    if(light)stoneLight.canvasRenderer.SetAlpha(1);
@@ -158,10 +158,10 @@ namespace Mewgic.Map
    halo.gameObject.SetActive(false);
    arrow.color=new Color32(255,220,80,255);
   }
-  public void SetArrivalLight(float strength)
+  public void SetArrivalLight(float elapsed)
   {
    if (current && stoneLight != null && stoneLight.gameObject.activeSelf)
-    stoneLight.SetArrival(strength);
+    stoneLight.SetArrivalTime(elapsed);
   }
   public void PresentGroup(int first,int last,int done,bool isCurrent,bool open){Present(first,isCurrent?MapLevelStatus.Current:done==10?MapLevelStatus.Completed:open?MapLevelStatus.Available:MapLevelStatus.Locked,0);art.sprite=Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");art.type=Image.Type.Sliced;art.preserveAspect=false;art.rectTransform.sizeDelta=new Vector2(180,88);number.rectTransform.sizeDelta=new Vector2(158,50);number.text=L.V("map.levels_short");number.fontSizeMin=14;number.fontSizeMax=23;number.rectTransform.anchoredPosition=Vector2.zero;locked.gameObject.SetActive(false);foreach(var star in stars)star.gameObject.SetActive(false);}
   public void PresentChest(bool ready,bool claimed){current=ready;halo.gameObject.SetActive(ready);locked.gameObject.SetActive(!ready&&!claimed);claimedMark.gameObject.SetActive(claimed);number.text="";number.fontSize=34;number.rectTransform.anchoredPosition=new Vector2(0,-30);art.color=claimed?new Color(.65f,.65f,.75f,1):ready?Color.white:new Color(.65f,.56f,.80f,1);foreach(var s in stars)s.gameObject.SetActive(false);}

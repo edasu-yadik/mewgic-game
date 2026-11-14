@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "failure": null,
+  "errors": [],
+  "checks": [
+    "Ana Menü → Harita, kilitli taş, kaydırma ve Bulunduğum Bölüm",
+    "Aktif bölüm taşı Gameplay sahnesini açtı",
+    "Bölüm sonu → aynı harita, eski bölüm tekrarında ilerleme korunuyor",
+    "50 → 51 renk karışımı aynı sahnede",
+    "99 → 100 tek sıra altın patiler, varış ışığı ve kalıcı kayıt",
+    "50 → 51 aynı rotada tema sınırını geçti",
+    "1 → 2 ile 999.999 → 1.000.000 → 1.000.001 arası istenen geçişler, dokunma sürüklemesi ve uzak dönüş",
+    "900×1600 Kristal Game View, etkin bölüm 100",
+    "900×1950 Kristal Game View, etkin bölüm 100",
+    "900×2000 Kristal Game View, etkin bölüm 100",
+    "Harita → Ana Menü"
+  ],
+  "playerSaveIntact": true,
+  "performance": null,
+  "overflow": null
+}

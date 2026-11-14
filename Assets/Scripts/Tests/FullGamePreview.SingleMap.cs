@@ -89,12 +89,19 @@ namespace Mewgic
             yield return MapShot("Golden-Paw-Trail");
             yield return Until(() => !map.JourneyRunning, "99 → 100 varış");
             var light = Node(100).GetComponentInChildren<JourneyStoneRing>();
-            RequireMap(light != null && light.ArrivalStrength > .5f &&
-                Node(100).Status == MapLevelStatus.Current &&
+            RequireMap(light != null && light.ArrivalStrength < .1f && Node(100).Status == MapLevelStatus.Current &&
                 !GameplayProgress.Current.PeekMapJourney(out _, out _), "Altın varış ışıması ve kalıcı varış kaydı");
-            yield return MapShot("Golden-Arrival");
-            yield return Until(() => light.ArrivalStrength == 0, "Varış parlaması söndü");
+            yield return MapShot("Golden-Arrival-Start");
+            for (int frame = 1; frame <= 18; frame++)
+            {
+                float time = frame * JourneyStoneRing.ArrivalDuration / 18;
+                yield return Until(() => light.ArrivalTime >= time, "Varış karesi " + frame);
+                yield return new WaitForEndOfFrame();
+                ScreenCapture.CaptureScreenshot(SingleMapOutput + $"ArrivalFrame-{frame:D2}.png");
+            }
+            RequireMap(light.ArrivalStrength == 0, "Varış parlaması söndü");
             RequireMap(light.gameObject.activeSelf && paws.VisibleSteps > 0, "Aktif taşın aurası ve geçiş izleri kaldı");
+            yield return MapShot("Golden-Arrival-Settled");
             checks.Add("99 → 100 tek sıra altın patiler, varış ışığı ve kalıcı kayıt");
 
             GameplayProgress.UseTestProfile(Fixture(49));
