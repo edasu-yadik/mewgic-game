@@ -8,7 +8,16 @@ namespace Mewgic.Map
     public sealed class MapPlateGraphic : RawImage
     {
         internal bool FixedLayer;
+        internal bool VillageLayer;
+        int chunk;
         Color endTint = Color.white;
+
+        internal void SetChunk(int value)
+        {
+            if (chunk == value) return;
+            chunk = value;
+            SetVerticesDirty();
+        }
 
         internal void SetRoadTints(Color start, Color end)
         {
@@ -19,13 +28,13 @@ namespace Mewgic.Map
         }
         static readonly Vector4[] Bridge =
         {
-            new(.181f,.10f,.39f,.24f), new(.197f,.065f,.51f,.55f), new(.223f,.03f,.76f,1),
+            new(.181f,.10f,.39f,0), new(.197f,.065f,.51f,.55f), new(.223f,.03f,.76f,1),
             new(.252f,.035f,.90f,1), new(.288f,.08f,.935f,1), new(.325f,.07f,.915f,1),
             new(.375f,.055f,.88f,1), new(.425f,.07f,.835f,1), new(.470f,.075f,.86f,1),
             new(.505f,.09f,.935f,1), new(.555f,.08f,.947f,1), new(.600f,.06f,.91f,1),
             new(.651f,.065f,.88f,1), new(.700f,.07f,.88f,1), new(.751f,.08f,.92f,1),
             new(.797f,.075f,.90f,1), new(.837f,.04f,.75f,1), new(.863f,.045f,.66f,1),
-            new(.882f,.07f,.57f,.89f), new(.890f,.10f,.40f,.40f)
+            new(.882f,.07f,.57f,.75f), new(.890f,.10f,.40f,0)
         };
         static readonly Vector4[] LeftBank =
         {
@@ -45,7 +54,8 @@ namespace Mewgic.Map
         {
             mesh.Clear();
             if (texture == null) return;
-            if (FixedLayer)
+            if (VillageLayer) DrawVillageVista(mesh);
+            else if (FixedLayer)
             {
                 Strip(mesh, LeftBank, 0, 1, .055f);
                 Strip(mesh, RightBank, 0, 1, .045f);
@@ -68,7 +78,8 @@ namespace Mewgic.Map
                     Color tint = FixedLayer ? color : Color.Lerp(color, endTint, (row.x - first) / (last - first));
                     bool edge = (j == 0 && row.y > 0) || (j == 3 && row.z < 1);
                     tint.a *= edge ? 0 : row.w;
-                    mesh.AddVert(new Vector2(Mathf.Lerp(box.xMin, box.xMax, x), y), tint, new Vector2(x, 1 - row.x));
+                    float shift = FixedLayer ? 0 : ContinuousMapRoute.Warp(chunk, row.x);
+                    mesh.AddVert(new Vector2(Mathf.Lerp(box.xMin, box.xMax, x + shift), y), tint, new Vector2(x, 1 - row.x));
                 }
                 if (i == 0) continue;
                 for (int j = 0; j < 3; j++)
@@ -77,6 +88,27 @@ namespace Mewgic.Map
                     mesh.AddTriangle(a, a + 1, b + 1);
                     mesh.AddTriangle(a, b + 1, b);
                 }
+            }
+        }
+
+        void DrawVillageVista(VertexHelper mesh)
+        {
+            // A soft-edged window into the existing village painting, behind the road.
+            var box = rectTransform.rect;
+            const int subdivisions = 8;
+            for (int y = 0; y <= subdivisions; y++)
+            for (int x = 0; x <= subdivisions; x++)
+            {
+                float u = x / (float)subdivisions, v = y / (float)subdivisions;
+                float opacity = Mathf.SmoothStep(0, 1, Mathf.Min(u, 1-u, v, 1-v) * 6);
+                var position = new Vector2(Mathf.Lerp(box.xMin, box.xMax, Mathf.Lerp(.08f, .96f, u)),
+                    Mathf.Lerp(box.yMin, box.yMax, Mathf.Lerp(.65f, .98f, v)));
+                mesh.AddVert(position, new Color(1, 1, 1, opacity), new Vector2(u, Mathf.Lerp(.37f, 1, v)));
+                if (x == 0 || y == 0) continue;
+                int last = mesh.currentVertCount - 1;
+                int previousRow = last - subdivisions - 1;
+                mesh.AddTriangle(previousRow - 1, last - 1, last);
+                mesh.AddTriangle(previousRow - 1, last, previousRow);
             }
         }
     }

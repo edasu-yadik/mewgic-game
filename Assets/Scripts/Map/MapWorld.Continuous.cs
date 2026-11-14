@@ -13,18 +13,20 @@ namespace Mewgic.Map
 {
     public sealed partial class MapWorld
     {
-        const int RoadLevels = 10, RoadWindow = 9, RoadPool = 5;
-        const float PlateTop = .181f, PlateBottom = .890f;
+        const int RoadLevels = ContinuousMapRoute.LevelsPerChunk;
+        [SerializeField, Range(1, 3)] int preloadChunks = 1;
+        int RoadWindow => 7 + preloadChunks * 2;
+        const float PlateTop = ContinuousMapRoute.PlateTop, PlateBottom = ContinuousMapRoute.PlateBottom;
         const int LastRoadTile = (WorldMapRules.MaxLevel - 1) / RoadLevels;
 
         [Serializable] sealed class RoadTheme
         {
-            public int firstLevel;
+            public int firstLevel, transitionStart, transitionEnd;
             public string title, roadTint, backdropTint;
+            public float villageVista;
         }
         [Serializable] sealed class RoadThemeConfig
         {
-            public float blendLevels;
             public RoadTheme[] themes;
         }
         sealed class RoadTile
@@ -37,7 +39,7 @@ namespace Mewgic.Map
             public MapPoint chest;
         }
 
-        readonly RoadTile[] roadTiles = new RoadTile[RoadPool];
+        RoadTile[] roadTiles = Array.Empty<RoadTile>();
         RoadThemeConfig roadThemes;
         Color[] roadTints, backdropTints;
         RawImage fixedBackdrop;
@@ -56,23 +58,16 @@ namespace Mewgic.Map
         int stepCount, trailRoadBase;
         int walkFrom, walkTo;
         const float WalkStartFraction = .16f;
-        float focusGoal;
+        float focusGoal, focusFadeTime;
+        CanvasGroup focusCurtain;
+        bool focusReposition, focusMoved;
+        internal bool ReturningToCurrent => following || focusReposition;
+        int focusTile;
+        Texture2D villageBackdrop;
+        MapPlateGraphic villageScenery;
+        Material roadWater;
         Texture2D roadPlate;
         int MaxRoadTile => Mathf.Min(LastRoadTile, (progression.CurrentId - 1) / RoadLevels + 1);
-
-        static readonly Vector2[][] ReferenceWalk =
-        {
-            new[] { new Vector2(.26f,.239f), new Vector2(.43f,.242f), new Vector2(.61f,.263f) },
-            new[] { new Vector2(.61f,.263f), new Vector2(.73f,.287f), new Vector2(.73f,.319f), new Vector2(.62f,.351f), new Vector2(.35f,.365f) },
-            new[] { new Vector2(.35f,.365f), new Vector2(.47f,.354f), new Vector2(.64f,.350f) },
-            new[] { new Vector2(.64f,.350f), new Vector2(.40f,.357f), new Vector2(.26f,.380f), new Vector2(.234f,.413f), new Vector2(.257f,.445f) },
-            new[] { new Vector2(.257f,.445f), new Vector2(.44f,.466f), new Vector2(.60f,.485f), new Vector2(.71f,.507f) },
-            new[] { new Vector2(.71f,.507f), new Vector2(.78f,.534f), new Vector2(.72f,.558f), new Vector2(.54f,.581f), new Vector2(.25f,.609f) },
-            new[] { new Vector2(.25f,.609f), new Vector2(.38f,.596f), new Vector2(.55f,.584f), new Vector2(.67f,.573f) },
-            new[] { new Vector2(.67f,.573f), new Vector2(.49f,.584f), new Vector2(.26f,.605f), new Vector2(.238f,.642f), new Vector2(.34f,.687f) },
-            new[] { new Vector2(.34f,.687f), new Vector2(.48f,.706f), new Vector2(.62f,.723f), new Vector2(.705f,.758f) },
-            new[] { new Vector2(.705f,.758f), new Vector2(.62f,.788f), new Vector2(.47f,.810f), new Vector2(.31f,.838f), new Vector2(.206f,.857f) },
-        };
 
         void MountContinuous()
         {
@@ -83,12 +78,17 @@ namespace Mewgic.Map
             var asset = Resources.Load<TextAsset>("Map/ContinuousThemes");
             roadThemes = asset == null ? null : JsonUtility.FromJson<RoadThemeConfig>(asset.text);
             if (roadThemes?.themes == null || roadThemes.themes.Length == 0 || roadThemes.themes[0].firstLevel != 1 ||
-                roadThemes.blendLevels <= 0 || roadThemes.themes.Zip(roadThemes.themes.Skip(1),
-                    (a,b) => a.firstLevel < b.firstLevel).Any(valid => !valid))
+                roadThemes.themes.Zip(roadThemes.themes.Skip(1),
+                    (a,b) => a.firstLevel < b.firstLevel && b.transitionStart >= a.firstLevel &&
+                        b.transitionStart >= a.transitionEnd && b.transitionStart < b.firstLevel &&
+                        b.transitionEnd >= b.firstLevel).Any(valid => !valid))
                 throw new InvalidOperationException("Harita tema aralıkları geçersiz.");
             roadTints = roadThemes.themes.Select(theme => ParseRoadTint(theme.roadTint)).ToArray();
             backdropTints = roadThemes.themes.Select(theme => ParseRoadTint(theme.backdropTint)).ToArray();
             roadPlate = crystal.referenceTerrace;
+            villageBackdrop = crystal.villageVista;
+            if (waterLightShader != null && crystal.flowingWater)
+                roadWater = new Material(waterLightShader);
             font = MewgicTypographySettings.Current.body;
             panel = Resources.Load<Sprite>("Gameplay/HUD/HUD_Panel_v001");
 
@@ -103,8 +103,13 @@ namespace Mewgic.Map
 
             fixedBackdrop = Rect(root.transform, "FixedMapEnvironment", Vector2.zero, Vector2.one).gameObject.AddComponent<RawImage>();
             fixedBackdrop.texture = crystal.background;
+            if (roadWater != null) fixedBackdrop.material = roadWater;
             fixedBackdrop.raycastTarget = false;
             fixedDetails = AddPlate(root.transform, "FixedCastleAndRiverbanks", true);
+            villageScenery = AddPlate(root.transform, "FixedVillageVista", true);
+            villageScenery.texture = villageBackdrop;
+            villageScenery.VillageLayer = true;
+            villageScenery.enabled = false;
             SafeArea = Rect(root.transform, "MapSafeArea", Vector2.zero, Vector2.one);
             ApplySafeArea();
 
@@ -115,16 +120,24 @@ namespace Mewgic.Map
             Scroll.horizontal = false;
             Scroll.movementType = ScrollRect.MovementType.Clamped;
             Scroll.scrollSensitivity = 85;
-            Scroll.decelerationRate = .14f;
+            Scroll.decelerationRate = .095f;
             Scroll.viewport = Viewport;
-            Scroll.UserInput = () => { following = false; cameraVelocity = 0; };
+            Scroll.UserInput = () =>
+            {
+                following = false;
+                cameraVelocity = 0;
+                focusReposition = false;
+                focusCurtain.alpha = 0;
+            };
             Content = Rect(Viewport, "ContinuousRoadContent", Vector2.up, Vector2.one);
             Content.pivot = new Vector2(.5f, 1);
             Scroll.content = Content;
             roadTrack = Rect(Content, "RoadTiles", Vector2.zero, Vector2.one);
             WorldRoot = roadTrack;
             roadJoins = Rect(Content, "BridgeConnections", Vector2.zero, Vector2.one);
+            roadJoins.SetSiblingIndex(roadTrack.GetSiblingIndex());
             roadStones = Rect(Content, "LevelStones", Vector2.zero, Vector2.one);
+            roadTiles = new RoadTile[4 + 2 * preloadChunks];
             for (int i = 0; i < roadTiles.Length; i++) roadTiles[i] = CreateRoadTile(i);
 
             pawTrail = Rect(Content, "GoldenPawTrail", Vector2.zero, Vector2.one).gameObject.AddComponent<JourneyPawTrail>();
@@ -152,6 +165,13 @@ namespace Mewgic.Map
             motionLabel = motionButton.GetComponentInChildren<TMPro.TMP_Text>();
             motionLabel.fontSizeMax = 22;
 
+            var curtain = Rect(root.transform, "DistantFocusVeil", Vector2.zero, Vector2.one);
+            var veil = curtain.gameObject.AddComponent<Image>();
+            veil.color = new Color(.074f, .044f, .168f, 1);
+            veil.raycastTarget = false;
+            focusCurtain = curtain.gameObject.AddComponent<CanvasGroup>();
+            focusCurtain.alpha = 0;
+            focusCurtain.blocksRaycasts = false;
             BuildInformation();
             if (FindFirstObjectByType<EventSystem>() == null)
             {
@@ -180,6 +200,7 @@ namespace Mewgic.Map
         {
             var art = Rect(parent, name, Vector2.zero, Vector2.one).gameObject.AddComponent<MapPlateGraphic>();
             art.texture = roadPlate;
+            if (roadWater != null) art.material = roadWater;
             art.FixedLayer = fixedLayer;
             art.raycastTarget = false;
             return art;
@@ -190,8 +211,6 @@ namespace Mewgic.Map
             var tile = new RoadTile { root = Rect(roadTrack, "RoadTile_" + index, Vector2.up, Vector2.one) };
             tile.root.pivot = new Vector2(.5f, 1);
             tile.art = AddPlate(tile.root, "PaintedBridge", false);
-            tile.art.rectTransform.offsetMin = Vector2.down * 14;
-            tile.art.rectTransform.offsetMax = Vector2.up * 14;
             var join = Rect(roadJoins, "StoneConnection_" + index, Vector2.up, Vector2.one);
             join.pivot = new Vector2(.5f, 1);
             tile.join = join.gameObject.AddComponent<MapRoadJoinGraphic>();
@@ -213,13 +232,18 @@ namespace Mewgic.Map
         void LayoutRoad(int level)
         {
             lastSafeSize = SafeArea.rect.size;
+            float oldHeight = roadHeight;
+            float oldPosition = oldHeight > 0 ? Content.anchoredPosition.y / oldHeight : 0;
             roadWidth = Viewport.rect.width;
             roadHeight = Viewport.rect.height;
             if (roadWidth <= 0 || roadHeight <= 0) return;
             float crop = Mathf.Min(1, fixedBackdrop.texture.width * fixedBackdrop.rectTransform.rect.height /
                 (fixedBackdrop.texture.height * fixedBackdrop.rectTransform.rect.width));
             fixedBackdrop.uvRect = new Rect(0, (1 - crop) * .5f, 1, crop);
-            RoadJump(level);
+            InvalidateRoad();
+            if (oldHeight > 0 && !journeyRunning)
+                RebaseRoad(roadBase + Mathf.FloorToInt(oldPosition), Mathf.Repeat(oldPosition, 1));
+            else RoadJump(level);
             if (journeyRunning || arrivalLevel != 0 && stepCount > 0)
             {
                 PreparePawSteps(preserveCount: true);
@@ -235,10 +259,11 @@ namespace Mewgic.Map
             Content.sizeDelta = new Vector2(0, roadWindowSize * roadHeight);
             WorldHeight = Content.sizeDelta.y;
             float offset = (tile - roadBase + progress) * roadHeight;
-            Content.anchoredPosition = new Vector2(0, Mathf.Clamp(offset, 0, WorldHeight - roadHeight));
+            Scroll.Rebase(Vector2.up * Mathf.Clamp(offset, 0, WorldHeight - roadHeight));
+            foreach (var part in roadTiles)
+                if (part.index >= 0) PositionRoadTile(part);
             rebasing = false;
-            foreach (var part in roadTiles) part.index = -1;
-            InvalidateRoad();
+            boundFirst = boundLast = -1;
             BindRoad();
         }
 
@@ -246,6 +271,8 @@ namespace Mewgic.Map
         {
             if (!Mounted || progression == null || roadHeight <= 0) return;
             following = false;
+            focusReposition = false;
+            focusCurtain.alpha = 0;
             Scroll.StopMovement();
             RebaseRoad(Mathf.Min(MaxRoadTile, TileOf(level)), 0);
         }
@@ -257,13 +284,15 @@ namespace Mewgic.Map
             if (rebasing || roadHeight <= 0) return;
             float position = Mathf.Clamp(Content.anchoredPosition.y / roadHeight, 0, roadWindowSize - 1);
             int lower = Mathf.FloorToInt(position);
-            int first = roadBase + Mathf.Max(0, lower - 1);
-            int last = Mathf.Min(MaxRoadTile, roadBase + lower + 2);
+            // The previous chunk can still own a connector inside this viewport.
+            int first = Mathf.Max(0, roadBase + lower - 1 - preloadChunks);
+            int last = Mathf.Min(MaxRoadTile, roadBase + lower + 1 + preloadChunks);
+            int revision = ledger.Revision;
             int previous = visibleTile;
             visibleTile = roadBase + Mathf.RoundToInt(position);
             ActiveRegion = WorldMapRules.Island(visibleTile * RoadLevels + 1);
             SelectedChapter = visibleTile;
-            if (boundFirst != first || boundLast != last || paintedRevision != ledger.Revision)
+            if (boundFirst != first || boundLast != last || paintedRevision != revision)
             {
                 foreach (var tile in roadTiles)
                     if (tile.index < first || tile.index > last)
@@ -278,25 +307,19 @@ namespace Mewgic.Map
                     var tile = Array.Find(roadTiles, part => part.index == index) ??
                         Array.Find(roadTiles, part => part.index < 0);
                     if (tile == null) break;
-                    if (tile.index != index || paintedRevision != ledger.Revision)
+                    if (tile.index != index || paintedRevision != revision)
                         PaintRoadTile(tile, index);
                 }
-                paintedRevision = ledger.Revision;
+                paintedRevision = revision;
                 boundFirst = first;
                 boundLast = last;
             }
-            // A connection is visible as the camera passes between full terrace compositions.
-            float offCenter = Mathf.Abs(position - Mathf.Round(position));
-            float connectionAlpha = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.025f, .16f, offCenter));
-            foreach (var tile in roadTiles)
-                if (tile.join.enabled) tile.join.canvasRenderer.SetAlpha(connectionAlpha);
             double centerLevel = roadBase * (double)RoadLevels + position * RoadLevels + 5.5;
-            BlendRoadTheme(centerLevel, out var tint, out _, out _);
-            if (fixedBackdrop.color != tint)
-            {
-                fixedBackdrop.color = tint;
-                fixedDetails.color = tint;
-            }
+            BlendRoadTheme(centerLevel, out var tint, out _, out _, out float vista);
+            fixedBackdrop.color = tint;
+            fixedDetails.canvasRenderer.SetAlpha(1 - vista * .88f);
+            villageScenery.enabled = villageBackdrop != null && vista > .001f;
+            if (villageScenery.enabled) villageScenery.canvasRenderer.SetAlpha(vista);
             if (previous != visibleTile || roadRange.text.Length == 0)
             {
                 int start = visibleTile * RoadLevels + 1;
@@ -306,20 +329,26 @@ namespace Mewgic.Map
             }
         }
 
+        void PositionRoadTile(RoadTile tile)
+        {
+            Vector2 size = Vector2.up * roadHeight;
+            Vector2 position = Vector2.down * ((tile.index - roadBase) * roadHeight);
+            tile.root.sizeDelta = tile.stones.sizeDelta = tile.join.rectTransform.sizeDelta = size;
+            tile.root.anchoredPosition = tile.stones.anchoredPosition = tile.join.rectTransform.anchoredPosition = position;
+        }
+
         void PaintRoadTile(RoadTile tile, int index)
         {
             tile.index = index;
-            tile.root.sizeDelta = new Vector2(0, roadHeight);
-            tile.root.anchoredPosition = Vector2.down * ((index - roadBase) * roadHeight);
+            PositionRoadTile(tile);
             int first = index * RoadLevels + 1;
-            BlendRoadTheme(first - .5, out _, out var roadStart, out _);
-            BlendRoadTheme(first + 9.5, out _, out var roadEnd, out _);
+            BlendRoadTheme(first - .5, out _, out var roadStart, out _, out _);
+            BlendRoadTheme(first + 9.5, out _, out var roadEnd, out _, out _);
+            BlendRoadTheme(first + RoadLevels - .5, out _, out var nextRoad, out _, out _);
+            tile.art.SetChunk(index);
             tile.art.SetRoadTints(roadStart, roadEnd);
             tile.join.enabled = index < MaxRoadTile;
-            var join = tile.join.rectTransform;
-            join.sizeDelta = new Vector2(0, roadHeight);
-            join.anchoredPosition = tile.root.anchoredPosition;
-            tile.join.SetTint(roadEnd);
+            tile.join.SetTints(roadEnd, nextRoad);
             tile.root.gameObject.SetActive(true);
             tile.stones.sizeDelta = tile.root.sizeDelta;
             tile.stones.anchoredPosition = tile.root.anchoredPosition;
@@ -332,7 +361,8 @@ namespace Mewgic.Map
                 p.regionIndex = WorldMapRules.Island(id);
                 p.slotIndex = (id - 1) % WorldMapRules.LevelsPerIsland;
                 var rect = (RectTransform)p.transform;
-                Vector2 foot = ReferenceWalk[i][0];
+                Vector2 foot = ContinuousMapRoute.Node(i);
+                foot.x += ContinuousMapRoute.Warp(index, foot.y);
                 rect.anchoredPosition = new Vector2(foot.x * roadWidth, -Band(foot.y - (i == 9 ? .034f : .024f)) * roadHeight);
                 rect.sizeDelta = new Vector2(roadWidth * (i == 9 ? .18f : .145f), roadHeight * (i == 9 ? .093f : .078f));
                 p.GetComponent<MapNodeBadge>().PresentJourney(id, progression.Status(id), progression.Stars(id),
@@ -358,35 +388,35 @@ namespace Mewgic.Map
             return index;
         }
 
-        void BlendRoadTheme(double level, out Color backdrop, out Color road, out int index)
+        void BlendRoadTheme(double level, out Color backdrop, out Color road, out int index, out float vista)
         {
             index = ThemeFor(level);
-            int next = Math.Min(roadThemes.themes.Length - 1, index + 1);
-            float half = roadThemes.blendLevels * .5f;
-            if (index > 0 && level < roadThemes.themes[index].firstLevel + half) { next = index; index--; }
+            int next = index;
+            if (index > 0 && level < roadThemes.themes[index].transitionEnd) index--;
+            else if (index + 1 < roadThemes.themes.Length && level >= roadThemes.themes[index + 1].transitionStart)
+                next++;
+            var entering = roadThemes.themes[next];
             float t = index == next ? 0 : Mathf.SmoothStep(0, 1,
-                Mathf.InverseLerp(-half, half, (float)(level - roadThemes.themes[next].firstLevel)));
+                Mathf.Clamp01((float)((level - entering.transitionStart) /
+                    (entering.transitionEnd - (double)entering.transitionStart))));
             backdrop = Color.Lerp(backdropTints[index], backdropTints[next], t);
             road = Color.Lerp(roadTints[index], roadTints[next], t);
+            if (level > roadThemes.themes[^1].firstLevel + 50)
+            {
+                float variation = .5f + .5f * Mathf.Sin((float)(level % 480 / 480 * (2 * Math.PI)));
+                road *= Color.Lerp(Color.white, new Color(.92f, .94f, 1), variation);
+            }
+            vista = Mathf.Lerp(roadThemes.themes[index].villageVista, entering.villageVista, t);
         }
 
-        internal static float Band(float y) => (y - PlateTop) / (PlateBottom - PlateTop);
+        internal static float Band(float y) => ContinuousMapRoute.Band(y);
 
         Vector2 RoadPosition(int id, float phase)
         {
-            int slot = (id - 1) % RoadLevels;
-            var route = ReferenceWalk[slot];
-            float f = Mathf.Clamp01(phase) * (route.Length - 1);
-            int i = Mathf.Min(Mathf.FloorToInt(f), route.Length - 2);
-            var a = route[i];
-            var b = route[i + 1];
-            float t = f - i;
-            var before = route[Mathf.Max(0, i - 1)];
-            var after = route[Mathf.Min(route.Length - 1, i + 2)];
-            var chord = b - a;
-            var p = Vector2.Lerp(a, b, t) + (((b - before) * .5f - chord) * (1 - t) -
-                ((after - a) * .5f - chord) * t) * (t * (1 - t));
-            return new Vector2(p.x * roadWidth, -(TileOf(id) - roadBase + Band(p.y)) * roadHeight);
+            int chunk = TileOf(id);
+            var point = ContinuousMapRoute.Road((id - 1) % RoadLevels, phase);
+            point.x += ContinuousMapRoute.Warp(chunk, point.y);
+            return new Vector2(point.x * roadWidth, -(chunk - roadBase + Band(point.y)) * roadHeight);
         }
 
         Vector2 WalkPosition(float progress)
@@ -397,10 +427,8 @@ namespace Mewgic.Map
             {
                 // Follow the painted bridge to the join, ending at the next terrace's first stone.
                 if (progress < .65f) return RoadPosition(walkFrom, Mathf.Lerp(WalkStartFraction, 1, progress / .65f));
-                var exit = RoadPosition(walkFrom, 1);
-                var entry = RoadPosition(walkTo, 0);
-                float t = (progress - .65f) / .35f;
-                return new Vector2(MapRoadJoinGraphic.Center(t) * roadWidth, Mathf.Lerp(exit.y, entry.y, t));
+                var join = ContinuousMapRoute.Join((progress - .65f) / .35f);
+                return new Vector2(join.x * roadWidth, -(TileOf(walkFrom) - roadBase + join.y) * roadHeight);
             }
             float f = Mathf.Lerp(WalkStartFraction, walkTo - walkFrom, progress);
             int whole = Mathf.FloorToInt(f);
@@ -493,11 +521,27 @@ namespace Mewgic.Map
         void TickRoad()
         {
             if (!Mounted || progression == null) return;
+            if (roadWater != null) roadWater.SetFloat("_EnvironmentTime", EnvironmentTime);
             if (screenWidth != Screen.width || screenHeight != Screen.height || nativeSafe != Screen.safeArea) ApplySafeArea();
             if (lastSafeSize != SafeArea.rect.size)
                 LayoutRoad(journeyRunning ? walkFrom : visibleTile >= 0 ? visibleTile * RoadLevels + 1 : progression.CurrentId);
             if (awaitingJourney && L.Ready) BeginRoadWalk();
             float dt = Mathf.Min(Time.unscaledDeltaTime, .07f);
+            if (focusReposition)
+            {
+                focusFadeTime += dt;
+                focusCurtain.alpha = 1 - Mathf.Abs(Mathf.Clamp01(focusFadeTime / .36f) * 2 - 1);
+                if (focusFadeTime >= .18f && !focusMoved)
+                {
+                    focusMoved = true;
+                    focusFadeTime = .18f;
+                    focusCurtain.alpha = 1;
+                    RebaseRoad(Mathf.Max(0, focusTile - 1), .45f);
+                    focusGoal = (focusTile - roadBase) * roadHeight;
+                    following = true;
+                }
+                if (focusFadeTime >= .36f) focusReposition = false;
+            }
             if (journeyRunning)
             {
                 journeyElapsed += dt;
@@ -517,11 +561,16 @@ namespace Mewgic.Map
             {
                 if (following)
                 {
-                    float value = Mathf.SmoothDamp(Content.anchoredPosition.y, focusGoal, ref cameraVelocity, .24f, Mathf.Infinity, dt);
+                    float value = Mathf.SmoothDamp(Content.anchoredPosition.y, focusGoal, ref cameraVelocity, .22f, Mathf.Infinity, dt);
                     Content.anchoredPosition = Vector2.up * value;
-                    if (Mathf.Abs(value - focusGoal) < 1) { Content.anchoredPosition = Vector2.up * focusGoal; following = false; }
+                    if (!focusReposition && Mathf.Abs(value - focusGoal) < 1)
+                    {
+                        Content.anchoredPosition = Vector2.up * focusGoal;
+                        following = false;
+                        HighlightRoadCurrent();
+                    }
                 }
-                else if (!Scroll.Dragging)
+                else
                 {
                     float offset = Content.anchoredPosition.y / roadHeight;
                     int lower = Mathf.Clamp(Mathf.FloorToInt(offset), 0, roadWindowSize - 1);
@@ -554,20 +603,42 @@ namespace Mewgic.Map
             }
         }
 
+        void HighlightRoadCurrent()
+        {
+            if (reducedJourneyMotion) return;
+            if (arrivalLevel != progression.CurrentId)
+            {
+                stepCount = 0;
+                pawTrail.Clear();
+            }
+            arrivalLevel = progression.CurrentId;
+            arrivalElapsed = 0;
+        }
+
         void FocusRoadCurrent()
         {
             if (progression == null) return;
             if (journeyRunning || awaitingJourney) { FinishRoadWalk(); return; }
-            int tile = TileOf(progression.CurrentId);
-            if (reducedJourneyMotion || tile < roadBase || tile >= roadBase + roadWindowSize)
-                RoadJump(progression.CurrentId);
-            else
+            focusTile = TileOf(progression.CurrentId);
+            Scroll.StopMovement();
+            cameraVelocity = 0;
+            if (reducedJourneyMotion)
             {
-                Scroll.StopMovement();
-                focusGoal = (tile - roadBase) * roadHeight;
-                cameraVelocity = 0;
-                following = true;
+                RoadJump(progression.CurrentId);
+                return;
             }
+            if (focusTile < roadBase || focusTile >= roadBase + roadWindowSize)
+            {
+                following = false;
+                focusReposition = true;
+                focusMoved = false;
+                focusFadeTime = 0;
+                return;
+            }
+            focusGoal = (focusTile - roadBase) * roadHeight;
+            focusReposition = false;
+            focusCurtain.alpha = 0;
+            following = true;
         }
     }
 }

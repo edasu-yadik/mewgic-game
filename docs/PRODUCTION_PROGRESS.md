@@ -1,5 +1,8 @@
 # Üretim ilerlemesi
 
+## Kesintisiz MeWGic bölüm yolu
+Köprü bağlantıları ortak eğriyi kullanıyor, görünür parçalar kaydırma penceresi değişirken korunuyor. Köy manzarası görüntülenen konuma göre Kristal Şelaleler'e karışıyor. [Harita mimarisi ve Unity sonuçları](ProductionReports/InfiniteContinuousMap/REPORT.md).
+
 ## Haritada altın pati izleri ve varış ışığı
 Harita maskotu kaldırıldı. Tek sıra patiler mevcut köprü eğrisini izliyor ve varışta aktif taşı altın ışık sarıyor. [Unity doğrulaması](ProductionReports/GoldenMapJourney/REPORT.md).
 

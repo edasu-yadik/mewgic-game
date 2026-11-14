@@ -22,6 +22,15 @@ namespace Mewgic.Map
         internal int GestureVersion { get; private set; }
         internal bool Dragging { get; private set; }
 
+        internal void Rebase(Vector2 position)
+        {
+            var offset = position - content.anchoredPosition;
+            content.anchoredPosition = position;
+            m_ContentStartPosition += offset;
+            UpdateBounds();
+            UpdatePrevData();
+        }
+
         public override void OnBeginDrag(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)

@@ -60,15 +60,17 @@ namespace Mewgic
 
             yield return OpenPage(9, 100, 3);
             map = FindFirstObjectByType<MapWorld>();
-            map.FocusLevel(50);
+            map.FocusLevel(40);
             yield return null;
             backdrop = GameObject.Find("FixedMapEnvironment").GetComponent<RawImage>();
             var tintBefore = backdrop.color;
-            ScrollMap(map, -4);
+            yield return MapShot("Theme-Village");
+            map.FocusLevel(50);
+            ScrollMap(map, -6);
             yield return null;
             var tintMid = backdrop.color;
             yield return MapShot("Theme-In-Scroll");
-            map.FocusLevel(51);
+            map.FocusLevel(61);
             yield return null;
             var tintAfter = backdrop.color;
             RequireMap(tintBefore != tintMid && tintMid != tintAfter && FindFirstObjectByType<MapWorld>() == map,
@@ -106,6 +108,8 @@ namespace Mewgic
                 !GameplayProgress.Current.PeekMapJourney(out _, out _), "Pati akışı tek rotada tema sınırını geçti");
             checks.Add("50 → 51 aynı rotada tema sınırını geçti");
 
+            yield return VerifyDistantRoad();
+
             foreach (int height in new[] { 1600, 1950, 2000 })
             {
                 Size(height);
@@ -125,6 +129,84 @@ namespace Mewgic
             yield return OpenPage(9, 100, 3);
         }
 
+        IEnumerator VerifyDistantRoad()
+        {
+            foreach (int start in new[] { 1, 9, 49, 99, 999, 9999, 99999, 999999 })
+            {
+                GameplayProgress.UseTestProfile(Fixture(start - 1));
+                int last = start == 49 ? 52 : start == 1 ? 2 : start + 2;
+                for (int level = start; level < last; level++)
+                {
+                    RequireMap(GameplayProgress.Current.Claim(level, 2, true, out bool granted) && granted,
+                        $"İzole kayıt {level} kazanışını işledi");
+                    SceneManager.LoadScene("LevelMap");
+                    yield return null;
+                    yield return Until(() =>
+                    {
+                        var currentMap = FindFirstObjectByType<MapWorld>();
+                        return currentMap != null && currentMap.Mounted && currentMap.Progression.CurrentId == level + 1;
+                    }, "Test haritası açıldı");
+                    var map = FindFirstObjectByType<MapWorld>();
+                    yield return Until(() => !map.JourneyRunning && !GameplayProgress.Current.PeekMapJourney(out _, out _),
+                        $"{level} → {level + 1} varış");
+                    RequireMap(Node(level + 1).Status == MapLevelStatus.Current && map.ActivePointCount <= 55,
+                        $"{level + 1} doğru aktif taş ve sınırlı havuz");
+                }
+                if (last < 100000) continue;
+                var highMap = FindFirstObjectByType<MapWorld>();
+                yield return MapShot("Level-" + last);
+                var backdrop = GameObject.Find("FixedMapEnvironment").transform;
+                var backdropPosition = backdrop.position;
+                var finger = new PointerEventData(EventSystem.current) {
+                    button = PointerEventData.InputButton.Left, pointerId = 1,
+                    position = RectTransformUtility.WorldToScreenPoint(null, highMap.Viewport.TransformPoint(highMap.Viewport.rect.center))
+                };
+                Vector2 origin = finger.position;
+                highMap.Scroll.OnBeginDrag(finger);
+                int initial = highMap.SelectedChapter;
+                int prior = initial;
+                for (int step = 1; step <= 32; step++)
+                {
+                    finger.position = origin + Vector2.down * (step * 190);
+                    highMap.Scroll.OnDrag(finger);
+                    yield return null;
+                    RequireMap(highMap.ActivePointCount <= 55 && backdrop.position == backdropPosition &&
+                        highMap.SelectedChapter <= prior && prior - highMap.SelectedChapter <= 1,
+                        "Uzun dokunma sürüklemesinde havuz ve sabit manzara");
+                    prior = highMap.SelectedChapter;
+                }
+                RequireMap(initial - prior >= 4, "Sürükleme yerel kaydırma sınırını geçti");
+                yield return MapShot("Scroll-" + last);
+                for (int step = 31; step >= 24; step--)
+                {
+                    finger.position = origin + Vector2.down * (step * 190);
+                    highMap.Scroll.OnDrag(finger);
+                    yield return null;
+                    RequireMap(highMap.SelectedChapter >= prior && highMap.SelectedChapter - prior <= 1,
+                        "Aynı dokunuşta yön değişimi");
+                    prior = highMap.SelectedChapter;
+                }
+                highMap.Scroll.OnEndDrag(finger);
+                highMap.FocusLevel(2);
+                Press("FocusCurrent", true);
+                yield return Until(() => !highMap.ReturningToCurrent, "Uzak dönüş tamamlandı");
+                yield return Until(() => Node(last)?.GetComponentInChildren<JourneyStoneRing>()?.ArrivalStrength > .2f,
+                    "Uzak dönüş ve aktif taş ışığı");
+                var position = Node(last).transform.position;
+                highMap.FocusLevel(2);
+                highMap.FocusLevel(last);
+                yield return null;
+                RequireMap(Vector2.Distance(Node(last).transform.position, position) < 2,
+                    "Yüksek numaralı rota ikinci bağlamada aynı konumda");
+            }
+            var request = WorldMapRules.Request(1000001);
+            var prepared = GameplayLevelCatalog.PrepareAsync(request.level);
+            yield return Until(() => prepared.IsCompleted, "1.000.001 bulmacası hazırlandı");
+            RequireMap(prepared.IsCompletedSuccessfully && prepared.Result.Info.id == 1000001,
+                "Yüksek kimlikli bulmaca görünür haritadan bağımsız hazırlandı");
+            checks.Add("1 → 2 ile 999.999 → 1.000.000 → 1.000.001 arası istenen geçişler, dokunma sürüklemesi ve uzak dönüş");
+        }
+
         static void RequireSingleMap(MapWorld map)
         {
             RequireMap(map != null && SceneManager.GetActiveScene().name == "LevelMap" &&
@@ -133,7 +215,7 @@ namespace Mewgic
                     .All(name => GameObject.Find(name) == null), "Tek LevelMap, ada seçimi görünmüyor");
         }
 
-        static MapNodeBadge Node(int level) => GameObject.Find("MapLevel_" + level).GetComponent<MapNodeBadge>();
+        static MapNodeBadge Node(int level) => GameObject.Find("MapLevel_" + level)?.GetComponent<MapNodeBadge>();
 
         static void RequireMap(bool valid, string message)
         {

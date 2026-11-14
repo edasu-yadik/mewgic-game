@@ -34,9 +34,21 @@ Shader "Mewgic/MapWaterLight"
             #include "UnityCG.cginc"
             #include "UnityUI.cginc"
             struct Input{float4 vertex:POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;};
-            struct Output{float4 vertex:SV_POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;float4 local:TEXCOORD1;};
+            struct Output{float4 vertex:SV_POSITION;float2 uv:TEXCOORD0;fixed4 color:COLOR;float4 mask:TEXCOORD1;};
             sampler2D _MainTex;fixed4 _Color;float4 _ClipRect;float _EnvironmentTime;float _TerraceFeather;float _JourneyWater;
-            Output vert(Input v){Output o;o.local=v.vertex;o.vertex=UnityObjectToClipPos(v.vertex);o.uv=v.uv;o.color=v.color*_Color;return o;}
+            float _UIMaskSoftnessX, _UIMaskSoftnessY;
+            Output vert(Input v)
+            {
+                Output o;
+                o.vertex=UnityObjectToClipPos(v.vertex);
+                o.uv=v.uv;
+                o.color=v.color*_Color;
+                float2 pixelSize=o.vertex.w/abs(mul((float2x2)UNITY_MATRIX_P,_ScreenParams.xy));
+                float4 clipRect=clamp(_ClipRect,-2e10,2e10);
+                o.mask=float4(v.vertex.xy*2-clipRect.xy-clipRect.zw,
+                    .25/(.25*float2(_UIMaskSoftnessX,_UIMaskSoftnessY)+abs(pixelSize)));
+                return o;
+            }
             fixed4 frag(Output i):SV_Target
             {
                 fixed4 c=tex2D(_MainTex,i.uv);
@@ -91,7 +103,8 @@ Shader "Mewgic/MapWaterLight"
                 #endif
                 c*=i.color;
                 #ifdef UNITY_UI_CLIP_RECT
-                c.a*=UnityGet2DClipping(i.local.xy,_ClipRect);
+                float2 mask=saturate((_ClipRect.zw-_ClipRect.xy-abs(i.mask.xy))*i.mask.zw);
+                c.a*=mask.x*mask.y;
                 #endif
                 #ifdef UNITY_UI_ALPHACLIP
                 clip(c.a-.001);

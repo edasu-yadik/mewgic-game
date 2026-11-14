@@ -59,6 +59,10 @@ namespace Mewgic.Map
         internal static bool RequestResultFocus(int level) { resultLevel = level; return true; }
 
         void Start() => Mount();
+        void OnDestroy()
+        {
+            if (roadWater != null) Destroy(roadWater);
+        }
         public void Mount() => MountContinuous();
         void LateUpdate()
         {
