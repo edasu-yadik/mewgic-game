@@ -1,0 +1,18 @@
+[
+  {
+    "file": "Store Assets\\GooglePlay\\Feature-1024x500.jpg",
+    "size": [
+      1024,
+      500
+    ],
+    "mode": "RGB"
+  },
+  {
+    "file": "Store Assets\\GooglePlay\\Icon-512.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA"
+  }
+]

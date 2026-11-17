@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "verified": [
+    "AAB hash matches original build report",
+    "Signed AAB manifest independently extracted",
+    "TR and EN static HTML with language and package scope",
+    "No invented support address",
+    "Listing title and descriptions within Play character limits",
+    "Two exact 900x1600 closed-test source captures copied without visual edits"
+  ],
+  "notVerified": [
+    "Live privacy URL",
+    "Physical device network behavior",
+    "Google review acceptance"
+  ]
+}

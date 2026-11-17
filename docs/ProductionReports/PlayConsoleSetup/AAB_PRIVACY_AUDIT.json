@@ -1,0 +1,44 @@
+{
+  "package": "com.mewgic.game",
+  "version": "0.8.0",
+  "versionCode": 11,
+  "sha256": "29efb150b4bec9d5d8821a9d92be5e1093850e3a8dcedbb8d8c53819b038b7c5",
+  "permissions": [
+    "android.permission.VIBRATE",
+    "android.permission.WAKE_LOCK",
+    "android.permission.FOREGROUND_SERVICE",
+    "com.mewgic.game.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "internetPermission": false,
+  "adsInitializer": false,
+  "auditType": "Static signed AAB manifest and corresponding build-source inspection. No physical-device network capture.",
+  "publication": {
+    "githubCliAuthenticated": false,
+    "githubConnectorRepository": "404",
+    "livePrivacyUrl": null
+  },
+  "supportEmail": null,
+  "publisherConfirmation": null,
+  "targetAges": null,
+  "playConsole": {
+    "accessVerified": true,
+    "savedPendingReview": [
+      "app_access_no_login",
+      "ads_no",
+      "government_app_no",
+      "financial_features_none",
+      "health_features_none"
+    ],
+    "dashboardCompleted": 5,
+    "dashboardTotal": 11,
+    "storeListing": "en-US saved as draft",
+    "uploadedAssets": [
+      "Icon-512.png",
+      "01-Gameplay.png",
+      "02-ContinuousMap.png"
+    ],
+    "featureGraphic": "Existing image depicts removed island UI; uploaded then removed from listing draft. Original local file kept.",
+    "privacyPublished": false,
+    "reviewSubmitted": false
+  }
+}
