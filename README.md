@@ -6,10 +6,15 @@ MeWGic is a mobile puzzle game combining color-sorting mechanics, interactive ga
 
 The project focuses on mobile game development, gameplay programming, user experience, and application testing.
 
-**Platform:** Android  
-**Engine:** Unity 6000  
-**Language:** C#  
-**Rendering:** Universal Render Pipeline (URP)
+Platform: Android & iOS
+
+Engine: Unity 6000
+
+Language: C#
+
+Rendering: Universal Render Pipeline (URP)
+
+Development Status: In active development and testing for Android and iOS.
 
 ---
 
